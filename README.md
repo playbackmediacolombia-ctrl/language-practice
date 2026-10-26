@@ -35,7 +35,7 @@ There are two front ends that share the lessons, audio and matching code:
 
 ### Look and feel
 
-- Four tabs: **Learn** (the lesson path), **Practice** (daily review, weak words and the phrasebook), **Progress** (XP and streak, then per language: words learned, time practiced, accuracy by week, minutes per day and a streak calendar) and **Settings**.
+- Four tabs: **Learn** (the lesson path: a top bar with your language's flag, streak flame, XP and hearts, today's goal, then each unit as a bright banner with its own sticker and its lessons as round 3D nodes that wind down the screen; finished lessons turn gold, the current one bounces with a Start bubble and the parrot beside it, locked ones are grey), **Practice** (daily review, weak words and the phrasebook), **Progress** (XP and streak, then per language: words learned, time practiced, accuracy by week, minutes per day and a streak calendar) and **Settings**.
 - Light and dark mode (follows the phone, or pick one in Settings). Colors and spacing are tokens at the top of `web/src/styles.css`.
 - Motion: screen transitions (View Transitions, Safari 18+), press-down buttons, a green flash, bounce and sparkles for right answers, a shake for wrong ones, confetti when a lesson is done. All of it turns off with iPhone **Settings › Accessibility › Motion › Reduce Motion**.
 - Logo moments: a short intro when the app opens (the logo pops in with a glow, about 1.3 s, plain CSS in `index.html` so it never delays loading; skipped if the app was open in the last 5 minutes). Big achievements get the logo spinning in with confetti and a sound: finishing a unit or a whole level, 7-, 30- and 100-day streaks, a placement test result, and the first daily goal ever. Regular lesson-complete screens are unchanged and come first. Each achievement shows once (`celebrated` in saved progress); the first time this version opens, everything already earned is marked as celebrated quietly. Reduce Motion gets a plain fade.
@@ -43,7 +43,8 @@ There are two front ends that share the lessons, audio and matching code:
 - Branding comes from `Logos/logo.png` (never modified). `cd web && npm run icons` rebuilds everything from it with `sharp` (a free dev dependency) and updates `index.html`:
   - Home-screen icon (180, 192, 512, 1024 and a maskable 512): the parrot and its "Hola" bubble on a light sky background, flattened so no transparency can show as black on iPhone.
   - Favicons (32 and 64), the small header mark (`public/brand/mark.png`), the full logo for the welcome screen (`public/brand/logo.webp`) and 22 launch screens (light and dark, every current iPhone size).
-- The color tokens in `web/src/styles.css` come from the logo: navy text, the parrot's blues for buttons and links, its yellow and orange for XP and streaks.
+- The color tokens in `web/src/styles.css` are measured from the logo: parrot blue #0164F9 (deep #0142D8 for 3D edges), sky #038CFB / #19B6FC, sun #FCC50E, orange #F8820C, wordmark navy #071334, beak slate #404D6B, face cream #EFE7D0 and the parrot's red mouth #E5303A. Right answers use a green and wrong ones that red, tuned to sit with them; dark mode uses the same palette on navy.
+- Chunky, playful style: buttons, cards, answer tiles, lesson nodes and language tiles have a darker bottom edge and squish down into it when tapped. Type is Nunito (free, SIL Open Font License, bundled so it works offline). Unit stickers, flags and the tab icons are drawn in SVG in `web/src/art.tsx` (original, no image files or licenses).
 
 ### Which Whisper model
 
@@ -71,7 +72,8 @@ Everything works with no signal once the app has been opened online once:
 - The Whisper model and the ONNX speech engine are stored by transformers.js when you download the model (Settings › Speech checking).
 - The app asks Safari to keep its storage (`navigator.storage.persist()`), so it isn't cleared when space runs low.
 - **Settings › Offline** shows whether the app and the speech model are saved and how much space they use.
-- A new version you push is downloaded in the background and applied the next time you're on a tab screen (not in the middle of a lesson or story), with a quick reload.
+- A new version you push is downloaded in the background and applied the next time you're on a tab screen (not in the middle of a lesson or story), with a quick reload. The app looks for one every time it comes back to the screen and hourly (a Home Screen app on iPhone usually resumes instead of reloading, so checking only at launch could leave it on an old version for days).
+- **Settings › App version** shows which commit you're running and has **Check for updates**. The live site publishes the same thing at `version.json`, so you can compare it with the latest commit.
 
 ### Run it on your Mac
 
@@ -93,22 +95,35 @@ End-to-end tests in WebKit (Safari's engine) with iPhone emulation, in `web/e2e/
 cd web
 npx playwright install webkit   # first time only (free download)
 npm run test:e2e                # all suites
-npm run test:e2e -- ui lesson   # just some: mute brand ui lesson feedback listen
+npm run test:e2e -- ui lesson   # just some: mute brand ui lesson feedback listen logo roleplay reading reminder dating update
 ```
 
 - **Silent:** every test page is muted (WebKit has no `--mute-audio`, so the harness routes all sound through a zero-volume node and mutes audio elements). The `mute` suite checks this.
 - **Leaves nothing running:** browsers close on success, failure, Ctrl-C or a 15-minute limit; the runner then stops the test server and any Playwright browser left over. `e2e/kill-strays.sh --list` shows leftovers (it only ever matches Playwright's own browsers and these tests, never Safari or Chrome).
 - Screenshots and logs go to `web/e2e/out/` (git-ignored).
+- `update` serves its own copy of the build, publishes a newer service worker mid-test and checks the app picks it up when it comes back to the screen, waits during a lesson, and switches once you're back on a tab.
+- `SHOTS=after npm run test:e2e -- screens` screenshots every screen at iPhone size (plus a few in dark mode) into `web/e2e/out/shots/after/`, for before/after design comparisons.
 - To change saved progress in a test, use `editProgress(page, (p) => …)` from `e2e/harness.mjs`, not `localStorage` directly: the app saves its own copy as the page unloads.
 
 ### Hosting (GitHub Pages, free)
 
-`.github/workflows/deploy-web.yml` builds `web/` and publishes it on every push to `main`. The site is
-`https://<github-user>.github.io/<repo>/`. Free GitHub Pages requires the repo to be **public**.
+`.github/workflows/deploy-web.yml` builds `web/` and publishes it on every push to `main`. Free GitHub Pages requires the repo to be **public**.
+
+The app lives at **https://learnguage.net/** (custom domain, registered at GoDaddy, DNS at GoDaddy). GitHub Pages serves it with a free Let's Encrypt certificate and "Enforce HTTPS" on; `www.learnguage.net` and the old `https://playbackmediacolombia-ctrl.github.io/language-practice/` redirect to it. DNS records:
+
+| Type | Name | Value |
+| --- | --- | --- |
+| A | @ | 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 (one record each) |
+| AAAA | @ | 2606:50c0:8000::153, 2606:50c0:8001::153, 2606:50c0:8002::153, 2606:50c0:8003::153 (one record each) |
+| CNAME | www | playbackmediacolombia-ctrl.github.io |
+
+The custom domain is set in the repo's Pages settings (with an Actions deploy, that setting is what counts; `web/public/CNAME` just records it next to the code).
+
+**Moving from the old address:** each web address keeps its own saved progress, so the app at the old github.io address has **Settings › New address** (and a card on Learn once learnguage.net is up): **Copy my progress** puts everything (XP, streak, lessons, review days, settings) on the clipboard as a compact move code; in the new app, **Bring my progress** on the welcome screen (or Settings) pastes it, shows what will come over and asks before replacing anything. Nothing goes through a server. A backup file works too. The `move` test suite checks it.
 
 ### Add it to the iPhone home screen
 
-1. Open the site link in **Safari**.
+1. Open **https://learnguage.net** in **Safari**.
 2. Tap the **Share** button, then **Add to Home Screen**, then **Add**.
 3. Open it from the home screen (it opens full screen with its own icon and launch screen). In the **Settings** tab, download the speech model (77 MB, Wi-Fi recommended).
 4. Allow the microphone when asked the first time you record.
