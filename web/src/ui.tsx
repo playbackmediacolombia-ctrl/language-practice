@@ -1,6 +1,7 @@
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from 'react';
 import type { Lang, Phrase } from './lib/content';
 import { reducedMotion, tapFeedback } from './lib/fx';
+import type { Speed } from './lib/progress';
 import { navigate, useRoute } from './lib/router';
 
 // ---- Icons: simple line icons drawn for this app (24×24, stroke = currentColor) ----
@@ -426,6 +427,28 @@ export function Toggle({ label, hint, checked, onChange }: { label: string; hint
         }}
       />
     </label>
+  );
+}
+
+/** Slow / Normal / Fast as small chips, for screens that play a lot of audio. */
+export function SpeedPicker({ value, onChange }: { value: Speed; onChange: (s: Speed) => void }) {
+  return (
+    <div className="speed-pick" role="radiogroup" aria-label="Listening speed">
+      {(['slow', 'normal', 'fast'] as const).map((s) => (
+        <button
+          key={s}
+          role="radio"
+          aria-checked={s === value}
+          className="chip-toggle"
+          onClick={() => {
+            tapFeedback();
+            onChange(s);
+          }}
+        >
+          {s === 'slow' ? 'Slow' : s === 'normal' ? 'Normal' : 'Fast'}
+        </button>
+      ))}
+    </div>
   );
 }
 

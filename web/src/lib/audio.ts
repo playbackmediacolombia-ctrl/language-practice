@@ -1,14 +1,24 @@
+import { getProgress, type Speed } from './progress';
+
+/** Playback rates: the speed setting's three, and the Slow buttons' slower one. */
+export const RATES: Record<Speed, number> = { slow: 0.8, normal: 1, fast: 1.25 };
+const SLOW_BUTTON = 0.7;
+
+/** `true` is a Slow button; `false` uses the speed setting; a Speed picks that speed. */
+export type PlaySpeed = boolean | Speed;
+export const rateFor = (speed: PlaySpeed = false) => (speed === true ? SLOW_BUTTON : RATES[speed || getProgress().speed] ?? 1);
+
 // One shared <audio> element. iOS only lets a page play sound after a tap; once this element
 // has played inside a tap, later plays (like the quiz's next question) are allowed too.
 const player = new Audio();
 player.preload = 'auto';
 
-export function playPhrase(url: string, slow = false, fromSequence = false) {
+export function playPhrase(url: string, speed: PlaySpeed = false, fromSequence = false) {
   if (!fromSequence) sequence?.(); // a single clip interrupts a story being read
   player.pause();
   if (!player.src.endsWith(url)) player.src = url;
   player.currentTime = 0;
-  player.playbackRate = slow ? 0.7 : 1;
+  player.playbackRate = rateFor(speed);
   player.play().catch(() => {
     // Autoplay blocked before the first tap; the user can press the play button.
   });
@@ -20,7 +30,7 @@ let sequence: (() => void) | null = null;
  * Plays a clip and resolves when it ends: true if it played to the end, false if something else
  * paused or replaced it (or it failed). Start it from a tap the first time (iOS).
  */
-export function playAndWait(url: string, slow = false): Promise<boolean> {
+export function playAndWait(url: string, speed: PlaySpeed = false): Promise<boolean> {
   return new Promise((resolve) => {
     let started = false; // a 'pause' from stopping the previous clip arrives late; ignore it
     const settle = (ended: boolean) => {
@@ -36,7 +46,7 @@ export function playAndWait(url: string, slow = false): Promise<boolean> {
     const onPause = () => started && !player.ended && settle(false);
     const onError = () => settle(false);
     const timer = setTimeout(() => !started && settle(false), 8000); // never started (blocked or offline)
-    playPhrase(url, slow);
+    playPhrase(url, speed);
     player.addEventListener('playing', onPlaying);
     player.addEventListener('ended', onEnded);
     player.addEventListener('pause', onPause);
@@ -52,7 +62,7 @@ export const clipSeconds = () => (Number.isFinite(player.duration) ? player.dura
  * `start`. `onIndex` gets each clip's index as it starts, and -1 when it's over or stopped.
  * Returns a stop function. Start it from a tap (iOS).
  */
-export function playSequence(urls: string[], start: number, slow: boolean, onIndex: (i: number) => void): () => void {
+export function playSequence(urls: string[], start: number, speed: PlaySpeed, onIndex: (i: number) => void): () => void {
   sequence?.();
   let i = start;
   let timer = 0;
@@ -68,7 +78,7 @@ export function playSequence(urls: string[], start: number, slow: boolean, onInd
   const next = () => {
     if (i >= urls.length) return stop();
     onIndex(i);
-    playPhrase(urls[i++], slow, true);
+    playPhrase(urls[i++], speed, true);
   };
   player.addEventListener('ended', onEnded);
   sequence = stop;

@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import { playPhrase } from '../lib/audio';
 import { type BackupSummary, currentSummary, readBackup, saveBackup } from '../lib/backup';
+import { getPhrases, getTopics } from '../lib/content';
 import { formatBytes, offlineStatus, type OfflineStatus, useOnline } from '../lib/offline';
-import { GOALS, resetProgress, setGoal, setPref, setSpeaking, setVoice, type Theme, useProgress } from '../lib/progress';
+import { GOALS, resetProgress, setGoal, setPref, setSpeaking, setVoice, type Speed, type Theme, useProgress } from '../lib/progress';
 import { chosenModel, deleteModel, isModelReady, loadModel, type ModelKey, MODELS, setChosenModel } from '../lib/whisper';
 import { Icon, ProgressBar, Screen, Segmented, Toggle } from '../ui';
 
@@ -122,6 +124,25 @@ export function Settings() {
           />
         </div>
         <Toggle label="Speaking exercises" hint="“Say it out loud”, graded by Whisper" checked={prefs.speaking} onChange={setSpeaking} />
+        <div className="list-block" data-testid="speed-setting">
+          <span className="row-title">Listening speed</span>
+          <span className="row-hint">For every recording: lessons, stories, the phrasebook and hands-free. Slow buttons stay slower.</span>
+          <Segmented
+            label="Listening speed"
+            value={prefs.speed}
+            onChange={(speed: Speed) => {
+              setPref('speed', speed);
+              // A sample at the new speed, in the language you're learning.
+              const sample = getPhrases(prefs.lang ?? 'es', getTopics()[0].id).at(-1);
+              if (sample) playPhrase(sample.audio, speed);
+            }}
+            options={[
+              { value: 'slow', label: 'Slow' },
+              { value: 'normal', label: 'Normal' },
+              { value: 'fast', label: 'Fast' },
+            ]}
+          />
+        </div>
       </div>
 
       <div className="section-title">Sound &amp; haptics</div>

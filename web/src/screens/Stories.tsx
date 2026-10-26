@@ -4,11 +4,11 @@ import { glossKey, tokenize } from '../../../shared/tokens';
 import { clipSeconds, playAndWait, playPhrase, playSequence, type Recording, startRecording, unlockAudio } from '../lib/audio';
 import { type Lang, shuffle } from '../lib/content';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
-import { recordShadowing, recordShadowLine, recordStory, recordStoryAnswer, useProgress } from '../lib/progress';
+import { getProgress, recordShadowing, recordShadowLine, recordStory, recordStoryAnswer, type Speed, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { getStories, getStory, type Gloss, LEVELS, type Line, optionEn, optionText, type Story } from '../lib/stories';
 import { isModelReady, loadModel, transcribe } from '../lib/whisper';
-import { Icon, Screen, Waveform } from '../ui';
+import { Icon, Screen, SpeedPicker, Waveform } from '../ui';
 import { LangSwitcher } from './Path';
 
 const STORY_XP = 10;
@@ -86,7 +86,7 @@ const glossPinyin = (g: Gloss) => (typeof g === 'string' ? undefined : g.py);
 export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
   const story = getStory(lang, id);
   const [playing, setPlaying] = useState(-1); // line being read, -1 when stopped
-  const [slow, setSlow] = useState(false);
+  const [speed, setSpeed] = useState<Speed>(() => getProgress().speed);
   const [english, setEnglish] = useState(false);
   const [word, setWord] = useState<{ text: string; gloss?: Gloss; line: number } | null>(null);
   const stop = useRef<(() => void) | null>(null);
@@ -139,7 +139,7 @@ export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
       const line = story.lines[i];
       setShadow({ line: i, phase: 'listen' });
       if (testHook) Object.assign(window, { __shadowAudio: new URL(line.audio, location.href).href, __shadowLine: i });
-      await playAndWait(line.audio, slow);
+      await playAndWait(line.audio, speed);
       if (!alive()) return;
       setShadow({ line: i, phase: 'speak' });
       let result: LineResult = { score: null };
@@ -209,14 +209,14 @@ export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
     stop.current = playSequence(
       story.lines.map((l) => l.audio),
       0,
-      slow,
+      speed,
       setPlaying,
     );
   };
   const playLine = (i: number) => {
     stop.current?.();
     setPlaying(-1);
-    playPhrase(story.lines[i].audio, slow);
+    playPhrase(story.lines[i].audio, speed);
   };
   const speakers = Object.keys(story.speakers ?? {});
 
@@ -238,9 +238,7 @@ export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
           </button>
         </div>
         <div className="row story-toggles">
-          <label className="chip-toggle">
-            <input type="checkbox" checked={slow} onChange={(e) => setSlow(e.target.checked)} /> Slow
-          </label>
+          <SpeedPicker value={speed} onChange={setSpeed} />
           <label className="chip-toggle">
             <input type="checkbox" checked={english} onChange={(e) => setEnglish(e.target.checked)} /> English
           </label>

@@ -762,10 +762,13 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .story-score.full { color: var(--ok); }
 .story-head { gap: 12px; }
 .story-title { font-size: 24px; font-weight: 800; }
-.story-toggles { gap: 8px; }
+.story-toggles { gap: 8px; flex-wrap: wrap; }
 .chip-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); font-size: 14px; font-weight: 600; color: var(--muted); cursor: pointer; }
 .chip-toggle:has(input:checked) { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
 .chip-toggle input { accent-color: var(--accent); margin: 0; }
+.speed-pick { display: inline-flex; gap: 6px; }
+.speed-pick .chip-toggle { background: none; font: inherit; font-size: 14px; font-weight: 600; }
+.speed-pick .chip-toggle[aria-checked='true'] { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
 .story-lines { display: flex; flex-direction: column; gap: 10px; }
 .story-line { display: flex; flex-direction: column; gap: 4px; scroll-margin: 120px; }
 .story-line .speaker { font-size: 12px; font-weight: 700; color: var(--muted); padding: 0 6px; }

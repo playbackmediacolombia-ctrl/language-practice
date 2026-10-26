@@ -3,9 +3,10 @@ import { type Lang, LANGS } from '../lib/content';
 import { DAILY_MAX, dueItems, getLesson, getPath, type Item, lessonStates, mistakeItems, unitNumber } from '../lib/course';
 import { tapFeedback } from '../lib/fx';
 import { buildTrack, canPlayHandsFree, type Pause, segmentAt, type Track } from '../lib/handsfree';
-import { addPracticeTime, completeLesson, type Progress, useProgress } from '../lib/progress';
+import { addPracticeTime, completeLesson, type Progress, type Speed, useProgress } from '../lib/progress';
+import { RATES } from '../lib/audio';
 import { navigate } from '../lib/router';
-import { Icon, ProgressBar, Screen, Segmented } from '../ui';
+import { Icon, ProgressBar, Screen, Segmented, SpeedPicker } from '../ui';
 import { LangSwitcher } from './Path';
 
 const HANDS_FREE_XP = 5;
@@ -111,6 +112,8 @@ export function HandsFreePlayer({ lang, id }: { lang: Lang; id: string }) {
   const [finished, setFinished] = useState(false);
   const audio = useRef<HTMLAudioElement | null>(null);
   const langName = LANGS.find((l) => l.id === lang)!.name;
+  // The whole track plays faster or slower, pauses included (pitch stays the same).
+  const [speed, setSpeed] = useState<Speed>(progress.speed);
 
   // Build (or rebuild, when the pause length changes) the track.
   useEffect(() => {
@@ -189,6 +192,10 @@ export function HandsFreePlayer({ lang, id }: { lang: Lang; id: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps -- set up once per track
   }, [track]);
 
+  useEffect(() => {
+    if (audio.current) audio.current.playbackRate = RATES[speed];
+  }, [speed, track]);
+
   if (!source || !items.length) {
     navigate(`/${lang}/handsfree`, { replace: true });
     return null;
@@ -203,6 +210,7 @@ export function HandsFreePlayer({ lang, id }: { lang: Lang; id: string }) {
         el.currentTime = 0;
         setFinished(false);
       }
+      el.playbackRate = RATES[speed];
       void el.play();
     } else el.pause();
   };
@@ -308,6 +316,12 @@ export function HandsFreePlayer({ lang, id }: { lang: Lang; id: string }) {
             { value: 'long', label: 'Long' },
           ]}
         />
+        <div className="row">
+          <span className="grow" style={{ fontWeight: 650 }}>
+            Speed
+          </span>
+          <SpeedPicker value={speed} onChange={setSpeed} />
+        </div>
       </div>
 
       <p className="muted small" style={{ margin: '0 4px' }} data-testid="hf-lock-note">
