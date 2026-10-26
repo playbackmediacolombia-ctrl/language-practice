@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { compare, type TokenResult } from '../../../shared/compare';
 import { glossKey, tokenize } from '../../../shared/tokens';
-import { clipSeconds, playAndWait, playPhrase, playSequence, type Recording, startRecording, unlockAudio } from '../lib/audio';
+import { clipSeconds, pauseFor, playAndWait, playPhrase, playSequence, type Recording, startRecording, unlockAudio } from '../lib/audio';
 import { type Lang, shuffle } from '../lib/content';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
 import { getProgress, recordShadowing, recordShadowLine, recordStory, recordStoryAnswer, type Speed, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
-import { getStories, getStory, type Gloss, LEVELS, type Line, optionEn, optionText, type Story } from '../lib/stories';
+import { getArticles, getStories, getStory, type Gloss, LEVELS, type Line, listPath, optionEn, optionText, READING_LEVELS, type Story } from '../lib/stories';
 import { isModelReady, loadModel, transcribe } from '../lib/whisper';
 import { Icon, Screen, SpeedPicker, Waveform } from '../ui';
 import { LangSwitcher } from './Path';
@@ -67,6 +67,65 @@ export function StoryList({ lang }: { lang: Lang }) {
                     {best !== undefined && (
                       <span className={best === 1 ? 'story-score full' : 'story-score'}>
                         {Math.round(best * s.questions.length)}/{s.questions.length}
+                      </span>
+                    )}
+                    <Icon name="chevron" />
+                  </button>
+                );
+              })}
+          </div>
+        </section>
+      ))}
+    </Screen>
+  );
+}
+
+/** Practice › Reading: news-style articles for Advanced and Fluent, with tap-to-translate. */
+export function ArticleList({ lang }: { lang: Lang }) {
+  const progress = useProgress();
+  const articles = getArticles(lang);
+  return (
+    <Screen title="Reading" back="/practice">
+      <LangSwitcher lang={lang} to={(l) => `/${l}/reading`} />
+      <p className="muted small" style={{ margin: '0 4px' }}>
+        Short news-style articles. Tap any word for its meaning, listen sentence by sentence, then answer four questions. The
+        stories are made up for practice.
+      </p>
+      {READING_LEVELS.map((lv) => (
+        <section key={lv.level}>
+          <div className="section-title">{lv.title}</div>
+          <p className="muted small" style={{ margin: '-4px 4px 6px' }}>
+            {lv.about}
+          </p>
+          <div className="list">
+            {articles
+              .filter((a) => a.level === lv.level)
+              .map((a) => {
+                const best = progress.stories[`${lang}:${a.id}`];
+                return (
+                  <button
+                    key={a.id}
+                    className="list-row link"
+                    data-testid={`article-${a.id}`}
+                    onClick={() => {
+                      tapFeedback();
+                      navigate(`/${lang}/reading/${a.id}`);
+                    }}
+                  >
+                    <span className="row-icon">
+                      <Icon name="book" />
+                    </span>
+                    <span className="grow" style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                      <span className="row-title" lang={lang}>
+                        {a.title}
+                      </span>
+                      <span className="row-hint">
+                        {a.en} · {a.lines.length} sentences
+                      </span>
+                    </span>
+                    {best !== undefined && (
+                      <span className={best === 1 ? 'story-score full' : 'story-score'}>
+                        {Math.round(best * a.questions.length)}/{a.questions.length}
                       </span>
                     )}
                     <Icon name="chevron" />
@@ -146,7 +205,7 @@ export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
       if (graded) {
         let audio: Float32Array;
         try {
-          const rec = await startRecording(() => alive() && setShadow({ line: i, phase: 'heard' }));
+          const rec = await startRecording(() => alive() && setShadow({ line: i, phase: 'heard' }), { silence: pauseFor(line.text) });
           recording.current = rec;
           setAnalyser(rec.analyser);
           audio = await rec.done;
@@ -221,9 +280,14 @@ export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
   const speakers = Object.keys(story.speakers ?? {});
 
   return (
-    <Screen title={story.kind === 'dialogue' ? 'Dialogue' : 'Story'} back={`/${lang}/stories`}>
+    <Screen title={story.kind === 'article' ? 'Reading' : story.kind === 'dialogue' ? 'Dialogue' : 'Story'} back={listPath(lang, story)}>
       <div className="card story-head">
         <div>
+          {story.kind === 'article' && (
+            <div className="muted small">
+              Practice article (a made-up story) · <span lang={lang}>{story.place}</span>
+            </div>
+          )}
           <div className="story-title" lang={lang}>
             {story.title}
           </div>
@@ -245,7 +309,7 @@ export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
         </div>
       </div>
 
-      <div className={story.kind === 'dialogue' ? 'story-lines dialogue' : 'story-lines'}>
+      <div className={`story-lines ${story.kind}`}>
         {story.lines.map((line, i) => (
           <StoryLine
             key={i}
@@ -310,7 +374,9 @@ export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
               {word.text}
               {word.gloss && glossPinyin(word.gloss) && <span className="pinyin"> {glossPinyin(word.gloss)}</span>}
             </div>
-            <div className="word-sheet-en">{word.gloss ? glossText(word.gloss) : 'No translation for this word.'}</div>
+            <div className="word-sheet-en">
+              {word.gloss ? glossText(word.gloss) : <>Not in the word list. The whole sentence means: “{story.lines[word.line].en}”</>}
+            </div>
           </div>
           <button className="icon-btn" aria-label="Play this line" onClick={() => playLine(word.line)}>
             <Icon name="speaker" />
@@ -507,9 +573,11 @@ function Questions({ lang, story }: { lang: Lang; story: Story }) {
           <div style={{ fontSize: 22, fontWeight: 700 }}>
             {right}/{story.questions.length} right{right === story.questions.length ? '. You understood it all!' : ''}
           </div>
-          <p style={{ margin: 0 }}>+{STORY_XP} XP. {right < story.questions.length ? 'Listen again with English on, then come back.' : ''}</p>
-          <button className="btn secondary" onClick={() => navigate(`/${lang}/stories`, { direction: 'back' })}>
-            More stories
+          <p style={{ margin: 0 }}>
+            +{STORY_XP} XP. {right < story.questions.length ? `${story.kind === 'article' ? 'Read' : 'Listen'} again with English on, then come back.` : ''}
+          </p>
+          <button className="btn secondary" onClick={() => navigate(listPath(lang, story), { direction: 'back' })}>
+            {story.kind === 'article' ? 'More articles' : 'More stories'}
           </button>
         </div>
       )}

@@ -5,6 +5,8 @@ import { getPhrases, getTopics } from '../lib/content';
 import { formatBytes, offlineStatus, type OfflineStatus, useOnline } from '../lib/offline';
 import { GOALS, resetProgress, setGoal, setPref, setSpeaking, setVoice, type Speed, type Theme, useProgress } from '../lib/progress';
 import { chosenModel, deleteModel, isModelReady, loadModel, type ModelKey, MODELS, setChosenModel } from '../lib/whisper';
+import { tapFeedback } from '../lib/fx';
+import { navigate } from '../lib/router';
 import { Icon, ProgressBar, Screen, Segmented, Toggle } from '../ui';
 
 export function Settings() {
@@ -150,6 +152,27 @@ export function Settings() {
         <Toggle label="Sound effects" hint="Taps, right and wrong, lesson complete" checked={prefs.sfx} onChange={(v) => setPref('sfx', v)} />
         <Toggle label="Spoken feedback" hint="A voice says “¡Muy bien!”, “Presque.”… now and then" checked={prefs.voice} onChange={setVoice} />
         <Toggle label="Haptics" hint="Light taps on answers (iPhone with iOS 18 or later)" checked={prefs.haptics} onChange={(v) => setPref('haptics', v)} />
+      </div>
+
+      <div className="section-title">Reminders</div>
+      <div className="list">
+        <button
+          className="list-row link"
+          data-testid="reminder-link"
+          onClick={() => {
+            tapFeedback();
+            navigate('/settings/reminder');
+          }}
+        >
+          <span className="row-icon">
+            <Icon name="bell" />
+          </span>
+          <span className="grow">
+            <span className="row-title">Daily reminder</span>
+            <span className="row-hint">Set up a free daily notification with the Shortcuts app</span>
+          </span>
+          <Icon name="chevron" />
+        </button>
       </div>
 
       <div className="section-title">Speech checking</div>

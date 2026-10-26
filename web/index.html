@@ -77,10 +77,12 @@
       @keyframes intro-fade { from { opacity: 0; } }
     </style>
     <script>
-      // Skip the intro if the app was open in the last few minutes (main.tsx keeps this fresh).
+      // Skip the intro if the app was open in the last few minutes (main.tsx keeps this fresh),
+      // and in browser tests unless they ask for it (?test&intro), so it isn't in their screenshots.
       try {
         var last = Number(localStorage.getItem('intro-last')) || 0;
-        if (Date.now() - last < 5 * 60 * 1000) document.documentElement.classList.add('no-intro');
+        var test = /[?&]test\b/.test(location.search) && !/[?&]intro\b/.test(location.search);
+        if (test || Date.now() - last < 5 * 60 * 1000) document.documentElement.classList.add('no-intro');
         localStorage.setItem('intro-last', String(Date.now()));
       } catch (e) {}
     </script>

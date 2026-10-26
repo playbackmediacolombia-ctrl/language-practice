@@ -15,7 +15,7 @@ const audioFiles = import.meta.glob<string>('../../../assets/audio/course/*/*.mp
   import: 'default',
 });
 
-type RawItem = { id: string; text: string; en: string; pinyin?: string; kind?: 'sound'; tiles?: string[]; alt?: string[] };
+type RawItem = { id: string; text: string; en: string; pinyin?: string; kind?: 'sound'; tiles?: string[]; alt?: string[]; say?: string };
 type RawCourse = { units: { id: string; title: string; lessons: { id: string; title: string; items: RawItem[] }[] }[] };
 
 export type Item = {
@@ -35,7 +35,8 @@ export type Item = {
 };
 
 export type Lesson = { id: string; title: string; unitId: string; items: Item[] };
-export type Unit = { id: string; title: string; lessons: Lesson[] };
+/** `elective`: an extra topic (like dating) that opens once you reach its level and never blocks the main path. */
+export type Unit = { id: string; title: string; lessons: Lesson[]; elective?: boolean; adult?: boolean };
 /** `level` is the CEFR-style band shown on the path: Beginner, Elementary, … Fluent. */
 export type Stage = { id: string; level: string; title: string; about: string; units: Unit[] };
 
@@ -63,25 +64,31 @@ function toItem(lang: Lang, raw: RawItem): Item {
 }
 
 const cache = new Map<Lang, Stage[]>();
+/** Electives behind the one-tap "I'm 18+" check. */
+const ADULT = new Set((outline as { adult?: string[] }).adult ?? []);
 
 /** The whole path for a language. Units not written yet have no lessons. */
 export function getPath(lang: Lang): Stage[] {
   let stages = cache.get(lang);
   if (!stages) {
     const written = new Map(COURSES[lang].units.map((u) => [u.id, u]));
+    const build = (id: string): Unit => {
+      const unit = written.get(id);
+      return {
+        id,
+        title: unit?.title ?? outline.units[id as keyof typeof outline.units],
+        lessons: (unit?.lessons ?? []).map((l) => ({ id: l.id, title: l.title, unitId: id, items: l.items.map((i) => toItem(lang, i)) })),
+      };
+    };
     stages = outline.stages.map((s) => ({
       id: s.id,
       level: s.level,
       title: s.title,
       about: s.about,
-      units: s.units.map((id) => {
-        const unit = written.get(id);
-        return {
-          id,
-          title: unit?.title ?? outline.units[id as keyof typeof outline.units],
-          lessons: (unit?.lessons ?? []).map((l) => ({ id: l.id, title: l.title, unitId: id, items: l.items.map((i) => toItem(lang, i)) })),
-        };
-      }),
+      units: [
+        ...s.units.map((id) => build(id)),
+        ...((s as { electives?: string[] }).electives ?? []).map((id) => ({ ...build(id), elective: true, adult: ADULT.has(id) || undefined })),
+      ].filter((u) => !u.elective || u.lessons.length),
     }));
     cache.set(lang, stages);
   }
@@ -106,10 +113,13 @@ export function getItem(lang: Lang, id: string): Item | undefined {
 }
 
 /** How many lessons, from the start of the path, a placement test unlocked. */
+/** The main path's lessons in order: everything except elective topics. */
+const coreLessons = (lang: Lang) => getPath(lang).flatMap((s) => s.units.filter((u) => !u.elective).flatMap((u) => u.lessons));
+
 export function placedLessons(p: Progress, lang: Lang): number {
   const stages = getPath(lang);
   const upTo = stages.findIndex((s) => s.id === p.placement[lang]);
-  return stages.slice(0, upTo + 1).reduce((n, s) => n + s.units.reduce((m, u) => m + u.lessons.length, 0), 0);
+  return stages.slice(0, upTo + 1).reduce((n, s) => n + s.units.filter((u) => !u.elective).reduce((m, u) => m + u.lessons.length, 0), 0);
 }
 
 /**
@@ -118,15 +128,23 @@ export function placedLessons(p: Progress, lang: Lang): number {
  */
 export type LessonState = 'done' | 'current' | 'open' | 'locked';
 export function lessonStates(p: Progress, lang: Lang): Map<string, LessonState> {
-  const lessons = getLessons(lang);
+  const lessons = coreLessons(lang);
   const placed = placedLessons(p, lang);
   const current = lessons.findIndex((l, i) => i >= placed && !lessonDone(p, lang, l.id));
-  return new Map(
+  const states = new Map(
     lessons.map((l, i) => {
       const state: LessonState = lessonDone(p, lang, l.id) ? 'done' : i === current ? 'current' : i < placed || current === -1 ? 'open' : 'locked';
       return [l.id, state];
     }),
   );
+  // Elective topics open as soon as the main path reaches their stage, and never block it.
+  for (const stage of getPath(lang)) {
+    const reached = stage.units.some((u) => !u.elective && u.lessons.some((l) => states.get(l.id) !== 'locked'));
+    for (const unit of stage.units.filter((u) => u.elective)) {
+      for (const l of unit.lessons) states.set(l.id, lessonDone(p, lang, l.id) ? 'done' : reached ? 'open' : 'locked');
+    }
+  }
+  return states;
 }
 
 /** Number of the unit within the whole path (1-based), for display. */

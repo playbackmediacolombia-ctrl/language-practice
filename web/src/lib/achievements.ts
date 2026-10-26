@@ -43,7 +43,8 @@ export function earned(p: Progress): Achievement[] {
         if (!unit.lessons.length) continue;
         const done = unit.lessons.every((l) => lessonDone(p, lang, l.id));
         if (done) out.push({ key: `unit:${lang}:${unit.id}`, rank: 2, title: 'Unit complete!', detail: `${name}: “${unit.title}”.` });
-        levels.set(stage.level, (levels.get(stage.level) ?? true) && done);
+        // A level is its main path; elective topics are extra.
+        if (!unit.elective) levels.set(stage.level, (levels.get(stage.level) ?? true) && done);
       }
     }
     for (const [level, done] of levels) {

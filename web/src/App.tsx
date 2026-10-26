@@ -10,11 +10,15 @@ import { Path } from './screens/Path';
 import { PracticeHub } from './screens/PracticeHub';
 import { ProgressScreen } from './screens/ProgressScreen';
 import { Quiz } from './screens/Quiz';
+import { Reminder } from './screens/Reminder';
 import { Settings } from './screens/Settings';
 import { TopicScreen } from './screens/TopicScreen';
 import { AchievementHost } from './Achievements';
 import { TabBar, useActiveTab } from './ui';
 
+const RolePlays = lazy(() => import('./screens/RolePlay').then((m) => ({ default: m.RolePlayList })));
+const RolePlayScreen = lazy(() => import('./screens/RolePlay').then((m) => ({ default: m.RolePlayScreen })));
+const Articles = lazy(() => import('./screens/Stories').then((m) => ({ default: m.ArticleList })));
 const Stories = lazy(() => import('./screens/Stories').then((m) => ({ default: m.StoryList })));
 const StoryScreen = lazy(() => import('./screens/Stories').then((m) => ({ default: m.StoryScreen })));
 const Writing = lazy(() => import('./screens/Writing').then((m) => ({ default: m.WritingList })));
@@ -54,11 +58,15 @@ function Routes() {
     if (lang && lang !== saved) setPref('lang', lang);
   }, [lang, saved]);
 
-  if (first === 'settings') return <Settings />;
+  if (first === 'settings') return topic === 'reminder' ? <Reminder /> : <Settings />;
   if (first === 'progress') return <ProgressScreen />;
   if (first === 'practice') return <PracticeHub lang={saved ?? 'es'} />;
   if (!lang) return saved ? <Path lang={saved} /> : <Home />;
   if (!topic) return <Path lang={lang} />;
+  if (topic === 'roleplay')
+    return <Suspense fallback={null}>{mode ? <RolePlayScreen key={mode} lang={lang} id={mode} /> : <RolePlays lang={lang} />}</Suspense>;
+  if (topic === 'reading')
+    return <Suspense fallback={null}>{mode ? <StoryScreen key={mode} lang={lang} id={mode} /> : <Articles lang={lang} />}</Suspense>;
   if (topic === 'stories')
     return <Suspense fallback={null}>{mode ? <StoryScreen key={mode} lang={lang} id={mode} /> : <Stories lang={lang} />}</Suspense>;
   if (lang === 'zh' && topic === 'write')

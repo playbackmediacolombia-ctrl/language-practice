@@ -927,3 +927,35 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 /* Reduce Motion: no spin, glow pulse or confetti; everything just fades in. */
 .achievement.calm .achievement-card, .achievement.calm .achievement-logo img { animation: achievement-in 0.35s ease-out both; }
 .achievement.calm .achievement-glow { animation: none; opacity: 0.5; }
+
+/* =========================================================================
+   Role-plays: your turn panel
+   ========================================================================= */
+.turn-panel { gap: 8px; }
+.turn-prompt { display: flex; flex-direction: column; gap: 2px; }
+.turn-en { font-size: 18px; font-weight: 700; font-family: var(--font-round); }
+.turn-text { font-size: 17px; color: var(--accent); font-weight: 600; }
+.turn-actions { justify-content: space-between; align-items: center; }
+.turn-actions .sound-sm { width: 64px; height: 56px; }
+.mic.small { width: 76px; height: 76px; align-self: center; }
+.link-btn { border: 0; background: none; color: var(--accent); font: inherit; font-weight: 600; padding: 2px 0; cursor: pointer; text-align: left; text-decoration: underline; text-underline-offset: 3px; }
+/* Graded words inside a chat bubble: same colors as Listen & repeat, at text size. */
+.bubble .line-text .token { font-size: inherit; font-weight: inherit; padding: 0 3px; margin: 0 1px; border-radius: 5px; }
+
+/* Reading practice: an article reads as paragraphs, not chat bubbles. */
+.story-lines.article { gap: 2px; }
+.story-lines.article .story-line { max-width: none; }
+.story-lines.article .bubble { background: none; border: 0; box-shadow: none; padding: 4px 40px 4px 0; border-radius: 0; }
+.story-lines.article .line-text { font-size: 18px; line-height: 1.55; }
+.story-lines.article .story-line.active .bubble { background: var(--accent-bg); border-radius: 10px; }
+
+/* Streak warning (Learn tab) and the daily reminder guide. */
+.streak-warning { border-color: color-mix(in srgb, var(--flame) 55%, var(--border)); background: linear-gradient(135deg, color-mix(in srgb, var(--sun) 16%, var(--card)), var(--card)); }
+.streak-warning .btn { white-space: nowrap; gap: 6px; }
+.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.step-num { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-fill); color: #fff; font-weight: 800; font-family: var(--font-round); }
+.step-title { font-weight: 750; font-size: 17px; font-family: var(--font-round); }
+.ios-label { font-weight: 700; color: var(--text); white-space: nowrap; }
+.copy-row { display: flex; gap: 8px; align-items: center; }
+.copy-text { flex: 1; min-width: 0; font-family: ui-monospace, Menlo, monospace; font-size: 13px; background: var(--card-2); border-radius: 10px; padding: 10px; overflow-wrap: anywhere; }
+.copy-btn { min-height: 44px; padding: 8px 12px; font-size: 15px; flex: none; }

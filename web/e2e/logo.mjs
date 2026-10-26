@@ -90,7 +90,7 @@ await run(async () => {
   {
     const page = await open();
     const t0 = Date.now();
-    await page.goto(`${BASE}#/`);
+    await page.goto(`${BASE}&intro#/`);
     const intro = await page.evaluate(() => ({
       shown: !!document.getElementById('intro') && !document.documentElement.classList.contains('no-intro'),
       anim: getComputedStyle(document.querySelector('#intro img')).animationName,
@@ -109,13 +109,13 @@ await run(async () => {
     // Six minutes later it plays again.
     await page.goto(new URL('icons/favicon-32.png', BASE).href);
     await page.evaluate(() => localStorage.setItem('intro-last', String(Date.now() - 6 * 60 * 1000)));
-    await page.goto(`${BASE}#/`);
+    await page.goto(`${BASE}&intro#/`);
     expect(!(await page.evaluate(() => document.documentElement.classList.contains('no-intro'))), 'intro: plays again after a few minutes away');
     await page.context().close();
   }
   {
     const page = await open({ reducedMotion: 'reduce' });
-    await page.goto(`${BASE}#/`);
+    await page.goto(`${BASE}&intro#/`);
     const anim = await page.evaluate(() => getComputedStyle(document.querySelector('#intro img')).animationName);
     expect(anim === 'intro-fade', `intro with Reduce Motion: a simple fade (${anim})`);
     await page.context().close();

@@ -1,10 +1,14 @@
 import es from '../../../shared/stories/es.json';
 import fr from '../../../shared/stories/fr.json';
 import zh from '../../../shared/stories/zh.json';
+import esReading from '../../../shared/reading/es.json';
+import frReading from '../../../shared/reading/fr.json';
+import zhReading from '../../../shared/reading/zh.json';
 import type { Lang } from './content';
 
 // Short listening stories and dialogues, three levels per language, with a glossary for
 // tap-to-translate and comprehension questions. One clip per line, made by the audio script.
+// Reading practice (news-style articles for Advanced and Fluent) works the same way.
 
 const audioFiles = import.meta.glob<string>('../../../assets/audio/stories/*/*.mp3', {
   eager: true,
@@ -19,7 +23,9 @@ export type Question = { q: string; qEn?: string; options: Option[]; answer: num
 export type Story = {
   id: string;
   level: number;
-  kind: 'story' | 'dialogue';
+  kind: 'story' | 'dialogue' | 'article';
+  /** Articles: where the (made-up) news is from, shown as a dateline. */
+  place?: string;
   title: string;
   en: string;
   speakers?: Record<string, { name: string; voice: 'a' | 'b' }>;
@@ -36,21 +42,37 @@ export const LEVELS = [
 
 type RawStory = Omit<Story, 'lines'> & { lines: Omit<Line, 'audio'>[] };
 const RAW = { es, fr, zh } as unknown as Record<Lang, { stories: RawStory[] }>;
-const cache = new Map<Lang, Story[]>();
+const READING = { es: esReading, fr: frReading, zh: zhReading } as unknown as Record<Lang, { articles: RawStory[] }>;
+const cache = new Map<string, Story[]>();
 
-export function getStories(lang: Lang): Story[] {
-  let list = cache.get(lang);
+const withAudio = (lang: Lang, s: RawStory): Story => ({
+  ...s,
+  lines: s.lines.map((l, i) => ({ ...l, audio: audioFiles[`../../../assets/audio/stories/${lang}/${s.id}-${i}.mp3`] })),
+});
+
+function load(lang: Lang, which: 'stories' | 'articles'): Story[] {
+  const key = `${which}:${lang}`;
+  let list = cache.get(key);
   if (!list) {
-    list = RAW[lang].stories.map((s) => ({
-      ...s,
-      lines: s.lines.map((l, i) => ({ ...l, audio: audioFiles[`../../../assets/audio/stories/${lang}/${s.id}-${i}.mp3`] })),
-    }));
-    cache.set(lang, list);
+    list = (which === 'stories' ? RAW[lang].stories : READING[lang].articles).map((s) => withAudio(lang, s));
+    cache.set(key, list);
   }
   return list;
 }
 
-export const getStory = (lang: Lang, id: string) => getStories(lang).find((s) => s.id === id);
+export const getStories = (lang: Lang) => load(lang, 'stories');
+/** Reading practice: news-style articles, levels 5 (Advanced) and 6 (Fluent). */
+export const getArticles = (lang: Lang) => load(lang, 'articles');
+
+export const getStory = (lang: Lang, id: string) => getStories(lang).find((s) => s.id === id) ?? getArticles(lang).find((s) => s.id === id);
+
+/** Where a story's screen goes back to: the reading list for articles, else the stories list. */
+export const listPath = (lang: Lang, story: Story) => (story.kind === 'article' ? `/${lang}/reading` : `/${lang}/stories`);
+
+export const READING_LEVELS = [
+  { level: 5, title: 'Advanced', about: 'News-style reports: tap any word you don’t know.' },
+  { level: 6, title: 'Fluent', about: 'Opinion and analysis, as you’d read in a newspaper.' },
+];
 
 export const optionText = (o: Option) => (typeof o === 'string' ? o : o.text);
 export const optionEn = (o: Option) => (typeof o === 'string' ? undefined : o.en);

@@ -64,6 +64,41 @@ let scrollToCurrent = false;
 /** The next time the path opens, scroll to the current lesson (after a placement test moved it far down). */
 export const showCurrentLesson = () => (scrollToCurrent = true);
 
+/** Time left today, roughly: "3 h 20 min", or "under an hour". */
+function untilMidnight(now = new Date()): string {
+  const midnight = new Date(now);
+  midnight.setHours(24, 0, 0, 0);
+  const mins = Math.floor((midnight.getTime() - now.getTime()) / 60000);
+  return mins < 60 ? 'under an hour' : `${Math.floor(mins / 60)} h ${mins % 60} min`;
+}
+
+/** A streak that hasn't been kept up today: how long is left, and a way to keep it. */
+function StreakWarning({ progress, onPractice, onRemind }: { progress: Progress; onPractice: () => void; onRemind: () => void }) {
+  const days = streak(progress);
+  if (days === 0 || todayXp(progress) > 0) return null;
+  return (
+    <div className="card streak-warning" role="status" data-testid="streak-warning">
+      <div className="row">
+        <Flame lit size={30} />
+        <div className="grow">
+          <div style={{ fontWeight: 750, fontSize: 17 }}>
+            Your {days}-day streak ends at midnight
+          </div>
+          <p className="muted small">One short lesson keeps it going. {untilMidnight()} left today.</p>
+        </div>
+      </div>
+      <div className="row">
+        <button className="btn flex" onClick={onPractice} data-testid="streak-practice">
+          Practice now
+        </button>
+        <button className="btn secondary flex" onClick={onRemind}>
+          <Icon name="bell" size={18} /> Remind me
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function Path({ lang }: { lang: Lang }) {
   const progress = useProgress();
   useEffect(() => {
@@ -83,11 +118,17 @@ export function Path({ lang }: { lang: Lang }) {
     tapFeedback();
     navigate(path);
   };
+  const current = lessons.find((l) => states.get(l.id) === 'current');
 
   return (
     <Screen title="Learn" large>
       <LangSwitcher lang={lang} to={(l) => `/${l}`} />
       <StatsBar progress={progress} />
+      <StreakWarning
+        progress={progress}
+        onPractice={() => open(current ? `/${lang}/learn/${current.id}` : learned.length >= 4 ? `/${lang}/learn/review` : `/${lang}`)}
+        onRemind={() => open('/settings/reminder')}
+      />
 
       {offerPlacement && (
         <button className="card review-card" data-testid="placement-card" onClick={() => open(`/${lang}/placement`)}>

@@ -49,7 +49,7 @@ SERVER=$!
 for _ in $(seq 50); do curl -s -o /dev/null "http://localhost:$PORT/" && break; sleep 0.2; done
 
 status=0
-for suite in "${@:-mute brand ui lesson feedback listen logo}"; do
+for suite in "${@:-mute brand ui lesson feedback listen logo roleplay reading reminder}"; do
   for s in $suite; do
     echo "== $s"
     # In the background + wait, so Ctrl-C reaches the trap at once instead of after the suite.
@@ -57,6 +57,7 @@ for suite in "${@:-mute brand ui lesson feedback listen logo}"; do
     SUITE=$!
     wait "$SUITE" || status=1
     SUITE=""
+    grep -qE "FAILED|TIMEOUT" "$HERE/out/$s.log" && status=1 # suites report failures in their output
     grep -E "FAIL|ALL PASS|FAILED|TIMEOUT|Error|Stopped" "$HERE/out/$s.log" | grep -v "^PASS" || true
   done
 done

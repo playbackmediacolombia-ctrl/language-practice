@@ -26,6 +26,12 @@ export function playPhrase(url: string, speed: PlaySpeed = false, fromSequence =
 
 let sequence: (() => void) | null = null;
 
+/** Stops whatever phrase (or story) is playing. */
+export function stopPhrase() {
+  sequence?.();
+  player.pause();
+}
+
 /**
  * Plays a clip and resolves when it ends: true if it played to the end, false if something else
  * paused or replaced it (or it failed). Start it from a tap the first time (iOS).
@@ -171,7 +177,7 @@ export type Recording = {
 };
 
 const FRAME = 4096;
-const SILENCE_TO_STOP = 1.0; // seconds of quiet after speaking that ends the recording
+const SILENCE_TO_STOP = 1.0; // seconds of quiet after speaking that ends the recording (default)
 const NO_SPEECH_TIMEOUT = 6; // give up if nothing is said for this long
 const MAX_LENGTH = 12; // our phrases are short
 const PAD = 0.25; // seconds kept before and after the speech
@@ -180,7 +186,13 @@ const PAD = 0.25; // seconds kept before and after the speech
  * Starts recording from the mic and stops automatically when the speaker finishes.
  * Call it directly from a tap handler (iOS needs that to start audio).
  */
-export async function startRecording(onSpeechStart?: () => void): Promise<Recording> {
+/**
+ * How long a pause should end the recording when you're saying `text`: longer when it's more
+ * than one sentence, since people (and the model recordings) pause between sentences.
+ */
+export const pauseFor = (text: string) => (/[.!?。！？…][\s"”»]*\S/u.test(text.trim()) ? 1.8 : 1.2);
+
+export async function startRecording(onSpeechStart?: () => void, { silence = SILENCE_TO_STOP } = {}): Promise<Recording> {
   if (!navigator.mediaDevices?.getUserMedia) {
     throw new Error('This browser cannot record audio. Open the app in Safari.');
   }
@@ -254,7 +266,7 @@ export async function startRecording(onSpeechStart?: () => void): Promise<Record
     }
 
     const seconds = (i + 1) * frameSeconds;
-    if (speechStart >= 0 && (i - lastSpeech) * frameSeconds >= SILENCE_TO_STOP) finish();
+    if (speechStart >= 0 && (i - lastSpeech) * frameSeconds >= silence) finish();
     else if (speechStart < 0 && seconds >= NO_SPEECH_TIMEOUT) finish();
     else if (seconds >= MAX_LENGTH) finish();
   };

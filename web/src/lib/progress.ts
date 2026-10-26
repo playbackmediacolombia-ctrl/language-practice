@@ -33,6 +33,8 @@ export type Progress = {
   tips: Record<string, number>;
   /** Shadowing: best average score repeating a story's lines (0..1). Key: `${lang}:${storyId}`. */
   shadow: Record<string, number>;
+  /** Best average Whisper score per role-play, key `${lang}:${scenarioId}`. */
+  roleplays: Record<string, number>;
   /** Placement test result per language: the last stage tested out of (it and every stage before it are unlocked). */
   placement: Partial<Record<Lang, string>>;
   /** Big achievements already celebrated (see achievements.ts); null until first worked out. */
@@ -78,6 +80,7 @@ const EMPTY: Progress = {
   placement: {},
   celebrated: null,
   shadow: {},
+  roleplays: {},
   tips: {},
   mistakes: {},
   log: {},
@@ -303,17 +306,24 @@ export function recordStory(lang: Lang, storyId: string, score: number, xp: numb
 export const markTipSeen = (lang: Lang, lessonId: string) =>
   update((p) => (p.tips[`${lang}:${lessonId}`] ? p : { ...p, tips: { ...p.tips, [`${lang}:${lessonId}`]: Date.now() } }));
 
-/** Unlocks a language's path up to and including a stage (see placement.ts, which never moves it back). */
 /** Marks big achievements as celebrated so each one is shown only once. */
 export const markCelebrated = (keys: string[]) =>
   update((p) => ({ ...p, celebrated: [...new Set([...(p.celebrated ?? []), ...keys])] }));
 
+/** Unlocks a language's path up to and including a stage (see placement.ts, which never moves it back). */
 export const setPlacement = (lang: Lang, stageId: string) => update((p) => ({ ...p, placement: { ...p.placement, [lang]: stageId } }));
 
 /** One line repeated in shadowing, graded by Whisper (null: not graded, no speech model). */
 export const recordShadowLine = (lang: Lang, score: number | null) => score !== null && update((p) => tally(p, lang, score >= 0.5));
 
 /** A story shadowed to the end: keep the best average and count it like a short lesson. */
+/** A role-play finished: keeps the best average score (null: not graded) and earns XP like a short lesson. */
+export function recordRoleplay(lang: Lang, scenarioId: string, average: number | null, xp: number) {
+  const k = `${lang}:${scenarioId}`;
+  if (average !== null) update((p) => ({ ...p, roleplays: { ...p.roleplays, [k]: Math.max(average, p.roleplays[k] ?? 0) } }));
+  completeLesson(lang, null, xp);
+}
+
 export function recordShadowing(lang: Lang, storyId: string, average: number | null, xp: number) {
   const k = `${lang}:${storyId}`;
   if (average !== null) update((p) => ({ ...p, shadow: { ...p.shadow, [k]: Math.max(average, p.shadow[k] ?? 0) } }));
