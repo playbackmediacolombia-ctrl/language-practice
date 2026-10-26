@@ -1,15 +1,26 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { compare, type TokenResult } from '../../../shared/compare';
 import { glossKey, tokenize } from '../../../shared/tokens';
-import { playPhrase, playSequence } from '../lib/audio';
+import { clipSeconds, playAndWait, playPhrase, playSequence, type Recording, startRecording, unlockAudio } from '../lib/audio';
 import { type Lang, shuffle } from '../lib/content';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
-import { recordStory, recordStoryAnswer, useProgress } from '../lib/progress';
+import { recordShadowing, recordShadowLine, recordStory, recordStoryAnswer, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { getStories, getStory, type Gloss, LEVELS, type Line, optionEn, optionText, type Story } from '../lib/stories';
-import { Icon, Screen } from '../ui';
+import { isModelReady, loadModel, transcribe } from '../lib/whisper';
+import { Icon, Screen, Waveform } from '../ui';
 import { LangSwitcher } from './Path';
 
 const STORY_XP = 10;
+const SHADOW_XP = 5;
+
+/** How a line went in shadowing: Whisper's score and the words it heard (score null: not graded). */
+type LineResult = { score: number | null; heard?: string; tokens?: TokenResult[] };
+/** Where shadowing is: hearing the line, your turn, speech heard, Whisper checking, or showing the grade. */
+type ShadowPhase = 'listen' | 'speak' | 'heard' | 'checking' | 'result';
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+const testHook = location.search.includes('test');
 
 /** Practice tab › Stories & dialogues: three levels, a story and a dialogue each. */
 export function StoryList({ lang }: { lang: Lang }) {
@@ -79,19 +90,117 @@ export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
   const [english, setEnglish] = useState(false);
   const [word, setWord] = useState<{ text: string; gloss?: Gloss; line: number } | null>(null);
   const stop = useRef<(() => void) | null>(null);
+  // Shadowing: hear a line, say it back, Whisper grades it, on to the next.
+  const [shadow, setShadow] = useState<{ line: number; phase: ShadowPhase } | null>(null);
+  const [results, setResults] = useState<Record<number, LineResult>>({});
+  const [shadowEnd, setShadowEnd] = useState<{ average: number | null; error?: string } | null>(null);
+  const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
+  const run = useRef<symbol | null>(null);
+  const recording = useRef<Recording | null>(null);
 
-  useEffect(() => () => stop.current?.(), []);
+  const stopShadow = () => {
+    run.current = null;
+    recording.current?.stop();
+    recording.current = null;
+    setAnalyser(null);
+    setShadow(null);
+  };
+  useEffect(
+    () => () => {
+      stop.current?.();
+      run.current = null;
+      recording.current?.stop();
+    },
+    [],
+  );
+  const current = shadow?.line ?? playing;
   useEffect(() => {
-    if (playing >= 0) document.querySelector(`[data-line="${playing}"]`)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
-  }, [playing]);
+    if (current >= 0) document.querySelector(`[data-line="${current}"]`)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }, [current]);
 
   if (!story) {
     navigate(`/${lang}/stories`, { replace: true });
     return null;
   }
 
+  /** Shadows from line `from` to the end. Call it from a tap (iOS starts audio only then). */
+  const runShadow = async (from: number) => {
+    stop.current?.();
+    recording.current?.stop();
+    const me = Symbol('shadowing');
+    run.current = me;
+    const alive = () => run.current === me;
+    const graded = isModelReady();
+    if (graded) loadModel().catch(() => {});
+    setWord(null);
+    setShadowEnd(null);
+    const scores: (number | null)[] = [];
+    for (let i = from; i < story.lines.length; i++) {
+      const line = story.lines[i];
+      setShadow({ line: i, phase: 'listen' });
+      if (testHook) Object.assign(window, { __shadowAudio: new URL(line.audio, location.href).href, __shadowLine: i });
+      await playAndWait(line.audio, slow);
+      if (!alive()) return;
+      setShadow({ line: i, phase: 'speak' });
+      let result: LineResult = { score: null };
+      if (graded) {
+        let audio: Float32Array;
+        try {
+          const rec = await startRecording(() => alive() && setShadow({ line: i, phase: 'heard' }));
+          recording.current = rec;
+          setAnalyser(rec.analyser);
+          audio = await rec.done;
+        } catch (e) {
+          if (alive()) {
+            stopShadow();
+            setShadowEnd({ average: null, error: e instanceof Error ? e.message : String(e) });
+          }
+          return;
+        }
+        recording.current = null;
+        setAnalyser(null);
+        if (!alive()) return;
+        if (audio.length) {
+          setShadow({ line: i, phase: 'checking' });
+          const heard = await transcribe(audio, lang);
+          if (!alive()) return;
+          const c = compare(line.text, heard, lang);
+          result = { score: c.score, heard, tokens: c.tokens };
+        } else {
+          result = { score: 0, heard: '' };
+        }
+        sfx(result.score! >= 0.5 ? 'correct' : 'wrong');
+        haptic(result.score! >= 0.5 ? 'success' : 'error');
+      } else {
+        // No speech model: a pause long enough to say it, without a grade.
+        await sleep(Math.max(2200, clipSeconds() * 1300));
+        if (!alive()) return;
+      }
+      recordShadowLine(lang, result.score);
+      scores.push(result.score);
+      setResults((r) => ({ ...r, [i]: result }));
+      setShadow({ line: i, phase: 'result' });
+      await sleep(graded ? 1500 : 400);
+      if (!alive()) return;
+    }
+    run.current = null;
+    setShadow(null);
+    const scored = scores.filter((x): x is number => x !== null);
+    const average = scored.length ? scored.reduce((a, b) => a + b, 0) / scored.length : null;
+    if (from === 0) recordShadowing(lang, story.id, average, SHADOW_XP); // a whole pass counts like a short lesson
+    setShadowEnd({ average });
+    sfx('complete');
+  };
+
+  const startShadow = (from: number) => {
+    tapFeedback();
+    unlockAudio([]);
+    void runShadow(from);
+  };
+
   const playAll = () => {
     tapFeedback();
+    if (shadow) stopShadow();
     if (playing >= 0) {
       stop.current?.();
       return;
@@ -120,9 +229,14 @@ export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
           </div>
           <div className="muted">{story.en}</div>
         </div>
-        <button className="btn" onClick={playAll} data-testid="play-all">
-          <Icon name={playing >= 0 ? 'stop' : 'play'} size={18} /> {playing >= 0 ? 'Stop' : 'Play all'}
-        </button>
+        <div className="row">
+          <button className="btn flex" onClick={playAll} data-testid="play-all">
+            <Icon name={playing >= 0 ? 'stop' : 'play'} size={18} /> {playing >= 0 ? 'Stop' : 'Play all'}
+          </button>
+          <button className="btn secondary flex" onClick={() => (shadow ? stopShadow() : startShadow(0))} data-testid="shadow-start">
+            <Icon name={shadow ? 'stop' : 'mic'} size={18} /> {shadow ? 'Stop' : 'Shadow'}
+          </button>
+        </div>
         <div className="row story-toggles">
           <label className="chip-toggle">
             <input type="checkbox" checked={slow} onChange={(e) => setSlow(e.target.checked)} /> Slow
@@ -142,10 +256,11 @@ export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
             lang={lang}
             story={story}
             side={line.speaker ? speakers.indexOf(line.speaker) % 2 : 0}
-            active={playing === i}
+            active={current === i}
+            result={results[i]}
             english={english}
             picked={word?.line === i ? word.text : null}
-            onPlay={() => playLine(i)}
+            onPlay={() => (shadow ? startShadow(i) : playLine(i))}
             onWord={(text, gloss) => {
               tapFeedback();
               setWord(word?.line === i && word.text === text ? null : { text, gloss, line: i });
@@ -154,7 +269,40 @@ export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
         ))}
       </div>
 
+      {shadowEnd && (
+        <div className={`card grade ${shadowEnd.error ? 'wrong' : 'ok'}`} data-testid="shadow-done">
+          {shadowEnd.error ? (
+            <p style={{ margin: 0 }}>{shadowEnd.error}</p>
+          ) : (
+            <>
+              <div style={{ fontSize: 20, fontWeight: 700 }}>
+                Shadowing done{shadowEnd.average !== null ? `: ${Math.round(shadowEnd.average * 100)}% on average` : ''}
+              </div>
+              <p style={{ margin: 0 }}>
+                {shadowEnd.average === null
+                  ? 'Download the speech model in Settings to get each line graded.'
+                  : 'Lines in orange or red are worth another go: tap the line, then Shadow from there.'}
+              </p>
+            </>
+          )}
+        </div>
+      )}
+
       <Questions key={story.id} lang={lang} story={story} />
+      {shadow && <div style={{ height: 150 }} aria-hidden="true" /> /* room to scroll past the shadowing bar */}
+      {shadow && (
+        <ShadowBar
+          line={shadow.line}
+          total={story.lines.length}
+          phase={shadow.phase}
+          result={results[shadow.line]}
+          graded={isModelReady()}
+          analyser={analyser}
+          onAgain={() => startShadow(shadow.line)}
+          onSkip={() => (shadow.line + 1 < story.lines.length ? startShadow(shadow.line + 1) : stopShadow())}
+          onStop={stopShadow}
+        />
+      )}
 
       {word && <div style={{ height: 96 }} aria-hidden="true" /> /* room to scroll past the word card */}
       {word && (
@@ -185,12 +333,13 @@ function StoryLine(props: {
   story: Story;
   side: number;
   active: boolean;
+  result?: LineResult;
   english: boolean;
   picked: string | null;
   onPlay: () => void;
   onWord: (text: string, gloss?: Gloss) => void;
 }) {
-  const { index, line, lang, story, side, active, english, picked, onPlay, onWord } = props;
+  const { index, line, lang, story, side, active, result, english, picked, onPlay, onWord } = props;
   const tokens = useMemo(() => tokenize(line.text, line.seg), [line]);
   const speaker = line.speaker ? story.speakers?.[line.speaker] : undefined;
   return (
@@ -210,8 +359,98 @@ function StoryLine(props: {
         </p>
         {line.pinyin && <p className="line-pinyin">{line.pinyin}</p>}
         {english && <p className="line-en">{line.en}</p>}
+        {result && <LineGrade result={result} />}
         <button className="line-play" aria-label={`Play line ${index + 1}`} onClick={onPlay}>
           <Icon name="speaker" size={18} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+const gradeClass = (score: number) => (score >= 0.85 ? 'ok' : score >= 0.5 ? 'close' : 'wrong');
+
+/** Under a shadowed line: Whisper's score and the words marked right, almost or missed. */
+function LineGrade({ result }: { result: LineResult }) {
+  if (result.score === null) return <p className="line-grade muted small">Repeated (not graded)</p>;
+  return (
+    <div className="line-grade" title={result.heard ? `Whisper heard: ${result.heard}` : undefined}>
+      <span className={`score-chip ${gradeClass(result.score)}`}>{Math.round(result.score * 100)}%</span>
+      {result.tokens?.length ? (
+        <span className="tokens small">
+          {result.tokens.map((t, i) => (
+            <span key={i} className={`token ${t.status}`}>
+              {t.text}
+            </span>
+          ))}
+        </span>
+      ) : (
+        <span className="muted small">{result.heard === '' ? "Didn't hear you" : ''}</span>
+      )}
+    </div>
+  );
+}
+
+/** The bar at the bottom while shadowing: what's happening now, and Again / Skip / Stop. */
+function ShadowBar(props: {
+  line: number;
+  total: number;
+  phase: ShadowPhase;
+  result?: LineResult;
+  graded: boolean;
+  analyser: AnalyserNode | null;
+  onAgain: () => void;
+  onSkip: () => void;
+  onStop: () => void;
+}) {
+  const { line, total, phase, result, graded, analyser, onAgain, onSkip, onStop } = props;
+  const status =
+    phase === 'listen'
+      ? 'Listen…'
+      : phase === 'speak'
+        ? graded
+          ? 'Your turn: say it'
+          : 'Your turn: say it out loud'
+        : phase === 'heard'
+          ? 'Listening… stops when you finish'
+          : phase === 'checking'
+            ? 'Checking…'
+            : result?.score == null
+              ? 'Next line…'
+              : result.score >= 0.85
+                ? `${Math.round(result.score * 100)}% · Great!`
+                : result.score >= 0.5
+                  ? `${Math.round(result.score * 100)}% · Close`
+                  : result.heard === ''
+                    ? "Didn't hear you"
+                    : `${Math.round(result.score * 100)}% · Try it again later`;
+  return (
+    <div className="lesson-foot shadow-bar" data-testid="shadow-bar">
+      <div className="row">
+        {/* Red only while the mic is really on (graded); without the speech model it's just a pause. */}
+        <span className={`shadow-dot ${graded || phase === 'listen' ? phase : 'pause'}`} aria-hidden="true">
+          <Icon name={phase === 'listen' ? 'speaker' : 'mic'} size={20} />
+        </span>
+        <div className="grow">
+          <div className="muted small">
+            Shadowing · line {line + 1} of {total}
+          </div>
+          <div className="shadow-status" data-testid="shadow-status" aria-live="polite">
+            {status}
+          </div>
+        </div>
+      </div>
+      {(phase === 'speak' || phase === 'heard') && graded && <Waveform analyser={analyser} />}
+      {!graded && <p className="muted small" style={{ margin: 0 }}>Not graded: download the speech model in Settings to get a score.</p>}
+      <div className="row">
+        <button className="btn secondary flex" onClick={onAgain}>
+          <Icon name="review" size={18} /> Again
+        </button>
+        <button className="btn secondary flex" onClick={onSkip}>
+          Skip
+        </button>
+        <button className="btn secondary flex" onClick={onStop}>
+          <Icon name="stop" size={18} /> Stop
         </button>
       </div>
     </div>

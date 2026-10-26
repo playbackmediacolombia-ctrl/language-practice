@@ -17,6 +17,37 @@ export function playPhrase(url: string, slow = false, fromSequence = false) {
 let sequence: (() => void) | null = null;
 
 /**
+ * Plays a clip and resolves when it ends: true if it played to the end, false if something else
+ * paused or replaced it (or it failed). Start it from a tap the first time (iOS).
+ */
+export function playAndWait(url: string, slow = false): Promise<boolean> {
+  return new Promise((resolve) => {
+    let started = false; // a 'pause' from stopping the previous clip arrives late; ignore it
+    const settle = (ended: boolean) => {
+      clearTimeout(timer);
+      player.removeEventListener('playing', onPlaying);
+      player.removeEventListener('ended', onEnded);
+      player.removeEventListener('pause', onPause);
+      player.removeEventListener('error', onError);
+      resolve(ended);
+    };
+    const onPlaying = () => (started = true);
+    const onEnded = () => settle(true);
+    const onPause = () => started && !player.ended && settle(false);
+    const onError = () => settle(false);
+    const timer = setTimeout(() => !started && settle(false), 8000); // never started (blocked or offline)
+    playPhrase(url, slow);
+    player.addEventListener('playing', onPlaying);
+    player.addEventListener('ended', onEnded);
+    player.addEventListener('pause', onPause);
+    player.addEventListener('error', onError);
+  });
+}
+
+/** Length of the clip that's loaded, in seconds (0 if unknown). */
+export const clipSeconds = () => (Number.isFinite(player.duration) ? player.duration : 0);
+
+/**
  * Plays clips one after another with a short pause between them (a story read aloud), from
  * `start`. `onIndex` gets each clip's index as it starts, and -1 when it's over or stopped.
  * Returns a stop function. Start it from a tap (iOS).
