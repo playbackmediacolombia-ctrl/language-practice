@@ -41,8 +41,8 @@
           "es": "¿Cómo estás?",
           "fr": "Comment ça va ?",
           "zh": {
-            "hanzi": "你好吗？",
-            "pinyin": "nǐ hǎo ma?"
+            "hanzi": "最近好吗？",
+            "pinyin": "zuìjìn hǎo ma?"
           }
         },
         {
@@ -108,8 +108,8 @@
           "es": "Agua, por favor.",
           "fr": "De l'eau, s'il vous plaît.",
           "zh": {
-            "hanzi": "请给我水。",
-            "pinyin": "qǐng gěi wǒ shuǐ."
+            "hanzi": "请给我一杯水。",
+            "pinyin": "qǐng gěi wǒ yì bēi shuǐ."
           }
         },
         {
@@ -235,8 +235,8 @@
           "es": "Necesito un taxi.",
           "fr": "J'ai besoin d'un taxi.",
           "zh": {
-            "hanzi": "我需要一辆出租车。",
-            "pinyin": "wǒ xūyào yí liàng chūzūchē."
+            "hanzi": "我要打车。",
+            "pinyin": "wǒ yào dǎchē."
           }
         },
         {
@@ -351,8 +351,8 @@
           "es": "Son veinte euros.",
           "fr": "Ça fait vingt euros.",
           "zh": {
-            "hanzi": "二十欧元。",
-            "pinyin": "èrshí ōuyuán."
+            "hanzi": "一共二十欧元。",
+            "pinyin": "yígòng èrshí ōuyuán."
           }
         }
       ]

@@ -415,7 +415,7 @@
             { "id": "chaque-jour-elle-allait", "text": "Chaque jour, elle allait à la rivière.", "en": "Every day she went to the river." },
             { "id": "un-jour-elle-a-trouve", "text": "Un jour, elle a trouvé une boîte.", "en": "One day she found a box." },
             { "id": "tout-a-coup", "text": "tout à coup", "en": "suddenly" },
-            { "id": "ils-vecurent-heureux", "text": "Ils vécurent heureux pour toujours.", "en": "They lived happily ever after." }
+            { "id": "ils-vecurent-heureux", "text": "Ils vécurent heureux et eurent beaucoup d'enfants.", "en": "They lived happily ever after." }
           ]
         },
         {
@@ -732,7 +732,7 @@
             { "id": "je-me-permets-de-vous-ecrire", "text": "Je me permets de vous écrire pour obtenir des informations.", "en": "I am writing to request information." },
             { "id": "veuillez-trouver-ci-joint", "text": "Veuillez trouver ci-joint mon CV.", "en": "Please find my résumé attached." },
             { "id": "dans-lattente-de-votre-reponse", "text": "Dans l'attente de votre réponse,", "en": "I look forward to your reply," },
-            { "id": "cordialement", "text": "Cordialement,", "en": "Sincerely," },
+            { "id": "cordialement", "text": "Cordialement,", "en": "Kind regards," },
             { "id": "bisous", "text": "Bisous !", "en": "Kisses! (to a friend)" }
           ]
         }
@@ -760,7 +760,7 @@
           "items": [
             { "id": "mettre-dans-le-mille", "text": "Tu as mis dans le mille.", "en": "You hit the nail on the head." },
             { "id": "je-suis-creve", "text": "Je suis crevé.", "en": "I'm exhausted. (man)" },
-            { "id": "se-bouger", "text": "Bouge-toi un peu !", "en": "Get your act together!" },
+            { "id": "se-bouger", "text": "Bouge-toi un peu !", "en": "Get a move on!" },
             { "id": "pas-ferme-loeil", "text": "Je n'ai pas fermé l'œil de la nuit.", "en": "I didn't sleep a wink all night." },
             { "id": "avoir-le-cafard", "text": "J'ai le cafard.", "en": "I'm feeling down." },
             { "id": "poser-un-lapin", "text": "Il m'a posé un lapin.", "en": "He stood me up." }

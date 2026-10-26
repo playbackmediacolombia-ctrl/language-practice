@@ -15,13 +15,13 @@
         { "text": "我很爱咪咪！", "seg": "我 很 爱 咪咪 ！", "pinyin": "Wǒ hěn ài Mīmi!", "en": "I love Mimi very much!" }
       ],
       "glossary": {
-        "我": { "py": "wǒ", "en": "I, me" }, "有": { "py": "yǒu", "en": "to have" }, "一": { "py": "yì", "en": "one, a" },
+        "我": { "py": "wǒ", "en": "I, me" }, "有": { "py": "yǒu", "en": "to have" }, "一": { "py": "yī", "en": "one, a (said yì or yí before another word)" },
         "只": { "py": "zhī", "en": "(measure word for animals)" }, "猫": { "py": "māo", "en": "cat" }, "它": { "py": "tā", "en": "it" },
         "叫": { "py": "jiào", "en": "to be called" }, "咪咪": { "py": "Mīmi", "en": "Mimi (a pet's name)" }, "很": { "py": "hěn", "en": "very" },
         "小": { "py": "xiǎo", "en": "small" }, "也": { "py": "yě", "en": "also, too" }, "可爱": { "py": "kě'ài", "en": "cute" },
         "喜欢": { "py": "xǐhuan", "en": "to like" }, "喝": { "py": "hē", "en": "to drink" }, "牛奶": { "py": "niúnǎi", "en": "milk" },
         "晚上": { "py": "wǎnshang", "en": "evening, at night" }, "在": { "py": "zài", "en": "at, on" }, "的": { "py": "de", "en": "'s (possessive)" },
-        "床": { "py": "chuáng", "en": "bed" }, "上": { "py": "shang", "en": "on (top of)" }, "睡觉": { "py": "shuìjiào", "en": "to sleep" },
+        "床": { "py": "chuáng", "en": "bed" }, "上": { "py": "shàng", "en": "on (top of); said lightly, shang, after a noun" }, "睡觉": { "py": "shuìjiào", "en": "to sleep" },
         "爱": { "py": "ài", "en": "to love" }
       },
       "questions": [
@@ -49,7 +49,7 @@
       "glossary": {
         "阿姨": { "py": "āyí", "en": "auntie (polite for an older woman)" }, "苹果": { "py": "píngguǒ", "en": "apple" },
         "多少": { "py": "duōshao", "en": "how much, how many" }, "钱": { "py": "qián", "en": "money" }, "五": { "py": "wǔ", "en": "five" },
-        "块": { "py": "kuài", "en": "yuan (spoken)" }, "一": { "py": "yì", "en": "one, a" }, "斤": { "py": "jīn", "en": "jin (half a kilo)" },
+        "块": { "py": "kuài", "en": "yuan (spoken)" }, "一": { "py": "yī", "en": "one, a (said yì or yí before another word)" }, "斤": { "py": "jīn", "en": "jin (half a kilo)" },
         "我": { "py": "wǒ", "en": "I" }, "要": { "py": "yào", "en": "to want" }, "两": { "py": "liǎng", "en": "two (of something)" },
         "好的": { "py": "hǎo de", "en": "OK" }, "还": { "py": "hái", "en": "still, also" }, "别的": { "py": "biéde", "en": "something else" },
         "吗": { "py": "ma", "en": "(question particle)" }, "香蕉": { "py": "xiāngjiāo", "en": "banana" }, "也": { "py": "yě", "en": "also, too" },
@@ -79,7 +79,7 @@
       "glossary": {
         "我": { "py": "wǒ", "en": "I" }, "每天": { "py": "měitiān", "en": "every day" }, "早上": { "py": "zǎoshang", "en": "morning" },
         "七": { "py": "qī", "en": "seven" }, "点": { "py": "diǎn", "en": "o'clock" }, "起床": { "py": "qǐchuáng", "en": "to get up" },
-        "先": { "py": "xiān", "en": "first" }, "喝": { "py": "hē", "en": "to drink" }, "一": { "py": "yì", "en": "one, a" },
+        "先": { "py": "xiān", "en": "first" }, "喝": { "py": "hē", "en": "to drink" }, "一": { "py": "yī", "en": "one, a (said yì or yí before another word)" },
         "杯": { "py": "bēi", "en": "cup (of)" }, "茶": { "py": "chá", "en": "tea" }, "然后": { "py": "ránhòu", "en": "then, after that" },
         "吃": { "py": "chī", "en": "to eat" }, "早饭": { "py": "zǎofàn", "en": "breakfast" }, "八": { "py": "bā", "en": "eight" },
         "坐": { "py": "zuò", "en": "to sit; to take (transport)" }, "地铁": { "py": "dìtiě", "en": "subway, metro" }, "去": { "py": "qù", "en": "to go" },
@@ -146,7 +146,7 @@
         "北京": { "py": "Běijīng", "en": "Beijing" }, "旅行": { "py": "lǚxíng", "en": "to travel; a trip" }, "了": { "py": "le", "en": "(marks a completed action)" },
         "我们": { "py": "wǒmen", "en": "we" }, "坐": { "py": "zuò", "en": "to take (transport)" }, "高铁": { "py": "gāotiě", "en": "high-speed train" },
         "的": { "py": "de", "en": "(…去的: it was by … that we went)" }, "只": { "py": "zhǐ", "en": "only" }, "用": { "py": "yòng", "en": "to use; to take (time)" },
-        "五": { "py": "wǔ", "en": "five" }, "个": { "py": "ge", "en": "(measure word)" }, "小时": { "py": "xiǎoshí", "en": "hour" },
+        "五": { "py": "wǔ", "en": "five" }, "个": { "py": "gè", "en": "(measure word; usually said lightly, ge)" }, "小时": { "py": "xiǎoshí", "en": "hour" },
         "第一": { "py": "dì-yī", "en": "first" }, "天": { "py": "tiān", "en": "day" }, "参观": { "py": "cānguān", "en": "to visit (a place)" },
         "故宫": { "py": "Gùgōng", "en": "the Forbidden City" }, "人": { "py": "rén", "en": "people" }, "非常": { "py": "fēicháng", "en": "extremely, very" },
         "多": { "py": "duō", "en": "many" }, "第二": { "py": "dì-èr", "en": "second" }, "爬": { "py": "pá", "en": "to climb" },
@@ -186,7 +186,7 @@
         "什么": { "py": "shénme", "en": "what" }, "时候": { "py": "shíhou", "en": "time (什么时候: when)" }, "开始": { "py": "kāishǐ", "en": "to start" },
         "的": { "py": "de", "en": "(stresses when it happened)" }, "昨天": { "py": "zuótiān", "en": "yesterday" }, "晚上": { "py": "wǎnshang", "en": "evening, night" },
         "可能": { "py": "kěnéng", "en": "probably, maybe" }, "感冒": { "py": "gǎnmào", "en": "to catch a cold; a cold" }, "了": { "py": "le", "en": "(change of state)" },
-        "这": { "py": "zhè", "en": "this" }, "是": { "py": "shì", "en": "is" }, "药": { "py": "yào", "en": "medicine" }, "一": { "py": "yì", "en": "one" },
+        "这": { "py": "zhè", "en": "this" }, "是": { "py": "shì", "en": "is" }, "药": { "py": "yào", "en": "medicine" }, "一": { "py": "yī", "en": "one (said yì or yí before another word)" },
         "天": { "py": "tiān", "en": "day" }, "吃": { "py": "chī", "en": "to eat; to take (medicine)" }, "三": { "py": "sān", "en": "three" },
         "次": { "py": "cì", "en": "times" }, "明天": { "py": "míngtiān", "en": "tomorrow" }, "可以": { "py": "kěyǐ", "en": "can, may" },
         "去": { "py": "qù", "en": "to go" }, "上班": { "py": "shàngbān", "en": "to go to work" }, "吗": { "py": "ma", "en": "(question particle)" },

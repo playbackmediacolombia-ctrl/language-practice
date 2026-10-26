@@ -84,6 +84,27 @@ async def synth(text: str, voice: str, out: Path) -> None:
             await asyncio.sleep(3 * (attempt + 1))
 
 
+class Texts:
+    """What each clip in a folder says (texts.json), so a clip is remade when its text changes.
+    A clip that exists but isn't listed yet is taken to match its current text."""
+
+    def __init__(self, folder: Path):
+        self.file = folder / "texts.json"
+        self.data = json.loads(self.file.read_text(encoding="utf-8")) if self.file.exists() else {}
+
+    def stale(self, name: str, out: Path, text: str) -> bool:
+        if not (out.exists() and out.stat().st_size > 0):
+            return True
+        self.data.setdefault(name, text)
+        return self.data[name] != text
+
+    def made(self, name: str, text: str) -> None:
+        self.data[name] = text
+
+    def save(self) -> None:
+        self.file.write_text(json.dumps(self.data, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
 async def main() -> None:
     data = json.loads(PHRASES.read_text(encoding="utf-8"))
     phrases = [p for topic in data["topics"] for p in topic["phrases"]]
@@ -91,26 +112,34 @@ async def main() -> None:
     made = 0
     for lang, voice in VOICES.items():
         (AUDIO_DIR / lang).mkdir(parents=True, exist_ok=True)
+        texts = Texts(AUDIO_DIR / lang)
         for phrase in phrases:
             out = AUDIO_DIR / lang / f"{phrase['id']}.mp3"
-            if out.exists() and out.stat().st_size > 0:
+            text = text_for(phrase, lang)
+            if not texts.stale(phrase["id"], out, text):
                 continue
-            print(f"{lang}  {phrase['id']}")
-            await synth(text_for(phrase, lang), voice, out)
+            print(f"{lang}  {phrase['id']}: {text}")
+            await synth(text, voice, out)
+            texts.made(phrase["id"], text)
             made += 1
+        texts.save()
 
     for lang, voice in VOICES.items():
         course = json.loads((COURSE_DIR / f"{lang}.json").read_text(encoding="utf-8"))
         (COURSE_AUDIO_DIR / lang).mkdir(parents=True, exist_ok=True)
+        texts = Texts(COURSE_AUDIO_DIR / lang)
         for unit in course["units"]:
             for lesson in unit["lessons"]:
                 for item in lesson["items"]:
                     out = COURSE_AUDIO_DIR / lang / f"{item['id']}.mp3"
-                    if out.exists() and out.stat().st_size > 0:
+                    text = item.get("say", item["text"])
+                    if not texts.stale(item["id"], out, text):
                         continue
-                    print(f"course {lang}  {item['id']}")
-                    await synth(item.get("say", item["text"]), voice, out)
+                    print(f"course {lang}  {item['id']}: {text}")
+                    await synth(text, voice, out)
+                    texts.made(item["id"], text)
                     made += 1
+        texts.save()
 
     # Clips are named by position, so remember each one's text and remake it if that changes.
     coach = json.loads(COACH.read_text(encoding="utf-8"))

@@ -76,7 +76,7 @@
             { "id": "he", "text": "喝", "pinyin": "hē", "en": "to drink" },
             { "id": "xiexie-mama", "text": "谢谢妈妈", "pinyin": "xièxie māma", "en": "Thank you, mom.", "tiles": ["谢谢", "妈妈"] },
             { "id": "qing-he-shui", "text": "请喝水", "pinyin": "qǐng hē shuǐ", "en": "Please drink some water.", "tiles": ["请", "喝", "水"] },
-            { "id": "buyao-xiexie", "text": "不要，谢谢", "pinyin": "bú yào, xièxie", "en": "No, thank you.", "tiles": ["不要", "谢谢"] }
+            { "id": "buyao-xiexie", "text": "不用了，谢谢", "pinyin": "bú yòng le, xièxie", "en": "No, thank you.", "tiles": ["不用", "了", "谢谢"] }
           ]
         },
         {
@@ -391,7 +391,7 @@
           "items": [
             { "id": "ni-zuotian-zuo-le-shenme", "text": "你昨天做了什么？", "pinyin": "nǐ zuótiān zuò le shénme?", "en": "What did you do yesterday?", "tiles": ["你", "昨天", "做", "了", "什么"] },
             { "id": "wo-qu-le-gongyuan", "text": "我去了公园", "pinyin": "wǒ qù le gōngyuán", "en": "I went to the park.", "tiles": ["我", "去", "了", "公园"] },
-            { "id": "wo-he-jiaren-chifan", "text": "我和家人一起吃饭", "pinyin": "wǒ hé jiārén yìqǐ chīfàn", "en": "I ate with my family.", "tiles": ["我", "和", "家人", "一起", "吃饭"] },
+            { "id": "wo-he-jiaren-chifan", "text": "我和家人一起吃了晚饭", "pinyin": "wǒ hé jiārén yìqǐ chī le wǎnfàn", "en": "I had dinner with my family.", "tiles": ["我", "和", "家人", "一起", "吃", "了", "晚饭"] },
             { "id": "wo-kan-le-yibu-dianying", "text": "我看了一部电影", "pinyin": "wǒ kàn le yí bù diànyǐng", "en": "I watched a movie.", "tiles": ["我", "看", "了", "一部", "电影"] },
             { "id": "wo-yizhengtian-dou-zai-jia", "text": "我一整天都在家", "pinyin": "wǒ yì zhěng tiān dōu zài jiā", "en": "I was home all day.", "tiles": ["我", "一整天", "都", "在", "家"] },
             { "id": "wan-de-hen-kaixin", "text": "玩得很开心", "pinyin": "wán de hěn kāixīn", "en": "I had a great time.", "tiles": ["玩", "得", "很", "开心"] }
@@ -412,7 +412,7 @@
             { "id": "ta-meitian-dou-qu-hebian", "text": "她每天都去河边", "pinyin": "tā měitiān dōu qù hé biān", "en": "Every day she went to the river.", "tiles": ["她", "每天", "都", "去", "河边"] },
             { "id": "you-yitian-ta-zhaodao-le", "text": "有一天，她找到了一个盒子", "pinyin": "yǒu yì tiān, tā zhǎodào le yí ge hézi", "en": "One day she found a box.", "tiles": ["有一天", "她", "找到", "了", "一个", "盒子"] },
             { "id": "turan", "text": "突然", "pinyin": "tūrán", "en": "suddenly" },
-            { "id": "cong-ci-guo-shang-le", "text": "从此过上了幸福的生活", "pinyin": "cóngcǐ guò shàng le xìngfú de shēnghuó", "en": "And from then on they lived happily ever after.", "tiles": ["从此", "过上", "了", "幸福", "的", "生活"] }
+            { "id": "cong-ci-guo-shang-le", "text": "从此他们过上了幸福的生活", "pinyin": "cóngcǐ tāmen guò shàng le xìngfú de shēnghuó", "en": "And from then on they lived happily ever after.", "tiles": ["从此", "他们", "过上", "了", "幸福", "的", "生活"] }
           ]
         },
         {
@@ -579,7 +579,7 @@
             { "id": "wo-de-huzhao-diu-le", "text": "我的护照丢了", "pinyin": "wǒ de hùzhào diū le", "en": "I lost my passport.", "tiles": ["我的", "护照", "丢", "了"] },
             { "id": "wo-de-xingli-mei-dao", "text": "我的行李没到", "pinyin": "wǒ de xíngli méi dào", "en": "My luggage didn't arrive.", "tiles": ["我的", "行李", "没", "到"] },
             { "id": "hangban-yanwu-le-liang-ge-xiaoshi", "text": "航班延误了两个小时", "pinyin": "hángbān yánwù le liǎng ge xiǎoshí", "en": "The flight is delayed two hours.", "tiles": ["航班", "延误", "了", "两个", "小时"] },
-            { "id": "wo-wu-le-zhuanji", "text": "我误了转机", "pinyin": "wǒ wù le zhuǎnjī", "en": "I missed my connection.", "tiles": ["我", "误", "了", "转机"] },
+            { "id": "wo-wu-le-zhuanji", "text": "我错过了转机", "pinyin": "wǒ cuòguò le zhuǎnjī", "en": "I missed my connection.", "tiles": ["我", "错过", "了", "转机"] },
             { "id": "neng-gei-wo-huan-yige-hangban-ma", "text": "能给我换一个航班吗？", "pinyin": "néng gěi wǒ huàn yí ge hángbān ma?", "en": "Can you change me to another flight?", "tiles": ["能", "给", "我", "换", "一个", "航班", "吗"] }
           ]
         },
@@ -643,7 +643,7 @@
           "items": [
             { "id": "wo-renwei-zhe-shi-ge-cuowu", "text": "我认为这是个错误", "pinyin": "wǒ rènwéi zhè shì ge cuòwù", "en": "I believe this is a mistake.", "tiles": ["我", "认为", "这", "是", "个", "错误"] },
             { "id": "wo-juede-ni-shuo-de-dui", "text": "我觉得你说得对", "pinyin": "wǒ juéde nǐ shuō de duì", "en": "I think you're right.", "tiles": ["我", "觉得", "你", "说", "得", "对"] },
-            { "id": "wo-bu-juede-zhe-gongping", "text": "我不觉得这公平", "pinyin": "wǒ bù juéde zhè gōngpíng", "en": "I don't think it's fair.", "tiles": ["我", "不", "觉得", "这", "公平"] },
+            { "id": "wo-bu-juede-zhe-gongping", "text": "我觉得这不公平", "pinyin": "wǒ juéde zhè bù gōngpíng", "en": "I don't think it's fair.", "tiles": ["我", "觉得", "这", "不", "公平"] },
             { "id": "zai-wo-kanlai", "text": "在我看来，还有更重要的事", "pinyin": "zài wǒ kànlái, hái yǒu gèng zhòngyào de shì", "en": "The way I see it, there are more important things.", "tiles": ["在", "我", "看来", "还有", "更", "重要", "的", "事"] },
             { "id": "wo-ganjue-tamen-kuazhang-le", "text": "我感觉他们夸张了", "pinyin": "wǒ gǎnjué tāmen kuāzhāng le", "en": "I feel they're exaggerating.", "tiles": ["我", "感觉", "他们", "夸张", "了"] },
             { "id": "na-yao-kan-zenme-kan", "text": "那要看你怎么看", "pinyin": "nà yào kàn nǐ zěnme kàn", "en": "That depends on how you look at it.", "tiles": ["那", "要看", "你", "怎么", "看"] }

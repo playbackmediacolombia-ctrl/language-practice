@@ -256,8 +256,8 @@
         "en": "A flawless run, hats off!"
       },
       {
-        "text": "Tout juste ! Tu es un champion !",
-        "en": "All right! You're a champion!"
+        "text": "Que des bonnes réponses, bravo !",
+        "en": "All correct, bravo!"
       }
     ],
     "wrong": [
@@ -364,12 +364,12 @@
         "en": "Right in a row, great!"
       },
       {
-        "text": "停不下来了！",
-        "en": "Unstoppable!"
+        "text": "越来越厉害了！",
+        "en": "Better and better!"
       },
       {
-        "text": "你是明星！",
-        "en": "You're a star!"
+        "text": "你是最棒的！",
+        "en": "You're the best!"
       }
     ],
     "complete": [
