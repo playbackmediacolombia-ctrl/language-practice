@@ -25,7 +25,7 @@ function tone(c: AudioContext, out: AudioNode, { freq, at, len, type = 'sine', g
   osc.stop(t + len + 0.02);
 }
 
-const SOUNDS: Record<'tap' | 'correct' | 'wrong' | 'complete', Note[]> = {
+const SOUNDS: Record<'tap' | 'correct' | 'wrong' | 'complete' | 'achievement', Note[]> = {
   // A soft, short tick.
   tap: [{ freq: 1500, at: 0, len: 0.04, gain: 0.05, slideTo: 900 }],
   // Two bright rising notes with a little shimmer on top.
@@ -47,6 +47,17 @@ const SOUNDS: Record<'tap' | 'correct' | 'wrong' | 'complete', Note[]> = {
     { freq: 1047, at: 0.27, len: 0.7, type: 'triangle', gain: 0.16 },
     { freq: 784, at: 0.27, len: 0.7, gain: 0.08 },
     { freq: 2093, at: 0.27, len: 0.5, gain: 0.025 },
+  ],
+  // The big moments (logo celebration): a quick run up two octaves and a bright, ringing chord.
+  achievement: [
+    { freq: 523, at: 0, len: 0.12, type: 'triangle', gain: 0.14 },
+    { freq: 784, at: 0.07, len: 0.12, type: 'triangle', gain: 0.14 },
+    { freq: 1047, at: 0.14, len: 0.12, type: 'triangle', gain: 0.14 },
+    { freq: 1319, at: 0.21, len: 0.12, type: 'triangle', gain: 0.14 },
+    { freq: 1568, at: 0.3, len: 1.1, type: 'triangle', gain: 0.15 },
+    { freq: 1047, at: 0.3, len: 1.1, type: 'sine', gain: 0.09 },
+    { freq: 1319, at: 0.3, len: 1.0, type: 'sine', gain: 0.06 },
+    { freq: 3136, at: 0.3, len: 0.7, gain: 0.02 },
   ],
 };
 

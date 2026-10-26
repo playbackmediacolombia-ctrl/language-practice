@@ -14,6 +14,20 @@ if (!(document as { startViewTransition?: unknown }).startViewTransition) docume
 // iOS only applies :active (the press-down effect) when the page listens for touches.
 document.addEventListener('touchstart', () => {}, { passive: true });
 
+// The app-start intro (index.html) removes itself once it has faded; and "recently open" is
+// refreshed whenever the app goes to the background, so a quick reopen skips it.
+const intro = document.getElementById('intro');
+if (intro) setTimeout(() => intro.remove(), 1500);
+const seen = () => {
+  try {
+    localStorage.setItem('intro-last', String(Date.now()));
+  } catch {
+    // Private mode or storage full: the intro just plays again next time.
+  }
+};
+document.addEventListener('visibilitychange', () => document.visibilityState === 'hidden' && seen());
+window.addEventListener('pagehide', seen);
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

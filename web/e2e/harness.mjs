@@ -52,32 +52,46 @@ function muteAudio() {
 
 /**
  * Changes the app's saved progress (settings, hearts, finished lessons) for a test, then reloads.
- * `edit` gets the saved object and changes it in place (or returns a new one).
+ * `edit` gets the saved object and changes it in place (or returns a new one). It runs in the
+ * page, so it can't see the test's variables: pass what it needs as `arg` (its second parameter).
  * The app saves its in-memory progress as it unloads (practice time), which would overwrite a
  * plain localStorage write, so this first steps the tab onto a static file of the same site:
  * the app's last save runs, then the edit is made with no app code loaded.
  */
-export async function editProgress(page, edit) {
+export async function editProgress(page, edit, arg) {
   const back = page.url();
   await page.goto(new URL('icons/favicon-32.png', back).href);
-  await page.evaluate((src) => {
-    const p = JSON.parse(localStorage.getItem('progress-v1') ?? '{}');
-    const next = new Function(`return (${src})`)()(p) ?? p;
-    localStorage.setItem('progress-v1', JSON.stringify(next));
-  }, edit.toString());
+  await page.evaluate(
+    ([src, a]) => {
+      const p = JSON.parse(localStorage.getItem('progress-v1') ?? '{}');
+      const next = new Function(`return (${src})`)()(p, a) ?? p;
+      localStorage.setItem('progress-v1', JSON.stringify(next));
+    },
+    [edit.toString(), arg],
+  );
   await page.goto(back);
 }
 
 const browsers = new Set();
 
-/** Launches WebKit (Safari's engine); every context and page it makes is muted. */
+/**
+ * Launches WebKit (Safari's engine); every context and page it makes is muted.
+ * Big-achievement celebrations are tapped away whenever one gets in the way of a test's next
+ * tap, like a person would; pass `keepCelebrations: true` to newContext to look at them instead.
+ */
 export async function launch() {
   const browser = await webkit.launch();
   browsers.add(browser);
   const newContext = browser.newContext.bind(browser);
-  browser.newContext = async (options) => {
+  browser.newContext = async ({ keepCelebrations = false, ...options } = {}) => {
     const context = await newContext(options);
     await context.addInitScript(muteAudio);
+    if (!keepCelebrations) {
+      context.on('page', (page) => {
+        const celebration = page.getByTestId('achievement');
+        void page.addLocatorHandler(celebration, () => celebration.getByRole('button', { name: 'Continue' }).click());
+      });
+    }
     return context;
   };
   browser.newPage = async (options) => {

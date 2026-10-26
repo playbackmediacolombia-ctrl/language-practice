@@ -35,6 +35,8 @@ export type Progress = {
   shadow: Record<string, number>;
   /** Placement test result per language: the last stage tested out of (it and every stage before it are unlocked). */
   placement: Partial<Record<Lang, string>>;
+  /** Big achievements already celebrated (see achievements.ts); null until first worked out. */
+  celebrated: string[] | null;
   /** Per day and language: answers right (r) and given (n), and seconds practiced (s). For the stats. */
   log: Record<string, Partial<Record<Lang, { r: number; n: number; s: number }>>>;
   hearts: number;
@@ -74,6 +76,7 @@ const EMPTY: Progress = {
   writing: {},
   stories: {},
   placement: {},
+  celebrated: null,
   shadow: {},
   tips: {},
   mistakes: {},
@@ -301,6 +304,10 @@ export const markTipSeen = (lang: Lang, lessonId: string) =>
   update((p) => (p.tips[`${lang}:${lessonId}`] ? p : { ...p, tips: { ...p.tips, [`${lang}:${lessonId}`]: Date.now() } }));
 
 /** Unlocks a language's path up to and including a stage (see placement.ts, which never moves it back). */
+/** Marks big achievements as celebrated so each one is shown only once. */
+export const markCelebrated = (keys: string[]) =>
+  update((p) => ({ ...p, celebrated: [...new Set([...(p.celebrated ?? []), ...keys])] }));
+
 export const setPlacement = (lang: Lang, stageId: string) => update((p) => ({ ...p, placement: { ...p.placement, [lang]: stageId } }));
 
 /** One line repeated in shadowing, graded by Whisper (null: not graded, no speech model). */

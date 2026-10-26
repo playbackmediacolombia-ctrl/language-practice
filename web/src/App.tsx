@@ -12,6 +12,7 @@ import { ProgressScreen } from './screens/ProgressScreen';
 import { Quiz } from './screens/Quiz';
 import { Settings } from './screens/Settings';
 import { TopicScreen } from './screens/TopicScreen';
+import { AchievementHost } from './Achievements';
 import { TabBar, useActiveTab } from './ui';
 
 const Stories = lazy(() => import('./screens/Stories').then((m) => ({ default: m.StoryList })));
@@ -32,6 +33,7 @@ export function App() {
     <div className={tab ? 'app with-tabs' : 'app'}>
       <Routes />
       {tab && <TabBar active={tab} />}
+      <AchievementHost />
     </div>
   );
 }

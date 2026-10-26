@@ -887,3 +887,43 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 /* ---- Backup (Settings) ---- */
 .restore-card { gap: 10px; border-color: var(--accent); box-shadow: none; }
 .summary-row { display: flex; flex-direction: column; gap: 2px; }
+
+/* =========================================================================
+   Big-achievement celebration: the logo spins in with a glow and confetti
+   (finishing a unit or level, streak milestones, placement, first daily goal)
+   ========================================================================= */
+.achievement {
+  position: fixed; inset: 0; z-index: 50; display: grid; place-items: center;
+  padding: calc(env(safe-area-inset-top) + 16px) 16px calc(env(safe-area-inset-bottom) + 16px);
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(160%); backdrop-filter: blur(14px) saturate(160%);
+  animation: achievement-in 0.3s ease-out both;
+}
+.achievement-card {
+  width: min(380px, 100%); display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;
+  background: var(--card); border: 1px solid var(--border); border-radius: 28px; padding: 26px 22px 22px;
+  box-shadow: var(--shadow-lg); animation: achievement-card 0.5s 0.1s var(--spring) both;
+}
+.achievement-card .btn { align-self: stretch; margin-top: 6px; }
+.achievement-logo { position: relative; width: 220px; max-width: 70vw; aspect-ratio: 720 / 590; }
+.achievement-logo img { position: relative; width: 100%; height: auto; display: block; animation: logo-spin 0.95s 0.15s var(--spring) both; }
+.achievement-glow {
+  position: absolute; inset: -18%; border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--sun) 55%, transparent), color-mix(in srgb, var(--sky) 35%, transparent) 45%, transparent 70%);
+  animation: logo-glow 1.6s 0.4s ease-out both;
+}
+.achievement-title { margin: 4px 0 0; font-size: 28px; font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
+.achievement-detail { margin: 0; color: var(--muted); font-size: 17px; }
+.achievement-more { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; color: var(--muted); font-size: 15px; }
+.achievement-more b { color: var(--text); }
+@keyframes achievement-in { from { opacity: 0; } }
+@keyframes achievement-card { from { opacity: 0; transform: translateY(24px) scale(0.94); } }
+@keyframes logo-spin {
+  0% { opacity: 0; transform: rotate(-540deg) scale(0.15); }
+  65% { opacity: 1; transform: rotate(12deg) scale(1.08); }
+  100% { transform: rotate(0) scale(1); }
+}
+@keyframes logo-glow { 0% { opacity: 0; transform: scale(0.6); } 40% { opacity: 1; transform: scale(1.05); } 100% { opacity: 0.55; transform: scale(1); } }
+/* Reduce Motion: no spin, glow pulse or confetti; everything just fades in. */
+.achievement.calm .achievement-card, .achievement.calm .achievement-logo img { animation: achievement-in 0.35s ease-out both; }
+.achievement.calm .achievement-glow { animation: none; opacity: 0.5; }
