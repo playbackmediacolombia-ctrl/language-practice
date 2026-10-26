@@ -485,6 +485,132 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u12",
+      "title": "Work and money",
+      "lessons": [
+        {
+          "id": "fr-12-1",
+          "title": "At the office",
+          "items": [
+            { "id": "reunion", "text": "la réunion", "en": "the meeting" },
+            { "id": "patronne", "text": "la patronne", "en": "the boss (woman)" },
+            { "id": "collegue", "text": "un collègue", "en": "a coworker" },
+            { "id": "jai-une-reunion-a-dix-heures", "text": "J'ai une réunion à dix heures.", "en": "I have a meeting at ten." },
+            { "id": "le-rapport-doit-etre-pret", "text": "Le rapport doit être prêt pour vendredi.", "en": "The report has to be ready by Friday." },
+            { "id": "je-suis-debordee", "text": "Je suis débordée en ce moment.", "en": "I'm swamped right now. (woman)" }
+          ]
+        },
+        {
+          "id": "fr-12-2",
+          "title": "The job interview",
+          "items": [
+            { "id": "experience", "text": "l'expérience", "en": "experience" },
+            { "id": "jai-cinq-ans-dexperience", "text": "J'ai cinq ans d'expérience dans la vente.", "en": "I have five years of experience in sales." },
+            { "id": "quelles-sont-vos-qualites", "text": "Quelles sont vos qualités ?", "en": "What are your strengths?" },
+            { "id": "jaime-travailler-en-equipe", "text": "J'aime travailler en équipe.", "en": "I like working in a team." },
+            { "id": "pourquoi-ce-poste", "text": "Pourquoi voulez-vous ce poste ?", "en": "Why do you want this position?" },
+            { "id": "quand-pourriez-vous-commencer", "text": "Quand pourriez-vous commencer ?", "en": "When could you start?" }
+          ]
+        },
+        {
+          "id": "fr-12-3",
+          "title": "Money",
+          "items": [
+            { "id": "salaire", "text": "le salaire", "en": "the salary" },
+            { "id": "loyer", "text": "le loyer", "en": "the rent" },
+            { "id": "je-dois-payer-le-loyer", "text": "Je dois payer le loyer.", "en": "I have to pay the rent." },
+            { "id": "je-voudrais-ouvrir-un-compte", "text": "Je voudrais ouvrir un compte en banque.", "en": "I'd like to open a bank account." },
+            { "id": "je-mets-de-largent-de-cote", "text": "Je mets de l'argent de côté pour un voyage.", "en": "I'm saving up for a trip." },
+            { "id": "on-ma-fait-payer-trop", "text": "On m'a fait payer trop cher.", "en": "They overcharged me." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u13",
+      "title": "Health and feelings",
+      "lessons": [
+        {
+          "id": "fr-13-1",
+          "title": "At the doctor",
+          "items": [
+            { "id": "jai-mal-a-la-tete", "text": "J'ai mal à la tête.", "en": "I have a headache." },
+            { "id": "jai-mal-ici", "text": "J'ai mal ici.", "en": "It hurts here." },
+            { "id": "jai-de-la-fievre-depuis-hier", "text": "J'ai de la fièvre depuis hier.", "en": "I've had a fever since yesterday." },
+            { "id": "je-suis-allergique", "text": "Je suis allergique à la pénicilline.", "en": "I'm allergic to penicillin." },
+            { "id": "prenez-ca-deux-fois-par-jour", "text": "Prenez ça deux fois par jour.", "en": "Take this twice a day." },
+            { "id": "je-voudrais-prendre-rendez-vous", "text": "Je voudrais prendre rendez-vous avec le médecin.", "en": "I'd like to make a doctor's appointment." }
+          ]
+        },
+        {
+          "id": "fr-13-2",
+          "title": "How I feel",
+          "items": [
+            { "id": "je-minquiete-pour-mon-frere", "text": "Je m'inquiète pour mon frère.", "en": "I'm worried about my brother." },
+            { "id": "je-suis-tres-stresse", "text": "Je suis très stressé ces temps-ci.", "en": "I've been very stressed lately. (man)" },
+            { "id": "je-suis-fier-de-toi", "text": "Je suis fier de toi.", "en": "I'm proud of you. (man)" },
+            { "id": "je-me-sens-beaucoup-mieux", "text": "Je me sens beaucoup mieux.", "en": "I feel much better." },
+            { "id": "jai-honte", "text": "J'ai honte.", "en": "I'm ashamed. / I'm embarrassed." },
+            { "id": "ne-tinquiete-pas", "text": "Ne t'inquiète pas.", "en": "Don't worry." }
+          ]
+        },
+        {
+          "id": "fr-13-3",
+          "title": "Giving advice",
+          "items": [
+            { "id": "tu-devrais-te-reposer", "text": "Tu devrais te reposer.", "en": "You should rest." },
+            { "id": "a-ta-place-jirais-chez-le-medecin", "text": "À ta place, j'irais chez le médecin.", "en": "If I were you, I'd go to the doctor." },
+            { "id": "si-jetais-toi", "text": "Si j'étais toi, je ne lui dirais rien.", "en": "If I were you, I wouldn't tell him anything." },
+            { "id": "il-faut-que-tu-dormes-plus", "text": "Il faut que tu dormes plus.", "en": "You need to sleep more." },
+            { "id": "cest-important-que-tu-boives", "text": "C'est important que tu boives beaucoup d'eau.", "en": "It's important that you drink lots of water." },
+            { "id": "bon-retablissement", "text": "Bon rétablissement !", "en": "Get well soon!" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u14",
+      "title": "Travel problems",
+      "lessons": [
+        {
+          "id": "fr-14-1",
+          "title": "At the airport",
+          "items": [
+            { "id": "mon-vol-a-ete-annule", "text": "Mon vol a été annulé.", "en": "My flight was cancelled." },
+            { "id": "jai-perdu-mon-passeport", "text": "J'ai perdu mon passeport.", "en": "I lost my passport." },
+            { "id": "ma-valise-nest-pas-arrivee", "text": "Ma valise n'est pas arrivée.", "en": "My suitcase didn't arrive." },
+            { "id": "le-vol-a-deux-heures-de-retard", "text": "Le vol a deux heures de retard.", "en": "The flight is delayed two hours." },
+            { "id": "jai-rate-ma-correspondance", "text": "J'ai raté ma correspondance.", "en": "I missed my connection." },
+            { "id": "vous-pouvez-me-mettre-sur-un-autre-vol", "text": "Vous pouvez me mettre sur un autre vol ?", "en": "Can you put me on another flight?" }
+          ]
+        },
+        {
+          "id": "fr-14-2",
+          "title": "Hotel complaints",
+          "items": [
+            { "id": "la-clim-ne-marche-pas", "text": "La climatisation ne marche pas.", "en": "The air conditioning doesn't work." },
+            { "id": "il-ny-a-pas-deau-chaude", "text": "Il n'y a pas d'eau chaude.", "en": "There's no hot water." },
+            { "id": "la-chambre-est-tres-bruyante", "text": "La chambre est très bruyante.", "en": "The room is very noisy." },
+            { "id": "pourriez-vous-me-changer-de-chambre", "text": "Pourriez-vous me changer de chambre ?", "en": "Could you move me to another room?" },
+            { "id": "je-voudrais-parler-au-responsable", "text": "Je voudrais parler au responsable.", "en": "I'd like to speak to the manager." },
+            { "id": "ce-nest-pas-ce-que-jai-reserve", "text": "Ce n'est pas ce que j'ai réservé.", "en": "This isn't what I booked." }
+          ]
+        },
+        {
+          "id": "fr-14-3",
+          "title": "Asking for help",
+          "items": [
+            { "id": "pourriez-vous-maider", "text": "Pourriez-vous m'aider, s'il vous plaît ?", "en": "Could you help me, please?" },
+            { "id": "on-ma-vole-mon-portefeuille", "text": "On m'a volé mon portefeuille.", "en": "My wallet was stolen." },
+            { "id": "je-voudrais-porter-plainte", "text": "Je voudrais porter plainte.", "en": "I'd like to report it to the police." },
+            { "id": "ou-se-trouve-lambassade", "text": "Où se trouve l'ambassade ?", "en": "Where is the embassy?" },
+            { "id": "appelez-une-ambulance", "text": "Appelez une ambulance !", "en": "Call an ambulance!" },
+            { "id": "je-suis-perdu", "text": "Je suis perdu.", "en": "I'm lost. (man)" }
+          ]
+        }
+      ]
     }
   ]
 }

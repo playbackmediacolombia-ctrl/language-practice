@@ -483,6 +483,132 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u12",
+      "title": "Work and money",
+      "lessons": [
+        {
+          "id": "es-12-1",
+          "title": "At the office",
+          "items": [
+            { "id": "reunion", "text": "la reunión", "en": "the meeting" },
+            { "id": "jefa", "text": "la jefa", "en": "the boss (woman)" },
+            { "id": "companero-de-trabajo", "text": "compañero de trabajo", "en": "coworker" },
+            { "id": "tengo-una-reunion-a-las-diez", "text": "Tengo una reunión a las diez.", "en": "I have a meeting at ten." },
+            { "id": "el-informe-es-para-el-viernes", "text": "El informe tiene que estar listo para el viernes.", "en": "The report has to be ready by Friday." },
+            { "id": "hasta-el-cuello-de-trabajo", "text": "Estoy hasta el cuello de trabajo.", "en": "I'm up to my neck in work." }
+          ]
+        },
+        {
+          "id": "es-12-2",
+          "title": "The job interview",
+          "items": [
+            { "id": "experiencia", "text": "experiencia", "en": "experience" },
+            { "id": "tengo-cinco-anos-de-experiencia", "text": "Tengo cinco años de experiencia en ventas.", "en": "I have five years of experience in sales." },
+            { "id": "cuales-son-sus-fortalezas", "text": "¿Cuáles son sus fortalezas?", "en": "What are your strengths?" },
+            { "id": "trabajo-bien-en-equipo", "text": "Trabajo bien en equipo.", "en": "I work well in a team." },
+            { "id": "por-que-quiere-este-puesto", "text": "¿Por qué quiere este puesto?", "en": "Why do you want this position?" },
+            { "id": "cuando-podria-empezar", "text": "¿Cuándo podría empezar?", "en": "When could you start?" }
+          ]
+        },
+        {
+          "id": "es-12-3",
+          "title": "Money",
+          "items": [
+            { "id": "sueldo", "text": "el sueldo", "en": "the salary" },
+            { "id": "arriendo", "text": "el arriendo", "en": "the rent" },
+            { "id": "tengo-que-pagar-el-arriendo", "text": "Tengo que pagar el arriendo.", "en": "I have to pay the rent." },
+            { "id": "quiero-abrir-una-cuenta", "text": "Quiero abrir una cuenta de ahorros.", "en": "I want to open a savings account." },
+            { "id": "estoy-ahorrando-para-un-viaje", "text": "Estoy ahorrando para un viaje.", "en": "I'm saving up for a trip." },
+            { "id": "me-cobraron-de-mas", "text": "Me cobraron de más.", "en": "They overcharged me." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u13",
+      "title": "Health and feelings",
+      "lessons": [
+        {
+          "id": "es-13-1",
+          "title": "At the doctor",
+          "items": [
+            { "id": "me-duele-la-cabeza", "text": "Me duele la cabeza.", "en": "I have a headache." },
+            { "id": "me-duele-aqui", "text": "Me duele aquí.", "en": "It hurts here." },
+            { "id": "tengo-fiebre-desde-ayer", "text": "Tengo fiebre desde ayer.", "en": "I've had a fever since yesterday." },
+            { "id": "soy-alergico-a-la-penicilina", "text": "Soy alérgico a la penicilina.", "en": "I'm allergic to penicillin. (man)" },
+            { "id": "tome-esto-dos-veces-al-dia", "text": "Tome esto dos veces al día.", "en": "Take this twice a day." },
+            { "id": "necesito-una-cita", "text": "Necesito pedir una cita con el médico.", "en": "I need to make a doctor's appointment." }
+          ]
+        },
+        {
+          "id": "es-13-2",
+          "title": "How I feel",
+          "items": [
+            { "id": "estoy-preocupada", "text": "Estoy preocupada por mi hermano.", "en": "I'm worried about my brother. (woman)" },
+            { "id": "estoy-muy-estresado", "text": "Estoy muy estresado últimamente.", "en": "I've been very stressed lately. (man)" },
+            { "id": "estoy-orgulloso-de-ti", "text": "Estoy orgulloso de ti.", "en": "I'm proud of you. (man)" },
+            { "id": "me-siento-mucho-mejor", "text": "Me siento mucho mejor.", "en": "I feel much better." },
+            { "id": "me-da-verguenza", "text": "Me da vergüenza.", "en": "I'm embarrassed." },
+            { "id": "no-te-preocupes", "text": "No te preocupes.", "en": "Don't worry." }
+          ]
+        },
+        {
+          "id": "es-13-3",
+          "title": "Giving advice",
+          "items": [
+            { "id": "deberias-descansar", "text": "Deberías descansar.", "en": "You should rest." },
+            { "id": "yo-que-tu-iria-al-medico", "text": "Yo que tú, iría al médico.", "en": "If I were you, I'd go to the doctor." },
+            { "id": "si-yo-fuera-tu", "text": "Si yo fuera tú, no le diría nada.", "en": "If I were you, I wouldn't tell him anything." },
+            { "id": "te-recomiendo-que-duermas-mas", "text": "Te recomiendo que duermas más.", "en": "I recommend that you sleep more." },
+            { "id": "es-importante-que-tomes-agua", "text": "Es importante que tomes mucha agua.", "en": "It's important that you drink lots of water." },
+            { "id": "que-te-mejores", "text": "¡Que te mejores!", "en": "Get well soon!" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u14",
+      "title": "Travel problems",
+      "lessons": [
+        {
+          "id": "es-14-1",
+          "title": "At the airport",
+          "items": [
+            { "id": "mi-vuelo-fue-cancelado", "text": "Mi vuelo fue cancelado.", "en": "My flight was cancelled." },
+            { "id": "perdi-mi-pasaporte", "text": "Perdí mi pasaporte.", "en": "I lost my passport." },
+            { "id": "mi-maleta-no-llego", "text": "Mi maleta no llegó.", "en": "My suitcase didn't arrive." },
+            { "id": "el-vuelo-esta-retrasado", "text": "El vuelo está retrasado dos horas.", "en": "The flight is delayed two hours." },
+            { "id": "perdi-la-conexion", "text": "Perdí la conexión.", "en": "I missed my connection." },
+            { "id": "me-pueden-poner-en-otro-vuelo", "text": "¿Me pueden poner en otro vuelo?", "en": "Can you put me on another flight?" }
+          ]
+        },
+        {
+          "id": "es-14-2",
+          "title": "Hotel complaints",
+          "items": [
+            { "id": "el-aire-no-funciona", "text": "El aire acondicionado no funciona.", "en": "The air conditioning doesn't work." },
+            { "id": "no-hay-agua-caliente", "text": "No hay agua caliente.", "en": "There's no hot water." },
+            { "id": "hay-mucho-ruido", "text": "Hay mucho ruido en la habitación.", "en": "It's very noisy in the room." },
+            { "id": "me-podria-cambiar-de-habitacion", "text": "¿Me podría cambiar de habitación?", "en": "Could you move me to another room?" },
+            { "id": "quisiera-hablar-con-el-gerente", "text": "Quisiera hablar con el gerente.", "en": "I'd like to speak to the manager." },
+            { "id": "esto-no-es-lo-que-reserve", "text": "Esto no es lo que reservé.", "en": "This isn't what I booked." }
+          ]
+        },
+        {
+          "id": "es-14-3",
+          "title": "Asking for help",
+          "items": [
+            { "id": "me-podria-ayudar", "text": "¿Me podría ayudar, por favor?", "en": "Could you help me, please?" },
+            { "id": "me-robaron-la-billetera", "text": "Me robaron la billetera.", "en": "My wallet was stolen." },
+            { "id": "quiero-poner-una-denuncia", "text": "Quiero poner una denuncia.", "en": "I want to report it to the police." },
+            { "id": "donde-esta-la-embajada", "text": "¿Dónde queda la embajada?", "en": "Where is the embassy?" },
+            { "id": "llame-a-una-ambulancia", "text": "¡Llame a una ambulancia!", "en": "Call an ambulance!" },
+            { "id": "estoy-perdido", "text": "Estoy perdido.", "en": "I'm lost. (man)" }
+          ]
+        }
+      ]
     }
   ]
 }

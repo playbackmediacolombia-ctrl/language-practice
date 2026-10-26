@@ -482,6 +482,132 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u12",
+      "title": "Work and money",
+      "lessons": [
+        {
+          "id": "zh-12-1",
+          "title": "At the office",
+          "items": [
+            { "id": "kaihui", "text": "开会", "pinyin": "kāihuì", "en": "to have a meeting" },
+            { "id": "laoban", "text": "老板", "pinyin": "lǎobǎn", "en": "boss" },
+            { "id": "tongshi", "text": "同事", "pinyin": "tóngshì", "en": "coworker" },
+            { "id": "wo-shi-dian-yao-kaihui", "text": "我十点要开会", "pinyin": "wǒ shí diǎn yào kāihuì", "en": "I have a meeting at ten.", "tiles": ["我", "十点", "要", "开会"] },
+            { "id": "baogao-xingqiwu-yao-jiao", "text": "报告星期五之前要交", "pinyin": "bàogào xīngqīwǔ zhīqián yào jiāo", "en": "The report is due before Friday.", "tiles": ["报告", "星期五", "之前", "要", "交"] },
+            { "id": "zuijin-mang-si-le", "text": "我最近忙死了", "pinyin": "wǒ zuìjìn máng sǐ le", "en": "I've been crazy busy lately.", "tiles": ["我", "最近", "忙", "死", "了"] }
+          ]
+        },
+        {
+          "id": "zh-12-2",
+          "title": "The job interview",
+          "items": [
+            { "id": "jingyan", "text": "经验", "pinyin": "jīngyàn", "en": "experience" },
+            { "id": "wo-you-wu-nian-xiaoshou-jingyan", "text": "我有五年的销售经验", "pinyin": "wǒ yǒu wǔ nián de xiāoshòu jīngyàn", "en": "I have five years of experience in sales.", "tiles": ["我", "有", "五年", "的", "销售", "经验"] },
+            { "id": "ni-de-youshi-shi-shenme", "text": "你的优势是什么？", "pinyin": "nǐ de yōushì shì shénme?", "en": "What are your strengths?", "tiles": ["你的", "优势", "是", "什么"] },
+            { "id": "wo-shanchang-tuandui-hezuo", "text": "我擅长团队合作", "pinyin": "wǒ shàncháng tuánduì hézuò", "en": "I'm good at teamwork.", "tiles": ["我", "擅长", "团队", "合作"] },
+            { "id": "ni-weishenme-xiang-zuo-zhege-gongzuo", "text": "你为什么想做这个工作？", "pinyin": "nǐ wèishénme xiǎng zuò zhège gōngzuò?", "en": "Why do you want this job?", "tiles": ["你", "为什么", "想", "做", "这个", "工作"] },
+            { "id": "ni-shenme-shihou-keyi-shangban", "text": "你什么时候可以上班？", "pinyin": "nǐ shénme shíhou kěyǐ shàngbān?", "en": "When can you start?", "tiles": ["你", "什么", "时候", "可以", "上班"] }
+          ]
+        },
+        {
+          "id": "zh-12-3",
+          "title": "Money",
+          "items": [
+            { "id": "gongzi", "text": "工资", "pinyin": "gōngzī", "en": "salary" },
+            { "id": "fangzu", "text": "房租", "pinyin": "fángzū", "en": "rent" },
+            { "id": "wo-dei-jiao-fangzu", "text": "我得交房租了", "pinyin": "wǒ děi jiāo fángzū le", "en": "I have to pay the rent.", "tiles": ["我", "得", "交", "房租", "了"] },
+            { "id": "wo-xiang-kai-yige-zhanghu", "text": "我想开一个银行账户", "pinyin": "wǒ xiǎng kāi yí ge yínháng zhànghù", "en": "I'd like to open a bank account.", "tiles": ["我", "想", "开", "一个", "银行", "账户"] },
+            { "id": "wo-zai-zan-qian-qu-lvxing", "text": "我在攒钱去旅行", "pinyin": "wǒ zài zǎn qián qù lǚxíng", "en": "I'm saving up for a trip.", "tiles": ["我", "在", "攒钱", "去", "旅行"] },
+            { "id": "ni-shou-duo-le", "text": "你多收了我的钱", "pinyin": "nǐ duō shōu le wǒ de qián", "en": "You overcharged me.", "tiles": ["你", "多", "收", "了", "我的", "钱"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u13",
+      "title": "Health and feelings",
+      "lessons": [
+        {
+          "id": "zh-13-1",
+          "title": "At the doctor",
+          "items": [
+            { "id": "wo-tou-teng", "text": "我头疼", "pinyin": "wǒ tóu téng", "en": "I have a headache.", "tiles": ["我", "头", "疼"] },
+            { "id": "zheli-teng", "text": "这里疼", "pinyin": "zhèlǐ téng", "en": "It hurts here.", "tiles": ["这里", "疼"] },
+            { "id": "wo-cong-zuotian-kaishi-fashao", "text": "我从昨天开始发烧", "pinyin": "wǒ cóng zuótiān kāishǐ fāshāo", "en": "I've had a fever since yesterday.", "tiles": ["我", "从", "昨天", "开始", "发烧"] },
+            { "id": "wo-dui-qingmeisu-guomin", "text": "我对青霉素过敏", "pinyin": "wǒ duì qīngméisù guòmǐn", "en": "I'm allergic to penicillin.", "tiles": ["我", "对", "青霉素", "过敏"] },
+            { "id": "yitian-chi-liang-ci", "text": "一天吃两次", "pinyin": "yì tiān chī liǎng cì", "en": "Take it twice a day.", "tiles": ["一天", "吃", "两次"] },
+            { "id": "wo-xiang-guahao", "text": "我想挂个号看医生", "pinyin": "wǒ xiǎng guà ge hào kàn yīshēng", "en": "I'd like to register to see a doctor.", "tiles": ["我", "想", "挂个号", "看", "医生"] }
+          ]
+        },
+        {
+          "id": "zh-13-2",
+          "title": "How I feel",
+          "items": [
+            { "id": "wo-hen-danxin-wo-gege", "text": "我很担心我哥哥", "pinyin": "wǒ hěn dānxīn wǒ gēge", "en": "I'm worried about my older brother.", "tiles": ["我", "很", "担心", "我", "哥哥"] },
+            { "id": "wo-zuijin-yali-hen-da", "text": "我最近压力很大", "pinyin": "wǒ zuìjìn yālì hěn dà", "en": "I've been under a lot of stress lately.", "tiles": ["我", "最近", "压力", "很", "大"] },
+            { "id": "wo-wei-ni-jiaoao", "text": "我为你骄傲", "pinyin": "wǒ wèi nǐ jiāo'ào", "en": "I'm proud of you.", "tiles": ["我", "为", "你", "骄傲"] },
+            { "id": "wo-hao-duo-le", "text": "我好多了", "pinyin": "wǒ hǎo duō le", "en": "I feel much better.", "tiles": ["我", "好", "多", "了"] },
+            { "id": "zhen-buhaoyisi", "text": "真不好意思", "pinyin": "zhēn bù hǎoyìsi", "en": "I'm really embarrassed. / I'm so sorry.", "tiles": ["真", "不好意思"] },
+            { "id": "bie-danxin", "text": "别担心", "pinyin": "bié dānxīn", "en": "Don't worry.", "tiles": ["别", "担心"] }
+          ]
+        },
+        {
+          "id": "zh-13-3",
+          "title": "Giving advice",
+          "items": [
+            { "id": "ni-yinggai-xiuxi", "text": "你应该好好休息", "pinyin": "nǐ yīnggāi hǎohǎo xiūxi", "en": "You should get some good rest.", "tiles": ["你", "应该", "好好", "休息"] },
+            { "id": "yaoshi-wo-shi-ni", "text": "要是我是你，我会去看医生", "pinyin": "yàoshi wǒ shì nǐ, wǒ huì qù kàn yīshēng", "en": "If I were you, I'd go to the doctor.", "tiles": ["要是", "我", "是", "你", "我", "会", "去", "看", "医生"] },
+            { "id": "wo-jianyi-ni-duo-shui-yidianr", "text": "我建议你多睡一点儿", "pinyin": "wǒ jiànyì nǐ duō shuì yìdiǎnr", "en": "I suggest you sleep a bit more.", "tiles": ["我", "建议", "你", "多", "睡", "一点儿"] },
+            { "id": "ni-zui-hao-duo-he-shui", "text": "你最好多喝水", "pinyin": "nǐ zuìhǎo duō hē shuǐ", "en": "You'd better drink lots of water.", "tiles": ["你", "最好", "多", "喝", "水"] },
+            { "id": "bie-tai-lei-le", "text": "别太累了", "pinyin": "bié tài lèi le", "en": "Don't wear yourself out.", "tiles": ["别", "太", "累", "了"] },
+            { "id": "zao-ri-kangfu", "text": "早日康复！", "pinyin": "zǎorì kāngfù!", "en": "Get well soon!", "tiles": ["早日", "康复"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u14",
+      "title": "Travel problems",
+      "lessons": [
+        {
+          "id": "zh-14-1",
+          "title": "At the airport",
+          "items": [
+            { "id": "wo-de-hangban-quxiao-le", "text": "我的航班取消了", "pinyin": "wǒ de hángbān qǔxiāo le", "en": "My flight was cancelled.", "tiles": ["我的", "航班", "取消", "了"] },
+            { "id": "wo-de-huzhao-diu-le", "text": "我的护照丢了", "pinyin": "wǒ de hùzhào diū le", "en": "I lost my passport.", "tiles": ["我的", "护照", "丢", "了"] },
+            { "id": "wo-de-xingli-mei-dao", "text": "我的行李没到", "pinyin": "wǒ de xíngli méi dào", "en": "My luggage didn't arrive.", "tiles": ["我的", "行李", "没", "到"] },
+            { "id": "hangban-yanwu-le-liang-ge-xiaoshi", "text": "航班延误了两个小时", "pinyin": "hángbān yánwù le liǎng ge xiǎoshí", "en": "The flight is delayed two hours.", "tiles": ["航班", "延误", "了", "两个", "小时"] },
+            { "id": "wo-wu-le-zhuanji", "text": "我误了转机", "pinyin": "wǒ wù le zhuǎnjī", "en": "I missed my connection.", "tiles": ["我", "误", "了", "转机"] },
+            { "id": "neng-gei-wo-huan-yige-hangban-ma", "text": "能给我换一个航班吗？", "pinyin": "néng gěi wǒ huàn yí ge hángbān ma?", "en": "Can you change me to another flight?", "tiles": ["能", "给", "我", "换", "一个", "航班", "吗"] }
+          ]
+        },
+        {
+          "id": "zh-14-2",
+          "title": "Hotel complaints",
+          "items": [
+            { "id": "kongtiao-huai-le", "text": "空调坏了", "pinyin": "kōngtiáo huài le", "en": "The air conditioning is broken.", "tiles": ["空调", "坏", "了"] },
+            { "id": "meiyou-reshui", "text": "没有热水", "pinyin": "méiyǒu rèshuǐ", "en": "There's no hot water.", "tiles": ["没有", "热水"] },
+            { "id": "fangjian-tai-chao-le", "text": "房间太吵了", "pinyin": "fángjiān tài chǎo le", "en": "The room is too noisy.", "tiles": ["房间", "太", "吵", "了"] },
+            { "id": "neng-bang-wo-huan-ge-fangjian-ma", "text": "能帮我换个房间吗？", "pinyin": "néng bāng wǒ huàn ge fángjiān ma?", "en": "Could you move me to another room?", "tiles": ["能", "帮", "我", "换", "个", "房间", "吗"] },
+            { "id": "wo-yao-zhao-jingli", "text": "我要找你们经理", "pinyin": "wǒ yào zhǎo nǐmen jīnglǐ", "en": "I want to speak to your manager.", "tiles": ["我", "要", "找", "你们", "经理"] },
+            { "id": "zhe-bu-shi-wo-yuding-de", "text": "这不是我预订的", "pinyin": "zhè bú shì wǒ yùdìng de", "en": "This isn't what I booked.", "tiles": ["这", "不是", "我", "预订", "的"] }
+          ]
+        },
+        {
+          "id": "zh-14-3",
+          "title": "Asking for help",
+          "items": [
+            { "id": "neng-bang-wo-yixia-ma", "text": "能帮我一下吗？", "pinyin": "néng bāng wǒ yíxià ma?", "en": "Could you help me?", "tiles": ["能", "帮", "我", "一下", "吗"] },
+            { "id": "wo-de-qianbao-bei-tou-le", "text": "我的钱包被偷了", "pinyin": "wǒ de qiánbāo bèi tōu le", "en": "My wallet was stolen.", "tiles": ["我的", "钱包", "被", "偷", "了"] },
+            { "id": "wo-yao-baojing", "text": "我要报警", "pinyin": "wǒ yào bàojǐng", "en": "I want to call the police.", "tiles": ["我", "要", "报警"] },
+            { "id": "dashiguan-zai-nar", "text": "大使馆在哪儿？", "pinyin": "dàshǐguǎn zài nǎr?", "en": "Where is the embassy?", "tiles": ["大使馆", "在", "哪儿"] },
+            { "id": "kuai-jiao-jiuhuche", "text": "快叫救护车！", "pinyin": "kuài jiào jiùhùchē!", "en": "Call an ambulance, quick!", "tiles": ["快", "叫", "救护车"] },
+            { "id": "wo-milu-le", "text": "我迷路了", "pinyin": "wǒ mílù le", "en": "I'm lost.", "tiles": ["我", "迷路", "了"] }
+          ]
+        }
+      ]
     }
   ]
 }
