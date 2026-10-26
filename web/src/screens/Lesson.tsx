@@ -3,10 +3,10 @@ import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { compare } from '../../../shared/compare';
 import { playClip, playClipAfterPhrase, playPhrase, type Recording, startRecording, unlockAudio } from '../lib/audio';
 import { type Lang, shuffle } from '../lib/content';
-import { allItems, DAILY_MAX, dueItems, dueTomorrow, getLesson, getLessons, type Item, weakItems } from '../lib/course';
+import { allItems, DAILY_MAX, dueItems, dueTomorrow, getLesson, getLessons, type Item, MISTAKES_MAX, mistakeItems, weakItems } from '../lib/course';
 import { allClips, Coach, type Line, type Reaction } from '../lib/feedback';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
-import { checkTiles, checkTyped, type Exercise, itemsOf, lessonExercises, reviewExercises } from '../lib/exercises';
+import { checkTiles, checkTyped, type Exercise, itemsOf, lessonExercises, mistakeExercises, reviewExercises } from '../lib/exercises';
 import { getTip } from '../lib/grammar';
 import {
   completeLesson,
@@ -14,6 +14,7 @@ import {
   heartsNow,
   loseHeart,
   markTipSeen,
+  MISTAKE_RIGHTS,
   recordAnswer,
   streak,
   todayXp,
@@ -30,6 +31,7 @@ const LESSON_XP = 10;
 const PERFECT_BONUS = 5;
 const REVIEW_XP = 5;
 const DAILY_XP = 10;
+const MISTAKES_XP = 10;
 
 type Result = {
   right: boolean;
@@ -55,17 +57,20 @@ export function autoPlay(ex: Exercise | undefined) {
 
 export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: string }) {
   const progress = useProgress();
-  // 'review' drills weak words; 'daily' is the spaced-repetition review of words due today.
-  // Neither costs hearts.
+  // 'review' drills weak words; 'daily' is the spaced-repetition review of words due today;
+  // 'mistakes' drills words got wrong until each is cleared. None of them costs hearts.
   const daily = lessonId === 'daily';
-  const review = lessonId === 'review' || daily;
+  const drill = lessonId === 'mistakes';
+  const review = lessonId === 'review' || daily || drill;
   const lesson = review ? undefined : getLesson(lang, lessonId);
-  const back = daily ? '/practice' : `/${lang}`;
+  const back = daily || drill ? '/practice' : `/${lang}`;
+  const drilled = useRef(drill ? mistakeItems(progress, lang).slice(0, MISTAKES_MAX) : []); // this session's words
 
   const [queue, setQueue] = useState<Exercise[]>(() => {
     const speaking = progress.speaking && isModelReady();
     const all = getLessons(lang).flatMap((l) => l.items);
     if (daily) return reviewExercises(shuffle(dueItems(progress, lang).slice(0, DAILY_MAX)), allItems(lang), lang, speaking);
+    if (drill) return mistakeExercises(drilled.current, allItems(lang), lang, speaking);
     if (review) return reviewExercises(shuffle(weakItems(progress, lang)), all, lang, speaking);
     if (!lesson) return [];
     const index = getLessons(lang).findIndex((l) => l.id === lesson.id);
@@ -111,7 +116,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     setResult({ ...r, reaction });
     sfx(r.right ? 'correct' : 'wrong');
     haptic(r.right ? 'success' : 'error');
-    itemsOf(ex).forEach((item) => recordAnswer(lang, item.id, r.right, { soft: r.free, track: item.kind !== 'sound' }));
+    itemsOf(ex).forEach((item) => recordAnswer(lang, item.id, r.right, { soft: r.free, track: item.kind !== 'sound', drill }));
     if (ex.type !== 'meaning' && ex.type !== 'match' && ex.type !== 'speak') playPhrase(ex.item.audio);
     if (progress.voice && reaction.speak) playClipAfterPhrase(reaction.line.url);
     if (!r.right && !r.free) {
@@ -132,7 +137,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   };
 
   const finish = () => {
-    const xp = daily ? DAILY_XP : review ? REVIEW_XP : LESSON_XP + (mistakes === 0 ? PERFECT_BONUS : 0);
+    const xp = daily ? DAILY_XP : drill ? MISTAKES_XP : review ? REVIEW_XP : LESSON_XP + (mistakes === 0 ? PERFECT_BONUS : 0);
     const before = todayXp(progress);
     const streakUp = before === 0; // first lesson today extends (or starts) the streak
     const xpBefore = progress.xp;
@@ -156,8 +161,17 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
       <LessonFrame onQuit={quit} value={0} hearts={review ? null : hearts}>
         <div className="card" style={{ gap: 14, marginTop: 24 }}>
           <p className="muted">{review ? 'Practice' : 'Lesson'}</p>
-          <div style={{ fontSize: 26, fontWeight: 700 }}>{daily ? 'Daily review' : review ? 'Review your weak words' : lesson!.title}</div>
+          <div style={{ fontSize: 26, fontWeight: 700 }}>{daily ? 'Daily review' : drill ? 'Mistakes' : review ? 'Review your weak words' : lesson!.title}</div>
           {daily && <p className="muted">Words and phrases you're about to forget, brought back at just the right time.</p>}
+          {drill && (
+            <>
+              <p className="muted">
+                Each word you got wrong comes up three times. Get it right {MISTAKE_RIGHTS} times here to clear it; a new mistake starts it
+                over.
+              </p>
+              <MistakeChips lang={lang} items={drilled.current} />
+            </>
+          )}
           <p className="muted">
             {total.current} exercises · about {Math.max(2, Math.round(total.current / 4))} minutes · turn your sound on
           </p>
@@ -212,7 +226,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
         <div className={perfect ? 'trophy perfect' : 'trophy done'}>
           <Icon name={perfect ? 'star' : 'check'} size={72} />
         </div>
-        <h2 className="heading">{daily ? 'Daily review done!' : review ? 'Review complete!' : 'Lesson complete!'}</h2>
+        <h2 className="heading">{daily ? 'Daily review done!' : drill ? 'Mistakes practiced!' : review ? 'Review complete!' : 'Lesson complete!'}</h2>
         <div className="cheer">
           <div className="cheer-text">{summary.line.text}</div>
           {summary.line.voice !== 'en' && <div className="muted">{summary.line.en}</div>}
@@ -247,6 +261,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
           {perfect && !review && <p className="muted small">No mistakes: +{PERFECT_BONUS} bonus XP.</p>}
           {review && <p className="muted small">+1 heart for practicing.</p>}
           {daily && <DailyNext lang={lang} />}
+          {drill && <MistakesNext lang={lang} items={drilled.current} />}
         </div>
         <button
           className="btn"
@@ -290,6 +305,44 @@ function DailyNext({ lang }: { lang: Lang }) {
           ? `All caught up. ${tomorrow} word${tomorrow === 1 ? '' : 's'} come${tomorrow === 1 ? 's' : ''} back tomorrow.`
           : 'All caught up for today.'}
     </p>
+  );
+}
+
+/** The session's words, each with dots for the right answers still needed to clear it. */
+function MistakeChips({ lang, items }: { lang: Lang; items: Item[] }) {
+  const progress = useProgress();
+  return (
+    <ul className="mistake-chips" data-testid="mistake-chips">
+      {items.map((item) => {
+        const left = progress.mistakes[`${lang}:${item.id}`]?.left ?? 0;
+        return (
+          <li key={item.id} className="mistake-chip">
+            <span lang={lang}>{item.text}</span>
+            <span className="dots" aria-label={left ? `${left} more to clear` : 'cleared'}>
+              {Array.from({ length: MISTAKE_RIGHTS }, (_, i) => (
+                <span key={i} className={i < MISTAKE_RIGHTS - left ? 'dot on' : 'dot'} />
+              ))}
+            </span>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+/** After a Mistakes session: what got cleared and what's left. */
+function MistakesNext({ lang, items }: { lang: Lang; items: Item[] }) {
+  const progress = useProgress();
+  const cleared = items.filter((i) => !progress.mistakes[`${lang}:${i.id}`]).length;
+  const left = mistakeItems(progress, lang).length;
+  return (
+    <>
+      <p className="muted small" data-testid="mistakes-next">
+        {cleared ? `${cleared} word${cleared === 1 ? '' : 's'} cleared. ` : ''}
+        {left ? `${left} still on your list.` : 'Your mistakes list is empty!'}
+      </p>
+      <MistakeChips lang={lang} items={items} />
+    </>
   );
 }
 

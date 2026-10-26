@@ -199,3 +199,19 @@ export function dueItems(p: Progress, lang: Lang, today = dayNumber()): Item[] {
 
 /** How many words come due tomorrow. */
 export const dueTomorrow = (p: Progress, lang: Lang, today = dayNumber()) => forecast(trackedCards(p, lang), `${lang}:`, today, 1)[0];
+
+// ---- Mistakes ----
+
+/** Most words in one Mistakes session (each comes up three times). */
+export const MISTAKES_MAX = 7;
+
+/** Words and phrases on the Mistakes list: furthest from cleared first, then the longest ago. */
+export function mistakeItems(p: Progress, lang: Lang): Item[] {
+  const items = itemsById(lang);
+  return Object.entries(p.mistakes)
+    .filter(([k]) => k.startsWith(`${lang}:`))
+    .map(([k, m]) => ({ item: items.get(k.slice(lang.length + 1)), m }))
+    .filter((x) => x.item && x.item.kind !== 'sound')
+    .sort((a, b) => b.m.left - a.m.left || a.m.at - b.m.at)
+    .map((x) => x.item!);
+}

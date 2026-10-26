@@ -1,7 +1,7 @@
 import { getPhrases, getTopics, type Lang } from '../lib/content';
-import { DAILY_MAX, dueItems, dueTomorrow, getLessons, trackedCards, weakItems } from '../lib/course';
+import { DAILY_MAX, dueItems, dueTomorrow, getLessons, mistakeItems, trackedCards, weakItems } from '../lib/course';
 import { tapFeedback } from '../lib/fx';
-import { cardBox, lessonDone, MAX_BOX, useProgress, weakness } from '../lib/progress';
+import { cardBox, lessonDone, MAX_BOX, MISTAKE_RIGHTS, useProgress, weakness } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { Icon, ProgressBar, Screen } from '../ui';
 import { LangSwitcher } from './Path';
@@ -16,6 +16,7 @@ export function PracticeHub({ lang }: { lang: Lang }) {
   const due = dueItems(progress, lang).length;
   const tracked = Object.keys(trackedCards(progress, lang)).length;
   const tomorrow = dueTomorrow(progress, lang);
+  const mistakes = mistakeItems(progress, lang).length;
   const open = (path: string) => {
     tapFeedback();
     navigate(path);
@@ -41,6 +42,23 @@ export function PracticeHub({ lang }: { lang: Lang }) {
             </p>
           </div>
           {due > 0 && <Icon name="chevron" style={{ color: 'var(--faint)' }} />}
+        </div>
+      </button>
+
+      <button className="card review-card mistakes-card" data-testid="mistakes-card" disabled={mistakes === 0} onClick={() => open(`/${lang}/learn/mistakes`)}>
+        <div className="row">
+          <span className="row-icon due-count" aria-hidden="true">
+            {mistakes > 0 ? Math.min(mistakes, 99) : <Icon name="check" />}
+          </span>
+          <div className="grow">
+            <div style={{ fontWeight: 700, fontSize: 17 }}>Mistakes</div>
+            <p className="muted small">
+              {mistakes > 0
+                ? `${mistakes} word${mistakes === 1 ? '' : 's'} you got wrong · get each right ${MISTAKE_RIGHTS} times to clear it`
+                : 'Nothing to fix. Words you get wrong collect here.'}
+            </p>
+          </div>
+          {mistakes > 0 && <Icon name="chevron" style={{ color: 'var(--faint)' }} />}
         </div>
       </button>
 

@@ -108,6 +108,29 @@ export function reviewExercises(items: Item[], all: Item[], lang: Lang, speaking
   return result;
 }
 
+/**
+ * A Mistakes session: each word three times in three different kinds of exercise, one round of
+ * all the words after another, so the same word never comes up twice in a row.
+ */
+export function mistakeExercises(items: Item[], all: Item[], lang: Lang, speaking: boolean): Exercise[] {
+  const three = (item: Item): Exercise[] => {
+    const kinds: Exercise[] = [choice('translate', item, all, all), choice('listen', item, all, all), meaning(item, all, all, false)];
+    if (item.kind === 'phrase') kinds.push(tiles(item, all));
+    if (item.text.length <= 14) kinds.push({ type: 'type', item });
+    if (speaking && speakable(item, lang)) kinds.push({ type: 'speak', item });
+    return pickSome(kinds, 3);
+  };
+  const per = items.map(three);
+  const out: Exercise[] = [];
+  for (let r = 0; r < 3; r++) {
+    const round = shuffle(per.map((list) => list[r]));
+    const last = out[out.length - 1];
+    if (last && round.length > 1 && itemsOf(round[0])[0].id === itemsOf(last)[0].id) round.push(round.shift()!);
+    out.push(...round);
+  }
+  return out;
+}
+
 /** A placement test question about `item`: read it, produce it or hear it (by turn), with distractors from `near`. */
 export function placementQuestion(item: Item, near: Item[], n: number): Exercise {
   if (item.kind === 'sound') return choice('listen', item, near, near);

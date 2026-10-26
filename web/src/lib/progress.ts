@@ -27,6 +27,8 @@ export type Progress = {
   writing: Record<string, WritingProgress>;
   /** Stories and dialogues finished: best share of questions right (0..1). Key: `${lang}:${storyId}`. */
   stories: Record<string, number>;
+  /** Words and phrases got wrong, until cleared in a Mistakes session: right answers still needed, and when it was last missed. Key like `srs`. */
+  mistakes: Record<string, Mistake>;
   /** Grammar tips already shown (they pop up once), key `${lang}:${lessonId}`, value when. */
   tips: Record<string, number>;
   /** Placement test result per language: the last stage tested out of (it and every stage before it are unlocked). */
@@ -43,6 +45,10 @@ export type Progress = {
   theme: Theme;
   lang: Lang | null; // language last opened on the Learn tab
 };
+
+export type Mistake = { left: number; at: number };
+/** Right answers in Mistakes sessions that clear a word; a new mistake starts it over. */
+export const MISTAKE_RIGHTS = 3;
 
 export type Theme = 'auto' | 'light' | 'dark';
 export type Prefs = Pick<Progress, 'goal' | 'speaking' | 'voice' | 'sfx' | 'haptics' | 'theme' | 'lang'>;
@@ -64,6 +70,7 @@ const EMPTY: Progress = {
   stories: {},
   placement: {},
   tips: {},
+  mistakes: {},
   log: {},
   hearts: MAX_HEARTS,
   heartsAt: 0,
@@ -81,13 +88,37 @@ function load(): Progress {
     const raw = localStorage.getItem(KEY);
     if (!raw) return EMPTY;
     const saved = JSON.parse(raw);
-    if (saved.srs) return { ...EMPTY, ...saved };
-    const migrated = withSrs({ ...EMPTY, ...saved });
-    localStorage.setItem(KEY, JSON.stringify(migrated)); // so the review days stay put
+    const migrated = migrate(saved);
+    if (!saved.srs || !saved.mistakes) localStorage.setItem(KEY, JSON.stringify(migrated)); // so review days stay put
     return migrated;
   } catch {
     return EMPTY;
   }
+}
+
+/** Fills in what older progress (or an older backup) doesn't have yet. */
+function migrate(saved: Partial<Progress>): Progress {
+  let p: Progress = { ...EMPTY, ...saved };
+  if (!saved.srs) p = withSrs(p);
+  if (!saved.mistakes) p = withMistakes(p);
+  return p;
+}
+
+/** Progress from before the Mistakes list: start it with the words missed before that are still weak. */
+function withMistakes(p: Progress): Progress {
+  const mistakes: Record<string, Mistake> = {};
+  for (const [k, it] of Object.entries(p.items)) if (it.w > 0 && it.s < 3) mistakes[k] = { left: MISTAKE_RIGHTS, at: it.t };
+  return { ...p, mistakes };
+}
+
+/** A wrong answer (re)starts a word on the Mistakes list; in a Mistakes session (`drill`), a right one counts toward clearing it. */
+function noteMistake(p: Progress, key: string, right: boolean, drill = false): Progress {
+  const cur = p.mistakes[key];
+  if (!right) return { ...p, mistakes: { ...p.mistakes, [key]: { left: MISTAKE_RIGHTS, at: Date.now() } } };
+  if (!drill || !cur) return p;
+  const mistakes = { ...p.mistakes, [key]: { ...cur, left: cur.left - 1 } };
+  if (cur.left <= 1) delete mistakes[key]; // cleared
+  return { ...p, mistakes };
 }
 
 /** Progress from before spaced repetition: give every word practiced so far a review day. */
@@ -150,7 +181,8 @@ export function reviewCard(lang: Lang, id: string, knewIt: boolean) {
     const k = `${lang}:${id}`;
     const cur = p.cards[k] ?? { box: 0, reviews: 0 };
     const box = knewIt ? Math.min(MAX_BOX, cur.box + 1) : 0;
-    return tally(schedule({ ...p, cards: { ...p.cards, [k]: { box, reviews: cur.reviews + 1 } } }, phraseKey(lang, id), knewIt), lang, knewIt);
+    const out = schedule({ ...p, cards: { ...p.cards, [k]: { box, reviews: cur.reviews + 1 } } }, phraseKey(lang, id), knewIt);
+    return tally(noteMistake(out, phraseKey(lang, id), knewIt), lang, knewIt);
   });
 }
 
@@ -165,7 +197,7 @@ export function recordSpeech(lang: Lang, id: string, score: number) {
 
 /** One quiz question on a phrasebook phrase. */
 export const recordPhraseAnswer = (lang: Lang, phraseId: string, right: boolean) =>
-  update((p) => tally(schedule(p, phraseKey(lang, phraseId), right), lang, right));
+  update((p) => tally(noteMistake(schedule(p, phraseKey(lang, phraseId), right), phraseKey(lang, phraseId), right), lang, right));
 
 export function recordQuiz(lang: Lang, topicId: string, score: number) {
   update((p) => {
@@ -226,17 +258,18 @@ export function completeLesson(lang: Lang, lessonId: string | null, xp: number) 
 }
 
 /**
- * Called for every graded answer, to find weak words and schedule reviews. `soft` misses (a word
- * seen for the first time, Whisper) don't push the review earlier; `track: false` (bare sounds)
- * skips spaced repetition.
+ * Called for every graded answer, to find weak words, schedule reviews and keep the Mistakes
+ * list. `soft` misses (a word seen for the first time, Whisper) don't push the review earlier or
+ * count as mistakes; `track: false` (bare sounds) skips both; `drill` is a Mistakes session.
  */
-export function recordAnswer(lang: Lang, itemId: string, right: boolean, { soft = false, track = true } = {}) {
+export function recordAnswer(lang: Lang, itemId: string, right: boolean, { soft = false, track = true, drill = false } = {}) {
   update((p) => {
     const k = `${lang}:${itemId}`;
     const cur = p.items[k] ?? { s: 0, t: 0, w: 0 };
     const next = right ? { s: Math.min(5, cur.s + 1), t: Date.now(), w: cur.w } : { s: Math.max(0, cur.s - 2), t: Date.now(), w: cur.w + 1 };
     const out = tally({ ...p, items: { ...p.items, [k]: next } }, lang, right);
-    return track ? schedule(out, k, right, soft) : out;
+    if (!track) return out;
+    return noteMistake(schedule(out, k, right, soft), k, right || soft, drill && !(soft && !right));
   });
 }
 
@@ -285,12 +318,9 @@ export function subscribe(listener: () => void) {
   return () => listeners.delete(listener);
 }
 
-/** Replaces all progress with a backup's (see backup.ts). Older backups get review days like old progress does. */
+/** Replaces all progress with a backup's (see backup.ts). Older backups are filled in like old progress is. */
 export function replaceProgress(saved: Partial<Progress>) {
-  update(() => {
-    const p = { ...EMPTY, ...saved };
-    return saved.srs ? p : withSrs(p);
-  });
+  update(() => migrate(saved));
 }
 
 export function resetProgress() {

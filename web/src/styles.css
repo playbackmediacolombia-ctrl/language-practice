@@ -366,8 +366,8 @@ button.card { text-align: left; width: 100%; cursor: pointer; }
 .review-card { border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); background: linear-gradient(135deg, var(--accent-bg), var(--card)); }
 .review-card .icon { color: var(--accent); }
 .row-icon.due-count { width: 40px; height: 40px; border-radius: 12px; font-weight: 800; font-size: 17px; font-variant-numeric: tabular-nums; background: var(--accent); color: #fff; }
-.daily-card:disabled .row-icon.due-count { background: var(--ok-bg); }
-.daily-card:disabled .due-count .icon { color: var(--ok); }
+.daily-card:disabled .row-icon.due-count, .mistakes-card:disabled .row-icon.due-count { background: var(--ok-bg); }
+.daily-card:disabled .due-count .icon, .mistakes-card:disabled .due-count .icon { color: var(--ok); }
 
 .stage { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
 .level-head {
@@ -797,6 +797,16 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .word-sheet-word { font-size: 22px; font-weight: 800; }
 .word-sheet-word .pinyin { font-size: 16px; font-weight: 600; }
 .word-sheet-en { color: var(--muted); }
+
+/* ---- Mistakes ---- */
+.mistake-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.mistake-chip {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 12px;
+  background: var(--bg-raised); border: 1px solid var(--border); font-weight: 650; font-size: 15px;
+}
+.mistake-chip .dots { display: inline-flex; gap: 3px; }
+.mistake-chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); }
+.mistake-chip .dot.on { background: var(--ok-bright); }
 
 /* ---- Grammar tips ---- */
 .sheet-backdrop {
