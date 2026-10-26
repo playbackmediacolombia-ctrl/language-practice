@@ -10,24 +10,30 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Language Practice',
-        short_name: 'Languages',
+        id: './',
+        name: 'Learnguage',
+        short_name: 'Learnguage',
         description: 'Spanish, French and Mandarin phrase practice',
         start_url: './',
         scope: './',
         display: 'standalone',
-        background_color: '#F6F4EF',
-        theme_color: '#F6F4EF',
+        orientation: 'portrait',
+        background_color: '#F4F8FF',
+        theme_color: '#F4F8FF',
         icons: [
           { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
           { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
+          { src: 'icons/icon-1024.png', sizes: '1024x1024', type: 'image/png', purpose: 'any' },
+          // Android crops these to a circle or squircle, so the art sits inside a safe zone.
+          { src: 'icons/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
       },
       workbox: {
         // App shell + all phrase audio work offline. The ONNX runtime and Whisper model are
         // cached separately by transformers.js, so they are left out here.
         globPatterns: ['**/*.{js,css,html,png,mp3}'],
-        globIgnores: ['ort/**'],
+        // Launch screens are only read by iOS when the app is added to the Home Screen.
+        globIgnores: ['ort/**', 'splash/**', 'icons/icon-1024.png'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       },
     }),

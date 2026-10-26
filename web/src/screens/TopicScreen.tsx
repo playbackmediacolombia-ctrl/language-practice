@@ -1,44 +1,49 @@
 import { playPhrase } from '../lib/audio';
 import { getPhrases, getTopic, type Lang } from '../lib/content';
+import { tapFeedback } from '../lib/fx';
 import { useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
-import { PhraseText, Screen } from '../ui';
+import { Icon, PhraseText, Screen } from '../ui';
 
 export function TopicScreen({ lang, topic }: { lang: Lang; topic: string }) {
   const phrases = getPhrases(lang, topic);
   const progress = useProgress();
   const quizBest = progress.quiz[`${lang}:${topic}`];
+  const open = (mode: string) => {
+    tapFeedback();
+    navigate(`/${lang}/${topic}/${mode}`);
+  };
 
   return (
-    <Screen title={getTopic(topic)?.title ?? ''} back={`/${lang}/phrasebook`}>
-      <button className="btn" onClick={() => navigate(`/${lang}/${topic}/practice`)}>
-        🎙️ Listen &amp; repeat
+    <Screen title={getTopic(topic)?.title ?? ''} back="/practice">
+      <button className="btn" onClick={() => open('practice')}>
+        <Icon name="mic" /> Listen &amp; repeat
       </button>
       <div className="row" style={{ marginBottom: 8 }}>
-        <button className="btn secondary flex" onClick={() => navigate(`/${lang}/${topic}/flashcards`)}>
-          🃏 Flashcards
+        <button className="btn secondary flex" onClick={() => open('flashcards')}>
+          <Icon name="cards" /> Flashcards
         </button>
-        <button className="btn secondary flex" onClick={() => navigate(`/${lang}/${topic}/quiz`)}>
-          {quizBest !== undefined ? `❓ Quiz · ${Math.round(quizBest * 100)}%` : '❓ Quiz'}
+        <button className="btn secondary flex" onClick={() => open('quiz')}>
+          <Icon name="quiz" /> {quizBest !== undefined ? `Quiz · ${Math.round(quizBest * 100)}%` : 'Quiz'}
         </button>
       </div>
 
-      {phrases.map((p) => {
-        const best = progress.speech[`${lang}:${p.id}`];
-        return (
-          <button key={p.id} className="card" style={{ padding: 14 }} onClick={() => playPhrase(p.audio)}>
-            <div className="row">
+      <div className="list">
+        {phrases.map((p) => {
+          const best = progress.speech[`${lang}:${p.id}`];
+          return (
+            <button key={p.id} className="list-row link" onClick={() => playPhrase(p.audio)}>
               <div className="grow">
                 <PhraseText phrase={p} size="small" />
               </div>
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: 24 }}>🔊</div>
-                {best !== undefined && <div className="muted small">🎙️ {Math.round(best * 100)}%</div>}
+              <div style={{ textAlign: 'right', color: 'var(--accent)' }}>
+                <Icon name="speaker" size={24} style={{ marginLeft: 'auto' }} />
+                {best !== undefined && <div className="muted small">{Math.round(best * 100)}%</div>}
               </div>
-            </div>
-          </button>
-        );
-      })}
+            </button>
+          );
+        })}
+      </div>
     </Screen>
   );
 }

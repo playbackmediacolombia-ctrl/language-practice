@@ -1,4 +1,4 @@
-# Language Practice
+# Learnguage
 
 A personal app for practicing Spanish, French and Mandarin. It costs $0: there are no paid services, and no accounts beyond the GitHub account that hosts it.
 
@@ -18,6 +18,17 @@ There are two front ends that share the lessons, audio and matching code:
 | `src/` | Native Expo app (whisper.rn) | Xcode + free Apple ID, re-installed every 7 days (see the end of this file) |
 
 ## Web app
+
+### Look and feel
+
+- Four tabs: **Learn** (the lesson path), **Practice** (review and the phrasebook), **Progress** (XP, streak, a week chart, a streak calendar) and **Settings**.
+- Light and dark mode (follows the phone, or pick one in Settings). Colors and spacing are tokens at the top of `web/src/styles.css`.
+- Motion: screen transitions (View Transitions, Safari 18+), press-down buttons, a green flash, bounce and sparkles for right answers, a shake for wrong ones, confetti when a lesson is done. All of it turns off with iPhone **Settings › Accessibility › Motion › Reduce Motion**.
+- Sound effects are synthesized in the browser (no files). Haptics use `navigator.vibrate` where it exists and the iOS 18 `<input switch>` trick on iPhone; both can be turned off in Settings.
+- Branding comes from `Logos/logo.png` (never modified). `cd web && npm run icons` rebuilds everything from it with `sharp` (a free dev dependency) and updates `index.html`:
+  - Home-screen icon (180, 192, 512, 1024 and a maskable 512): the parrot and its "Hola" bubble on a light sky background, flattened so no transparency can show as black on iPhone.
+  - Favicons (32 and 64), the small header mark (`public/brand/mark.png`), the full logo for the welcome screen (`public/brand/logo.webp`) and 22 launch screens (light and dark, every current iPhone size).
+- The color tokens in `web/src/styles.css` come from the logo: navy text, the parrot's blues for buttons and links, its yellow and orange for XP and streaks.
 
 ### Which Whisper model
 
@@ -54,7 +65,7 @@ The microphone only works over HTTPS or on `localhost`. To try it on the iPhone,
 
 1. Open the site link in **Safari**.
 2. Tap the **Share** button, then **Add to Home Screen**, then **Add**.
-3. Open it from the home screen. Go to **Speech checking** and download the model (77 MB, Wi-Fi recommended).
+3. Open it from the home screen (it opens full screen with its own icon and launch screen). In the **Settings** tab, download the speech model (77 MB, Wi-Fi recommended).
 4. Allow the microphone when asked the first time you record.
 
 After that it works in airplane mode. Use the home-screen icon rather than a Safari tab: Safari can clear a site's saved data if you don't visit it for a few weeks, but home-screen apps keep theirs.

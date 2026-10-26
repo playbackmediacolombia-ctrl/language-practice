@@ -5,7 +5,8 @@ import { getPhrases, type Lang } from '../lib/content';
 import { recordSpeech, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { chosenModel, isModelReady, loadModel, MODELS, transcribe } from '../lib/whisper';
-import { PhraseText, ProgressBar, Screen } from '../ui';
+import { haptic, sfx, tapFeedback } from '../lib/fx';
+import { Icon, PhraseText, ProgressBar, Screen, Waveform } from '../ui';
 
 type State =
   | { kind: 'idle' }
@@ -33,6 +34,7 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
   const [ready, setReady] = useState(isModelReady());
   const { voice } = useProgress();
   const recording = useRef<Recording | null>(null);
+  const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
   const phrase = phrases[index];
   const back = `/${lang}/${topic}`;
 
@@ -59,6 +61,7 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
   const check = async (rec: Recording) => {
     const audio = await rec.done;
     recording.current = null;
+    setAnalyser(null);
     if (!audio.length) throw new Error("I didn't hear anything. Check the mic isn't covered, tap the mic and speak a little louder.");
     setState({ kind: 'checking', download: null });
     const heard = await transcribe(audio, lang, (download) => setState({ kind: 'checking', download }));
@@ -66,6 +69,8 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
     const grade = gradeFor(result.score);
     recordSpeech(lang, phrase.id, result.score);
     setState({ kind: 'result', heard, result, grade });
+    sfx(grade === 'retry' ? 'wrong' : 'correct');
+    haptic(grade === 'retry' ? 'error' : 'success');
     if (voice) void playFeedback(grade);
   };
 
@@ -75,12 +80,15 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
       return;
     }
     try {
+      tapFeedback();
       const rec = await startRecording(() => setState({ kind: 'listening', heard: true }));
       recording.current = rec;
+      setAnalyser(rec.analyser);
       setState({ kind: 'listening', heard: false });
       await check(rec);
     } catch (e) {
       recording.current = null;
+      setAnalyser(null);
       setState({ kind: 'error', message: e instanceof Error ? e.message : String(e) });
     }
   };
@@ -95,10 +103,10 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
         <PhraseText phrase={phrase} />
         <div className="row">
           <button className="btn secondary flex" onClick={() => playPhrase(phrase.audio)} disabled={busy}>
-            🔊 Listen
+            <Icon name="speaker" /> Listen
           </button>
           <button className="btn secondary flex" onClick={() => playPhrase(phrase.audio, true)} disabled={busy}>
-            🐢 Slow
+            <Icon name="speaker" size={18} /> Slow
           </button>
         </div>
       </div>
@@ -109,8 +117,9 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
         disabled={checking}
         aria-label={listening ? 'Stop recording' : 'Start recording'}
       >
-        {checking ? <span className="spinner" /> : listening ? '■' : '🎙️'}
+        {checking ? <span className="spinner" /> : <Icon name={listening ? 'stop' : 'mic'} size={44} />}
       </button>
+      <Waveform analyser={analyser} />
       <p className="status" aria-live="polite">
         {state.kind === 'listening'
           ? state.heard
@@ -192,7 +201,7 @@ function DownloadModel({ onReady }: { onReady: () => void }) {
         </>
       ) : (
         <button className="btn" onClick={download}>
-          ⬇️ Download speech model ({info.sizeMB} MB)
+          <Icon name="download" /> Download speech model ({info.sizeMB} MB)
         </button>
       )}
       {error && <p style={{ margin: 0, color: 'var(--wrong)' }}>{error}</p>}

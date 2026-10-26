@@ -23,7 +23,14 @@ export type Progress = {
   goal: number; // daily XP goal
   speaking: boolean; // include "say it out loud" exercises
   voice: boolean; // spoken praise and encouragement
+  sfx: boolean; // sound effects (taps, right/wrong, lesson complete)
+  haptics: boolean;
+  theme: Theme;
+  lang: Lang | null; // language last opened on the Learn tab
 };
+
+export type Theme = 'auto' | 'light' | 'dark';
+export type Prefs = Pick<Progress, 'goal' | 'speaking' | 'voice' | 'sfx' | 'haptics' | 'theme' | 'lang'>;
 
 export const MAX_HEARTS = 5;
 export const HEART_REFILL_MS = 30 * 60 * 1000;
@@ -42,6 +49,10 @@ const EMPTY: Progress = {
   goal: 20,
   speaking: true,
   voice: true,
+  sfx: true,
+  haptics: true,
+  theme: 'auto',
+  lang: null,
 };
 
 function load(): Progress {
@@ -172,7 +183,18 @@ export function weakness(p: Progress, lang: Lang, itemId: string, now = Date.now
 export const setGoal = (goal: number) => update((p) => ({ ...p, goal }));
 export const setSpeaking = (speaking: boolean) => update((p) => ({ ...p, speaking }));
 export const setVoice = (voice: boolean) => update((p) => ({ ...p, voice }));
+export const setPref = <K extends keyof Prefs>(key: K, value: Prefs[K]) => update((p) => ({ ...p, [key]: value }));
+
+/** The current state, for code outside React (sound effects, haptics, theme). */
+export const getProgress = () => progress;
+export function subscribe(listener: () => void) {
+  listeners.add(listener);
+  return () => listeners.delete(listener);
+}
 
 export function resetProgress() {
-  update((p) => ({ ...EMPTY, goal: p.goal, speaking: p.speaking, voice: p.voice }));
+  update((p) => {
+    const prefs: Prefs = { goal: p.goal, speaking: p.speaking, voice: p.voice, sfx: p.sfx, haptics: p.haptics, theme: p.theme, lang: p.lang };
+    return { ...EMPTY, ...prefs };
+  });
 }

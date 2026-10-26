@@ -1,57 +1,53 @@
 import { LANGS } from '../lib/content';
-import { getLessons } from '../lib/course';
-import { lessonDone, useProgress } from '../lib/progress';
+import { tapFeedback } from '../lib/fx';
 import { navigate } from '../lib/router';
-import { chosenModel, isModelReady, MODELS } from '../lib/whisper';
-import { ProgressBar, Screen } from '../ui';
-import { StatsBar } from './Path';
+import { Icon, LangIcon, Screen } from '../ui';
 
 const isStandalone =
   window.matchMedia('(display-mode: standalone)').matches || (navigator as { standalone?: boolean }).standalone === true;
 
+/** First run: pick a language. Afterwards the Learn tab opens straight on its path. */
 export function Home() {
-  const ready = isModelReady();
-  const progress = useProgress();
   return (
-    <Screen title="Language Practice">
-      <StatsBar progress={progress} />
-      <h2 className="heading">What do you want to learn?</h2>
-
-      {LANGS.map((lang) => {
-        const lessons = getLessons(lang.id);
-        const done = lessons.filter((l) => lessonDone(progress, lang.id, l.id)).length;
-        return (
-          <button key={lang.id} className="card" onClick={() => navigate(`/${lang.id}`)}>
-            <div className="row">
-              <span style={{ fontSize: 40 }}>{lang.flag}</span>
-              <div className="grow">
-                <div style={{ fontSize: 20, fontWeight: 600 }}>{lang.name}</div>
-                <p className="muted">
-                  {lang.native} · {done ? `${done}/${lessons.length} lessons` : 'Start from the very first sounds'}
-                </p>
-              </div>
+    <Screen title="Welcome" large brand={false}>
+      <img className="welcome-logo" src="brand/logo.webp" alt="Learnguage" width={300} height={246} />
+      <p className="muted" style={{ fontSize: 17, textAlign: 'center' }}>
+        Learn like a child does: sounds first, then words, sentences and real conversation. Free, no account, saved on this
+        phone.
+      </p>
+      <h2 className="heading">Pick a language</h2>
+      {LANGS.map((lang) => (
+        <button
+          key={lang.id}
+          className="card"
+          onClick={() => {
+            tapFeedback();
+            navigate(`/${lang.id}`);
+          }}
+        >
+          <div className="row">
+            <LangIcon lang={lang.id} size={56} />
+            <div className="grow">
+              <div style={{ fontSize: 20, fontWeight: 700 }}>{lang.name}</div>
+              <p className="muted">{lang.native} · Start from the very first sounds</p>
             </div>
-            {done > 0 && <ProgressBar value={done / lessons.length} />}
-          </button>
-        );
-      })}
-
-      <button className="card" style={{ marginTop: 12 }} onClick={() => navigate('/settings')}>
-        <div style={{ fontSize: 17, fontWeight: 600 }}>⚙️ Settings · daily goal · speech checking</div>
-        <p className="muted">
-          {ready
-            ? `Whisper (${MODELS[chosenModel()].label.toLowerCase()}) is saved on this phone. Works offline.`
-            : 'Not set up yet. Tap to download the Whisper model once (Wi‑Fi recommended).'}
-        </p>
-      </button>
-
+            <Icon name="chevron" style={{ color: 'var(--faint)' }} />
+          </div>
+        </button>
+      ))}
       {!isStandalone && (
         <div className="card">
-          <div style={{ fontSize: 17, fontWeight: 600 }}>📲 Add to Home Screen</div>
-          <p className="muted">
-            In Safari, tap the Share button, then <b>Add to Home Screen</b>. It opens full screen like an app, works
-            offline, and keeps your progress safe.
-          </p>
+          <div className="row">
+            <span className="row-icon">
+              <Icon name="download" />
+            </span>
+            <div className="grow">
+              <div style={{ fontWeight: 650 }}>Add to Home Screen</div>
+              <p className="muted small">
+                In Safari tap Share, then <b>Add to Home Screen</b>. It opens full screen like an app and works offline.
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </Screen>

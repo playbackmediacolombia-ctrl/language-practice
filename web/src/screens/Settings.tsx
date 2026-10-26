@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { GOALS, resetProgress, setGoal, setSpeaking, setVoice, useProgress } from '../lib/progress';
+import { GOALS, resetProgress, setGoal, setPref, setSpeaking, setVoice, type Theme, useProgress } from '../lib/progress';
 import { chosenModel, deleteModel, isModelReady, loadModel, type ModelKey, MODELS, setChosenModel } from '../lib/whisper';
-import { ProgressBar, Screen } from '../ui';
+import { Icon, ProgressBar, Screen, Segmented, Toggle } from '../ui';
 
 export function Settings() {
   const [model, setModel] = useState<ModelKey>(chosenModel());
@@ -39,76 +39,96 @@ export function Settings() {
   };
 
   return (
-    <Screen title="Settings" back="/">
-      <div className="card">
-        <div style={{ fontWeight: 650, fontSize: 17 }}>🎯 Daily goal</div>
-        <div className="choice">
-          {GOALS.map((goal) => (
-            <label key={goal}>
-              <input type="radio" name="goal" checked={prefs.goal === goal} onChange={() => setGoal(goal)} />
-              <b>{goal} XP</b>
-              <span className="muted small">{goal / 10 === 1 ? '1 lesson' : `${goal / 10} lessons`}</span>
-            </label>
-          ))}
+    <Screen title="Settings" large>
+      <div className="section-title">Appearance</div>
+      <div className="list">
+        <div className="list-block">
+          <Segmented
+            label="Theme"
+            value={prefs.theme}
+            onChange={(theme: Theme) => setPref('theme', theme)}
+            options={[
+              { value: 'auto', label: 'Automatic' },
+              { value: 'light', label: 'Light' },
+              { value: 'dark', label: 'Dark' },
+            ]}
+          />
+          <p className="muted small">Automatic follows your iPhone's Light/Dark setting.</p>
         </div>
-        <label className="row toggle">
-          <span className="grow">
-            <b>Speaking exercises</b>
-            <span className="muted small" style={{ display: 'block' }}>
-              “Say it out loud” in lessons, graded by Whisper
-            </span>
-          </span>
-          <input type="checkbox" checked={prefs.speaking} onChange={(e) => setSpeaking(e.target.checked)} />
-        </label>
-        <label className="row toggle">
-          <span className="grow">
-            <b>Spoken feedback</b>
-            <span className="muted small" style={{ display: 'block' }}>
-              A voice says “¡Muy bien!”, “Presque.”… now and then. Off: just the chime.
-            </span>
-          </span>
-          <input type="checkbox" checked={prefs.voice} onChange={(e) => setVoice(e.target.checked)} />
-        </label>
       </div>
 
-      <div className="card">
-        <div style={{ fontWeight: 650, fontSize: 17 }}>🎙️ Speech checking</div>
-        <p style={{ margin: 0, lineHeight: 1.4 }}>
-          Listen &amp; Repeat uses Whisper running entirely in Safari on your phone. It's downloaded once for free,
-          then works with no internet. Your voice never leaves the phone.
-        </p>
-        <div className="choice">
-          {(Object.keys(MODELS) as ModelKey[]).map((key) => (
-            <label key={key}>
-              <input type="radio" name="model" checked={model === key} onChange={() => choose(key)} />
-              <b>{MODELS[key].label}</b>
-              <span className="muted small">
-                {MODELS[key].sizeMB} MB · {MODELS[key].note}
-              </span>
-            </label>
-          ))}
+      <div className="section-title">Lessons</div>
+      <div className="list">
+        <div className="list-block">
+          <span className="row-title">Daily goal</span>
+          <Segmented
+            label="Daily goal"
+            value={prefs.goal}
+            onChange={setGoal}
+            options={GOALS.map((goal) => ({
+              value: goal,
+              label: (
+                <>
+                  {goal} XP<small>{goal / 10 === 1 ? '1 lesson' : `${goal / 10} lessons`}</small>
+                </>
+              ),
+            }))}
+          />
         </div>
-
-        {progress !== null ? (
-          <>
-            <ProgressBar value={progress} />
-            <p className="muted">Downloading… {Math.round(progress * 100)}%. Keep this screen open.</p>
-          </>
-        ) : ready ? (
-          <p style={{ margin: 0, color: 'var(--ok)', fontWeight: 600 }}>✓ {info.label} model saved on this phone</p>
-        ) : (
-          <button className="btn" onClick={download}>
-            Download {info.label.toLowerCase()} model ({info.sizeMB} MB)
-          </button>
-        )}
-        {error && <p style={{ margin: 0, color: 'var(--wrong)' }}>{error}</p>}
+        <Toggle label="Speaking exercises" hint="“Say it out loud”, graded by Whisper" checked={prefs.speaking} onChange={setSpeaking} />
       </div>
 
-      {ready && progress === null && (
-        <button className="btn secondary" onClick={remove}>
-          Delete {info.label.toLowerCase()} model
-        </button>
-      )}
+      <div className="section-title">Sound &amp; haptics</div>
+      <div className="list">
+        <Toggle label="Sound effects" hint="Taps, right and wrong, lesson complete" checked={prefs.sfx} onChange={(v) => setPref('sfx', v)} />
+        <Toggle label="Spoken feedback" hint="A voice says “¡Muy bien!”, “Presque.”… now and then" checked={prefs.voice} onChange={setVoice} />
+        <Toggle label="Haptics" hint="Light taps on answers (iPhone with iOS 18 or later)" checked={prefs.haptics} onChange={(v) => setPref('haptics', v)} />
+      </div>
+
+      <div className="section-title">Speech checking</div>
+      <div className="list">
+        <div className="list-block">
+          <p style={{ margin: 0, lineHeight: 1.4 }}>
+            Whisper runs entirely in Safari on your phone. It's downloaded once for free, then works with no internet. Your
+            voice never leaves the phone.
+          </p>
+          <Segmented
+            label="Speech model"
+            value={model}
+            onChange={choose}
+            options={(Object.keys(MODELS) as ModelKey[]).map((key) => ({
+              value: key,
+              label: (
+                <>
+                  {MODELS[key].label}
+                  <small>{MODELS[key].sizeMB} MB</small>
+                </>
+              ),
+            }))}
+          />
+          <p className="muted small">{info.note}</p>
+          {progress !== null ? (
+            <>
+              <ProgressBar value={progress} tone="accent" />
+              <p className="muted">Downloading… {Math.round(progress * 100)}%. Keep this screen open.</p>
+            </>
+          ) : ready ? (
+            <p className="row" style={{ margin: 0, color: 'var(--ok)', fontWeight: 650 }}>
+              <Icon name="check" size={20} /> {info.label} model saved on this phone
+            </p>
+          ) : (
+            <button className="btn" onClick={download}>
+              <Icon name="download" /> Download {info.label.toLowerCase()} model ({info.sizeMB} MB)
+            </button>
+          )}
+          {error && <p style={{ margin: 0, color: 'var(--wrong)' }}>{error}</p>}
+          {ready && progress === null && (
+            <button className="btn secondary" onClick={remove}>
+              Delete {info.label.toLowerCase()} model
+            </button>
+          )}
+        </div>
+      </div>
 
       <button
         className="btn secondary"

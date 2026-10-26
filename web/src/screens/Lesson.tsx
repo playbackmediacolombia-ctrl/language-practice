@@ -1,10 +1,11 @@
 import { pinyin } from 'pinyin-pro';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { compare } from '../../../shared/compare';
-import { playChime, playClip, playClipAfterPhrase, playPhrase, type Recording, startRecording, unlockAudio } from '../lib/audio';
+import { playClip, playClipAfterPhrase, playPhrase, type Recording, startRecording, unlockAudio } from '../lib/audio';
 import { type Lang, shuffle } from '../lib/content';
 import { getLesson, getLessons, type Item, weakItems } from '../lib/course';
 import { allClips, Coach, type Line, type Reaction } from '../lib/feedback';
+import { haptic, sfx, tapFeedback } from '../lib/fx';
 import { checkTiles, checkTyped, type Exercise, itemsOf, lessonExercises, reviewExercises } from '../lib/exercises';
 import {
   completeLesson,
@@ -18,7 +19,7 @@ import {
 } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { isModelReady, transcribe } from '../lib/whisper';
-import { ProgressBar } from '../ui';
+import { Burst, Confetti, CountUp, Flame, Icon, ProgressBar, Waveform } from '../ui';
 
 const LESSON_XP = 10;
 const PERFECT_BONUS = 5;
@@ -66,7 +67,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   const [index, setIndex] = useState(0);
   const [result, setResult] = useState<Result | null>(null);
   const [mistakes, setMistakes] = useState(0);
-  const [summary, setSummary] = useState<{ xp: number; goalReached: boolean; line: Line } | null>(null);
+  const [summary, setSummary] = useState<{ xp: number; xpBefore: number; streakUp: boolean; goalReached: boolean; line: Line } | null>(null);
   const coach = useRef(new Coach(lang));
   const started = useRef(Date.now());
 
@@ -75,7 +76,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   const hearts = heartsNow(progress).hearts;
 
   if (!queue.length) {
-    navigate(back, true);
+    navigate(back, { replace: true });
     return null;
   }
 
@@ -83,7 +84,8 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     if (r.skipped) return setResult(r);
     const reaction = r.right ? coach.current.right() : coach.current.wrong();
     setResult({ ...r, reaction });
-    playChime(r.right);
+    sfx(r.right ? 'correct' : 'wrong');
+    haptic(r.right ? 'success' : 'error');
     itemsOf(ex).forEach((item) => recordAnswer(lang, item.id, r.right));
     if (ex.type !== 'meaning' && ex.type !== 'match' && ex.type !== 'speak') playPhrase(ex.item.audio);
     if (progress.voice && reaction.speak) playClipAfterPhrase(reaction.line.url);
@@ -107,12 +109,16 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   const finish = () => {
     const xp = review ? REVIEW_XP : LESSON_XP + (mistakes === 0 ? PERFECT_BONUS : 0);
     const before = todayXp(progress);
+    const streakUp = before === 0; // first lesson today extends (or starts) the streak
+    const xpBefore = progress.xp;
     completeLesson(lang, review ? null : lessonId, xp);
     if (review) gainHeart();
     const line = coach.current.finished(mistakes === 0);
-    setSummary({ xp, goalReached: before < progress.goal && before + xp >= progress.goal, line });
+    setSummary({ xp, xpBefore, streakUp, goalReached: before < progress.goal && before + xp >= progress.goal, line });
     setPhase('done');
-    if (progress.voice) void playClip(line.url, 0.2);
+    sfx('complete');
+    haptic('success');
+    if (progress.voice) void playClip(line.url, 0.9);
   };
 
   const quit = () => {
@@ -136,6 +142,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
             <button
               className="btn"
               onClick={() => {
+                tapFeedback();
                 unlockAudio(progress.voice ? allClips(lang) : []);
                 started.current = Date.now();
                 setPhase('play');
@@ -154,7 +161,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     return (
       <LessonFrame onQuit={() => navigate(back)} value={index / queue.length} hearts={0}>
         <div className="card" style={{ gap: 14, marginTop: 24, alignItems: 'center', textAlign: 'center' }}>
-          <div style={{ fontSize: 56 }}>💔</div>
+          <Icon name="heart" size={72} style={{ color: 'var(--faint)' }} />
           <div style={{ fontSize: 24, fontWeight: 700 }}>Out of hearts</div>
           <NoHeartsMessage lang={lang} />
         </div>
@@ -166,36 +173,55 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     const accuracy = Math.max(0, Math.round(((total.current - mistakes) / total.current) * 100));
     const minutes = Math.max(1, Math.round((Date.now() - started.current) / 60000));
     const today = todayXp(progress);
+    const perfect = mistakes === 0;
     return (
-      <main className="page fill" style={{ justifyContent: 'center', paddingTop: 'calc(env(safe-area-inset-top) + 24px)' }}>
-        <div style={{ textAlign: 'center', fontSize: 64 }}>{mistakes === 0 ? '🏆' : '🎉'}</div>
-        <h2 className="heading" style={{ textAlign: 'center' }}>
-          {review ? 'Review complete!' : 'Lesson complete!'}
-        </h2>
+      <main className="page fill celebrate">
+        <Confetti pieces={perfect ? 90 : 60} />
+        <div className={perfect ? 'trophy perfect' : 'trophy done'}>
+          <Icon name={perfect ? 'star' : 'check'} size={72} />
+        </div>
+        <h2 className="heading">{review ? 'Review complete!' : 'Lesson complete!'}</h2>
         <div className="cheer">
           <div className="cheer-text">{summary.line.text}</div>
           {summary.line.voice !== 'en' && <div className="muted">{summary.line.en}</div>}
         </div>
         <div className="stats">
-          <Stat label="XP earned" value={`+${summary.xp}`} tone="accent" />
-          <Stat label="Accuracy" value={`${accuracy}%`} tone={accuracy >= 80 ? 'ok' : 'close'} />
-          <Stat label="Time" value={`${minutes} min`} tone="muted" />
+          <Stat label="XP earned" value={<CountUp value={summary.xp} prefix="+" duration={1100} />} tone="accent" />
+          <Stat label="Accuracy" value={<CountUp value={accuracy} duration={1100} />} unit="%" tone={accuracy >= 80 ? 'ok' : 'close'} />
+          <Stat label="Time" value={minutes} unit=" min" tone="muted" />
         </div>
-        <div className="card">
+        <div className="card" style={{ textAlign: 'left' }}>
           <div className="row">
-            <span className="grow" style={{ fontWeight: 600 }}>
-              🔥 {streak(progress)} day streak
+            <span className="grow streak-up">
+              <Flame lit={streak(progress) > 0} size={26} /> {streak(progress)} day streak{summary.streakUp ? '!' : ''}
             </span>
-            <span className="muted">
-              {Math.min(today, progress.goal)}/{progress.goal} XP today
+            <span className="muted small">
+              <Icon name="bolt" size={14} style={{ display: 'inline', color: 'var(--xp)', verticalAlign: '-2px' }} />{' '}
+              <CountUp value={progress.xp} from={summary.xpBefore} duration={1200} /> XP
             </span>
           </div>
-          <ProgressBar value={today / progress.goal} />
-          {summary.goalReached && <p style={{ margin: 0, color: 'var(--ok)', fontWeight: 600 }}>🎯 Daily goal reached!</p>}
-          {mistakes === 0 && !review && <p className="muted">No mistakes: +{PERFECT_BONUS} bonus XP.</p>}
-          {review && <p className="muted">+1 ❤️ for practicing.</p>}
+          <div className="row">
+            <span className="grow muted small">Daily goal</span>
+            <span className="muted small">
+              {Math.min(today, progress.goal)}/{progress.goal} XP
+            </span>
+          </div>
+          <ProgressBar value={today / progress.goal} tone="flame" />
+          {summary.goalReached && (
+            <p className="row" style={{ margin: 0, color: 'var(--ok)', fontWeight: 700 }}>
+              <Icon name="target" size={18} /> Daily goal reached!
+            </p>
+          )}
+          {perfect && !review && <p className="muted small">No mistakes: +{PERFECT_BONUS} bonus XP.</p>}
+          {review && <p className="muted small">+1 heart for practicing.</p>}
         </div>
-        <button className="btn" onClick={() => navigate(back)}>
+        <button
+          className="btn"
+          onClick={() => {
+            tapFeedback();
+            navigate(back, { direction: 'back' });
+          }}
+        >
           Continue
         </button>
       </main>
@@ -203,7 +229,13 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   }
 
   return (
-    <LessonFrame onQuit={quit} value={index / queue.length} hearts={review ? null : hearts}>
+    <LessonFrame
+      onQuit={quit}
+      value={index / queue.length}
+      hearts={review ? null : hearts}
+      feedback={result && !result.skipped ? (result.right ? 'ok' : 'bad') : undefined}
+    >
+      {result?.right && !result.skipped && <div key={index} className="flash ok" aria-hidden="true" />}
       <ExerciseView key={index} ex={ex} lang={lang} answered={result !== null} onSubmit={submit} />
       {result && <ResultBanner ex={ex} result={result} onContinue={next} />}
     </LessonFrame>
@@ -229,29 +261,60 @@ function NoHeartsMessage({ lang }: { lang: Lang }) {
   );
 }
 
-function LessonFrame({ onQuit, value, hearts, children }: { onQuit: () => void; value: number; hearts: number | null; children: ReactNode }) {
+function LessonFrame({
+  onQuit,
+  value,
+  hearts,
+  feedback,
+  children,
+}: {
+  onQuit: () => void;
+  value: number;
+  hearts: number | null;
+  feedback?: 'ok' | 'bad';
+  children: ReactNode;
+}) {
+  // Shake the heart counter when one is lost.
+  const prev = useRef(hearts);
+  const lost = hearts !== null && prev.current !== null && hearts < prev.current;
+  useEffect(() => {
+    prev.current = hearts;
+  }, [hearts]);
   return (
     <>
       <header className="header lesson-top">
-        <button className="back" aria-label="Quit lesson" onClick={onQuit}>
-          ✕
-        </button>
-        <div className="grow">
-          <ProgressBar value={value} />
+        <div className="header-bar">
+          <button className="icon-btn back" aria-label="Quit lesson" onClick={onQuit}>
+            <Icon name="close" size={24} />
+          </button>
+          <div className="grow">
+            <ProgressBar value={value} />
+          </div>
+          <span key={hearts ?? 'inf'} className={lost ? 'hearts lost' : 'hearts'} aria-label={hearts === null ? 'Practice, no hearts' : `${hearts} hearts`}>
+            {hearts === null ? (
+              <Icon name="review" size={22} style={{ color: 'var(--accent)' }} />
+            ) : (
+              <>
+                <Icon name="heart" size={22} /> {hearts}
+              </>
+            )}
+          </span>
         </div>
-        <span className="hearts" aria-label={hearts === null ? 'Practice, no hearts' : `${hearts} hearts`}>
-          {hearts === null ? '∞' : `❤️ ${hearts}`}
-        </span>
       </header>
-      <main className="page fill lesson">{children}</main>
+      <main className="page fill lesson" data-feedback={feedback}>
+        {children}
+      </main>
     </>
   );
 }
 
-function Stat({ label, value, tone }: { label: string; value: string; tone: string }) {
+function Stat({ label, value, unit = '', tone }: { label: string; value: ReactNode; unit?: string; tone: string }) {
   return (
     <div className={`stat ${tone}`}>
-      <div className="stat-value">{value}</div>
+      <div className="stat-value">
+        {value}
+        {unit}
+      </div>
       <div className="muted small">{label}</div>
     </div>
   );
@@ -274,12 +337,13 @@ function Target({ item, size = 30 }: { item: Item; size?: number }) {
 
 function SoundButtons({ item, big }: { item: Item; big?: boolean }) {
   return (
-    <div className="row">
-      <button className={big ? 'btn sound-big' : 'btn secondary'} onClick={() => playPhrase(item.audio)} aria-label="Play">
-        🔊
+    <div className="sound-row">
+      <button className={big ? 'btn sound-big' : 'btn secondary sound-sm'} onClick={() => playPhrase(item.audio)} aria-label="Play">
+        <Icon name="speaker" size={big ? 40 : 24} />
       </button>
-      <button className={big ? 'btn secondary sound-slow' : 'btn secondary'} onClick={() => playPhrase(item.audio, true)} aria-label="Play slowly">
-        🐢
+      <button className={big ? 'btn secondary sound-slow' : 'btn secondary sound-sm'} onClick={() => playPhrase(item.audio, true)} aria-label="Play slowly">
+        <Icon name="speaker" size={big ? 26 : 18} />
+        Slow
       </button>
     </div>
   );
@@ -355,7 +419,15 @@ function ChoiceExercise({ ex, answered, onSubmit }: ViewProps) {
       )}
       <div className="options">
         {labels.map((label, i) => (
-          <button key={i} className={optionClass(i)} disabled={answered} onClick={() => setPicked(i)}>
+          <button
+            key={i}
+            className={optionClass(i)}
+            disabled={answered}
+            onClick={() => {
+              tapFeedback();
+              setPicked(i);
+            }}
+          >
             {label}
           </button>
         ))}
@@ -390,7 +462,10 @@ function TilesExercise({ ex, lang, answered, onSubmit }: ViewProps) {
       <div style={{ fontSize: 26, fontWeight: 650 }}>“{ex.item.en}”</div>
       <div className="answer-line" aria-label="Your answer">
         {placed.map((bankIndex, i) => (
-          <button key={bankIndex} className="tile" disabled={answered} onClick={() => setPlaced(placed.filter((_, j) => j !== i))}>
+          <button key={bankIndex} className="tile" disabled={answered} onClick={() => {
+              tapFeedback();
+              setPlaced(placed.filter((_, j) => j !== i));
+            }}>
             <TileText text={ex.bank[bankIndex]} lang={lang} />
           </button>
         ))}
@@ -401,7 +476,10 @@ function TilesExercise({ ex, lang, answered, onSubmit }: ViewProps) {
             key={i}
             className={placed.includes(i) ? 'tile used' : 'tile'}
             disabled={answered || placed.includes(i)}
-            onClick={() => setPlaced([...placed, i])}
+            onClick={() => {
+              tapFeedback();
+              setPlaced([...placed, i]);
+            }}
           >
             <TileText text={word} lang={lang} />
           </button>
@@ -423,17 +501,19 @@ function MatchExercise({ ex, onSubmit }: ViewProps) {
 
   const choose = (side: 'left' | 'right', item: Item) => {
     if (side === 'left') playPhrase(item.audio);
+    haptic('light');
     const next = { ...sel, [side]: item.id };
     if (!next.left || !next.right) return setSel(next);
     setSel({});
     if (next.left === next.right) {
-      playChime(true);
+      sfx('correct');
       const done = [...matched, item.id];
       setMatched(done);
       if (done.length === items.length) onSubmit({ right: true, note: mistakes.current ? undefined : 'All pairs right first time.' });
     } else {
       mistakes.current++;
-      playChime(false);
+      sfx('wrong');
+      haptic('error');
       setWrong([next.left, next.right]);
       setTimeout(() => setWrong([]), 500);
     }
@@ -507,6 +587,7 @@ function SpeakExercise({ ex, lang, answered, onSubmit }: ViewProps) {
   const [heard, setHeard] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const recording = useRef<Recording | null>(null);
+  const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
   useEffect(() => () => recording.current?.stop(), []);
   if (ex.type !== 'speak') return null;
 
@@ -514,11 +595,14 @@ function SpeakExercise({ ex, lang, answered, onSubmit }: ViewProps) {
     if (state === 'listening' || state === 'heard') return recording.current?.stop();
     setError(null);
     try {
+      tapFeedback();
       const rec = await startRecording(() => setState('heard'));
       recording.current = rec;
+      setAnalyser(rec.analyser);
       setState('listening');
       const audio = await rec.done;
       recording.current = null;
+      setAnalyser(null);
       if (!audio.length) throw new Error("I didn't hear anything. Tap the mic and speak a little louder.");
       setState('checking');
       const text = await transcribe(audio, lang);
@@ -528,6 +612,7 @@ function SpeakExercise({ ex, lang, answered, onSubmit }: ViewProps) {
       onSubmit({ right: score >= 0.5, free: true, close: score >= 0.5 && score < 0.85, note: `Whisper heard: “${text || '(nothing)'}” · ${Math.round(score * 100)}%` });
     } catch (e) {
       recording.current = null;
+      setAnalyser(null);
       setState('idle');
       setError(e instanceof Error ? e.message : String(e));
     }
@@ -550,8 +635,9 @@ function SpeakExercise({ ex, lang, answered, onSubmit }: ViewProps) {
         disabled={answered || state === 'checking'}
         aria-label={busy ? 'Stop recording' : 'Start recording'}
       >
-        {state === 'checking' ? <span className="spinner" /> : busy ? '■' : '🎙️'}
+        {state === 'checking' ? <span className="spinner" /> : <Icon name={busy ? 'stop' : 'mic'} size={44} />}
       </button>
+      <Waveform analyser={analyser} />
       <p className="status" aria-live="polite">
         {state === 'listening'
           ? 'Speak now'
@@ -585,9 +671,23 @@ function ResultBanner({ ex, result, onContinue }: { ex: Exercise; result: Result
   const tone = result.skipped ? 'neutral' : result.right ? (streak ? 'ok streak' : 'ok') : 'bad';
   return (
     <div className={`banner ${tone}`} role="status">
-      {streak && <div className="streak-chip">🔥 {streak} in a row!</div>}
+      {streak && (
+        <div className="streak-chip">
+          <Flame lit size={18} /> {streak} in a row!
+        </div>
+      )}
       <div className="banner-title">
-        {result.skipped ? '⏭️ Skipped' : `${result.right ? '✅' : '💪'} ${line?.text ?? ''}`}
+        {result.skipped ? (
+          'Skipped'
+        ) : (
+          <>
+            <span className="banner-badge">
+              <Icon name={result.right ? 'check' : 'close'} size={20} />
+              {result.right && <Burst count={streak ? 14 : 10} />}
+            </span>
+            {line?.text}
+          </>
+        )}
         {line && line.voice !== 'en' && <span className="banner-en"> {line.en}</span>}
       </div>
       {result.close && <div className="small">Close enough. Listen again to sound even more natural.</div>}

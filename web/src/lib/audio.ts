@@ -18,7 +18,8 @@ export function playPhrase(url: string, slow = false) {
 // feedback that plays after Whisper finishes.
 let ctx: AudioContext | null = null;
 
-function audioContext(): AudioContext {
+/** The shared AudioContext (sound effects use it too). */
+export function audioContext(): AudioContext {
   ctx ??= new AudioContext();
   if (ctx.state !== 'running') void ctx.resume(); // also wakes it after an iOS 'interrupted'
   return ctx;
@@ -38,29 +39,6 @@ const feedbackUrl = (name: Feedback) => new URL(`feedback/${name}.mp3`, document
 export function unlockAudio(preload: string[] = FEEDBACK.map(feedbackUrl)) {
   audioContext();
   preload.forEach((url) => void loadClip(url));
-}
-
-/** A short two-note chime: rising when right, falling when wrong. */
-export function playChime(right: boolean) {
-  try {
-    const c = audioContext();
-    const notes = right ? [660, 990] : [330, 220];
-    notes.forEach((freq, i) => {
-      const t = c.currentTime + i * 0.12;
-      const osc = c.createOscillator();
-      const gain = c.createGain();
-      osc.type = right ? 'sine' : 'triangle';
-      osc.frequency.value = freq;
-      gain.gain.setValueAtTime(0.0001, t);
-      gain.gain.exponentialRampToValueAtTime(0.25, t + 0.02);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.25);
-      osc.connect(gain).connect(c.destination);
-      osc.start(t);
-      osc.stop(t + 0.3);
-    });
-  } catch {
-    // No sound is fine; the banner shows the result.
-  }
 }
 
 const clips = new Map<string, Promise<AudioBuffer>>();
@@ -112,6 +90,8 @@ export type Recording = {
   done: Promise<Float32Array>;
   /** Stops early (the mic button). Normally recording stops by itself after the speaker pauses. */
   stop: () => void;
+  /** Live input, for drawing a sound wave while recording. */
+  analyser: AnalyserNode;
 };
 
 const FRAME = 4096;
@@ -145,6 +125,9 @@ export async function startRecording(onSpeechStart?: () => void): Promise<Record
   await c.resume();
 
   const source = c.createMediaStreamSource(stream);
+  const analyser = c.createAnalyser();
+  analyser.fftSize = 1024;
+  source.connect(analyser);
   // ScriptProcessorNode is deprecated but, unlike MediaRecorder + decodeAudioData, gives raw
   // samples reliably on every iOS version. Its output is silent; it only has to be connected.
   const processor = c.createScriptProcessor(FRAME, 1, 1);
@@ -200,7 +183,7 @@ export async function startRecording(onSpeechStart?: () => void): Promise<Record
     else if (seconds >= MAX_LENGTH) finish();
   };
 
-  return { done, stop: () => finish() };
+  return { done, stop: () => finish(), analyser };
 }
 
 function rms(samples: Float32Array) {

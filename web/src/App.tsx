@@ -1,32 +1,55 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { getTopic, isLang } from './lib/content';
+import { setPref, useProgress } from './lib/progress';
 import { navigate, useRoute } from './lib/router';
 import { isModelReady, loadModel } from './lib/whisper';
 import { Flashcards } from './screens/Flashcards';
 import { Home } from './screens/Home';
 import { Path } from './screens/Path';
+import { PracticeHub } from './screens/PracticeHub';
+import { ProgressScreen } from './screens/ProgressScreen';
 import { Quiz } from './screens/Quiz';
 import { Settings } from './screens/Settings';
 import { TopicScreen } from './screens/TopicScreen';
-import { Topics } from './screens/Topics';
+import { TabBar, useActiveTab } from './ui';
 
 // Practice and Lesson pull in the Chinese pinyin dictionary, so they load only when opened.
 const Practice = lazy(() => import('./screens/Practice'));
 const Lesson = lazy(() => import('./screens/Lesson'));
 
 export function App() {
+  const tab = useActiveTab();
+  return (
+    <div className={tab ? 'app with-tabs' : 'app'}>
+      <Routes />
+      {tab && <TabBar active={tab} />}
+    </div>
+  );
+}
+
+function Routes() {
   const [first, topic, mode] = useRoute();
+  const { lang: saved } = useProgress();
   const lang = isLang(first) ? first : null;
 
   useEffect(() => {
     // Warm up Whisper from the browser cache so the first check is quicker.
     if (isModelReady()) loadModel().catch(() => {});
   }, []);
+  // Opening a language makes it the one the Learn and Practice tabs show.
+  useEffect(() => {
+    if (lang && lang !== saved) setPref('lang', lang);
+  }, [lang, saved]);
 
   if (first === 'settings') return <Settings />;
-  if (!lang) return <Home />;
+  if (first === 'progress') return <ProgressScreen />;
+  if (first === 'practice') return <PracticeHub lang={saved ?? 'es'} />;
+  if (!lang) return saved ? <Path lang={saved} /> : <Home />;
   if (!topic) return <Path lang={lang} />;
-  if (topic === 'phrasebook') return <Topics lang={lang} />;
+  if (topic === 'phrasebook') {
+    navigate('/practice', { replace: true });
+    return null;
+  }
   if (topic === 'learn' && mode)
     return (
       <Suspense fallback={null}>
@@ -34,7 +57,7 @@ export function App() {
       </Suspense>
     );
   if (!getTopic(topic)) {
-    navigate(`/${lang}`, true);
+    navigate(`/${lang}`, { replace: true });
     return null;
   }
   if (mode === 'practice')
