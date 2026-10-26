@@ -9,7 +9,8 @@
     "preview": "vite preview --host",
     "icons": "node scripts/generate-icons.mjs",
     "hanzi": "node scripts/hanzi-data.mjs",
-    "check-course": "node scripts/check-course.mjs"
+    "check-course": "node scripts/check-course.mjs",
+    "test:e2e": "bash e2e/run-tests.sh"
   },
   "dependencies": {
     "@huggingface/transformers": "^4.3.1",
@@ -23,6 +24,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
     "hanzi-writer-data": "^2.0.1",
+    "playwright": "1.64.1",
     "sharp": "^0.34.5",
     "typescript": "~6.0.3",
     "vite": "^8.3.5",

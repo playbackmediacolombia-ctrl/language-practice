@@ -80,6 +80,22 @@ npm run preview    # serve the build at http://localhost:4173
 
 The microphone only works over HTTPS or on `localhost`. To try it on the iPhone, use the hosted version.
 
+### Browser tests
+
+End-to-end tests in WebKit (Safari's engine) with iPhone emulation, in `web/e2e/`. They build the app, serve it, and play through lessons with a fake microphone that plays the app's own recordings.
+
+```bash
+cd web
+npx playwright install webkit   # first time only (free download)
+npm run test:e2e                # all suites
+npm run test:e2e -- ui lesson   # just some: mute brand ui lesson feedback listen
+```
+
+- **Silent:** every test page is muted (WebKit has no `--mute-audio`, so the harness routes all sound through a zero-volume node and mutes audio elements). The `mute` suite checks this.
+- **Leaves nothing running:** browsers close on success, failure, Ctrl-C or a 15-minute limit; the runner then stops the test server and any Playwright browser left over. `e2e/kill-strays.sh --list` shows leftovers (it only ever matches Playwright's own browsers and these tests, never Safari or Chrome).
+- Screenshots and logs go to `web/e2e/out/` (git-ignored).
+- To change saved progress in a test, use `editProgress(page, (p) => …)` from `e2e/harness.mjs`, not `localStorage` directly: the app saves its own copy as the page unloads.
+
 ### Hosting (GitHub Pages, free)
 
 `.github/workflows/deploy-web.yml` builds `web/` and publishes it on every push to `main`. The site is

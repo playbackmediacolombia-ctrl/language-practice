@@ -49,3 +49,6 @@ scripts/.venv/
 # generated native projects (npx expo prebuild)
 /ios
 /android
+
+# Browser test output (screenshots, logs)
+web/e2e/out/
