@@ -5,6 +5,7 @@ import { cardBox, lessonDone, MAX_BOX, MISTAKE_RIGHTS, useProgress, weakness } f
 import { navigate } from '../lib/router';
 import { Icon, ProgressBar, Screen } from '../ui';
 import { LangSwitcher } from './Path';
+import { Sticker } from '../art';
 
 /** Practice tab: review weak lesson words, or drill phrasebook topics. */
 export function PracticeHub({ lang }: { lang: Lang }) {
@@ -32,7 +33,7 @@ export function PracticeHub({ lang }: { lang: Lang }) {
             {due > 0 ? Math.min(due, 99) : <Icon name="check" />}
           </span>
           <div className="grow">
-            <div style={{ fontWeight: 700, fontSize: 17 }}>Daily review</div>
+            <div className="card-title">Daily review</div>
             <p className="muted small">
               {tracked === 0
                 ? 'Words you learn come back here right before you would forget them.'
@@ -51,7 +52,7 @@ export function PracticeHub({ lang }: { lang: Lang }) {
             {mistakes > 0 ? Math.min(mistakes, 99) : <Icon name="check" />}
           </span>
           <div className="grow">
-            <div style={{ fontWeight: 700, fontSize: 17 }}>Mistakes</div>
+            <div className="card-title">Mistakes</div>
             <p className="muted small">
               {mistakes > 0
                 ? `${mistakes} word${mistakes === 1 ? '' : 's'} you got wrong · get each right ${MISTAKE_RIGHTS} times to clear it`
@@ -64,11 +65,11 @@ export function PracticeHub({ lang }: { lang: Lang }) {
 
       <button className="card review-card" disabled={learned.length < 4} onClick={() => open(`/${lang}/learn/review`)}>
         <div className="row">
-          <span className="row-icon">
-            <Icon name="review" />
+          <span className="card-sticker tint-sun">
+            <Sticker name="bulb" size={40} />
           </span>
           <div className="grow">
-            <div style={{ fontWeight: 700, fontSize: 17 }}>Review weak words</div>
+            <div className="card-title">Review weak words</div>
             <p className="muted small">
               {learned.length < 4
                 ? 'Finish your first lesson to unlock review.'
@@ -81,11 +82,11 @@ export function PracticeHub({ lang }: { lang: Lang }) {
 
       <button className="card review-card" data-testid="handsfree-card" onClick={() => open(`/${lang}/handsfree`)}>
         <div className="row">
-          <span className="row-icon">
-            <Icon name="speaker" />
+          <span className="card-sticker tint-sky">
+            <Sticker name="sounds" size={40} />
           </span>
           <div className="grow">
-            <div style={{ fontWeight: 700, fontSize: 17 }}>Hands-free audio</div>
+            <div className="card-title">Hands-free audio</div>
             <p className="muted small">Like a podcast: hear the English, answer out loud, hear the answer</p>
           </div>
           <Icon name="chevron" style={{ color: 'var(--faint)' }} />
@@ -94,11 +95,11 @@ export function PracticeHub({ lang }: { lang: Lang }) {
 
       <button className="card review-card" data-testid="stories-card" onClick={() => open(`/${lang}/stories`)}>
         <div className="row">
-          <span className="row-icon">
-            <Icon name="chat" />
+          <span className="card-sticker tint-orange">
+            <Sticker name="chat" size={40} />
           </span>
           <div className="grow">
-            <div style={{ fontWeight: 700, fontSize: 17 }}>Stories &amp; dialogues</div>
+            <div className="card-title">Stories &amp; dialogues</div>
             <p className="muted small">Listen, tap any word to translate it, answer questions</p>
           </div>
           <Icon name="chevron" style={{ color: 'var(--faint)' }} />
@@ -107,11 +108,11 @@ export function PracticeHub({ lang }: { lang: Lang }) {
 
       <button className="card review-card" data-testid="reading-card" onClick={() => open(`/${lang}/reading`)}>
         <div className="row">
-          <span className="row-icon">
-            <Icon name="book" />
+          <span className="card-sticker tint-blue">
+            <Sticker name="news" size={40} />
           </span>
           <div className="grow">
-            <div style={{ fontWeight: 700, fontSize: 17 }}>Reading: news articles</div>
+            <div className="card-title">Reading: news articles</div>
             <p className="muted small">Advanced and Fluent: tap any word to translate it, then answer questions</p>
           </div>
           <Icon name="chevron" style={{ color: 'var(--faint)' }} />
@@ -120,11 +121,11 @@ export function PracticeHub({ lang }: { lang: Lang }) {
 
       <button className="card review-card" data-testid="roleplay-card" onClick={() => open(`/${lang}/roleplay`)}>
         <div className="row">
-          <span className="row-icon">
-            <Icon name="mic" />
+          <span className="card-sticker tint-sun">
+            <Sticker name="debate" size={40} />
           </span>
           <div className="grow">
-            <div style={{ fontWeight: 700, fontSize: 17 }}>Real-life role-plays</div>
+            <div className="card-title">Real-life role-plays</div>
             <p className="muted small">Order food, see a doctor, sort out a flight: you speak, Whisper grades you</p>
           </div>
           <Icon name="chevron" style={{ color: 'var(--faint)' }} />
@@ -134,11 +135,11 @@ export function PracticeHub({ lang }: { lang: Lang }) {
       {lang === 'zh' && (
         <button className="card review-card" data-testid="writing-card" onClick={() => open('/zh/write')}>
           <div className="row">
-            <span className="row-icon">
-              <Icon name="brush" />
+            <span className="card-sticker tint-sky">
+              <Sticker name="words" size={40} />
             </span>
             <div className="grow">
-              <div style={{ fontWeight: 700, fontSize: 17 }}>Character writing</div>
+              <div className="card-title">Character writing</div>
               <p className="muted small">Trace characters stroke by stroke, then write them from memory</p>
             </div>
             <Icon name="chevron" style={{ color: 'var(--faint)' }} />

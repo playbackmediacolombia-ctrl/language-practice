@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { playPhrase } from '../lib/audio';
 import { type BackupSummary, currentSummary, readBackup, saveBackup } from '../lib/backup';
 import { getPhrases, getTopics } from '../lib/content';
-import { formatBytes, offlineStatus, type OfflineStatus, useOnline } from '../lib/offline';
+import { onOldAddress } from '../lib/move';
+import { BUILD, checkForUpdate, formatBytes, offlineStatus, type OfflineStatus, useOnline } from '../lib/offline';
 import { GOALS, resetProgress, setGoal, setPref, setSpeaking, setVoice, type Speed, type Theme, useProgress } from '../lib/progress';
 import { chosenModel, deleteModel, isModelReady, loadModel, type ModelKey, MODELS, setChosenModel } from '../lib/whisper';
 import { tapFeedback } from '../lib/fx';
@@ -220,6 +221,20 @@ export function Settings() {
         </div>
       </div>
 
+      <div className="section-title">{onOldAddress ? 'New address' : 'Moving from the old address'}</div>
+      <div className="list">
+        <button className="list-row link" onClick={() => navigate('/move')} data-testid="move-link-settings">
+          <span className="row-icon">
+            <Icon name="download" />
+          </span>
+          <span className="grow">
+            <span className="row-title">{onOldAddress ? 'Move to learnguage.net' : 'Bring my progress from the old app'}</span>
+            <span className="row-hint">{onOldAddress ? 'Copy your progress to the new address' : 'Paste what you copied in the old github.io app'}</span>
+          </span>
+          <Icon name="chevron" />
+        </button>
+      </div>
+
       <div className="section-title">Backup</div>
       <div className="list" data-testid="backup">
         <div className="list-block">
@@ -284,6 +299,8 @@ export function Settings() {
         </div>
       </div>
 
+      <AppVersion />
+
       <button
         className="btn secondary"
         style={{ marginTop: 24, color: 'var(--wrong)' }}
@@ -292,6 +309,47 @@ export function Settings() {
         Reset my progress
       </button>
     </Screen>
+  );
+}
+
+/** Which build is running, and a way to fetch a newer one now instead of on the next launch. */
+function AppVersion() {
+  const [state, setState] = useState<'idle' | 'checking' | 'latest' | 'updating' | 'offline'>('idle');
+  const built = new Date(BUILD.built).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
+  return (
+    <>
+      <div className="section-title">App version</div>
+      <div className="list">
+        <div className="list-block" data-testid="app-version">
+          <p className="row" style={{ margin: 0 }}>
+            <span className="grow">
+              Version <code>{BUILD.commit.slice(0, 7)}</code>
+              <span className="muted small"> · {built}</span>
+            </span>
+          </p>
+          <button
+            className="btn secondary"
+            disabled={state === 'checking' || state === 'updating'}
+            onClick={async () => {
+              setState('checking');
+              setState(await checkForUpdate());
+            }}
+            data-testid="check-update"
+          >
+            <Icon name="download" size={18} /> {state === 'checking' ? 'Checking…' : 'Check for updates'}
+          </button>
+          {state !== 'idle' && state !== 'checking' && (
+            <p className="muted small" style={{ margin: 0 }} aria-live="polite">
+              {state === 'latest'
+                ? 'You have the latest version.'
+                : state === 'updating'
+                  ? 'A new version is downloading. The app reloads by itself in a moment (your progress stays).'
+                  : "Couldn't check: you're offline."}
+            </p>
+          )}
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -311,7 +369,7 @@ function OfflineRow({ ok, label, detail }: { ok: boolean; label: string; detail:
 
 const DATE = new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
 
-function SummaryRow({ label, s }: { label: string; s: BackupSummary }) {
+export function SummaryRow({ label, s }: { label: string; s: BackupSummary }) {
   return (
     <div className="summary-row">
       <span className="muted small">{label}</span>

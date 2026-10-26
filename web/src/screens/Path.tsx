@@ -1,37 +1,82 @@
-import { useEffect } from 'react';
+import { type CSSProperties, useEffect, useState } from 'react';
+import { Flag, Sticker, UnitArt } from '../art';
 import { type Lang, LANGS } from '../lib/content';
 import { getLessons, getPath, lessonStates, weakItems } from '../lib/course';
 import { tapFeedback } from '../lib/fx';
 import { heartsNow, lessonDone, type Progress, streak, todayXp, useProgress, weakness } from '../lib/progress';
+import { newHomeIsLive, onOldAddress } from '../lib/move';
 import { navigate } from '../lib/router';
 import { isModelReady } from '../lib/whisper';
-import { Flame, Icon, LangIcon, ProgressBar, Screen } from '../ui';
+import { CountUp, Flame, Icon, ProgressBar } from '../ui';
 
-/** Streak, XP, hearts and today's goal. */
-export function StatsBar({ progress }: { progress: Progress }) {
-  const today = todayXp(progress);
+/** The Learn tab's top bar: your language (tap to switch), streak, XP and hearts. */
+function TopBar({ lang, progress, onFlag }: { lang: Lang; progress: Progress; onFlag: () => void }) {
   const days = streak(progress);
+  const name = LANGS.find((l) => l.id === lang)!.name;
   return (
-    <div className="card" style={{ gap: 10 }}>
-      <div className="row stats-row">
-        <span className="stat-pill" title="Day streak">
-          <Flame lit={days > 0} /> {days}
+    <header className="header topbar">
+      <div className="header-bar">
+        <button className="flag-btn" onClick={onFlag} aria-label={`${name}. Change language`} data-testid="flag-btn">
+          <Flag lang={lang} size={34} />
+        </button>
+        <span className="stat-pill streak" title="Day streak" aria-label={`${days}-day streak`}>
+          <Flame lit={days > 0} size={26} /> <CountUp value={days} from={days} />
         </span>
-        <span className="stat-pill" title="Total XP">
-          <Icon name="bolt" className="bolt" /> {progress.xp} XP
+        <span className="stat-pill xp" title="Total XP" aria-label={`${progress.xp} XP`}>
+          <Icon name="bolt" className="bolt" size={26} /> <CountUp value={progress.xp} from={progress.xp} />
         </span>
-        <span className="stat-pill" title="Hearts">
-          <Icon name="heart" className="heart" /> {heartsNow(progress).hearts}
+        <span className="stat-pill hearts" title="Hearts" aria-label={`${heartsNow(progress).hearts} hearts`}>
+          <Icon name="heart" className="heart" size={26} /> {heartsNow(progress).hearts}
         </span>
       </div>
+    </header>
+  );
+}
+
+/** Today's goal: a chunky bar that fills, and a cheer once it's full. */
+function DailyGoal({ progress }: { progress: Progress }) {
+  const today = todayXp(progress);
+  const done = today >= progress.goal;
+  return (
+    <div className={done ? 'card goal-card done' : 'card goal-card'} data-testid="daily-goal">
       <div className="row">
-        <Icon name="target" size={18} style={{ color: 'var(--muted)' }} />
-        <span className="grow muted small">Daily goal</span>
-        <span className="muted small">
+        <span className="goal-icon" aria-hidden="true">
+          <Icon name={done ? 'check' : 'target'} size={22} />
+        </span>
+        <span className="grow goal-text">{done ? 'Daily goal reached!' : 'Daily goal'}</span>
+        <span className="goal-count">
           {Math.min(today, progress.goal)}/{progress.goal} XP
         </span>
       </div>
       <ProgressBar value={today / progress.goal} tone="flame" />
+    </div>
+  );
+}
+
+/** The three languages as big, bright tiles with their flags. */
+export function LangTiles({ current, onPick }: { current?: Lang; onPick: (l: Lang) => void }) {
+  return (
+    <div className="lang-tiles">
+      {LANGS.map((l) => (
+        <button
+          key={l.id}
+          className={`lang-tile lang-tile-${l.id}${l.id === current ? ' active' : ''}`}
+          aria-current={l.id === current ? 'true' : undefined}
+          onClick={() => {
+            tapFeedback();
+            onPick(l.id);
+          }}
+        >
+          <Flag lang={l.id} size={56} />
+          <span className="lang-tile-text">
+            <span className="lang-tile-name">{l.name}</span>
+            <span className="lang-tile-native" lang={l.id}>
+              {l.native}
+            </span>
+          </span>
+          {l.id === current ? <Icon name="check" size={24} /> : <Icon name="chevron" size={22} />}
+        </button>
+      ))}
     </div>
   );
 }
@@ -52,13 +97,18 @@ export function LangSwitcher({ lang, to }: { lang: Lang; to: (l: Lang) => string
             navigate(to(l.id), { direction: 'tab' });
           }}
         >
-          <LangIcon lang={l.id} size={28} />
+          <Flag lang={l.id} size={26} />
           {l.name}
         </button>
       ))}
     </div>
   );
 }
+
+/** How far each lesson node sits from the middle, so the path winds back and forth. */
+const WIND = [0, 46, 74, 46, 0, -46, -74, -46];
+/** Unit banner colors, from the logo, by stage. */
+const TONES = ['blue', 'sun', 'sky', 'orange', 'navy'];
 
 let scrollToCurrent = false;
 /** The next time the path opens, scroll to the current lesson (after a placement test moved it far down). */
@@ -119,137 +169,167 @@ export function Path({ lang }: { lang: Lang }) {
     navigate(path);
   };
   const current = lessons.find((l) => states.get(l.id) === 'current');
+  const [picking, setPicking] = useState(false);
+  // At the old github.io address, once the new one is up: offer to move.
+  const [movedLive, setMovedLive] = useState(false);
+  useEffect(() => {
+    if (onOldAddress) void newHomeIsLive().then(setMovedLive);
+  }, []);
+  const stages = getPath(lang);
+  let unitNo = 0;
+  let nodeNo = 0; // position along the whole path, for the winding
 
   return (
-    <Screen title="Learn" large>
-      <LangSwitcher lang={lang} to={(l) => `/${l}`} />
-      <StatsBar progress={progress} />
-      <StreakWarning
-        progress={progress}
-        onPractice={() => open(current ? `/${lang}/learn/${current.id}` : learned.length >= 4 ? `/${lang}/learn/review` : `/${lang}`)}
-        onRemind={() => open('/settings/reminder')}
-      />
-
-      {offerPlacement && (
-        <button className="card review-card" data-testid="placement-card" onClick={() => open(`/${lang}/placement`)}>
-          <div className="row">
-            <span className="row-icon">
-              <Icon name="target" />
-            </span>
-            <div className="grow">
-              <div style={{ fontWeight: 700, fontSize: 17 }}>Already know some {name}?</div>
-              <p className="muted small">Take a 5-minute placement test to skip ahead to your level.</p>
-            </div>
-            <Icon name="chevron" style={{ color: 'var(--faint)' }} />
-          </div>
-        </button>
-      )}
-
-      {learned.length >= 4 && (
-        <button className="card review-card" onClick={() => open(`/${lang}/learn/review`)}>
-          <div className="row">
-            <span className="row-icon">
-              <Icon name="review" />
-            </span>
-            <div className="grow">
-              <div style={{ fontWeight: 700, fontSize: 17 }}>Review weak words</div>
-              <p className="muted small">
-                {weak.length ? `${weak.length} word${weak.length === 1 ? '' : 's'} to brush up` : 'Keep what you know fresh'} · no hearts
-                lost · earn one back
-              </p>
-            </div>
-            <Icon name="chevron" style={{ color: 'var(--faint)' }} />
-          </div>
-        </button>
-      )}
-
-      {progress.speaking && !isModelReady() && (
-        <button className="card" onClick={() => open('/settings')}>
-          <div className="row">
-            <span className="row-icon">
-              <Icon name="mic" />
-            </span>
-            <div className="grow">
-              <div style={{ fontWeight: 650 }}>Turn on speaking exercises</div>
-              <p className="muted small">Download the free Whisper model once to be graded when you speak.</p>
-            </div>
-          </div>
-        </button>
-      )}
-
-      {getPath(lang).map((stage, s) => (
-        <section key={stage.id} className="stage">
-          {stage.level !== getPath(lang)[s - 1]?.level && (
-            <h2 className="level-head" data-testid={`level-${stage.id}`}>
-              {stage.level}
-            </h2>
-          )}
-          <div className="stage-head">
-            <span className="stage-num">{s + 1}</span>
-            <div>
-              <div className="stage-title">{stage.title}</div>
-              <p className="muted small">{stage.about}</p>
-            </div>
-          </div>
-
-          {stage.units.map((unit) => {
-            if (!unit.lessons.length) {
-              return (
-                <div key={unit.id} className="unit soon">
-                  <span className="row">
-                    <Icon name="lock" size={18} /> {unit.title}
-                  </span>
-                  <span className="muted small">Coming soon</span>
-                </div>
-              );
-            }
-            const done = unit.lessons.filter((l) => lessonDone(progress, lang, l.id)).length;
-            return (
-              <div key={unit.id} className="card unit">
-                <div className="row">
-                  <div className="grow" style={{ fontWeight: 750, fontSize: 18, fontFamily: 'var(--font-round)' }}>
-                    {unit.title}
-                  </div>
-                  {unit.elective && <span className="unit-badge">Optional</span>}
-                  <span className="muted small">
-                    {done}/{unit.lessons.length}
-                  </span>
-                </div>
-                {unit.elective && <p className="muted small unit-note">An extra topic for when you want it. It never holds up your path.</p>}
-                <ProgressBar value={done / unit.lessons.length} />
-                <ol className="lessons">
-                  {unit.lessons.map((lesson) => {
-                    const state = states.get(lesson.id)!;
-                    return (
-                      <li key={lesson.id}>
-                        <button
-                          className={`lesson-node ${state}`}
-                          disabled={state === 'locked'}
-                          onClick={() => open(`/${lang}/learn/${lesson.id}`)}
-                        >
-                          <span className="node-dot">
-                            <Icon name={state === 'done' ? 'check' : state === 'locked' ? 'lock' : 'play'} size={state === 'done' || state === 'locked' ? 20 : 18} />
-                          </span>
-                          <span className="grow">{lesson.title}</span>
-                          {state === 'current' && <span className="node-cta">Start</span>}
-                          {state === 'done' && <span className="muted small">Practice</span>}
-                          {state === 'open' && <span className="muted small">Tested out</span>}
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ol>
+    <>
+      <TopBar lang={lang} progress={progress} onFlag={() => setPicking(true)} />
+      <main className="page path-page">
+        {movedLive && (
+          <button className="card review-card move-card" onClick={() => open('/move')} data-testid="move-banner">
+            <div className="row">
+              <Sticker name="plane" size={48} />
+              <div className="grow">
+                <div className="card-title">Learnguage has moved to learnguage.net</div>
+                <p className="muted small">Bring your XP and streak along: it takes a minute.</p>
               </div>
-            );
-          })}
-        </section>
-      ))}
+              <Icon name="chevron" style={{ color: 'var(--faint)' }} />
+            </div>
+          </button>
+        )}
+        <DailyGoal progress={progress} />
+        <StreakWarning
+          progress={progress}
+          onPractice={() => open(current ? `/${lang}/learn/${current.id}` : learned.length >= 4 ? `/${lang}/learn/review` : `/${lang}`)}
+          onRemind={() => open('/settings/reminder')}
+        />
 
-      {progress.placement[lang] && (
-        <button className="btn secondary" style={{ marginTop: 8 }} onClick={() => open(`/${lang}/placement`)}>
-          <Icon name="target" size={18} /> Retake the placement test
-        </button>
+        {(offerPlacement || learned.length >= 4 || (progress.speaking && !isModelReady())) && (
+          <div className="quick-row">
+            {offerPlacement && (
+              <button className="quick" data-testid="placement-card" onClick={() => open(`/${lang}/placement`)} aria-label={`Already know some ${name}? Take the placement test`}>
+                <Sticker name="trophy" size={44} />
+                <span className="quick-title">Placement test</span>
+                <span className="quick-hint">Know some {name}? Skip ahead</span>
+              </button>
+            )}
+            {learned.length >= 4 && (
+              <button className="quick" onClick={() => open(`/${lang}/learn/review`)} aria-label="Review weak words">
+                <Sticker name="bulb" size={44} />
+                <span className="quick-title">Review weak words</span>
+                <span className="quick-hint">{weak.length ? `${weak.length} to brush up` : 'Keep them fresh'} · no hearts lost</span>
+              </button>
+            )}
+            {progress.speaking && !isModelReady() && (
+              <button className="quick" onClick={() => open('/settings')} aria-label="Turn on speaking exercises">
+                <Sticker name="sounds" size={44} />
+                <span className="quick-title">Speaking</span>
+                <span className="quick-hint">Get the free speech model</span>
+              </button>
+            )}
+          </div>
+        )}
+
+        {stages.map((stage, s) => (
+          <section key={stage.id} className="stage">
+            {stage.level !== stages[s - 1]?.level && (
+              <h2 className="level-head" data-testid={`level-${stage.id}`}>
+                {stage.level}
+              </h2>
+            )}
+            <div className="stage-head">
+              <span className="stage-num">{s + 1}</span>
+              <div>
+                <div className="stage-title">{stage.title}</div>
+                <p className="muted small">{stage.about}</p>
+              </div>
+            </div>
+
+            {stage.units.map((unit) => {
+              if (!unit.lessons.length) {
+                return (
+                  <div key={unit.id} className="unit soon">
+                    <span className="row">
+                      <Icon name="lock" size={18} /> {unit.title}
+                    </span>
+                    <span className="muted small">Coming soon</span>
+                  </div>
+                );
+              }
+              const done = unit.lessons.filter((l) => lessonDone(progress, lang, l.id)).length;
+              const tone = unit.elective ? 'cream' : TONES[s % TONES.length];
+              const label = unit.elective ? 'Extra topic' : `Unit ${++unitNo}`;
+              return (
+                <section key={unit.id} className={`card unit tone-${tone}`}>
+                  <div className="unit-banner">
+                    <div className="grow">
+                      <div className="unit-kicker">
+                        {label}
+                        {unit.elective && <span className="unit-badge">Optional</span>}
+                      </div>
+                      <div className="unit-title">{unit.title}</div>
+                      <div className="unit-count">
+                        {done === unit.lessons.length ? 'Complete!' : `${done} of ${unit.lessons.length} lessons`}
+                      </div>
+                    </div>
+                    <span className="unit-sticker">
+                      <UnitArt unitId={unit.id} size={56} />
+                    </span>
+                  </div>
+                  {unit.elective && <p className="muted small unit-note">An extra topic for when you want it. It never holds up your path.</p>}
+                  <ol className="lessons path">
+                    {unit.lessons.map((lesson) => {
+                      const state = states.get(lesson.id)!;
+                      const x = WIND[nodeNo++ % WIND.length];
+                      return (
+                        <li key={lesson.id} className={`path-step ${state}`} style={{ '--x': `${x}px` } as CSSProperties}>
+                          {state === 'current' && <span className="node-cta">Start</span>}
+                          <button
+                            className={`lesson-node ${state}`}
+                            disabled={state === 'locked'}
+                            onClick={() => open(`/${lang}/learn/${lesson.id}`)}
+                          >
+                            <span className="node-dot">
+                              <Icon name={state === 'done' ? 'check' : state === 'locked' ? 'lock' : 'star'} size={state === 'locked' ? 26 : 32} />
+                            </span>
+                            <span className="sr-only">
+                              {lesson.title}
+                              {state === 'done' ? ', done: practice again' : state === 'open' ? ', tested out' : state === 'locked' ? ', locked' : ''}
+                            </span>
+                          </button>
+                          <span className="node-label" aria-hidden="true">
+                            {lesson.title}
+                          </span>
+                          {state === 'current' && <img className="path-buddy" src="brand/mark.png" alt="" width={54} height={41} style={{ '--side': x > 0 ? -1 : 1 } as CSSProperties} />}
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </section>
+              );
+            })}
+          </section>
+        ))}
+
+        {progress.placement[lang] && (
+          <button className="btn secondary" style={{ marginTop: 8 }} onClick={() => open(`/${lang}/placement`)}>
+            <Icon name="target" size={18} /> Retake the placement test
+          </button>
+        )}
+      </main>
+
+      {picking && (
+        <div className="sheet-backdrop" onClick={() => setPicking(false)}>
+          <div className="sheet" role="dialog" aria-label="Choose a language" onClick={(e) => e.stopPropagation()}>
+            <h2 className="tip-title">Which language today?</h2>
+            <LangTiles
+              current={lang}
+              onPick={(l) => {
+                setPicking(false);
+                if (l !== lang) navigate(`/${l}`, { direction: 'tab' });
+              }}
+            />
+          </div>
+        </div>
       )}
-    </Screen>
+    </>
   );
 }

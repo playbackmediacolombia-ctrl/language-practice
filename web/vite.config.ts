@@ -1,12 +1,28 @@
+import { execSync } from 'node:child_process';
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
+// Which commit this build is, shown in Settings and published as version.json (not cached by the
+// service worker), so the live site can be checked against the latest commit.
+const BUILD = {
+  commit: process.env.GITHUB_SHA ?? execSync('git rev-parse HEAD').toString().trim(),
+  built: new Date().toISOString(),
+};
+const versionFile = (): Plugin => ({
+  name: 'version-file',
+  generateBundle() {
+    this.emitFile({ type: 'asset', fileName: 'version.json', source: JSON.stringify(BUILD) + '\n' });
+  },
+});
+
 export default defineConfig({
+  define: { __BUILD__: JSON.stringify(BUILD) },
   // Relative paths so the site works under any GitHub Pages sub-path.
   base: './',
   plugins: [
     react(),
+    versionFile(),
     VitePWA({
       // A new version waits until you're not mid-lesson (see applyUpdateWhenIdle in lib/offline.ts).
       registerType: 'prompt',
@@ -35,7 +51,7 @@ export default defineConfig({
         clientsClaim: true,
         // App shell, all phrase audio and the characters' stroke data work offline. The ONNX runtime and Whisper model are
         // cached separately by transformers.js, so they are left out here.
-        globPatterns: ['**/*.{js,css,html,png,webp,mp3}', 'hanzi/*.json'],
+        globPatterns: ['**/*.{js,css,html,png,webp,mp3,woff2}', 'hanzi/*.json'],
         // Launch screens are only read by iOS when the app is added to the Home Screen.
         globIgnores: ['ort/**', 'splash/**', 'icons/icon-1024.png'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,

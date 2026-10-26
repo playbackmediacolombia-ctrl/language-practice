@@ -285,7 +285,8 @@ await run(async () => {
   const home = await page.locator('main').innerText();
   await shot('home');
   const pills = await page.locator('.stat-pill').allInnerTexts();
-  expect(pills[0].trim() === '1' && /\d+ XP/.test(pills[1]), `home shows streak and XP after reload (streak ${pills[0]}, ${pills[1]})`);
+  const xpLabel = await page.locator('.stat-pill.xp').getAttribute('aria-label');
+  expect(pills[0].trim() === '1' && /^\d+$/.test(pills[1].trim()) && xpLabel === `${pills[1].trim()} XP`, `home shows streak and XP after reload (streak ${pills[0]}, ${xpLabel})`);
 
   console.log(failures ? `${failures} FAILED` : 'ALL PASS');
   await browser.close();

@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { Sticker } from '../art';
 import { unlockAudio } from '../lib/audio';
 import { type Lang, LANGS } from '../lib/content';
 import { getLessons, getPath, lessonStates } from '../lib/course';
@@ -69,9 +70,12 @@ export default function Placement({ lang }: { lang: Lang }) {
   if (phase === 'intro') {
     return (
       <LessonFrame onQuit={quit} value={0} hearts={null}>
-        <div className="card" style={{ gap: 14, marginTop: 24 }}>
-          <p className="muted">Placement test</p>
-          <div style={{ fontSize: 26, fontWeight: 700 }}>Find your {name} level</div>
+        <div className="card start-card" style={{ gap: 14, marginTop: 24 }}>
+          <span className="start-sticker" aria-hidden="true">
+            <Sticker name="trophy" size={88} />
+          </span>
+          <p className="muted start-kicker">Placement test</p>
+          <div className="start-title">Find your {name} level</div>
           <p className="muted">
             About a dozen quick questions that get harder when you're right and easier when you're not. Every lesson
             below your level is unlocked, so you can start where it's interesting.

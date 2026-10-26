@@ -118,7 +118,7 @@ await run(async () => {
       await page.waitForTimeout(250);
       const t = await btn.evaluate((el) => getComputedStyle(el).transform);
       await page.mouse.up();
-      expect(/matrix\(0\.97/.test(t), `buttons press down when touched (${t})`);
+      expect(/matrix\(1, 0, 0, 1, 0, 4\)/.test(t), `buttons squish down into their bottom edge when touched (${t})`);
     }
     await page.context().close();
   }

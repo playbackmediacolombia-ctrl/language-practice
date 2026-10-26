@@ -33,7 +33,7 @@ await run(async () => {
   await page.reload();
   const unit = page.locator('.card.unit', { hasText: 'Dating & relationships' });
   await unit.waitFor();
-  expect((await unit.locator('.unit-badge').innerText()) === 'Optional', 'path: the dating unit is marked Optional');
+  expect(/^optional$/i.test(await unit.locator('.unit-badge').innerText()), 'path: the dating unit is marked Optional');
   expect(/never holds up your path/.test(await unit.innerText()), 'path: says it never holds up the main path');
   expect((await unit.locator('.lesson-node.locked').count()) === 2, 'beginner: dating lessons locked until Upper-intermediate');
 

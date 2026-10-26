@@ -1,4 +1,5 @@
 import { pinyin } from 'pinyin-pro';
+import { Sticker, UnitArt } from '../art';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { compare } from '../../../shared/compare';
 import { playClip, playClipAfterPhrase, playPhrase, type Recording, startRecording, unlockAudio } from '../lib/audio';
@@ -159,9 +160,12 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     const blocked = !review && hearts <= 0;
     return (
       <LessonFrame onQuit={quit} value={0} hearts={review ? null : hearts}>
-        <div className="card" style={{ gap: 14, marginTop: 24 }}>
-          <p className="muted">{review ? 'Practice' : 'Lesson'}</p>
-          <div style={{ fontSize: 26, fontWeight: 700 }}>{daily ? 'Daily review' : drill ? 'Mistakes' : review ? 'Review your weak words' : lesson!.title}</div>
+        <div className="card start-card" style={{ gap: 14, marginTop: 24 }}>
+          <span className="start-sticker" aria-hidden="true">
+            {lesson && !review ? <UnitArt unitId={lesson.unitId} size={88} /> : <Sticker name={drill ? 'pin' : daily ? 'sun' : 'bulb'} size={88} />}
+          </span>
+          <p className="muted start-kicker">{review ? 'Practice' : 'Lesson'}</p>
+          <div className="start-title">{daily ? 'Daily review' : drill ? 'Mistakes' : review ? 'Review your weak words' : lesson!.title}</div>
           {daily && <p className="muted">Words and phrases you're about to forget, brought back at just the right time.</p>}
           {drill && (
             <>

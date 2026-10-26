@@ -1,3 +1,4 @@
+import { Flag, TabIcon } from './art';
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from 'react';
 import type { Lang, Phrase } from './lib/content';
 import { reducedMotion, tapFeedback } from './lib/fx';
@@ -126,14 +127,9 @@ export function Icon({ name, size = 22, className, style }: { name: IconName; si
   );
 }
 
-/** A rounded badge for each language. */
+/** Each language's round flag. */
 export function LangIcon({ lang, size = 44 }: { lang: Lang; size?: number }) {
-  const glyph = { es: 'ñ', fr: 'é', zh: '中' }[lang];
-  return (
-    <span className={`lang-icon lang-${lang}`} style={{ width: size, height: size, fontSize: size * 0.52, borderRadius: size * 0.3 }} aria-hidden="true">
-      {glyph}
-    </span>
-  );
+  return <Flag lang={lang} size={size} />;
 }
 
 /** Streak flame: flickers when the streak is alive, grey when it isn't. */
@@ -226,7 +222,9 @@ export function TabBar({ active }: { active: TabId }) {
             navigate(t.path, { direction: 'tab' });
           }}
         >
-          <Icon name={t.icon} size={26} />
+          <span className="tab-pill">
+            <TabIcon name={t.id} />
+          </span>
           <span>{t.label}</span>
         </button>
       ))}

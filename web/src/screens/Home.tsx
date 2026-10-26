@@ -1,7 +1,7 @@
-import { LANGS } from '../lib/content';
-import { tapFeedback } from '../lib/fx';
+import { onOldAddress } from '../lib/move';
 import { navigate } from '../lib/router';
-import { Icon, LangIcon, Screen } from '../ui';
+import { Icon, Screen } from '../ui';
+import { LangTiles } from './Path';
 
 const isStandalone =
   window.matchMedia('(display-mode: standalone)').matches || (navigator as { standalone?: boolean }).standalone === true;
@@ -16,25 +16,12 @@ export function Home() {
         phone.
       </p>
       <h2 className="heading">Pick a language</h2>
-      {LANGS.map((lang) => (
-        <button
-          key={lang.id}
-          className="card"
-          onClick={() => {
-            tapFeedback();
-            navigate(`/${lang.id}`);
-          }}
-        >
-          <div className="row">
-            <LangIcon lang={lang.id} size={56} />
-            <div className="grow">
-              <div style={{ fontSize: 20, fontWeight: 700 }}>{lang.name}</div>
-              <p className="muted">{lang.native} · Start from the very first sounds</p>
-            </div>
-            <Icon name="chevron" style={{ color: 'var(--faint)' }} />
-          </div>
+      <LangTiles onPick={(l) => navigate(`/${l}`)} />
+      {!onOldAddress && (
+        <button className="btn ghost" onClick={() => navigate('/move')} data-testid="move-welcome">
+          Used Learnguage before? Bring my progress
         </button>
-      ))}
+      )}
       {!isStandalone && (
         <div className="card">
           <div className="row">

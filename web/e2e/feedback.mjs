@@ -225,6 +225,8 @@ await run(async () => {
   for (let i = 1; i < all.length; i++) if (all[i].title === all[i - 1].title) repeats++;
   expect(repeats === 0, 'banner phrase never the same twice in a row');
   const saidSeq = all.flatMap((l) => l.said);
+  const twice = saidSeq.findIndex((n, i) => i > 0 && n === saidSeq[i - 1]);
+  if (twice > 0) console.log('  said twice in a row:', saidSeq[twice], 'at', twice, 'of', saidSeq.length);
   expect(saidSeq.every((n, i) => i === 0 || n !== saidSeq[i - 1]), 'spoken clip never the same twice in a row');
   const praiseTitles = new Set(rights.map((l) => l.title));
   console.log('  praise seen:', [...praiseTitles].join(' / '));

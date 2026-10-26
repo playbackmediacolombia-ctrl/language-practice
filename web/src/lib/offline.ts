@@ -16,6 +16,33 @@ export type OfflineStatus = {
   persisted: boolean | null;
 };
 
+export const BUILD = __BUILD__;
+
+// A Home Screen app on iPhone mostly resumes from memory instead of reloading, and the browser
+// only looks for a new version on a full load. So also look whenever the app comes back to the
+// screen, and every hour while it stays open.
+let registration: ServiceWorkerRegistration | undefined;
+export function watchForUpdates(r: ServiceWorkerRegistration | undefined) {
+  registration = r;
+  if (!r) return;
+  const check = () => r.update().catch(() => {}); // offline: try again next time
+  document.addEventListener('visibilitychange', () => document.visibilityState === 'visible' && check());
+  setInterval(check, 60 * 60 * 1000);
+}
+
+/** Settings › Check for updates: 'latest', 'updating' (it reloads in a moment) or 'offline'. */
+export async function checkForUpdate(): Promise<'latest' | 'updating' | 'offline'> {
+  try {
+    const live = await fetch(`version.json?t=${Date.now()}`, { cache: 'no-store' }).then((r) => r.json());
+    if (live.commit === BUILD.commit) return 'latest';
+    await registration?.update();
+    // The new version installs in the background, then onNeedRefresh switches to it.
+    return 'updating';
+  } catch {
+    return 'offline';
+  }
+}
+
 /** Ask Safari to keep the app's storage (it decides; Home Screen apps usually get it). */
 export function requestPersistence() {
   navigator.storage?.persist?.().catch(() => {});

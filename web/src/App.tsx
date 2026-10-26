@@ -10,6 +10,7 @@ import { Path } from './screens/Path';
 import { PracticeHub } from './screens/PracticeHub';
 import { ProgressScreen } from './screens/ProgressScreen';
 import { Quiz } from './screens/Quiz';
+import { Move } from './screens/Move';
 import { Reminder } from './screens/Reminder';
 import { Settings } from './screens/Settings';
 import { TopicScreen } from './screens/TopicScreen';
@@ -59,6 +60,7 @@ function Routes() {
   }, [lang, saved]);
 
   if (first === 'settings') return topic === 'reminder' ? <Reminder /> : <Settings />;
+  if (first === 'move') return <Move code={topic} />;
   if (first === 'progress') return <ProgressScreen />;
   if (first === 'practice') return <PracticeHub lang={saved ?? 'es'} />;
   if (!lang) return saved ? <Path lang={saved} /> : <Home />;

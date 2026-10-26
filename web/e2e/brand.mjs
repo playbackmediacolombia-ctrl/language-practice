@@ -69,11 +69,8 @@ await run(async () => {
     await page.getByRole('button', { name: /Spanish/ }).click();
     await page.locator('.lesson-node').first().waitFor();
     await page.waitForTimeout(500);
-    const brand = await page.evaluate(() => {
-      const img = document.querySelector('.header .brand img');
-      return { loaded: img?.complete && img.naturalWidth > 0, h: img?.getBoundingClientRect().height, text: document.querySelector('.brand')?.getAttribute('aria-label') };
-    });
-    expect(brand.loaded && brand.h === 32 && brand.text === 'Learnguage', `${scheme}: small logo in the header (${brand.h}px tall)`);
+    // Learn opens on the path with its own top bar (flag, streak, XP, hearts); the other tabs show the logo.
+    expect((await page.locator('.header.topbar .flag-btn').count()) === 1, `${scheme}: Learn has the top bar with the language flag`);
     const colors = await page.evaluate(() => {
       const cs = (sel, prop) => getComputedStyle(document.querySelector(sel))[prop];
       return {
@@ -81,25 +78,35 @@ await run(async () => {
         text: getComputedStyle(document.body).color,
         card: cs('.card', 'backgroundColor'),
         muted: cs('.muted', 'color'),
-        btn: cs('.node-cta', 'backgroundColor'),
-        btnText: cs('.node-cta', 'color'),
-        learn: cs('.brand-name .learn', 'color'),
+        btn: cs('.lesson-node.current', 'backgroundColor'),
+        btnText: cs('.lesson-node.current', 'color'),
+        btnEdge: cs('.lesson-node.current', 'boxShadow'),
       };
     });
+    await page.locator('.tabbar').getByRole('button', { name: 'Practice' }).click();
+    await page.waitForTimeout(500);
+    const brand = await page.evaluate(() => {
+      const img = document.querySelector('.header .brand img');
+      return { loaded: img?.complete && img.naturalWidth > 0, h: img?.getBoundingClientRect().height, text: document.querySelector('.brand')?.getAttribute('aria-label') };
+    });
+    expect(brand.loaded && brand.h === 32 && brand.text === 'Learnguage', `${scheme}: small logo in the header of the other tabs (${brand.h}px tall)`);
+    colors.learn = await page.evaluate(() => getComputedStyle(document.querySelector('.brand-name .learn')).color);
     console.log(`  ${scheme} colors:`, JSON.stringify(colors));
-    expect(colors.btn === 'rgb(11, 107, 246)', `${scheme}: buttons in the logo's blue (${colors.btn})`);
+    expect(colors.btn === 'rgb(1, 100, 249)', `${scheme}: first unit's lesson nodes in the logo's blue #0164F9 (${colors.btn})`);
+    expect(colors.btnEdge.includes('rgb(1, 66, 216)'), `${scheme}: with the logo's deep blue #0142D8 as their 3D edge`);
     expect(scheme === 'light' ? colors.bg === 'rgb(244, 248, 255)' : colors.bg === 'rgb(7, 13, 26)', `${scheme}: background ${colors.bg}`);
-    expect(scheme === 'light' ? colors.learn === 'rgb(10, 26, 58)' : colors.learn === 'rgb(238, 243, 255)', `${scheme}: "learn" in navy, white in dark mode (${colors.learn})`);
+    expect(scheme === 'light' ? colors.learn === 'rgb(7, 19, 52)' : colors.learn === 'rgb(242, 246, 255)', `${scheme}: "learn" in navy, white in dark mode (${colors.learn})`);
     const pairs = [
       ['body text on background', colors.text, colors.bg, 4.5],
       ['muted text on card', colors.muted, colors.card, 4.5],
-      ['button text on button', colors.btnText, colors.btn, 4.5],
+      ['icon on lesson node', colors.btnText, colors.btn, 4.5],
     ];
     for (const [name, fg, bg, min] of pairs) {
       const r = ratio(fg, bg);
       expect(r >= min, `${scheme}: ${name} contrast ${r.toFixed(2)}:1 (≥ ${min})`);
     }
     await page.screenshot({ path: `B-${scheme}-learn.png` });
+    await page.locator('.tabbar').getByRole('button', { name: 'Learn' }).click();
     await page.locator('.lesson-node.current').click();
     await page.getByRole('button', { name: 'Start', exact: true }).waitFor();
     expect((await page.locator('.header .brand').count()) === 0, `${scheme}: no logo in the lesson header (stays focused)`);
