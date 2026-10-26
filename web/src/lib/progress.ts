@@ -273,6 +273,14 @@ export function subscribe(listener: () => void) {
   return () => listeners.delete(listener);
 }
 
+/** Replaces all progress with a backup's (see backup.ts). Older backups get review days like old progress does. */
+export function replaceProgress(saved: Partial<Progress>) {
+  update(() => {
+    const p = { ...EMPTY, ...saved };
+    return saved.srs ? p : withSrs(p);
+  });
+}
+
 export function resetProgress() {
   update((p) => {
     const prefs: Prefs = { goal: p.goal, speaking: p.speaking, voice: p.voice, sfx: p.sfx, haptics: p.haptics, theme: p.theme, lang: p.lang };

@@ -49,6 +49,10 @@ Tiny marks too many correct phrases as wrong, so **base** is the smallest one th
 
 The model downloads once from Hugging Face (free, no login) into Safari's storage. After that, speech checking works offline, and your voice never leaves the phone.
 
+### Backup and restore
+
+Progress only lives on the phone, so **Settings › Backup › Export my progress** saves everything (lessons, XP, streak, review days, writing, stories, stats and settings) to a file, `learnguage-backup-<date>.json`. On iPhone this opens the share sheet: pick **Save to Files** (iCloud Drive keeps it safe if the phone is lost). **Import a backup…** reads such a file, shows what's in it next to what's on the phone, and replaces your progress only if you tap Replace. Nothing is uploaded anywhere.
+
 ### Offline
 
 Everything works with no signal once the app has been opened online once:

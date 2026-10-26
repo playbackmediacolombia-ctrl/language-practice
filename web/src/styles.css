@@ -811,3 +811,7 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .offline-row .grow { display: flex; flex-direction: column; gap: 2px; }
 .offline-icon { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; flex: none; background: var(--card-2); color: var(--muted); }
 .offline-icon.ok { background: var(--ok-bg); color: var(--ok); }
+
+/* ---- Backup (Settings) ---- */
+.restore-card { gap: 10px; border-color: var(--accent); box-shadow: none; }
+.summary-row { display: flex; flex-direction: column; gap: 2px; }

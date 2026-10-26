@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { type BackupSummary, currentSummary, readBackup, saveBackup } from '../lib/backup';
 import { formatBytes, offlineStatus, type OfflineStatus, useOnline } from '../lib/offline';
 import { GOALS, resetProgress, setGoal, setPref, setSpeaking, setVoice, type Theme, useProgress } from '../lib/progress';
 import { chosenModel, deleteModel, isModelReady, loadModel, type ModelKey, MODELS, setChosenModel } from '../lib/whisper';
@@ -12,6 +13,37 @@ export function Settings() {
   const info = MODELS[model];
   const prefs = useProgress();
   const online = useOnline();
+  const fileInput = useRef<HTMLInputElement>(null);
+  const [pending, setPending] = useState<{ summary: BackupSummary; restore: () => void } | null>(null);
+  const [backupMsg, setBackupMsg] = useState<{ text: string; ok: boolean } | null>(null);
+  const confirmCard = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (pending) confirmCard.current?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }, [pending]);
+
+  const exportBackup = async () => {
+    setBackupMsg(null);
+    if (await saveBackup()) setBackupMsg({ text: 'Backup saved. Keep the file somewhere safe, like iCloud Drive in the Files app.', ok: true });
+  };
+  const pickBackup = async (file: File | undefined) => {
+    setBackupMsg(null);
+    setPending(null);
+    if (!file) return;
+    try {
+      setPending(await readBackup(file));
+    } catch (e) {
+      setBackupMsg({ text: e instanceof Error ? e.message : String(e), ok: false });
+    }
+    if (fileInput.current) fileInput.current.value = ''; // so the same file can be picked again
+  };
+  const restore = () => {
+    if (!pending) return;
+    pending.restore();
+    setModel(chosenModel());
+    setReady(isModelReady(chosenModel()));
+    setBackupMsg({ text: `Progress restored from the backup of ${DATE.format(pending.summary.exported)}.`, ok: true });
+    setPending(null);
+  };
   const [offline, setOffline] = useState<OfflineStatus | null>(null);
   useEffect(() => {
     let live = true;
@@ -144,6 +176,46 @@ export function Settings() {
         </div>
       </div>
 
+      <div className="section-title">Backup</div>
+      <div className="list" data-testid="backup">
+        <div className="list-block">
+          <p style={{ margin: 0, lineHeight: 1.4 }}>
+            Your progress lives only on this phone. Save a backup file now and then (to Files or iCloud Drive), and you can bring it back
+            on this phone or a new one.
+          </p>
+          <button className="btn" onClick={exportBackup}>
+            <Icon name="download" /> Export my progress
+          </button>
+          <button className="btn secondary" onClick={() => fileInput.current?.click()}>
+            Import a backup…
+          </button>
+          <input ref={fileInput} type="file" accept="application/json,.json" hidden onChange={(e) => pickBackup(e.target.files?.[0])} data-testid="backup-file" />
+          {pending && (
+            <div ref={confirmCard} className="card restore-card" data-testid="restore-confirm">
+              <div style={{ fontWeight: 700 }}>Replace your progress with this backup?</div>
+              <SummaryRow label={`Backup, ${DATE.format(pending.summary.exported)}`} s={pending.summary} />
+              <SummaryRow label="On this phone now" s={currentSummary()} />
+              <p className="muted small" style={{ margin: 0 }}>
+                Everything on this phone is replaced by the backup. Export first if you want to keep it.
+              </p>
+              <div className="row">
+                <button className="btn secondary flex" onClick={() => setPending(null)}>
+                  Cancel
+                </button>
+                <button className="btn flex" onClick={restore}>
+                  Replace
+                </button>
+              </div>
+            </div>
+          )}
+          {backupMsg && (
+            <p role="status" style={{ margin: 0, color: backupMsg.ok ? 'var(--ok)' : 'var(--wrong)', fontWeight: 600 }}>
+              {backupMsg.text}
+            </p>
+          )}
+        </div>
+      </div>
+
       <div className="section-title">Offline</div>
       <div className="list" data-testid="offline">
         <div className="list-block">
@@ -188,6 +260,19 @@ function OfflineRow({ ok, label, detail }: { ok: boolean; label: string; detail:
       <span className="grow">
         <span className="row-title">{label}</span>
         <span className="row-hint">{detail}</span>
+      </span>
+    </div>
+  );
+}
+
+const DATE = new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+
+function SummaryRow({ label, s }: { label: string; s: BackupSummary }) {
+  return (
+    <div className="summary-row">
+      <span className="muted small">{label}</span>
+      <span>
+        {s.xp} XP · {s.lessons} lesson{s.lessons === 1 ? '' : 's'} · {s.words} word{s.words === 1 ? '' : 's'} · {s.streakDays} day{s.streakDays === 1 ? '' : 's'} practiced
       </span>
     </div>
   );
