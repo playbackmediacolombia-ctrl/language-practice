@@ -53,6 +53,9 @@ function tiles(item: Item, pool: Item[]): Exercise {
   return { type: 'tiles', item, bank: shuffle([...item.tiles, ...extra]) };
 }
 
+/** Long sentences make a match round taller than the screen, so only short items are paired. */
+const matchable = (items: Item[]) => items.filter((i) => i.text.replace(/\p{Script=Han}/gu, 'xx').length <= 22 && i.en.length <= 32);
+
 /**
  * The exercises for one lesson. New words are introduced first (half, then drills on those,
  * then the other half and drills on everything), so a word is always seen before it's tested.
@@ -85,8 +88,8 @@ export function lessonExercises(items: Item[], earlier: Item[], lang: Lang, spea
     ...shuffle(drills.filter((ex) => !inFirst(ex))),
   ];
   // One match-the-pairs round, using this lesson's words plus a review word or two.
-  const matchable = [...items, ...pickSome(earlier, 2)];
-  if (matchable.length >= 3) out.push({ type: 'match', items: pickSome(matchable, 5) });
+  const pairs = matchable([...items, ...pickSome(matchable(earlier), 2)]);
+  if (pairs.length >= 3) out.push({ type: 'match', items: pickSome(pairs, 5) });
   return out;
 }
 
@@ -101,7 +104,7 @@ export function reviewExercises(items: Item[], all: Item[], lang: Lang, speaking
   if (speaking && words.length) out.push({ type: 'speak', item: pickSome(words, 1)[0] });
   for (const item of pickSome(items, 2)) out.push(meaning(item, items, all, false));
   const result = shuffle(out);
-  if (items.length >= 3) result.push({ type: 'match', items: pickSome(items, 5) });
+  if (matchable(items).length >= 3) result.push({ type: 'match', items: pickSome(matchable(items), 5) });
   return result;
 }
 

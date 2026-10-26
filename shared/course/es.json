@@ -609,6 +609,132 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u15",
+      "title": "News and opinions",
+      "lessons": [
+        {
+          "id": "es-15-1",
+          "title": "Headlines",
+          "items": [
+            { "id": "el-gobierno", "text": "el gobierno", "en": "the government" },
+            { "id": "las-elecciones", "text": "las elecciones", "en": "the elections" },
+            { "id": "la-economia", "text": "la economía", "en": "the economy" },
+            { "id": "los-precios-han-vuelto-a-subir", "text": "Los precios han vuelto a subir.", "en": "Prices have gone up again." },
+            { "id": "el-desempleo-bajo", "text": "El desempleo bajó por tercer mes consecutivo.", "en": "Unemployment fell for the third month in a row." },
+            { "id": "miles-de-personas-salieron-a-las-calles", "text": "Miles de personas salieron a las calles.", "en": "Thousands of people took to the streets." }
+          ]
+        },
+        {
+          "id": "es-15-2",
+          "title": "Talking about the news",
+          "items": [
+            { "id": "te-enteraste-de-que", "text": "¿Te enteraste de que renunció el ministro?", "en": "Did you hear that the minister resigned?" },
+            { "id": "segun-los-expertos", "text": "Según los expertos, la situación va a empeorar.", "en": "According to experts, the situation is going to get worse." },
+            { "id": "lo-vi-en-las-noticias", "text": "Lo vi en las noticias anoche.", "en": "I saw it on the news last night." },
+            { "id": "dicen-que", "text": "Dicen que habrá un paro el lunes.", "en": "They say there'll be a strike on Monday." },
+            { "id": "no-me-lo-puedo-creer", "text": "¡No me lo puedo creer!", "en": "I can't believe it!" },
+            { "id": "hay-que-ver-la-fuente", "text": "Hay que ver de dónde viene la noticia.", "en": "You have to check where the story comes from." }
+          ]
+        },
+        {
+          "id": "es-15-3",
+          "title": "Giving your opinion",
+          "items": [
+            { "id": "en-mi-opinion", "text": "En mi opinión, es un error.", "en": "In my opinion, it's a mistake." },
+            { "id": "creo-que-tienes-razon", "text": "Creo que tienes razón.", "en": "I think you're right." },
+            { "id": "no-creo-que-sea-justo", "text": "No creo que sea justo.", "en": "I don't think it's fair." },
+            { "id": "me-parece-que", "text": "Me parece que exageran.", "en": "It seems to me they're exaggerating." },
+            { "id": "a-mi-modo-de-ver", "text": "A mi modo de ver, hay otras prioridades.", "en": "The way I see it, there are other priorities." },
+            { "id": "depende-de-como-lo-mires", "text": "Depende de cómo lo mires.", "en": "It depends on how you look at it." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u16",
+      "title": "Debate",
+      "lessons": [
+        {
+          "id": "es-16-1",
+          "title": "Agreeing and disagreeing",
+          "items": [
+            { "id": "estoy-totalmente-de-acuerdo", "text": "Estoy totalmente de acuerdo.", "en": "I completely agree." },
+            { "id": "no-estoy-de-acuerdo-para-nada", "text": "No estoy de acuerdo para nada.", "en": "I don't agree at all." },
+            { "id": "entiendo-tu-punto-pero", "text": "Entiendo tu punto, pero no lo veo así.", "en": "I see your point, but I don't see it that way." },
+            { "id": "en-eso-tienes-razon", "text": "En eso tienes razón.", "en": "You're right about that." },
+            { "id": "hasta-cierto-punto", "text": "Hasta cierto punto, sí.", "en": "Up to a point, yes." },
+            { "id": "ni-hablar", "text": "¡Ni hablar!", "en": "No way!" }
+          ]
+        },
+        {
+          "id": "es-16-2",
+          "title": "Making your case",
+          "items": [
+            { "id": "por-un-lado", "text": "Por un lado, es más barato.", "en": "On the one hand, it's cheaper." },
+            { "id": "por-otro-lado", "text": "Por otro lado, contamina más.", "en": "On the other hand, it pollutes more." },
+            { "id": "eso-no-es-del-todo-cierto", "text": "Eso no es del todo cierto.", "en": "That's not entirely true." },
+            { "id": "hay-que-tener-en-cuenta", "text": "Hay que tener en cuenta el costo.", "en": "You have to take the cost into account." },
+            { "id": "aunque-sea-dificil", "text": "Aunque sea difícil, vale la pena.", "en": "Even if it's hard, it's worth it." },
+            { "id": "sin-embargo", "text": "sin embargo", "en": "however" }
+          ]
+        },
+        {
+          "id": "es-16-3",
+          "title": "Persuading and concluding",
+          "items": [
+            { "id": "los-datos-demuestran", "text": "Los datos demuestran lo contrario.", "en": "The data show the opposite." },
+            { "id": "imaginate-que", "text": "Imagínate que te pasara a ti.", "en": "Imagine if it happened to you." },
+            { "id": "no-se-trata-de", "text": "No se trata de dinero, sino de principios.", "en": "It's not about money, it's about principles." },
+            { "id": "en-resumen", "text": "En resumen, necesitamos un cambio.", "en": "In short, we need a change." },
+            { "id": "para-concluir", "text": "Para concluir, quiero dar las gracias a todos.", "en": "To conclude, I'd like to thank everyone." },
+            { "id": "estamos-de-acuerdo-en-no-estar-de-acuerdo", "text": "Estamos de acuerdo en no estar de acuerdo.", "en": "Let's agree to disagree." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u17",
+      "title": "Formal and casual",
+      "lessons": [
+        {
+          "id": "es-17-1",
+          "title": "Tú or usted?",
+          "items": [
+            { "id": "como-esta-usted", "text": "¿Cómo está usted?", "en": "How are you? (formal)" },
+            { "id": "que-mas-pues", "text": "¿Qué más, pues?", "en": "What's up? (casual, Colombia)" },
+            { "id": "podemos-tutearnos", "text": "¿Nos podemos tutear?", "en": "Can we use \"tú\" with each other?" },
+            { "id": "buenos-dias-senora", "text": "Buenos días, señora.", "en": "Good morning, ma'am." },
+            { "id": "siga-por-favor", "text": "Siga, por favor.", "en": "Come in, please. (Colombia)" },
+            { "id": "con-mucho-gusto", "text": "Con mucho gusto.", "en": "You're welcome. (polite)" }
+          ]
+        },
+        {
+          "id": "es-17-2",
+          "title": "Polite requests",
+          "items": [
+            { "id": "seria-tan-amable", "text": "¿Sería tan amable de ayudarme?", "en": "Would you be so kind as to help me?" },
+            { "id": "le-agradeceria-que", "text": "Le agradecería que me respondiera pronto.", "en": "I would be grateful if you replied soon." },
+            { "id": "podria-decirme", "text": "¿Podría decirme dónde queda la oficina?", "en": "Could you tell me where the office is?" },
+            { "id": "disculpe-la-molestia", "text": "Disculpe la molestia.", "en": "Sorry to bother you." },
+            { "id": "pasame-la-sal", "text": "Pásame la sal.", "en": "Pass me the salt. (casual)" },
+            { "id": "me-regala-un-cafe", "text": "¿Me regala un café?", "en": "Can I get a coffee? (Colombia, polite)" }
+          ]
+        },
+        {
+          "id": "es-17-3",
+          "title": "Formal writing",
+          "items": [
+            { "id": "estimado-senor", "text": "Estimado señor Gómez:", "en": "Dear Mr. Gómez," },
+            { "id": "me-dirijo-a-usted", "text": "Me dirijo a usted para solicitar información.", "en": "I am writing to you to request information." },
+            { "id": "adjunto-encontrara", "text": "Adjunto encontrará mi hoja de vida.", "en": "Please find my résumé attached." },
+            { "id": "quedo-atento", "text": "Quedo atento a su respuesta.", "en": "I look forward to your reply. (man)" },
+            { "id": "cordialmente", "text": "Cordialmente,", "en": "Sincerely," },
+            { "id": "un-abrazo", "text": "Un abrazo,", "en": "Hugs, (to a friend)" }
+          ]
+        }
+      ]
     }
   ]
 }

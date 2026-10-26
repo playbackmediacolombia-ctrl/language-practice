@@ -608,6 +608,132 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u15",
+      "title": "News and opinions",
+      "lessons": [
+        {
+          "id": "zh-15-1",
+          "title": "Headlines",
+          "items": [
+            { "id": "zhengfu", "text": "政府", "pinyin": "zhèngfǔ", "en": "the government" },
+            { "id": "jingji", "text": "经济", "pinyin": "jīngjì", "en": "the economy" },
+            { "id": "xinwen", "text": "新闻", "pinyin": "xīnwén", "en": "the news" },
+            { "id": "wujia-you-zhang-le", "text": "物价又涨了", "pinyin": "wùjià yòu zhǎng le", "en": "Prices have gone up again.", "tiles": ["物价", "又", "涨", "了"] },
+            { "id": "shiyelv-lianxu-san-ge-yue-xiajiang", "text": "失业率连续三个月下降", "pinyin": "shīyèlǜ liánxù sān ge yuè xiàjiàng", "en": "Unemployment fell for the third month in a row.", "tiles": ["失业率", "连续", "三个月", "下降"] },
+            { "id": "chengqian-shangwan-de-ren", "text": "成千上万的人走上街头", "pinyin": "chéngqiān shàngwàn de rén zǒushàng jiētóu", "en": "Thousands of people took to the streets.", "tiles": ["成千上万", "的", "人", "走上", "街头"] }
+          ]
+        },
+        {
+          "id": "zh-15-2",
+          "title": "Talking about the news",
+          "items": [
+            { "id": "ni-tingshuo-le-ma", "text": "你听说了吗？部长辞职了", "pinyin": "nǐ tīngshuō le ma? bùzhǎng cízhí le", "en": "Did you hear? The minister resigned.", "tiles": ["你", "听说", "了", "吗", "部长", "辞职", "了"] },
+            { "id": "ju-zhuanjia-shuo", "text": "据专家说，情况会更糟", "pinyin": "jù zhuānjiā shuō, qíngkuàng huì gèng zāo", "en": "According to experts, the situation will get worse.", "tiles": ["据", "专家", "说", "情况", "会", "更", "糟"] },
+            { "id": "wo-zuowan-zai-xinwen-shang-kan-dao-de", "text": "我昨晚在新闻上看到的", "pinyin": "wǒ zuówǎn zài xīnwén shang kàndào de", "en": "I saw it on the news last night.", "tiles": ["我", "昨晚", "在", "新闻", "上", "看到", "的"] },
+            { "id": "tingshuo-xingqiyi-yao-bagong", "text": "听说星期一要罢工", "pinyin": "tīngshuō xīngqīyī yào bàgōng", "en": "I hear there'll be a strike on Monday.", "tiles": ["听说", "星期一", "要", "罢工"] },
+            { "id": "zhen-buganxiangxin", "text": "真不敢相信！", "pinyin": "zhēn bù gǎn xiāngxìn!", "en": "I can't believe it!", "tiles": ["真", "不敢", "相信"] },
+            { "id": "yao-kan-xiaoxi-laiyuan", "text": "要看消息的来源", "pinyin": "yào kàn xiāoxi de láiyuán", "en": "You have to check where the news comes from.", "tiles": ["要", "看", "消息", "的", "来源"] }
+          ]
+        },
+        {
+          "id": "zh-15-3",
+          "title": "Giving your opinion",
+          "items": [
+            { "id": "wo-renwei-zhe-shi-ge-cuowu", "text": "我认为这是个错误", "pinyin": "wǒ rènwéi zhè shì ge cuòwù", "en": "I believe this is a mistake.", "tiles": ["我", "认为", "这", "是", "个", "错误"] },
+            { "id": "wo-juede-ni-shuo-de-dui", "text": "我觉得你说得对", "pinyin": "wǒ juéde nǐ shuō de duì", "en": "I think you're right.", "tiles": ["我", "觉得", "你", "说", "得", "对"] },
+            { "id": "wo-bu-juede-zhe-gongping", "text": "我不觉得这公平", "pinyin": "wǒ bù juéde zhè gōngpíng", "en": "I don't think it's fair.", "tiles": ["我", "不", "觉得", "这", "公平"] },
+            { "id": "zai-wo-kanlai", "text": "在我看来，还有更重要的事", "pinyin": "zài wǒ kànlái, hái yǒu gèng zhòngyào de shì", "en": "The way I see it, there are more important things.", "tiles": ["在", "我", "看来", "还有", "更", "重要", "的", "事"] },
+            { "id": "wo-ganjue-tamen-kuazhang-le", "text": "我感觉他们夸张了", "pinyin": "wǒ gǎnjué tāmen kuāzhāng le", "en": "I feel they're exaggerating.", "tiles": ["我", "感觉", "他们", "夸张", "了"] },
+            { "id": "na-yao-kan-zenme-kan", "text": "那要看你怎么看", "pinyin": "nà yào kàn nǐ zěnme kàn", "en": "That depends on how you look at it.", "tiles": ["那", "要看", "你", "怎么", "看"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u16",
+      "title": "Debate",
+      "lessons": [
+        {
+          "id": "zh-16-1",
+          "title": "Agreeing and disagreeing",
+          "items": [
+            { "id": "wo-wanquan-tongyi", "text": "我完全同意", "pinyin": "wǒ wánquán tóngyì", "en": "I completely agree.", "tiles": ["我", "完全", "同意"] },
+            { "id": "wo-yidianr-ye-bu-tongyi", "text": "我一点儿也不同意", "pinyin": "wǒ yìdiǎnr yě bù tóngyì", "en": "I don't agree at all.", "tiles": ["我", "一点儿", "也", "不", "同意"] },
+            { "id": "wo-mingbai-ni-de-yisi-danshi", "text": "我明白你的意思，但是我不这么看", "pinyin": "wǒ míngbai nǐ de yìsi, dànshì wǒ bú zhème kàn", "en": "I see what you mean, but I don't see it that way.", "tiles": ["我", "明白", "你的", "意思", "但是", "我", "不", "这么", "看"] },
+            { "id": "zhe-yidian-ni-shuo-de-dui", "text": "这一点你说得对", "pinyin": "zhè yì diǎn nǐ shuō de duì", "en": "You're right about that.", "tiles": ["这", "一点", "你", "说", "得", "对"] },
+            { "id": "zai-mouzhong-chengdu-shang", "text": "在某种程度上是这样", "pinyin": "zài mǒu zhǒng chéngdù shang shì zhèyàng", "en": "To a certain extent, yes.", "tiles": ["在", "某种", "程度", "上", "是", "这样"] },
+            { "id": "bu-keneng", "text": "不可能！", "pinyin": "bù kěnéng!", "en": "No way! / Impossible!", "tiles": ["不", "可能"] }
+          ]
+        },
+        {
+          "id": "zh-16-2",
+          "title": "Making your case",
+          "items": [
+            { "id": "yi-fangmian", "text": "一方面，这样更便宜", "pinyin": "yì fāngmiàn, zhèyàng gèng piányi", "en": "On the one hand, it's cheaper.", "tiles": ["一方面", "这样", "更", "便宜"] },
+            { "id": "ling-yi-fangmian", "text": "另一方面，污染更严重", "pinyin": "lìng yì fāngmiàn, wūrǎn gèng yánzhòng", "en": "On the other hand, it pollutes more.", "tiles": ["另一方面", "污染", "更", "严重"] },
+            { "id": "zhe-bu-wanquan-dui", "text": "这不完全对", "pinyin": "zhè bù wánquán duì", "en": "That's not entirely right.", "tiles": ["这", "不", "完全", "对"] },
+            { "id": "women-dei-kaolv-chengben", "text": "我们得考虑成本", "pinyin": "wǒmen děi kǎolǜ chéngběn", "en": "We have to take the cost into account.", "tiles": ["我们", "得", "考虑", "成本"] },
+            { "id": "suiran-hen-nan-danshi-zhide", "text": "虽然很难，但是值得", "pinyin": "suīrán hěn nán, dànshì zhídé", "en": "Although it's hard, it's worth it.", "tiles": ["虽然", "很", "难", "但是", "值得"] },
+            { "id": "buguo", "text": "不过", "pinyin": "búguò", "en": "however" }
+          ]
+        },
+        {
+          "id": "zh-16-3",
+          "title": "Persuading and concluding",
+          "items": [
+            { "id": "shuju-xianshi-xiangfan", "text": "数据显示的正好相反", "pinyin": "shùjù xiǎnshì de zhènghǎo xiāngfǎn", "en": "The data show exactly the opposite.", "tiles": ["数据", "显示", "的", "正好", "相反"] },
+            { "id": "shexiang-yixia", "text": "设想一下，如果这发生在你身上呢？", "pinyin": "shèxiǎng yíxià, rúguǒ zhè fāshēng zài nǐ shēnshang ne?", "en": "Imagine if this happened to you.", "tiles": ["设想", "一下", "如果", "这", "发生", "在", "你", "身上", "呢"] },
+            { "id": "zhe-bu-shi-qian-de-wenti", "text": "这不是钱的问题，而是原则的问题", "pinyin": "zhè bú shì qián de wèntí, ér shì yuánzé de wèntí", "en": "It's not a question of money, but of principle.", "tiles": ["这", "不是", "钱", "的", "问题", "而是", "原则", "的", "问题"] },
+            { "id": "zongzhi", "text": "总之，我们需要改变", "pinyin": "zǒngzhī, wǒmen xūyào gǎibiàn", "en": "In short, we need a change.", "tiles": ["总之", "我们", "需要", "改变"] },
+            { "id": "zuihou-wo-xiang-ganxie-dajia", "text": "最后，我想感谢大家", "pinyin": "zuìhòu, wǒ xiǎng gǎnxiè dàjiā", "en": "Finally, I'd like to thank everyone.", "tiles": ["最后", "我", "想", "感谢", "大家"] },
+            { "id": "baoliu-geren-yijian", "text": "我们各自保留意见吧", "pinyin": "wǒmen gèzì bǎoliú yìjiàn ba", "en": "Let's agree to disagree.", "tiles": ["我们", "各自", "保留", "意见", "吧"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u17",
+      "title": "Formal and casual",
+      "lessons": [
+        {
+          "id": "zh-17-1",
+          "title": "你 or 您?",
+          "items": [
+            { "id": "nin-hao", "text": "您好", "pinyin": "nín hǎo", "en": "Hello. (polite)", "tiles": ["您", "好"] },
+            { "id": "zayang-a", "text": "咋样啊？", "pinyin": "zǎ yàng a?", "en": "How's it going? (casual)", "tiles": ["咋样", "啊"] },
+            { "id": "nin-qing-zuo", "text": "您请坐", "pinyin": "nín qǐng zuò", "en": "Please have a seat. (polite)", "tiles": ["您", "请", "坐"] },
+            { "id": "wang-zong", "text": "王总，早上好", "pinyin": "Wáng zǒng, zǎoshang hǎo", "en": "Good morning, Director Wang.", "tiles": ["王总", "早上好"] },
+            { "id": "qing-jin", "text": "请进", "pinyin": "qǐng jìn", "en": "Please come in.", "tiles": ["请", "进"] },
+            { "id": "bu-keqi", "text": "不客气", "pinyin": "bú kèqi", "en": "You're welcome.", "tiles": ["不", "客气"] }
+          ]
+        },
+        {
+          "id": "zh-17-2",
+          "title": "Polite requests",
+          "items": [
+            { "id": "mafan-nin-bang-wo-yixia", "text": "麻烦您帮我一下", "pinyin": "máfan nín bāng wǒ yíxià", "en": "Sorry to trouble you, could you help me?", "tiles": ["麻烦", "您", "帮", "我", "一下"] },
+            { "id": "ruo-neng-jinkuai-huifu", "text": "如能尽快回复，不胜感激", "pinyin": "rú néng jǐnkuài huífù, búshèng gǎnjī", "en": "I would be most grateful for a prompt reply. (written)", "tiles": ["如", "能", "尽快", "回复", "不胜", "感激"] },
+            { "id": "qingwen-bangongshi-zai-nali", "text": "请问，办公室在哪里？", "pinyin": "qǐngwèn, bàngōngshì zài nǎlǐ?", "en": "Excuse me, where is the office?", "tiles": ["请问", "办公室", "在", "哪里"] },
+            { "id": "darao-nin-le", "text": "打扰您了", "pinyin": "dǎrǎo nín le", "en": "Sorry to bother you.", "tiles": ["打扰", "您", "了"] },
+            { "id": "ba-yan-di-gei-wo", "text": "把盐递给我", "pinyin": "bǎ yán dì gěi wǒ", "en": "Pass me the salt. (casual)", "tiles": ["把", "盐", "递", "给", "我"] },
+            { "id": "neng-gei-wo-lai-bei-kafei-ma", "text": "能给我来杯咖啡吗？", "pinyin": "néng gěi wǒ lái bēi kāfēi ma?", "en": "Could I get a coffee?", "tiles": ["能", "给", "我", "来", "杯", "咖啡", "吗"] }
+          ]
+        },
+        {
+          "id": "zh-17-3",
+          "title": "Formal writing",
+          "items": [
+            { "id": "zunjing-de-wang-xiansheng", "text": "尊敬的王先生：", "pinyin": "zūnjìng de Wáng xiānsheng:", "en": "Dear Mr. Wang,", "tiles": ["尊敬", "的", "王", "先生"] },
+            { "id": "xie-xin-xiang-nin-zixun", "text": "我写信是想向您咨询一些情况", "pinyin": "wǒ xiě xìn shì xiǎng xiàng nín zīxún yìxiē qíngkuàng", "en": "I am writing to ask you for some information.", "tiles": ["我", "写信", "是", "想", "向", "您", "咨询", "一些", "情况"] },
+            { "id": "fujian-shi-wo-de-jianli", "text": "附件是我的简历", "pinyin": "fùjiàn shì wǒ de jiǎnlì", "en": "My résumé is attached.", "tiles": ["附件", "是", "我的", "简历"] },
+            { "id": "qidai-nin-de-huifu", "text": "期待您的回复", "pinyin": "qīdài nín de huífù", "en": "I look forward to your reply.", "tiles": ["期待", "您的", "回复"] },
+            { "id": "ci-zhi-jingli", "text": "此致敬礼", "pinyin": "cǐ zhì jìnglǐ", "en": "Yours sincerely, (formal letter closing)", "tiles": ["此致", "敬礼"] },
+            { "id": "baobao", "text": "抱抱！", "pinyin": "bàobao!", "en": "Hugs! (to a friend)" }
+          ]
+        }
+      ]
     }
   ]
 }

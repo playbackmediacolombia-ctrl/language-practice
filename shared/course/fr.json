@@ -611,6 +611,132 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u15",
+      "title": "News and opinions",
+      "lessons": [
+        {
+          "id": "fr-15-1",
+          "title": "Headlines",
+          "items": [
+            { "id": "le-gouvernement", "text": "le gouvernement", "en": "the government" },
+            { "id": "les-elections", "text": "les élections", "en": "the elections" },
+            { "id": "leconomie", "text": "l'économie", "en": "the economy" },
+            { "id": "les-prix-ont-encore-augmente", "text": "Les prix ont encore augmenté.", "en": "Prices have gone up again." },
+            { "id": "le-chomage-a-baisse", "text": "Le chômage a baissé pour le troisième mois consécutif.", "en": "Unemployment fell for the third month in a row." },
+            { "id": "des-milliers-de-personnes-ont-manifeste", "text": "Des milliers de personnes ont manifesté.", "en": "Thousands of people demonstrated." }
+          ]
+        },
+        {
+          "id": "fr-15-2",
+          "title": "Talking about the news",
+          "items": [
+            { "id": "tas-entendu-que-le-ministre", "text": "Tu as entendu que le ministre a démissionné ?", "en": "Did you hear that the minister resigned?" },
+            { "id": "selon-les-experts", "text": "Selon les experts, la situation va s'aggraver.", "en": "According to experts, the situation is going to get worse." },
+            { "id": "je-lai-vu-aux-infos", "text": "Je l'ai vu aux infos hier soir.", "en": "I saw it on the news last night." },
+            { "id": "il-parait-quil-y-aura-une-greve", "text": "Il paraît qu'il y aura une grève lundi.", "en": "Apparently there'll be a strike on Monday." },
+            { "id": "jen-reviens-pas", "text": "J'en reviens pas !", "en": "I can't believe it!" },
+            { "id": "il-faut-verifier-la-source", "text": "Il faut vérifier la source.", "en": "You have to check the source." }
+          ]
+        },
+        {
+          "id": "fr-15-3",
+          "title": "Giving your opinion",
+          "items": [
+            { "id": "a-mon-avis", "text": "À mon avis, c'est une erreur.", "en": "In my opinion, it's a mistake." },
+            { "id": "je-pense-que-tu-as-raison", "text": "Je pense que tu as raison.", "en": "I think you're right." },
+            { "id": "je-ne-pense-pas-que-ce-soit-juste", "text": "Je ne pense pas que ce soit juste.", "en": "I don't think it's fair." },
+            { "id": "jai-limpression-quils-exagerent", "text": "J'ai l'impression qu'ils exagèrent.", "en": "I have the feeling they're exaggerating." },
+            { "id": "selon-moi", "text": "Selon moi, il y a d'autres priorités.", "en": "The way I see it, there are other priorities." },
+            { "id": "ca-depend-du-point-de-vue", "text": "Ça dépend du point de vue.", "en": "It depends on your point of view." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u16",
+      "title": "Debate",
+      "lessons": [
+        {
+          "id": "fr-16-1",
+          "title": "Agreeing and disagreeing",
+          "items": [
+            { "id": "je-suis-tout-a-fait-daccord", "text": "Je suis tout à fait d'accord.", "en": "I completely agree." },
+            { "id": "je-ne-suis-pas-du-tout-daccord", "text": "Je ne suis pas du tout d'accord.", "en": "I don't agree at all." },
+            { "id": "je-comprends-ton-point-de-vue-mais", "text": "Je comprends ton point de vue, mais je ne le partage pas.", "en": "I understand your point of view, but I don't share it." },
+            { "id": "la-dessus-tu-as-raison", "text": "Là-dessus, tu as raison.", "en": "You're right about that." },
+            { "id": "dans-une-certaine-mesure", "text": "Dans une certaine mesure, oui.", "en": "To a certain extent, yes." },
+            { "id": "pas-question", "text": "Pas question !", "en": "No way!" }
+          ]
+        },
+        {
+          "id": "fr-16-2",
+          "title": "Making your case",
+          "items": [
+            { "id": "dun-cote", "text": "D'un côté, c'est moins cher.", "en": "On the one hand, it's cheaper." },
+            { "id": "de-lautre", "text": "De l'autre, ça pollue plus.", "en": "On the other hand, it pollutes more." },
+            { "id": "ce-nest-pas-tout-a-fait-vrai", "text": "Ce n'est pas tout à fait vrai.", "en": "That's not entirely true." },
+            { "id": "il-faut-tenir-compte-du-cout", "text": "Il faut tenir compte du coût.", "en": "You have to take the cost into account." },
+            { "id": "meme-si-cest-difficile", "text": "Même si c'est difficile, ça vaut le coup.", "en": "Even if it's hard, it's worth it." },
+            { "id": "cependant", "text": "cependant", "en": "however" }
+          ]
+        },
+        {
+          "id": "fr-16-3",
+          "title": "Persuading and concluding",
+          "items": [
+            { "id": "les-chiffres-montrent", "text": "Les chiffres montrent le contraire.", "en": "The figures show the opposite." },
+            { "id": "imagine-que-ca-tarrive", "text": "Imagine que ça t'arrive à toi.", "en": "Imagine it happening to you." },
+            { "id": "ce-nest-pas-une-question-dargent", "text": "Ce n'est pas une question d'argent, mais de principe.", "en": "It's not about money, it's about principle." },
+            { "id": "bref", "text": "Bref, il faut que ça change.", "en": "In short, things have to change." },
+            { "id": "pour-conclure", "text": "Pour conclure, je tiens à remercier tout le monde.", "en": "To conclude, I'd like to thank everyone." },
+            { "id": "on-nest-pas-daccord", "text": "On n'est pas d'accord, et ce n'est pas grave.", "en": "We don't agree, and that's okay." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u17",
+      "title": "Formal and casual",
+      "lessons": [
+        {
+          "id": "fr-17-1",
+          "title": "Tu or vous?",
+          "items": [
+            { "id": "comment-allez-vous", "text": "Comment allez-vous ?", "en": "How are you? (formal)" },
+            { "id": "quoi-de-neuf", "text": "Quoi de neuf ?", "en": "What's new? (casual)" },
+            { "id": "on-peut-se-tutoyer", "text": "On peut se tutoyer ?", "en": "Can we use \"tu\" with each other?" },
+            { "id": "bonjour-madame", "text": "Bonjour, madame.", "en": "Good morning, ma'am." },
+            { "id": "entrez-je-vous-en-prie", "text": "Entrez, je vous en prie.", "en": "Please, come in." },
+            { "id": "je-vous-en-prie", "text": "Je vous en prie.", "en": "You're welcome. (formal)" }
+          ]
+        },
+        {
+          "id": "fr-17-2",
+          "title": "Polite requests",
+          "items": [
+            { "id": "auriez-vous-lamabilite", "text": "Auriez-vous l'amabilité de m'aider ?", "en": "Would you be so kind as to help me?" },
+            { "id": "je-vous-serais-reconnaissant", "text": "Je vous serais reconnaissant de me répondre rapidement.", "en": "I would be grateful if you replied soon." },
+            { "id": "pourriez-vous-mindiquer", "text": "Pourriez-vous m'indiquer où se trouve le bureau ?", "en": "Could you tell me where the office is?" },
+            { "id": "excusez-moi-de-vous-deranger", "text": "Excusez-moi de vous déranger.", "en": "Sorry to bother you." },
+            { "id": "passe-moi-le-sel", "text": "Passe-moi le sel.", "en": "Pass me the salt. (casual)" },
+            { "id": "je-pourrais-avoir-un-cafe", "text": "Je pourrais avoir un café, s'il vous plaît ?", "en": "Could I have a coffee, please?" }
+          ]
+        },
+        {
+          "id": "fr-17-3",
+          "title": "Formal writing",
+          "items": [
+            { "id": "madame-monsieur", "text": "Madame, Monsieur,", "en": "Dear Sir or Madam," },
+            { "id": "je-me-permets-de-vous-ecrire", "text": "Je me permets de vous écrire pour obtenir des informations.", "en": "I am writing to request information." },
+            { "id": "veuillez-trouver-ci-joint", "text": "Veuillez trouver ci-joint mon CV.", "en": "Please find my résumé attached." },
+            { "id": "dans-lattente-de-votre-reponse", "text": "Dans l'attente de votre réponse,", "en": "I look forward to your reply," },
+            { "id": "cordialement", "text": "Cordialement,", "en": "Sincerely," },
+            { "id": "bisous", "text": "Bisous !", "en": "Kisses! (to a friend)" }
+          ]
+        }
+      ]
     }
   ]
 }
