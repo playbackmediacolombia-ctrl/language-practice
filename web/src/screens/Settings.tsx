@@ -128,6 +128,29 @@ export function Settings() {
           />
         </div>
         <Toggle label="Speaking exercises" hint="“Say it out loud”, graded by Whisper" checked={prefs.speaking} onChange={setSpeaking} />
+        <div className="list-block" data-testid="speak-first-setting">
+          <span className="row-title">Speaking-first</span>
+          <span className="row-hint">Answer every exercise out loud instead of tapping (needs the speech model below).</span>
+          <div className="row" style={{ flexWrap: 'wrap', gap: 8 }}>
+            {LANGS.map((l) => (
+              <label key={l.id} className="chip-toggle">
+                <input
+                  type="checkbox"
+                  checked={!!prefs.speakFirst?.[l.id]}
+                  onChange={(e) => setPref('speakFirst', { ...prefs.speakFirst, [l.id]: e.target.checked })}
+                  aria-label={`Speaking-first for ${l.name}`}
+                />{' '}
+                {l.name}
+              </label>
+            ))}
+          </div>
+        </div>
+        <Toggle
+          label="Animated characters"
+          hint="In role-plays, the person you talk to is a cartoon who talks, blinks and reacts to your answers"
+          checked={prefs.characters}
+          onChange={(v) => setPref('characters', v)}
+        />
         <Toggle
           label="Show 18+ topics"
           hint="Flirting: lessons, role-plays and dialogues (flirty, never sexual)"

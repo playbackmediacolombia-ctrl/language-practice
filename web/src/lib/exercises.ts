@@ -8,7 +8,7 @@ export type Exercise =
   | { type: 'tiles'; item: Item; bank: string[] } // build the sentence from word tiles
   | { type: 'match'; items: Item[] } // match target ↔ English pairs
   | { type: 'type'; item: Item } // type what you hear
-  | { type: 'speak'; item: Item }; // say it out loud, graded by Whisper
+  | { type: 'speak'; item: Item; recall?: boolean }; // say it out loud, graded by Whisper (recall: from the English)
 
 /** The item an exercise is about (match pairs have several). */
 export const itemsOf = (ex: Exercise): Item[] => (ex.type === 'match' ? ex.items : [ex.item]);
@@ -129,6 +129,19 @@ export function mistakeExercises(items: Item[], all: Item[], lang: Lang, speakin
     out.push(...round);
   }
   return out;
+}
+
+/**
+ * Speaking-first: every exercise you'd tap becomes one you say. New words are "repeat after me";
+ * words you've seen are "say it" from the English, with the words a tap away. Single syllables
+ * stay as they were (Whisper mishears them), and match-the-pairs rounds are left out.
+ */
+export function speakingFirst(list: Exercise[], lang: Lang): Exercise[] {
+  return list.flatMap((ex): Exercise[] => {
+    if (ex.type === 'match') return [];
+    if (ex.type === 'speak' || !speakable(ex.item, lang)) return [ex];
+    return [{ type: 'speak', item: ex.item, recall: !(ex.type === 'meaning' && ex.isNew) }];
+  });
 }
 
 /** A placement test question about `item`: read it, produce it or hear it (by turn), with distractors from `near`. */

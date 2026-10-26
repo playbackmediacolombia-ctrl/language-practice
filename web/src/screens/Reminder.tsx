@@ -1,8 +1,10 @@
 import { type ReactNode, useState } from 'react';
 import { tapFeedback } from '../lib/fx';
 import { Icon, Screen } from '../ui';
+import { GUIDE_SHOTS } from './ReminderArt';
 
-// Settings › Daily reminder: a step-by-step guide to an iPhone Shortcuts personal automation.
+// Settings › Daily reminder: a step-by-step guide, with a drawn screen for each step, to an
+// iPhone Shortcuts personal automation.
 // No push notifications and no server: the iPhone itself shows the reminder at the time you pick.
 
 const isStandalone =
@@ -33,7 +35,7 @@ function Copy({ text, label }: { text: string; label: string }) {
   );
 }
 
-function Step({ n, title, children }: { n: number; title: string; children: ReactNode }) {
+function Step({ n, title, shot, children }: { n: number; title: string; shot: keyof typeof GUIDE_SHOTS; children: ReactNode }) {
   return (
     <li className="card step">
       <div className="row" style={{ alignItems: 'flex-start' }}>
@@ -45,6 +47,7 @@ function Step({ n, title, children }: { n: number; title: string; children: Reac
           {children}
         </div>
       </div>
+      {GUIDE_SHOTS[shot]()}
     </li>
   );
 }
@@ -64,23 +67,23 @@ export function Reminder() {
       </p>
 
       <ol className="steps">
-        <Step n={++n} title="Open the Shortcuts app">
+        <Step n={++n} title="Open the Shortcuts app" shot="open">
           <p className="muted small">
             It comes with every iPhone. If you deleted it, it's free in the App Store. Tap <K>Automation</K> at the bottom.
           </p>
         </Step>
-        <Step n={++n} title="Make a new automation">
+        <Step n={++n} title="Make a new automation" shot="new">
           <p className="muted small">
             Tap <K>+</K> in the top corner (or <K>New Automation</K> if you have none yet), then choose <K>Time of Day</K>.
           </p>
         </Step>
-        <Step n={++n} title="Pick your time">
+        <Step n={++n} title="Pick your time" shot="time">
           <p className="muted small">
             Choose a time that suits you (early evening works well), and set <K>Repeat</K> to <K>Daily</K>. Then choose{' '}
             <K>Run Immediately</K> so it doesn't ask first, and tap <K>Next</K>.
           </p>
         </Step>
-        <Step n={++n} title="Add “Show Notification”">
+        <Step n={++n} title="Add “Show Notification”" shot="notify">
           <p className="muted small">
             Tap <K>New Blank Automation</K>, then <K>Add Action</K>. Search for <K>Show Notification</K> and tap it. Tap the
             text in it and replace it with your reminder:
@@ -91,7 +94,7 @@ export function Reminder() {
           </div>
         </Step>
         {withUrl && (
-          <Step n={++n} title="Add “Open URLs”">
+          <Step n={++n} title="Add “Open URLs”" shot="url">
             <p className="muted small">
               Tap the search bar at the bottom, search for <K>Open URLs</K> and tap it. Tap <K>URL</K> and paste the app's
               address:
@@ -103,7 +106,7 @@ export function Reminder() {
             <p className="muted small">This opens the app in Safari right when the reminder goes off.</p>
           </Step>
         )}
-        <Step n={++n} title="Tap Done">
+        <Step n={++n} title="Tap Done" shot="done">
           <p className="muted small">
             That's it. To try it now, open the automation and tap the <K>▶</K> play button at the bottom.
           </p>

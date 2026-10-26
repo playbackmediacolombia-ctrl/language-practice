@@ -1186,3 +1186,15 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 
 /* The 18+ check (flirting). */
 .adult-gate { gap: 12px; border-color: color-mix(in srgb, var(--flame) 45%, var(--border)); box-shadow: 0 4px 0 color-mix(in srgb, var(--flame) 45%, var(--border)); }
+
+/* Speaking-first: say it from the English. */
+.recall { display: flex; flex-direction: column; gap: 8px; }
+.recall-en { font-size: var(--text-xl); font-weight: 700; letter-spacing: var(--tight); line-height: 1.2; }
+.speak-first { align-self: flex-start; }
+
+/* Drawn screens in the reminder guide. */
+.guide-shot { margin: 8px auto 0; display: flex; justify-content: center; }
+.guide-shot svg { max-width: 180px; height: auto; }
+.guide-ring { animation: guide-pulse 1.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes guide-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) { .guide-ring { animation: none; } }

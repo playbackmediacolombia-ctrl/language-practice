@@ -60,6 +60,9 @@ export function playAndWait(url: string, speed: PlaySpeed = false): Promise<bool
   });
 }
 
+/** What the shared player is doing right now (for the role-play characters' lip sync). */
+export const nowPlaying = () => ({ src: player.src, time: player.currentTime, playing: !player.paused && !player.ended });
+
 /** Length of the clip that's loaded, in seconds (0 if unknown). */
 export const clipSeconds = () => (Number.isFinite(player.duration) ? player.duration : 0);
 

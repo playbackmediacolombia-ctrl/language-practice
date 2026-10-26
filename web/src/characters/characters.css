@@ -1,0 +1,28 @@
+/* Role-play characters: idle breathing and blinking, talking bob, and reactions. */
+.character { display: grid; place-items: center; width: 120px; height: 132px; margin: 0 auto; flex: none; }
+.character svg { display: block; overflow: visible; }
+.char-body { transform-origin: 60px 132px; animation: char-breathe 3.6s ease-in-out infinite; }
+.char-head { transform-origin: 60px 88px; transition: transform 0.3s var(--spring); animation: char-sway 5s ease-in-out infinite; }
+.char-eyes { transform-origin: 60px 55px; animation: char-blink 4.2s infinite; }
+.char-cheek { opacity: 0.22; transition: opacity 0.3s; }
+.character.talking .char-head { animation: char-talk 0.5s ease-in-out infinite; }
+.character.mood-happy svg { animation: char-hop 0.6s var(--spring); }
+.character.mood-happy .char-cheek { opacity: 0.5; }
+.character.mood-confused .char-head { transform: rotate(-8deg); animation: none; }
+.char-q { animation: pop 0.4s var(--spring) both; }
+.char-sparkle { transform-origin: 60px 40px; animation: pop 0.45s var(--spring) both; }
+@keyframes char-breathe { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.015, 1.035); } }
+@keyframes char-sway { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(1.5deg); } }
+@keyframes char-blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+@keyframes char-talk { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-1.5px) rotate(-1deg); } }
+@keyframes char-hop { 0% { transform: translateY(0); } 40% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .char-body, .char-head, .char-eyes, .character.talking .char-head, .character.mood-happy svg, .char-q, .char-sparkle { animation: none !important; }
+}
+.char-stage {
+  position: sticky; top: calc(env(safe-area-inset-top) + 54px); z-index: 2; display: flex; flex-direction: column; align-items: center;
+  gap: 2px; padding: 8px 0 6px; margin: 0 -4px; border-radius: 22px;
+  background: radial-gradient(circle at 50% 70%, color-mix(in srgb, var(--sky-light) 18%, var(--card)), var(--card) 70%);
+  border: 2px solid var(--border); box-shadow: 0 4px 0 var(--border);
+}
+.char-name { font-size: var(--text-sm); font-weight: 700; color: var(--muted); }

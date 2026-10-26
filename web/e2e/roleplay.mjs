@@ -92,6 +92,31 @@ await run(async () => {
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('progress-v1')).roleplays['es:es-food-1']);
   expect(saved > 0.5, `end: best score saved (${Math.round(saved * 100)}%)`);
 
+  // ---------- The animated character talks with the voice and blinks ----------
+  await page.goto(`${BASE}#/es/roleplay/es-food-1`);
+  await page.getByTestId('char-stage').waitFor();
+  const who = await page.getByTestId('character').getAttribute('aria-label');
+  expect(/Waiter/.test(who), `character: the waiter for a café role-play (${who})`);
+  expect(/char-blink/.test(await page.locator('.char-eyes').evaluate((e) => getComputedStyle(e).animationName)), 'character: blinks');
+  expect(/char-breathe/.test(await page.locator('.char-body').evaluate((e) => getComputedStyle(e).animationName)), 'character: breathes while idle');
+  await page.getByTestId('roleplay-start').click();
+  const mouths = new Set();
+  for (let i = 0; i < 40; i++) {
+    mouths.add(await page.getByTestId('character').getAttribute('data-mouth'));
+    await page.waitForTimeout(60);
+  }
+  expect(mouths.size >= 3, `character: mouth moves with the voice (${[...mouths].sort().join(', ')})`);
+  await page.getByTestId('char-stage').screenshot({ path: 'R-talking.png' });
+
+  // Settings › Animated characters off: role-plays look exactly as before.
+  await page.goto(`${BASE}#/settings`);
+  await page.getByRole('checkbox', { name: /Animated characters/ }).uncheck();
+  await page.goto(`${BASE}#/es/roleplay/es-food-1`);
+  await page.getByTestId('roleplay-start').waitFor();
+  expect((await page.getByTestId('char-stage').count()) === 0, 'Animated characters off: no character');
+  await page.goto(`${BASE}#/settings`);
+  await page.getByRole('checkbox', { name: /Animated characters/ }).check();
+
   // ---------- Intermediate: English shown, words hidden behind a tap ----------
   await page.goto(`${BASE}#/es/roleplay/es-food-3`);
   await page.getByTestId('roleplay-start').click();
@@ -107,12 +132,15 @@ await run(async () => {
   await page.getByTestId('turn-status').filter({ hasText: /%|Didn't hear/ }).waitFor({ timeout: 60_000 });
   const wrong = await page.getByTestId('turn-status').innerText();
   expect(/Not quite|Didn't hear/.test(wrong), `wrong line: not passed (${wrong})`);
+  expect((await page.getByTestId('character').getAttribute('data-mood')) === 'confused', 'character: puzzled when you need to try again');
   expect(await page.getByTestId('turn-mic').isEnabled(), 'wrong line: the mic is ready to try again');
   await page.screenshot({ path: 'R-wrong.png' });
   await page.evaluate(() => (window.__wrongClip = undefined));
   await page.getByTestId('turn-mic').click();
   await page.getByTestId('turn-status').filter({ hasText: /Great|Close/ }).waitFor({ timeout: 60_000 });
   expect(true, 'wrong line: trying again with the right words passes');
+  expect((await page.getByTestId('character').getAttribute('data-mood')) === 'happy', 'character: happy when you get it right');
+  await page.getByTestId('char-stage').screenshot({ path: 'R-happy.png' });
   await page.waitForTimeout(1600);
   const atStep = await page.locator('.story-line').count();
   await page.getByTestId('turn-panel').waitFor({ timeout: 30_000 });

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { CharacterStage } from '../characters/Stage';
 import { compare, type TokenResult } from '../../../shared/compare';
 import { pauseFor, playAndWait, playPhrase, type Recording, startRecording, stopPhrase, unlockAudio } from '../lib/audio';
 import type { Lang } from '../lib/content';
@@ -108,6 +109,7 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
   const recording = useRef<Recording | null>(null);
   const alive = useRef(true);
   const graded = isModelReady();
+  const { characters } = useProgress();
 
   useEffect(() => {
     alive.current = true;
@@ -239,6 +241,7 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
   const shown = started ? lines.slice(0, Math.min(step + 1, lines.length)) : [];
   const turn = line?.who === 'you' ? turns[step] : undefined;
   const mode = promptMode(scenario.level);
+  const themClips = lines.filter((l) => l.who === 'them').map((l) => l.audio);
 
   return (
     <Screen title="Role-play" back={`/${lang}/roleplay`}>
@@ -275,6 +278,16 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
           </p>
         )}
       </div>
+
+      {characters && (
+        <CharacterStage
+          them={scenario.them}
+          topic={scenario.topic}
+          clips={themClips}
+          speaking={started && line?.who === 'them' ? line.audio : null}
+          mood={turn?.score != null && phase === 'graded' ? (turn.score >= PASS ? 'happy' : 'confused') : finished && result != null && result >= PASS ? 'happy' : 'idle'}
+        />
+      )}
 
       <div className="story-lines dialogue" aria-live="polite">
         {shown.map((l, i) => {

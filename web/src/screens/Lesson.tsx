@@ -3,11 +3,11 @@ import { Sticker, UnitArt } from '../art';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { compare } from '../../../shared/compare';
 import { playClip, playClipAfterPhrase, playPhrase, type Recording, startRecording, unlockAudio } from '../lib/audio';
-import { type Lang, shuffle } from '../lib/content';
+import { type Lang, LANGS, shuffle } from '../lib/content';
 import { allItems, DAILY_MAX, dueItems, dueTomorrow, getLesson, getLessons, type Item, MISTAKES_MAX, mistakeItems, weakItems } from '../lib/course';
 import { allClips, Coach, type Line, type Reaction } from '../lib/feedback';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
-import { checkTiles, checkTyped, type Exercise, itemsOf, lessonExercises, mistakeExercises, reviewExercises } from '../lib/exercises';
+import { checkTiles, checkTyped, type Exercise, itemsOf, lessonExercises, mistakeExercises, reviewExercises, speakingFirst } from '../lib/exercises';
 import { getTip } from '../lib/grammar';
 import {
   completeLesson,
@@ -17,6 +17,7 @@ import {
   markTipSeen,
   MISTAKE_RIGHTS,
   recordAnswer,
+  setPref,
   streak,
   todayXp,
   useProgress,
@@ -67,8 +68,14 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   const back = daily || drill ? '/practice' : `/${lang}`;
   const drilled = useRef(drill ? mistakeItems(progress, lang).slice(0, MISTAKES_MAX) : []); // this session's words
 
-  const [queue, setQueue] = useState<Exercise[]>(() => {
+  // Speaking-first (Settings, or the switch on the start card) turns tapping into speaking.
+  const speakFirst = !!progress.speakFirst?.[lang];
+  const build = (voiceOnly: boolean): Exercise[] => {
     const speaking = progress.speaking && isModelReady();
+    const list = buildExercises(speaking);
+    return speaking && voiceOnly ? speakingFirst(list, lang) : list;
+  };
+  function buildExercises(speaking: boolean): Exercise[] {
     const all = getLessons(lang).flatMap((l) => l.items);
     if (daily) return reviewExercises(shuffle(dueItems(progress, lang).slice(0, DAILY_MAX)), allItems(lang), lang, speaking);
     if (drill) return mistakeExercises(drilled.current, allItems(lang), lang, speaking);
@@ -79,7 +86,8 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
       .slice(0, index)
       .flatMap((l) => l.items);
     return lessonExercises(lesson.items, earlier, lang, speaking);
-  });
+  }
+  const [queue, setQueue] = useState<Exercise[]>(() => build(speakFirst));
   const total = useRef(queue.length); // exercises in the lesson, not counting repeats
   const [phase, setPhase] = useState<'start' | 'play' | 'done' | 'no-hearts'>('start');
   const [index, setIndex] = useState(0);
@@ -180,6 +188,26 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
             {total.current} exercises · about {Math.max(2, Math.round(total.current / 4))} minutes · turn your sound on
           </p>
           {review && <p className="muted">Mistakes here don't cost hearts, and finishing earns one back.</p>}
+          {progress.speaking && (
+            <label className="chip-toggle speak-first" data-testid="speak-first">
+              <input
+                type="checkbox"
+                checked={speakFirst}
+                onChange={(e) => {
+                  setPref('speakFirst', { ...progress.speakFirst, [lang]: e.target.checked });
+                  const next = build(e.target.checked);
+                  setQueue(next);
+                  total.current = next.length;
+                }}
+              />{' '}
+              Speaking-first: answer everything out loud
+            </label>
+          )}
+          {speakFirst && progress.speaking && !isModelReady() && (
+            <p className="muted small" data-testid="speak-first-needs-model">
+              Speaking-first needs the free speech model. Download it in Settings › Speech checking; until then you tap your answers.
+            </p>
+          )}
           {tip && (
             <button className="btn secondary tip-open" onClick={() => setShowTip(true)}>
               <Icon name="book" size={20} /> <span className="grow">Grammar tip: {tip.title}</span>
@@ -718,6 +746,7 @@ function SpeakExercise({ ex, lang, answered, onSubmit }: ViewProps) {
   const [error, setError] = useState<string | null>(null);
   const recording = useRef<Recording | null>(null);
   const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
+  const [shown, setShown] = useState(false);
   useEffect(() => () => recording.current?.stop(), []);
   if (ex.type !== 'speak') return null;
 
@@ -751,16 +780,27 @@ function SpeakExercise({ ex, lang, answered, onSubmit }: ViewProps) {
   };
 
   const busy = state !== 'idle';
+  // Recall (speaking-first): say it from the English; the words and the audio are a tap away.
+  const hidden = ex.recall && !shown && !answered;
   return (
     <>
-      <p className="prompt">Say it out loud</p>
-      <div className="row">
-        <div className="grow">
-          <Target item={ex.item} size={34} />
-          <p className="english">{ex.item.en}</p>
+      <p className="prompt">{ex.recall ? 'Say it in ' + LANGS.find((l) => l.id === lang)!.name : 'Say it out loud'}</p>
+      {hidden ? (
+        <div className="recall">
+          <div className="recall-en">“{ex.item.en}”</div>
+          <button className="link-btn" onClick={() => setShown(true)} data-testid="recall-show">
+            Show the words
+          </button>
         </div>
-        <SoundButtons item={ex.item} />
-      </div>
+      ) : (
+        <div className="row">
+          <div className="grow">
+            <Target item={ex.item} size={34} />
+            <p className="english">{ex.item.en}</p>
+          </div>
+          <SoundButtons item={ex.item} />
+        </div>
+      )}
       <button
         className={state === 'checking' ? 'mic checking' : busy ? 'mic on' : 'mic'}
         onClick={onMic}
