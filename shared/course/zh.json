@@ -398,6 +398,90 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u10",
+      "title": "Telling stories",
+      "lessons": [
+        {
+          "id": "zh-10-1",
+          "title": "Once upon a time",
+          "items": [
+            { "id": "congqian-you-yige-xiao-nuhai", "text": "从前有一个小女孩", "pinyin": "cóngqián yǒu yí ge xiǎo nǚhái", "en": "Once upon a time there was a little girl.", "tiles": ["从前", "有", "一个", "小", "女孩"] },
+            { "id": "ta-zhu-zai-yige-xiao-cunzi-li", "text": "她住在一个小村子里", "pinyin": "tā zhù zài yí ge xiǎo cūnzi li", "en": "She lived in a small village.", "tiles": ["她", "住", "在", "一个", "小", "村子", "里"] },
+            { "id": "ta-meitian-dou-qu-hebian", "text": "她每天都去河边", "pinyin": "tā měitiān dōu qù hé biān", "en": "Every day she went to the river.", "tiles": ["她", "每天", "都", "去", "河边"] },
+            { "id": "you-yitian-ta-zhaodao-le", "text": "有一天，她找到了一个盒子", "pinyin": "yǒu yì tiān, tā zhǎodào le yí ge hézi", "en": "One day she found a box.", "tiles": ["有一天", "她", "找到", "了", "一个", "盒子"] },
+            { "id": "turan", "text": "突然", "pinyin": "tūrán", "en": "suddenly" },
+            { "id": "cong-ci-guo-shang-le", "text": "从此过上了幸福的生活", "pinyin": "cóngcǐ guò shàng le xìngfú de shēnghuó", "en": "And from then on they lived happily ever after.", "tiles": ["从此", "过上", "了", "幸福", "的", "生活"] }
+          ]
+        },
+        {
+          "id": "zh-10-2",
+          "title": "Describing people",
+          "items": [
+            { "id": "ta-you-gao-you-shou", "text": "他又高又瘦", "pinyin": "tā yòu gāo yòu shòu", "en": "He's tall and thin.", "tiles": ["他", "又", "高", "又", "瘦"] },
+            { "id": "ta-de-toufa-hen-chang", "text": "她的头发很长", "pinyin": "tā de tóufa hěn cháng", "en": "Her hair is long.", "tiles": ["她的", "头发", "很", "长"] },
+            { "id": "ta-dai-yanjing", "text": "他戴眼镜", "pinyin": "tā dài yǎnjìng", "en": "He wears glasses.", "tiles": ["他", "戴", "眼镜"] },
+            { "id": "ta-ren-hen-hao", "text": "她人很好", "pinyin": "tā rén hěn hǎo", "en": "She's a really nice person.", "tiles": ["她", "人", "很", "好"] },
+            { "id": "ta-you-dianr-haixiu", "text": "他有点儿害羞", "pinyin": "tā yǒudiǎnr hàixiū", "en": "He's a bit shy.", "tiles": ["他", "有点儿", "害羞"] },
+            { "id": "ta-zhang-de-xiang-ta-mama", "text": "她长得像她妈妈", "pinyin": "tā zhǎng de xiàng tā māma", "en": "She looks like her mother.", "tiles": ["她", "长", "得", "像", "她", "妈妈"] }
+          ]
+        },
+        {
+          "id": "zh-10-3",
+          "title": "First, then, finally",
+          "items": [
+            { "id": "shouxian", "text": "首先", "pinyin": "shǒuxiān", "en": "first" },
+            { "id": "ranhou", "text": "然后", "pinyin": "ránhòu", "en": "then" },
+            { "id": "zuihou", "text": "最后", "pinyin": "zuìhòu", "en": "in the end" },
+            { "id": "wo-zuofan-de-shihou", "text": "我做饭的时候，电话响了", "pinyin": "wǒ zuòfàn de shíhou, diànhuà xiǎng le", "en": "While I was cooking, the phone rang.", "tiles": ["我", "做饭", "的", "时候", "电话", "响", "了"] },
+            { "id": "wo-dao-de-shihou-ta-yijing-zou-le", "text": "我到的时候，他已经走了", "pinyin": "wǒ dào de shíhou, tā yǐjīng zǒu le", "en": "When I arrived, he had already left.", "tiles": ["我", "到", "的", "时候", "他", "已经", "走", "了"] },
+            { "id": "suoyi-wo-chidao-le", "text": "所以我迟到了", "pinyin": "suǒyǐ wǒ chídào le", "en": "That's why I was late.", "tiles": ["所以", "我", "迟到", "了"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u11",
+      "title": "Messages and plans",
+      "lessons": [
+        {
+          "id": "zh-11-1",
+          "title": "Text messages",
+          "items": [
+            { "id": "huitou-jian", "text": "回头见", "pinyin": "huítóu jiàn", "en": "See you later.", "tiles": ["回头", "见"] },
+            { "id": "wo-yao-chidao-yihuir", "text": "我要晚到一会儿", "pinyin": "wǒ yào wǎn dào yíhuìr", "en": "I'm going to be a little late.", "tiles": ["我", "要", "晚", "到", "一会儿"] },
+            { "id": "wo-dao-le", "text": "我到了", "pinyin": "wǒ dào le", "en": "I'm here. / I've arrived.", "tiles": ["我", "到", "了"] },
+            { "id": "ni-neng-gei-wo-da-dianhua-ma", "text": "你能给我打电话吗？", "pinyin": "nǐ néng gěi wǒ dǎ diànhuà ma?", "en": "Can you call me?", "tiles": ["你", "能", "给", "我", "打", "电话", "吗"] },
+            { "id": "wo-wan-dianr-gei-ni-fa-xiaoxi", "text": "我晚点儿给你发消息", "pinyin": "wǒ wǎn diǎnr gěi nǐ fā xiāoxi", "en": "I'll text you later.", "tiles": ["我", "晚点儿", "给", "你", "发", "消息"] },
+            { "id": "dao-le-gaosu-wo", "text": "到了告诉我", "pinyin": "dào le gàosu wǒ", "en": "Let me know when you get there.", "tiles": ["到", "了", "告诉", "我"] }
+          ]
+        },
+        {
+          "id": "zh-11-2",
+          "title": "Invitations",
+          "items": [
+            { "id": "ni-xiang-lai-wo-de-paidui-ma", "text": "你想来我的派对吗？", "pinyin": "nǐ xiǎng lái wǒ de pàiduì ma?", "en": "Do you want to come to my party?", "tiles": ["你", "想", "来", "我的", "派对", "吗"] },
+            { "id": "dangran", "text": "当然！", "pinyin": "dāngrán!", "en": "Of course!" },
+            { "id": "xiexie-ni-de-yaoqing", "text": "谢谢你的邀请", "pinyin": "xièxie nǐ de yāoqǐng", "en": "Thanks for the invitation.", "tiles": ["谢谢", "你的", "邀请"] },
+            { "id": "buhaoyisi-wo-qu-buliao", "text": "不好意思，我去不了", "pinyin": "bù hǎoyìsi, wǒ qù bu liǎo", "en": "Sorry, I can't make it.", "tiles": ["不好意思", "我", "去", "不了"] },
+            { "id": "wo-yijing-you-anpai-le", "text": "我已经有安排了", "pinyin": "wǒ yǐjīng yǒu ānpái le", "en": "I already have plans.", "tiles": ["我", "已经", "有", "安排", "了"] },
+            { "id": "xia-ci-ba", "text": "下次吧！", "pinyin": "xià cì ba!", "en": "Next time!", "tiles": ["下次", "吧"] }
+          ]
+        },
+        {
+          "id": "zh-11-3",
+          "title": "Making plans",
+          "items": [
+            { "id": "ni-zhouliu-you-kong-ma", "text": "你周六有空吗？", "pinyin": "nǐ zhōuliù yǒu kòng ma?", "en": "Are you free on Saturday?", "tiles": ["你", "周六", "有空", "吗"] },
+            { "id": "women-qu-kan-dianying-zenmeyang", "text": "我们去看电影怎么样？", "pinyin": "wǒmen qù kàn diànyǐng zěnmeyàng?", "en": "How about going to see a movie?", "tiles": ["我们", "去", "看", "电影", "怎么样"] },
+            { "id": "ba-dian-zai-guangchang-jian", "text": "八点在广场见", "pinyin": "bā diǎn zài guǎngchǎng jiàn", "en": "Let's meet at eight in the square.", "tiles": ["八点", "在", "广场", "见"] },
+            { "id": "wo-lai-ding-weizi", "text": "我来订位子", "pinyin": "wǒ lái dìng wèizi", "en": "I'll book a table.", "tiles": ["我", "来", "订", "位子"] },
+            { "id": "ruguo-xiayu-women-jiu-zai-jia", "text": "如果下雨，我们就待在家里", "pinyin": "rúguǒ xià yǔ, wǒmen jiù dāi zài jiā li", "en": "If it rains, we'll stay home.", "tiles": ["如果", "下雨", "我们", "就", "待", "在", "家里"] },
+            { "id": "yiyan-weiding", "text": "一言为定", "pinyin": "yì yán wéi dìng", "en": "It's a deal.", "tiles": ["一言为定"] }
+          ]
+        }
+      ]
     }
   ]
 }

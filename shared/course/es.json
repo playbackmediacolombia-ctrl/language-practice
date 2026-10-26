@@ -399,6 +399,90 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u10",
+      "title": "Telling stories",
+      "lessons": [
+        {
+          "id": "es-10-1",
+          "title": "Once upon a time",
+          "items": [
+            { "id": "habia-una-vez", "text": "Había una vez una niña.", "en": "Once upon a time there was a girl." },
+            { "id": "vivia-en-un-pueblo", "text": "Vivía en un pueblo pequeño.", "en": "She lived in a small town." },
+            { "id": "todos-los-dias-caminaba", "text": "Todos los días caminaba al río.", "en": "Every day she walked to the river." },
+            { "id": "un-dia-encontro", "text": "Un día encontró una caja.", "en": "One day she found a box." },
+            { "id": "de-repente", "text": "de repente", "en": "suddenly" },
+            { "id": "y-colorin-colorado", "text": "Y colorín colorado, este cuento se ha acabado.", "en": "And that's the end of the story." }
+          ]
+        },
+        {
+          "id": "es-10-2",
+          "title": "Describing people",
+          "items": [
+            { "id": "es-alto-y-delgado", "text": "Es alto y delgado.", "en": "He's tall and thin." },
+            { "id": "tiene-el-pelo-largo", "text": "Tiene el pelo largo.", "en": "She has long hair." },
+            { "id": "lleva-gafas", "text": "Lleva gafas.", "en": "He wears glasses." },
+            { "id": "es-muy-simpatica", "text": "Es muy simpática.", "en": "She's very nice." },
+            { "id": "es-un-poco-timido", "text": "Es un poco tímido.", "en": "He's a bit shy." },
+            { "id": "se-parece-a-su-madre", "text": "Se parece a su madre.", "en": "She looks like her mother." }
+          ]
+        },
+        {
+          "id": "es-10-3",
+          "title": "First, then, finally",
+          "items": [
+            { "id": "primero", "text": "primero", "en": "first" },
+            { "id": "despues", "text": "después", "en": "afterwards" },
+            { "id": "al-final", "text": "al final", "en": "in the end" },
+            { "id": "mientras-cocinaba", "text": "Mientras cocinaba, sonó el teléfono.", "en": "While I was cooking, the phone rang." },
+            { "id": "cuando-llegue-ya-se-habia-ido", "text": "Cuando llegué, ya se había ido.", "en": "When I arrived, he had already left." },
+            { "id": "por-eso-llegue-tarde", "text": "Por eso llegué tarde.", "en": "That's why I was late." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u11",
+      "title": "Messages and plans",
+      "lessons": [
+        {
+          "id": "es-11-1",
+          "title": "Text messages",
+          "items": [
+            { "id": "nos-vemos-luego", "text": "Nos vemos luego.", "en": "See you later." },
+            { "id": "voy-tarde", "text": "Voy un poco tarde.", "en": "I'm running a bit late." },
+            { "id": "ya-llegue", "text": "Ya llegué.", "en": "I'm here. / I've arrived." },
+            { "id": "me-puedes-llamar", "text": "¿Me puedes llamar?", "en": "Can you call me?" },
+            { "id": "te-escribo-mas-tarde", "text": "Te escribo más tarde.", "en": "I'll text you later." },
+            { "id": "avisame-cuando-llegues", "text": "Avísame cuando llegues.", "en": "Let me know when you get there." }
+          ]
+        },
+        {
+          "id": "es-11-2",
+          "title": "Invitations",
+          "items": [
+            { "id": "quieres-venir-a-mi-fiesta", "text": "¿Quieres venir a mi fiesta?", "en": "Do you want to come to my party?" },
+            { "id": "claro-que-si", "text": "¡Claro que sí!", "en": "Of course!" },
+            { "id": "gracias-por-la-invitacion", "text": "Gracias por la invitación.", "en": "Thanks for the invitation." },
+            { "id": "lo-siento-no-puedo", "text": "Lo siento, no puedo.", "en": "Sorry, I can't." },
+            { "id": "tengo-otro-compromiso", "text": "Tengo otro compromiso.", "en": "I have another commitment." },
+            { "id": "la-proxima-vez", "text": "¡La próxima vez será!", "en": "Next time, for sure!" }
+          ]
+        },
+        {
+          "id": "es-11-3",
+          "title": "Making plans",
+          "items": [
+            { "id": "estas-libre-el-sabado", "text": "¿Estás libre el sábado?", "en": "Are you free on Saturday?" },
+            { "id": "que-tal-si-vamos-al-cine", "text": "¿Qué tal si vamos al cine?", "en": "How about going to the movies?" },
+            { "id": "nos-vemos-a-las-ocho", "text": "Nos vemos a las ocho en la plaza.", "en": "Let's meet at eight in the square." },
+            { "id": "voy-a-reservar", "text": "Voy a reservar una mesa.", "en": "I'm going to book a table." },
+            { "id": "si-llueve-nos-quedamos", "text": "Si llueve, nos quedamos en casa.", "en": "If it rains, we'll stay home." },
+            { "id": "me-parece-perfecto", "text": "Me parece perfecto.", "en": "Sounds perfect to me." }
+          ]
+        }
+      ]
     }
   ]
 }

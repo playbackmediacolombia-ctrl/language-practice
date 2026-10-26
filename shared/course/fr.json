@@ -401,6 +401,90 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u10",
+      "title": "Telling stories",
+      "lessons": [
+        {
+          "id": "fr-10-1",
+          "title": "Once upon a time",
+          "items": [
+            { "id": "il-etait-une-fois", "text": "Il était une fois une petite fille.", "en": "Once upon a time there was a little girl." },
+            { "id": "elle-habitait-un-village", "text": "Elle habitait dans un petit village.", "en": "She lived in a small village." },
+            { "id": "chaque-jour-elle-allait", "text": "Chaque jour, elle allait à la rivière.", "en": "Every day she went to the river." },
+            { "id": "un-jour-elle-a-trouve", "text": "Un jour, elle a trouvé une boîte.", "en": "One day she found a box." },
+            { "id": "tout-a-coup", "text": "tout à coup", "en": "suddenly" },
+            { "id": "ils-vecurent-heureux", "text": "Ils vécurent heureux pour toujours.", "en": "They lived happily ever after." }
+          ]
+        },
+        {
+          "id": "fr-10-2",
+          "title": "Describing people",
+          "items": [
+            { "id": "il-est-grand-et-mince", "text": "Il est grand et mince.", "en": "He's tall and thin." },
+            { "id": "elle-a-les-cheveux-longs", "text": "Elle a les cheveux longs.", "en": "She has long hair." },
+            { "id": "il-porte-des-lunettes", "text": "Il porte des lunettes.", "en": "He wears glasses." },
+            { "id": "elle-est-tres-sympa", "text": "Elle est très sympa.", "en": "She's very nice." },
+            { "id": "il-est-un-peu-timide", "text": "Il est un peu timide.", "en": "He's a bit shy." },
+            { "id": "elle-ressemble-a-sa-mere", "text": "Elle ressemble à sa mère.", "en": "She looks like her mother." }
+          ]
+        },
+        {
+          "id": "fr-10-3",
+          "title": "First, then, finally",
+          "items": [
+            { "id": "dabord", "text": "d'abord", "en": "first" },
+            { "id": "ensuite", "text": "ensuite", "en": "then" },
+            { "id": "finalement", "text": "finalement", "en": "in the end" },
+            { "id": "pendant-que-je-cuisinais", "text": "Pendant que je cuisinais, le téléphone a sonné.", "en": "While I was cooking, the phone rang." },
+            { "id": "quand-je-suis-arrive", "text": "Quand je suis arrivé, il était déjà parti.", "en": "When I arrived, he had already left." },
+            { "id": "cest-pour-ca-que", "text": "C'est pour ça que je suis en retard.", "en": "That's why I'm late." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u11",
+      "title": "Messages and plans",
+      "lessons": [
+        {
+          "id": "fr-11-1",
+          "title": "Text messages",
+          "items": [
+            { "id": "a-plus-tard", "text": "À plus tard !", "en": "See you later!" },
+            { "id": "jai-un-peu-de-retard", "text": "J'ai un peu de retard.", "en": "I'm running a bit late." },
+            { "id": "je-suis-arrive", "text": "Je suis arrivé.", "en": "I'm here. / I've arrived." },
+            { "id": "tu-peux-mappeler", "text": "Tu peux m'appeler ?", "en": "Can you call me?" },
+            { "id": "je-tecris-plus-tard", "text": "Je t'écris plus tard.", "en": "I'll text you later." },
+            { "id": "previens-moi-quand-tu-arrives", "text": "Préviens-moi quand tu arrives.", "en": "Let me know when you get there." }
+          ]
+        },
+        {
+          "id": "fr-11-2",
+          "title": "Invitations",
+          "items": [
+            { "id": "tu-veux-venir-a-ma-fete", "text": "Tu veux venir à ma fête ?", "en": "Do you want to come to my party?" },
+            { "id": "avec-plaisir", "text": "Avec plaisir !", "en": "With pleasure!" },
+            { "id": "merci-pour-linvitation", "text": "Merci pour l'invitation.", "en": "Thanks for the invitation." },
+            { "id": "desole-je-ne-peux-pas", "text": "Désolé, je ne peux pas.", "en": "Sorry, I can't." },
+            { "id": "jai-deja-quelque-chose", "text": "J'ai déjà quelque chose de prévu.", "en": "I already have plans." },
+            { "id": "une-autre-fois", "text": "Une autre fois, avec plaisir !", "en": "Another time, gladly!" }
+          ]
+        },
+        {
+          "id": "fr-11-3",
+          "title": "Making plans",
+          "items": [
+            { "id": "tu-es-libre-samedi", "text": "Tu es libre samedi ?", "en": "Are you free on Saturday?" },
+            { "id": "ca-te-dit-daller-au-cine", "text": "Ça te dit d'aller au ciné ?", "en": "Do you feel like going to the movies?" },
+            { "id": "on-se-retrouve-a-huit-heures", "text": "On se retrouve à huit heures sur la place.", "en": "Let's meet at eight in the square." },
+            { "id": "je-vais-reserver", "text": "Je vais réserver une table.", "en": "I'm going to book a table." },
+            { "id": "sil-pleut-on-reste", "text": "S'il pleut, on reste à la maison.", "en": "If it rains, we'll stay home." },
+            { "id": "ca-marche", "text": "Ça marche !", "en": "Sounds good!" }
+          ]
+        }
+      ]
     }
   ]
 }
