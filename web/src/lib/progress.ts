@@ -10,6 +10,8 @@ export const MAX_BOX = 4;
 type CardProgress = { box: number; reviews: number };
 /** How well a course word is known: strength 0..5, last practiced (ms), times wrong. */
 type ItemProgress = { s: number; t: number; w: number };
+/** Times traced, and the fewest mistakes writing it from memory (null: not yet). */
+export type WritingProgress = { traced: number; memory: number | null };
 export type Progress = {
   cards: Record<string, CardProgress>; // key: `${lang}:${phraseId}`
   speech: Record<string, number>; // best pronunciation score 0..1
@@ -21,6 +23,8 @@ export type Progress = {
   items: Record<string, ItemProgress>; // key: `${lang}:${itemId}`
   /** Spaced repetition: when each word comes back. Key: `${lang}:${itemId}` for course words, `${lang}:pb:${phraseId}` for the phrasebook. */
   srs: Record<string, Card>;
+  /** Chinese characters written, by character. */
+  writing: Record<string, WritingProgress>;
   hearts: number;
   heartsAt: number; // when `hearts` was last counted; refills are worked out from here
   goal: number; // daily XP goal
@@ -48,6 +52,7 @@ const EMPTY: Progress = {
   lessons: {},
   items: {},
   srs: {},
+  writing: {},
   hearts: MAX_HEARTS,
   heartsAt: 0,
   goal: 20,
@@ -215,6 +220,16 @@ export function weakness(p: Progress, lang: Lang, itemId: string, now = Date.now
   const it = p.items[`${lang}:${itemId}`];
   if (!it) return 0;
   return it.s - (now - it.t) / (2 * 24 * 3600 * 1000);
+}
+
+/** A character finished in the writing practice ('trace' over the outline, or from 'memory'). */
+export function recordWriting(char: string, mode: 'trace' | 'memory', mistakes: number) {
+  update((p) => {
+    const cur = p.writing[char] ?? { traced: 0, memory: null };
+    const next =
+      mode === 'trace' ? { ...cur, traced: cur.traced + 1 } : { ...cur, memory: cur.memory === null ? mistakes : Math.min(cur.memory, mistakes) };
+    return { ...p, writing: { ...p.writing, [char]: next } };
+  });
 }
 
 export const setGoal = (goal: number) => update((p) => ({ ...p, goal }));

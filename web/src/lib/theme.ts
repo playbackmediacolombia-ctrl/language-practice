@@ -1,3 +1,4 @@
+import { useSyncExternalStore } from 'react';
 import { getProgress, subscribe, type Theme } from './progress';
 
 // Light, dark, or follow the phone. The stylesheet does the work; this sets
@@ -12,6 +13,23 @@ function apply(theme: Theme) {
   else root.dataset.theme = theme;
   const isDark = theme === 'dark' || (theme === 'auto' && dark.matches);
   document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.setAttribute('content', isDark ? BG.dark : BG.light));
+}
+
+const isDark = () => {
+  const theme = getProgress().theme;
+  return theme === 'dark' || (theme === 'auto' && dark.matches);
+};
+
+/** True while the app is dark, for things drawn with colors from JavaScript. */
+export function useDarkMode(): boolean {
+  return useSyncExternalStore((l) => {
+    const off = subscribe(l);
+    dark.addEventListener('change', l);
+    return () => {
+      off();
+      dark.removeEventListener('change', l);
+    };
+  }, isDark);
 }
 
 export function initTheme() {

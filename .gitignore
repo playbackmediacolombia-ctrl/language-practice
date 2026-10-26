@@ -3,6 +3,9 @@
 # dependencies
 node_modules/
 
+# Stroke data copied from hanzi-writer-data at build time (npm run hanzi)
+web/public/hanzi/
+
 # Expo
 .expo/
 dist/

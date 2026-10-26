@@ -13,6 +13,9 @@ import { Settings } from './screens/Settings';
 import { TopicScreen } from './screens/TopicScreen';
 import { TabBar, useActiveTab } from './ui';
 
+const Writing = lazy(() => import('./screens/Writing').then((m) => ({ default: m.WritingList })));
+const WritingChar = lazy(() => import('./screens/Writing').then((m) => ({ default: m.WritingScreen })));
+
 // Practice and Lesson pull in the Chinese pinyin dictionary, so they load only when opened.
 const Practice = lazy(() => import('./screens/Practice'));
 const Lesson = lazy(() => import('./screens/Lesson'));
@@ -46,6 +49,8 @@ function Routes() {
   if (first === 'practice') return <PracticeHub lang={saved ?? 'es'} />;
   if (!lang) return saved ? <Path lang={saved} /> : <Home />;
   if (!topic) return <Path lang={lang} />;
+  if (lang === 'zh' && topic === 'write')
+    return <Suspense fallback={null}>{mode ? <WritingChar key={mode} char={mode} /> : <Writing />}</Suspense>;
   if (topic === 'phrasebook') {
     navigate('/practice', { replace: true });
     return null;

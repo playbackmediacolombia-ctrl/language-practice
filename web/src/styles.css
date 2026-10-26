@@ -14,6 +14,7 @@
   --muted: #5b6b86;
   --faint: #9aa7bd;
   --border: #dde6f5;
+  --trace: #d5dff0; /* character outline to trace over */
   --hairline: rgba(10, 26, 58, 0.08);
   --accent: #0b6bf6;
   --accent-fill: #0b6bf6;
@@ -59,6 +60,7 @@
   --muted: #93a3bf;
   --faint: #5d6d8a;
   --border: #22324f;
+  --trace: #34496e;
   --hairline: rgba(255, 255, 255, 0.08);
   --accent: #4d94ff;
   --accent-fill: #0b6bf6;
@@ -96,6 +98,7 @@
     --muted: #93a3bf;
     --faint: #5d6d8a;
     --border: #22324f;
+  --trace: #34496e;
     --hairline: rgba(255, 255, 255, 0.08);
     --accent: #4d94ff;
     --accent-fill: #0b6bf6;
@@ -724,3 +727,25 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .tone-verdict.wrong { color: var(--wrong); font-weight: 650; }
 .banner-chart { background: var(--card); border-radius: 14px; padding: 10px 12px; color: var(--text); }
 .banner-chart .tone-verdict { font-size: 13px; }
+
+/* ---- Character writing ---- */
+.char-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(68px, 1fr)); gap: 8px; }
+.char-tile {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 4px 8px;
+  border-radius: 14px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; font: inherit;
+}
+.char-tile.started { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+.char-tile.mastered { border-color: var(--ok); background: var(--ok-bg); }
+.char-glyph { font-size: 30px; line-height: 1.1; font-weight: 500; }
+.char-pinyin { font-size: 13px; color: var(--muted); }
+.char-badge { position: absolute; top: 5px; right: 5px; color: var(--ok); }
+.write-pinyin { font-size: 26px; font-weight: 700; color: var(--accent); }
+.write-pad {
+  position: relative; width: min(300px, 100%); aspect-ratio: 1; margin: 0 auto; border-radius: 18px;
+  background: var(--card); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden;
+}
+.write-guide { position: absolute; inset: 0; width: 100%; height: 100%; }
+.write-guide path { stroke: var(--hairline); stroke-width: 0.4; stroke-dasharray: 2 2; fill: none; }
+/* Drawing with a finger must not scroll the page. */
+.write-box { position: relative; width: 100%; height: 100%; touch-action: none; -webkit-user-select: none; user-select: none; }
+.write-box svg { display: block; }

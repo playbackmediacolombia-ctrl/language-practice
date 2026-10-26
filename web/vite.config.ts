@@ -29,9 +29,9 @@ export default defineConfig({
         ],
       },
       workbox: {
-        // App shell + all phrase audio work offline. The ONNX runtime and Whisper model are
+        // App shell, all phrase audio and the characters' stroke data work offline. The ONNX runtime and Whisper model are
         // cached separately by transformers.js, so they are left out here.
-        globPatterns: ['**/*.{js,css,html,png,mp3}'],
+        globPatterns: ['**/*.{js,css,html,png,mp3}', 'hanzi/*.json'],
         // Launch screens are only read by iOS when the app is added to the Home Screen.
         globIgnores: ['ort/**', 'splash/**', 'icons/icon-1024.png'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
