@@ -3,7 +3,7 @@ import { glossKey, tokenize } from '../../../shared/tokens';
 import { playPhrase, playSequence } from '../lib/audio';
 import { type Lang, shuffle } from '../lib/content';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
-import { recordStory, useProgress } from '../lib/progress';
+import { recordStory, recordStoryAnswer, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { getStories, getStory, type Gloss, LEVELS, type Line, optionEn, optionText, type Story } from '../lib/stories';
 import { Icon, Screen } from '../ui';
@@ -231,6 +231,7 @@ function Questions({ lang, story }: { lang: Lang; story: Story }) {
     const next = picked.map((p, i) => (i === qi ? oi : p));
     setPicked(next);
     const ok = oi === story.questions[qi].answer;
+    recordStoryAnswer(lang, ok);
     sfx(ok ? 'correct' : 'wrong');
     haptic(ok ? 'success' : 'error');
     if (next.every((p) => p !== null) && !saved) {

@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react';
+import { usePracticeTime } from './lib/activity';
 import { getTopic, isLang } from './lib/content';
 import { setPref, useProgress } from './lib/progress';
 import { navigate, useRoute } from './lib/router';
@@ -36,6 +37,8 @@ function Routes() {
   const [first, topic, mode] = useRoute();
   const { lang: saved } = useProgress();
   const lang = isLang(first) ? first : null;
+  // Anything past a language's path (lessons, reviews, phrasebook, stories, writing) is practice.
+  usePracticeTime(lang && topic ? lang : null);
 
   useEffect(() => {
     // Warm up Whisper from the browser cache so the first check is quicker.

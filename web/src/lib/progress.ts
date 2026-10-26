@@ -27,6 +27,8 @@ export type Progress = {
   writing: Record<string, WritingProgress>;
   /** Stories and dialogues finished: best share of questions right (0..1). Key: `${lang}:${storyId}`. */
   stories: Record<string, number>;
+  /** Per day and language: answers right (r) and given (n), and seconds practiced (s). For the stats. */
+  log: Record<string, Partial<Record<Lang, { r: number; n: number; s: number }>>>;
   hearts: number;
   heartsAt: number; // when `hearts` was last counted; refills are worked out from here
   goal: number; // daily XP goal
@@ -56,6 +58,7 @@ const EMPTY: Progress = {
   srs: {},
   writing: {},
   stories: {},
+  log: {},
   hearts: MAX_HEARTS,
   heartsAt: 0,
   goal: 20,
@@ -95,6 +98,18 @@ function withSrs(p: Progress): Progress {
 
 const phraseKey = (lang: Lang, phraseId: string) => `${lang}:pb:${phraseId}`;
 
+/** Adds to today's log for a language: answers (`right` of `given`) and/or seconds practiced. */
+function logDay(p: Progress, lang: Lang, { right = 0, given = 0, seconds = 0 }): Progress {
+  const day = dateKey();
+  const cur = p.log[day]?.[lang] ?? { r: 0, n: 0, s: 0 };
+  const next = { r: cur.r + right, n: cur.n + given, s: cur.s + seconds };
+  return { ...p, log: { ...p.log, [day]: { ...p.log[day], [lang]: next } } };
+}
+const tally = (p: Progress, lang: Lang, right: boolean) => logDay(p, lang, { right: right ? 1 : 0, given: 1 });
+
+/** Time spent on a practice screen (see usePracticeTime). */
+export const addPracticeTime = (lang: Lang, seconds: number) => update((p) => logDay(p, lang, { seconds }));
+
 function schedule(p: Progress, key: string, right: boolean, soft = false): Progress {
   return { ...p, srs: { ...p.srs, [key]: grade(key, p.srs[key], right, dayNumber(), soft) } };
 }
@@ -129,7 +144,7 @@ export function reviewCard(lang: Lang, id: string, knewIt: boolean) {
     const k = `${lang}:${id}`;
     const cur = p.cards[k] ?? { box: 0, reviews: 0 };
     const box = knewIt ? Math.min(MAX_BOX, cur.box + 1) : 0;
-    return schedule({ ...p, cards: { ...p.cards, [k]: { box, reviews: cur.reviews + 1 } } }, phraseKey(lang, id), knewIt);
+    return tally(schedule({ ...p, cards: { ...p.cards, [k]: { box, reviews: cur.reviews + 1 } } }, phraseKey(lang, id), knewIt), lang, knewIt);
   });
 }
 
@@ -137,13 +152,14 @@ export function recordSpeech(lang: Lang, id: string, score: number) {
   update((p) => {
     const k = `${lang}:${id}`;
     // Whisper mishears sometimes, so a poor score never pushes the phrase back.
-    return schedule({ ...p, speech: { ...p.speech, [k]: Math.max(score, p.speech[k] ?? 0) } }, phraseKey(lang, id), score >= 0.85, true);
+    const out = schedule({ ...p, speech: { ...p.speech, [k]: Math.max(score, p.speech[k] ?? 0) } }, phraseKey(lang, id), score >= 0.85, true);
+    return tally(out, lang, score >= 0.5); // "close" counts as right, as in lessons
   });
 }
 
 /** One quiz question on a phrasebook phrase. */
 export const recordPhraseAnswer = (lang: Lang, phraseId: string, right: boolean) =>
-  update((p) => schedule(p, phraseKey(lang, phraseId), right));
+  update((p) => tally(schedule(p, phraseKey(lang, phraseId), right), lang, right));
 
 export function recordQuiz(lang: Lang, topicId: string, score: number) {
   update((p) => {
@@ -213,7 +229,7 @@ export function recordAnswer(lang: Lang, itemId: string, right: boolean, { soft 
     const k = `${lang}:${itemId}`;
     const cur = p.items[k] ?? { s: 0, t: 0, w: 0 };
     const next = right ? { s: Math.min(5, cur.s + 1), t: Date.now(), w: cur.w } : { s: Math.max(0, cur.s - 2), t: Date.now(), w: cur.w + 1 };
-    const out = { ...p, items: { ...p.items, [k]: next } };
+    const out = tally({ ...p, items: { ...p.items, [k]: next } }, lang, right);
     return track ? schedule(out, k, right, soft) : out;
   });
 }
@@ -224,6 +240,9 @@ export function weakness(p: Progress, lang: Lang, itemId: string, now = Date.now
   if (!it) return 0;
   return it.s - (now - it.t) / (2 * 24 * 3600 * 1000);
 }
+
+/** One comprehension question answered, for the stats. */
+export const recordStoryAnswer = (lang: Lang, right: boolean) => update((p) => tally(p, lang, right));
 
 /** A story's questions answered: keep the best score, and count it like a short lesson (XP, streak). */
 export function recordStory(lang: Lang, storyId: string, score: number, xp: number) {
