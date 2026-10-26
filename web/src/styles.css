@@ -359,6 +359,9 @@ button.card { text-align: left; width: 100%; cursor: pointer; }
 
 .review-card { border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); background: linear-gradient(135deg, var(--accent-bg), var(--card)); }
 .review-card .icon { color: var(--accent); }
+.row-icon.due-count { width: 40px; height: 40px; border-radius: 12px; font-weight: 800; font-size: 17px; font-variant-numeric: tabular-nums; background: var(--accent); color: #fff; }
+.daily-card:disabled .row-icon.due-count { background: var(--ok-bg); }
+.daily-card:disabled .due-count .icon { color: var(--ok); }
 
 .stage { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
 .stage-head { display: flex; gap: 12px; align-items: flex-start; }

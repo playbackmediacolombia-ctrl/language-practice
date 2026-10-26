@@ -8,6 +8,7 @@ A personal app for practicing Spanish, French and Mandarin. It costs $0: there a
 - **Flashcards** (Leitner boxes) and a **quiz**. Progress is saved on the device.
 
 - **Lesson path (web app):** short lessons that unlock one after another, from sounds to first words, then sentences, conversation, reading & writing and adult topics. Each lesson mixes listen-and-pick, word tiles, match the pairs, type what you hear and say it out loud (Whisper). Every answer gets a banner and a chime; a voice cheers now and then (mostly in the language you're learning, louder for streaks and at the end), gently encourages after mistakes, and can be turned off in Settings. Phrases are in `shared/feedback.json`. XP, daily streak, daily goal, hearts (one back every 30 minutes, or by reviewing) and a review of your weakest words. Everything is saved on the phone; no account.
+- **Spaced repetition (web app):** every word and phrase you practice (lessons, flashcards, quiz, listen & repeat) gets a review day, using SM-2, the algorithm behind Anki. Right on its review day, the gap grows (1 day, 3 days, then about ×2.5 each time: ~8, ~20, ~50 days…); missed, it comes back tomorrow and grows more slowly from then on. Practicing a word early doesn't stretch its gap, and Whisper mishearing you never counts as forgetting. **Practice › Daily review** shows how many are due today and runs them as mixed exercises (up to 20 per session, no hearts at stake). The scheduler is `web/src/lib/srs.ts`.
   - Content lives in `shared/course/`: `outline.json` (stages and units for all languages) and one file per language. Add a unit there, run the audio script, push.
 
 There are two front ends that share the lessons, audio and matching code:
@@ -21,7 +22,7 @@ There are two front ends that share the lessons, audio and matching code:
 
 ### Look and feel
 
-- Four tabs: **Learn** (the lesson path), **Practice** (review and the phrasebook), **Progress** (XP, streak, a week chart, a streak calendar) and **Settings**.
+- Four tabs: **Learn** (the lesson path), **Practice** (daily review, weak words and the phrasebook), **Progress** (XP, streak, a week chart, a streak calendar) and **Settings**.
 - Light and dark mode (follows the phone, or pick one in Settings). Colors and spacing are tokens at the top of `web/src/styles.css`.
 - Motion: screen transitions (View Transitions, Safari 18+), press-down buttons, a green flash, bounce and sparkles for right answers, a shake for wrong ones, confetti when a lesson is done. All of it turns off with iPhone **Settings › Accessibility › Motion › Reduce Motion**.
 - Sound effects are synthesized in the browser (no files). Haptics use `navigator.vibrate` where it exists and the iOS 18 `<input switch>` trick on iPhone; both can be turned off in Settings.

@@ -2,8 +2,9 @@ import es from '../../../shared/course/es.json';
 import fr from '../../../shared/course/fr.json';
 import outline from '../../../shared/course/outline.json';
 import zh from '../../../shared/course/zh.json';
-import type { Lang } from './content';
+import { getPhrases, getTopics, type Lang, type Phrase } from './content';
 import { lessonDone, type Progress, weakness } from './progress';
+import { type Card, dayNumber, dueKeys, forecast } from './srs';
 
 // The lesson path. The outline (stages and units, beginner to fluent) is shared by every
 // language; each language file fills in the units that have been written so far.
@@ -115,3 +116,60 @@ export function weakItems(p: Progress, lang: Lang, n = 6): Item[] {
   const now = Date.now();
   return learned.sort((a, b) => weakness(p, lang, a.id, now) - weakness(p, lang, b.id, now)).slice(0, n);
 }
+
+// ---- Spaced repetition ----
+
+/** A phrasebook phrase as an exercise item. Its id starts with "pb:" so it can't clash with course words. */
+function phraseItem(lang: Lang, phrase: Phrase): Item {
+  const tiles = lang === 'zh' ? [phrase.text] : defaultTiles(phrase.text);
+  return {
+    id: `pb:${phrase.id}`,
+    text: phrase.text,
+    pinyin: phrase.pinyin,
+    en: phrase.en,
+    kind: tiles.length > 1 ? 'phrase' : 'word',
+    tiles,
+    alt: phrase.alt,
+    audio: phrase.audio,
+  };
+}
+
+const lookup = new Map<Lang, Map<string, Item>>();
+
+/** Every course word and phrasebook phrase, by item id. */
+function itemsById(lang: Lang): Map<string, Item> {
+  let map = lookup.get(lang);
+  if (!map) {
+    map = new Map(getLessons(lang).flatMap((l) => l.items.map((i) => [i.id, i] as const)));
+    for (const t of getTopics()) for (const ph of getPhrases(lang, t.id)) map.set(`pb:${ph.id}`, phraseItem(lang, ph));
+    lookup.set(lang, map);
+  }
+  return map;
+}
+
+/** Every word and phrase, for distractors. */
+export const allItems = (lang: Lang): Item[] => [...itemsById(lang).values()];
+
+/** Most words in one daily review; the rest stay due for the next one. */
+export const DAILY_MAX = 20;
+
+/** The cards for a language's words and phrases (bare sounds aren't reviewed), keyed `${lang}:${itemId}`. */
+export function trackedCards(p: Progress, lang: Lang): Record<string, Card> {
+  const items = itemsById(lang);
+  const out: Record<string, Card> = {};
+  for (const k in p.srs) {
+    if (!k.startsWith(`${lang}:`)) continue;
+    const item = items.get(k.slice(lang.length + 1));
+    if (item && item.kind !== 'sound') out[k] = p.srs[k];
+  }
+  return out;
+}
+
+/** Words and phrases due for review today, most overdue first. */
+export function dueItems(p: Progress, lang: Lang, today = dayNumber()): Item[] {
+  const items = itemsById(lang);
+  return dueKeys(trackedCards(p, lang), `${lang}:`, today).map((k) => items.get(k.slice(lang.length + 1))!);
+}
+
+/** How many words come due tomorrow. */
+export const dueTomorrow = (p: Progress, lang: Lang, today = dayNumber()) => forecast(trackedCards(p, lang), `${lang}:`, today, 1)[0];

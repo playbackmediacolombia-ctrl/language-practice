@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { playPhrase } from '../lib/audio';
 import { getPhrases, type Lang, type Phrase, shuffle } from '../lib/content';
-import { recordQuiz } from '../lib/progress';
+import { recordPhraseAnswer, recordQuiz } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { PhraseText, Screen } from '../ui';
 
@@ -42,6 +42,7 @@ export function Quiz({ lang, topic }: { lang: Lang; topic: string }) {
     setPicked(option.id);
     const right = option.id === q.phrase.id;
     if (right) setCorrect((c) => c + 1);
+    recordPhraseAnswer(lang, q.phrase.id, right);
     if (q.mode === 'read') playPhrase(q.phrase.audio);
     if (index + 1 === questions.length) recordQuiz(lang, topic, (correct + (right ? 1 : 0)) / questions.length);
   };

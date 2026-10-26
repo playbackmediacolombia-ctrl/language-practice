@@ -1,5 +1,5 @@
 import { getPhrases, getTopics, type Lang } from '../lib/content';
-import { getLessons, weakItems } from '../lib/course';
+import { DAILY_MAX, dueItems, dueTomorrow, getLessons, trackedCards, weakItems } from '../lib/course';
 import { tapFeedback } from '../lib/fx';
 import { cardBox, lessonDone, MAX_BOX, useProgress, weakness } from '../lib/progress';
 import { navigate } from '../lib/router';
@@ -13,6 +13,9 @@ export function PracticeHub({ lang }: { lang: Lang }) {
     .filter((l) => lessonDone(progress, lang, l.id))
     .flatMap((l) => l.items);
   const weak = weakItems(progress, lang, learned.length).filter((i) => weakness(progress, lang, i.id) < 3);
+  const due = dueItems(progress, lang).length;
+  const tracked = Object.keys(trackedCards(progress, lang)).length;
+  const tomorrow = dueTomorrow(progress, lang);
   const open = (path: string) => {
     tapFeedback();
     navigate(path);
@@ -21,6 +24,25 @@ export function PracticeHub({ lang }: { lang: Lang }) {
   return (
     <Screen title="Practice" large>
       <LangSwitcher lang={lang} to={(l) => `/${l}/phrasebook`} />
+
+      <button className="card review-card daily-card" data-testid="daily-review" disabled={due === 0} onClick={() => open(`/${lang}/learn/daily`)}>
+        <div className="row">
+          <span className="row-icon due-count" aria-hidden="true">
+            {due > 0 ? Math.min(due, 99) : <Icon name="check" />}
+          </span>
+          <div className="grow">
+            <div style={{ fontWeight: 700, fontSize: 17 }}>Daily review</div>
+            <p className="muted small">
+              {tracked === 0
+                ? 'Words you learn come back here right before you would forget them.'
+                : due > 0
+                  ? `${due} word${due === 1 ? '' : 's'} due today${due > DAILY_MAX ? ` · ${DAILY_MAX} per session` : ''} · about ${Math.max(1, Math.round(Math.min(due, DAILY_MAX) / 4))} min`
+                  : `All caught up! ${tomorrow ? `${tomorrow} due tomorrow · ` : ''}${tracked} word${tracked === 1 ? '' : 's'} in your memory`}
+            </p>
+          </div>
+          {due > 0 && <Icon name="chevron" style={{ color: 'var(--faint)' }} />}
+        </div>
+      </button>
 
       <button className="card review-card" disabled={learned.length < 4} onClick={() => open(`/${lang}/learn/review`)}>
         <div className="row">

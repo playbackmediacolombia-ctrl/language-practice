@@ -1,5 +1,6 @@
 import { useSyncExternalStore } from 'react';
 import type { Lang } from './content';
+import { type Card, dayNumber, fromOld, grade } from './srs';
 
 const KEY = 'progress-v1';
 
@@ -18,6 +19,8 @@ export type Progress = {
   days: Record<string, number>; // XP earned per local date, `YYYY-MM-DD`
   lessons: Record<string, number>; // times completed, key: `${lang}:${lessonId}`
   items: Record<string, ItemProgress>; // key: `${lang}:${itemId}`
+  /** Spaced repetition: when each word comes back. Key: `${lang}:${itemId}` for course words, `${lang}:pb:${phraseId}` for the phrasebook. */
+  srs: Record<string, Card>;
   hearts: number;
   heartsAt: number; // when `hearts` was last counted; refills are worked out from here
   goal: number; // daily XP goal
@@ -44,6 +47,7 @@ const EMPTY: Progress = {
   days: {},
   lessons: {},
   items: {},
+  srs: {},
   hearts: MAX_HEARTS,
   heartsAt: 0,
   goal: 20,
@@ -58,10 +62,33 @@ const EMPTY: Progress = {
 function load(): Progress {
   try {
     const raw = localStorage.getItem(KEY);
-    return raw ? { ...EMPTY, ...JSON.parse(raw) } : EMPTY;
+    if (!raw) return EMPTY;
+    const saved = JSON.parse(raw);
+    if (saved.srs) return { ...EMPTY, ...saved };
+    const migrated = withSrs({ ...EMPTY, ...saved });
+    localStorage.setItem(KEY, JSON.stringify(migrated)); // so the review days stay put
+    return migrated;
   } catch {
     return EMPTY;
   }
+}
+
+/** Progress from before spaced repetition: give every word practiced so far a review day. */
+function withSrs(p: Progress): Progress {
+  const today = dayNumber();
+  const srs: Record<string, Card> = {};
+  for (const [k, it] of Object.entries(p.items)) srs[k] = fromOld(it.s, dayNumber(new Date(it.t)), today);
+  for (const [k, c] of Object.entries(p.cards)) {
+    const [lang, id] = k.split(':');
+    if (c.reviews > 0) srs[`${lang}:pb:${id}`] = fromOld(c.box, today, today);
+  }
+  return { ...p, srs };
+}
+
+const phraseKey = (lang: Lang, phraseId: string) => `${lang}:pb:${phraseId}`;
+
+function schedule(p: Progress, key: string, right: boolean, soft = false): Progress {
+  return { ...p, srs: { ...p.srs, [key]: grade(key, p.srs[key], right, dayNumber(), soft) } };
 }
 
 let progress = load();
@@ -94,16 +121,21 @@ export function reviewCard(lang: Lang, id: string, knewIt: boolean) {
     const k = `${lang}:${id}`;
     const cur = p.cards[k] ?? { box: 0, reviews: 0 };
     const box = knewIt ? Math.min(MAX_BOX, cur.box + 1) : 0;
-    return { ...p, cards: { ...p.cards, [k]: { box, reviews: cur.reviews + 1 } } };
+    return schedule({ ...p, cards: { ...p.cards, [k]: { box, reviews: cur.reviews + 1 } } }, phraseKey(lang, id), knewIt);
   });
 }
 
 export function recordSpeech(lang: Lang, id: string, score: number) {
   update((p) => {
     const k = `${lang}:${id}`;
-    return { ...p, speech: { ...p.speech, [k]: Math.max(score, p.speech[k] ?? 0) } };
+    // Whisper mishears sometimes, so a poor score never pushes the phrase back.
+    return schedule({ ...p, speech: { ...p.speech, [k]: Math.max(score, p.speech[k] ?? 0) } }, phraseKey(lang, id), score >= 0.85, true);
   });
 }
+
+/** One quiz question on a phrasebook phrase. */
+export const recordPhraseAnswer = (lang: Lang, phraseId: string, right: boolean) =>
+  update((p) => schedule(p, phraseKey(lang, phraseId), right));
 
 export function recordQuiz(lang: Lang, topicId: string, score: number) {
   update((p) => {
@@ -163,13 +195,18 @@ export function completeLesson(lang: Lang, lessonId: string | null, xp: number) 
   });
 }
 
-/** Called for every graded answer, to find weak words for review. */
-export function recordAnswer(lang: Lang, itemId: string, right: boolean) {
+/**
+ * Called for every graded answer, to find weak words and schedule reviews. `soft` misses (a word
+ * seen for the first time, Whisper) don't push the review earlier; `track: false` (bare sounds)
+ * skips spaced repetition.
+ */
+export function recordAnswer(lang: Lang, itemId: string, right: boolean, { soft = false, track = true } = {}) {
   update((p) => {
     const k = `${lang}:${itemId}`;
     const cur = p.items[k] ?? { s: 0, t: 0, w: 0 };
     const next = right ? { s: Math.min(5, cur.s + 1), t: Date.now(), w: cur.w } : { s: Math.max(0, cur.s - 2), t: Date.now(), w: cur.w + 1 };
-    return { ...p, items: { ...p.items, [k]: next } };
+    const out = { ...p, items: { ...p.items, [k]: next } };
+    return track ? schedule(out, k, right, soft) : out;
   });
 }
 
