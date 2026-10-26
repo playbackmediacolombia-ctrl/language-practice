@@ -8,7 +8,8 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: 'autoUpdate',
+      // A new version waits until you're not mid-lesson (see applyUpdateWhenIdle in lib/offline.ts).
+      registerType: 'prompt',
       manifest: {
         id: './',
         name: 'Learnguage',
@@ -29,6 +30,9 @@ export default defineConfig({
         ],
       },
       workbox: {
+        // On first install, take over the open page at once so it works offline straight away.
+        // (Updates still wait for applyUpdateWhenIdle.)
+        clientsClaim: true,
         // App shell, all phrase audio and the characters' stroke data work offline. The ONNX runtime and Whisper model are
         // cached separately by transformers.js, so they are left out here.
         globPatterns: ['**/*.{js,css,html,png,mp3}', 'hanzi/*.json'],

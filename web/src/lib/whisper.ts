@@ -1,4 +1,5 @@
 import type { Lang } from './content';
+import { requestPersistence } from './offline';
 import type { WorkerRequest, WorkerResponse } from './whisper.worker';
 
 // Measured on this app's own phrase recordings (see README): tiny marks too many correct
@@ -119,7 +120,7 @@ export function loadModel(onProgress?: (fraction: number) => void): Promise<void
     w.postMessage({ type: 'load', model: MODELS[key].id, base: document.baseURI } satisfies WorkerRequest);
   });
   // Ask the browser not to clear the cached model when space runs low.
-  navigator.storage?.persist?.().catch(() => {});
+  requestPersistence();
   return loadPromise;
 }
 

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { formatBytes, offlineStatus, type OfflineStatus, useOnline } from '../lib/offline';
 import { GOALS, resetProgress, setGoal, setPref, setSpeaking, setVoice, type Theme, useProgress } from '../lib/progress';
 import { chosenModel, deleteModel, isModelReady, loadModel, type ModelKey, MODELS, setChosenModel } from '../lib/whisper';
 import { Icon, ProgressBar, Screen, Segmented, Toggle } from '../ui';
@@ -10,6 +11,19 @@ export function Settings() {
   const [error, setError] = useState<string | null>(null);
   const info = MODELS[model];
   const prefs = useProgress();
+  const online = useOnline();
+  const [offline, setOffline] = useState<OfflineStatus | null>(null);
+  useEffect(() => {
+    let live = true;
+    const check = () => offlineStatus().then((s) => live && setOffline(s));
+    void check();
+    // The service worker may finish saving the app while this screen is open.
+    navigator.serviceWorker?.addEventListener('controllerchange', check);
+    return () => {
+      live = false;
+      navigator.serviceWorker?.removeEventListener('controllerchange', check);
+    };
+  }, [ready]);
 
   const choose = (key: ModelKey) => {
     if (progress !== null) return;
@@ -130,6 +144,30 @@ export function Settings() {
         </div>
       </div>
 
+      <div className="section-title">Offline</div>
+      <div className="list" data-testid="offline">
+        <div className="list-block">
+          <p className="row" style={{ margin: 0, fontWeight: 650 }}>
+            <span className={online ? 'dot ok' : 'dot off'} aria-hidden="true" />
+            {online ? 'Online' : "You're offline. Everything below still works."}
+          </p>
+          <OfflineRow ok={!!offline?.app} label="App, lessons, stories and all audio" detail={offline?.app ? `Saved on this phone (${offline.files} files)` : offline ? 'Saving… keep the app open while online' : 'Checking…'} />
+          <OfflineRow
+            ok={ready}
+            label={`Speech model (${info.label.toLowerCase()})`}
+            detail={ready ? 'Saved on this phone' : 'Needed to check your speaking offline: download it above'}
+          />
+          {offline?.usage != null && (
+            <p className="muted small" style={{ margin: 0 }}>
+              Using {formatBytes(offline.usage)} on this phone.{' '}
+              {offline.persisted
+                ? 'Protected: Safari won’t clear it to make space.'
+                : 'Open the app from the Home Screen so Safari keeps it; a Safari tab can be cleared after weeks without a visit.'}
+            </p>
+          )}
+        </div>
+      </div>
+
       <button
         className="btn secondary"
         style={{ marginTop: 24, color: 'var(--wrong)' }}
@@ -138,5 +176,19 @@ export function Settings() {
         Reset my progress
       </button>
     </Screen>
+  );
+}
+
+function OfflineRow({ ok, label, detail }: { ok: boolean; label: string; detail: string }) {
+  return (
+    <div className="row offline-row">
+      <span className={ok ? 'offline-icon ok' : 'offline-icon'}>
+        <Icon name={ok ? 'check' : 'download'} size={18} />
+      </span>
+      <span className="grow">
+        <span className="row-title">{label}</span>
+        <span className="row-hint">{detail}</span>
+      </span>
+    </div>
   );
 }

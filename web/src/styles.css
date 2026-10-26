@@ -802,3 +802,12 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .calendar span.head { aspect-ratio: auto; background: none; font-weight: 700; color: var(--muted); }
 .calendar span.future { background: none; outline: 1px dashed var(--border); outline-offset: -1px; }
 .lang-switch.compact .lang-chip { padding: 8px 14px; }
+
+/* ---- Offline status (Settings) ---- */
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.dot.ok { background: var(--ok-bright); }
+.dot.off { background: var(--flame); }
+.offline-row { align-items: flex-start; }
+.offline-row .grow { display: flex; flex-direction: column; gap: 2px; }
+.offline-icon { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; flex: none; background: var(--card-2); color: var(--muted); }
+.offline-icon.ok { background: var(--ok-bg); color: var(--ok); }

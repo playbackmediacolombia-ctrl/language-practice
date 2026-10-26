@@ -49,6 +49,16 @@ Tiny marks too many correct phrases as wrong, so **base** is the smallest one th
 
 The model downloads once from Hugging Face (free, no login) into Safari's storage. After that, speech checking works offline, and your voice never leaves the phone.
 
+### Offline
+
+Everything works with no signal once the app has been opened online once:
+
+- The service worker stores the app, every lesson, story and phrase recording, the feedback voices and the characters' stroke data (about 770 files) on first launch, so the app opens instantly from the Home Screen in airplane mode.
+- The Whisper model and the ONNX speech engine are stored by transformers.js when you download the model (Settings › Speech checking).
+- The app asks Safari to keep its storage (`navigator.storage.persist()`), so it isn't cleared when space runs low.
+- **Settings › Offline** shows whether the app and the speech model are saved and how much space they use.
+- A new version you push is downloaded in the background and applied the next time you're on a tab screen (not in the middle of a lesson or story), with a quick reload.
+
 ### Run it on your Mac
 
 ```bash
