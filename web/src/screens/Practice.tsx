@@ -6,6 +6,8 @@ import { recordSpeech, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { chosenModel, isModelReady, loadModel, MODELS, transcribe } from '../lib/whisper';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
+import { type Contour, pitchTrack, toContour } from '../lib/pitch';
+import { ToneChart } from '../ToneChart';
 import { Icon, PhraseText, ProgressBar, Screen, Waveform } from '../ui';
 
 type State =
@@ -35,6 +37,7 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
   const { voice } = useProgress();
   const recording = useRef<Recording | null>(null);
   const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
+  const [mine, setMine] = useState<Contour | null | undefined>(undefined); // your pitch, Mandarin only
   const phrase = phrases[index];
   const back = `/${lang}/${topic}`;
 
@@ -56,6 +59,7 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
   const go = (delta: number) => {
     setIndex((i) => (i + delta + phrases.length) % phrases.length);
     setState({ kind: 'idle' });
+    setMine(undefined);
   };
 
   const check = async (rec: Recording) => {
@@ -63,6 +67,8 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
     recording.current = null;
     setAnalyser(null);
     if (!audio.length) throw new Error("I didn't hear anything. Check the mic isn't covered, tap the mic and speak a little louder.");
+    // Read the pitch first: transcribe() hands the samples over to the Whisper worker.
+    if (lang === 'zh') setMine(toContour(pitchTrack(audio)));
     setState({ kind: 'checking', download: null });
     const heard = await transcribe(audio, lang, (download) => setState({ kind: 'checking', download }));
     const result = compare(phrase.text, heard, lang, phrase.alt);
@@ -156,6 +162,13 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
         </div>
       )}
       {state.kind === 'error' && <p style={{ color: 'var(--wrong)', textAlign: 'center', margin: 0 }}>{state.message}</p>}
+
+      {lang === 'zh' && (
+        <div className="card">
+          <div style={{ fontWeight: 700 }}>Tones</div>
+          <ToneChart native={phrase.audio} mine={mine} text={phrase.text} pinyin={phrase.pinyin} />
+        </div>
+      )}
 
       <div className="row">
         <button className="btn secondary flex" onClick={() => go(-1)} disabled={busy}>

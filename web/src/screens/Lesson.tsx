@@ -18,7 +18,9 @@ import {
   useProgress,
 } from '../lib/progress';
 import { navigate } from '../lib/router';
+import { type Contour, pitchTrack, toContour } from '../lib/pitch';
 import { isModelReady, transcribe } from '../lib/whisper';
+import { ToneChart } from '../ToneChart';
 import { Burst, Confetti, CountUp, Flame, Icon, ProgressBar, Waveform } from '../ui';
 
 const LESSON_XP = 10;
@@ -36,6 +38,8 @@ type Result = {
   skipped?: boolean;
   /** Spoken answer that was close rather than spot on. */
   close?: boolean;
+  /** Your pitch for a Mandarin "say it" (null if none was found), shown next to the native speaker's. */
+  tones?: Contour | null;
   /** What the coach shows (and maybe says); filled in by the lesson. */
   reaction?: Reaction;
 };
@@ -627,12 +631,14 @@ function SpeakExercise({ ex, lang, answered, onSubmit }: ViewProps) {
       recording.current = null;
       setAnalyser(null);
       if (!audio.length) throw new Error("I didn't hear anything. Tap the mic and speak a little louder.");
+      // Read the pitch first: transcribe() hands the samples over to the Whisper worker.
+      const tones = lang === 'zh' ? toContour(pitchTrack(audio)) : undefined;
       setState('checking');
       const text = await transcribe(audio, lang);
       const score = compare(ex.item.text, text, lang, ex.item.alt).score;
       setHeard(text);
       setState('idle');
-      onSubmit({ right: score >= 0.5, free: true, close: score >= 0.5 && score < 0.85, note: `Whisper heard: “${text || '(nothing)'}” · ${Math.round(score * 100)}%` });
+      onSubmit({ right: score >= 0.5, free: true, close: score >= 0.5 && score < 0.85, note: `Whisper heard: “${text || '(nothing)'}” · ${Math.round(score * 100)}%`, tones });
     } catch (e) {
       recording.current = null;
       setAnalyser(null);
@@ -731,6 +737,11 @@ function ResultBanner({ ex, result, onContinue }: { ex: Exercise; result: Result
         </div>
       )}
       {result.note && <div className="small">{result.note}</div>}
+      {item && result.tones !== undefined && (
+        <div className="banner-chart">
+          <ToneChart native={item.audio} mine={result.tones} text={item.text} pinyin={item.pinyin} />
+        </div>
+      )}
       <button ref={button} className="btn" onClick={onContinue}>
         Continue
       </button>

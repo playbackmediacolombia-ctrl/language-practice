@@ -33,6 +33,7 @@
   --flame: #ff8a00;
   --xp: #ffb100;
   --chart: #0b6bf6;
+  --chart-2: #e07400;
   --seg-active: #ffffff;
   --shadow-sm: 0 1px 2px rgba(10, 26, 58, 0.06), 0 1px 1px rgba(10, 26, 58, 0.04);
   --shadow: 0 1px 2px rgba(10, 26, 58, 0.05), 0 6px 18px rgba(10, 26, 58, 0.08);
@@ -77,6 +78,7 @@
   --heart: #f87171;
   --xp: #ffc61a;
   --chart: #3f8afb;
+  --chart-2: #db7600;
   --seg-active: #22324f;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -113,6 +115,7 @@
     --heart: #f87171;
     --xp: #ffc61a;
     --chart: #3f8afb;
+  --chart-2: #db7600;
     --seg-active: #22324f;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -697,3 +700,27 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .header.large .header-bar { height: 46px; }
 .header.large .header-bar .spacer { display: none; }
 .welcome-logo { display: block; width: min(300px, 78%); height: auto; margin: 4px auto 0; filter: drop-shadow(0 8px 24px rgba(11, 107, 246, 0.18)); }
+
+/* ---- Tone chart: your pitch next to the native speaker's ---- */
+.tone-chart { display: flex; flex-direction: column; gap: 8px; }
+.tone-head { display: flex; align-items: center; gap: 14px; font-size: 14px; color: var(--muted); }
+.tone-head .legend { display: inline-flex; align-items: center; gap: 6px; }
+.tone-head .swatch { width: 16px; height: 3px; border-radius: 2px; background: var(--chart); }
+.tone-head .swatch.mine { background: var(--chart-2); }
+.tone-score { margin-left: auto; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
+.tone-chart .chart svg { touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.tone-chart .grid.faint { stroke-dasharray: 2 4; }
+.tone-line { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.tone-line.native { stroke: var(--chart); }
+.tone-line.mine { stroke: var(--chart-2); filter: drop-shadow(0 0 1.5px var(--card)); }
+.tone-chart text.syllable { fill: var(--text); font-size: 14px; font-weight: 600; }
+.tone-chart text.end-label { fill: var(--muted); font-size: 11px; font-weight: 600; }
+.tone-chart .crosshair { stroke: var(--faint); stroke-width: 1; }
+.tone-chart .chart-tip { white-space: nowrap; }
+.tone-note { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; color: var(--muted); font-size: 14px; }
+.tone-verdict { margin: 0; font-size: 14px; color: var(--muted); }
+.tone-verdict.ok { color: var(--ok); font-weight: 650; }
+.tone-verdict.close { color: var(--close); font-weight: 650; }
+.tone-verdict.wrong { color: var(--wrong); font-weight: 650; }
+.banner-chart { background: var(--card); border-radius: 14px; padding: 10px 12px; color: var(--text); }
+.banner-chart .tone-verdict { font-size: 13px; }
