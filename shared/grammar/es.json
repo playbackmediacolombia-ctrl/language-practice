@@ -1,0 +1,229 @@
+{
+  "tips": [
+    {
+      "lesson": "es-2-4",
+      "title": "El and la: every noun is masculine or feminine",
+      "body": [
+        "Every Spanish noun is either masculine or feminine, and \"the\" changes to match: el for masculine, la for feminine.",
+        "Words ending in -o are usually masculine and words ending in -a usually feminine, but learn each noun with its el or la."
+      ],
+      "table": [["el perro", "the dog"], ["el gato", "the cat"], ["la casa", "the house"], ["la mesa", "the table"]],
+      "examples": ["el-perro", "el-gato", "mi-casa"]
+    },
+    {
+      "lesson": "es-3-1",
+      "title": "No need for \"he\", \"she\" or \"I\"",
+      "body": [
+        "The verb ending already tells you who is doing it, so Spanish usually leaves out the subject.",
+        "Es mi hermano means \"he is my brother\", and tengo means \"I have\". You only add él, ella or yo for emphasis."
+      ],
+      "examples": ["es-mi-hermano", "tengo-una-hermana"]
+    },
+    {
+      "lesson": "es-3-2",
+      "title": "Adjectives go after the noun and match it",
+      "body": [
+        "Describing words usually come after the noun: la casa blanca, \"the white house\".",
+        "They also match the noun: pequeño becomes pequeña for a feminine noun, and both add -s in the plural. Adjectives ending in -e, like grande, stay the same for both."
+      ],
+      "table": [["el cuarto pequeño", "the small bedroom"], ["la casa pequeña", "the small house"], ["las casas pequeñas", "the small houses"]],
+      "examples": ["mi-cuarto-es-grande", "la-casa-es-pequena"]
+    },
+    {
+      "lesson": "es-3-3",
+      "title": "Tengo hambre: Spanish \"has\" hunger",
+      "body": [
+        "Where English says \"I am hungry\", Spanish says \"I have hunger\": tengo hambre. The same goes for being sleepy, thirsty, cold or a certain age.",
+        "So use tener, not ser or estar, for these."
+      ],
+      "table": [["tengo hambre", "I'm hungry"], ["tengo sueño", "I'm sleepy"], ["tengo sed", "I'm thirsty"], ["tengo frío", "I'm cold"]],
+      "examples": ["tengo-hambre", "tengo-sueno"]
+    },
+    {
+      "lesson": "es-4-1",
+      "title": "Quiero + a verb: \"I want to…\"",
+      "body": [
+        "To say you want to do something, put the verb in its dictionary form (ending in -ar, -er or -ir) right after quiero.",
+        "To say no, put no in front of the verb: no quiero."
+      ],
+      "table": [["quiero", "I want"], ["quieres", "you want"], ["quiere", "he / she wants"]],
+      "examples": ["quiero-jugar", "quieres-agua", "no-quiero"]
+    },
+    {
+      "lesson": "es-4-3",
+      "title": "Gustar works backwards",
+      "body": [
+        "Me gusta literally means \"it pleases me\". The thing you like is the subject, so the verb matches it: gusta for one thing, gustan for several.",
+        "Me is \"to me\", te is \"to you\". The thing liked takes el or la, even when English drops \"the\"."
+      ],
+      "table": [["me gusta el chocolate", "I like chocolate"], ["me gustan los perros", "I like dogs"], ["¿te gusta?", "do you like it?"]],
+      "examples": ["me-gusta-el-chocolate", "te-gustan-los-perros", "no-me-gusta-la-leche"]
+    },
+    {
+      "lesson": "es-5-3",
+      "title": "Asking questions",
+      "body": [
+        "Written questions open with an upside-down ¿ and close with ?, so you know from the start that it's a question.",
+        "Question words always carry an accent: qué, quién, dónde, cómo, cuánto, por qué. The answer \"because\" is porque, one word with no accent."
+      ],
+      "examples": ["que-es-esto", "quien-es", "donde-esta-mama"]
+    },
+    {
+      "lesson": "es-6-1",
+      "title": "Estar for where things are",
+      "body": [
+        "Spanish has two verbs for \"to be\". Use estar to say where something is: el libro está en la mesa.",
+        "En covers both \"in\" and \"on\". De + el contracts to del: debajo del sofá."
+      ],
+      "table": [["estoy", "I am"], ["estás", "you are"], ["está", "he / she / it is"]],
+      "examples": ["el-libro-esta-en-la-mesa", "el-gato-esta-debajo-de-la-cama"]
+    },
+    {
+      "lesson": "es-6-3",
+      "title": "Telling someone what to do",
+      "body": [
+        "To give a friendly instruction, use the \"he / she\" form of the present tense: gira (turn), sigue (keep going), mira (look).",
+        "It works for anyone you'd call tú."
+      ],
+      "examples": ["gira-a-la-izquierda", "sigue-derecho"]
+    },
+    {
+      "lesson": "es-7-3",
+      "title": "Ser or estar?",
+      "body": [
+        "Ser is for what someone or something is: job, origin, personality. Estar is for states and location: how you feel, where you are, and married or single.",
+        "Soy profesora (my job), estoy bien (how I am right now), estoy casado (married)."
+      ],
+      "table": [["soy de Bogotá", "I'm from Bogotá (ser)"], ["estoy cansada", "I'm tired (estar)"]],
+      "examples": ["soy-profesora", "como-estas", "estoy-casado"]
+    },
+    {
+      "lesson": "es-8-1",
+      "title": "Usted: the polite \"you\"",
+      "body": [
+        "With shop staff, strangers and older people, use usted. It takes the same verb form as \"he / she\": ¿tiene otra talla? (do you have another size?).",
+        "With friends and family, use tú: ¿tienes?"
+      ],
+      "examples": ["tiene-otra-talla", "cuanto-cuesta"]
+    },
+    {
+      "lesson": "es-8-3",
+      "title": "Quisiera: a softer \"I want\"",
+      "body": [
+        "Quiero is fine with friends, but ordering with quisiera (\"I would like\") sounds more polite.",
+        "Para mí, … (\"for me, …\") is another natural way to order."
+      ],
+      "examples": ["quisiera-un-cafe", "para-mi-el-pollo"]
+    },
+    {
+      "lesson": "es-9-1",
+      "title": "Me levanto: verbs you do to yourself",
+      "body": [
+        "Some verbs take me, te or se because you do them to yourself: levantarse (to get up), ducharse (to shower), vestirse (to get dressed).",
+        "The little word goes before the verb: me levanto, te levantas, se levanta."
+      ],
+      "examples": ["me-levanto-a-las-siete", "me-ducho", "me-visto"]
+    },
+    {
+      "lesson": "es-9-3",
+      "title": "The past: what happened (preterite)",
+      "body": [
+        "For a finished action in the past, use the preterite. Regular -ar verbs end in -é for \"I\" (hablé), and -er / -ir verbs in -í (comí).",
+        "Ir (to go) and ser (to be) share the same past forms: fui means both \"I went\" and \"I was\"."
+      ],
+      "table": [["comí", "I ate"], ["fui", "I went"], ["vi", "I saw"], ["hiciste", "you did"]],
+      "examples": ["fui-al-parque", "comi-con-mi-familia", "que-hiciste-ayer"]
+    },
+    {
+      "lesson": "es-10-1",
+      "title": "Two past tenses: the scene and the event",
+      "body": [
+        "Spanish uses the imperfect to set the scene: what was going on, what used to happen (vivía, caminaba). It uses the preterite for the event that happened (encontró).",
+        "Think of the imperfect as the background and the preterite as the action."
+      ],
+      "examples": ["vivia-en-un-pueblo", "todos-los-dias-caminaba", "un-dia-encontro"]
+    },
+    {
+      "lesson": "es-10-3",
+      "title": "Had done: había + -ado / -ido",
+      "body": [
+        "To say something had already happened before another past event, use había plus the past participle: se había ido (he had left).",
+        "Mientras (while) usually takes the imperfect for the longer action."
+      ],
+      "examples": ["cuando-llegue-ya-se-habia-ido", "mientras-cocinaba"]
+    },
+    {
+      "lesson": "es-11-3",
+      "title": "Plans: voy a + verb, and si + present",
+      "body": [
+        "Voy a + a verb is the everyday future: voy a reservar (I'm going to book).",
+        "With si (if) about a real possibility, use the present on both sides: si llueve, nos quedamos (if it rains, we'll stay)."
+      ],
+      "examples": ["voy-a-reservar", "si-llueve-nos-quedamos"]
+    },
+    {
+      "lesson": "es-13-1",
+      "title": "Me duele: pain works like gustar",
+      "body": [
+        "Me duele means \"it hurts me\": the body part is the subject, with el or la instead of \"my\". For two body parts, use duelen.",
+        "Desde (since) with the present says how long something has been going on: tengo fiebre desde ayer."
+      ],
+      "table": [["me duele la cabeza", "my head hurts"], ["me duelen los pies", "my feet hurt"]],
+      "examples": ["me-duele-la-cabeza", "tengo-fiebre-desde-ayer"]
+    },
+    {
+      "lesson": "es-13-3",
+      "title": "Giving advice: deberías, yo que tú, and the subjunctive",
+      "body": [
+        "Deberías + verb is \"you should\". Yo que tú (\"if I were you\") takes the conditional: iría, diría.",
+        "After phrases like te recomiendo que or es importante que, the next verb goes into the subjunctive, which swaps the vowel of the ending: duermes becomes duermas, tomas becomes tomes."
+      ],
+      "examples": ["deberias-descansar", "yo-que-tu-iria-al-medico", "te-recomiendo-que-duermas-mas"]
+    },
+    {
+      "lesson": "es-14-1",
+      "title": "Fue cancelado: the passive",
+      "body": [
+        "To say what was done to something, use ser + the past participle, which matches the noun: el vuelo fue cancelado, la reunión fue cancelada.",
+        "In conversation, people often use se instead: se canceló el vuelo."
+      ],
+      "examples": ["mi-vuelo-fue-cancelado", "el-vuelo-esta-retrasado"]
+    },
+    {
+      "lesson": "es-15-3",
+      "title": "Creo que… / No creo que…",
+      "body": [
+        "Creo que (I think that) is followed by the normal present: creo que tienes razón.",
+        "But when you doubt or deny it, use the subjunctive: no creo que sea justo (I don't think it's fair)."
+      ],
+      "examples": ["creo-que-tienes-razon", "no-creo-que-sea-justo"]
+    },
+    {
+      "lesson": "es-16-2",
+      "title": "Aunque: \"although\" or \"even if\"",
+      "body": [
+        "Aunque + the normal present states a fact: aunque es difícil (although it is hard).",
+        "Aunque + the subjunctive makes it hypothetical or concedes the point: aunque sea difícil, vale la pena (even if it's hard, it's worth it)."
+      ],
+      "examples": ["aunque-sea-dificil", "por-un-lado", "por-otro-lado"]
+    },
+    {
+      "lesson": "es-17-1",
+      "title": "Tú or usted?",
+      "body": [
+        "Usted is for people you don't know, older people, customers and formal situations. Tú is for friends, family and people your age.",
+        "In Colombia usted is also used warmly between friends and family, so you'll hear it everywhere. When unsure, start with usted and switch if the other person asks: ¿nos podemos tutear?"
+      ],
+      "examples": ["como-esta-usted", "podemos-tutearnos"]
+    },
+    {
+      "lesson": "es-17-2",
+      "title": "Extra-polite requests",
+      "body": [
+        "The conditional (podría, sería, agradecería) softens any request.",
+        "Le agradecería que is followed by the past subjunctive: que me respondiera (that you replied)."
+      ],
+      "examples": ["seria-tan-amable", "le-agradeceria-que", "podria-decirme"]
+    }
+  ]
+}

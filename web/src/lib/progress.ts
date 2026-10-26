@@ -27,6 +27,8 @@ export type Progress = {
   writing: Record<string, WritingProgress>;
   /** Stories and dialogues finished: best share of questions right (0..1). Key: `${lang}:${storyId}`. */
   stories: Record<string, number>;
+  /** Grammar tips already shown (they pop up once), key `${lang}:${lessonId}`, value when. */
+  tips: Record<string, number>;
   /** Placement test result per language: the last stage tested out of (it and every stage before it are unlocked). */
   placement: Partial<Record<Lang, string>>;
   /** Per day and language: answers right (r) and given (n), and seconds practiced (s). For the stats. */
@@ -61,6 +63,7 @@ const EMPTY: Progress = {
   writing: {},
   stories: {},
   placement: {},
+  tips: {},
   log: {},
   hearts: MAX_HEARTS,
   heartsAt: 0,
@@ -253,6 +256,9 @@ export function recordStory(lang: Lang, storyId: string, score: number, xp: numb
   update((p) => ({ ...p, stories: { ...p.stories, [k]: Math.max(score, p.stories[k] ?? 0) } }));
   completeLesson(lang, null, xp);
 }
+
+export const markTipSeen = (lang: Lang, lessonId: string) =>
+  update((p) => (p.tips[`${lang}:${lessonId}`] ? p : { ...p, tips: { ...p.tips, [`${lang}:${lessonId}`]: Date.now() } }));
 
 /** Unlocks a language's path up to and including a stage (see placement.ts, which never moves it back). */
 export const setPlacement = (lang: Lang, stageId: string) => update((p) => ({ ...p, placement: { ...p.placement, [lang]: stageId } }));

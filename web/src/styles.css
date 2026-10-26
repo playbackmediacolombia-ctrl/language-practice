@@ -798,6 +798,36 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .word-sheet-word .pinyin { font-size: 16px; font-weight: 600; }
 .word-sheet-en { color: var(--muted); }
 
+/* ---- Grammar tips ---- */
+.sheet-backdrop {
+  position: fixed; inset: 0; z-index: 40; display: flex; align-items: flex-end; justify-content: center;
+  background: rgba(7, 13, 26, 0.45); animation: fade-in 0.2s ease-out;
+}
+.sheet {
+  width: 100%; max-width: 560px; max-height: 88dvh; overflow-y: auto; overscroll-behavior: contain;
+  display: flex; flex-direction: column; gap: 12px; background: var(--card); border-radius: 24px 24px 0 0; box-shadow: var(--shadow-lg);
+  padding: 20px max(20px, env(safe-area-inset-right)) calc(env(safe-area-inset-bottom) + 18px) max(20px, env(safe-area-inset-left));
+  animation: rise 0.32s var(--spring);
+}
+@keyframes fade-in { from { background: transparent; } } /* only the dimming fades; the sheet rises */
+.tip-kicker { display: flex; align-items: center; gap: 6px; color: var(--accent); font-size: 13px; font-weight: 750; text-transform: uppercase; letter-spacing: 0.06em; }
+.tip-title { margin: 0; font-size: 22px; line-height: 1.25; font-family: var(--font-round); }
+.tip-body { margin: 0; line-height: 1.5; }
+.tip-table { border-collapse: collapse; width: 100%; font-size: 15px; }
+.tip-table td { padding: 8px 10px; border-top: 1px solid var(--border); }
+.tip-table tr:first-child td { border-top: 0; }
+.tip-table td:first-child { font-weight: 700; white-space: nowrap; }
+.tip-table td:last-child { color: var(--muted); }
+.tip-examples { display: flex; flex-direction: column; gap: 8px; }
+.tip-example {
+  display: flex; align-items: flex-start; gap: 10px; text-align: left; width: 100%; padding: 10px 12px; cursor: pointer;
+  border: 1px solid var(--border); border-radius: 14px; background: var(--bg-raised); color: var(--text); font: inherit;
+}
+.tip-example .icon { color: var(--accent); flex: none; margin-top: 2px; }
+.tip-example-text { font-weight: 700; }
+.tip-example-en { display: block; color: var(--muted); font-size: 14px; }
+.tip-open { justify-content: flex-start; gap: 8px; text-align: left; }
+
 /* ---- Stats (Progress tab) ---- */
 .tile-sub { font-size: 12px; color: var(--faint); }
 .chart-title { font-weight: 700; font-size: 15px; }

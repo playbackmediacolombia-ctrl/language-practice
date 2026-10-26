@@ -7,11 +7,13 @@ import { allItems, DAILY_MAX, dueItems, dueTomorrow, getLesson, getLessons, type
 import { allClips, Coach, type Line, type Reaction } from '../lib/feedback';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
 import { checkTiles, checkTyped, type Exercise, itemsOf, lessonExercises, reviewExercises } from '../lib/exercises';
+import { getTip } from '../lib/grammar';
 import {
   completeLesson,
   gainHeart,
   heartsNow,
   loseHeart,
+  markTipSeen,
   recordAnswer,
   streak,
   todayXp,
@@ -20,6 +22,7 @@ import {
 import { navigate } from '../lib/router';
 import { type Contour, pitchTrack, toContour } from '../lib/pitch';
 import { isModelReady, transcribe } from '../lib/whisper';
+import { GrammarSheet } from '../GrammarTip';
 import { ToneChart } from '../ToneChart';
 import { Burst, Confetti, CountUp, Flame, Icon, ProgressBar, Waveform } from '../ui';
 
@@ -79,6 +82,19 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   const [summary, setSummary] = useState<{ xp: number; xpBefore: number; streakUp: boolean; goalReached: boolean; line: Line } | null>(null);
   const coach = useRef(new Coach(lang));
   const started = useRef(Date.now());
+  // A lesson that brings in a new grammar rule shows its tip once, before it starts.
+  const tip = lesson ? getTip(lang, lesson.id) : undefined;
+  const [showTip, setShowTip] = useState(() => !!tip && !progress.tips[`${lang}:${lessonId}`]);
+  const closeTip = () => {
+    markTipSeen(lang, lessonId);
+    setShowTip(false);
+  };
+  const tipSheet = tip && showTip && <GrammarSheet tip={tip} lang={lang} onClose={closeTip} />;
+  const tipButton = tip && (
+    <button className="icon-btn" aria-label="Grammar tip" data-testid="tip-button" onClick={() => setShowTip(true)}>
+      <Icon name="book" size={24} />
+    </button>
+  );
 
   const ex = queue[index];
   if (testHook) (window as { __exercise?: Exercise }).__exercise = ex;
@@ -146,6 +162,11 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
             {total.current} exercises · about {Math.max(2, Math.round(total.current / 4))} minutes · turn your sound on
           </p>
           {review && <p className="muted">Mistakes here don't cost hearts, and finishing earns one back.</p>}
+          {tip && (
+            <button className="btn secondary tip-open" onClick={() => setShowTip(true)}>
+              <Icon name="book" size={20} /> <span className="grow">Grammar tip: {tip.title}</span>
+            </button>
+          )}
           {blocked ? (
             <NoHeartsMessage lang={lang} />
           ) : (
@@ -163,6 +184,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
             </button>
           )}
         </div>
+        {tipSheet}
       </LessonFrame>
     );
   }
@@ -245,10 +267,12 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
       value={index / queue.length}
       hearts={review ? null : hearts}
       feedback={result && !result.skipped ? (result.right ? 'ok' : 'bad') : undefined}
+      action={tipButton}
     >
       {result?.right && !result.skipped && <div key={index} className="flash ok" aria-hidden="true" />}
       <ExerciseView key={index} ex={ex} lang={lang} answered={result !== null} onSubmit={submit} />
       {result && <ResultBanner ex={ex} result={result} onContinue={next} />}
+      {tipSheet}
     </LessonFrame>
   );
 }
@@ -293,12 +317,15 @@ export function LessonFrame({
   value,
   hearts,
   feedback,
+  action,
   children,
 }: {
   onQuit: () => void;
   value: number;
   hearts: number | null;
   feedback?: 'ok' | 'bad';
+  /** An extra button before the hearts (the grammar tip). */
+  action?: ReactNode;
   children: ReactNode;
 }) {
   // Shake the heart counter when one is lost.
@@ -317,6 +344,7 @@ export function LessonFrame({
           <div className="grow">
             <ProgressBar value={value} />
           </div>
+          {action}
           <span key={hearts ?? 'inf'} className={lost ? 'hearts lost' : 'hearts'} aria-label={hearts === null ? 'Practice, no hearts' : `${hearts} hearts`}>
             {hearts === null ? (
               <Icon name="review" size={22} style={{ color: 'var(--accent)' }} />

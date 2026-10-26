@@ -1,0 +1,224 @@
+{
+  "tips": [
+    {
+      "lesson": "fr-2-3",
+      "title": "Du, de la: \"some\"",
+      "body": [
+        "French needs a little word before food and drink even where English has none: du pain (some bread), de l'eau (some water).",
+        "Du is for masculine nouns, de la for feminine ones, and de l' before a vowel."
+      ],
+      "table": [["du pain", "(some) bread"], ["de la soupe", "(some) soup"], ["de l'eau", "(some) water"]],
+      "examples": ["du-pain", "je-veux-du-lait", "encore-de-leau"]
+    },
+    {
+      "lesson": "fr-2-4",
+      "title": "Le and la: every noun is masculine or feminine",
+      "body": [
+        "Every French noun is masculine or feminine, and \"the\" changes to match: le for masculine, la for feminine, l' before a vowel.",
+        "\"My\" changes too: mon for masculine, ma for feminine. Learn each noun with its le or la."
+      ],
+      "table": [["le chat", "the cat"], ["la maison", "the house"], ["ma maison", "my house"]],
+      "examples": ["le-chat", "ma-maison", "ma-maman"]
+    },
+    {
+      "lesson": "fr-3-2",
+      "title": "Adjectives match the noun",
+      "body": [
+        "Describing words agree with the noun: add -e for feminine and -s for plural. Grand becomes grande, petit becomes petite.",
+        "The added -e makes the last consonant heard: petit (\"puh-tee\"), petite (\"puh-teet\")."
+      ],
+      "examples": ["ma-chambre-est-grande", "la-maison-est-petite"]
+    },
+    {
+      "lesson": "fr-3-3",
+      "title": "J'ai faim: French \"has\" hunger",
+      "body": [
+        "Where English says \"I am hungry\", French says \"I have hunger\": j'ai faim. The same goes for sleepy, thirsty, cold and your age.",
+        "So use avoir, not être, for these."
+      ],
+      "table": [["j'ai faim", "I'm hungry"], ["j'ai soif", "I'm thirsty"], ["j'ai froid", "I'm cold"], ["j'ai sept ans", "I'm seven"]],
+      "examples": ["jai-faim", "jai-sommeil"]
+    },
+    {
+      "lesson": "fr-4-1",
+      "title": "Je veux + a verb",
+      "body": [
+        "To say you want to do something, put the verb in its dictionary form (ending in -er, -ir or -re) after je veux.",
+        "On is a very common way to say \"we\": on mange (we're eating)."
+      ],
+      "table": [["je veux", "I want"], ["tu veux", "you want"], ["il / elle veut", "he / she wants"]],
+      "examples": ["je-veux-jouer", "tu-veux-de-leau"]
+    },
+    {
+      "lesson": "fr-4-2",
+      "title": "Saying no: ne … pas",
+      "body": [
+        "French wraps the verb in two words: ne before it, pas after it. Ne becomes n' before a vowel: je n'ai pas.",
+        "After pas, \"a\" and \"some\" become de: je n'ai pas de frère (I don't have a brother)."
+      ],
+      "examples": ["je-ne-veux-pas", "je-nai-pas-de-frere"]
+    },
+    {
+      "lesson": "fr-4-3",
+      "title": "J'aime le chocolat: keep the \"the\"",
+      "body": [
+        "When you talk about liking things in general, French keeps le, la or les: j'aime le chocolat, tu aimes les chiens ?",
+        "J'adore is stronger than j'aime."
+      ],
+      "examples": ["jaime-le-chocolat", "je-naime-pas-le-lait", "tu-aimes-les-chiens"]
+    },
+    {
+      "lesson": "fr-5-3",
+      "title": "Three ways to ask a question",
+      "body": [
+        "In conversation, just raise your voice at the end: tu as quel âge ?",
+        "Est-ce que at the start also turns a sentence into a question, and qu'est-ce que means \"what\". Swapping the verb and subject (comment allez-vous ?) is more formal."
+      ],
+      "examples": ["quest-ce-que-cest", "ou-est-maman", "comment-tu-tappelles"]
+    },
+    {
+      "lesson": "fr-6-3",
+      "title": "Telling someone what to do",
+      "body": [
+        "For instructions, drop the tu: tu tournes becomes tourne (turn), tu vas becomes va (go).",
+        "With vous it stays the same: tournez, allez."
+      ],
+      "examples": ["tourne-a-gauche", "va-tout-droit"]
+    },
+    {
+      "lesson": "fr-7-2",
+      "title": "À for cities, en / au for countries",
+      "body": [
+        "Use à with cities: j'habite à Lyon.",
+        "With countries, use en for feminine ones (en France), au for masculine ones (au Canada) and aux for plural ones (aux États-Unis). \"From\" is de, du or des: je viens des États-Unis."
+      ],
+      "examples": ["jhabite-a-lyon", "je-viens-des-etats-unis"]
+    },
+    {
+      "lesson": "fr-8-3",
+      "title": "Je voudrais: a softer \"I want\"",
+      "body": [
+        "Je veux can sound blunt with staff. Je voudrais (\"I would like\") is the polite way to order or ask.",
+        "Pour moi, … (\"for me, …\") also works when ordering."
+      ],
+      "examples": ["je-voudrais-un-cafe", "pour-moi-le-poulet"]
+    },
+    {
+      "lesson": "fr-9-1",
+      "title": "Je me lève: verbs you do to yourself",
+      "body": [
+        "Some verbs take me, te or se because you do them to yourself: se lever (to get up), se doucher (to shower), s'habiller (to get dressed).",
+        "The little word goes before the verb: je me lève, tu te lèves, il se lève."
+      ],
+      "examples": ["je-me-leve-a-sept-heures", "je-me-douche", "je-mhabille"]
+    },
+    {
+      "lesson": "fr-9-3",
+      "title": "The past: j'ai mangé, je suis allé",
+      "body": [
+        "The everyday past (passé composé) is avoir + the past participle: j'ai mangé, j'ai regardé.",
+        "Verbs of movement and staying, and verbs with se, use être instead, and the participle matches the subject: je suis allé (man), je suis allée (woman)."
+      ],
+      "examples": ["jai-mange-avec-ma-famille", "je-suis-alle-au-parc", "je-me-suis-bien-amuse"]
+    },
+    {
+      "lesson": "fr-10-1",
+      "title": "Two past tenses: the scene and the event",
+      "body": [
+        "The imparfait sets the scene: what was going on or used to happen (elle habitait, elle allait). The passé composé tells the event (elle a trouvé).",
+        "Fairy tales use a literary past you'll only read: ils vécurent (they lived)."
+      ],
+      "examples": ["elle-habitait-un-village", "chaque-jour-elle-allait", "un-jour-elle-a-trouve"]
+    },
+    {
+      "lesson": "fr-10-3",
+      "title": "Had done: avait / était + participle",
+      "body": [
+        "To say something had already happened before another past event, use the imparfait of avoir or être plus the participle: il était déjà parti (he had already left).",
+        "Pendant que (while) takes the imparfait for the longer action."
+      ],
+      "examples": ["quand-je-suis-arrive", "pendant-que-je-cuisinais"]
+    },
+    {
+      "lesson": "fr-11-3",
+      "title": "Plans: aller + verb, and si + present",
+      "body": [
+        "Je vais + a verb is the everyday future: je vais réserver (I'm going to book).",
+        "With si (if) about a real possibility, use the present: s'il pleut, on reste (if it rains, we'll stay). Si becomes s' before il."
+      ],
+      "examples": ["je-vais-reserver", "sil-pleut-on-reste"]
+    },
+    {
+      "lesson": "fr-13-1",
+      "title": "J'ai mal à…: saying what hurts",
+      "body": [
+        "Avoir mal à + the body part says where it hurts: j'ai mal à la tête (my head hurts). À + le contracts to au: j'ai mal au dos.",
+        "Depuis (since) with the present says how long: j'ai de la fièvre depuis hier."
+      ],
+      "examples": ["jai-mal-a-la-tete", "jai-de-la-fievre-depuis-hier"]
+    },
+    {
+      "lesson": "fr-13-3",
+      "title": "Giving advice: tu devrais, à ta place, il faut que",
+      "body": [
+        "Tu devrais + verb is \"you should\". À ta place (\"in your place\") and si j'étais toi (\"if I were you\") take the conditional: j'irais, je dirais.",
+        "After il faut que or c'est important que, the next verb goes into the subjunctive: tu dors becomes que tu dormes."
+      ],
+      "examples": ["tu-devrais-te-reposer", "a-ta-place-jirais-chez-le-medecin", "il-faut-que-tu-dormes-plus"]
+    },
+    {
+      "lesson": "fr-14-1",
+      "title": "A été annulé: the passive",
+      "body": [
+        "To say what was done to something, use être + the past participle, matching the noun: mon vol a été annulé, ma réservation a été annulée.",
+        "Conversation often uses on instead: on a annulé mon vol."
+      ],
+      "examples": ["mon-vol-a-ete-annule", "ma-valise-nest-pas-arrivee"]
+    },
+    {
+      "lesson": "fr-15-3",
+      "title": "Je pense que… / Je ne pense pas que…",
+      "body": [
+        "Je pense que (I think that) is followed by the normal present: je pense que tu as raison.",
+        "When you doubt or deny it, use the subjunctive: je ne pense pas que ce soit juste."
+      ],
+      "examples": ["je-pense-que-tu-as-raison", "je-ne-pense-pas-que-ce-soit-juste"]
+    },
+    {
+      "lesson": "fr-16-2",
+      "title": "Linking ideas",
+      "body": [
+        "D'un côté … de l'autre (on the one hand … on the other) balances two points.",
+        "Même si (even if) takes the normal present, unlike bien que (although), which takes the subjunctive: bien que ce soit difficile."
+      ],
+      "examples": ["dun-cote", "de-lautre", "meme-si-cest-difficile"]
+    },
+    {
+      "lesson": "fr-17-1",
+      "title": "Tu or vous?",
+      "body": [
+        "Vous is for strangers, older people, customers and anyone at work you don't know well. It's also the plural \"you\". Tu is for friends, family, children and people your age.",
+        "Wait for the other person to suggest tu: on peut se tutoyer ?"
+      ],
+      "examples": ["comment-allez-vous", "on-peut-se-tutoyer"]
+    },
+    {
+      "lesson": "fr-17-2",
+      "title": "Extra-polite requests",
+      "body": [
+        "The conditional softens any request: pourriez-vous (could you), auriez-vous (would you have), je vous serais reconnaissant (I would be grateful).",
+        "Swapping the verb and subject (pourriez-vous) also sounds more formal than tu peux."
+      ],
+      "examples": ["auriez-vous-lamabilite", "pourriez-vous-mindiquer", "je-vous-serais-reconnaissant"]
+    },
+    {
+      "lesson": "fr-19-3",
+      "title": "How people really talk: dropping ne",
+      "body": [
+        "In everyday speech the ne of ne … pas usually disappears: c'est pas cher, je sais pas, which often sounds like chais pas.",
+        "Tu also shrinks to t' before a vowel: t'as vu ?, t'inquiète. Keep the full forms for writing."
+      ],
+      "examples": ["chais-pas", "ty-vas-quand", "tinquiete"]
+    }
+  ]
+}

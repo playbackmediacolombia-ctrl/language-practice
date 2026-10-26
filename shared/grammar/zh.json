@@ -1,0 +1,248 @@
+{
+  "tips": [
+    {
+      "lesson": "zh-2-3",
+      "title": "No \"a\", \"the\" or plurals",
+      "body": [
+        "Chinese has no words for \"a\" or \"the\", and nouns never change for plural: 苹果 is \"apple\", \"an apple\", \"the apples\".",
+        "Verbs don't change either: 我要 (I want), 你要 (you want), 他要 (he wants)."
+      ],
+      "examples": ["woyao-niunai", "woyao-pingguo"]
+    },
+    {
+      "lesson": "zh-2-4",
+      "title": "的: \"'s\" and \"my\"",
+      "body": [
+        "Put 的 after a person to show what belongs to them: 我的 (my), 你的 (your), 妈妈的 (mom's).",
+        "With family and home, 的 is often dropped: 我妈妈, 我家."
+      ],
+      "examples": ["wode-jia", "woai-mama"]
+    },
+    {
+      "lesson": "zh-3-1",
+      "title": "Measure words: 一个",
+      "body": [
+        "A number can't go straight before a noun. A measure word goes in between: 一个姐姐 (one older sister), 三个苹果.",
+        "个 (ge) is the all-purpose one. Others depend on the thing: 本 for books, 只 for many animals, 杯 for cups. 一 changes tone before them: yí ge, yì běn."
+      ],
+      "table": [["一个人", "one person"], ["一本书", "one book"], ["一只狗", "one dog"]],
+      "examples": ["wo-you-yige-jiejie", "zhe-shi-wo-gege"]
+    },
+    {
+      "lesson": "zh-3-2",
+      "title": "很 + adjective: no 是 needed",
+      "body": [
+        "To describe something, put the adjective right after the subject, usually with 很: 我的房间很大 (my room is big).",
+        "Don't use 是 here. 很 normally just means \"is\", not \"very\"."
+      ],
+      "examples": ["wode-fangjian-hen-da", "jia-hen-xiao"]
+    },
+    {
+      "lesson": "zh-3-3",
+      "title": "了 for a new situation",
+      "body": [
+        "了 at the end of a sentence says something has changed: 我饿了 (I'm hungry now), 吃饭了 (it's time to eat).",
+        "It's about a new state of things, not just the past."
+      ],
+      "examples": ["wo-e-le", "wo-kun-le", "chifan-le"]
+    },
+    {
+      "lesson": "zh-4-1",
+      "title": "想 and 要: wanting",
+      "body": [
+        "想 + verb is \"would like to, feel like\": 我想玩. 要 is stronger, \"want, going to\": 我要回家.",
+        "To say no, put 不 before it: 我不想."
+      ],
+      "examples": ["wo-xiang-wan", "wo-bu-xiang", "ni-yao-he-shui-ma"]
+    },
+    {
+      "lesson": "zh-4-2",
+      "title": "没有: \"don't have\"",
+      "body": [
+        "有 (to have) is the one verb you can't negate with 不. Say 没有 instead: 我没有哥哥.",
+        "Every other verb takes 不 for \"don't\": 我不喜欢."
+      ],
+      "examples": ["wo-meiyou-gege", "wo-you-yiben-shu"]
+    },
+    {
+      "lesson": "zh-4-3",
+      "title": "吗: yes-or-no questions",
+      "body": [
+        "To turn a statement into a yes-or-no question, add 吗 at the end: 你喜欢狗 → 你喜欢狗吗？",
+        "To answer, repeat the verb: 喜欢 (yes) or 不喜欢 (no). There's no single word for yes."
+      ],
+      "examples": ["ni-xihuan-gou-ma", "wo-bu-xihuan-niunai"]
+    },
+    {
+      "lesson": "zh-5-2",
+      "title": "两 for \"two\" before a measure word",
+      "body": [
+        "When you count things, \"two\" is 两, not 二: 两只猫 (two cats).",
+        "二 is for counting out loud and in bigger numbers (十二, twelve)."
+      ],
+      "examples": ["liang-zhi-mao", "san-ge-pingguo", "wu-ben-shu"]
+    },
+    {
+      "lesson": "zh-5-3",
+      "title": "Question words stay in place",
+      "body": [
+        "Chinese questions keep the order of the answer. Put the question word where the answer would go: 这是猫 → 这是什么？ 他是老师 → 他是谁？",
+        "Don't add 吗 to a question that already has a question word."
+      ],
+      "examples": ["zhe-shi-shenme", "ta-shi-shei", "mama-zai-nali"]
+    },
+    {
+      "lesson": "zh-6-1",
+      "title": "在 + place + 上 / 下 / 里",
+      "body": [
+        "To say where something is: thing + 在 + place + position word. 书在桌子上 (the book is on the table).",
+        "The position word comes after the place: 上 on, 下 under, 里 in."
+      ],
+      "examples": ["shu-zai-zhuozi-shang", "mao-zai-chuang-xiamian", "niunai-zai-chufang"]
+    },
+    {
+      "lesson": "zh-6-2",
+      "title": "Yes-or-no questions with \"A not A\"",
+      "body": [
+        "Another way to ask yes or no: say the verb or adjective, then 不, then again. 远不远？ (is it far?), 好不好？",
+        "The 不 in the middle is said lightly."
+      ],
+      "examples": ["yuan-bu-yuan", "cesuo-zai-nali"]
+    },
+    {
+      "lesson": "zh-7-2",
+      "title": "会: can (a skill you learned)",
+      "body": [
+        "会 means \"can\" for things you've learned: 我会说中文 (I can speak Chinese).",
+        "能 is \"can\" in the sense of being able or allowed: 你能帮我吗？"
+      ],
+      "examples": ["ni-hui-shuo-yingyu-ma", "wo-hui-shuo-yidianr-zhongwen"]
+    },
+    {
+      "lesson": "zh-8-1",
+      "title": "太…了 and 一点儿",
+      "body": [
+        "太 + adjective + 了 means \"too …\": 太贵了 (too expensive).",
+        "Adjective + 一点儿 means \"a bit more …\": 便宜一点儿 (a bit cheaper), 大一点儿的 (a bigger one)."
+      ],
+      "examples": ["tai-gui-le", "pianyi-yidianr", "you-da-yidianr-de-ma"]
+    },
+    {
+      "lesson": "zh-9-1",
+      "title": "Time comes before the verb",
+      "body": [
+        "When something happens goes before the action, right after the subject: 我七点起床 (I get up at seven).",
+        "How you go somewhere also goes first: 我坐地铁上班 (I take the subway to work)."
+      ],
+      "examples": ["wo-qi-dian-qichuang", "wo-ba-dian-chumen", "wo-zuo-ditie-shangban"]
+    },
+    {
+      "lesson": "zh-9-3",
+      "title": "了 after a verb: it happened",
+      "body": [
+        "了 right after a verb marks a finished action: 我去了公园 (I went to the park), 我看了一部电影.",
+        "To say it didn't happen, use 没 and drop 了: 我没去."
+      ],
+      "examples": ["wo-qu-le-gongyuan", "wo-kan-le-yibu-dianying", "ni-zuotian-zuo-le-shenme"]
+    },
+    {
+      "lesson": "zh-10-2",
+      "title": "又…又…: both … and …",
+      "body": [
+        "又 A 又 B describes two qualities at once: 他又高又瘦 (he's tall and thin).",
+        "长得 + description says what someone looks like: 她长得像她妈妈."
+      ],
+      "examples": ["ta-you-gao-you-shou", "ta-zhang-de-xiang-ta-mama"]
+    },
+    {
+      "lesson": "zh-10-3",
+      "title": "…的时候: when, while",
+      "body": [
+        "Put 的时候 after an action to say \"when\" or \"while\" it happens: 我做饭的时候 (while I was cooking).",
+        "已经…了 is \"already\": 他已经走了 (he had already left)."
+      ],
+      "examples": ["wo-zuofan-de-shihou", "wo-dao-de-shihou-ta-yijing-zou-le"]
+    },
+    {
+      "lesson": "zh-11-2",
+      "title": "去不了: can't manage to",
+      "body": [
+        "Verb + 不了 says something can't happen: 我去不了 (I can't go). Verb + 得了 is the opposite: 去得了.",
+        "不好意思 is the soft way to apologize or turn something down."
+      ],
+      "examples": ["buhaoyisi-wo-qu-buliao", "wo-yijing-you-anpai-le"]
+    },
+    {
+      "lesson": "zh-11-3",
+      "title": "如果…就…: if … then …",
+      "body": [
+        "如果 starts the condition and 就 introduces the result: 如果下雨，我们就待在家里.",
+        "…怎么样？ at the end makes a suggestion: \"how about …?\""
+      ],
+      "examples": ["ruguo-xiayu-women-jiu-zai-jia", "women-qu-kan-dianying-zenmeyang"]
+    },
+    {
+      "lesson": "zh-13-1",
+      "title": "从…开始: since",
+      "body": [
+        "从 + time + 开始 says when something started: 我从昨天开始发烧 (I've had a fever since yesterday).",
+        "Pain is just body part + 疼: 我头疼."
+      ],
+      "examples": ["wo-cong-zuotian-kaishi-fashao", "wo-tou-teng"]
+    },
+    {
+      "lesson": "zh-13-3",
+      "title": "Giving advice",
+      "body": [
+        "应该 is \"should\", 最好 is \"you'd better\", and 我建议你 is \"I suggest you\".",
+        "要是我是你 (if I were you) is followed by 我会… (I would …)."
+      ],
+      "examples": ["ni-yinggai-xiuxi", "ni-zui-hao-duo-he-shui", "yaoshi-wo-shi-ni"]
+    },
+    {
+      "lesson": "zh-14-3",
+      "title": "被: something done to you",
+      "body": [
+        "被 marks something bad that was done to the subject: 我的钱包被偷了 (my wallet was stolen).",
+        "The doer can go after 被: 被小偷偷了 (stolen by a thief)."
+      ],
+      "examples": ["wo-de-qianbao-bei-tou-le"]
+    },
+    {
+      "lesson": "zh-15-3",
+      "title": "说得对: how well something is done",
+      "body": [
+        "Verb + 得 + description says how something is done: 你说得对 (you're right, lit. you said it right), 他跑得很快.",
+        "This 得 is pronounced de, with no tone."
+      ],
+      "examples": ["wo-juede-ni-shuo-de-dui", "zhe-yidian-ni-shuo-de-dui"]
+    },
+    {
+      "lesson": "zh-16-2",
+      "title": "虽然…但是… and 一方面…另一方面…",
+      "body": [
+        "虽然 (although) is paired with 但是 (but) in the second half. Unlike English, Chinese uses both: 虽然很难，但是值得.",
+        "一方面…另一方面… balances two sides of an argument."
+      ],
+      "examples": ["suiran-hen-nan-danshi-zhide", "yi-fangmian", "ling-yi-fangmian"]
+    },
+    {
+      "lesson": "zh-17-1",
+      "title": "你 or 您?",
+      "body": [
+        "您 is the respectful \"you\" for older people, customers, bosses and strangers in formal settings. 你 is for everyone else.",
+        "People are often addressed by surname + title: 王总 (Director Wang), 李老师 (Teacher Li)."
+      ],
+      "examples": ["nin-hao", "nin-qing-zuo", "wang-zong"]
+    },
+    {
+      "lesson": "zh-17-2",
+      "title": "把: doing something to something",
+      "body": [
+        "把 moves the object before the verb when you do something to it: 把盐递给我 (pass me the salt).",
+        "It's very common in requests and instructions."
+      ],
+      "examples": ["ba-yan-di-gei-wo", "mafan-nin-bang-wo-yixia"]
+    }
+  ]
+}

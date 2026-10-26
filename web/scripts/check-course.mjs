@@ -1,6 +1,7 @@
 // Checks the lesson path before every build, so a typo in shared/course/ can't ship a broken
 // lesson: unique word ids per language, units that exist in the outline, lesson ids that match
-// their unit, Chinese pinyin and word tiles that spell the sentence, and a recording for every item.
+// their unit, Chinese pinyin and word tiles that spell the sentence, a recording for every item,
+// and grammar tips (shared/grammar/) that point at real lessons and words.
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -17,6 +18,7 @@ const hanzi = (s) => s.replace(/[^\p{Script=Han}]/gu, '');
 
 for (const lang of ['es', 'fr', 'zh']) {
   const seen = new Set();
+  const items = new Set();
   for (const unit of read(`shared/course/${lang}.json`).units) {
     if (!inOutline.has(unit.id)) errors.push(`${lang}: ${unit.id} isn't in the outline`);
     unit.lessons.forEach((lesson, n) => {
@@ -28,6 +30,7 @@ for (const lang of ['es', 'fr', 'zh']) {
         if (!/^[a-z0-9-]+$/.test(item.id)) errors.push(`${where}: id should be lowercase letters, digits and dashes`);
         if (seen.has(item.id)) errors.push(`${where}: id used twice`);
         seen.add(item.id);
+        items.add(item.id);
         if (!item.text || !item.en) errors.push(`${where}: text and en are required`);
         if (lang === 'zh') {
           if (!item.pinyin || !/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/.test(item.pinyin)) errors.push(`${where}: pinyin with tone marks is required`);
@@ -37,6 +40,15 @@ for (const lang of ['es', 'fr', 'zh']) {
         if (!existsSync(join(root, `assets/audio/course/${lang}/${item.id}.mp3`))) errors.push(`${where}: no recording (run scripts/generate_audio.py)`);
       }
     });
+  }
+  const tipped = new Set();
+  for (const tip of read(`shared/grammar/${lang}.json`).tips) {
+    const where = `${lang} grammar tip for ${tip.lesson}`;
+    if (!seen.has(tip.lesson) || items.has(tip.lesson)) errors.push(`${where}: no such lesson`);
+    if (tipped.has(tip.lesson)) errors.push(`${where}: a lesson has one tip`);
+    tipped.add(tip.lesson);
+    if (!tip.title || !tip.body?.length) errors.push(`${where}: title and body are required`);
+    for (const id of tip.examples ?? []) if (!items.has(id)) errors.push(`${where}: example ${id} isn't a course item`);
   }
 }
 
