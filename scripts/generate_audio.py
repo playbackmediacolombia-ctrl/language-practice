@@ -6,7 +6,9 @@ It also rewrites src/data/audio.ts, the static require() map the app uses.
 """
 
 import asyncio
+import hashlib
 import json
+import re
 from pathlib import Path
 
 import edge_tts
@@ -46,6 +48,23 @@ SECOND_VOICES = {
 }
 # Slightly slower than normal speech, easier for a learner to follow.
 RATE = "-10%"
+# Hands-free mode says each word's English meaning first: one clip per distinct meaning (course
+# and phrasebook), assets/audio/en/<slug>-<hash>.mp3, listed in shared/en-audio.json (text → file).
+EN_DIR = AUDIO_DIR / "en"
+EN_INDEX = ROOT / "shared" / "en-audio.json"
+EN_VOICE = "en-US-AndrewNeural"
+
+
+def spoken_english(text: str) -> str:
+    """How a meaning is read aloud: notes like "(woman)" and "lit." spelled out, "/" as "or"."""
+    text = text.replace(" / ", ", or ").replace("(lit. ", "(literally, ")
+    text = re.sub(r"\((man|woman)\)", r"(said by a \1)", text)
+    return text
+
+
+def english_file(text: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:40].strip("-")
+    return f"{slug}-{hashlib.sha1(text.encode()).hexdigest()[:8]}.mp3"
 
 
 def text_for(phrase: dict, lang: str) -> str:
@@ -54,15 +73,15 @@ def text_for(phrase: dict, lang: str) -> str:
 
 
 async def synth(text: str, voice: str, out: Path) -> None:
-    for attempt in range(3):
+    for attempt in range(5):
         try:
             await edge_tts.Communicate(text, voice, rate=RATE).save(str(out))
             return
-        except Exception as err:  # network hiccups happen; retry a couple of times
-            if attempt == 2:
+        except Exception as err:  # network hiccups and throttling happen; back off and retry
+            if attempt == 4:
                 raise
             print(f"  retrying {out.name}: {err}")
-            await asyncio.sleep(2)
+            await asyncio.sleep(3 * (attempt + 1))
 
 
 async def main() -> None:
@@ -135,6 +154,28 @@ async def main() -> None:
                 texts[name] = key
                 made += 1
         texts_file.write_text(json.dumps(texts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    meanings = {p["en"] for p in phrases}
+    for lang in VOICES:
+        course = json.loads((COURSE_DIR / f"{lang}.json").read_text(encoding="utf-8"))
+        meanings |= {i["en"] for u in course["units"] for le in u["lessons"] for i in le["items"] if i.get("kind") != "sound"}
+    EN_DIR.mkdir(parents=True, exist_ok=True)
+    index = {text: english_file(text) for text in sorted(meanings)}
+    todo = [t for t, f in index.items() if not ((EN_DIR / f).exists() and (EN_DIR / f).stat().st_size > 0)]
+    # Several at a time: there are hundreds of these and each one is a round trip.
+    limit = asyncio.Semaphore(3)
+
+    async def english(text: str) -> None:
+        async with limit:
+            print(f"english  {text}", flush=True)
+            await synth(spoken_english(text), EN_VOICE, EN_DIR / index[text])
+
+    await asyncio.gather(*(english(t) for t in todo))
+    made += len(todo)
+    for old in EN_DIR.glob("*.mp3"):  # meanings no longer used
+        if old.name not in index.values():
+            old.unlink()
+    EN_INDEX.write_text(json.dumps(index, ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8")
 
     FEEDBACK_DIR.mkdir(parents=True, exist_ok=True)
     for name, text in FEEDBACK.items():

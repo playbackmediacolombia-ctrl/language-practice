@@ -79,6 +79,19 @@ export function PracticeHub({ lang }: { lang: Lang }) {
         </div>
       </button>
 
+      <button className="card review-card" data-testid="handsfree-card" onClick={() => open(`/${lang}/handsfree`)}>
+        <div className="row">
+          <span className="row-icon">
+            <Icon name="speaker" />
+          </span>
+          <div className="grow">
+            <div style={{ fontWeight: 700, fontSize: 17 }}>Hands-free audio</div>
+            <p className="muted small">Like a podcast: hear the English, answer out loud, hear the answer</p>
+          </div>
+          <Icon name="chevron" style={{ color: 'var(--faint)' }} />
+        </div>
+      </button>
+
       <button className="card review-card" data-testid="stories-card" onClick={() => open(`/${lang}/stories`)}>
         <div className="row">
           <span className="row-icon">

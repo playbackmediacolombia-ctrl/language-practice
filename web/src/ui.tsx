@@ -87,6 +87,12 @@ const FILLED: Record<string, ReactNode> = {
   bolt: <path d="M13.2 2.5 4.8 13.6h6.3l-1 7.9 8.4-11.1h-6.3Z" />,
   play: <path d="M8 5.2v13.6c0 .8.9 1.3 1.6.8l10-6.8a1 1 0 0 0 0-1.6l-10-6.8c-.7-.5-1.6 0-1.6.8Z" />,
   stop: <rect x="6.5" y="6.5" width="11" height="11" rx="2.5" />,
+  pause: (
+    <>
+      <rect x="6.5" y="5.5" width="4" height="13" rx="1.5" />
+      <rect x="13.5" y="5.5" width="4" height="13" rx="1.5" />
+    </>
+  ),
   star: <path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9Z" />,
 };
 

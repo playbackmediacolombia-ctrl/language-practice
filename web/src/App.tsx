@@ -23,6 +23,8 @@ const WritingChar = lazy(() => import('./screens/Writing').then((m) => ({ defaul
 const Practice = lazy(() => import('./screens/Practice'));
 const Lesson = lazy(() => import('./screens/Lesson'));
 const Placement = lazy(() => import('./screens/Placement'));
+const HandsFreeList = lazy(() => import('./screens/HandsFree').then((m) => ({ default: m.HandsFreeList })));
+const HandsFreePlayer = lazy(() => import('./screens/HandsFree').then((m) => ({ default: m.HandsFreePlayer })));
 
 export function App() {
   const tab = useActiveTab();
@@ -63,6 +65,10 @@ function Routes() {
     navigate('/practice', { replace: true });
     return null;
   }
+  if (topic === 'handsfree')
+    return (
+      <Suspense fallback={null}>{mode ? <HandsFreePlayer key={mode} lang={lang} id={mode} /> : <HandsFreeList lang={lang} />}</Suspense>
+    );
   if (topic === 'placement')
     return (
       <Suspense fallback={null}>

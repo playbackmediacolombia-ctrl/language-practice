@@ -798,6 +798,17 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .word-sheet-word .pinyin { font-size: 16px; font-weight: 600; }
 .word-sheet-en { color: var(--muted); }
 
+/* ---- Hands-free audio ---- */
+.hf-now { min-height: 168px; gap: 8px; justify-content: center; }
+.hf-english { font-size: 24px; font-weight: 750; line-height: 1.25; }
+.hf-target { font-size: 26px; font-weight: 750; color: var(--accent); }
+.hf-prompt { font-size: 18px; }
+.hf-controls { display: flex; align-items: center; justify-content: center; gap: 28px; }
+.hf-play { width: 84px; height: 84px; border-radius: 50%; padding: 0; display: grid; place-items: center; }
+.hf-skip { width: 52px; height: 52px; margin: 0; }
+.hf-skip:disabled, .hf-play:disabled { opacity: 0.45; }
+.hf-time { gap: 10px; font-variant-numeric: tabular-nums; }
+
 /* ---- Shadowing (stories) ---- */
 .line-grade { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 2px 0 0; }
 .tokens.small .token { font-size: 15px; padding: 1px 6px; }

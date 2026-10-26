@@ -197,6 +197,11 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
               Start
             </button>
           )}
+          {lesson && (
+            <button className="btn secondary" onClick={() => navigate(`/${lang}/handsfree/${lesson.id}`)}>
+              <Icon name="speaker" size={20} /> Hands-free (audio only)
+            </button>
+          )}
         </div>
         {tipSheet}
       </LessonFrame>
