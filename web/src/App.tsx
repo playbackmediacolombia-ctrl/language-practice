@@ -13,6 +13,8 @@ import { Settings } from './screens/Settings';
 import { TopicScreen } from './screens/TopicScreen';
 import { TabBar, useActiveTab } from './ui';
 
+const Stories = lazy(() => import('./screens/Stories').then((m) => ({ default: m.StoryList })));
+const StoryScreen = lazy(() => import('./screens/Stories').then((m) => ({ default: m.StoryScreen })));
 const Writing = lazy(() => import('./screens/Writing').then((m) => ({ default: m.WritingList })));
 const WritingChar = lazy(() => import('./screens/Writing').then((m) => ({ default: m.WritingScreen })));
 
@@ -49,6 +51,8 @@ function Routes() {
   if (first === 'practice') return <PracticeHub lang={saved ?? 'es'} />;
   if (!lang) return saved ? <Path lang={saved} /> : <Home />;
   if (!topic) return <Path lang={lang} />;
+  if (topic === 'stories')
+    return <Suspense fallback={null}>{mode ? <StoryScreen key={mode} lang={lang} id={mode} /> : <Stories lang={lang} />}</Suspense>;
   if (lang === 'zh' && topic === 'write')
     return <Suspense fallback={null}>{mode ? <WritingChar key={mode} char={mode} /> : <Writing />}</Suspense>;
   if (topic === 'phrasebook') {

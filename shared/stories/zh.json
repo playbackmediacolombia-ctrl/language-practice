@@ -1,0 +1,204 @@
+{
+  "stories": [
+    {
+      "id": "zh-cat",
+      "level": 1,
+      "kind": "story",
+      "title": "我的猫",
+      "en": "My cat",
+      "lines": [
+        { "text": "我有一只猫。", "seg": "我 有 一 只 猫 。", "pinyin": "Wǒ yǒu yì zhī māo.", "en": "I have a cat." },
+        { "text": "它叫咪咪。", "seg": "它 叫 咪咪 。", "pinyin": "Tā jiào Mīmi.", "en": "Its name is Mimi." },
+        { "text": "咪咪很小，也很可爱。", "seg": "咪咪 很 小 ， 也 很 可爱 。", "pinyin": "Mīmi hěn xiǎo, yě hěn kě'ài.", "en": "Mimi is small, and very cute." },
+        { "text": "它喜欢喝牛奶。", "seg": "它 喜欢 喝 牛奶 。", "pinyin": "Tā xǐhuan hē niúnǎi.", "en": "It likes to drink milk." },
+        { "text": "晚上，它在我的床上睡觉。", "seg": "晚上 ， 它 在 我 的 床 上 睡觉 。", "pinyin": "Wǎnshang, tā zài wǒ de chuáng shang shuìjiào.", "en": "At night, it sleeps on my bed." },
+        { "text": "我很爱咪咪！", "seg": "我 很 爱 咪咪 ！", "pinyin": "Wǒ hěn ài Mīmi!", "en": "I love Mimi very much!" }
+      ],
+      "glossary": {
+        "我": { "py": "wǒ", "en": "I, me" }, "有": { "py": "yǒu", "en": "to have" }, "一": { "py": "yì", "en": "one, a" },
+        "只": { "py": "zhī", "en": "(measure word for animals)" }, "猫": { "py": "māo", "en": "cat" }, "它": { "py": "tā", "en": "it" },
+        "叫": { "py": "jiào", "en": "to be called" }, "咪咪": { "py": "Mīmi", "en": "Mimi (a pet's name)" }, "很": { "py": "hěn", "en": "very" },
+        "小": { "py": "xiǎo", "en": "small" }, "也": { "py": "yě", "en": "also, too" }, "可爱": { "py": "kě'ài", "en": "cute" },
+        "喜欢": { "py": "xǐhuan", "en": "to like" }, "喝": { "py": "hē", "en": "to drink" }, "牛奶": { "py": "niúnǎi", "en": "milk" },
+        "晚上": { "py": "wǎnshang", "en": "evening, at night" }, "在": { "py": "zài", "en": "at, on" }, "的": { "py": "de", "en": "'s (possessive)" },
+        "床": { "py": "chuáng", "en": "bed" }, "上": { "py": "shang", "en": "on (top of)" }, "睡觉": { "py": "shuìjiào", "en": "to sleep" },
+        "爱": { "py": "ài", "en": "to love" }
+      },
+      "questions": [
+        { "q": "What is the cat called?", "options": ["Mimi", "Lili", "Huahua"], "answer": 0 },
+        { "q": "What does it like to drink?", "options": ["Milk", "Water", "Tea"], "answer": 0 },
+        { "q": "Where does it sleep at night?", "options": ["On my bed", "On the sofa", "Outside"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "zh-fruit",
+      "level": 1,
+      "kind": "dialogue",
+      "title": "买水果",
+      "en": "Buying fruit",
+      "speakers": { "xiaoming": { "name": "小明 Xiǎo Míng", "voice": "b" }, "wang": { "name": "王阿姨 Auntie Wang", "voice": "a" } },
+      "lines": [
+        { "speaker": "xiaoming", "text": "阿姨，苹果多少钱？", "seg": "阿姨 ， 苹果 多少 钱 ？", "pinyin": "Āyí, píngguǒ duōshao qián?", "en": "Auntie, how much are the apples?" },
+        { "speaker": "wang", "text": "五块钱一斤。", "seg": "五 块 钱 一 斤 。", "pinyin": "Wǔ kuài qián yì jīn.", "en": "Five yuan a jin (half a kilo)." },
+        { "speaker": "xiaoming", "text": "我要两斤。", "seg": "我 要 两 斤 。", "pinyin": "Wǒ yào liǎng jīn.", "en": "I'd like two jin." },
+        { "speaker": "wang", "text": "好的。还要别的吗？", "seg": "好的 。 还 要 别的 吗 ？", "pinyin": "Hǎo de. Hái yào biéde ma?", "en": "OK. Anything else?" },
+        { "speaker": "xiaoming", "text": "香蕉也要一斤。", "seg": "香蕉 也 要 一 斤 。", "pinyin": "Xiāngjiāo yě yào yì jīn.", "en": "A jin of bananas too." },
+        { "speaker": "wang", "text": "一共十三块。", "seg": "一共 十三 块 。", "pinyin": "Yígòng shísān kuài.", "en": "Thirteen yuan altogether." },
+        { "speaker": "xiaoming", "text": "给你。谢谢！", "seg": "给 你 。 谢谢 ！", "pinyin": "Gěi nǐ. Xièxie!", "en": "Here you are. Thanks!" }
+      ],
+      "glossary": {
+        "阿姨": { "py": "āyí", "en": "auntie (polite for an older woman)" }, "苹果": { "py": "píngguǒ", "en": "apple" },
+        "多少": { "py": "duōshao", "en": "how much, how many" }, "钱": { "py": "qián", "en": "money" }, "五": { "py": "wǔ", "en": "five" },
+        "块": { "py": "kuài", "en": "yuan (spoken)" }, "一": { "py": "yì", "en": "one, a" }, "斤": { "py": "jīn", "en": "jin (half a kilo)" },
+        "我": { "py": "wǒ", "en": "I" }, "要": { "py": "yào", "en": "to want" }, "两": { "py": "liǎng", "en": "two (of something)" },
+        "好的": { "py": "hǎo de", "en": "OK" }, "还": { "py": "hái", "en": "still, also" }, "别的": { "py": "biéde", "en": "something else" },
+        "吗": { "py": "ma", "en": "(question particle)" }, "香蕉": { "py": "xiāngjiāo", "en": "banana" }, "也": { "py": "yě", "en": "also, too" },
+        "一共": { "py": "yígòng", "en": "altogether" }, "十三": { "py": "shísān", "en": "thirteen" }, "给": { "py": "gěi", "en": "to give" },
+        "你": { "py": "nǐ", "en": "you" }, "谢谢": { "py": "xièxie", "en": "thank you" }
+      },
+      "questions": [
+        { "q": "How much are the apples?", "options": ["5 yuan a jin", "3 yuan a jin", "10 yuan a jin"], "answer": 0 },
+        { "q": "How many jin of apples does Xiao Ming buy?", "options": ["Two", "One", "Five"], "answer": 0 },
+        { "q": "How much is it altogether?", "options": ["13 yuan", "10 yuan", "15 yuan"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "zh-day",
+      "level": 2,
+      "kind": "story",
+      "title": "我的一天",
+      "en": "My day",
+      "lines": [
+        { "text": "我每天早上七点起床。", "seg": "我 每天 早上 七 点 起床 。", "pinyin": "Wǒ měitiān zǎoshang qī diǎn qǐchuáng.", "en": "Every day I get up at seven in the morning." },
+        { "text": "我先喝一杯茶，然后吃早饭。", "seg": "我 先 喝 一 杯 茶 ， 然后 吃 早饭 。", "pinyin": "Wǒ xiān hē yì bēi chá, ránhòu chī zǎofàn.", "en": "First I drink a cup of tea, then I have breakfast." },
+        { "text": "八点我坐地铁去上班。", "seg": "八 点 我 坐 地铁 去 上班 。", "pinyin": "Bā diǎn wǒ zuò dìtiě qù shàngbān.", "en": "At eight I take the subway to work." },
+        { "text": "中午我和同事一起吃饭。", "seg": "中午 我 和 同事 一起 吃饭 。", "pinyin": "Zhōngwǔ wǒ hé tóngshì yìqǐ chīfàn.", "en": "At noon I eat with my colleagues." },
+        { "text": "晚上我回家做饭，看一会儿书。", "seg": "晚上 我 回家 做饭 ， 看 一会儿 书 。", "pinyin": "Wǎnshang wǒ huíjiā zuòfàn, kàn yíhuìr shū.", "en": "In the evening I go home, cook, and read for a while." },
+        { "text": "十一点我睡觉。", "seg": "十一 点 我 睡觉 。", "pinyin": "Shíyī diǎn wǒ shuìjiào.", "en": "At eleven I go to bed." }
+      ],
+      "glossary": {
+        "我": { "py": "wǒ", "en": "I" }, "每天": { "py": "měitiān", "en": "every day" }, "早上": { "py": "zǎoshang", "en": "morning" },
+        "七": { "py": "qī", "en": "seven" }, "点": { "py": "diǎn", "en": "o'clock" }, "起床": { "py": "qǐchuáng", "en": "to get up" },
+        "先": { "py": "xiān", "en": "first" }, "喝": { "py": "hē", "en": "to drink" }, "一": { "py": "yì", "en": "one, a" },
+        "杯": { "py": "bēi", "en": "cup (of)" }, "茶": { "py": "chá", "en": "tea" }, "然后": { "py": "ránhòu", "en": "then, after that" },
+        "吃": { "py": "chī", "en": "to eat" }, "早饭": { "py": "zǎofàn", "en": "breakfast" }, "八": { "py": "bā", "en": "eight" },
+        "坐": { "py": "zuò", "en": "to sit; to take (transport)" }, "地铁": { "py": "dìtiě", "en": "subway, metro" }, "去": { "py": "qù", "en": "to go" },
+        "上班": { "py": "shàngbān", "en": "to go to work" }, "中午": { "py": "zhōngwǔ", "en": "noon" }, "和": { "py": "hé", "en": "and, with" },
+        "同事": { "py": "tóngshì", "en": "colleague" }, "一起": { "py": "yìqǐ", "en": "together" }, "吃饭": { "py": "chīfàn", "en": "to eat (a meal)" },
+        "晚上": { "py": "wǎnshang", "en": "evening" }, "回家": { "py": "huíjiā", "en": "to go home" }, "做饭": { "py": "zuòfàn", "en": "to cook" },
+        "看": { "py": "kàn", "en": "to read, to look at" }, "一会儿": { "py": "yíhuìr", "en": "a little while" }, "书": { "py": "shū", "en": "book" },
+        "十一": { "py": "shíyī", "en": "eleven" }, "睡觉": { "py": "shuìjiào", "en": "to sleep, go to bed" }
+      },
+      "questions": [
+        { "q": "When does the speaker get up?", "options": ["At 7", "At 8", "At 11"], "answer": 0 },
+        { "q": "How do they get to work?", "options": ["By subway", "By bus", "By bike"], "answer": 0 },
+        { "q": "Who do they have lunch with?", "options": ["Their colleagues", "Their family", "Nobody"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "zh-directions",
+      "level": 2,
+      "kind": "dialogue",
+      "title": "问路",
+      "en": "Asking the way",
+      "speakers": { "lihua": { "name": "李华 Lǐ Huá", "voice": "a" }, "zhang": { "name": "张先生 Mr Zhang", "voice": "b" } },
+      "lines": [
+        { "speaker": "lihua", "text": "请问，地铁站在哪儿？", "seg": "请问 ， 地铁站 在 哪儿 ？", "pinyin": "Qǐngwèn, dìtiězhàn zài nǎr?", "en": "Excuse me, where is the subway station?" },
+        { "speaker": "zhang", "text": "一直往前走，到路口往右拐。", "seg": "一直 往 前 走 ， 到 路口 往 右 拐 。", "pinyin": "Yìzhí wǎng qián zǒu, dào lùkǒu wǎng yòu guǎi.", "en": "Go straight ahead, and at the crossroads turn right." },
+        { "speaker": "lihua", "text": "远不远？", "seg": "远 不 远 ？", "pinyin": "Yuǎn bu yuǎn?", "en": "Is it far?" },
+        { "speaker": "zhang", "text": "不远，走路五分钟。", "seg": "不 远 ， 走路 五 分钟 。", "pinyin": "Bù yuǎn, zǒulù wǔ fēnzhōng.", "en": "Not far, five minutes on foot." },
+        { "speaker": "lihua", "text": "太好了，谢谢您！", "seg": "太 好 了 ， 谢谢 您 ！", "pinyin": "Tài hǎo le, xièxie nín!", "en": "Great, thank you!" },
+        { "speaker": "zhang", "text": "不客气。", "seg": "不客气 。", "pinyin": "Bú kèqi.", "en": "You're welcome." }
+      ],
+      "glossary": {
+        "请问": { "py": "qǐngwèn", "en": "excuse me (may I ask)" }, "地铁站": { "py": "dìtiězhàn", "en": "subway station" },
+        "在": { "py": "zài", "en": "to be at" }, "哪儿": { "py": "nǎr", "en": "where" }, "一直": { "py": "yìzhí", "en": "straight, all the way" },
+        "往": { "py": "wǎng", "en": "towards" }, "前": { "py": "qián", "en": "front, ahead" }, "走": { "py": "zǒu", "en": "to walk, go" },
+        "到": { "py": "dào", "en": "to arrive at; at" }, "路口": { "py": "lùkǒu", "en": "crossroads, intersection" }, "右": { "py": "yòu", "en": "right" },
+        "拐": { "py": "guǎi", "en": "to turn" }, "远": { "py": "yuǎn", "en": "far" }, "不": { "py": "bù", "en": "not" },
+        "走路": { "py": "zǒulù", "en": "to walk, on foot" }, "五": { "py": "wǔ", "en": "five" }, "分钟": { "py": "fēnzhōng", "en": "minute(s)" },
+        "太": { "py": "tài", "en": "too, so" }, "好": { "py": "hǎo", "en": "good" }, "了": { "py": "le", "en": "(太好了: great!)" },
+        "谢谢": { "py": "xièxie", "en": "thank you" }, "您": { "py": "nín", "en": "you (polite)" }, "不客气": { "py": "bú kèqi", "en": "you're welcome" }
+      },
+      "questions": [
+        { "q": "Where does Li Hua want to go?", "options": ["The subway station", "The bank", "The hospital"], "answer": 0 },
+        { "q": "Which way at the crossroads?", "options": ["Right", "Left", "Straight on"], "answer": 0 },
+        { "q": "How far is it?", "options": ["Five minutes on foot", "Half an hour on foot", "Far: take a taxi"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "zh-beijing",
+      "level": 3,
+      "kind": "story",
+      "title": "去北京旅行",
+      "en": "A trip to Beijing",
+      "lines": [
+        { "text": "去年夏天，我和朋友去北京旅行了。", "seg": "去年 夏天 ， 我 和 朋友 去 北京 旅行 了 。", "pinyin": "Qùnián xiàtiān, wǒ hé péngyou qù Běijīng lǚxíng le.", "en": "Last summer, a friend and I went on a trip to Beijing." },
+        { "text": "我们坐高铁去的，只用了五个小时。", "seg": "我们 坐 高铁 去 的 ， 只 用 了 五 个 小时 。", "pinyin": "Wǒmen zuò gāotiě qù de, zhǐ yòng le wǔ ge xiǎoshí.", "en": "We went by high-speed train; it only took five hours." },
+        { "text": "第一天我们参观了故宫，人非常多。", "seg": "第一 天 我们 参观 了 故宫 ， 人 非常 多 。", "pinyin": "Dì-yī tiān wǒmen cānguān le Gùgōng, rén fēicháng duō.", "en": "On the first day we visited the Forbidden City; it was very crowded." },
+        { "text": "第二天我们去爬长城，虽然很累，但是风景特别美。", "seg": "第二 天 我们 去 爬 长城 ， 虽然 很 累 ， 但是 风景 特别 美 。", "pinyin": "Dì-èr tiān wǒmen qù pá Chángchéng, suīrán hěn lèi, dànshì fēngjǐng tèbié měi.", "en": "On the second day we climbed the Great Wall; it was tiring, but the view was especially beautiful." },
+        { "text": "晚上我们吃了北京烤鸭。", "seg": "晚上 我们 吃 了 北京 烤鸭 。", "pinyin": "Wǎnshang wǒmen chī le Běijīng kǎoyā.", "en": "In the evening we ate Peking duck." },
+        { "text": "我希望明年还能再去。", "seg": "我 希望 明年 还 能 再 去 。", "pinyin": "Wǒ xīwàng míngnián hái néng zài qù.", "en": "I hope I can go again next year." }
+      ],
+      "glossary": {
+        "去年": { "py": "qùnián", "en": "last year" }, "夏天": { "py": "xiàtiān", "en": "summer" }, "我": { "py": "wǒ", "en": "I" },
+        "和": { "py": "hé", "en": "and, with" }, "朋友": { "py": "péngyou", "en": "friend" }, "去": { "py": "qù", "en": "to go" },
+        "北京": { "py": "Běijīng", "en": "Beijing" }, "旅行": { "py": "lǚxíng", "en": "to travel; a trip" }, "了": { "py": "le", "en": "(marks a completed action)" },
+        "我们": { "py": "wǒmen", "en": "we" }, "坐": { "py": "zuò", "en": "to take (transport)" }, "高铁": { "py": "gāotiě", "en": "high-speed train" },
+        "的": { "py": "de", "en": "(…去的: it was by … that we went)" }, "只": { "py": "zhǐ", "en": "only" }, "用": { "py": "yòng", "en": "to use; to take (time)" },
+        "五": { "py": "wǔ", "en": "five" }, "个": { "py": "ge", "en": "(measure word)" }, "小时": { "py": "xiǎoshí", "en": "hour" },
+        "第一": { "py": "dì-yī", "en": "first" }, "天": { "py": "tiān", "en": "day" }, "参观": { "py": "cānguān", "en": "to visit (a place)" },
+        "故宫": { "py": "Gùgōng", "en": "the Forbidden City" }, "人": { "py": "rén", "en": "people" }, "非常": { "py": "fēicháng", "en": "extremely, very" },
+        "多": { "py": "duō", "en": "many" }, "第二": { "py": "dì-èr", "en": "second" }, "爬": { "py": "pá", "en": "to climb" },
+        "长城": { "py": "Chángchéng", "en": "the Great Wall" }, "虽然": { "py": "suīrán", "en": "although" }, "很": { "py": "hěn", "en": "very" },
+        "累": { "py": "lèi", "en": "tired, tiring" }, "但是": { "py": "dànshì", "en": "but" }, "风景": { "py": "fēngjǐng", "en": "scenery, view" },
+        "特别": { "py": "tèbié", "en": "especially" }, "美": { "py": "měi", "en": "beautiful" }, "晚上": { "py": "wǎnshang", "en": "evening" },
+        "吃": { "py": "chī", "en": "to eat" }, "烤鸭": { "py": "kǎoyā", "en": "roast duck" }, "希望": { "py": "xīwàng", "en": "to hope" },
+        "明年": { "py": "míngnián", "en": "next year" }, "还": { "py": "hái", "en": "still, again" }, "能": { "py": "néng", "en": "can, be able to" },
+        "再": { "py": "zài", "en": "again" }
+      },
+      "questions": [
+        { "q": "他们怎么去北京的？", "qEn": "How did they get to Beijing?", "options": [{ "text": "坐高铁", "en": "By high-speed train" }, { "text": "坐飞机", "en": "By plane" }, { "text": "开车", "en": "By car" }], "answer": 0 },
+        { "q": "第二天他们做了什么？", "qEn": "What did they do on the second day?", "options": [{ "text": "爬长城", "en": "Climbed the Great Wall" }, { "text": "参观故宫", "en": "Visited the Forbidden City" }, { "text": "去买东西", "en": "Went shopping" }], "answer": 0 },
+        { "q": "晚上他们吃了什么？", "qEn": "What did they eat in the evening?", "options": [{ "text": "北京烤鸭", "en": "Peking duck" }, { "text": "饺子", "en": "Dumplings" }, { "text": "面条", "en": "Noodles" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "zh-doctor",
+      "level": 3,
+      "kind": "dialogue",
+      "title": "看医生",
+      "en": "Seeing the doctor",
+      "speakers": { "chen": { "name": "陈医生 Dr Chen", "voice": "b" }, "wangli": { "name": "王丽 Wáng Lì", "voice": "a" } },
+      "lines": [
+        { "speaker": "chen", "text": "你哪儿不舒服？", "seg": "你 哪儿 不 舒服 ？", "pinyin": "Nǐ nǎr bù shūfu?", "en": "What seems to be the problem?" },
+        { "speaker": "wangli", "text": "我头疼，还有点儿发烧。", "seg": "我 头疼 ， 还 有点儿 发烧 。", "pinyin": "Wǒ tóuténg, hái yǒudiǎnr fāshāo.", "en": "I have a headache, and a bit of a fever." },
+        { "speaker": "chen", "text": "什么时候开始的？", "seg": "什么 时候 开始 的 ？", "pinyin": "Shénme shíhou kāishǐ de?", "en": "When did it start?" },
+        { "speaker": "wangli", "text": "昨天晚上开始的。", "seg": "昨天 晚上 开始 的 。", "pinyin": "Zuótiān wǎnshang kāishǐ de.", "en": "It started last night." },
+        { "speaker": "chen", "text": "你可能感冒了。这是药，一天吃三次。", "seg": "你 可能 感冒 了 。 这 是 药 ， 一 天 吃 三 次 。", "pinyin": "Nǐ kěnéng gǎnmào le. Zhè shì yào, yì tiān chī sān cì.", "en": "You've probably caught a cold. Here's some medicine; take it three times a day." },
+        { "speaker": "wangli", "text": "我明天可以去上班吗？", "seg": "我 明天 可以 去 上班 吗 ？", "pinyin": "Wǒ míngtiān kěyǐ qù shàngbān ma?", "en": "Can I go to work tomorrow?" },
+        { "speaker": "chen", "text": "最好在家休息两天，多喝水。", "seg": "最好 在 家 休息 两 天 ， 多 喝 水 。", "pinyin": "Zuìhǎo zài jiā xiūxi liǎng tiān, duō hē shuǐ.", "en": "You'd better rest at home for two days and drink lots of water." }
+      ],
+      "glossary": {
+        "你": { "py": "nǐ", "en": "you" }, "哪儿": { "py": "nǎr", "en": "where" }, "不": { "py": "bù", "en": "not" },
+        "舒服": { "py": "shūfu", "en": "comfortable, well (不舒服: unwell)" }, "我": { "py": "wǒ", "en": "I" }, "头疼": { "py": "tóuténg", "en": "headache; to have a headache" },
+        "还": { "py": "hái", "en": "also, in addition" }, "有点儿": { "py": "yǒudiǎnr", "en": "a little, a bit" }, "发烧": { "py": "fāshāo", "en": "to have a fever" },
+        "什么": { "py": "shénme", "en": "what" }, "时候": { "py": "shíhou", "en": "time (什么时候: when)" }, "开始": { "py": "kāishǐ", "en": "to start" },
+        "的": { "py": "de", "en": "(stresses when it happened)" }, "昨天": { "py": "zuótiān", "en": "yesterday" }, "晚上": { "py": "wǎnshang", "en": "evening, night" },
+        "可能": { "py": "kěnéng", "en": "probably, maybe" }, "感冒": { "py": "gǎnmào", "en": "to catch a cold; a cold" }, "了": { "py": "le", "en": "(change of state)" },
+        "这": { "py": "zhè", "en": "this" }, "是": { "py": "shì", "en": "is" }, "药": { "py": "yào", "en": "medicine" }, "一": { "py": "yì", "en": "one" },
+        "天": { "py": "tiān", "en": "day" }, "吃": { "py": "chī", "en": "to eat; to take (medicine)" }, "三": { "py": "sān", "en": "three" },
+        "次": { "py": "cì", "en": "times" }, "明天": { "py": "míngtiān", "en": "tomorrow" }, "可以": { "py": "kěyǐ", "en": "can, may" },
+        "去": { "py": "qù", "en": "to go" }, "上班": { "py": "shàngbān", "en": "to go to work" }, "吗": { "py": "ma", "en": "(question particle)" },
+        "最好": { "py": "zuìhǎo", "en": "had better, best" }, "在": { "py": "zài", "en": "at" }, "家": { "py": "jiā", "en": "home" },
+        "休息": { "py": "xiūxi", "en": "to rest" }, "两": { "py": "liǎng", "en": "two" }, "多": { "py": "duō", "en": "a lot, more" },
+        "喝": { "py": "hē", "en": "to drink" }, "水": { "py": "shuǐ", "en": "water" }
+      },
+      "questions": [
+        { "q": "王丽哪儿不舒服？", "qEn": "What's wrong with Wang Li?", "options": [{ "text": "头疼，还有点儿发烧", "en": "A headache and a bit of a fever" }, { "text": "肚子疼", "en": "A stomach ache" }, { "text": "嗓子疼", "en": "A sore throat" }], "answer": 0 },
+        { "q": "什么时候开始的？", "qEn": "When did it start?", "options": [{ "text": "昨天晚上", "en": "Last night" }, { "text": "今天早上", "en": "This morning" }, { "text": "上个星期", "en": "Last week" }], "answer": 0 },
+        { "q": "药一天吃几次？", "qEn": "How many times a day should she take the medicine?", "options": [{ "text": "三次", "en": "Three times" }, { "text": "两次", "en": "Twice" }, { "text": "一次", "en": "Once" }], "answer": 0 }
+      ]
+    }
+  ]
+}

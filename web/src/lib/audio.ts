@@ -3,7 +3,8 @@
 const player = new Audio();
 player.preload = 'auto';
 
-export function playPhrase(url: string, slow = false) {
+export function playPhrase(url: string, slow = false, fromSequence = false) {
+  if (!fromSequence) sequence?.(); // a single clip interrupts a story being read
   player.pause();
   if (!player.src.endsWith(url)) player.src = url;
   player.currentTime = 0;
@@ -11,6 +12,40 @@ export function playPhrase(url: string, slow = false) {
   player.play().catch(() => {
     // Autoplay blocked before the first tap; the user can press the play button.
   });
+}
+
+let sequence: (() => void) | null = null;
+
+/**
+ * Plays clips one after another with a short pause between them (a story read aloud), from
+ * `start`. `onIndex` gets each clip's index as it starts, and -1 when it's over or stopped.
+ * Returns a stop function. Start it from a tap (iOS).
+ */
+export function playSequence(urls: string[], start: number, slow: boolean, onIndex: (i: number) => void): () => void {
+  sequence?.();
+  let i = start;
+  let timer = 0;
+  const onEnded = () => {
+    timer = window.setTimeout(next, 450);
+  };
+  const stop = () => {
+    clearTimeout(timer);
+    player.removeEventListener('ended', onEnded);
+    if (sequence === stop) sequence = null;
+    onIndex(-1);
+  };
+  const next = () => {
+    if (i >= urls.length) return stop();
+    onIndex(i);
+    playPhrase(urls[i++], slow, true);
+  };
+  player.addEventListener('ended', onEnded);
+  sequence = stop;
+  next();
+  return () => {
+    player.pause();
+    stop();
+  };
 }
 
 // One shared AudioContext for the mic and spoken feedback. iOS only starts it inside a tap,

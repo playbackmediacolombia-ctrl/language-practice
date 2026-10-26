@@ -61,6 +61,19 @@ export function PracticeHub({ lang }: { lang: Lang }) {
         </div>
       </button>
 
+      <button className="card review-card" data-testid="stories-card" onClick={() => open(`/${lang}/stories`)}>
+        <div className="row">
+          <span className="row-icon">
+            <Icon name="chat" />
+          </span>
+          <div className="grow">
+            <div style={{ fontWeight: 700, fontSize: 17 }}>Stories &amp; dialogues</div>
+            <p className="muted small">Listen, tap any word to translate it, answer questions</p>
+          </div>
+          <Icon name="chevron" style={{ color: 'var(--faint)' }} />
+        </div>
+      </button>
+
       {lang === 'zh' && (
         <button className="card review-card" data-testid="writing-card" onClick={() => open('/zh/write')}>
           <div className="row">

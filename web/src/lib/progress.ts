@@ -25,6 +25,8 @@ export type Progress = {
   srs: Record<string, Card>;
   /** Chinese characters written, by character. */
   writing: Record<string, WritingProgress>;
+  /** Stories and dialogues finished: best share of questions right (0..1). Key: `${lang}:${storyId}`. */
+  stories: Record<string, number>;
   hearts: number;
   heartsAt: number; // when `hearts` was last counted; refills are worked out from here
   goal: number; // daily XP goal
@@ -53,6 +55,7 @@ const EMPTY: Progress = {
   items: {},
   srs: {},
   writing: {},
+  stories: {},
   hearts: MAX_HEARTS,
   heartsAt: 0,
   goal: 20,
@@ -220,6 +223,13 @@ export function weakness(p: Progress, lang: Lang, itemId: string, now = Date.now
   const it = p.items[`${lang}:${itemId}`];
   if (!it) return 0;
   return it.s - (now - it.t) / (2 * 24 * 3600 * 1000);
+}
+
+/** A story's questions answered: keep the best score, and count it like a short lesson (XP, streak). */
+export function recordStory(lang: Lang, storyId: string, score: number, xp: number) {
+  const k = `${lang}:${storyId}`;
+  update((p) => ({ ...p, stories: { ...p.stories, [k]: Math.max(score, p.stories[k] ?? 0) } }));
+  completeLesson(lang, null, xp);
 }
 
 /** A character finished in the writing practice ('trace' over the outline, or from 'memory'). */

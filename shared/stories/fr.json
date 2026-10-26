@@ -1,0 +1,177 @@
+{
+  "stories": [
+    {
+      "id": "fr-dog",
+      "level": 1,
+      "kind": "story",
+      "title": "Mon chien",
+      "en": "My dog",
+      "lines": [
+        { "text": "J'ai un chien.", "en": "I have a dog." },
+        { "text": "Il s'appelle Max.", "en": "His name is Max." },
+        { "text": "Max est grand et blanc.", "en": "Max is big and white." },
+        { "text": "Il aime jouer dans le jardin.", "en": "He likes to play in the garden." },
+        { "text": "Le soir, il dort près de mon lit.", "en": "In the evening, he sleeps near my bed." },
+        { "text": "Max est mon meilleur ami !", "en": "Max is my best friend!" }
+      ],
+      "glossary": {
+        "j'ai": "I have", "un": "a", "chien": "dog", "il": "he", "s'appelle": "is called (il s'appelle: his name is)", "max": "Max (a name)",
+        "est": "is", "grand": "big, tall", "et": "and", "blanc": "white", "aime": "likes, loves", "jouer": "to play", "dans": "in",
+        "le": "the", "jardin": "garden", "soir": "evening (le soir: in the evening)", "dort": "sleeps", "près": "near (près de: near)",
+        "de": "of", "mon": "my", "lit": "bed", "meilleur": "best", "ami": "friend"
+      },
+      "questions": [
+        { "q": "What color is Max?", "options": ["White", "Black", "Brown"], "answer": 0 },
+        { "q": "Where does Max like to play?", "options": ["In the garden", "In the kitchen", "In the park"], "answer": 0 },
+        { "q": "Where does he sleep in the evening?", "options": ["Near my bed", "In the garden", "On the sofa"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-bakery",
+      "level": 1,
+      "kind": "dialogue",
+      "title": "À la boulangerie",
+      "en": "At the bakery",
+      "speakers": { "claire": { "name": "Claire", "voice": "a" }, "hugo": { "name": "Hugo", "voice": "b" } },
+      "lines": [
+        { "speaker": "claire", "text": "Bonjour, monsieur !", "en": "Hello, sir!" },
+        { "speaker": "hugo", "text": "Bonjour ! Une baguette, s'il vous plaît.", "en": "Hello! A baguette, please." },
+        { "speaker": "claire", "text": "Et avec ceci ?", "en": "Anything else?" },
+        { "speaker": "hugo", "text": "Deux croissants aussi.", "en": "Two croissants too." },
+        { "speaker": "claire", "text": "Ça fait trois euros cinquante.", "en": "That's three euros fifty." },
+        { "speaker": "hugo", "text": "Voilà. Merci, bonne journée !", "en": "Here you are. Thanks, have a nice day!" },
+        { "speaker": "claire", "text": "Merci, à vous aussi !", "en": "Thanks, you too!" }
+      ],
+      "glossary": {
+        "bonjour": "hello, good morning", "monsieur": "sir", "une": "a", "baguette": "baguette (long bread)", "s'il": "if it (s'il vous plaît: please)",
+        "vous": "you (formal)", "plaît": "pleases (s'il vous plaît: please)", "et": "and", "avec": "with", "ceci": "this (et avec ceci ?: anything else?)",
+        "deux": "two", "croissants": "croissants", "aussi": "too, also", "ça": "that", "fait": "makes (ça fait: that comes to)",
+        "trois": "three", "euros": "euros", "cinquante": "fifty", "voilà": "here you are", "merci": "thank you", "bonne": "good",
+        "journée": "day (bonne journée: have a nice day)", "à": "to (à vous aussi: you too)"
+      },
+      "questions": [
+        { "q": "What does Hugo buy?", "options": ["A baguette and two croissants", "Three baguettes", "A cake"], "answer": 0 },
+        { "q": "How much does it cost?", "options": ["€3.50", "€2.50", "€5.00"], "answer": 0 },
+        { "q": "How do they say goodbye?", "options": ["Have a nice day! / You too!", "See you tomorrow!", "Good night!"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-wednesday",
+      "level": 2,
+      "kind": "story",
+      "title": "Le mercredi de Léa",
+      "en": "Léa's Wednesday",
+      "lines": [
+        { "text": "Le mercredi, Léa n'a pas d'école l'après-midi.", "en": "On Wednesdays, Léa has no school in the afternoon." },
+        { "text": "À midi, elle mange chez sa grand-mère.", "en": "At noon, she eats at her grandmother's." },
+        { "text": "Ensuite, elle va à la piscine avec son frère.", "en": "Then she goes to the swimming pool with her brother." },
+        { "text": "Après la piscine, ils achètent des bonbons.", "en": "After the pool, they buy sweets." },
+        { "text": "Le soir, Léa fait ses devoirs et regarde un dessin animé.", "en": "In the evening, Léa does her homework and watches a cartoon." }
+      ],
+      "glossary": {
+        "le": "the (le mercredi: on Wednesdays)", "mercredi": "Wednesday", "léa": "Léa (a name)", "n'a": "doesn't have (n'a pas)",
+        "pas": "not (ne… pas)", "d'école": "(of) school", "l'après-midi": "in the afternoon", "à": "at, to", "midi": "noon",
+        "elle": "she", "mange": "eats", "chez": "at the home of", "sa": "her", "grand-mère": "grandmother", "ensuite": "then, next",
+        "va": "goes", "la": "the", "piscine": "swimming pool", "avec": "with", "son": "her, his", "frère": "brother", "après": "after",
+        "ils": "they", "achètent": "buy", "des": "some", "bonbons": "sweets, candy", "soir": "evening (le soir: in the evening)",
+        "fait": "does", "ses": "her, his (plural)", "devoirs": "homework", "et": "and", "regarde": "watches", "un": "a",
+        "dessin": "drawing (dessin animé: cartoon)", "animé": "animated (dessin animé: cartoon)"
+      },
+      "questions": [
+        { "q": "Where does Léa eat at noon?", "options": ["At her grandmother's", "At school", "At a restaurant"], "answer": 0 },
+        { "q": "Who goes to the pool with her?", "options": ["Her brother", "Her mother", "A friend"], "answer": 0 },
+        { "q": "What does she do in the evening?", "options": ["Homework, then a cartoon", "She reads a book", "She plays the piano"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-restaurant",
+      "level": 2,
+      "kind": "dialogue",
+      "title": "Au restaurant",
+      "en": "At the restaurant",
+      "speakers": { "julien": { "name": "Julien", "voice": "b" }, "sophie": { "name": "Sophie", "voice": "a" } },
+      "lines": [
+        { "speaker": "julien", "text": "Bonsoir, vous avez choisi ?", "en": "Good evening, have you decided?" },
+        { "speaker": "sophie", "text": "Oui, je voudrais la soupe de légumes, s'il vous plaît.", "en": "Yes, I'd like the vegetable soup, please." },
+        { "speaker": "julien", "text": "Et comme plat ?", "en": "And for the main course?" },
+        { "speaker": "sophie", "text": "Le poulet avec des frites.", "en": "The chicken with fries." },
+        { "speaker": "julien", "text": "Très bien. Et à boire ?", "en": "Very good. And to drink?" },
+        { "speaker": "sophie", "text": "Une carafe d'eau, merci.", "en": "A jug of water, thanks." },
+        { "speaker": "julien", "text": "Parfait, je vous apporte ça tout de suite.", "en": "Perfect, I'll bring you that right away." }
+      ],
+      "glossary": {
+        "bonsoir": "good evening", "vous": "you (formal)", "avez": "have", "choisi": "chosen", "oui": "yes", "je": "I",
+        "voudrais": "would like", "la": "the", "soupe": "soup", "de": "of", "légumes": "vegetables", "s'il": "if it (s'il vous plaît: please)",
+        "plaît": "pleases (s'il vous plaît: please)", "et": "and", "comme": "as, for", "plat": "dish, main course", "le": "the",
+        "poulet": "chicken", "avec": "with", "des": "some", "frites": "fries", "très": "very", "bien": "good, well", "à": "to",
+        "boire": "drink (à boire: to drink)", "une": "a", "carafe": "jug, carafe", "d'eau": "of water", "merci": "thank you",
+        "parfait": "perfect", "apporte": "bring", "ça": "that", "tout": "all (tout de suite: right away)", "suite": "(tout de suite: right away)"
+      },
+      "questions": [
+        { "q": "What does Sophie have as a starter?", "options": ["Vegetable soup", "A salad", "Nothing"], "answer": 0 },
+        { "q": "What is her main course?", "options": ["Chicken with fries", "Fish", "Pasta"], "answer": 0 },
+        { "q": "What does she drink?", "options": ["Water", "Wine", "Orange juice"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-seaside",
+      "level": 3,
+      "kind": "story",
+      "title": "Un week-end à la mer",
+      "en": "A weekend at the seaside",
+      "lines": [
+        { "text": "Le week-end dernier, nous sommes partis à la mer en train.", "en": "Last weekend, we went to the seaside by train." },
+        { "text": "Le samedi, il a fait très beau, alors nous avons nagé toute la journée.", "en": "On Saturday the weather was lovely, so we swam all day." },
+        { "text": "Le soir, nous avons mangé des moules dans un petit restaurant du port.", "en": "In the evening, we ate mussels in a little restaurant at the harbor." },
+        { "text": "Le dimanche, il a plu, donc nous avons visité un musée.", "en": "On Sunday it rained, so we visited a museum." },
+        { "text": "Nous sommes rentrés fatigués, mais très contents.", "en": "We came home tired, but very happy." }
+      ],
+      "glossary": {
+        "le": "the", "week-end": "weekend", "dernier": "last", "nous": "we", "sommes": "are (nous sommes partis: we left)",
+        "partis": "left, went", "à": "to", "la": "the", "mer": "sea", "en": "by", "train": "train", "samedi": "Saturday",
+        "il": "it", "a": "has (il a fait: it was)", "fait": "made (il a fait beau: the weather was nice)", "très": "very",
+        "beau": "nice, beautiful", "alors": "so", "avons": "have (nous avons…: we …ed)", "nagé": "swum", "toute": "all, whole",
+        "journée": "day", "soir": "evening", "mangé": "eaten", "des": "some", "moules": "mussels", "dans": "in", "un": "a",
+        "petit": "little, small", "restaurant": "restaurant", "du": "of the, at the", "port": "harbor", "dimanche": "Sunday",
+        "plu": "rained (il a plu: it rained)", "donc": "so", "visité": "visited", "musée": "museum", "rentrés": "come home, returned",
+        "fatigués": "tired", "mais": "but", "contents": "happy, pleased"
+      },
+      "questions": [
+        { "q": "Comment sont-ils partis à la mer ?", "qEn": "How did they go to the seaside?", "options": [{ "text": "En train", "en": "By train" }, { "text": "En voiture", "en": "By car" }, { "text": "En avion", "en": "By plane" }], "answer": 0 },
+        { "q": "Qu'ont-ils mangé le samedi soir ?", "qEn": "What did they eat on Saturday evening?", "options": [{ "text": "Des moules", "en": "Mussels" }, { "text": "Une pizza", "en": "A pizza" }, { "text": "Du poulet", "en": "Chicken" }], "answer": 0 },
+        { "q": "Pourquoi ont-ils visité un musée ?", "qEn": "Why did they visit a museum?", "options": [{ "text": "Parce qu'il a plu", "en": "Because it rained" }, { "text": "Parce qu'il faisait chaud", "en": "Because it was hot" }, { "text": "Parce que la plage était fermée", "en": "Because the beach was closed" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-interview",
+      "level": 3,
+      "kind": "dialogue",
+      "title": "Un entretien d'embauche",
+      "en": "A job interview",
+      "speakers": { "martin": { "name": "Madame Martin", "voice": "a" }, "thomas": { "name": "Thomas", "voice": "b" } },
+      "lines": [
+        { "speaker": "martin", "text": "Bonjour, Thomas. Parlez-moi un peu de vous.", "en": "Hello, Thomas. Tell me a little about yourself." },
+        { "speaker": "thomas", "text": "J'ai travaillé trois ans dans une agence de voyages à Lyon.", "en": "I worked for three years in a travel agency in Lyon." },
+        { "speaker": "martin", "text": "Pourquoi voulez-vous changer de travail ?", "en": "Why do you want to change jobs?" },
+        { "speaker": "thomas", "text": "Je cherche un poste avec plus de responsabilités.", "en": "I'm looking for a position with more responsibility." },
+        { "speaker": "martin", "text": "Vous parlez anglais ?", "en": "Do you speak English?" },
+        { "speaker": "thomas", "text": "Oui, couramment, et un peu d'espagnol aussi.", "en": "Yes, fluently, and a little Spanish too." },
+        { "speaker": "martin", "text": "Très bien. Nous vous appellerons la semaine prochaine.", "en": "Very good. We'll call you next week." }
+      ],
+      "glossary": {
+        "bonjour": "hello", "thomas": "Thomas (a name)", "parlez-moi": "tell me (speak to me)", "un": "a", "peu": "little (un peu: a little)",
+        "de": "of, about", "vous": "you (formal)", "j'ai": "I have (j'ai travaillé: I worked)", "travaillé": "worked", "trois": "three",
+        "ans": "years", "dans": "in", "une": "a", "agence": "agency", "voyages": "travel, trips", "à": "in (a city)", "lyon": "Lyon (a city in France)",
+        "pourquoi": "why", "voulez-vous": "do you want", "changer": "to change", "travail": "job, work", "je": "I", "cherche": "am looking for",
+        "poste": "position, job", "avec": "with", "plus": "more", "responsabilités": "responsibilities", "parlez": "speak",
+        "anglais": "English", "oui": "yes", "couramment": "fluently", "et": "and", "d'espagnol": "of Spanish", "aussi": "too, also",
+        "très": "very", "bien": "good", "nous": "we", "appellerons": "will call", "la": "the", "semaine": "week", "prochaine": "next"
+      },
+      "questions": [
+        { "q": "Où Thomas a-t-il travaillé ?", "qEn": "Where did Thomas work?", "options": [{ "text": "Dans une agence de voyages", "en": "In a travel agency" }, { "text": "Dans une banque", "en": "In a bank" }, { "text": "Dans un hôtel", "en": "In a hotel" }], "answer": 0 },
+        { "q": "Pourquoi veut-il changer de travail ?", "qEn": "Why does he want to change jobs?", "options": [{ "text": "Pour avoir plus de responsabilités", "en": "To have more responsibility" }, { "text": "Pour gagner plus d'argent", "en": "To earn more money" }, { "text": "Pour travailler moins", "en": "To work less" }], "answer": 0 },
+        { "q": "Quelles langues parle-t-il ?", "qEn": "Which languages does he speak?", "options": [{ "text": "Anglais couramment et un peu d'espagnol", "en": "Fluent English and a little Spanish" }, { "text": "Seulement le français", "en": "Only French" }, { "text": "Allemand et italien", "en": "German and Italian" }], "answer": 0 }
+      ]
+    }
+  ]
+}

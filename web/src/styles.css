@@ -749,3 +749,45 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 /* Drawing with a finger must not scroll the page. */
 .write-box { position: relative; width: 100%; height: 100%; touch-action: none; -webkit-user-select: none; user-select: none; }
 .write-box svg { display: block; }
+
+/* ---- Stories & dialogues ---- */
+.story-level { display: flex; flex-direction: column; gap: 10px; }
+.story-score { font-size: 13px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+.story-score.full { color: var(--ok); }
+.story-head { gap: 12px; }
+.story-title { font-size: 24px; font-weight: 800; }
+.story-toggles { gap: 8px; }
+.chip-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); font-size: 14px; font-weight: 600; color: var(--muted); cursor: pointer; }
+.chip-toggle:has(input:checked) { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
+.chip-toggle input { accent-color: var(--accent); margin: 0; }
+.story-lines { display: flex; flex-direction: column; gap: 10px; }
+.story-line { display: flex; flex-direction: column; gap: 4px; scroll-margin: 120px; }
+.story-line .speaker { font-size: 12px; font-weight: 700; color: var(--muted); padding: 0 6px; }
+.story-line .bubble {
+  position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 12px 44px 12px 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.dialogue .story-line { max-width: 88%; }
+.dialogue .story-line.right { align-self: flex-end; align-items: flex-end; }
+.dialogue .story-line.right .bubble { background: var(--accent-bg); }
+.story-line.active .bubble { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent) inset; }
+.line-text { margin: 0; font-size: 19px; line-height: 1.55; }
+.line-text .word {
+  font: inherit; color: inherit; background: none; border: 0; padding: 0 1px; margin: 0; border-radius: 6px; cursor: pointer;
+  text-decoration: underline dotted color-mix(in srgb, var(--muted) 55%, transparent); text-underline-offset: 4px;
+}
+.line-text .word.picked { background: var(--xp); color: #0a1a3a; text-decoration: none; }
+.line-pinyin { margin: 2px 0 0; color: var(--accent); font-size: 15px; }
+.line-en { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+.line-play { position: absolute; top: 8px; right: 6px; width: 34px; height: 34px; border-radius: 10px; border: 0; background: none; color: var(--accent); display: grid; place-items: center; cursor: pointer; }
+.story-questions { display: flex; flex-direction: column; gap: 10px; }
+.question { gap: 10px; }
+.question-q { font-weight: 700; font-size: 17px; }
+.word-sheet {
+  position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 30; max-width: 560px; margin: 0 auto;
+  display: flex; align-items: center; gap: 8px; padding: 14px 10px 14px 16px; border-radius: 18px;
+  background: var(--card); border: 1px solid var(--border); box-shadow: var(--shadow);
+}
+.word-sheet-word { font-size: 22px; font-weight: 800; }
+.word-sheet-word .pinyin { font-size: 16px; font-weight: 600; }
+.word-sheet-en { color: var(--muted); }

@@ -1,0 +1,184 @@
+{
+  "stories": [
+    {
+      "id": "es-cat",
+      "level": 1,
+      "kind": "story",
+      "title": "Mi gato",
+      "en": "My cat",
+      "lines": [
+        { "text": "Tengo un gato.", "en": "I have a cat." },
+        { "text": "Se llama Tito.", "en": "His name is Tito." },
+        { "text": "Tito es negro y pequeño.", "en": "Tito is black and small." },
+        { "text": "Le gusta dormir en el sofá.", "en": "He likes to sleep on the sofa." },
+        { "text": "Por la mañana, Tito come pescado.", "en": "In the morning, Tito eats fish." },
+        { "text": "¡Tito es mi amigo!", "en": "Tito is my friend!" }
+      ],
+      "glossary": {
+        "tengo": "I have", "un": "a", "gato": "cat", "se": "himself (se llama: is called)", "llama": "calls (se llama: his name is)",
+        "tito": "Tito (a name)", "es": "is", "negro": "black", "y": "and", "pequeño": "small", "le": "to him (le gusta: he likes)",
+        "gusta": "pleases (le gusta: he likes)", "dormir": "to sleep", "en": "on, in", "el": "the", "sofá": "sofa", "por": "in, for",
+        "la": "the", "mañana": "morning", "come": "eats", "pescado": "fish (as food)", "mi": "my", "amigo": "friend"
+      },
+      "questions": [
+        { "q": "What color is Tito?", "options": ["Black", "White", "Orange"], "answer": 0 },
+        { "q": "Where does Tito like to sleep?", "options": ["On the sofa", "In the bed", "In the garden"], "answer": 0 },
+        { "q": "What does Tito eat in the morning?", "options": ["Fish", "Meat", "Bread"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-cafe",
+      "level": 1,
+      "kind": "dialogue",
+      "title": "En la cafetería",
+      "en": "At the café",
+      "speakers": { "luis": { "name": "Luis", "voice": "b" }, "ana": { "name": "Ana", "voice": "a" } },
+      "lines": [
+        { "speaker": "luis", "text": "Buenos días. ¿Qué quiere?", "en": "Good morning. What would you like?" },
+        { "speaker": "ana", "text": "Un café, por favor.", "en": "A coffee, please." },
+        { "speaker": "luis", "text": "¿Con leche?", "en": "With milk?" },
+        { "speaker": "ana", "text": "Sí, con leche y sin azúcar.", "en": "Yes, with milk and no sugar." },
+        { "speaker": "luis", "text": "Muy bien. ¿Algo más?", "en": "Very good. Anything else?" },
+        { "speaker": "ana", "text": "No, gracias. ¿Cuánto es?", "en": "No, thanks. How much is it?" },
+        { "speaker": "luis", "text": "Son dos mil pesos.", "en": "It's two thousand pesos." }
+      ],
+      "glossary": {
+        "buenos": "good", "días": "days (buenos días: good morning)", "qué": "what", "quiere": "(you) want", "un": "a", "café": "coffee",
+        "por": "for (por favor: please)", "favor": "favor (por favor: please)", "con": "with", "leche": "milk", "sí": "yes", "y": "and",
+        "sin": "without", "azúcar": "sugar", "muy": "very", "bien": "good, well", "algo": "something", "más": "more (algo más: anything else)",
+        "no": "no", "gracias": "thank you", "cuánto": "how much", "es": "is", "son": "(they) are; it comes to", "dos": "two", "mil": "thousand",
+        "pesos": "pesos (Colombian money)"
+      },
+      "questions": [
+        { "q": "What does Ana order?", "options": ["A coffee with milk", "A tea", "An orange juice"], "answer": 0 },
+        { "q": "Does she want sugar?", "options": ["No", "Yes", "She doesn't say"], "answer": 0 },
+        { "q": "How much is it?", "options": ["2,000 pesos", "20 pesos", "200 pesos"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-saturday",
+      "level": 2,
+      "kind": "story",
+      "title": "El sábado de Carlos",
+      "en": "Carlos's Saturday",
+      "lines": [
+        { "text": "El sábado, Carlos se levanta tarde.", "en": "On Saturday, Carlos gets up late." },
+        { "text": "Desayuna huevos con arepa y un jugo de naranja.", "en": "For breakfast he has eggs with an arepa and an orange juice." },
+        { "text": "Después, va al parque con su perro.", "en": "Then he goes to the park with his dog." },
+        { "text": "En el parque hay muchos niños y una señora que vende helados.", "en": "In the park there are lots of children and a lady who sells ice cream." },
+        { "text": "Carlos compra un helado de fresa.", "en": "Carlos buys a strawberry ice cream." },
+        { "text": "Por la tarde llueve, y Carlos lee un libro en casa.", "en": "In the afternoon it rains, and Carlos reads a book at home." }
+      ],
+      "glossary": {
+        "el": "the (el sábado: on Saturday)", "sábado": "Saturday", "carlos": "Carlos (a name)", "se": "himself (se levanta: gets up)",
+        "levanta": "gets up (with se)", "tarde": "late; afternoon", "desayuna": "has for breakfast", "huevos": "eggs", "con": "with",
+        "arepa": "arepa (a corn cake)", "y": "and", "un": "a", "jugo": "juice", "de": "of", "naranja": "orange", "después": "afterwards, then",
+        "va": "goes", "al": "to the", "parque": "park", "su": "his, her", "perro": "dog", "en": "in, at", "hay": "there is, there are",
+        "muchos": "many, lots of", "niños": "children", "una": "a", "señora": "lady", "que": "who, that", "vende": "sells",
+        "helados": "ice creams", "compra": "buys", "helado": "ice cream", "fresa": "strawberry", "por": "in (por la tarde: in the afternoon)",
+        "la": "the", "llueve": "it rains", "lee": "reads", "libro": "book", "casa": "home, house"
+      },
+      "questions": [
+        { "q": "What does Carlos have for breakfast?", "options": ["Eggs with an arepa", "Cereal", "Nothing"], "answer": 0 },
+        { "q": "Who goes to the park with him?", "options": ["His dog", "His sister", "A friend"], "answer": 0 },
+        { "q": "What does he do in the afternoon?", "options": ["He reads a book at home", "He watches TV", "He plays football"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-directions",
+      "level": 2,
+      "kind": "dialogue",
+      "title": "¿Dónde está la estación?",
+      "en": "Where is the station?",
+      "speakers": { "laura": { "name": "Laura", "voice": "a" }, "andres": { "name": "Andrés", "voice": "b" } },
+      "lines": [
+        { "speaker": "laura", "text": "Perdón, ¿dónde está la estación de bus?", "en": "Excuse me, where is the bus station?" },
+        { "speaker": "andres", "text": "Está cerca. Siga derecho dos cuadras.", "en": "It's close. Go straight on for two blocks." },
+        { "speaker": "laura", "text": "¿Y después?", "en": "And then?" },
+        { "speaker": "andres", "text": "Después gire a la izquierda. La estación está al lado del banco.", "en": "Then turn left. The station is next to the bank." },
+        { "speaker": "laura", "text": "¿Está lejos a pie?", "en": "Is it far on foot?" },
+        { "speaker": "andres", "text": "No, son cinco minutos.", "en": "No, it's five minutes." },
+        { "speaker": "laura", "text": "¡Muchas gracias!", "en": "Thank you very much!" },
+        { "speaker": "andres", "text": "Con gusto.", "en": "You're welcome." }
+      ],
+      "glossary": {
+        "perdón": "excuse me, sorry", "dónde": "where", "está": "is (for places)", "la": "the", "estación": "station", "de": "of",
+        "bus": "bus", "cerca": "near, close", "siga": "keep going, follow", "derecho": "straight on", "dos": "two", "cuadras": "blocks (of streets)",
+        "y": "and", "después": "then, afterwards", "gire": "turn", "a": "to (a pie: on foot)", "izquierda": "left", "al": "to the",
+        "lado": "side (al lado de: next to)", "del": "of the", "banco": "bank", "lejos": "far", "pie": "foot", "no": "no",
+        "son": "they are; it's", "cinco": "five", "minutos": "minutes", "muchas": "many (muchas gracias: thank you very much)",
+        "gracias": "thanks", "con": "with", "gusto": "pleasure (con gusto: you're welcome)"
+      },
+      "questions": [
+        { "q": "Where does Laura want to go?", "options": ["The bus station", "The bank", "The airport"], "answer": 0 },
+        { "q": "Which way does she turn after two blocks?", "options": ["Left", "Right", "She goes straight on"], "answer": 0 },
+        { "q": "How long does it take on foot?", "options": ["Five minutes", "Fifteen minutes", "An hour"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-cartagena",
+      "level": 3,
+      "kind": "story",
+      "title": "Un viaje a Cartagena",
+      "en": "A trip to Cartagena",
+      "lines": [
+        { "text": "El año pasado, mi hermana y yo viajamos a Cartagena.", "en": "Last year, my sister and I traveled to Cartagena." },
+        { "text": "Llegamos en avión un viernes por la noche y hacía mucho calor.", "en": "We arrived by plane on a Friday night and it was very hot." },
+        { "text": "El sábado caminamos por la ciudad amurallada y tomamos muchas fotos.", "en": "On Saturday we walked around the walled city and took lots of photos." },
+        { "text": "Al mediodía comimos arroz con coco y pescado frito cerca del mar.", "en": "At noon we ate coconut rice and fried fish near the sea." },
+        { "text": "El domingo fuimos en lancha a una isla, pero mi hermana se mareó un poco.", "en": "On Sunday we went to an island by boat, but my sister got a little seasick." },
+        { "text": "Fue un viaje corto, pero queremos volver pronto.", "en": "It was a short trip, but we want to go back soon." }
+      ],
+      "glossary": {
+        "el": "the", "año": "year", "pasado": "last, past", "mi": "my", "hermana": "sister", "y": "and", "yo": "I", "viajamos": "we traveled",
+        "a": "to", "cartagena": "Cartagena (a city on the Caribbean coast)", "llegamos": "we arrived", "en": "by, in", "avión": "plane",
+        "un": "a", "viernes": "Friday", "por": "at (por la noche: at night)", "la": "the", "noche": "night", "hacía": "it was (weather)",
+        "mucho": "a lot of", "calor": "heat (hacía calor: it was hot)", "sábado": "Saturday", "caminamos": "we walked", "ciudad": "city",
+        "amurallada": "walled", "tomamos": "we took", "muchas": "many", "fotos": "photos", "al": "at the", "mediodía": "noon",
+        "comimos": "we ate", "arroz": "rice", "con": "with", "coco": "coconut", "pescado": "fish", "frito": "fried", "cerca": "near",
+        "del": "of the", "mar": "sea", "domingo": "Sunday", "fuimos": "we went", "lancha": "boat, launch", "una": "an", "isla": "island",
+        "pero": "but", "se": "herself (se mareó: got seasick)", "mareó": "got seasick (with se)", "poco": "little (un poco: a little)",
+        "fue": "it was", "viaje": "trip", "corto": "short", "queremos": "we want", "volver": "to go back", "pronto": "soon"
+      },
+      "questions": [
+        { "q": "¿Cómo llegaron a Cartagena?", "qEn": "How did they get to Cartagena?", "options": [{ "text": "En avión", "en": "By plane" }, { "text": "En bus", "en": "By bus" }, { "text": "En lancha", "en": "By boat" }], "answer": 0 },
+        { "q": "¿Qué comieron al mediodía?", "qEn": "What did they eat at noon?", "options": [{ "text": "Arroz con coco y pescado frito", "en": "Coconut rice and fried fish" }, { "text": "Arepas con queso", "en": "Arepas with cheese" }, { "text": "Pollo con papas", "en": "Chicken with potatoes" }], "answer": 0 },
+        { "q": "¿Qué le pasó a la hermana en la lancha?", "qEn": "What happened to the sister on the boat?", "options": [{ "text": "Se mareó un poco", "en": "She got a little seasick" }, { "text": "Perdió su teléfono", "en": "She lost her phone" }, { "text": "Se durmió", "en": "She fell asleep" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-doctor",
+      "level": 3,
+      "kind": "dialogue",
+      "title": "En el médico",
+      "en": "At the doctor's",
+      "speakers": { "doctora": { "name": "Doctora Ramírez", "voice": "a" }, "pablo": { "name": "Pablo", "voice": "b" } },
+      "lines": [
+        { "speaker": "doctora", "text": "Buenas tardes, Pablo. ¿Qué le pasa?", "en": "Good afternoon, Pablo. What's wrong?" },
+        { "speaker": "pablo", "text": "Me duele la garganta desde ayer y tengo un poco de fiebre.", "en": "My throat has hurt since yesterday and I have a bit of a fever." },
+        { "speaker": "doctora", "text": "¿Tiene tos también?", "en": "Do you have a cough too?" },
+        { "speaker": "pablo", "text": "Sí, sobre todo por la noche. No puedo dormir bien.", "en": "Yes, especially at night. I can't sleep well." },
+        { "speaker": "doctora", "text": "Parece una gripa. Tome este jarabe tres veces al día y beba mucha agua.", "en": "It looks like the flu. Take this syrup three times a day and drink lots of water." },
+        { "speaker": "pablo", "text": "¿Puedo ir a trabajar mañana?", "en": "Can I go to work tomorrow?" },
+        { "speaker": "doctora", "text": "Mejor descanse dos días en casa.", "en": "Better rest at home for two days." }
+      ],
+      "glossary": {
+        "buenas": "good", "tardes": "afternoons (buenas tardes: good afternoon)", "pablo": "Pablo (a name)", "qué": "what",
+        "le": "to you (formal)", "pasa": "happens (¿qué le pasa?: what's wrong?)", "me": "me, to me", "duele": "hurts", "la": "the",
+        "garganta": "throat", "desde": "since", "ayer": "yesterday", "y": "and", "tengo": "I have", "un": "a", "poco": "little (un poco de: a bit of)",
+        "de": "of", "fiebre": "fever", "tiene": "you have (formal)", "tos": "cough", "también": "too, also", "sí": "yes",
+        "sobre": "above (sobre todo: especially)", "todo": "all (sobre todo: especially)", "por": "at (por la noche: at night)",
+        "noche": "night", "no": "not", "puedo": "I can", "dormir": "to sleep", "bien": "well", "parece": "it seems, it looks like",
+        "una": "a", "gripa": "flu (Colombian Spanish)", "tome": "take (formal)", "este": "this", "jarabe": "syrup", "tres": "three",
+        "veces": "times", "al": "per (al día: a day)", "día": "day", "beba": "drink (formal)", "mucha": "a lot of", "agua": "water",
+        "ir": "to go", "a": "to", "trabajar": "to work", "mañana": "tomorrow", "mejor": "better", "descanse": "rest (formal)",
+        "dos": "two", "días": "days", "en": "at", "casa": "home"
+      },
+      "questions": [
+        { "q": "¿Desde cuándo le duele la garganta a Pablo?", "qEn": "Since when has Pablo's throat hurt?", "options": [{ "text": "Desde ayer", "en": "Since yesterday" }, { "text": "Desde hace una semana", "en": "For a week" }, { "text": "Desde esta mañana", "en": "Since this morning" }], "answer": 0 },
+        { "q": "¿Cuántas veces al día debe tomar el jarabe?", "qEn": "How many times a day should he take the syrup?", "options": [{ "text": "Tres", "en": "Three" }, { "text": "Una", "en": "One" }, { "text": "Dos", "en": "Two" }], "answer": 0 },
+        { "q": "¿Qué le dice la doctora sobre el trabajo?", "qEn": "What does the doctor tell him about work?", "options": [{ "text": "Que descanse dos días en casa", "en": "To rest at home for two days" }, { "text": "Que vaya mañana", "en": "To go tomorrow" }, { "text": "Que trabaje desde casa", "en": "To work from home" }], "answer": 0 }
+      ]
+    }
+  ]
+}

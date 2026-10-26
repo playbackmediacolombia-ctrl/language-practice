@@ -35,6 +35,15 @@ VOICES = {
     "fr": "fr-FR-DeniseNeural",
     "zh": "zh-CN-XiaoxiaoNeural",
 }
+# Stories and dialogues: assets/audio/stories/<lang>/<story id>-<line>.mp3. Narration and dialogue
+# speakers with "voice": "a" use VOICES; speakers with "voice": "b" use this second (male) voice.
+STORIES_DIR = ROOT / "shared" / "stories"
+STORIES_AUDIO_DIR = AUDIO_DIR / "stories"
+SECOND_VOICES = {
+    "es": "es-CO-GonzaloNeural",
+    "fr": "fr-FR-HenriNeural",
+    "zh": "zh-CN-YunxiNeural",
+}
 # Slightly slower than normal speech, easier for a learner to follow.
 RATE = "-10%"
 
@@ -100,6 +109,30 @@ async def main() -> None:
                 print(f"feedback {lang}  {name}: {line['text']}")
                 await synth(line["text"], voice, out)
                 texts[name] = line["text"]
+                made += 1
+        texts_file.write_text(json.dumps(texts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    for lang, voice in VOICES.items():
+        file = STORIES_DIR / f"{lang}.json"
+        if not file.exists():
+            continue
+        folder = STORIES_AUDIO_DIR / lang
+        folder.mkdir(parents=True, exist_ok=True)
+        texts_file = folder / "texts.json"
+        texts = json.loads(texts_file.read_text(encoding="utf-8")) if texts_file.exists() else {}
+        for story in json.loads(file.read_text(encoding="utf-8"))["stories"]:
+            speakers = story.get("speakers", {})
+            for i, line in enumerate(story["lines"]):
+                name = f"{story['id']}-{i}"
+                who = speakers.get(line.get("speaker"), {}).get("voice", "a")
+                line_voice = SECOND_VOICES[lang] if who == "b" else voice
+                key = f"{line_voice}|{line['text']}"
+                out = folder / f"{name}.mp3"
+                if out.exists() and out.stat().st_size > 0 and texts.get(name) == key:
+                    continue
+                print(f"story {lang}  {name}: {line['text']}")
+                await synth(line["text"], line_voice, out)
+                texts[name] = key
                 made += 1
         texts_file.write_text(json.dumps(texts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
