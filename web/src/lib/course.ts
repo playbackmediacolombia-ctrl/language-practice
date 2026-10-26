@@ -44,7 +44,7 @@ const COURSES: Record<Lang, RawCourse> = { es, fr, zh } as Record<Lang, RawCours
 function defaultTiles(text: string): string[] {
   return text
     .split(/\s+/)
-    .map((w) => w.replace(/^[¿¡"“]+|[.,!?;:"”]+$/g, ''))
+    .map((w) => w.replace(/^[¿¡"“]+|[.,!?;:"”…]+$/g, ''))
     .filter(Boolean);
 }
 

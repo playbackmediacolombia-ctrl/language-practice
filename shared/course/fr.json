@@ -737,6 +737,132 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u18",
+      "title": "Idioms",
+      "lessons": [
+        {
+          "id": "fr-18-1",
+          "title": "Everyday idioms",
+          "items": [
+            { "id": "etre-dans-la-lune", "text": "Tu es dans la lune.", "en": "You're daydreaming. (lit. in the moon)" },
+            { "id": "couter-les-yeux-de-la-tete", "text": "Ça m'a coûté les yeux de la tête.", "en": "It cost me an arm and a leg." },
+            { "id": "ne-pas-avoir-la-langue-dans-sa-poche", "text": "Elle n'a pas la langue dans sa poche.", "en": "She's never at a loss for words." },
+            { "id": "faire-une-gaffe", "text": "J'ai fait une gaffe.", "en": "I put my foot in it." },
+            { "id": "tu-me-fais-marcher", "text": "Tu me fais marcher !", "en": "You're pulling my leg!" },
+            { "id": "cest-du-gateau", "text": "C'est du gâteau.", "en": "It's a piece of cake." }
+          ]
+        },
+        {
+          "id": "fr-18-2",
+          "title": "More idioms",
+          "items": [
+            { "id": "mettre-dans-le-mille", "text": "Tu as mis dans le mille.", "en": "You hit the nail on the head." },
+            { "id": "je-suis-creve", "text": "Je suis crevé.", "en": "I'm exhausted. (man)" },
+            { "id": "se-bouger", "text": "Bouge-toi un peu !", "en": "Get your act together!" },
+            { "id": "pas-ferme-loeil", "text": "Je n'ai pas fermé l'œil de la nuit.", "en": "I didn't sleep a wink all night." },
+            { "id": "avoir-le-cafard", "text": "J'ai le cafard.", "en": "I'm feeling down." },
+            { "id": "poser-un-lapin", "text": "Il m'a posé un lapin.", "en": "He stood me up." }
+          ]
+        },
+        {
+          "id": "fr-18-3",
+          "title": "Sayings",
+          "items": [
+            { "id": "mieux-vaut-tard-que-jamais", "text": "Mieux vaut tard que jamais.", "en": "Better late than never." },
+            { "id": "la-parole-est-dargent", "text": "La parole est d'argent, le silence est d'or.", "en": "Speech is silver, silence is golden." },
+            { "id": "qui-va-a-la-chasse", "text": "Qui va à la chasse perd sa place.", "en": "You snooze, you lose." },
+            { "id": "plus-facile-a-dire", "text": "C'est plus facile à dire qu'à faire.", "en": "Easier said than done." },
+            { "id": "a-quelque-chose-malheur-est-bon", "text": "À quelque chose malheur est bon.", "en": "Every cloud has a silver lining." },
+            { "id": "qui-se-ressemble-sassemble", "text": "Qui se ressemble s'assemble.", "en": "Birds of a feather flock together." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u19",
+      "title": "Slang",
+      "lessons": [
+        {
+          "id": "fr-19-1",
+          "title": "Everyday slang",
+          "items": [
+            { "id": "cest-ouf", "text": "C'est ouf !", "en": "That's crazy! (verlan of fou)" },
+            { "id": "bosser", "text": "bosser", "en": "to work (slang)" },
+            { "id": "un-truc", "text": "un truc", "en": "a thing, a whatsit" },
+            { "id": "je-kiffe", "text": "Je kiffe trop cette chanson.", "en": "I really love this song." },
+            { "id": "cest-relou", "text": "C'est relou.", "en": "That's annoying. (verlan of lourd)" },
+            { "id": "jai-la-flemme", "text": "J'ai la flemme.", "en": "I can't be bothered." }
+          ]
+        },
+        {
+          "id": "fr-19-2",
+          "title": "Fillers and reactions",
+          "items": [
+            { "id": "du-coup", "text": "du coup", "en": "so, as a result" },
+            { "id": "bah", "text": "Bah, je sais pas.", "en": "Well, I dunno." },
+            { "id": "genre", "text": "Il était genre super énervé.", "en": "He was, like, really angry." },
+            { "id": "serieux", "text": "Sérieux ?", "en": "Seriously?" },
+            { "id": "la-honte", "text": "La honte !", "en": "How embarrassing!" },
+            { "id": "tant-pis", "text": "Tant pis.", "en": "Oh well, never mind." }
+          ]
+        },
+        {
+          "id": "fr-19-3",
+          "title": "Talking casually",
+          "items": [
+            { "id": "chais-pas", "text": "Chais pas.", "en": "Dunno. (casual \"je ne sais pas\")" },
+            { "id": "ty-vas-quand", "text": "T'y vas quand ?", "en": "When are you going? (casual)" },
+            { "id": "je-suis-fauche", "text": "Je suis fauché.", "en": "I'm broke. (man)" },
+            { "id": "ca-roule", "text": "Ça roule ?", "en": "How's it going?" },
+            { "id": "tinquiete", "text": "T'inquiète !", "en": "No worries! (casual)" },
+            { "id": "a-plus", "text": "À plus !", "en": "Catch you later!" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u20",
+      "title": "Fluent conversation",
+      "lessons": [
+        {
+          "id": "fr-20-1",
+          "title": "Small talk with nuance",
+          "items": [
+            { "id": "ca-fait-une-eternite", "text": "Ça fait une éternité !", "en": "It's been ages!" },
+            { "id": "quest-ce-que-tu-deviens", "text": "Qu'est-ce que tu deviens ?", "en": "What have you been up to?" },
+            { "id": "on-fait-aller", "text": "On fait aller.", "en": "Getting by." },
+            { "id": "men-parle-pas", "text": "M'en parle pas.", "en": "Don't get me started." },
+            { "id": "je-suis-content-que-ca-aille-bien", "text": "Je suis content que ça aille bien pour toi.", "en": "I'm glad things are going well for you." },
+            { "id": "faut-quon-se-voie", "text": "Faut qu'on se voie un de ces jours.", "en": "We should get together one of these days." }
+          ]
+        },
+        {
+          "id": "fr-20-2",
+          "title": "Telling a story well",
+          "items": [
+            { "id": "tu-vas-pas-croire", "text": "Tu vas pas croire ce qui m'est arrivé.", "en": "You're not going to believe what happened to me." },
+            { "id": "en-fait", "text": "En fait, il avait oublié.", "en": "Actually, he had forgotten." },
+            { "id": "bref-on-a-rate-le-train", "text": "Bref, on a raté le train.", "en": "Long story short, we missed the train." },
+            { "id": "et-pour-couronner-le-tout", "text": "Et pour couronner le tout, il s'est mis à pleuvoir.", "en": "And to top it all off, it started to rain." },
+            { "id": "jetais-mort-de-rire", "text": "J'étais mort de rire.", "en": "I was dying of laughter. (man)" },
+            { "id": "au-final", "text": "Au final, tout s'est bien passé.", "en": "In the end, everything went fine." }
+          ]
+        },
+        {
+          "id": "fr-20-3",
+          "title": "Clearing things up",
+          "items": [
+            { "id": "ce-que-je-voulais-dire", "text": "Ce que je voulais dire, c'est que…", "en": "What I meant was that…" },
+            { "id": "autrement-dit", "text": "Autrement dit…", "en": "In other words…" },
+            { "id": "tu-veux-dire-quoi", "text": "Tu veux dire quoi par là ?", "en": "What do you mean by that?" },
+            { "id": "comprends-moi-bien", "text": "Comprends-moi bien.", "en": "Don't get me wrong." },
+            { "id": "tu-vois-ce-que-je-veux-dire", "text": "Tu vois ce que je veux dire ?", "en": "Do you see what I mean?" },
+            { "id": "ah-jy-suis", "text": "Ah, j'y suis !", "en": "Oh, now I get it!" }
+          ]
+        }
+      ]
     }
   ]
 }

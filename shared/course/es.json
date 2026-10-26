@@ -735,6 +735,132 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u18",
+      "title": "Idioms",
+      "lessons": [
+        {
+          "id": "es-18-1",
+          "title": "Everyday idioms",
+          "items": [
+            { "id": "estar-en-las-nubes", "text": "Estás en las nubes.", "en": "You're daydreaming. (lit. in the clouds)" },
+            { "id": "costar-un-ojo-de-la-cara", "text": "Me costó un ojo de la cara.", "en": "It cost me an arm and a leg." },
+            { "id": "no-tener-pelos-en-la-lengua", "text": "No tiene pelos en la lengua.", "en": "She doesn't mince her words." },
+            { "id": "meter-la-pata", "text": "Metí la pata.", "en": "I put my foot in it." },
+            { "id": "tomar-el-pelo", "text": "Me estás tomando el pelo.", "en": "You're pulling my leg." },
+            { "id": "ser-pan-comido", "text": "Es pan comido.", "en": "It's a piece of cake." }
+          ]
+        },
+        {
+          "id": "es-18-2",
+          "title": "More idioms",
+          "items": [
+            { "id": "dar-en-el-clavo", "text": "Diste en el clavo.", "en": "You hit the nail on the head." },
+            { "id": "estar-hecho-polvo", "text": "Estoy hecho polvo.", "en": "I'm exhausted. (man)" },
+            { "id": "ponerse-las-pilas", "text": "Ponte las pilas.", "en": "Get your act together." },
+            { "id": "no-pegar-el-ojo", "text": "No pegué el ojo en toda la noche.", "en": "I didn't sleep a wink all night." },
+            { "id": "estar-entre-la-espada-y-la-pared", "text": "Estoy entre la espada y la pared.", "en": "I'm between a rock and a hard place." },
+            { "id": "hablar-hasta-por-los-codos", "text": "Habla hasta por los codos.", "en": "He talks nonstop." }
+          ]
+        },
+        {
+          "id": "es-18-3",
+          "title": "Sayings",
+          "items": [
+            { "id": "mas-vale-tarde-que-nunca", "text": "Más vale tarde que nunca.", "en": "Better late than never." },
+            { "id": "en-boca-cerrada", "text": "En boca cerrada no entran moscas.", "en": "Silence is golden. (lit. flies don't enter a closed mouth)" },
+            { "id": "camaron-que-se-duerme", "text": "Camarón que se duerme se lo lleva la corriente.", "en": "You snooze, you lose." },
+            { "id": "del-dicho-al-hecho", "text": "Del dicho al hecho hay mucho trecho.", "en": "Easier said than done." },
+            { "id": "no-hay-mal-que-por-bien-no-venga", "text": "No hay mal que por bien no venga.", "en": "Every cloud has a silver lining." },
+            { "id": "dime-con-quien-andas", "text": "Dime con quién andas y te diré quién eres.", "en": "You are the company you keep." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u19",
+      "title": "Slang",
+      "lessons": [
+        {
+          "id": "es-19-1",
+          "title": "Colombian slang",
+          "items": [
+            { "id": "que-chevere", "text": "¡Qué chévere!", "en": "How cool!" },
+            { "id": "parce", "text": "parce", "en": "buddy, mate" },
+            { "id": "que-pena-con-usted", "text": "Qué pena con usted.", "en": "I'm so sorry to trouble you. (Colombia)" },
+            { "id": "de-una", "text": "¡De una!", "en": "Sure, let's do it!" },
+            { "id": "me-da-mamera", "text": "Me da mamera.", "en": "I can't be bothered. (Colombia)" },
+            { "id": "esta-muy-bacano", "text": "Está muy bacano.", "en": "It's really great. (Colombia)" }
+          ]
+        },
+        {
+          "id": "es-19-2",
+          "title": "Fillers and reactions",
+          "items": [
+            { "id": "o-sea", "text": "o sea", "en": "I mean, like" },
+            { "id": "bueno-pues", "text": "Bueno, pues…", "en": "Well then…" },
+            { "id": "en-serio", "text": "¿En serio?", "en": "Seriously?" },
+            { "id": "que-oso", "text": "¡Qué oso!", "en": "How embarrassing! (Latin America)" },
+            { "id": "ni-modo", "text": "Ni modo.", "en": "Oh well, nothing we can do." },
+            { "id": "a-poco", "text": "¿A poco?", "en": "Really? No way! (Mexico)" }
+          ]
+        },
+        {
+          "id": "es-19-3",
+          "title": "Talking casually",
+          "items": [
+            { "id": "pa-que", "text": "¿Pa' qué?", "en": "What for? (casual)" },
+            { "id": "no-me-late", "text": "No me late.", "en": "I'm not into it. (Mexico)" },
+            { "id": "estoy-pelado", "text": "Estoy pelado.", "en": "I'm broke. (Colombia, man)" },
+            { "id": "que-mas-parce", "text": "¿Qué más, parce? ¿Todo bien?", "en": "What's up, buddy? All good?" },
+            { "id": "todo-bien-todo-bien", "text": "Todo bien, todo bien.", "en": "All good, no worries." },
+            { "id": "nos-pillamos", "text": "Nos pillamos luego.", "en": "Catch you later." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u20",
+      "title": "Fluent conversation",
+      "lessons": [
+        {
+          "id": "es-20-1",
+          "title": "Small talk with nuance",
+          "items": [
+            { "id": "ha-pasado-mucho-tiempo", "text": "¡Cuánto tiempo sin verte!", "en": "Long time no see!" },
+            { "id": "que-ha-sido-de-tu-vida", "text": "¿Qué ha sido de tu vida?", "en": "What have you been up to?" },
+            { "id": "ahi-vamos", "text": "Ahí vamos, sobreviviendo.", "en": "Getting by, surviving." },
+            { "id": "ni-me-lo-recuerdes", "text": "Ni me lo recuerdes.", "en": "Don't remind me." },
+            { "id": "me-alegra-que-te-vaya-bien", "text": "Me alegra que te vaya bien.", "en": "I'm glad things are going well for you." },
+            { "id": "a-ver-si-nos-vemos-un-dia-de-estos", "text": "A ver si nos vemos un día de estos.", "en": "Let's get together one of these days." }
+          ]
+        },
+        {
+          "id": "es-20-2",
+          "title": "Telling a story well",
+          "items": [
+            { "id": "no-vas-a-creer-lo-que-me-paso", "text": "No vas a creer lo que me pasó.", "en": "You're not going to believe what happened to me." },
+            { "id": "resulta-que", "text": "Resulta que se le había olvidado.", "en": "It turns out he had forgotten." },
+            { "id": "total-que", "text": "Total, que perdimos el tren.", "en": "Long story short, we missed the train." },
+            { "id": "y-para-colmo", "text": "Y para colmo, empezó a llover.", "en": "And to top it all off, it started to rain." },
+            { "id": "me-mori-de-la-risa", "text": "Me morí de la risa.", "en": "I died laughing." },
+            { "id": "al-fin-y-al-cabo", "text": "Al fin y al cabo, todo salió bien.", "en": "In the end, everything turned out fine." }
+          ]
+        },
+        {
+          "id": "es-20-3",
+          "title": "Clearing things up",
+          "items": [
+            { "id": "lo-que-quise-decir", "text": "Lo que quise decir es que…", "en": "What I meant was that…" },
+            { "id": "dicho-de-otra-manera", "text": "Dicho de otra manera…", "en": "To put it another way…" },
+            { "id": "a-que-te-refieres", "text": "¿A qué te refieres?", "en": "What do you mean?" },
+            { "id": "no-me-malinterpretes", "text": "No me malinterpretes.", "en": "Don't get me wrong." },
+            { "id": "me-explico", "text": "¿Me explico?", "en": "Do you see what I mean?" },
+            { "id": "ahora-caigo", "text": "¡Ah, ahora caigo!", "en": "Oh, now I get it!" }
+          ]
+        }
+      ]
     }
   ]
 }

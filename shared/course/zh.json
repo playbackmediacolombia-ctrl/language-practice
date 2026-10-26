@@ -734,6 +734,132 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u18",
+      "title": "Idioms",
+      "lessons": [
+        {
+          "id": "zh-18-1",
+          "title": "Everyday expressions",
+          "items": [
+            { "id": "ma-ma-huhu", "text": "马马虎虎", "pinyin": "mǎmǎhūhū", "en": "so-so, careless" },
+            { "id": "luan-qi-ba-zao", "text": "乱七八糟", "pinyin": "luàn qī bā zāo", "en": "a total mess" },
+            { "id": "ni-zhen-you-yitao", "text": "你真有一套", "pinyin": "nǐ zhēn yǒu yí tào", "en": "You really know your stuff.", "tiles": ["你", "真", "有", "一套"] },
+            { "id": "wo-shuo-lou-zui-le", "text": "我说漏嘴了", "pinyin": "wǒ shuō lòu zuǐ le", "en": "I let it slip.", "tiles": ["我", "说", "漏嘴", "了"] },
+            { "id": "ni-kai-wanxiao-ba", "text": "你开玩笑吧", "pinyin": "nǐ kāi wánxiào ba", "en": "You're kidding, right?", "tiles": ["你", "开玩笑", "吧"] },
+            { "id": "xiao-cai-yi-die", "text": "小菜一碟", "pinyin": "xiǎo cài yì dié", "en": "a piece of cake" }
+          ]
+        },
+        {
+          "id": "zh-18-2",
+          "title": "Chengyu: four-character idioms",
+          "items": [
+            { "id": "yi-jian-shuang-diao", "text": "一箭双雕", "pinyin": "yí jiàn shuāng diāo", "en": "kill two birds with one stone" },
+            { "id": "ru-xiang-sui-su", "text": "入乡随俗", "pinyin": "rù xiāng suí sú", "en": "when in Rome, do as the Romans do" },
+            { "id": "ma-dao-chenggong", "text": "马到成功", "pinyin": "mǎ dào chénggōng", "en": "instant success (a good-luck wish)" },
+            { "id": "hua-she-tian-zu", "text": "画蛇添足", "pinyin": "huà shé tiān zú", "en": "to overdo it (lit. draw legs on a snake)" },
+            { "id": "dui-niu-tan-qin", "text": "对牛弹琴", "pinyin": "duì niú tán qín", "en": "to waste your words (lit. play the lute to a cow)" },
+            { "id": "ban-tu-er-fei", "text": "半途而废", "pinyin": "bàn tú ér fèi", "en": "to give up halfway" }
+          ]
+        },
+        {
+          "id": "zh-18-3",
+          "title": "Sayings",
+          "items": [
+            { "id": "haojiu-bujian", "text": "好久不见", "pinyin": "hǎojiǔ bú jiàn", "en": "long time no see", "tiles": ["好久", "不见"] },
+            { "id": "shuo-qilai-rongyi", "text": "说起来容易，做起来难", "pinyin": "shuō qǐlai róngyì, zuò qǐlai nán", "en": "Easier said than done.", "tiles": ["说起来", "容易", "做起来", "难"] },
+            { "id": "sai-weng-shi-ma", "text": "塞翁失马，焉知非福", "pinyin": "sài wēng shī mǎ, yān zhī fēi fú", "en": "A loss may turn out to be a blessing.", "tiles": ["塞翁失马", "焉知非福"] },
+            { "id": "qianli-zhi-xing", "text": "千里之行，始于足下", "pinyin": "qiān lǐ zhī xíng, shǐ yú zú xià", "en": "A journey of a thousand miles begins with a single step.", "tiles": ["千里之行", "始于足下"] },
+            { "id": "jin-zhu-zhe-chi", "text": "近朱者赤，近墨者黑", "pinyin": "jìn zhū zhě chì, jìn mò zhě hēi", "en": "You are the company you keep.", "tiles": ["近朱者赤", "近墨者黑"] },
+            { "id": "ren-wai-you-ren", "text": "人外有人，天外有天", "pinyin": "rén wài yǒu rén, tiān wài yǒu tiān", "en": "There's always someone better.", "tiles": ["人外有人", "天外有天"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u19",
+      "title": "Slang",
+      "lessons": [
+        {
+          "id": "zh-19-1",
+          "title": "Internet slang",
+          "items": [
+            { "id": "niu", "text": "太牛了！", "pinyin": "tài niú le!", "en": "That's awesome!", "tiles": ["太", "牛", "了"] },
+            { "id": "kaopu", "text": "靠谱", "pinyin": "kàopǔ", "en": "reliable, legit" },
+            { "id": "chi-gua", "text": "吃瓜", "pinyin": "chī guā", "en": "to watch the drama unfold (lit. eat melon)" },
+            { "id": "tang-ping", "text": "躺平", "pinyin": "tǎng píng", "en": "to opt out of the rat race (lit. lie flat)" },
+            { "id": "yyds", "text": "永远的神", "pinyin": "yǒngyuǎn de shén", "en": "the GOAT (lit. god forever)", "tiles": ["永远", "的", "神"] },
+            { "id": "pofang-le", "text": "我破防了", "pinyin": "wǒ pò fáng le", "en": "That got to me. / I'm emotionally wrecked.", "tiles": ["我", "破防", "了"] }
+          ]
+        },
+        {
+          "id": "zh-19-2",
+          "title": "Fillers and reactions",
+          "items": [
+            { "id": "neige", "text": "那个……", "pinyin": "nèige……", "en": "um… (filler)" },
+            { "id": "jiushi-shuo", "text": "就是说", "pinyin": "jiùshì shuō", "en": "I mean, that is", "tiles": ["就是", "说"] },
+            { "id": "zhende-jiade", "text": "真的假的？", "pinyin": "zhēn de jiǎ de?", "en": "For real?", "tiles": ["真的", "假的"] },
+            { "id": "wo-qu", "text": "我去！", "pinyin": "wǒ qù!", "en": "Whoa! / No way! (exclamation)", "tiles": ["我", "去"] },
+            { "id": "ganga", "text": "好尴尬", "pinyin": "hǎo gāngà", "en": "So awkward!", "tiles": ["好", "尴尬"] },
+            { "id": "suan-le", "text": "算了", "pinyin": "suàn le", "en": "Forget it. / Never mind.", "tiles": ["算", "了"] }
+          ]
+        },
+        {
+          "id": "zh-19-3",
+          "title": "Talking casually",
+          "items": [
+            { "id": "za-le", "text": "咋了？", "pinyin": "zǎ le?", "en": "What's up? What happened? (casual)", "tiles": ["咋", "了"] },
+            { "id": "gan-ma-ne", "text": "干吗呢？", "pinyin": "gàn má ne?", "en": "What are you up to?", "tiles": ["干吗", "呢"] },
+            { "id": "wo-qiong-si-le", "text": "我穷死了", "pinyin": "wǒ qióng sǐ le", "en": "I'm totally broke.", "tiles": ["我", "穷", "死", "了"] },
+            { "id": "mei-shir", "text": "没事儿", "pinyin": "méi shìr", "en": "No problem. / It's nothing.", "tiles": ["没", "事儿"] },
+            { "id": "xing-a", "text": "行啊", "pinyin": "xíng a", "en": "Sure, okay.", "tiles": ["行", "啊"] },
+            { "id": "zou-le-a", "text": "走了啊，拜拜", "pinyin": "zǒu le a, báibái", "en": "I'm off, bye-bye.", "tiles": ["走", "了", "啊", "拜拜"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u20",
+      "title": "Fluent conversation",
+      "lessons": [
+        {
+          "id": "zh-20-1",
+          "title": "Small talk with nuance",
+          "items": [
+            { "id": "haojiu-bujian-zuijin-mang-shenme", "text": "好久不见！最近忙什么呢？", "pinyin": "hǎojiǔ bú jiàn! zuìjìn máng shénme ne?", "en": "Long time no see! What have you been up to?", "tiles": ["好久", "不见", "最近", "忙", "什么", "呢"] },
+            { "id": "hai-xing-hunrizi", "text": "还行，混日子呗", "pinyin": "hái xíng, hùn rìzi bei", "en": "Okay, just getting by.", "tiles": ["还行", "混", "日子", "呗"] },
+            { "id": "bie-ti-le", "text": "别提了", "pinyin": "bié tí le", "en": "Don't get me started.", "tiles": ["别", "提", "了"] },
+            { "id": "ting-dao-ni-guo-de-hao", "text": "听到你过得好，我很高兴", "pinyin": "tīngdào nǐ guò de hǎo, wǒ hěn gāoxìng", "en": "I'm glad to hear you're doing well.", "tiles": ["听到", "你", "过", "得", "好", "我", "很", "高兴"] },
+            { "id": "gai-tian-yiqi-chi-ge-fan", "text": "改天一起吃个饭吧", "pinyin": "gǎitiān yìqǐ chī ge fàn ba", "en": "Let's get a meal together sometime.", "tiles": ["改天", "一起", "吃", "个", "饭", "吧"] },
+            { "id": "yiyan-nanjin", "text": "一言难尽", "pinyin": "yì yán nán jìn", "en": "It's a long story." }
+          ]
+        },
+        {
+          "id": "zh-20-2",
+          "title": "Telling a story well",
+          "items": [
+            { "id": "ni-cai-zenmezhe", "text": "你猜怎么着？", "pinyin": "nǐ cāi zěnmezhe?", "en": "Guess what?", "tiles": ["你", "猜", "怎么着"] },
+            { "id": "yuanlai-ta-wang-le", "text": "原来他忘了", "pinyin": "yuánlái tā wàng le", "en": "It turned out he had forgotten.", "tiles": ["原来", "他", "忘", "了"] },
+            { "id": "jieguo-women-mei-ganshang", "text": "结果我们没赶上火车", "pinyin": "jiéguǒ wǒmen méi gǎnshàng huǒchē", "en": "In the end, we missed the train.", "tiles": ["结果", "我们", "没", "赶上", "火车"] },
+            { "id": "geng-zao-gao-de-shi", "text": "更糟糕的是，开始下雨了", "pinyin": "gèng zāogāo de shì, kāishǐ xià yǔ le", "en": "Worse still, it started to rain.", "tiles": ["更", "糟糕", "的", "是", "开始", "下雨", "了"] },
+            { "id": "xiao-si-wo-le", "text": "笑死我了", "pinyin": "xiào sǐ wǒ le", "en": "I'm dying of laughter.", "tiles": ["笑", "死", "我", "了"] },
+            { "id": "haozai-zuihou-dou-ting-shunli", "text": "好在最后都挺顺利的", "pinyin": "hǎozài zuìhòu dōu tǐng shùnlì de", "en": "Luckily, in the end it all went smoothly.", "tiles": ["好在", "最后", "都", "挺", "顺利", "的"] }
+          ]
+        },
+        {
+          "id": "zh-20-3",
+          "title": "Clearing things up",
+          "items": [
+            { "id": "wo-de-yisi-shi", "text": "我的意思是……", "pinyin": "wǒ de yìsi shì……", "en": "What I mean is…", "tiles": ["我的", "意思", "是"] },
+            { "id": "huan-ju-hua-shuo", "text": "换句话说", "pinyin": "huàn jù huà shuō", "en": "In other words", "tiles": ["换", "句", "话", "说"] },
+            { "id": "ni-shi-shuo", "text": "你是说……？", "pinyin": "nǐ shì shuō……?", "en": "You mean…?", "tiles": ["你", "是", "说"] },
+            { "id": "bie-wuhui", "text": "别误会", "pinyin": "bié wùhuì", "en": "Don't get me wrong.", "tiles": ["别", "误会"] },
+            { "id": "ni-dong-wo-yisi-ma", "text": "你懂我的意思吗？", "pinyin": "nǐ dǒng wǒ de yìsi ma?", "en": "Do you get what I mean?", "tiles": ["你", "懂", "我的", "意思", "吗"] },
+            { "id": "o-wo-mingbai-le", "text": "哦，我明白了！", "pinyin": "ò, wǒ míngbai le!", "en": "Oh, now I get it!", "tiles": ["哦", "我", "明白", "了"] }
+          ]
+        }
+      ]
     }
   ]
 }
