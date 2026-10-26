@@ -1,0 +1,120 @@
+{
+  "articles": [
+    {
+      "id": "fr-news-bikes", "level": 5, "kind": "article",
+      "title": "Lyon teste des vélos électriques gratuits", "en": "Lyon trials free electric bikes",
+      "place": "Lyon",
+      "lines": [
+        { "text": "La métropole de Lyon a lancé un programme pilote de vélos électriques gratuits dans trois quartiers.", "en": "Greater Lyon has launched a pilot program of free electric bikes in three neighborhoods." },
+        { "text": "Pendant six mois, toute personne de plus de seize ans pourra les utiliser jusqu'à une heure par jour.", "en": "For six months, anyone over sixteen will be able to use them for up to an hour a day." },
+        { "text": "Pour déverrouiller un vélo, il suffit de s'inscrire sur une application et de scanner un code.", "en": "To unlock a bike, you just sign up in an app and scan a code." },
+        { "text": "Selon les organisateurs, l'objectif est de réduire les embouteillages et la pollution aux heures de pointe.", "en": "According to the organizers, the goal is to cut traffic jams and pollution at rush hour." },
+        { "text": "Certains commerçants craignent que les stations ne prennent des places de stationnement devant leurs boutiques.", "en": "Some shop owners fear the stations will take parking spaces in front of their shops." },
+        { "text": "D'autres, au contraire, estiment que davantage de cyclistes signifie davantage de clients dans le quartier.", "en": "Others, on the contrary, believe more cyclists means more customers in the neighborhood." },
+        { "text": "Si les résultats sont concluants, le dispositif pourrait être étendu à toute la ville l'an prochain.", "en": "If the results are conclusive, the scheme could be extended to the whole city next year." }
+      ],
+      "glossary": {
+        "métropole": "metropolitan area, greater city", "lancé": "launched", "programme": "program", "pilote": "pilot, trial", "vélos": "bikes", "électriques": "electric", "gratuits": "free (of charge)", "quartiers": "neighborhoods",
+        "pendant": "for, during", "mois": "month(s)", "toute": "any, every", "personne": "person", "plus": "more (de plus de = over)", "seize": "sixteen", "ans": "years (old)", "pourra": "will be able to", "utiliser": "to use", "jusqu'à": "up to", "heure": "hour", "jour": "day",
+        "déverrouiller": "to unlock", "suffit": "il suffit de = you just have to", "s'inscrire": "to sign up", "application": "app", "scanner": "to scan", "code": "code",
+        "selon": "according to", "organisateurs": "organizers", "l'objectif": "the goal", "réduire": "to reduce", "embouteillages": "traffic jams", "pollution": "pollution", "heures": "hours", "pointe": "peak (heures de pointe = rush hour)",
+        "certains": "some", "commerçants": "shop owners", "craignent": "fear", "stations": "stations", "prennent": "take (subjunctive)", "places": "spaces", "stationnement": "parking", "devant": "in front of", "boutiques": "shops",
+        "d'autres": "others", "contraire": "au contraire = on the contrary", "estiment": "believe, reckon", "davantage": "more", "cyclistes": "cyclists", "signifie": "means", "clients": "customers", "quartier": "neighborhood",
+        "résultats": "results", "concluants": "conclusive", "dispositif": "scheme, system", "pourrait": "could", "étendu": "extended", "ville": "city", "l'an": "the year", "prochain": "next"
+      },
+      "questions": [
+        { "q": "Combien de temps dure le programme pilote ?", "qEn": "How long does the pilot program last?", "options": [{ "text": "Six mois", "en": "Six months" }, { "text": "Un an", "en": "A year" }, { "text": "Trois semaines", "en": "Three weeks" }], "answer": 0 },
+        { "q": "Que faut-il faire pour déverrouiller un vélo ?", "qEn": "What do you have to do to unlock a bike?", "options": [{ "text": "S'inscrire sur une application et scanner un code", "en": "Sign up in an app and scan a code" }, { "text": "Payer à la station", "en": "Pay at the station" }, { "text": "Montrer sa carte d'identité", "en": "Show your ID card" }], "answer": 0 },
+        { "q": "Que craignent certains commerçants ?", "qEn": "What do some shop owners fear?", "options": [{ "text": "De perdre des places de stationnement", "en": "Losing parking spaces" }, { "text": "Une hausse des prix", "en": "A rise in prices" }, { "text": "Plus de bruit", "en": "More noise" }], "answer": 0 },
+        { "q": "Que pourrait-il se passer l'an prochain ?", "qEn": "What could happen next year?", "options": [{ "text": "Le dispositif pourrait s'étendre à toute la ville", "en": "The scheme could cover the whole city" }, { "text": "Les vélos deviendraient payants", "en": "The bikes would no longer be free" }, { "text": "Le programme serait annulé", "en": "The program would be cancelled" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-news-workweek", "level": 5, "kind": "article",
+      "title": "La semaine de quatre jours : le bilan de quarante entreprises", "en": "The four-day week: forty companies take stock",
+      "place": "Bordeaux",
+      "lines": [
+        { "text": "Quarante entreprises de la région bordelaise viennent de terminer un essai de six mois de semaine de quatre jours.", "en": "Forty companies in the Bordeaux area have just finished a six-month trial of a four-day week." },
+        { "text": "Les salariés ont travaillé trente-deux heures par semaine sans baisse de salaire.", "en": "Employees worked thirty-two hours a week with no cut in pay." },
+        { "text": "À l'issue de l'essai, la plupart des entreprises affirment que la productivité est restée stable, voire a augmenté.", "en": "At the end of the trial, most of the companies say productivity held steady or even rose." },
+        { "text": "Les salariés, eux, disent mieux dormir et passer plus de temps en famille.", "en": "The employees, for their part, say they sleep better and spend more time with family." },
+        { "text": "Tout n'a pas été simple pour autant : certains services clients ont dû revoir l'organisation des équipes.", "en": "Not everything was simple, though: some customer service departments had to rethink how teams were organized." },
+        { "text": "Trente-quatre entreprises ont décidé de garder ce nouveau rythme, tandis que six sont revenues à cinq jours.", "en": "Thirty-four companies decided to keep the new pattern, while six went back to five days." },
+        { "text": "Les experts préviennent que le modèle ne convient pas à tous les secteurs, mais saluent une expérience précieuse.", "en": "Experts warn the model doesn't suit every sector, but welcome a valuable experiment." }
+      ],
+      "glossary": {
+        "quarante": "forty", "entreprises": "companies", "région": "region", "bordelaise": "of Bordeaux", "viennent": "viennent de = have just", "terminer": "to finish", "essai": "trial", "mois": "month(s)", "semaine": "week", "quatre": "four", "jours": "days",
+        "salariés": "employees", "travaillé": "worked", "trente-deux": "thirty-two", "heures": "hours", "baisse": "drop, cut", "salaire": "salary, pay",
+        "l'issue": "the end (à l'issue de = at the end of)", "plupart": "la plupart = most", "affirment": "state, say", "productivité": "productivity", "restée": "stayed", "stable": "steady", "voire": "or even", "augmenté": "increased",
+        "eux": "they (for their part)", "disent": "say", "mieux": "better", "dormir": "to sleep", "passer": "to spend", "temps": "time", "famille": "family",
+        "simple": "simple, easy", "autant": "pour autant = though, for all that", "services": "departments, services", "clients": "customers", "dû": "had to", "revoir": "to rethink, review", "l'organisation": "the organization", "équipes": "teams",
+        "trente-quatre": "thirty-four", "décidé": "decided", "garder": "to keep", "nouveau": "new", "rythme": "pace, pattern", "tandis": "tandis que = while", "revenues": "come back, returned", "cinq": "five",
+        "experts": "experts", "préviennent": "warn", "modèle": "model", "convient": "suits", "secteurs": "sectors", "saluent": "welcome, praise", "expérience": "experiment", "précieuse": "valuable"
+      },
+      "questions": [
+        { "q": "Combien d'heures les salariés ont-ils travaillé pendant l'essai ?", "qEn": "How many hours did employees work during the trial?", "options": [{ "text": "Trente-deux par semaine", "en": "Thirty-two a week" }, { "text": "Quarante par semaine", "en": "Forty a week" }, { "text": "Vingt par semaine", "en": "Twenty a week" }], "answer": 0 },
+        { "q": "Qu'est-il arrivé à leur salaire ?", "qEn": "What happened to their pay?", "options": [{ "text": "Il n'a pas baissé", "en": "It wasn't cut" }, { "text": "Il a baissé de vingt pour cent", "en": "It fell by twenty percent" }, { "text": "Il a augmenté", "en": "It went up" }], "answer": 0 },
+        { "q": "Quelle difficulté certains services ont-ils rencontrée ?", "qEn": "What difficulty did some departments run into?", "options": [{ "text": "Ils ont dû revoir l'organisation des équipes", "en": "They had to rethink how teams were organized" }, { "text": "Ils ont perdu des clients", "en": "They lost customers" }, { "text": "Les salariés dormaient moins", "en": "Employees slept less" }], "answer": 0 },
+        { "q": "Combien d'entreprises gardent la semaine de quatre jours ?", "qEn": "How many companies are keeping the four-day week?", "options": [{ "text": "Trente-quatre", "en": "Thirty-four" }, { "text": "Six", "en": "Six" }, { "text": "Quarante", "en": "Forty" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-news-ai-school", "level": 6, "kind": "article",
+      "title": "Tribune : l'IA est entrée en classe. Et maintenant ?", "en": "Opinion: AI has entered the classroom. Now what?",
+      "place": "Lyon",
+      "lines": [
+        { "text": "Il y a à peine deux ans, interdire les chatbots à l'école semblait une décision de bon sens.", "en": "Barely two years ago, banning chatbots at school seemed like common sense." },
+        { "text": "Aujourd'hui, alors que la moitié des élèves s'en servent au quotidien, cette interdiction est pratiquement impossible à faire respecter.", "en": "Today, with half of pupils using them every day, that ban is practically impossible to enforce." },
+        { "text": "Le vrai défi n'est pas technique mais pédagogique : que faut-il évaluer quand une machine rédige une dissertation en quelques secondes ?", "en": "The real challenge isn't technical but pedagogical: what should be assessed when a machine writes an essay in a few seconds?" },
+        { "text": "Certains enseignants sont déjà revenus aux oraux et aux devoirs faits en classe, à la main.", "en": "Some teachers have already gone back to oral exams and homework done by hand in class." },
+        { "text": "D'autres, plutôt que de combattre l'outil, apprennent à leurs élèves à remettre en question ses réponses et à repérer ses erreurs.", "en": "Others, rather than fighting the tool, teach their pupils to question its answers and spot its mistakes." },
+        { "text": "Les deux approches ont un point commun : elles placent le raisonnement au-dessus du résultat.", "en": "Both approaches have one thing in common: they put reasoning above the result." },
+        { "text": "C'est peut-être la leçon la plus utile de tout ce débat, et pas seulement pour l'école.", "en": "That may be the most useful lesson of this whole debate, and not only for school." }
+      ],
+      "glossary": {
+        "peine": "à peine = barely", "deux": "two", "ans": "years", "interdire": "to ban", "chatbots": "chatbots", "l'école": "school", "semblait": "seemed", "décision": "decision", "bon": "good", "sens": "sense (bon sens = common sense)",
+        "aujourd'hui": "today", "alors": "alors que = while, when", "moitié": "half", "élèves": "pupils", "servent": "s'en servent = use them", "quotidien": "au quotidien = every day", "interdiction": "ban", "pratiquement": "practically", "impossible": "impossible", "respecter": "faire respecter = to enforce",
+        "vrai": "real", "défi": "challenge", "technique": "technical", "pédagogique": "pedagogical, about teaching", "faut-il": "should one, must we", "évaluer": "to assess", "machine": "machine", "rédige": "writes, drafts", "dissertation": "essay", "quelques": "a few", "secondes": "seconds",
+        "certains": "some", "enseignants": "teachers", "revenus": "gone back", "oraux": "oral exams", "devoirs": "homework", "faits": "done", "classe": "class", "main": "à la main = by hand",
+        "d'autres": "others", "plutôt": "plutôt que = rather than", "combattre": "to fight", "l'outil": "the tool", "apprennent": "teach (apprendre à quelqu'un)", "remettre": "remettre en question = to question", "question": "remettre en question = to question", "réponses": "answers", "repérer": "to spot", "erreurs": "mistakes",
+        "approches": "approaches", "point": "point (point commun = thing in common)", "commun": "common", "placent": "place, put", "raisonnement": "reasoning", "au-dessus": "above", "résultat": "result",
+        "peut-être": "perhaps", "leçon": "lesson", "utile": "useful", "débat": "debate", "seulement": "only"
+      },
+      "questions": [
+        { "q": "D'après l'auteur, pourquoi interdire les chatbots ne marche plus ?", "qEn": "According to the author, why doesn't banning chatbots work anymore?", "options": [{ "text": "Parce que la moitié des élèves s'en servent au quotidien", "en": "Because half of pupils use them every day" }, { "text": "Parce qu'ils coûtent trop cher", "en": "Because they cost too much" }, { "text": "Parce que les professeurs les préfèrent", "en": "Because teachers prefer them" }], "answer": 0 },
+        { "q": "Quel est le vrai défi selon le texte ?", "qEn": "What is the real challenge, according to the text?", "options": [{ "text": "Savoir ce qu'il faut évaluer", "en": "Knowing what should be assessed" }, { "text": "Acheter de meilleurs ordinateurs", "en": "Buying better computers" }, { "text": "Écrire plus vite", "en": "Writing faster" }], "answer": 0 },
+        { "q": "Que font certains enseignants au lieu de combattre l'outil ?", "qEn": "What do some teachers do instead of fighting the tool?", "options": [{ "text": "Ils apprennent aux élèves à remettre en question ses réponses", "en": "They teach pupils to question its answers" }, { "text": "Ils l'interdisent à la maison", "en": "They ban it at home" }, { "text": "Ils suppriment les examens", "en": "They scrap exams" }], "answer": 0 },
+        { "q": "Quel est le point commun des deux approches ?", "qEn": "What do the two approaches have in common?", "options": [{ "text": "Elles placent le raisonnement au-dessus du résultat", "en": "They put reasoning above the result" }, { "text": "Elles utilisent plus de technologie", "en": "They use more technology" }, { "text": "Elles suppriment les notes", "en": "They get rid of grades" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-news-housing", "level": 6, "kind": "article",
+      "title": "Le télétravail pousse des milliers de familles vers les petites villes", "en": "Remote work pushes thousands of families toward small towns",
+      "place": "Dordogne",
+      "lines": [
+        { "text": "Depuis que le télétravail s'est généralisé, des villages de Dordogne ont vu arriver des centaines de nouveaux habitants.", "en": "Since remote work became widespread, villages in the Dordogne have seen hundreds of new residents arrive." },
+        { "text": "Beaucoup sont des cadres qui fuient les loyers parisiens en quête d'air pur et d'une vie plus calme.", "en": "Many are professionals fleeing Paris rents in search of clean air and a calmer life." },
+        { "text": "Pour l'économie locale, cette arrivée est une arme à double tranchant.", "en": "For the local economy, this arrival is a double-edged sword." },
+        { "text": "D'un côté, des cafés, des espaces de coworking et de petites entreprises ont ouvert et créent des emplois.", "en": "On the one hand, cafés, coworking spaces and small businesses have opened and are creating jobs." },
+        { "text": "De l'autre, les prix de l'immobilier ont flambé, et certains jeunes du coin n'arrivent plus à se loger.", "en": "On the other, property prices have soared, and some local young people can no longer find housing they can afford." },
+        { "text": "Le conseil municipal envisage d'encadrer les locations touristiques pour freiner la hausse des prix.", "en": "The town council is considering regulating tourist rentals to slow the rise in prices." },
+        { "text": "Les habitants de longue date, eux, demandent que cette croissance n'efface pas l'âme du village.", "en": "Long-time residents, for their part, are asking that this growth not erase the soul of the village." }
+      ],
+      "glossary": {
+        "depuis": "since", "télétravail": "remote work", "généralisé": "become widespread (s'est généralisé)", "villages": "villages", "vu": "seen", "arriver": "arrive", "centaines": "hundreds", "nouveaux": "new", "habitants": "residents, inhabitants",
+        "beaucoup": "many", "cadres": "professionals, managers", "fuient": "flee", "loyers": "rents", "parisiens": "Parisian", "quête": "en quête de = in search of", "d'air": "of air", "pur": "clean, pure", "vie": "life", "calme": "calm",
+        "l'économie": "the economy", "locale": "local", "arrivée": "arrival", "arme": "weapon (arme à double tranchant = double-edged sword)", "double": "double", "tranchant": "edge",
+        "côté": "d'un côté = on the one hand", "cafés": "cafés", "espaces": "spaces", "coworking": "coworking", "entreprises": "businesses", "ouvert": "opened", "créent": "create", "emplois": "jobs",
+        "l'autre": "de l'autre = on the other hand", "prix": "prices", "l'immobilier": "property, real estate", "flambé": "soared", "jeunes": "young people", "coin": "du coin = local", "n'arrivent": "can't manage to", "loger": "se loger = to find a place to live",
+        "conseil": "council", "municipal": "town, municipal", "envisage": "is considering", "d'encadrer": "to regulate", "locations": "rentals", "touristiques": "tourist", "freiner": "to slow down", "hausse": "rise",
+        "longue": "de longue date = long-time", "date": "de longue date = long-time", "eux": "for their part", "demandent": "ask", "croissance": "growth", "n'efface": "doesn't erase (subjunctive)", "l'âme": "the soul"
+      },
+      "questions": [
+        { "q": "Pourquoi beaucoup de cadres s'installent-ils dans ces villages ?", "qEn": "Why are many professionals settling in these villages?", "options": [{ "text": "Ils fuient les loyers parisiens et cherchent une vie plus calme", "en": "They're escaping Paris rents and want a calmer life" }, { "text": "Ils ont trouvé un travail agricole", "en": "They found farm work" }, { "text": "L'État leur paie le déménagement", "en": "The state pays for their move" }], "answer": 0 },
+        { "q": "Que veut dire « une arme à double tranchant » ?", "qEn": "What does \"a double-edged sword\" mean?", "options": [{ "text": "Quelque chose qui a des avantages et des inconvénients", "en": "Something with advantages and drawbacks" }, { "text": "Quelque chose de dangereux", "en": "Something dangerous" }, { "text": "Quelque chose de seulement positif", "en": "Something only positive" }], "answer": 0 },
+        { "q": "Quel problème ont certains jeunes du coin ?", "qEn": "What problem do some local young people have?", "options": [{ "text": "Ils n'arrivent plus à se loger", "en": "They can no longer find housing they can afford" }, { "text": "Ils ne trouvent pas d'école", "en": "They can't find a school" }, { "text": "Ils n'ont pas internet", "en": "They don't have internet" }], "answer": 0 },
+        { "q": "Qu'envisage le conseil municipal ?", "qEn": "What is the town council considering?", "options": [{ "text": "Encadrer les locations touristiques", "en": "Regulating tourist rentals" }, { "text": "Construire un aéroport", "en": "Building an airport" }, { "text": "Interdire les espaces de coworking", "en": "Banning coworking spaces" }], "answer": 0 }
+      ]
+    }
+  ]
+}

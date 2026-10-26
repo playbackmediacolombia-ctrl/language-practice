@@ -41,6 +41,13 @@ VOICES = {
 # speakers with "voice": "a" use VOICES; speakers with "voice": "b" use this second (male) voice.
 STORIES_DIR = ROOT / "shared" / "stories"
 STORIES_AUDIO_DIR = AUDIO_DIR / "stories"
+# Role-plays: assets/audio/scenarios/<lang>/<id>-<line>.mp3. The other person speaks in the
+# second voice; your lines (the model to copy) in the first.
+SCENARIOS_DIR = ROOT / "shared" / "scenarios"
+# Reading practice: news-style articles, read aloud sentence by sentence like stories
+# (their clips go in the stories folder, since the app plays them the same way).
+READING_DIR = ROOT / "shared" / "reading"
+SCENARIOS_AUDIO_DIR = AUDIO_DIR / "scenarios"
 SECOND_VOICES = {
     "es": "es-CO-GonzaloNeural",
     "fr": "fr-FR-HenriNeural",
@@ -168,7 +175,11 @@ async def main() -> None:
         folder.mkdir(parents=True, exist_ok=True)
         texts_file = folder / "texts.json"
         texts = json.loads(texts_file.read_text(encoding="utf-8")) if texts_file.exists() else {}
-        for story in json.loads(file.read_text(encoding="utf-8"))["stories"]:
+        stories = json.loads(file.read_text(encoding="utf-8"))["stories"]
+        reading = READING_DIR / f"{lang}.json"
+        if reading.exists():
+            stories += json.loads(reading.read_text(encoding="utf-8"))["articles"]
+        for story in stories:
             speakers = story.get("speakers", {})
             for i, line in enumerate(story["lines"]):
                 name = f"{story['id']}-{i}"
@@ -183,6 +194,27 @@ async def main() -> None:
                 texts[name] = key
                 made += 1
         texts_file.write_text(json.dumps(texts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    for lang, voice in VOICES.items():
+        file = SCENARIOS_DIR / f"{lang}.json"
+        if not file.exists():
+            continue
+        folder = SCENARIOS_AUDIO_DIR / lang
+        folder.mkdir(parents=True, exist_ok=True)
+        texts = Texts(folder)
+        for scenario in json.loads(file.read_text(encoding="utf-8"))["scenarios"]:
+            for i, line in enumerate(scenario["lines"]):
+                name = f"{scenario['id']}-{i}"
+                line_voice = SECOND_VOICES[lang] if line["who"] == "them" else voice
+                key = f"{line_voice}|{line['text']}"
+                out = folder / f"{name}.mp3"
+                if not texts.stale(name, out, key):
+                    continue
+                print(f"role-play {lang}  {name}: {line['text']}")
+                await synth(line["text"], line_voice, out)
+                texts.made(name, key)
+                made += 1
+        texts.save()
 
     meanings = {p["en"] for p in phrases}
     for lang in VOICES:

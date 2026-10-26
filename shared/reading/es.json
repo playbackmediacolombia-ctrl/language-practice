@@ -1,0 +1,120 @@
+{
+  "articles": [
+    {
+      "id": "es-news-bikes", "level": 5, "kind": "article",
+      "title": "Medellín prueba bicicletas eléctricas gratuitas", "en": "Medellín trials free electric bikes",
+      "place": "Medellín",
+      "lines": [
+        { "text": "La alcaldía de Medellín puso en marcha un plan piloto de bicicletas eléctricas gratuitas en tres barrios de la ciudad.", "en": "Medellín's city hall has launched a pilot program of free electric bikes in three of the city's neighborhoods." },
+        { "text": "Durante seis meses, cualquier persona mayor de dieciséis años podrá usarlas hasta una hora al día.", "en": "For six months, anyone over sixteen will be able to use them for up to an hour a day." },
+        { "text": "Para desbloquear una bicicleta basta con registrarse en una aplicación y escanear un código.", "en": "To unlock a bike, you just register in an app and scan a code." },
+        { "text": "Según los organizadores, el objetivo es reducir los trancones y la contaminación en las horas pico.", "en": "According to the organizers, the goal is to cut traffic jams and pollution at rush hour." },
+        { "text": "Algunos comerciantes temen que las estaciones ocupen espacios de parqueo frente a sus negocios.", "en": "Some shop owners fear the stations will take up parking spaces in front of their businesses." },
+        { "text": "Otros, en cambio, creen que más ciclistas significa más clientes caminando por la zona.", "en": "Others, on the other hand, think more cyclists means more customers walking around the area." },
+        { "text": "Si los resultados son buenos, el programa podría extenderse a toda la ciudad el próximo año.", "en": "If the results are good, the program could be extended to the whole city next year." }
+      ],
+      "glossary": {
+        "alcaldía": "city hall", "puso": "put (puso en marcha = launched)", "marcha": "running (en marcha = under way)", "plan": "plan", "piloto": "pilot, trial", "bicicletas": "bicycles", "eléctricas": "electric", "gratuitas": "free (of charge)", "barrios": "neighborhoods",
+        "durante": "for, during", "meses": "months", "cualquier": "any", "mayor": "older (mayor de = over)", "dieciséis": "sixteen", "podrá": "will be able to", "usarlas": "use them", "hasta": "up to",
+        "desbloquear": "to unlock", "basta": "it's enough (basta con = you just have to)", "registrarse": "to register, sign up", "aplicación": "app", "escanear": "to scan", "código": "code",
+        "según": "according to", "organizadores": "organizers", "objetivo": "goal", "reducir": "to reduce", "trancones": "traffic jams (Colombia)", "contaminación": "pollution", "horas": "hours", "pico": "peak (horas pico = rush hour)",
+        "comerciantes": "shop owners, merchants", "temen": "fear", "estaciones": "stations", "ocupen": "take up (subjunctive)", "espacios": "spaces", "parqueo": "parking (Latin America)", "frente": "front (frente a = in front of)", "negocios": "businesses",
+        "otros": "others", "cambio": "change (en cambio = on the other hand)", "creen": "believe, think", "ciclistas": "cyclists", "significa": "means", "clientes": "customers", "caminando": "walking", "zona": "area",
+        "resultados": "results", "programa": "program", "podría": "could", "extenderse": "be extended", "toda": "the whole", "ciudad": "city", "próximo": "next"
+      },
+      "questions": [
+        { "q": "¿Por cuánto tiempo dura el plan piloto?", "qEn": "How long does the pilot last?", "options": [{ "text": "Seis meses", "en": "Six months" }, { "text": "Un año", "en": "A year" }, { "text": "Tres semanas", "en": "Three weeks" }], "answer": 0 },
+        { "q": "¿Qué hay que hacer para desbloquear una bicicleta?", "qEn": "What do you have to do to unlock a bike?", "options": [{ "text": "Registrarse en una aplicación y escanear un código", "en": "Register in an app and scan a code" }, { "text": "Pagar en la estación", "en": "Pay at the station" }, { "text": "Mostrar la cédula", "en": "Show your ID card" }], "answer": 0 },
+        { "q": "¿Qué temen algunos comerciantes?", "qEn": "What are some shop owners afraid of?", "options": [{ "text": "Perder espacios de parqueo", "en": "Losing parking spaces" }, { "text": "Que suban los precios", "en": "That prices go up" }, { "text": "Que haya más ruido", "en": "More noise" }], "answer": 0 },
+        { "q": "¿Qué podría pasar el próximo año?", "qEn": "What could happen next year?", "options": [{ "text": "El programa podría llegar a toda la ciudad", "en": "The program could reach the whole city" }, { "text": "Las bicicletas dejarían de ser gratuitas", "en": "The bikes would stop being free" }, { "text": "El programa se cancelaría", "en": "The program would be cancelled" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-news-workweek", "level": 5, "kind": "article",
+      "title": "Una semana de cuatro días: así les fue a cuarenta empresas", "en": "A four-day week: how it went for forty companies",
+      "place": "Bogotá",
+      "lines": [
+        { "text": "Cuarenta empresas de Bogotá terminaron una prueba de seis meses con una semana laboral de cuatro días.", "en": "Forty companies in Bogotá have finished a six-month trial of a four-day work week." },
+        { "text": "Los empleados trabajaron treinta y dos horas a la semana sin que les bajaran el sueldo.", "en": "Employees worked thirty-two hours a week without having their pay cut." },
+        { "text": "Al final de la prueba, la mayoría de las empresas dijo que la productividad se mantuvo igual o mejoró.", "en": "At the end of the trial, most of the companies said productivity stayed the same or improved." },
+        { "text": "Además, los trabajadores contaron que dormían mejor y pasaban más tiempo con su familia.", "en": "In addition, workers said they slept better and spent more time with their families." },
+        { "text": "Sin embargo, no todo fue fácil: algunas compañías de atención al cliente tuvieron que reorganizar los turnos.", "en": "However, not everything was easy: some customer service companies had to reorganize their shifts." },
+        { "text": "Treinta y cuatro empresas decidieron mantener el nuevo horario, y seis volvieron a la semana de cinco días.", "en": "Thirty-four companies decided to keep the new schedule, and six went back to the five-day week." },
+        { "text": "Los expertos advierten que el modelo no sirve para todos los sectores, pero lo consideran un experimento valioso.", "en": "Experts warn that the model doesn't work for every sector, but they consider it a valuable experiment." }
+      ],
+      "glossary": {
+        "cuarenta": "forty", "empresas": "companies", "terminaron": "finished", "prueba": "trial, test", "meses": "months", "semana": "week", "laboral": "work (adjective)", "días": "days",
+        "empleados": "employees", "trabajaron": "worked", "treinta": "thirty", "horas": "hours", "bajaran": "lowered, cut (subjunctive)", "sueldo": "salary, pay",
+        "final": "end", "mayoría": "majority, most", "dijo": "said", "productividad": "productivity", "mantuvo": "stayed, was kept", "igual": "the same", "mejoró": "improved",
+        "además": "in addition, also", "trabajadores": "workers", "contaron": "told, said", "dormían": "slept (used to sleep)", "pasaban": "spent (time)", "tiempo": "time", "familia": "family",
+        "embargo": "sin embargo = however", "fácil": "easy", "compañías": "companies", "atención": "service, attention", "cliente": "customer", "tuvieron": "had to (tuvieron que)", "reorganizar": "to reorganize", "turnos": "shifts",
+        "cuatro": "four", "decidieron": "decided", "mantener": "to keep", "nuevo": "new", "horario": "schedule", "volvieron": "went back", "cinco": "five",
+        "expertos": "experts", "advierten": "warn", "modelo": "model", "sirve": "works, is useful", "sectores": "sectors", "consideran": "consider", "experimento": "experiment", "valioso": "valuable"
+      },
+      "questions": [
+        { "q": "¿Cuántas horas trabajaron los empleados durante la prueba?", "qEn": "How many hours did employees work during the trial?", "options": [{ "text": "Treinta y dos a la semana", "en": "Thirty-two a week" }, { "text": "Cuarenta a la semana", "en": "Forty a week" }, { "text": "Veinte a la semana", "en": "Twenty a week" }], "answer": 0 },
+        { "q": "¿Qué pasó con el sueldo?", "qEn": "What happened to their pay?", "options": [{ "text": "No se lo bajaron", "en": "It wasn't cut" }, { "text": "Bajó un veinte por ciento", "en": "It fell by twenty percent" }, { "text": "Subió", "en": "It went up" }], "answer": 0 },
+        { "q": "¿Qué problema tuvieron algunas empresas?", "qEn": "What problem did some companies have?", "options": [{ "text": "Tuvieron que reorganizar los turnos", "en": "They had to reorganize shifts" }, { "text": "Perdieron clientes", "en": "They lost customers" }, { "text": "Los empleados dormían menos", "en": "Employees slept less" }], "answer": 0 },
+        { "q": "¿Cuántas empresas mantuvieron la semana de cuatro días?", "qEn": "How many companies kept the four-day week?", "options": [{ "text": "Treinta y cuatro", "en": "Thirty-four" }, { "text": "Seis", "en": "Six" }, { "text": "Cuarenta", "en": "Forty" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-news-ai-school", "level": 6, "kind": "article",
+      "title": "Opinión: la inteligencia artificial llegó al salón; ¿y ahora qué?", "en": "Opinion: AI has reached the classroom. Now what?",
+      "place": "Bogotá",
+      "lines": [
+        { "text": "Hace apenas dos años, prohibir los chatbots en los colegios parecía una decisión sensata.", "en": "Just two years ago, banning chatbots in schools seemed a sensible decision." },
+        { "text": "Hoy, cuando la mitad de los estudiantes los usa a diario, esa prohibición resulta casi imposible de hacer cumplir.", "en": "Today, when half of students use them every day, that ban is almost impossible to enforce." },
+        { "text": "El verdadero desafío no es tecnológico sino pedagógico: ¿qué vale la pena evaluar si una máquina redacta un ensayo en segundos?", "en": "The real challenge isn't technological but pedagogical: what is worth assessing if a machine writes an essay in seconds?" },
+        { "text": "Algunos docentes ya han vuelto a los exámenes orales y a los trabajos hechos en clase, a mano.", "en": "Some teachers have already gone back to oral exams and work done by hand in class." },
+        { "text": "Otros, en vez de luchar contra la herramienta, enseñan a sus alumnos a cuestionar sus respuestas y detectar sus errores.", "en": "Others, instead of fighting the tool, teach their students to question its answers and spot its mistakes." },
+        { "text": "Ambos enfoques tienen algo en común: ponen el razonamiento por encima del resultado.", "en": "Both approaches have something in common: they put reasoning above the result." },
+        { "text": "Quizás esa sea la lección más útil de todo este debate, y no solo para la escuela.", "en": "Perhaps that's the most useful lesson of this whole debate, and not just for school." }
+      ],
+      "glossary": {
+        "apenas": "barely, just", "años": "years", "prohibir": "to ban", "chatbots": "chatbots", "colegios": "schools", "parecía": "seemed", "decisión": "decision", "sensata": "sensible",
+        "hoy": "today", "mitad": "half", "estudiantes": "students", "diario": "a diario = every day", "prohibición": "ban", "resulta": "turns out to be", "imposible": "impossible", "cumplir": "hacer cumplir = to enforce",
+        "verdadero": "real, true", "desafío": "challenge", "tecnológico": "technological", "pedagógico": "pedagogical, about teaching", "vale": "vale la pena = is worth it", "pena": "vale la pena = is worth it", "evaluar": "to assess, grade", "máquina": "machine", "redacta": "writes, drafts", "ensayo": "essay", "segundos": "seconds",
+        "docentes": "teachers", "vuelto": "gone back (han vuelto)", "exámenes": "exams", "orales": "oral", "trabajos": "assignments", "hechos": "done, made", "clase": "class", "mano": "a mano = by hand",
+        "vez": "en vez de = instead of", "luchar": "to fight", "herramienta": "tool", "enseñan": "teach", "alumnos": "students, pupils", "cuestionar": "to question", "respuestas": "answers", "detectar": "to detect, spot", "errores": "mistakes",
+        "ambos": "both", "enfoques": "approaches", "común": "en común = in common", "ponen": "put", "razonamiento": "reasoning", "encima": "por encima de = above", "resultado": "result",
+        "quizás": "perhaps", "lección": "lesson", "útil": "useful", "debate": "debate", "solo": "only", "escuela": "school"
+      },
+      "questions": [
+        { "q": "Según el autor, ¿por qué ya no funciona prohibir los chatbots?", "qEn": "According to the author, why doesn't banning chatbots work anymore?", "options": [{ "text": "Porque la mitad de los estudiantes los usa a diario", "en": "Because half of students use them every day" }, { "text": "Porque son muy caros", "en": "Because they're very expensive" }, { "text": "Porque los profesores los prefieren", "en": "Because teachers prefer them" }], "answer": 0 },
+        { "q": "¿Cuál es el verdadero desafío, según el texto?", "qEn": "What is the real challenge, according to the text?", "options": [{ "text": "Decidir qué vale la pena evaluar", "en": "Deciding what is worth assessing" }, { "text": "Comprar mejores computadores", "en": "Buying better computers" }, { "text": "Escribir ensayos más rápido", "en": "Writing essays faster" }], "answer": 0 },
+        { "q": "¿Qué hacen algunos docentes en vez de luchar contra la herramienta?", "qEn": "What do some teachers do instead of fighting the tool?", "options": [{ "text": "Enseñan a cuestionar sus respuestas", "en": "They teach students to question its answers" }, { "text": "La prohíben en casa", "en": "They ban it at home" }, { "text": "Dejan de poner exámenes", "en": "They stop giving exams" }], "answer": 0 },
+        { "q": "¿Qué tienen en común los dos enfoques?", "qEn": "What do the two approaches have in common?", "options": [{ "text": "Valoran más el razonamiento que el resultado", "en": "They value reasoning over the result" }, { "text": "Usan más tecnología", "en": "They use more technology" }, { "text": "Eliminan las notas", "en": "They get rid of grades" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-news-housing", "level": 6, "kind": "article",
+      "title": "El teletrabajo empuja a miles de familias hacia los pueblos", "en": "Remote work pushes thousands of families out to small towns",
+      "place": "Villa de Leyva",
+      "lines": [
+        { "text": "Desde que el teletrabajo se volvió habitual, municipios pequeños como Villa de Leyva han visto llegar a cientos de nuevos residentes.", "en": "Since remote work became the norm, small towns like Villa de Leyva have seen hundreds of new residents arrive." },
+        { "text": "Muchos son profesionales que huyen de los arriendos de la capital en busca de aire puro y una vida más tranquila.", "en": "Many are professionals fleeing the capital's rents in search of clean air and a quieter life." },
+        { "text": "Para la economía local, la llegada ha sido un arma de doble filo.", "en": "For the local economy, their arrival has been a double-edged sword." },
+        { "text": "Por un lado, han abierto cafés, coworkings y pequeñas empresas que generan empleo.", "en": "On the one hand, cafés, coworking spaces and small businesses have opened and are creating jobs." },
+        { "text": "Por otro, el precio de la vivienda se ha disparado, y algunos jóvenes del pueblo ya no pueden pagar un arriendo.", "en": "On the other, house prices have soared, and some of the town's young people can no longer afford rent." },
+        { "text": "El concejo municipal estudia limitar los alquileres turísticos para frenar la subida de precios.", "en": "The town council is studying limits on tourist rentals to slow the rise in prices." },
+        { "text": "Los vecinos de toda la vida, mientras tanto, piden que el crecimiento no borre la identidad del lugar.", "en": "Long-time residents, meanwhile, are asking that growth not erase the character of the place." }
+      ],
+      "glossary": {
+        "teletrabajo": "remote work", "volvió": "se volvió = became", "habitual": "normal, usual", "municipios": "towns, municipalities", "pequeños": "small", "visto": "seen", "llegar": "arrive", "cientos": "hundreds", "nuevos": "new", "residentes": "residents",
+        "muchos": "many", "profesionales": "professionals", "huyen": "flee", "arriendos": "rents (Colombia)", "capital": "capital city", "busca": "en busca de = in search of", "aire": "air", "puro": "clean, pure", "vida": "life", "tranquila": "quiet, calm",
+        "economía": "economy", "local": "local", "llegada": "arrival", "arma": "weapon (arma de doble filo = double-edged sword)", "doble": "double", "filo": "edge",
+        "lado": "por un lado = on the one hand", "abierto": "opened", "cafés": "cafés", "coworkings": "coworking spaces", "empresas": "businesses", "generan": "create, generate", "empleo": "jobs, employment",
+        "precio": "price", "vivienda": "housing", "disparado": "soared (se ha disparado)", "jóvenes": "young people", "pueblo": "town", "pueden": "can", "pagar": "to pay (for)", "arriendo": "rent (Colombia)",
+        "concejo": "council", "municipal": "town, municipal", "estudia": "is studying, considering", "limitar": "to limit", "alquileres": "rentals", "turísticos": "tourist", "frenar": "to slow, put the brakes on", "subida": "rise", "precios": "prices",
+        "vecinos": "residents, neighbors", "toda": "de toda la vida = long-time", "mientras": "mientras tanto = meanwhile", "piden": "ask", "crecimiento": "growth", "borre": "erase (subjunctive)", "identidad": "identity, character", "lugar": "place"
+      },
+      "questions": [
+        { "q": "¿Por qué se mudan muchos profesionales a los pueblos?", "qEn": "Why are many professionals moving to small towns?", "options": [{ "text": "Huyen de los arriendos caros y buscan una vida tranquila", "en": "They're escaping expensive rents and want a quiet life" }, { "text": "Consiguieron trabajo en el campo", "en": "They found farm jobs" }, { "text": "El gobierno les paga la mudanza", "en": "The government pays for their move" }], "answer": 0 },
+        { "q": "¿Qué significa que la llegada sea «un arma de doble filo»?", "qEn": "What does it mean that their arrival is \"a double-edged sword\"?", "options": [{ "text": "Que tiene ventajas y desventajas", "en": "That it has advantages and disadvantages" }, { "text": "Que es peligrosa", "en": "That it's dangerous" }, { "text": "Que es solo positiva", "en": "That it's only positive" }], "answer": 0 },
+        { "q": "¿Qué problema tienen algunos jóvenes del pueblo?", "qEn": "What problem do some of the town's young people have?", "options": [{ "text": "Ya no pueden pagar un arriendo", "en": "They can no longer afford rent" }, { "text": "No encuentran colegios", "en": "They can't find schools" }, { "text": "No hay internet", "en": "There's no internet" }], "answer": 0 },
+        { "q": "¿Qué estudia el concejo municipal?", "qEn": "What is the town council considering?", "options": [{ "text": "Limitar los alquileres turísticos", "en": "Limiting tourist rentals" }, { "text": "Construir un aeropuerto", "en": "Building an airport" }, { "text": "Prohibir los coworkings", "en": "Banning coworking spaces" }], "answer": 0 }
+      ]
+    }
+  ]
+}
