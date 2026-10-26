@@ -15,15 +15,17 @@ ROOT = Path(__file__).resolve().parent.parent
 PHRASES = ROOT / "shared" / "phrases.json"
 AUDIO_DIR = ROOT / "assets" / "audio"
 INDEX = ROOT / "src" / "data" / "audio.ts"
-# Spoken feedback after Listen & repeat (web app only).
+# Spoken feedback after Listen & repeat (web app only); lessons use COACH below.
 FEEDBACK_DIR = ROOT / "web" / "public" / "feedback"
 FEEDBACK_VOICE = "en-US-AvaNeural"
 FEEDBACK = {
     "great": "Great job!",
     "close": "Close, try again.",
     "retry": "Not quite. Listen, and try again.",
-    "try-again": "Try again.",
 }
+# Varied praise and encouragement in lessons: assets/audio/feedback/<voice>/<category>-<n>.mp3.
+COACH = ROOT / "shared" / "feedback.json"
+COACH_AUDIO_DIR = AUDIO_DIR / "feedback"
 # The lesson path: one clip per course item, in assets/audio/course/<lang>/<item id>.mp3.
 COURSE_DIR = ROOT / "shared" / "course"
 COURSE_AUDIO_DIR = AUDIO_DIR / "course"
@@ -81,6 +83,25 @@ async def main() -> None:
                     print(f"course {lang}  {item['id']}")
                     await synth(item.get("say", item["text"]), voice, out)
                     made += 1
+
+    # Clips are named by position, so remember each one's text and remake it if that changes.
+    coach = json.loads(COACH.read_text(encoding="utf-8"))
+    for lang, voice in {**VOICES, "en": FEEDBACK_VOICE}.items():
+        folder = COACH_AUDIO_DIR / lang
+        folder.mkdir(parents=True, exist_ok=True)
+        texts_file = folder / "texts.json"
+        texts = json.loads(texts_file.read_text(encoding="utf-8")) if texts_file.exists() else {}
+        for category, lines in coach[lang].items():
+            for i, line in enumerate(lines):
+                name = f"{category}-{i}"
+                out = folder / f"{name}.mp3"
+                if out.exists() and out.stat().st_size > 0 and texts.get(name) == line["text"]:
+                    continue
+                print(f"feedback {lang}  {name}: {line['text']}")
+                await synth(line["text"], voice, out)
+                texts[name] = line["text"]
+                made += 1
+        texts_file.write_text(json.dumps(texts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     FEEDBACK_DIR.mkdir(parents=True, exist_ok=True)
     for name, text in FEEDBACK.items():

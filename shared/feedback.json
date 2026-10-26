@@ -1,0 +1,518 @@
+{
+  "es": {
+    "praise": [
+      {
+        "text": "¡Muy bien!",
+        "en": "Very good!"
+      },
+      {
+        "text": "¡Excelente!",
+        "en": "Excellent!"
+      },
+      {
+        "text": "¡Perfecto!",
+        "en": "Perfect!"
+      },
+      {
+        "text": "¡Genial!",
+        "en": "Great!"
+      },
+      {
+        "text": "¡Bien hecho!",
+        "en": "Well done!"
+      },
+      {
+        "text": "¡Eso es!",
+        "en": "That's it!"
+      },
+      {
+        "text": "¡Correcto!",
+        "en": "Correct!"
+      },
+      {
+        "text": "¡Fantástico!",
+        "en": "Fantastic!"
+      },
+      {
+        "text": "¡Así se hace!",
+        "en": "That's how it's done!"
+      },
+      {
+        "text": "¡Qué bien!",
+        "en": "How nice!"
+      },
+      {
+        "text": "¡Bravo!",
+        "en": "Bravo!"
+      },
+      {
+        "text": "¡Lo tienes!",
+        "en": "You've got it!"
+      },
+      {
+        "text": "¡Estupendo!",
+        "en": "Wonderful!"
+      }
+    ],
+    "streak": [
+      {
+        "text": "¡Vas muy bien!",
+        "en": "You're doing great!"
+      },
+      {
+        "text": "¡Imparable!",
+        "en": "Unstoppable!"
+      },
+      {
+        "text": "¡Qué racha!",
+        "en": "What a streak!"
+      },
+      {
+        "text": "¡Sigue así!",
+        "en": "Keep it up!"
+      },
+      {
+        "text": "¡Eres una estrella!",
+        "en": "You're a star!"
+      }
+    ],
+    "complete": [
+      {
+        "text": "¡Lección terminada! ¡Muy bien!",
+        "en": "Lesson finished! Very good!"
+      },
+      {
+        "text": "¡Lo lograste!",
+        "en": "You did it!"
+      },
+      {
+        "text": "¡Qué buen trabajo!",
+        "en": "What good work!"
+      },
+      {
+        "text": "¡Felicidades!",
+        "en": "Congratulations!"
+      },
+      {
+        "text": "¡Increíble trabajo hoy!",
+        "en": "Incredible work today!"
+      }
+    ],
+    "perfect": [
+      {
+        "text": "¡Perfecto, sin errores!",
+        "en": "Perfect, no mistakes!"
+      },
+      {
+        "text": "¡Sin un solo error! ¡Increíble!",
+        "en": "Not a single mistake! Incredible!"
+      },
+      {
+        "text": "¡Todo correcto! ¡Eres un genio!",
+        "en": "All correct! You're a genius!"
+      }
+    ],
+    "wrong": [
+      {
+        "text": "Casi.",
+        "en": "Almost."
+      },
+      {
+        "text": "No pasa nada.",
+        "en": "No problem."
+      },
+      {
+        "text": "Inténtalo otra vez.",
+        "en": "Try again."
+      },
+      {
+        "text": "Poco a poco.",
+        "en": "Little by little."
+      },
+      {
+        "text": "Ya casi.",
+        "en": "Almost there."
+      },
+      {
+        "text": "Otra vez, tú puedes.",
+        "en": "Again, you can do it."
+      },
+      {
+        "text": "Así se aprende.",
+        "en": "That's how you learn."
+      },
+      {
+        "text": "No te preocupes.",
+        "en": "Don't worry."
+      }
+    ]
+  },
+  "fr": {
+    "praise": [
+      {
+        "text": "Très bien !",
+        "en": "Very good!"
+      },
+      {
+        "text": "Parfait !",
+        "en": "Perfect!"
+      },
+      {
+        "text": "Excellent !",
+        "en": "Excellent!"
+      },
+      {
+        "text": "Bravo !",
+        "en": "Bravo!"
+      },
+      {
+        "text": "Génial !",
+        "en": "Great!"
+      },
+      {
+        "text": "Bien joué !",
+        "en": "Well played!"
+      },
+      {
+        "text": "C'est ça !",
+        "en": "That's it!"
+      },
+      {
+        "text": "Super !",
+        "en": "Super!"
+      },
+      {
+        "text": "Formidable !",
+        "en": "Wonderful!"
+      },
+      {
+        "text": "Exactement !",
+        "en": "Exactly!"
+      },
+      {
+        "text": "Impeccable !",
+        "en": "Flawless!"
+      },
+      {
+        "text": "Bien vu !",
+        "en": "Well spotted!"
+      },
+      {
+        "text": "Magnifique !",
+        "en": "Magnificent!"
+      }
+    ],
+    "streak": [
+      {
+        "text": "Tu es en feu !",
+        "en": "You're on fire!"
+      },
+      {
+        "text": "Continue comme ça !",
+        "en": "Keep it up!"
+      },
+      {
+        "text": "Quelle série !",
+        "en": "What a streak!"
+      },
+      {
+        "text": "Rien ne t'arrête !",
+        "en": "Nothing can stop you!"
+      },
+      {
+        "text": "Tu assures !",
+        "en": "You're nailing it!"
+      }
+    ],
+    "complete": [
+      {
+        "text": "Leçon terminée, bravo !",
+        "en": "Lesson done, bravo!"
+      },
+      {
+        "text": "Tu as réussi !",
+        "en": "You did it!"
+      },
+      {
+        "text": "Quel beau travail !",
+        "en": "What lovely work!"
+      },
+      {
+        "text": "Félicitations !",
+        "en": "Congratulations!"
+      },
+      {
+        "text": "Super séance !",
+        "en": "Great session!"
+      }
+    ],
+    "perfect": [
+      {
+        "text": "Parfait, aucune erreur !",
+        "en": "Perfect, no mistakes!"
+      },
+      {
+        "text": "Un sans-faute, chapeau !",
+        "en": "A flawless run, hats off!"
+      },
+      {
+        "text": "Tout juste ! Tu es un champion !",
+        "en": "All right! You're a champion!"
+      }
+    ],
+    "wrong": [
+      {
+        "text": "Presque.",
+        "en": "Almost."
+      },
+      {
+        "text": "Ce n'est pas grave.",
+        "en": "It's no big deal."
+      },
+      {
+        "text": "Essaie encore.",
+        "en": "Try again."
+      },
+      {
+        "text": "Petit à petit.",
+        "en": "Little by little."
+      },
+      {
+        "text": "Tu y es presque.",
+        "en": "You're almost there."
+      },
+      {
+        "text": "Pas de souci.",
+        "en": "No worries."
+      },
+      {
+        "text": "On apprend en se trompant.",
+        "en": "We learn from mistakes."
+      },
+      {
+        "text": "Courage !",
+        "en": "Hang in there!"
+      }
+    ]
+  },
+  "zh": {
+    "praise": [
+      {
+        "text": "太棒了！",
+        "en": "Awesome!"
+      },
+      {
+        "text": "很好！",
+        "en": "Very good!"
+      },
+      {
+        "text": "对了！",
+        "en": "That's right!"
+      },
+      {
+        "text": "真棒！",
+        "en": "Great!"
+      },
+      {
+        "text": "非常好！",
+        "en": "Excellent!"
+      },
+      {
+        "text": "完美！",
+        "en": "Perfect!"
+      },
+      {
+        "text": "好极了！",
+        "en": "Fantastic!"
+      },
+      {
+        "text": "厉害！",
+        "en": "Impressive!"
+      },
+      {
+        "text": "没错！",
+        "en": "Exactly!"
+      },
+      {
+        "text": "很不错！",
+        "en": "Not bad at all!"
+      },
+      {
+        "text": "做得好！",
+        "en": "Well done!"
+      },
+      {
+        "text": "正确！",
+        "en": "Correct!"
+      },
+      {
+        "text": "漂亮！",
+        "en": "Beautiful!"
+      }
+    ],
+    "streak": [
+      {
+        "text": "你太厉害了！",
+        "en": "You're amazing!"
+      },
+      {
+        "text": "继续加油！",
+        "en": "Keep going!"
+      },
+      {
+        "text": "连续答对，真棒！",
+        "en": "Right in a row, great!"
+      },
+      {
+        "text": "停不下来了！",
+        "en": "Unstoppable!"
+      },
+      {
+        "text": "你是明星！",
+        "en": "You're a star!"
+      }
+    ],
+    "complete": [
+      {
+        "text": "课程完成了，真棒！",
+        "en": "Lesson complete, great!"
+      },
+      {
+        "text": "你做到了！",
+        "en": "You did it!"
+      },
+      {
+        "text": "辛苦了，做得好！",
+        "en": "Good work, well done!"
+      },
+      {
+        "text": "恭喜你！",
+        "en": "Congratulations!"
+      },
+      {
+        "text": "今天表现很好！",
+        "en": "You did great today!"
+      }
+    ],
+    "perfect": [
+      {
+        "text": "全对，完美！",
+        "en": "All right, perfect!"
+      },
+      {
+        "text": "一个错误都没有！太厉害了！",
+        "en": "Not a single mistake! Amazing!"
+      },
+      {
+        "text": "满分！你真是天才！",
+        "en": "Full marks! You're a genius!"
+      }
+    ],
+    "wrong": [
+      {
+        "text": "差一点。",
+        "en": "Almost."
+      },
+      {
+        "text": "没关系。",
+        "en": "It's okay."
+      },
+      {
+        "text": "再试一次。",
+        "en": "Try once more."
+      },
+      {
+        "text": "慢慢来。",
+        "en": "Take your time."
+      },
+      {
+        "text": "快对了。",
+        "en": "Almost right."
+      },
+      {
+        "text": "别担心。",
+        "en": "Don't worry."
+      },
+      {
+        "text": "加油！",
+        "en": "You can do it!"
+      },
+      {
+        "text": "错了也没关系。",
+        "en": "Mistakes are okay."
+      }
+    ]
+  },
+  "en": {
+    "praise": [
+      {
+        "text": "Nice!",
+        "en": "Nice!"
+      },
+      {
+        "text": "Great job!",
+        "en": "Great job!"
+      },
+      {
+        "text": "Well done!",
+        "en": "Well done!"
+      },
+      {
+        "text": "You got it!",
+        "en": "You got it!"
+      },
+      {
+        "text": "Spot on!",
+        "en": "Spot on!"
+      }
+    ],
+    "streak": [
+      {
+        "text": "You're on a roll!",
+        "en": "You're on a roll!"
+      },
+      {
+        "text": "Amazing streak!",
+        "en": "Amazing streak!"
+      }
+    ],
+    "complete": [
+      {
+        "text": "Lesson complete. Great work!",
+        "en": "Lesson complete. Great work!"
+      },
+      {
+        "text": "You crushed it!",
+        "en": "You crushed it!"
+      }
+    ],
+    "perfect": [
+      {
+        "text": "A perfect lesson! Brilliant!",
+        "en": "A perfect lesson! Brilliant!"
+      },
+      {
+        "text": "Flawless! Not one mistake!",
+        "en": "Flawless! Not one mistake!"
+      },
+      {
+        "text": "Perfect score. Fantastic!",
+        "en": "Perfect score. Fantastic!"
+      }
+    ],
+    "wrong": [
+      {
+        "text": "Not quite, but close.",
+        "en": "Not quite, but close."
+      },
+      {
+        "text": "No worries, keep going.",
+        "en": "No worries, keep going."
+      },
+      {
+        "text": "Almost!",
+        "en": "Almost!"
+      }
+    ]
+  }
+}

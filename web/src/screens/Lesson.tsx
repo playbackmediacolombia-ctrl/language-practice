@@ -1,9 +1,10 @@
 import { pinyin } from 'pinyin-pro';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { compare } from '../../../shared/compare';
-import { type Feedback, playChime, playFeedback, playPhrase, type Recording, startRecording, unlockAudio } from '../lib/audio';
+import { playChime, playClip, playClipAfterPhrase, playPhrase, type Recording, startRecording, unlockAudio } from '../lib/audio';
 import { type Lang, shuffle } from '../lib/content';
 import { getLesson, getLessons, type Item, weakItems } from '../lib/course';
+import { allClips, Coach, type Line, type Reaction } from '../lib/feedback';
 import { checkTiles, checkTyped, type Exercise, itemsOf, lessonExercises, reviewExercises } from '../lib/exercises';
 import {
   completeLesson,
@@ -31,7 +32,10 @@ type Result = {
   free?: boolean;
   /** Skipped ("can't speak now"): no grade at all. */
   skipped?: boolean;
-  voice?: Feedback;
+  /** Spoken answer that was close rather than spot on. */
+  close?: boolean;
+  /** What the coach shows (and maybe says); filled in by the lesson. */
+  reaction?: Reaction;
 };
 
 const testHook = location.search.includes('test');
@@ -62,7 +66,8 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   const [index, setIndex] = useState(0);
   const [result, setResult] = useState<Result | null>(null);
   const [mistakes, setMistakes] = useState(0);
-  const [summary, setSummary] = useState<{ xp: number; goalReached: boolean } | null>(null);
+  const [summary, setSummary] = useState<{ xp: number; goalReached: boolean; line: Line } | null>(null);
+  const coach = useRef(new Coach(lang));
   const started = useRef(Date.now());
 
   const ex = queue[index];
@@ -75,12 +80,13 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   }
 
   const submit = (r: Result) => {
-    setResult(r);
-    if (r.skipped) return;
+    if (r.skipped) return setResult(r);
+    const reaction = r.right ? coach.current.right() : coach.current.wrong();
+    setResult({ ...r, reaction });
     playChime(r.right);
-    playFeedback(r.voice ?? (r.right ? 'great' : 'try-again'), 0.35);
     itemsOf(ex).forEach((item) => recordAnswer(lang, item.id, r.right));
     if (ex.type !== 'meaning' && ex.type !== 'match' && ex.type !== 'speak') playPhrase(ex.item.audio);
+    if (progress.voice && reaction.speak) playClipAfterPhrase(reaction.line.url);
     if (!r.right && !r.free) {
       setMistakes((m) => m + 1);
       setQueue((q) => [...q, ex]); // try it again at the end
@@ -103,9 +109,10 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     const before = todayXp(progress);
     completeLesson(lang, review ? null : lessonId, xp);
     if (review) gainHeart();
-    setSummary({ xp, goalReached: before < progress.goal && before + xp >= progress.goal });
+    const line = coach.current.finished(mistakes === 0);
+    setSummary({ xp, goalReached: before < progress.goal && before + xp >= progress.goal, line });
     setPhase('done');
-    playFeedback('great');
+    if (progress.voice) void playClip(line.url, 0.2);
   };
 
   const quit = () => {
@@ -129,7 +136,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
             <button
               className="btn"
               onClick={() => {
-                unlockAudio();
+                unlockAudio(progress.voice ? allClips(lang) : []);
                 started.current = Date.now();
                 setPhase('play');
                 autoPlay(ex);
@@ -165,6 +172,10 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
         <h2 className="heading" style={{ textAlign: 'center' }}>
           {review ? 'Review complete!' : 'Lesson complete!'}
         </h2>
+        <div className="cheer">
+          <div className="cheer-text">{summary.line.text}</div>
+          {summary.line.voice !== 'en' && <div className="muted">{summary.line.en}</div>}
+        </div>
         <div className="stats">
           <Stat label="XP earned" value={`+${summary.xp}`} tone="accent" />
           <Stat label="Accuracy" value={`${accuracy}%`} tone={accuracy >= 80 ? 'ok' : 'close'} />
@@ -514,8 +525,7 @@ function SpeakExercise({ ex, lang, answered, onSubmit }: ViewProps) {
       const score = compare(ex.item.text, text, lang, ex.item.alt).score;
       setHeard(text);
       setState('idle');
-      const voice: Feedback = score >= 0.85 ? 'great' : score >= 0.5 ? 'close' : 'retry';
-      onSubmit({ right: score >= 0.5, free: true, voice, note: `Whisper heard: “${text || '(nothing)'}” · ${Math.round(score * 100)}%` });
+      onSubmit({ right: score >= 0.5, free: true, close: score >= 0.5 && score < 0.85, note: `Whisper heard: “${text || '(nothing)'}” · ${Math.round(score * 100)}%` });
     } catch (e) {
       recording.current = null;
       setState('idle');
@@ -569,23 +579,21 @@ function ResultBanner({ ex, result, onContinue }: { ex: Exercise; result: Result
   const button = useRef<HTMLButtonElement>(null);
   useEffect(() => button.current?.focus({ preventScroll: true }), []);
   const item = ex.type === 'match' ? null : ex.item;
-  const title = result.skipped
-    ? 'Skipped'
-    : result.right
-      ? result.voice === 'close'
-        ? 'Close! Good enough.'
-        : 'Great job!'
-      : ex.type === 'speak'
-        ? 'Try again next time'
-        : 'Correct answer:';
+  const line = result.reaction?.line;
+  const streak = result.reaction?.streak;
   const showAnswer = item && !result.skipped && (!result.right || ex.type === 'meaning' || result.note);
+  const tone = result.skipped ? 'neutral' : result.right ? (streak ? 'ok streak' : 'ok') : 'bad';
   return (
-    <div className={`banner ${result.skipped ? 'neutral' : result.right ? 'ok' : 'bad'}`} role="status">
+    <div className={`banner ${tone}`} role="status">
+      {streak && <div className="streak-chip">🔥 {streak} in a row!</div>}
       <div className="banner-title">
-        {result.skipped ? '⏭️' : result.right ? '✅' : '❌'} {title}
+        {result.skipped ? '⏭️ Skipped' : `${result.right ? '✅' : '💪'} ${line?.text ?? ''}`}
+        {line && line.voice !== 'en' && <span className="banner-en"> {line.en}</span>}
       </div>
+      {result.close && <div className="small">Close enough. Listen again to sound even more natural.</div>}
       {showAnswer && (
         <div>
+          {!result.right && <div className="small">{ex.type === 'speak' ? 'Listen, then try it next time:' : 'Correct answer:'}</div>}
           {ex.type === 'meaning' ? (
             <b>
               {item.text} = {item.en}

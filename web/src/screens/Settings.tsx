@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GOALS, resetProgress, setGoal, setSpeaking, useProgress } from '../lib/progress';
+import { GOALS, resetProgress, setGoal, setSpeaking, setVoice, useProgress } from '../lib/progress';
 import { chosenModel, deleteModel, isModelReady, loadModel, type ModelKey, MODELS, setChosenModel } from '../lib/whisper';
 import { ProgressBar, Screen } from '../ui';
 
@@ -59,6 +59,15 @@ export function Settings() {
             </span>
           </span>
           <input type="checkbox" checked={prefs.speaking} onChange={(e) => setSpeaking(e.target.checked)} />
+        </label>
+        <label className="row toggle">
+          <span className="grow">
+            <b>Spoken feedback</b>
+            <span className="muted small" style={{ display: 'block' }}>
+              A voice says “¡Muy bien!”, “Presque.”… now and then. Off: just the chime.
+            </span>
+          </span>
+          <input type="checkbox" checked={prefs.voice} onChange={(e) => setVoice(e.target.checked)} />
         </label>
       </div>
 

@@ -22,6 +22,7 @@ export type Progress = {
   heartsAt: number; // when `hearts` was last counted; refills are worked out from here
   goal: number; // daily XP goal
   speaking: boolean; // include "say it out loud" exercises
+  voice: boolean; // spoken praise and encouragement
 };
 
 export const MAX_HEARTS = 5;
@@ -40,6 +41,7 @@ const EMPTY: Progress = {
   heartsAt: 0,
   goal: 20,
   speaking: true,
+  voice: true,
 };
 
 function load(): Progress {
@@ -169,7 +171,8 @@ export function weakness(p: Progress, lang: Lang, itemId: string, now = Date.now
 
 export const setGoal = (goal: number) => update((p) => ({ ...p, goal }));
 export const setSpeaking = (speaking: boolean) => update((p) => ({ ...p, speaking }));
+export const setVoice = (voice: boolean) => update((p) => ({ ...p, voice }));
 
 export function resetProgress() {
-  update((p) => ({ ...EMPTY, goal: p.goal, speaking: p.speaking }));
+  update((p) => ({ ...EMPTY, goal: p.goal, speaking: p.speaking, voice: p.voice }));
 }

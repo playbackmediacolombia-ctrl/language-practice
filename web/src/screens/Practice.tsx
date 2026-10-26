@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { compare, type Comparison } from '../../../shared/compare';
 import { type Feedback, playFeedback, playPhrase, type Recording, startRecording } from '../lib/audio';
 import { getPhrases, type Lang } from '../lib/content';
-import { recordSpeech } from '../lib/progress';
+import { recordSpeech, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { chosenModel, isModelReady, loadModel, MODELS, transcribe } from '../lib/whisper';
 import { PhraseText, ProgressBar, Screen } from '../ui';
@@ -31,6 +31,7 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
   const [index, setIndex] = useState(0);
   const [state, setState] = useState<State>({ kind: 'idle' });
   const [ready, setReady] = useState(isModelReady());
+  const { voice } = useProgress();
   const recording = useRef<Recording | null>(null);
   const phrase = phrases[index];
   const back = `/${lang}/${topic}`;
@@ -65,7 +66,7 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
     const grade = gradeFor(result.score);
     recordSpeech(lang, phrase.id, result.score);
     setState({ kind: 'result', heard, result, grade });
-    void playFeedback(grade);
+    if (voice) void playFeedback(grade);
   };
 
   const onMic = async () => {

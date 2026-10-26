@@ -29,12 +29,15 @@ const session = (navigator as { audioSession?: AudioSession }).audioSession;
 // Safari 16.4+: play Web Audio sounds even with the silent switch on, like the phrase audio does.
 if (session) session.type = 'playback';
 
-const FEEDBACK = ['great', 'close', 'retry', 'try-again'] as const;
+// Listen & repeat's graded lines. Lessons use the varied clips in feedback.ts instead.
+const FEEDBACK = ['great', 'close', 'retry'] as const;
+export type Feedback = (typeof FEEDBACK)[number];
+const feedbackUrl = (name: Feedback) => new URL(`feedback/${name}.mp3`, document.baseURI).href;
 
-/** Call from a tap before sounds play without one (iOS). Also preloads the feedback voice. */
-export function unlockAudio() {
+/** Call from a tap before sounds play without one (iOS). `preload` clips are fetched now. */
+export function unlockAudio(preload: string[] = FEEDBACK.map(feedbackUrl)) {
   audioContext();
-  FEEDBACK.forEach((name) => void feedbackClip(name));
+  preload.forEach((url) => void loadClip(url));
 }
 
 /** A short two-note chime: rising when right, falling when wrong. */
@@ -60,33 +63,48 @@ export function playChime(right: boolean) {
   }
 }
 
-export type Feedback = (typeof FEEDBACK)[number];
-const feedbackClips = new Map<Feedback, Promise<AudioBuffer>>();
+const clips = new Map<string, Promise<AudioBuffer>>();
 
-function feedbackClip(name: Feedback): Promise<AudioBuffer> {
-  let clip = feedbackClips.get(name);
+function loadClip(url: string): Promise<AudioBuffer> {
+  let clip = clips.get(url);
   if (!clip) {
-    clip = fetch(new URL(`feedback/${name}.mp3`, document.baseURI))
+    clip = fetch(url)
       .then((r) => r.arrayBuffer())
       .then((data) => audioContext().decodeAudioData(data));
-    clip.catch(() => feedbackClips.delete(name));
-    feedbackClips.set(name, clip);
+    clip.catch(() => clips.delete(url));
+    clips.set(url, clip);
   }
   return clip;
 }
 
-/** Says "Great job!" etc. Needs unlockAudio() or a recording first (iOS). */
-export async function playFeedback(name: Feedback, delay = 0) {
+/** Plays a short clip through Web Audio. Needs unlockAudio() or a recording first (iOS). */
+export async function playClip(url: string, delay = 0) {
   try {
-    const buffer = await feedbackClip(name);
+    const buffer = await loadClip(url);
     const c = audioContext();
     const source = c.createBufferSource();
     source.buffer = buffer;
     source.connect(c.destination);
     source.start(c.currentTime + delay);
   } catch {
-    // Spoken feedback is a bonus; the colored result is already on screen.
+    // Spoken feedback is a bonus; the result is already on screen.
   }
+}
+
+export const playFeedback = (name: Feedback, delay = 0) => playClip(feedbackUrl(name), delay);
+
+/** Plays a clip once the phrase audio (if any) has finished, so the two don't talk over each other. */
+export function playClipAfterPhrase(url: string) {
+  if (player.paused || player.ended) return void playClip(url, 0.35);
+  let done = false;
+  const go = () => {
+    if (done) return;
+    done = true;
+    player.removeEventListener('ended', go);
+    void playClip(url, 0.2);
+  };
+  player.addEventListener('ended', go);
+  setTimeout(go, 4000); // in case 'ended' never fires (e.g. the phrase was interrupted)
 }
 
 export type Recording = {
