@@ -39,3 +39,10 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# local tools
+scripts/.venv/
+
+# generated native projects (npx expo prebuild)
+/ios
+/android

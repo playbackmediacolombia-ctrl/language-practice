@@ -1,0 +1,448 @@
+{
+  "topics": [
+    {
+      "id": "greetings",
+      "title": "Greetings",
+      "emoji": "👋",
+      "phrases": [
+        {
+          "id": "greet-hello",
+          "en": "Hello",
+          "es": "Hola",
+          "fr": "Bonjour",
+          "zh": {
+            "hanzi": "你好",
+            "pinyin": "nǐ hǎo"
+          }
+        },
+        {
+          "id": "greet-goodbye",
+          "en": "Goodbye",
+          "es": "Adiós",
+          "fr": "Au revoir",
+          "zh": {
+            "hanzi": "再见",
+            "pinyin": "zàijiàn"
+          }
+        },
+        {
+          "id": "greet-thanks",
+          "en": "Thank you",
+          "es": "Gracias",
+          "fr": "Merci",
+          "zh": {
+            "hanzi": "谢谢",
+            "pinyin": "xièxie"
+          }
+        },
+        {
+          "id": "greet-how-are-you",
+          "en": "How are you?",
+          "es": "¿Cómo estás?",
+          "fr": "Comment ça va ?",
+          "zh": {
+            "hanzi": "你好吗？",
+            "pinyin": "nǐ hǎo ma?"
+          }
+        },
+        {
+          "id": "greet-fine",
+          "en": "I'm fine, thank you.",
+          "es": "Estoy bien, gracias.",
+          "fr": "Ça va bien, merci.",
+          "zh": {
+            "hanzi": "我很好，谢谢。",
+            "pinyin": "wǒ hěn hǎo, xièxie."
+          }
+        },
+        {
+          "id": "greet-name-q",
+          "en": "What's your name?",
+          "es": "¿Cómo te llamas?",
+          "fr": "Comment tu t'appelles ?",
+          "zh": {
+            "hanzi": "你叫什么名字？",
+            "pinyin": "nǐ jiào shénme míngzi?"
+          }
+        },
+        {
+          "id": "greet-name-a",
+          "en": "My name is Ana.",
+          "es": "Me llamo Ana.",
+          "fr": "Je m'appelle Ana.",
+          "zh": {
+            "hanzi": "我叫安娜。",
+            "pinyin": "wǒ jiào Ānnà."
+          }
+        },
+        {
+          "id": "greet-nice",
+          "en": "Nice to meet you.",
+          "es": "Mucho gusto.",
+          "fr": "Enchanté.",
+          "zh": {
+            "hanzi": "很高兴认识你。",
+            "pinyin": "hěn gāoxìng rènshi nǐ."
+          }
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "title": "Food",
+      "emoji": "🍜",
+      "phrases": [
+        {
+          "id": "food-hungry",
+          "en": "I'm hungry.",
+          "es": "Tengo hambre.",
+          "fr": "J'ai faim.",
+          "zh": {
+            "hanzi": "我饿了。",
+            "pinyin": "wǒ è le."
+          }
+        },
+        {
+          "id": "food-water",
+          "en": "Water, please.",
+          "es": "Agua, por favor.",
+          "fr": "De l'eau, s'il vous plaît.",
+          "zh": {
+            "hanzi": "请给我水。",
+            "pinyin": "qǐng gěi wǒ shuǐ."
+          }
+        },
+        {
+          "id": "food-menu",
+          "en": "The menu, please.",
+          "es": "El menú, por favor.",
+          "fr": "La carte, s'il vous plaît.",
+          "zh": {
+            "hanzi": "请给我菜单。",
+            "pinyin": "qǐng gěi wǒ càidān."
+          }
+        },
+        {
+          "id": "food-coffee",
+          "en": "I would like a coffee.",
+          "es": "Quisiera un café.",
+          "fr": "Je voudrais un café.",
+          "zh": {
+            "hanzi": "我想要一杯咖啡。",
+            "pinyin": "wǒ xiǎng yào yì bēi kāfēi."
+          }
+        },
+        {
+          "id": "food-delicious",
+          "en": "It's delicious!",
+          "es": "¡Está delicioso!",
+          "fr": "C'est délicieux !",
+          "zh": {
+            "hanzi": "很好吃！",
+            "pinyin": "hěn hǎochī!"
+          }
+        },
+        {
+          "id": "food-no-meat",
+          "en": "I don't eat meat.",
+          "es": "No como carne.",
+          "fr": "Je ne mange pas de viande.",
+          "zh": {
+            "hanzi": "我不吃肉。",
+            "pinyin": "wǒ bù chī ròu."
+          }
+        },
+        {
+          "id": "food-check",
+          "en": "The check, please.",
+          "es": "La cuenta, por favor.",
+          "fr": "L'addition, s'il vous plaît.",
+          "zh": {
+            "hanzi": "请结账。",
+            "pinyin": "qǐng jiézhàng."
+          }
+        },
+        {
+          "id": "food-cheers",
+          "en": "Cheers!",
+          "es": "¡Salud!",
+          "fr": "Santé !",
+          "zh": {
+            "hanzi": "干杯！",
+            "pinyin": "gānbēi!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "travel",
+      "title": "Travel",
+      "emoji": "✈️",
+      "phrases": [
+        {
+          "id": "travel-airport",
+          "en": "Where is the airport?",
+          "es": "¿Dónde está el aeropuerto?",
+          "fr": "Où est l'aéroport ?",
+          "zh": {
+            "hanzi": "机场在哪里？",
+            "pinyin": "jīchǎng zài nǎlǐ?"
+          }
+        },
+        {
+          "id": "travel-hotel",
+          "en": "Where is the hotel?",
+          "es": "¿Dónde está el hotel?",
+          "fr": "Où est l'hôtel ?",
+          "zh": {
+            "hanzi": "酒店在哪里？",
+            "pinyin": "jiǔdiàn zài nǎlǐ?"
+          }
+        },
+        {
+          "id": "travel-reservation",
+          "en": "I have a reservation.",
+          "es": "Tengo una reserva.",
+          "fr": "J'ai une réservation.",
+          "zh": {
+            "hanzi": "我有预订。",
+            "pinyin": "wǒ yǒu yùdìng."
+          }
+        },
+        {
+          "id": "travel-ticket",
+          "en": "One ticket, please.",
+          "es": "Un boleto, por favor.",
+          "fr": "Un billet, s'il vous plaît.",
+          "zh": {
+            "hanzi": "请给我一张票。",
+            "pinyin": "qǐng gěi wǒ yì zhāng piào."
+          }
+        },
+        {
+          "id": "travel-cost",
+          "en": "How much does it cost?",
+          "es": "¿Cuánto cuesta?",
+          "fr": "Combien ça coûte ?",
+          "zh": {
+            "hanzi": "多少钱？",
+            "pinyin": "duōshao qián?"
+          }
+        },
+        {
+          "id": "travel-taxi",
+          "en": "I need a taxi.",
+          "es": "Necesito un taxi.",
+          "fr": "J'ai besoin d'un taxi.",
+          "zh": {
+            "hanzi": "我需要一辆出租车。",
+            "pinyin": "wǒ xūyào yí liàng chūzūchē."
+          }
+        },
+        {
+          "id": "travel-train",
+          "en": "What time does the train leave?",
+          "es": "¿A qué hora sale el tren?",
+          "fr": "À quelle heure part le train ?",
+          "zh": {
+            "hanzi": "火车几点出发？",
+            "pinyin": "huǒchē jǐ diǎn chūfā?"
+          }
+        },
+        {
+          "id": "travel-understand",
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "fr": "Je ne comprends pas.",
+          "zh": {
+            "hanzi": "我听不懂。",
+            "pinyin": "wǒ tīng bù dǒng."
+          }
+        }
+      ]
+    },
+    {
+      "id": "numbers",
+      "title": "Numbers",
+      "emoji": "🔢",
+      "phrases": [
+        {
+          "id": "num-123",
+          "en": "One, two, three",
+          "es": "Uno, dos, tres.",
+          "fr": "Un, deux, trois.",
+          "zh": {
+            "hanzi": "一、二、三。",
+            "pinyin": "yī, èr, sān."
+          },
+          "alt": [
+            "123"
+          ]
+        },
+        {
+          "id": "num-456",
+          "en": "Four, five, six",
+          "es": "Cuatro, cinco, seis.",
+          "fr": "Quatre, cinq, six.",
+          "zh": {
+            "hanzi": "四、五、六。",
+            "pinyin": "sì, wǔ, liù."
+          },
+          "alt": [
+            "456"
+          ]
+        },
+        {
+          "id": "num-7-10",
+          "en": "Seven, eight, nine, ten",
+          "es": "Siete, ocho, nueve, diez.",
+          "fr": "Sept, huit, neuf, dix.",
+          "zh": {
+            "hanzi": "七、八、九、十。",
+            "pinyin": "qī, bā, jiǔ, shí."
+          },
+          "alt": [
+            "78910"
+          ]
+        },
+        {
+          "id": "num-children",
+          "en": "I have two children.",
+          "es": "Tengo dos hijos.",
+          "fr": "J'ai deux enfants.",
+          "zh": {
+            "hanzi": "我有两个孩子。",
+            "pinyin": "wǒ yǒu liǎng ge háizi."
+          }
+        },
+        {
+          "id": "num-age-30",
+          "en": "I'm thirty years old.",
+          "es": "Tengo treinta años.",
+          "fr": "J'ai trente ans.",
+          "zh": {
+            "hanzi": "我三十岁。",
+            "pinyin": "wǒ sānshí suì."
+          }
+        },
+        {
+          "id": "num-age",
+          "en": "How old are you?",
+          "es": "¿Cuántos años tienes?",
+          "fr": "Quel âge as-tu ?",
+          "zh": {
+            "hanzi": "你几岁？",
+            "pinyin": "nǐ jǐ suì?"
+          }
+        },
+        {
+          "id": "num-time",
+          "en": "What time is it?",
+          "es": "¿Qué hora es?",
+          "fr": "Quelle heure est-il ?",
+          "zh": {
+            "hanzi": "现在几点？",
+            "pinyin": "xiànzài jǐ diǎn?"
+          }
+        },
+        {
+          "id": "num-price",
+          "en": "That's twenty euros.",
+          "es": "Son veinte euros.",
+          "fr": "Ça fait vingt euros.",
+          "zh": {
+            "hanzi": "二十欧元。",
+            "pinyin": "èrshí ōuyuán."
+          }
+        }
+      ]
+    },
+    {
+      "id": "directions",
+      "title": "Directions",
+      "emoji": "🧭",
+      "phrases": [
+        {
+          "id": "dir-bathroom",
+          "en": "Where is the bathroom?",
+          "es": "¿Dónde está el baño?",
+          "fr": "Où sont les toilettes ?",
+          "zh": {
+            "hanzi": "洗手间在哪里？",
+            "pinyin": "xǐshǒujiān zài nǎlǐ?"
+          }
+        },
+        {
+          "id": "dir-left",
+          "en": "Turn left.",
+          "es": "Gire a la izquierda.",
+          "fr": "Tournez à gauche.",
+          "zh": {
+            "hanzi": "向左转。",
+            "pinyin": "xiàng zuǒ zhuǎn."
+          }
+        },
+        {
+          "id": "dir-right",
+          "en": "Turn right.",
+          "es": "Gire a la derecha.",
+          "fr": "Tournez à droite.",
+          "zh": {
+            "hanzi": "向右转。",
+            "pinyin": "xiàng yòu zhuǎn."
+          }
+        },
+        {
+          "id": "dir-straight",
+          "en": "Go straight ahead.",
+          "es": "Siga derecho.",
+          "fr": "Allez tout droit.",
+          "zh": {
+            "hanzi": "一直走。",
+            "pinyin": "yìzhí zǒu."
+          }
+        },
+        {
+          "id": "dir-far",
+          "en": "Is it far?",
+          "es": "¿Está lejos?",
+          "fr": "C'est loin ?",
+          "zh": {
+            "hanzi": "远吗？",
+            "pinyin": "yuǎn ma?"
+          }
+        },
+        {
+          "id": "dir-near",
+          "en": "It's near here.",
+          "es": "Está cerca de aquí.",
+          "fr": "C'est près d'ici.",
+          "zh": {
+            "hanzi": "就在附近。",
+            "pinyin": "jiù zài fùjìn."
+          }
+        },
+        {
+          "id": "dir-metro",
+          "en": "Where is the subway station?",
+          "es": "¿Dónde está la estación de metro?",
+          "fr": "Où est la station de métro ?",
+          "zh": {
+            "hanzi": "地铁站在哪里？",
+            "pinyin": "dìtiězhàn zài nǎlǐ?"
+          }
+        },
+        {
+          "id": "dir-help",
+          "en": "Can you help me?",
+          "es": "¿Me puede ayudar?",
+          "fr": "Pouvez-vous m'aider ?",
+          "zh": {
+            "hanzi": "你能帮我吗？",
+            "pinyin": "nǐ néng bāng wǒ ma?"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,13 +1,14 @@
 {
   "expo": {
-    "name": "language-app-tmp",
-    "slug": "language-app-tmp",
+    "name": "Language Practice",
+    "slug": "language-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.visionair.languagepractice"
     },
     "android": {
       "adaptiveIcon": {
@@ -20,6 +21,23 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Language Practice uses the microphone so you can record yourself repeating phrases. Audio never leaves your phone.",
+          "recordAudioAndroid": true,
+          "enableBackgroundRecording": false,
+          "enableBackgroundPlayback": false
+        }
+      ],
+      "expo-asset"
+    ],
+    "scheme": "languagepractice",
+    "experiments": {
+      "typedRoutes": false
     }
   }
 }
