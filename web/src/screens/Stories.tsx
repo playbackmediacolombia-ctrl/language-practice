@@ -9,6 +9,7 @@ import { navigate } from '../lib/router';
 import { getArticles, getStories, getStory, type Gloss, LEVELS, type Line, listPath, optionEn, optionText, READING_LEVELS, type Story, STORY_TOPICS } from '../lib/stories';
 import { isModelReady, loadModel, transcribe } from '../lib/whisper';
 import { Icon, Screen, SpeedPicker, Waveform } from '../ui';
+import { AdultGate, AdultGateScreen } from './AdultGate';
 import { LangSwitcher } from './Path';
 
 const STORY_XP = 10;
@@ -25,7 +26,8 @@ const testHook = location.search.includes('test');
 /** Practice tab › Stories & dialogues: a story and a dialogue at each early level, then conversations. */
 export function StoryList({ lang }: { lang: Lang }) {
   const progress = useProgress();
-  const stories = getStories(lang);
+  const hidden = progress.adult ? 0 : getStories(lang).filter((s) => s.topic === 'flirting').length;
+  const stories = getStories(lang).filter((s) => progress.adult || s.topic !== 'flirting');
   return (
     <Screen title="Stories & dialogues" back="/practice">
       <LangSwitcher lang={lang} to={(l) => `/${l}/stories`} />
@@ -76,11 +78,12 @@ export function StoryList({ lang }: { lang: Lang }) {
           </div>
         </section>
       ))}
+      {hidden > 0 && <AdultGate count={`${hidden} dialogues`} />}
     </Screen>
   );
 }
 
-/** Practice › Reading: news-style articles for Advanced and Fluent, with tap-to-translate. */
+/** Practice › Reading: short articles at every level, with tap-to-translate. */
 export function ArticleList({ lang }: { lang: Lang }) {
   const progress = useProgress();
   const articles = getArticles(lang);
@@ -88,8 +91,8 @@ export function ArticleList({ lang }: { lang: Lang }) {
     <Screen title="Reading" back="/practice">
       <LangSwitcher lang={lang} to={(l) => `/${l}/reading`} />
       <p className="muted small" style={{ margin: '0 4px' }}>
-        Short news-style articles. Tap any word for its meaning, listen sentence by sentence, then answer four questions. The
-        stories are made up for practice.
+        Short articles for every level. Tap any word for its meaning, listen sentence by sentence, then answer the questions.
+        The stories are made up for practice.
       </p>
       {READING_LEVELS.map((lv) => (
         <section key={lv.level}>
@@ -583,4 +586,11 @@ function Questions({ lang, story }: { lang: Lang; story: Story }) {
       )}
     </section>
   );
+}
+
+/** A flirting dialogue opens only after the 18+ check. */
+export function GatedStory(props: { lang: Lang; id: string }) {
+  const { adult } = useProgress();
+  if (!adult && getStory(props.lang, props.id)?.topic === 'flirting') return <AdultGateScreen back={`/${props.lang}/stories`} />;
+  return <StoryScreen {...props} />;
 }

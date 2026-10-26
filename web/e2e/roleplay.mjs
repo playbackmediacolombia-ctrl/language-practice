@@ -67,7 +67,8 @@ await run(async () => {
   const levels = await page.locator('.section-title').allInnerTexts();
   const count = await page.locator('[data-testid^=roleplay-es-]').count();
   expect(levels.join() === 'BEGINNER,ELEMENTARY,INTERMEDIATE,UPPER-INTERMEDIATE,ADVANCED,FLUENT' || levels.length === 6, `list: six levels (${levels.join(', ')})`);
-  const inData = JSON.parse(readFileSync(new URL('../../shared/scenarios/es.json', import.meta.url), 'utf8')).scenarios.length;
+  // Flirting role-plays wait behind the 18+ check (content.mjs tests that).
+  const inData = JSON.parse(readFileSync(new URL('../../shared/scenarios/es.json', import.meta.url), 'utf8')).scenarios.filter((x) => x.topic !== 'flirting').length;
   expect(count === inData, `list: all ${inData} Spanish role-plays (${count})`);
   await page.screenshot({ path: 'R-list.png' });
 

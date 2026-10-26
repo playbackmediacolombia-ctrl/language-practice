@@ -121,9 +121,9 @@
       "en": "A weekend at the seaside",
       "lines": [
         { "text": "Le week-end dernier, nous sommes partis à la mer en train.", "en": "Last weekend, we went to the seaside by train." },
-        { "text": "Le samedi, il a fait très beau, alors nous avons nagé toute la journée.", "en": "On Saturday the weather was lovely, so we swam all day." },
+        { "text": "Samedi, il a fait très beau, alors nous avons nagé toute la journée.", "en": "On Saturday the weather was lovely, so we swam all day." },
         { "text": "Le soir, nous avons mangé des moules dans un petit restaurant du port.", "en": "In the evening, we ate mussels in a little restaurant at the harbor." },
-        { "text": "Le dimanche, il a plu, donc nous avons visité un musée.", "en": "On Sunday it rained, so we visited a museum." },
+        { "text": "Dimanche, il a plu, donc nous avons visité un musée.", "en": "On Sunday it rained, so we visited a museum." },
         { "text": "Nous sommes rentrés fatigués, mais très contents.", "en": "We came home tired, but very happy." }
       ],
       "glossary": {
@@ -138,7 +138,7 @@
       },
       "questions": [
         { "q": "Comment sont-ils partis à la mer ?", "qEn": "How did they go to the seaside?", "options": [{ "text": "En train", "en": "By train" }, { "text": "En voiture", "en": "By car" }, { "text": "En avion", "en": "By plane" }], "answer": 0 },
-        { "q": "Qu'ont-ils mangé le samedi soir ?", "qEn": "What did they eat on Saturday evening?", "options": [{ "text": "Des moules", "en": "Mussels" }, { "text": "Une pizza", "en": "A pizza" }, { "text": "Du poulet", "en": "Chicken" }], "answer": 0 },
+        { "q": "Qu'ont-ils mangé samedi soir ?", "qEn": "What did they eat on Saturday evening?", "options": [{ "text": "Des moules", "en": "Mussels" }, { "text": "Une pizza", "en": "A pizza" }, { "text": "Du poulet", "en": "Chicken" }], "answer": 0 },
         { "q": "Pourquoi ont-ils visité un musée ?", "qEn": "Why did they visit a museum?", "options": [{ "text": "Parce qu'il a plu", "en": "Because it rained" }, { "text": "Parce qu'il faisait chaud", "en": "Because it was hot" }, { "text": "Parce que la plage était fermée", "en": "Because the beach was closed" }], "answer": 0 }
       ]
     },
@@ -258,6 +258,89 @@
         { "q": "Qu'est-ce qui inquiète Camille ?", "qEn": "What worries Camille?", "options": [{ "text": "De perdre son espace", "en": "Losing her space" }, { "text": "Le prix de l'appart", "en": "The flat's price" }, { "text": "Ce que dira sa famille", "en": "What her family will say" }], "answer": 0 },
         { "q": "Que propose Thomas ?", "qEn": "What does Thomas suggest?", "options": [{ "text": "Un appart avec une pièce en plus", "en": "A flat with an extra room" }, { "text": "D'attendre un an", "en": "Waiting a year" }, { "text": "D'habiter chez ses parents", "en": "Living at his parents'" }], "answer": 0 },
         { "q": "Comment pourraient-ils partager les frais ?", "qEn": "How could they split the costs?", "options": [{ "text": "Moitié-moitié, ou selon ce que chacun gagne", "en": "Half-half, or by what each earns" }, { "text": "Thomas paierait tout", "en": "Thomas would pay everything" }, { "text": "Camille paierait le loyer", "en": "Camille would pay the rent" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-fl-signals",
+      "level": 4,
+      "kind": "dialogue",
+      "topic": "flirting",
+      "title": "Il me drague ou il est juste sympa ?",
+      "en": "Flirting, or just being nice?",
+      "speakers": { "ines": { "name": "Inès", "voice": "a" }, "lucas": { "name": "Lucas", "voice": "b" } },
+      "lines": [
+        { "speaker": "ines", "text": "Lucas, tu crois que le serveur du café me drague ?", "en": "Lucas, do you think the waiter at the café is hitting on me?" },
+        { "speaker": "lucas", "text": "Hmm… il fait quoi, exactement ?", "en": "Hmm… what does he do, exactly?" },
+        { "speaker": "ines", "text": "Il me sourit tout le temps, et hier il a écrit « bonne journée » sur mon gobelet.", "en": "He smiles at me all the time, and yesterday he wrote \"have a nice day\" on my cup." },
+        { "speaker": "lucas", "text": "Ça peut être juste de la gentillesse. Il te pose des questions ?", "en": "That could just be kindness. Does he ask you questions?" },
+        { "speaker": "ines", "text": "Oui, il me demande comment vont mes cours et il se souvient de tout.", "en": "Yes, he asks how my classes are going and he remembers everything." },
+        { "speaker": "lucas", "text": "Ah, là, c'est clair : tu lui plais. Propose-lui un verre !", "en": "Oh, then it's clear: he likes you. Ask him out for a drink!" }
+      ],
+      "glossary": {
+        "crois": "you think", "serveur": "waiter", "café": "café", "drague": "is hitting on", "sourit": "smiles", "écrit": "written", "journée": "day",
+        "gobelet": "cup", "gentillesse": "kindness", "pose": "asks (poser une question)", "questions": "questions", "demande": "asks",
+        "cours": "classes", "souvient": "il se souvient = he remembers", "clair": "clear", "plais": "tu lui plais = he likes you",
+        "propose-lui": "suggest to him", "verre": "drink"
+      },
+      "questions": [
+        { "q": "Qu'est-ce que le serveur a écrit sur le gobelet ?", "qEn": "What did the waiter write on the cup?", "options": [{ "text": "« Bonne journée »", "en": "\"Have a nice day\"" }, { "text": "Son numéro", "en": "His number" }, { "text": "Son prénom", "en": "His first name" }], "answer": 0 },
+        { "q": "Pour Lucas, quel signe montre qu'elle lui plaît ?", "qEn": "For Lucas, what sign shows he likes her?", "options": [{ "text": "Il pose des questions et se souvient de tout", "en": "He asks questions and remembers everything" }, { "text": "Il fait des réductions", "en": "He gives discounts" }, { "text": "Il est toujours pressé", "en": "He's always in a hurry" }], "answer": 0 },
+        { "q": "Que conseille Lucas à la fin ?", "qEn": "What does Lucas advise at the end?", "options": [{ "text": "De lui proposer un verre", "en": "To ask him for a drink" }, { "text": "De changer de café", "en": "To switch cafés" }, { "text": "D'attendre un mois", "en": "To wait a month" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-fl-worst-line",
+      "level": 5,
+      "kind": "dialogue",
+      "topic": "flirting",
+      "title": "La pire phrase d'accroche",
+      "en": "The worst pick-up line",
+      "speakers": { "manon": { "name": "Manon", "voice": "a" }, "yanis": { "name": "Yanis", "voice": "b" } },
+      "lines": [
+        { "speaker": "yanis", "text": "Excuse-moi, t'aurais pas une carte ? Je me suis perdu dans tes yeux.", "en": "Excuse me, do you have a map? I got lost in your eyes." },
+        { "speaker": "manon", "text": "Haha, sérieux ? C'est la pire phrase que j'aie jamais entendue.", "en": "Haha, seriously? That's the worst line I've ever heard." },
+        { "speaker": "yanis", "text": "Je sais, mon pote m'a mis au défi. Mais ça a marché : je t'ai fait rire.", "en": "I know, my buddy dared me. But it worked: I made you laugh." },
+        { "speaker": "manon", "text": "Bon, c'est vrai. Je te donne un point pour le courage.", "en": "Well, that's true. I'll give you a point for courage." },
+        { "speaker": "yanis", "text": "Alors, avec ce point, je peux t'offrir un verre ?", "en": "Then, with that point, can I buy you a drink?" },
+        { "speaker": "manon", "text": "Une limonade, mais seulement si tu promets d'arrêter les phrases comme ça.", "en": "A lemonade, but only if you promise to stop with lines like that." }
+      ],
+      "glossary": {
+        "carte": "map", "perdu": "lost", "yeux": "eyes", "sérieux": "seriously", "pire": "worst", "phrase": "line, sentence", "entendue": "heard",
+        "pote": "buddy (slang)", "défi": "mis au défi = dared", "marché": "worked", "rire": "laugh", "point": "point", "courage": "courage",
+        "offrir": "to offer, buy (for someone)", "verre": "drink", "limonade": "lemonade", "promets": "you promise", "arrêter": "to stop"
+      },
+      "questions": [
+        { "q": "Pourquoi Yanis a-t-il dit cette phrase ?", "qEn": "Why did Yanis say that line?", "options": [{ "text": "Son pote l'a mis au défi", "en": "His buddy dared him" }, { "text": "Il l'a lue dans un livre", "en": "He read it in a book" }, { "text": "Manon la lui a demandée", "en": "Manon asked for it" }], "answer": 0 },
+        { "q": "Que donne Manon à Yanis ?", "qEn": "What does Manon give Yanis?", "options": [{ "text": "Un point pour le courage", "en": "A point for courage" }, { "text": "Son numéro", "en": "Her number" }, { "text": "Une carte", "en": "A map" }], "answer": 0 },
+        { "q": "À quelle condition Manon accepte-t-elle le verre ?", "qEn": "On what condition does Manon accept the drink?", "options": [{ "text": "Qu'il arrête les phrases comme ça", "en": "That he stops with lines like that" }, { "text": "Qu'il paie", "en": "That he pays" }, { "text": "Qu'il invite son pote", "en": "That he invites his buddy" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-fl-graceful-no",
+      "level": 6,
+      "kind": "dialogue",
+      "topic": "flirting",
+      "title": "Un « non » tout en douceur",
+      "en": "A gentle no",
+      "speakers": { "julie": { "name": "Julie", "voice": "a" }, "romain": { "name": "Romain", "voice": "b" } },
+      "lines": [
+        { "speaker": "romain", "text": "Julie, j'ai passé une super soirée à discuter avec toi. Je peux avoir ton numéro ?", "en": "Julie, I had a great evening talking with you. Can I have your number?" },
+        { "speaker": "julie", "text": "C'est gentil, Romain. Moi aussi, j'ai passé un bon moment, mais en ce moment, je ne cherche pas à rencontrer quelqu'un.", "en": "That's sweet, Romain. I had a nice time too, but right now I'm not looking to meet anyone." },
+        { "speaker": "romain", "text": "Pas de souci, je comprends tout à fait. Merci de me le dire franchement.", "en": "No problem, I completely understand. Thanks for telling me honestly." },
+        { "speaker": "julie", "text": "Merci à toi de le prendre aussi bien. C'était une conversation vraiment chouette.", "en": "Thank you for taking it so well. It was a really lovely conversation." },
+        { "speaker": "romain", "text": "En tout cas, si tu veux reparler de livres un jour, je suis là.", "en": "Anyway, if you ever want to talk about books again, I'm around." },
+        { "speaker": "julie", "text": "Avec plaisir ! On se verra sûrement au prochain club de lecture.", "en": "Gladly! We'll surely see each other at the next book club." }
+      ],
+      "glossary": {
+        "passé": "spent", "soirée": "evening", "discuter": "to chat", "numéro": "number", "gentil": "kind, sweet", "moment": "moment, time",
+        "cherche": "I'm looking", "rencontrer": "to meet", "souci": "pas de souci = no problem", "comprends": "I understand",
+        "franchement": "frankly, honestly", "prendre": "to take", "chouette": "lovely, great", "reparler": "to talk again", "livres": "books",
+        "sûrement": "surely", "club": "club", "lecture": "reading"
+      },
+      "questions": [
+        { "q": "Que demande Romain à Julie ?", "qEn": "What does Romain ask Julie for?", "options": [{ "text": "Son numéro", "en": "Her number" }, { "text": "Un livre", "en": "A book" }, { "text": "Un café", "en": "A coffee" }], "answer": 0 },
+        { "q": "Pourquoi Julie dit-elle non ?", "qEn": "Why does Julie say no?", "options": [{ "text": "Elle ne cherche pas à rencontrer quelqu'un en ce moment", "en": "She isn't looking to meet anyone right now" }, { "text": "Elle a déjà un copain", "en": "She already has a boyfriend" }, { "text": "Elle n'aime pas Romain", "en": "She doesn't like Romain" }], "answer": 0 },
+        { "q": "Comment réagit Romain ?", "qEn": "How does Romain react?", "options": [{ "text": "Il comprend et la remercie de sa franchise", "en": "He understands and thanks her for her honesty" }, { "text": "Il se fâche", "en": "He gets angry" }, { "text": "Il insiste", "en": "He insists" }], "answer": 0 }
       ]
     }
   ]

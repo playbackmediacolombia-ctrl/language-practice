@@ -951,6 +951,96 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u24",
+      "title": "Flirting with charm",
+      "lessons": [
+        {
+          "id": "es-24-1",
+          "title": "Compliments",
+          "items": [
+            { "id": "fl-como-te-ries", "text": "Me encanta cómo te ríes.", "en": "I love the way you laugh." },
+            { "id": "fl-voz-bonita", "text": "Tienes una voz muy bonita.", "en": "You have a really nice voice." },
+            { "id": "fl-color-te-queda", "text": "Ese color te queda espectacular.", "en": "That color looks amazing on you." },
+            { "id": "fl-me-rio-contigo", "text": "Contigo me río muchísimo.", "en": "I laugh so much with you." },
+            { "id": "fl-ojos-lindos", "text": "Tienes unos ojos muy lindos.", "en": "You have really beautiful eyes." },
+            { "id": "fl-buen-gusto-musica", "text": "¡Qué buen gusto tienes para la música!", "en": "You have such good taste in music!" }
+          ]
+        },
+        {
+          "id": "es-24-2",
+          "title": "Reading the signals",
+          "items": [
+            { "id": "fl-me-estas-coqueteando", "text": "¿Me estás coqueteando?", "en": "Are you flirting with me?" },
+            { "id": "fl-creo-que-le-gustas", "text": "Creo que le gustas.", "en": "I think they like you." },
+            { "id": "fl-no-deja-de-mirarte", "text": "No deja de mirarte.", "en": "They can't stop looking at you." },
+            { "id": "fl-o-solo-amable", "text": "Me da señales, pero no sé si es solo amable.", "en": "They're giving me signals, but I don't know if they're just being friendly." },
+            { "id": "fl-buena-senal", "text": "Si te sigue la conversación, es buena señal.", "en": "If they keep the conversation going, it's a good sign." },
+            { "id": "fl-conocerte-mejor", "text": "Me encantaría conocerte mejor.", "en": "I'd love to get to know you better." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u25",
+      "title": "Playful teasing & pick-up lines",
+      "lessons": [
+        {
+          "id": "es-25-1",
+          "title": "Teasing and comebacks",
+          "items": [
+            { "id": "fl-siempre-eres-asi", "text": "¿Siempre eres así o es solo conmigo?", "en": "Are you always like this, or is it just with me?" },
+            { "id": "fl-se-lo-tiene-creido", "text": "Uy, alguien se lo tiene muy creído 😏", "en": "Ooh, someone's pretty sure of themselves 😏", "say": "Uy, alguien se lo tiene muy creído." },
+            { "id": "fl-te-gane-otra-vez", "text": "Te gané otra vez. Admítelo.", "en": "I beat you again. Admit it." },
+            { "id": "fl-te-vi-sonreir", "text": "No te hagas, que te vi sonreír.", "en": "Don't play innocent, I saw you smile." },
+            { "id": "fl-me-debes-un-cafe", "text": "Me debes un café por esa.", "en": "You owe me a coffee for that one." },
+            { "id": "fl-tu-ganas-esta-vez", "text": "Está bien, tú ganas… esta vez.", "en": "Fine, you win… this time." }
+          ]
+        },
+        {
+          "id": "es-25-2",
+          "title": "Pick-up lines, smooth and cheesy",
+          "items": [
+            { "id": "fl-me-recomiendas", "text": "¿Me recomiendas algo de la carta? Tienes cara de saber.", "en": "Can you recommend something on the menu? You look like you'd know." },
+            { "id": "fl-paso-otra-vez", "text": "¿Crees en el amor a primera vista, o paso otra vez?", "en": "Do you believe in love at first sight, or should I walk by again?" },
+            { "id": "fl-me-perdi-en-tus-ojos", "text": "Disculpa, ¿tienes un mapa? Me perdí en tus ojos.", "en": "Excuse me, do you have a map? I got lost in your eyes." },
+            { "id": "fl-te-caiste-del-cielo", "text": "¿Te dolió cuando te caíste del cielo?", "en": "Did it hurt when you fell from heaven?" },
+            { "id": "fl-malisima", "text": "Esa fue malísima, pero te hice reír.", "en": "That one was terrible, but I made you laugh." },
+            { "id": "fl-te-invito-a-algo", "text": "¿Te puedo invitar a algo de tomar?", "en": "Can I buy you a drink?" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u26",
+      "title": "Flirty texts & clear signals",
+      "lessons": [
+        {
+          "id": "es-26-1",
+          "title": "Flirty texts and app openers",
+          "items": [
+            { "id": "fl-dos-verdades", "text": "Dos verdades y una mentira: tú empiezas 😉", "en": "Two truths and a lie: you go first 😉", "say": "Dos verdades y una mentira: tú empiezas." },
+            { "id": "fl-foto-montana", "text": "Tu foto en la montaña me dejó con curiosidad. ¿Dónde fue?", "en": "Your mountain photo got me curious. Where was it?" },
+            { "id": "fl-pensando-anoche", "text": "No dejo de pensar en nuestra conversación de anoche 🙈", "en": "I can't stop thinking about our conversation last night 🙈", "say": "No dejo de pensar en nuestra conversación de anoche." },
+            { "id": "fl-como-amaneciste", "text": "Buenos días, ¿cómo amaneciste? ☀️", "en": "Good morning, how did you sleep? ☀️", "say": "Buenos días, ¿cómo amaneciste?" },
+            { "id": "fl-revancha", "text": "Me debes la revancha en el billar 😏", "en": "You owe me a rematch at pool 😏", "say": "Me debes la revancha en el billar." },
+            { "id": "fl-repetimos", "text": "Cuando quieras, repetimos 😘", "en": "Let's do it again whenever you want 😘", "say": "Cuando quieras, repetimos." }
+          ]
+        },
+        {
+          "id": "es-26-2",
+          "title": "Smooth moves and graceful exits",
+          "items": [
+            { "id": "fl-pedir-numero", "text": "Me caes muy bien. ¿Te puedo pedir tu número?", "en": "I really like you. Can I ask for your number?" },
+            { "id": "fl-seguimos-en-otro-lado", "text": "¿Qué tal si seguimos la conversación en otro lado?", "en": "How about we continue this conversation somewhere else?" },
+            { "id": "fl-ojala-volvamos", "text": "Me encantó conocerte. Ojalá nos volvamos a ver.", "en": "I loved meeting you. I hope we see each other again." },
+            { "id": "fl-te-malinterprete", "text": "Creo que te malinterpreté. Perdón.", "en": "I think I misread things. Sorry." },
+            { "id": "fl-fue-un-gusto", "text": "No pasa nada, fue un gusto charlar contigo.", "en": "No worries, it was lovely chatting with you." },
+            { "id": "fl-respeto-tu-respuesta", "text": "Respeto tu respuesta.", "en": "I respect your answer." }
+          ]
+        }
+      ]
     }
   ]
 }

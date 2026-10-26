@@ -1095,6 +1095,8 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .turn-panel { gap: 8px; }
 .turn-prompt { display: flex; flex-direction: column; gap: 2px; }
 .turn-en { font-size: 18px; font-weight: 700; font-family: var(--font-round); }
+.turn-hint { font-size: var(--text-base); color: var(--flame-text); font-weight: 600; }
+.turn-hint b { font-weight: 700; }
 .turn-text { font-size: 17px; color: var(--accent); font-weight: 600; }
 .turn-actions { justify-content: space-between; align-items: center; }
 .turn-actions .sound-sm { width: 64px; height: 56px; }
@@ -1167,3 +1169,20 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .level-bar-name { font-weight: 700; font-size: var(--text-base); }
 .level-bar-name .muted { font-size: var(--text-sm); font-weight: 600; }
 .level-bar-cta { font-weight: 700; color: var(--accent); font-size: var(--text-sm); }
+
+/* Word of the day (Learn tab). */
+.word-day { gap: 10px; background: linear-gradient(135deg, color-mix(in srgb, var(--sky-light) 14%, var(--card)), var(--card) 65%); }
+.word-day-kicker { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+.word-day-word { font-size: var(--text-xl); font-weight: 800; letter-spacing: var(--tight); line-height: 1.15; }
+.word-day-en { color: var(--muted); font-weight: 600; margin-top: 2px; }
+.word-day-example {
+  display: flex; align-items: flex-start; gap: 10px; width: 100%; text-align: left; cursor: pointer; padding: 10px 12px;
+  border: 2px solid var(--border); border-radius: 14px; background: var(--bg-raised); color: var(--text); font: inherit;
+}
+.word-day-example .icon { color: var(--accent); margin-top: 3px; }
+.word-day-example .grow { display: flex; flex-direction: column; gap: 2px; }
+.word-day-sentence { font-weight: 600; }
+.word-day-example .pinyin { color: var(--accent); }
+
+/* The 18+ check (flirting). */
+.adult-gate { gap: 12px; border-color: color-mix(in srgb, var(--flame) 45%, var(--border)); box-shadow: 0 4px 0 color-mix(in srgb, var(--flame) 45%, var(--border)); }

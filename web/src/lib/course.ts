@@ -3,7 +3,7 @@ import fr from '../../../shared/course/fr.json';
 import outline from '../../../shared/course/outline.json';
 import zh from '../../../shared/course/zh.json';
 import { getPhrases, getTopics, type Lang, type Phrase } from './content';
-import { lessonDone, type Progress, weakness } from './progress';
+import { getProgress, lessonDone, type Progress, weakness } from './progress';
 import { type Card, dayNumber, dueKeys, forecast } from './srs';
 
 // The lesson path. The outline (levels, stages and units, beginner to fluent) is shared by every
@@ -95,17 +95,24 @@ export function getPath(lang: Lang): Stage[] {
   return stages;
 }
 
-/** All written lessons in path order. */
+/** Every written lesson in path order, 18+ topics included (for looking things up). */
+const allLessons = (lang: Lang): Lesson[] => getPath(lang).flatMap((s) => s.units.flatMap((u) => u.lessons));
+
+/** Is this lesson part of an 18+ topic (flirting)? */
+export const isAdultLesson = (lesson: Lesson) => ADULT.has(lesson.unitId);
+
+/** Written lessons in path order. 18+ topics only once you've confirmed you're 18 or older. */
 export function getLessons(lang: Lang): Lesson[] {
-  return getPath(lang).flatMap((s) => s.units.flatMap((u) => u.lessons));
+  const adult = getProgress().adult;
+  return allLessons(lang).filter((l) => adult || !isAdultLesson(l));
 }
 
 export function getLesson(lang: Lang, id: string): Lesson | undefined {
-  return getLessons(lang).find((l) => l.id === id);
+  return allLessons(lang).find((l) => l.id === id);
 }
 
 export function getItem(lang: Lang, id: string): Item | undefined {
-  for (const lesson of getLessons(lang)) {
+  for (const lesson of allLessons(lang)) {
     const item = lesson.items.find((i) => i.id === id);
     if (item) return item;
   }
@@ -224,7 +231,7 @@ const lookup = new Map<Lang, Map<string, Item>>();
 function itemsById(lang: Lang): Map<string, Item> {
   let map = lookup.get(lang);
   if (!map) {
-    map = new Map(getLessons(lang).flatMap((l) => l.items.map((i) => [i.id, i] as const)));
+    map = new Map(allLessons(lang).flatMap((l) => l.items.map((i) => [i.id, i] as const)));
     for (const t of getTopics()) for (const ph of getPhrases(lang, t.id)) map.set(`pb:${ph.id}`, phraseItem(lang, ph));
     lookup.set(lang, map);
   }
@@ -232,7 +239,13 @@ function itemsById(lang: Lang): Map<string, Item> {
 }
 
 /** Every word and phrase, for distractors. */
-export const allItems = (lang: Lang): Item[] => [...itemsById(lang).values()];
+/** Every word and phrase, for distractors (18+ topics only once you've confirmed). */
+export function allItems(lang: Lang): Item[] {
+  const items = [...itemsById(lang).values()];
+  if (getProgress().adult) return items;
+  const hidden = new Set(allLessons(lang).filter(isAdultLesson).flatMap((l) => l.items.map((i) => i.id)));
+  return items.filter((i) => !hidden.has(i.id));
+}
 
 /** Most words in one daily review; the rest stay due for the next one. */
 export const DAILY_MAX = 20;

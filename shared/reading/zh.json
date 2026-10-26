@@ -1,6 +1,82 @@
 {
   "articles": [
     {
+      "id": "zh-read-park", "level": 1, "kind": "article",
+      "title": "新公园", "en": "A new park",
+      "place": "上海",
+      "lines": [
+        { "text": "我家附近有一个新公园。", "seg": "我 家 附近 有 一 个 新 公园 。", "pinyin": "Wǒ jiā fùjìn yǒu yí ge xīn gōngyuán.", "en": "There is a new park near my home." },
+        { "text": "公园很大，也很漂亮。", "seg": "公园 很 大 ， 也 很 漂亮 。", "pinyin": "Gōngyuán hěn dà, yě hěn piàoliang.", "en": "The park is big and very pretty." },
+        { "text": "公园里有树、花和一个小湖。", "seg": "公园 里 有 树 、 花 和 一 个 小 湖 。", "pinyin": "Gōngyuán li yǒu shù, huā hé yí ge xiǎo hú.", "en": "In the park there are trees, flowers and a small lake." },
+        { "text": "孩子们在玩，小狗在跑。", "seg": "孩子们 在 玩 ， 小狗 在 跑 。", "pinyin": "Háizimen zài wán, xiǎogǒu zài pǎo.", "en": "The children are playing and the puppies are running." },
+        { "text": "公园每天早上六点开门。", "seg": "公园 每天 早上 六 点 开门 。", "pinyin": "Gōngyuán měitiān zǎoshang liù diǎn kāimén.", "en": "The park opens at six every morning." }
+      ],
+      "glossary": {"我": {"py": "wǒ", "en": "I, my"}, "家": {"py": "jiā", "en": "home"}, "附近": {"py": "fùjìn", "en": "nearby"}, "有": {"py": "yǒu", "en": "there is, to have"}, "一": {"py": "yī", "en": "one, a (said yì or yí before another word)"}, "个": {"py": "gè", "en": "(measure word; usually said ge)"}, "新": {"py": "xīn", "en": "new"}, "公园": {"py": "gōngyuán", "en": "park"}, "很": {"py": "hěn", "en": "very"}, "大": {"py": "dà", "en": "big"}, "也": {"py": "yě", "en": "also"}, "漂亮": {"py": "piàoliang", "en": "pretty"}, "里": {"py": "lǐ", "en": "inside (usually said li after a word)"}, "树": {"py": "shù", "en": "tree"}, "花": {"py": "huā", "en": "flower"}, "和": {"py": "hé", "en": "and"}, "小": {"py": "xiǎo", "en": "small"}, "湖": {"py": "hú", "en": "lake"}, "孩子们": {"py": "háizimen", "en": "children"}, "在": {"py": "zài", "en": "(doing) right now"}, "玩": {"py": "wán", "en": "to play"}, "小狗": {"py": "xiǎogǒu", "en": "puppy, little dog"}, "跑": {"py": "pǎo", "en": "to run"}, "每天": {"py": "měitiān", "en": "every day"}, "早上": {"py": "zǎoshang", "en": "morning"}, "六": {"py": "liù", "en": "six"}, "点": {"py": "diǎn", "en": "o'clock"}, "开门": {"py": "kāimén", "en": "to open"}},
+      "questions": [
+        { "q": "我家附近有什么？", "qEn": "What is there near my home?", "options": [{"text": "一个新公园", "en": "A new park"}, {"text": "一个新商店", "en": "A new shop"}, {"text": "一个学校", "en": "A school"}], "answer": 0 },
+        { "q": "公园里有什么？", "qEn": "What is there in the park?", "options": [{"text": "树、花和一个小湖", "en": "Trees, flowers and a small lake"}, {"text": "一个游泳池", "en": "A swimming pool"}, {"text": "一个电影院", "en": "A cinema"}], "answer": 0 },
+        { "q": "公园几点开门？", "qEn": "What time does the park open?", "options": [{"text": "早上六点", "en": "Six in the morning"}, {"text": "早上十点", "en": "Ten in the morning"}, {"text": "中午十二点", "en": "Twelve noon"}], "answer": 0 }
+      ]
+    },
+    {
+      "id": "zh-read-market", "level": 2, "kind": "article",
+      "title": "周日的早市", "en": "The Sunday morning market",
+      "place": "成都",
+      "lines": [
+        { "text": "每个星期天，广场上都有一个早市。", "seg": "每 个 星期天 ， 广场 上 都 有 一 个 早市 。", "pinyin": "Měi ge Xīngqītiān, guǎngchǎng shang dōu yǒu yí ge zǎoshì.", "en": "Every Sunday there's a morning market in the square." },
+        { "text": "农民在这儿卖水果、蔬菜和鸡蛋。", "seg": "农民 在 这儿 卖 水果 、 蔬菜 和 鸡蛋 。", "pinyin": "Nóngmín zài zhèr mài shuǐguǒ, shūcài hé jīdàn.", "en": "Farmers sell fruit, vegetables and eggs here." },
+        { "text": "东西很便宜，一斤西红柿只要三块钱。", "seg": "东西 很 便宜 ， 一 斤 西红柿 只要 三 块 钱 。", "pinyin": "Dōngxi hěn piányi, yì jīn xīhóngshì zhǐ yào sān kuài qián.", "en": "Things are cheap: half a kilo of tomatoes is only three yuan." },
+        { "text": "很多人在那儿吃早饭，喝豆浆，吃包子。", "seg": "很 多 人 在 那儿 吃 早饭 ， 喝 豆浆 ， 吃 包子 。", "pinyin": "Hěn duō rén zài nàr chī zǎofàn, hē dòujiāng, chī bāozi.", "en": "Lots of people have breakfast there: soy milk and steamed buns." },
+        { "text": "早市早上六点开始，十一点结束。", "seg": "早市 早上 六 点 开始 ， 十一 点 结束 。", "pinyin": "Zǎoshì zǎoshang liù diǎn kāishǐ, shíyī diǎn jiéshù.", "en": "The market starts at six and ends at eleven." },
+        { "text": "最好早点儿去，因为九点以后人特别多。", "seg": "最好 早 点儿 去 ， 因为 九 点 以后 人 特别 多 。", "pinyin": "Zuìhǎo zǎo diǎnr qù, yīnwèi jiǔ diǎn yǐhòu rén tèbié duō.", "en": "It's best to go early, because after nine it's very crowded." }
+      ],
+      "glossary": {"每": {"py": "měi", "en": "every"}, "个": {"py": "gè", "en": "(measure word; usually said ge)"}, "星期天": {"py": "Xīngqītiān", "en": "Sunday"}, "广场": {"py": "guǎngchǎng", "en": "square, plaza"}, "上": {"py": "shàng", "en": "on, at"}, "都": {"py": "dōu", "en": "all, always"}, "有": {"py": "yǒu", "en": "there is"}, "早市": {"py": "zǎoshì", "en": "morning market"}, "农民": {"py": "nóngmín", "en": "farmer"}, "这儿": {"py": "zhèr", "en": "here"}, "卖": {"py": "mài", "en": "to sell"}, "水果": {"py": "shuǐguǒ", "en": "fruit"}, "蔬菜": {"py": "shūcài", "en": "vegetables"}, "鸡蛋": {"py": "jīdàn", "en": "egg"}, "东西": {"py": "dōngxi", "en": "things"}, "便宜": {"py": "piányi", "en": "cheap"}, "斤": {"py": "jīn", "en": "half a kilo"}, "西红柿": {"py": "xīhóngshì", "en": "tomato"}, "只要": {"py": "zhǐ yào", "en": "only costs"}, "块": {"py": "kuài", "en": "yuan (money)"}, "钱": {"py": "qián", "en": "money"}, "那儿": {"py": "nàr", "en": "there"}, "吃": {"py": "chī", "en": "to eat"}, "早饭": {"py": "zǎofàn", "en": "breakfast"}, "喝": {"py": "hē", "en": "to drink"}, "豆浆": {"py": "dòujiāng", "en": "soy milk"}, "包子": {"py": "bāozi", "en": "steamed bun"}, "开始": {"py": "kāishǐ", "en": "to start"}, "结束": {"py": "jiéshù", "en": "to end"}, "最好": {"py": "zuìhǎo", "en": "it's best to"}, "早": {"py": "zǎo", "en": "early"}, "点儿": {"py": "diǎnr", "en": "a bit"}, "去": {"py": "qù", "en": "to go"}, "因为": {"py": "yīnwèi", "en": "because"}, "以后": {"py": "yǐhòu", "en": "after"}, "人": {"py": "rén", "en": "people"}, "特别": {"py": "tèbié", "en": "especially, very"}, "多": {"py": "duō", "en": "many"}},
+      "questions": [
+        { "q": "什么时候有早市？", "qEn": "When is the morning market?", "options": [{"text": "每个星期天", "en": "Every Sunday"}, {"text": "每个星期一", "en": "Every Monday"}, {"text": "每天晚上", "en": "Every evening"}], "answer": 0 },
+        { "q": "一斤西红柿多少钱？", "qEn": "How much is half a kilo of tomatoes?", "options": [{"text": "三块钱", "en": "Three yuan"}, {"text": "十块钱", "en": "Ten yuan"}, {"text": "一块钱", "en": "One yuan"}], "answer": 0 },
+        { "q": "为什么最好早点儿去？", "qEn": "Why is it best to go early?", "options": [{"text": "因为九点以后人特别多", "en": "Because after nine it's very crowded"}, {"text": "因为八点就关门", "en": "Because it closes at eight"}, {"text": "因为早上更便宜", "en": "Because it's cheaper in the morning"}], "answer": 0 }
+      ]
+    },
+    {
+      "id": "zh-read-festival", "level": 3, "kind": "article",
+      "title": "音乐节的周末", "en": "A music festival weekend",
+      "place": "杭州",
+      "lines": [
+        { "text": "上个周末，杭州在西湖边举办了一场户外音乐节。", "seg": "上 个 周末 ， 杭州 在 西湖 边 举办 了 一 场 户外 音乐节 。", "pinyin": "Shàng ge zhōumò, Hángzhōu zài Xī Hú biān jǔbàn le yì chǎng hùwài yīnyuèjié.", "en": "Last weekend, Hangzhou held an outdoor music festival by West Lake." },
+        { "text": "二十多个乐队在三个舞台上演出。", "seg": "二十 多 个 乐队 在 三 个 舞台 上 演出 。", "pinyin": "Èrshí duō ge yuèduì zài sān ge wǔtái shang yǎnchū.", "en": "More than twenty bands performed on three stages." },
+        { "text": "虽然星期六下午下了雨，但是几万名观众一直玩到了半夜。", "seg": "虽然 星期六 下午 下 了 雨 ， 但是 几 万 名 观众 一直 玩 到 了 半夜 。", "pinyin": "Suīrán Xīngqīliù xiàwǔ xià le yǔ, dànshì jǐ wàn míng guānzhòng yìzhí wán dào le bànyè.", "en": "Although it rained on Saturday afternoon, tens of thousands of fans stayed until midnight." },
+        { "text": "主办方说，很多人是从外地专门来的。", "seg": "主办方 说 ， 很 多 人 是 从 外地 专门 来 的 。", "pinyin": "Zhǔbànfāng shuō, hěn duō rén shì cóng wàidì zhuānmén lái de.", "en": "The organizers said many people came from other cities just for it." },
+        { "text": "音乐节还有免费的吉他课，给从来没学过的人。", "seg": "音乐节 还 有 免费 的 吉他 课 ， 给 从来 没 学 过 的 人 。", "pinyin": "Yīnyuèjié hái yǒu miǎnfèi de jítā kè, gěi cónglái méi xué guo de rén.", "en": "The festival also had free guitar lessons for people who had never learned." },
+        { "text": "下一届音乐节将在明年五月举行。", "seg": "下 一 届 音乐节 将 在 明年 五月 举行 。", "pinyin": "Xià yí jiè yīnyuèjié jiāng zài míngnián Wǔyuè jǔxíng.", "en": "The next festival will be held next May." }
+      ],
+      "glossary": {"上": {"py": "shàng", "en": "last (上个周末 = last weekend)"}, "个": {"py": "gè", "en": "(measure word; usually said ge)"}, "周末": {"py": "zhōumò", "en": "weekend"}, "杭州": {"py": "Hángzhōu", "en": "Hangzhou"}, "在": {"py": "zài", "en": "at, in"}, "西湖": {"py": "Xī Hú", "en": "West Lake"}, "边": {"py": "biān", "en": "side, by"}, "举办": {"py": "jǔbàn", "en": "to hold, host"}, "了": {"py": "le", "en": "(completed action)"}, "场": {"py": "chǎng", "en": "(measure word for events)"}, "户外": {"py": "hùwài", "en": "outdoor"}, "音乐节": {"py": "yīnyuèjié", "en": "music festival"}, "二十": {"py": "èrshí", "en": "twenty"}, "多": {"py": "duō", "en": "more than"}, "乐队": {"py": "yuèduì", "en": "band"}, "舞台": {"py": "wǔtái", "en": "stage"}, "演出": {"py": "yǎnchū", "en": "to perform"}, "虽然": {"py": "suīrán", "en": "although"}, "星期六": {"py": "Xīngqīliù", "en": "Saturday"}, "下午": {"py": "xiàwǔ", "en": "afternoon"}, "下": {"py": "xià", "en": "to fall (下雨 = to rain)"}, "雨": {"py": "yǔ", "en": "rain"}, "但是": {"py": "dànshì", "en": "but"}, "几": {"py": "jǐ", "en": "several"}, "万": {"py": "wàn", "en": "ten thousand"}, "名": {"py": "míng", "en": "(measure word for people)"}, "观众": {"py": "guānzhòng", "en": "audience, fans"}, "一直": {"py": "yìzhí", "en": "all the way, continuously"}, "玩": {"py": "wán", "en": "to have fun"}, "半夜": {"py": "bànyè", "en": "midnight"}, "主办方": {"py": "zhǔbànfāng", "en": "organizers"}, "外地": {"py": "wàidì", "en": "other cities"}, "专门": {"py": "zhuānmén", "en": "especially, just for it"}, "免费": {"py": "miǎnfèi", "en": "free"}, "吉他": {"py": "jítā", "en": "guitar"}, "课": {"py": "kè", "en": "lesson, class"}, "从来": {"py": "cónglái", "en": "ever (从来没 = never)"}, "学": {"py": "xué", "en": "to learn"}, "届": {"py": "jiè", "en": "(measure word for festivals)"}, "将": {"py": "jiāng", "en": "will"}, "明年": {"py": "míngnián", "en": "next year"}, "五月": {"py": "Wǔyuè", "en": "May"}, "举行": {"py": "jǔxíng", "en": "to be held"}},
+      "questions": [
+        { "q": "有多少个乐队演出？", "qEn": "How many bands performed?", "options": [{"text": "二十多个", "en": "More than twenty"}, {"text": "三个", "en": "Three"}, {"text": "十个", "en": "Ten"}], "answer": 0 },
+        { "q": "星期六下午发生了什么？", "qEn": "What happened on Saturday afternoon?", "options": [{"text": "下了雨", "en": "It rained"}, {"text": "音乐节取消了", "en": "The festival was canceled"}, {"text": "有免费的演出", "en": "There was a free show"}], "answer": 0 },
+        { "q": "免费的吉他课是给谁的？", "qEn": "Who were the free guitar lessons for?", "options": [{"text": "从来没学过的人", "en": "People who had never learned"}, {"text": "乐队的成员", "en": "Band members"}, {"text": "小孩子", "en": "Young children"}], "answer": 0 }
+      ]
+    },
+    {
+      "id": "zh-read-remote", "level": 4, "kind": "article",
+      "title": "居家办公会成为常态吗？", "en": "Will working from home become normal?",
+      "place": "深圳",
+      "lines": [
+        { "text": "越来越多的深圳公司允许员工每周在家办公两三天。", "seg": "越来越 多 的 深圳 公司 允许 员工 每 周 在 家 办公 两 三 天 。", "pinyin": "Yuè lái yuè duō de Shēnzhèn gōngsī yǔnxǔ yuángōng měi zhōu zài jiā bàngōng liǎng sān tiān.", "en": "More and more Shenzhen companies let employees work from home two or three days a week." },
+        { "text": "最近的一项调查显示，七成员工更喜欢这种混合模式。", "seg": "最近 的 一 项 调查 显示 ， 七 成 员工 更 喜欢 这 种 混合 模式 。", "pinyin": "Zuìjìn de yí xiàng diàochá xiǎnshì, qī chéng yuángōng gèng xǐhuan zhè zhǒng hùnhé móshì.", "en": "A recent survey shows that seventy percent of employees prefer this hybrid model." },
+        { "text": "他们说，这样可以节省通勤时间，工作也更专心。", "seg": "他们 说 ， 这样 可以 节省 通勤 时间 ， 工作 也 更 专心 。", "pinyin": "Tāmen shuō, zhèyàng kěyǐ jiéshěng tōngqín shíjiān, gōngzuò yě gèng zhuānxīn.", "en": "They say this saves commuting time and they focus better." },
+        { "text": "不过，有些经理担心团队会缺少面对面的交流。", "seg": "不过 ， 有些 经理 担心 团队 会 缺少 面对面 的 交流 。", "pinyin": "Búguò, yǒuxiē jīnglǐ dānxīn tuánduì huì quēshǎo miànduìmiàn de jiāoliú.", "en": "However, some managers worry the team will lack face-to-face communication." },
+        { "text": "所以很多公司规定，每周二和周四大家都要来公司开会。", "seg": "所以 很 多 公司 规定 ， 每 周二 和 周四 大家 都 要 来 公司 开会 。", "pinyin": "Suǒyǐ hěn duō gōngsī guīdìng, měi Zhōu'èr hé Zhōusì dàjiā dōu yào lái gōngsī kāihuì.", "en": "So many companies require everyone to come in for meetings on Tuesdays and Thursdays." },
+        { "text": "专家认为，混合模式会一直持续下去。", "seg": "专家 认为 ， 混合 模式 会 一直 持续 下去 。", "pinyin": "Zhuānjiā rènwéi, hùnhé móshì huì yìzhí chíxù xiàqu.", "en": "Experts believe the hybrid model is here to stay." }
+      ],
+      "glossary": {"越来越": {"py": "yuè lái yuè", "en": "more and more"}, "多": {"py": "duō", "en": "many"}, "的": {"py": "de", "en": "(links words)"}, "深圳": {"py": "Shēnzhèn", "en": "Shenzhen"}, "公司": {"py": "gōngsī", "en": "company"}, "允许": {"py": "yǔnxǔ", "en": "to allow"}, "员工": {"py": "yuángōng", "en": "employee"}, "每": {"py": "měi", "en": "every"}, "周": {"py": "zhōu", "en": "week"}, "在": {"py": "zài", "en": "at"}, "家": {"py": "jiā", "en": "home"}, "办公": {"py": "bàngōng", "en": "to work (in an office)"}, "最近": {"py": "zuìjìn", "en": "recent"}, "项": {"py": "xiàng", "en": "(measure word for surveys)"}, "调查": {"py": "diàochá", "en": "survey"}, "显示": {"py": "xiǎnshì", "en": "to show"}, "成": {"py": "chéng", "en": "tenth (七成 = 70%)"}, "更": {"py": "gèng", "en": "more"}, "喜欢": {"py": "xǐhuan", "en": "to like"}, "种": {"py": "zhǒng", "en": "kind"}, "混合": {"py": "hùnhé", "en": "mixed, hybrid"}, "模式": {"py": "móshì", "en": "model, pattern"}, "这样": {"py": "zhèyàng", "en": "this way"}, "节省": {"py": "jiéshěng", "en": "to save"}, "通勤": {"py": "tōngqín", "en": "to commute"}, "时间": {"py": "shíjiān", "en": "time"}, "专心": {"py": "zhuānxīn", "en": "focused"}, "不过": {"py": "búguò", "en": "however"}, "有些": {"py": "yǒuxiē", "en": "some"}, "经理": {"py": "jīnglǐ", "en": "manager"}, "担心": {"py": "dānxīn", "en": "to worry"}, "团队": {"py": "tuánduì", "en": "team"}, "缺少": {"py": "quēshǎo", "en": "to lack"}, "面对面": {"py": "miànduìmiàn", "en": "face to face"}, "交流": {"py": "jiāoliú", "en": "communication"}, "所以": {"py": "suǒyǐ", "en": "so"}, "规定": {"py": "guīdìng", "en": "to require"}, "周二": {"py": "Zhōu'èr", "en": "Tuesday"}, "周四": {"py": "Zhōusì", "en": "Thursday"}, "大家": {"py": "dàjiā", "en": "everyone"}, "开会": {"py": "kāihuì", "en": "to have a meeting"}, "专家": {"py": "zhuānjiā", "en": "expert"}, "认为": {"py": "rènwéi", "en": "to believe"}, "一直": {"py": "yìzhí", "en": "continuously"}, "持续": {"py": "chíxù", "en": "to continue"}, "下去": {"py": "xiàqu", "en": "(keep on)"}},
+      "questions": [
+        { "q": "多少员工更喜欢混合模式？", "qEn": "How many employees prefer the hybrid model?", "options": [{"text": "七成", "en": "Seventy percent"}, {"text": "一半", "en": "Half"}, {"text": "两成", "en": "Twenty percent"}], "answer": 0 },
+        { "q": "员工说在家办公有什么好处？", "qEn": "What benefit do employees mention?", "options": [{"text": "节省通勤时间", "en": "It saves commuting time"}, {"text": "工资更高", "en": "Higher pay"}, {"text": "工作时间更短", "en": "Shorter hours"}], "answer": 0 },
+        { "q": "有些经理担心什么？", "qEn": "What do some managers worry about?", "options": [{"text": "团队缺少面对面的交流", "en": "The team lacks face-to-face communication"}, {"text": "员工会辞职", "en": "Employees will quit"}, {"text": "公司会关门", "en": "Companies will close"}], "answer": 0 },
+        { "q": "很多公司每周二和周四做什么？", "qEn": "What do many companies do on Tuesdays and Thursdays?", "options": [{"text": "大家来公司开会", "en": "Everyone comes in for meetings"}, {"text": "提前下班", "en": "Leave work early"}, {"text": "放假一天", "en": "Take a day off"}], "answer": 0 }
+      ]
+    },
+    {
       "id": "zh-news-bikes", "level": 5, "kind": "article",
       "title": "成都试行免费电动自行车", "en": "Chengdu trials free electric bikes",
       "place": "成都",

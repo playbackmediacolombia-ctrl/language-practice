@@ -159,7 +159,7 @@
       "title": "…的时候: when, while",
       "body": [
         "Put 的时候 after an action to say \"when\" or \"while\" it happens: 我做饭的时候 (while I was cooking).",
-        "已经…了 is \"already\": 他已经走了 (he had already left)."
+        "已经…了 is \"already\": 他已经走了 (he's already left)."
       ],
       "examples": ["wo-zuofan-de-shihou", "wo-dao-de-shihou-ta-yijing-zou-le"]
     },
@@ -273,6 +273,36 @@
         "Praise the cooking and offer to help clear up; the parents may well insist you sit down."
       ],
       "examples": ["dt-ayi-hao", "dt-dian-xiaoyisi"]
+    },
+    {
+      "lesson": "zh-24-1",
+      "title": "Culture: compliments in China",
+      "body": [
+        "Sweet, playful compliments go down well: 你笑起来好甜 (your smile is so sweet) or praise for someone's taste or voice.",
+        "Comments on someone's body are much more forward in Chinese than in English; stick to smiles, style and personality.",
+        "撩 (liáo) is the everyday word for flirting, and 有戏 (yǒuxì) means \"there's a chance\"."
+      ],
+      "examples": ["fl-xiao-hao-tian", "fl-zai-liao-wo"]
+    },
+    {
+      "lesson": "zh-25-2",
+      "title": "Culture: 土味情话, cheesy lines as a game",
+      "body": [
+        "土味情话 (tǔwèi qínghuà, \"country-flavored love lines\") are deliberately corny pick-up lines, hugely popular online. Many are puns, like 缺点 (flaw) heard as 缺 + 点你 (missing a bit of you).",
+        "They're used as a joke you share, not a serious move. The best reply is a laugh and 好土啊 (so cheesy!).",
+        "Teasing is affectionate (服不服?, admit it!) but keep it light and mutual."
+      ],
+      "examples": ["fl-que-dian-ni", "fl-hao-tu"]
+    },
+    {
+      "lesson": "zh-26-2",
+      "title": "Culture: reading a polite no",
+      "body": [
+        "Refusals are often indirect: 我最近有点忙 (I've been a bit busy lately) or 我们还是做朋友吧 (let's just be friends). Take them as a no, kindly.",
+        "Asking to add someone on WeChat is the normal way to ask for their contact. If they offer to add you instead, or change the subject, let it go.",
+        "A gracious exit like 是我误会了 (I misread things) or 跟你聊天很愉快 leaves a good impression."
+      ],
+      "examples": ["fl-jia-weixin", "fl-wuhui-le"]
     }
   ]
 }

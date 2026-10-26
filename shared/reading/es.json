@@ -1,6 +1,82 @@
 {
   "articles": [
     {
+      "id": "es-read-park", "level": 1, "kind": "article",
+      "title": "Un parque nuevo", "en": "A new park",
+      "place": "Bogotá",
+      "lines": [
+        { "text": "Hay un parque nuevo en el barrio.", "en": "There is a new park in the neighborhood." },
+        { "text": "El parque es grande y bonito.", "en": "The park is big and pretty." },
+        { "text": "Tiene árboles, flores y un lago pequeño.", "en": "It has trees, flowers and a small lake." },
+        { "text": "Los niños juegan y los perros corren.", "en": "The children play and the dogs run." },
+        { "text": "El parque abre todos los días a las seis.", "en": "The park opens every day at six." }
+      ],
+      "glossary": {"hay": "there is", "parque": "park", "nuevo": "new", "barrio": "neighborhood", "grande": "big", "bonito": "pretty", "tiene": "it has", "árboles": "trees", "flores": "flowers", "lago": "lake", "pequeño": "small", "niños": "children", "juegan": "(they) play", "perros": "dogs", "corren": "(they) run", "abre": "opens", "todos": "every, all", "días": "days", "seis": "six"},
+      "questions": [
+        { "q": "¿Qué hay en el barrio?", "qEn": "What is there in the neighborhood?", "options": [{"text": "Un parque nuevo", "en": "A new park"}, {"text": "Un café nuevo", "en": "A new café"}, {"text": "Una escuela", "en": "A school"}], "answer": 0 },
+        { "q": "¿Qué tiene el parque?", "qEn": "What does the park have?", "options": [{"text": "Árboles, flores y un lago", "en": "Trees, flowers and a lake"}, {"text": "Una piscina", "en": "A pool"}, {"text": "Un cine", "en": "A movie theater"}], "answer": 0 },
+        { "q": "¿A qué hora abre?", "qEn": "What time does it open?", "options": [{"text": "A las seis", "en": "At six"}, {"text": "A las diez", "en": "At ten"}, {"text": "A las dos", "en": "At two"}], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-read-market", "level": 2, "kind": "article",
+      "title": "El mercado del domingo", "en": "The Sunday market",
+      "place": "Medellín",
+      "lines": [
+        { "text": "Todos los domingos hay un mercado en la plaza principal.", "en": "Every Sunday there is a market in the main square." },
+        { "text": "Los campesinos venden frutas, verduras y queso fresco.", "en": "Farmers sell fruit, vegetables and fresh cheese." },
+        { "text": "Las frutas son baratas: un kilo de mangos cuesta cuatro mil pesos.", "en": "The fruit is cheap: a kilo of mangoes costs four thousand pesos." },
+        { "text": "Mucha gente desayuna allí con arepas y chocolate caliente.", "en": "Lots of people have breakfast there with arepas and hot chocolate." },
+        { "text": "El mercado empieza a las siete y termina a la una.", "en": "The market starts at seven and ends at one." },
+        { "text": "Es mejor llegar temprano, porque a mediodía hay mucha gente.", "en": "It's better to get there early, because at noon it's very crowded." }
+      ],
+      "glossary": {"domingos": "Sundays", "mercado": "market", "plaza": "square", "principal": "main", "campesinos": "farmers", "venden": "(they) sell", "frutas": "fruit", "verduras": "vegetables", "queso": "cheese", "fresco": "fresh", "baratas": "cheap", "kilo": "kilo", "cuesta": "costs", "gente": "people", "desayuna": "has breakfast", "allí": "there", "arepas": "arepas (corn cakes)", "caliente": "hot", "empieza": "starts", "termina": "ends", "mejor": "better", "llegar": "to arrive", "temprano": "early", "mediodía": "noon"},
+      "questions": [
+        { "q": "¿Cuándo hay mercado?", "qEn": "When is there a market?", "options": [{"text": "Los domingos", "en": "On Sundays"}, {"text": "Los lunes", "en": "On Mondays"}, {"text": "Todos los días", "en": "Every day"}], "answer": 0 },
+        { "q": "¿Cuánto cuesta un kilo de mangos?", "qEn": "How much is a kilo of mangoes?", "options": [{"text": "Cuatro mil pesos", "en": "Four thousand pesos"}, {"text": "Diez mil pesos", "en": "Ten thousand pesos"}, {"text": "Mil pesos", "en": "One thousand pesos"}], "answer": 0 },
+        { "q": "¿Por qué es mejor llegar temprano?", "qEn": "Why is it better to arrive early?", "options": [{"text": "Porque a mediodía hay mucha gente", "en": "Because it's crowded at noon"}, {"text": "Porque cierra a las ocho", "en": "Because it closes at eight"}, {"text": "Porque las frutas son más baratas", "en": "Because fruit is cheaper"}], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-read-festival", "level": 3, "kind": "article",
+      "title": "Un fin de semana de salsa", "en": "A weekend of salsa",
+      "place": "Cali",
+      "lines": [
+        { "text": "El fin de semana pasado, Cali celebró su festival de salsa al aire libre.", "en": "Last weekend, Cali held its open-air salsa festival." },
+        { "text": "Más de veinte orquestas tocaron en tres escenarios del centro.", "en": "More than twenty bands played on three stages downtown." },
+        { "text": "Miles de personas bailaron hasta la madrugada, aunque llovió el sábado por la tarde.", "en": "Thousands of people danced until the early hours, even though it rained on Saturday afternoon." },
+        { "text": "Los organizadores dijeron que vinieron visitantes de todo el país y del extranjero.", "en": "The organizers said visitors came from all over the country and abroad." },
+        { "text": "Además, hubo clases gratis para quienes nunca habían bailado.", "en": "There were also free classes for people who had never danced." },
+        { "text": "El próximo festival será en diciembre, durante la Feria de Cali.", "en": "The next festival will be in December, during the Cali Fair." }
+      ],
+      "glossary": {"pasado": "last, past", "celebró": "held, celebrated", "festival": "festival", "salsa": "salsa (music and dance)", "aire": "al aire libre = open-air", "libre": "free, open", "orquestas": "bands", "tocaron": "(they) played", "escenarios": "stages", "centro": "downtown", "miles": "thousands", "bailaron": "(they) danced", "madrugada": "early morning hours", "aunque": "even though", "llovió": "it rained", "organizadores": "organizers", "vinieron": "(they) came", "visitantes": "visitors", "país": "country", "extranjero": "abroad", "además": "also, besides", "hubo": "there were", "gratis": "free", "nunca": "never", "bailado": "danced", "próximo": "next", "feria": "fair"},
+      "questions": [
+        { "q": "¿Cuántas orquestas tocaron?", "qEn": "How many bands played?", "options": [{"text": "Más de veinte", "en": "More than twenty"}, {"text": "Tres", "en": "Three"}, {"text": "Diez", "en": "Ten"}], "answer": 0 },
+        { "q": "¿Qué pasó el sábado por la tarde?", "qEn": "What happened on Saturday afternoon?", "options": [{"text": "Llovió", "en": "It rained"}, {"text": "Cancelaron el festival", "en": "They canceled the festival"}, {"text": "Hubo un concierto gratis", "en": "There was a free concert"}], "answer": 0 },
+        { "q": "¿Para quiénes hubo clases gratis?", "qEn": "Who were the free classes for?", "options": [{"text": "Para quienes nunca habían bailado", "en": "For people who had never danced"}, {"text": "Para los músicos", "en": "For the musicians"}, {"text": "Para los niños", "en": "For children"}], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-read-remote", "level": 4, "kind": "article",
+      "title": "Trabajar desde casa, ¿para siempre?", "en": "Working from home, for good?",
+      "place": "Bogotá",
+      "lines": [
+        { "text": "Cada vez más empresas en Bogotá permiten que sus empleados trabajen desde casa dos o tres días a la semana.", "en": "More and more companies in Bogotá let their employees work from home two or three days a week." },
+        { "text": "Según una encuesta reciente, siete de cada diez trabajadores prefieren este modelo mixto.", "en": "According to a recent survey, seven out of ten workers prefer this hybrid model." },
+        { "text": "Dicen que ahorran tiempo en el tráfico y que se concentran mejor.", "en": "They say they save time in traffic and concentrate better." },
+        { "text": "Sin embargo, algunos jefes temen que el equipo pierda la comunicación cara a cara.", "en": "However, some managers fear the team will lose face-to-face communication." },
+        { "text": "Por eso, muchas oficinas organizan reuniones presenciales los martes y los jueves.", "en": "That's why many offices hold in-person meetings on Tuesdays and Thursdays." },
+        { "text": "Los expertos creen que el modelo mixto llegó para quedarse.", "en": "Experts think the hybrid model is here to stay." }
+      ],
+      "glossary": {"cada": "cada vez más = more and more", "empresas": "companies", "permiten": "(they) allow", "empleados": "employees", "trabajen": "(they) work", "según": "according to", "encuesta": "survey", "reciente": "recent", "trabajadores": "workers", "prefieren": "(they) prefer", "modelo": "model", "mixto": "mixed, hybrid", "ahorran": "(they) save", "tráfico": "traffic", "concentran": "se concentran = they concentrate", "embargo": "sin embargo = however", "jefes": "bosses, managers", "temen": "(they) fear", "equipo": "team", "pierda": "(it) loses", "comunicación": "communication", "cara": "cara a cara = face to face", "reuniones": "meetings", "presenciales": "in-person", "expertos": "experts", "creen": "(they) think", "quedarse": "to stay"},
+      "questions": [
+        { "q": "¿Cuántos trabajadores prefieren el modelo mixto?", "qEn": "How many workers prefer the hybrid model?", "options": [{"text": "Siete de cada diez", "en": "Seven out of ten"}, {"text": "La mitad", "en": "Half"}, {"text": "Dos de cada diez", "en": "Two out of ten"}], "answer": 0 },
+        { "q": "¿Qué ventaja mencionan los trabajadores?", "qEn": "What advantage do the workers mention?", "options": [{"text": "Ahorran tiempo en el tráfico", "en": "They save time in traffic"}, {"text": "Ganan más dinero", "en": "They earn more money"}, {"text": "Trabajan menos horas", "en": "They work fewer hours"}], "answer": 0 },
+        { "q": "¿Qué temen algunos jefes?", "qEn": "What do some managers fear?", "options": [{"text": "Que el equipo pierda la comunicación cara a cara", "en": "That the team loses face-to-face communication"}, {"text": "Que los empleados renuncien", "en": "That employees quit"}, {"text": "Que las oficinas cierren", "en": "That offices close"}], "answer": 0 },
+        { "q": "¿Qué hacen muchas oficinas los martes y jueves?", "qEn": "What do many offices do on Tuesdays and Thursdays?", "options": [{"text": "Reuniones presenciales", "en": "In-person meetings"}, {"text": "Cierran temprano", "en": "Close early"}, {"text": "Dan el día libre", "en": "Give the day off"}], "answer": 0 }
+      ]
+    },
+    {
       "id": "es-news-bikes", "level": 5, "kind": "article",
       "title": "Medellín prueba bicicletas eléctricas gratuitas", "en": "Medellín trials free electric bikes",
       "place": "Medellín",

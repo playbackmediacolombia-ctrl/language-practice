@@ -249,6 +249,36 @@
         "Sunday lunch can last for hours. Offering to help clear the table (débarrasser) is always appreciated."
       ],
       "examples": ["dt-ravi-de-vous-rencontrer", "dt-petite-attention"]
+    },
+    {
+      "lesson": "fr-24-1",
+      "title": "Culture: la séduction à la française",
+      "body": [
+        "Flirting in France tends to be subtle and witty: a lingering conversation, a well-chosen compliment, a bit of humor, rather than big declarations.",
+        "Compliments about someone's style, laugh or taste land better than comments about their body.",
+        "Catcalling (le harcèlement de rue) is not charming and is actually an offense in France. Flirting happens in conversation, not from across the street."
+      ],
+      "examples": ["fl-ton-rire", "fl-couleur-te-va"]
+    },
+    {
+      "lesson": "fr-25-1",
+      "title": "Culture: humor and second degré",
+      "body": [
+        "Teasing is often second degré (tongue-in-cheek): you say something with a straight face, and the other person knows you're joking.",
+        "A cheesy phrase d'accroche (pick-up line) only works if you obviously don't take it seriously. Laughing at it together is the point.",
+        "Keep teasing light and mutual; if they don't tease back, ease off."
+      ],
+      "examples": ["fl-modeste", "fl-elle-etait-nulle"]
+    },
+    {
+      "lesson": "fr-26-2",
+      "title": "Culture: clear and respectful",
+      "body": [
+        "Asking for someone's number (ton numéro) or suggesting a drink is perfectly normal. If they hesitate, take the hint gracefully.",
+        "A polite exit (\"pas de souci, c'était sympa de discuter\") keeps things friendly.",
+        "In texts, \"bonjour toi\" (morning, you) is a soft, affectionate opener."
+      ],
+      "examples": ["fl-ton-numero", "fl-je-respecte"]
     }
   ]
 }

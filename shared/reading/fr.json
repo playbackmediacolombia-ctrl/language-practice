@@ -1,6 +1,82 @@
 {
   "articles": [
     {
+      "id": "fr-read-park", "level": 1, "kind": "article",
+      "title": "Un nouveau parc", "en": "A new park",
+      "place": "Lyon",
+      "lines": [
+        { "text": "Il y a un nouveau parc dans le quartier.", "en": "There is a new park in the neighborhood." },
+        { "text": "Le parc est grand et joli.", "en": "The park is big and pretty." },
+        { "text": "Il y a des arbres, des fleurs et un petit lac.", "en": "There are trees, flowers and a small lake." },
+        { "text": "Les enfants jouent et les chiens courent.", "en": "The children play and the dogs run." },
+        { "text": "Le parc ouvre tous les jours à huit heures.", "en": "The park opens every day at eight." }
+      ],
+      "glossary": {"il": "il y a = there is/are", "nouveau": "new", "parc": "park", "quartier": "neighborhood", "grand": "big", "joli": "pretty", "arbres": "trees", "fleurs": "flowers", "petit": "small", "lac": "lake", "enfants": "children", "jouent": "(they) play", "chiens": "dogs", "courent": "(they) run", "ouvre": "opens", "tous": "tous les jours = every day", "jours": "days", "huit": "eight", "heures": "o'clock, hours"},
+      "questions": [
+        { "q": "Qu'est-ce qu'il y a dans le quartier ?", "qEn": "What is there in the neighborhood?", "options": [{"text": "Un nouveau parc", "en": "A new park"}, {"text": "Un nouveau café", "en": "A new café"}, {"text": "Une école", "en": "A school"}], "answer": 0 },
+        { "q": "Qu'est-ce qu'il y a dans le parc ?", "qEn": "What is there in the park?", "options": [{"text": "Des arbres, des fleurs et un lac", "en": "Trees, flowers and a lake"}, {"text": "Une piscine", "en": "A pool"}, {"text": "Un cinéma", "en": "A cinema"}], "answer": 0 },
+        { "q": "Le parc ouvre à quelle heure ?", "qEn": "What time does the park open?", "options": [{"text": "À huit heures", "en": "At eight"}, {"text": "À dix heures", "en": "At ten"}, {"text": "À midi", "en": "At noon"}], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-read-market", "level": 2, "kind": "article",
+      "title": "Le marché du dimanche", "en": "The Sunday market",
+      "place": "Aix-en-Provence",
+      "lines": [
+        { "text": "Tous les dimanches, il y a un marché sur la place principale.", "en": "Every Sunday, there's a market in the main square." },
+        { "text": "Les producteurs vendent des fruits, des légumes et du fromage.", "en": "Local producers sell fruit, vegetables and cheese." },
+        { "text": "Les prix sont raisonnables : un kilo de tomates coûte trois euros.", "en": "Prices are reasonable: a kilo of tomatoes costs three euros." },
+        { "text": "Beaucoup de gens prennent un café et un croissant au marché.", "en": "Lots of people have a coffee and a croissant at the market." },
+        { "text": "Le marché commence à huit heures et finit à treize heures.", "en": "The market starts at eight and finishes at one p.m." },
+        { "text": "Il vaut mieux arriver tôt, parce qu'à midi il y a beaucoup de monde.", "en": "It's better to get there early, because at noon it's very crowded." }
+      ],
+      "glossary": {"dimanches": "Sundays", "marché": "market", "place": "square", "principale": "main", "producteurs": "(local) producers", "vendent": "(they) sell", "fruits": "fruit", "légumes": "vegetables", "fromage": "cheese", "prix": "prices", "raisonnables": "reasonable", "kilo": "kilo", "tomates": "tomatoes", "coûte": "costs", "gens": "people", "prennent": "(they) have, take", "commence": "starts", "finit": "finishes", "vaut": "il vaut mieux = it's better to", "mieux": "better", "arriver": "to arrive", "tôt": "early", "midi": "noon", "monde": "beaucoup de monde = lots of people"},
+      "questions": [
+        { "q": "Quand est-ce qu'il y a le marché ?", "qEn": "When is the market?", "options": [{"text": "Le dimanche", "en": "On Sundays"}, {"text": "Le lundi", "en": "On Mondays"}, {"text": "Tous les jours", "en": "Every day"}], "answer": 0 },
+        { "q": "Combien coûte un kilo de tomates ?", "qEn": "How much is a kilo of tomatoes?", "options": [{"text": "Trois euros", "en": "Three euros"}, {"text": "Dix euros", "en": "Ten euros"}, {"text": "Un euro", "en": "One euro"}], "answer": 0 },
+        { "q": "Pourquoi vaut-il mieux arriver tôt ?", "qEn": "Why is it better to arrive early?", "options": [{"text": "Parce qu'à midi il y a beaucoup de monde", "en": "Because it's crowded at noon"}, {"text": "Parce que le marché ferme à neuf heures", "en": "Because the market closes at nine"}, {"text": "Parce que les prix sont plus bas", "en": "Because prices are lower"}], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-read-festival", "level": 3, "kind": "article",
+      "title": "Un week-end de musique", "en": "A weekend of music",
+      "place": "Montpellier",
+      "lines": [
+        { "text": "Le week-end dernier, Montpellier a organisé un festival de musique en plein air.", "en": "Last weekend, Montpellier held an open-air music festival." },
+        { "text": "Plus de vingt groupes ont joué sur trois scènes du centre-ville.", "en": "More than twenty bands played on three stages in the city center." },
+        { "text": "Des milliers de personnes ont dansé jusqu'à minuit, même s'il a plu samedi après-midi.", "en": "Thousands of people danced until midnight, even though it rained on Saturday afternoon." },
+        { "text": "Selon les organisateurs, des visiteurs sont venus de toute la France et de l'étranger.", "en": "According to the organizers, visitors came from all over France and abroad." },
+        { "text": "Il y avait aussi des ateliers gratuits pour apprendre à jouer de la guitare.", "en": "There were also free workshops to learn to play the guitar." },
+        { "text": "La prochaine édition aura lieu en juillet.", "en": "The next edition will take place in July." }
+      ],
+      "glossary": {"dernier": "last", "organisé": "held, organized", "festival": "festival", "musique": "music", "plein": "en plein air = open-air", "air": "air", "groupes": "bands", "joué": "played", "scènes": "stages", "centre-ville": "city center", "milliers": "thousands", "dansé": "danced", "minuit": "midnight", "même": "même si = even though", "plu": "rained (il a plu)", "selon": "according to", "organisateurs": "organizers", "visiteurs": "visitors", "venus": "come", "étranger": "abroad", "ateliers": "workshops", "gratuits": "free", "apprendre": "to learn", "guitare": "guitar", "prochaine": "next", "édition": "edition", "lieu": "aura lieu = will take place"},
+      "questions": [
+        { "q": "Combien de groupes ont joué ?", "qEn": "How many bands played?", "options": [{"text": "Plus de vingt", "en": "More than twenty"}, {"text": "Trois", "en": "Three"}, {"text": "Dix", "en": "Ten"}], "answer": 0 },
+        { "q": "Qu'est-ce qui s'est passé samedi après-midi ?", "qEn": "What happened on Saturday afternoon?", "options": [{"text": "Il a plu", "en": "It rained"}, {"text": "Le festival a été annulé", "en": "The festival was canceled"}, {"text": "Il y a eu un concert gratuit", "en": "There was a free concert"}], "answer": 0 },
+        { "q": "À quoi servaient les ateliers gratuits ?", "qEn": "What were the free workshops for?", "options": [{"text": "Apprendre à jouer de la guitare", "en": "Learning to play the guitar"}, {"text": "Apprendre à danser", "en": "Learning to dance"}, {"text": "Rencontrer les musiciens", "en": "Meeting the musicians"}], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-read-remote", "level": 4, "kind": "article",
+      "title": "Le télétravail, c'est pour toujours ?", "en": "Remote work: here for good?",
+      "place": "Paris",
+      "lines": [
+        { "text": "De plus en plus d'entreprises parisiennes permettent à leurs salariés de télétravailler deux ou trois jours par semaine.", "en": "More and more Paris companies let their employees work remotely two or three days a week." },
+        { "text": "D'après un sondage récent, sept salariés sur dix préfèrent ce modèle hybride.", "en": "According to a recent poll, seven employees out of ten prefer this hybrid model." },
+        { "text": "Ils disent qu'ils gagnent du temps dans les transports et qu'ils se concentrent mieux.", "en": "They say they save time commuting and concentrate better." },
+        { "text": "Pourtant, certains managers craignent que l'équipe perde le contact en personne.", "en": "However, some managers fear the team will lose in-person contact." },
+        { "text": "C'est pourquoi beaucoup de bureaux organisent des réunions sur place le mardi et le jeudi.", "en": "That's why many offices hold on-site meetings on Tuesdays and Thursdays." },
+        { "text": "Pour les experts, le modèle hybride est là pour durer.", "en": "For the experts, the hybrid model is here to stay." }
+      ],
+      "glossary": {"plus": "de plus en plus = more and more", "entreprises": "companies", "parisiennes": "Parisian", "permettent": "(they) allow", "salariés": "employees", "télétravailler": "to work remotely", "semaine": "week", "d'après": "according to", "sondage": "poll", "récent": "recent", "préfèrent": "(they) prefer", "modèle": "model", "hybride": "hybrid", "gagnent": "gagner du temps = to save time", "transports": "commuting, transport", "concentrent": "se concentrer = to concentrate", "pourtant": "however", "managers": "managers", "craignent": "(they) fear", "équipe": "team", "perde": "(it) loses", "contact": "contact", "personne": "en personne = in person", "bureaux": "offices", "réunions": "meetings", "place": "sur place = on site", "experts": "experts", "durer": "to last"},
+      "questions": [
+        { "q": "Combien de salariés préfèrent le modèle hybride ?", "qEn": "How many employees prefer the hybrid model?", "options": [{"text": "Sept sur dix", "en": "Seven out of ten"}, {"text": "La moitié", "en": "Half"}, {"text": "Deux sur dix", "en": "Two out of ten"}], "answer": 0 },
+        { "q": "Quel avantage citent les salariés ?", "qEn": "What advantage do the employees mention?", "options": [{"text": "Ils gagnent du temps dans les transports", "en": "They save time commuting"}, {"text": "Ils gagnent plus d'argent", "en": "They earn more money"}, {"text": "Ils travaillent moins", "en": "They work less"}], "answer": 0 },
+        { "q": "Que craignent certains managers ?", "qEn": "What do some managers fear?", "options": [{"text": "Que l'équipe perde le contact en personne", "en": "That the team loses in-person contact"}, {"text": "Que les salariés démissionnent", "en": "That employees resign"}, {"text": "Que les bureaux ferment", "en": "That offices close"}], "answer": 0 },
+        { "q": "Que font beaucoup de bureaux le mardi et le jeudi ?", "qEn": "What do many offices do on Tuesdays and Thursdays?", "options": [{"text": "Des réunions sur place", "en": "On-site meetings"}, {"text": "Ils ferment plus tôt", "en": "They close earlier"}, {"text": "Ils donnent un jour de congé", "en": "They give a day off"}], "answer": 0 }
+      ]
+    },
+    {
       "id": "fr-news-bikes", "level": 5, "kind": "article",
       "title": "Lyon teste des vélos électriques gratuits", "en": "Lyon trials free electric bikes",
       "place": "Lyon",

@@ -54,6 +54,8 @@ export type Progress = {
   speed: Speed;
   theme: Theme;
   lang: Lang | null; // language last opened on the Learn tab
+  /** Confirmed 18 or older: shows the flirting topic (lessons, role-plays, dialogues). */
+  adult: boolean;
 };
 
 export type Mistake = { left: number; at: number };
@@ -62,7 +64,7 @@ export const MISTAKE_RIGHTS = 3;
 
 export type Theme = 'auto' | 'light' | 'dark';
 export type Speed = 'slow' | 'normal' | 'fast';
-export type Prefs = Pick<Progress, 'goal' | 'speaking' | 'voice' | 'sfx' | 'haptics' | 'speed' | 'theme' | 'lang'>;
+export type Prefs = Pick<Progress, 'goal' | 'speaking' | 'voice' | 'sfx' | 'haptics' | 'speed' | 'theme' | 'lang' | 'adult'>;
 
 export const MAX_HEARTS = 5;
 export const HEART_REFILL_MS = 30 * 60 * 1000;
@@ -97,6 +99,7 @@ const EMPTY: Progress = {
   speed: 'normal',
   theme: 'auto',
   lang: null,
+  adult: false,
 };
 
 function load(): Progress {
@@ -382,7 +385,7 @@ export function replaceProgress(saved: Partial<Progress>) {
 
 export function resetProgress() {
   update((p) => {
-    const prefs: Prefs = { goal: p.goal, speaking: p.speaking, voice: p.voice, sfx: p.sfx, haptics: p.haptics, speed: p.speed, theme: p.theme, lang: p.lang };
+    const prefs: Prefs = { goal: p.goal, speaking: p.speaking, voice: p.voice, sfx: p.sfx, haptics: p.haptics, speed: p.speed, theme: p.theme, lang: p.lang, adult: p.adult };
     return { ...EMPTY, ...prefs };
   });
 }

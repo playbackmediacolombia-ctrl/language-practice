@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { type Lang, LANGS } from '../lib/content';
-import { DAILY_MAX, dueItems, getLesson, getPath, type Item, lessonStates, mistakeItems, unitNumber } from '../lib/course';
+import { DAILY_MAX, dueItems, getLesson, getPath, isAdultLesson, type Item, lessonStates, mistakeItems, unitNumber } from '../lib/course';
 import { tapFeedback } from '../lib/fx';
 import { buildTrack, canPlayHandsFree, type Pause, segmentAt, type Track } from '../lib/handsfree';
 import { addPracticeTime, completeLesson, type Progress, type Speed, useProgress } from '../lib/progress';
@@ -23,13 +23,13 @@ function sourceFor(p: Progress, lang: Lang, id: string): Source | null {
     const unit = getPath(lang)
       .flatMap((s) => s.units)
       .find((u) => u.id === id.slice(5));
-    if (!unit) return null;
+    if (!unit || (unit.adult && !p.adult)) return null;
     const states = lessonStates(p, lang);
     const lessons = unit.lessons.filter((l) => states.get(l.id) !== 'locked');
     return { title: `Unit ${unitNumber(lang, unit.id)}: ${unit.title}`, items: lessons.flatMap((l) => l.items) };
   }
   const lesson = getLesson(lang, id);
-  return lesson ? { title: lesson.title, items: lesson.items } : null;
+  return lesson && (p.adult || !isAdultLesson(lesson)) ? { title: lesson.title, items: lesson.items } : null;
 }
 
 const minutes = (words: number) => Math.max(1, Math.round((words * SECONDS_PER_WORD) / 60));
@@ -40,7 +40,7 @@ export function HandsFreeList({ lang }: { lang: Lang }) {
   const states = lessonStates(progress, lang);
   const units = getPath(lang)
     .flatMap((s) => s.units)
-    .filter((u) => u.lessons.some((l) => states.get(l.id) !== 'locked'));
+    .filter((u) => (progress.adult || !u.adult) && u.lessons.some((l) => states.get(l.id) !== 'locked'));
   const due = dueItems(progress, lang).filter(canPlayHandsFree).length;
   const mistakes = mistakeItems(progress, lang).filter(canPlayHandsFree).length;
   const open = (id: string) => {

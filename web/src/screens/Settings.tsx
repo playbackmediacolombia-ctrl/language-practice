@@ -128,6 +128,12 @@ export function Settings() {
           />
         </div>
         <Toggle label="Speaking exercises" hint="“Say it out loud”, graded by Whisper" checked={prefs.speaking} onChange={setSpeaking} />
+        <Toggle
+          label="Show 18+ topics"
+          hint="Flirting: lessons, role-plays and dialogues (flirty, never sexual)"
+          checked={prefs.adult}
+          onChange={(v) => setPref('adult', v)}
+        />
         <div className="list-block" data-testid="speed-setting">
           <span className="row-title">Listening speed</span>
           <span className="row-hint">For every recording: lessons, stories, the phrasebook and hands-free. Slow buttons stay slower.</span>

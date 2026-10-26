@@ -915,7 +915,7 @@
             { "id": "dt-gou-de-zhaopian", "text": "你和狗的照片太可爱了🐶", "pinyin": "Nǐ hé gǒu de zhàopiàn tài kě'ài le.", "en": "Your photo with the dog is so cute 🐶", "tiles": ["你", "和", "狗", "的", "照片", "太", "可爱", "了"], "say": "你和狗的照片太可爱了。" },
             { "id": "dt-zui-fengkuang", "text": "你做过最疯狂的事是什么？", "pinyin": "Nǐ zuò guo zuì fēngkuáng de shì shì shénme?", "en": "What's the craziest thing you've ever done?", "tiles": ["你", "做", "过", "最", "疯狂", "的", "事", "是", "什么"] },
             { "id": "dt-jianmian-hekafei", "text": "要不要见个面，喝杯咖啡？", "pinyin": "Yào bu yào jiàn ge miàn, hē bēi kāfēi?", "en": "Want to meet up for a coffee?", "tiles": ["要", "不", "要", "见", "个", "面", "喝", "杯", "咖啡"] },
-            { "id": "dt-bu-zhaoji", "text": "我现在不想谈认真的。", "pinyin": "Wǒ xiànzài bù xiǎng tán rènzhēn de.", "en": "I'm not looking for anything serious right now.", "tiles": ["我", "现在", "不", "想", "谈", "认真", "的"] },
+            { "id": "dt-bu-zhaoji", "text": "我现在不想认真谈恋爱。", "pinyin": "Wǒ xiànzài bù xiǎng rènzhēn tán liàn'ài.", "en": "I'm not looking for anything serious right now.", "tiles": ["我", "现在", "不", "想", "认真", "谈恋爱"] },
             { "id": "dt-meiyou-dianfeng", "text": "你人很好，但是我觉得我们不太来电。", "pinyin": "Nǐ rén hěn hǎo, dànshì wǒ juéde wǒmen bú tài láidiàn.", "en": "You're really nice, but I don't think we have chemistry.", "tiles": ["你", "人", "很", "好", "但是", "我", "觉得", "我们", "不", "太", "来电"] }
           ]
         }
@@ -947,6 +947,96 @@
             { "id": "dt-wo-lai-shoushi", "text": "我来帮您收拾吧。", "pinyin": "Wǒ lái bāng nín shōushi ba.", "en": "Let me help you tidy up.", "tiles": ["我", "来", "帮", "您", "收拾", "吧"] },
             { "id": "dt-ta-mama-ren-hao", "text": "他妈妈人特别好。", "pinyin": "Tā māma rén tèbié hǎo.", "en": "His mom is really lovely.", "tiles": ["他", "妈妈", "人", "特别", "好"] },
             { "id": "dt-zhouri-chi-fan", "text": "周日去他家吃饭。", "pinyin": "Zhōurì qù tā jiā chī fàn.", "en": "On Sunday we're having dinner at his family's.", "tiles": ["周日", "去", "他", "家", "吃", "饭"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u24",
+      "title": "Flirting with charm",
+      "lessons": [
+        {
+          "id": "zh-24-1",
+          "title": "Compliments",
+          "items": [
+            { "id": "fl-xiao-hao-tian", "text": "你笑起来好甜。", "pinyin": "Nǐ xiào qǐlai hǎo tián.", "en": "You have such a sweet smile.", "tiles": ["你", "笑", "起来", "好", "甜"] },
+            { "id": "fl-shengyin-haoting", "text": "你的声音真好听。", "pinyin": "Nǐ de shēngyīn zhēn hǎotīng.", "en": "Your voice is really lovely.", "tiles": ["你", "的", "声音", "真", "好听"] },
+            { "id": "fl-yanse-shihe-ni", "text": "这个颜色很适合你。", "pinyin": "Zhège yánsè hěn shìhé nǐ.", "en": "That color really suits you.", "tiles": ["这个", "颜色", "很", "适合", "你"] },
+            { "id": "fl-liaotian-kaixin", "text": "跟你聊天特别开心。", "pinyin": "Gēn nǐ liáotiān tèbié kāixīn.", "en": "Chatting with you is so much fun.", "tiles": ["跟", "你", "聊天", "特别", "开心"] },
+            { "id": "fl-yanjing-haokan", "text": "你的眼睛真好看。", "pinyin": "Nǐ de yǎnjing zhēn hǎokàn.", "en": "Your eyes are really beautiful.", "tiles": ["你", "的", "眼睛", "真", "好看"] },
+            { "id": "fl-gedan-pinwei", "text": "你的歌单品味不错啊！", "pinyin": "Nǐ de gēdān pǐnwèi búcuò a!", "en": "Your playlist has great taste!", "tiles": ["你", "的", "歌单", "品味", "不错", "啊"] }
+          ]
+        },
+        {
+          "id": "zh-24-2",
+          "title": "Reading the signals",
+          "items": [
+            { "id": "fl-zai-liao-wo", "text": "你是在撩我吗？", "pinyin": "Nǐ shì zài liáo wǒ ma?", "en": "Are you flirting with me?", "tiles": ["你", "是", "在", "撩", "我", "吗"] },
+            { "id": "fl-dui-ni-you-yisi", "text": "我觉得他对你有意思。", "pinyin": "Wǒ juéde tā duì nǐ yǒu yìsi.", "en": "I think he's into you.", "tiles": ["我", "觉得", "他", "对", "你", "有", "意思"] },
+            { "id": "fl-yizhi-kan-ni", "text": "他一直在看你。", "pinyin": "Tā yìzhí zài kàn nǐ.", "en": "He keeps looking at you.", "tiles": ["他", "一直", "在", "看", "你"] },
+            { "id": "fl-xihuan-haishi-keqi", "text": "不知道他是喜欢我，还是只是客气。", "pinyin": "Bù zhīdào tā shì xǐhuan wǒ, háishi zhǐshì kèqi.", "en": "I don't know if he likes me or is just being polite.", "tiles": ["不", "知道", "他", "是", "喜欢", "我", "还是", "只是", "客气"] },
+            { "id": "fl-miaohui-youxi", "text": "他秒回你，说明有戏。", "pinyin": "Tā miǎohuí nǐ, shuōmíng yǒuxì.", "en": "He replies instantly, so you might have a chance.", "tiles": ["他", "秒回", "你", "说明", "有戏"] },
+            { "id": "fl-duo-liaojie-ni", "text": "我想多了解你一点儿。", "pinyin": "Wǒ xiǎng duō liǎojiě nǐ yìdiǎnr.", "en": "I'd like to get to know you better.", "tiles": ["我", "想", "多", "了解", "你", "一点儿"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u25",
+      "title": "Playful teasing & pick-up lines",
+      "lessons": [
+        {
+          "id": "zh-25-1",
+          "title": "Teasing and comebacks",
+          "items": [
+            { "id": "fl-zhi-dui-wo", "text": "你一直这样，还是只对我这样？", "pinyin": "Nǐ yìzhí zhèyàng, háishi zhǐ duì wǒ zhèyàng?", "en": "Are you always like this, or just with me?", "tiles": ["你", "一直", "这样", "还是", "只", "对", "我", "这样"] },
+            { "id": "fl-zilian", "text": "哟，挺自恋的嘛😏", "pinyin": "Yō, tǐng zìliàn de ma.", "en": "Ooh, a little full of yourself 😏", "tiles": ["哟", "挺", "自恋", "的", "嘛"], "say": "哟，挺自恋的嘛。" },
+            { "id": "fl-fu-bu-fu", "text": "我又赢了，服不服？", "pinyin": "Wǒ yòu yíng le, fú bu fú?", "en": "I won again. Admit it!", "tiles": ["我", "又", "赢", "了", "服不服"] },
+            { "id": "fl-bie-zhuang", "text": "别装了，我看到你笑了。", "pinyin": "Bié zhuāng le, wǒ kàndào nǐ xiào le.", "en": "Stop pretending, I saw you smile.", "tiles": ["别", "装", "了", "我", "看到", "你", "笑", "了"] },
+            { "id": "fl-qian-wo-kafei", "text": "这次你欠我一杯咖啡。", "pinyin": "Zhè cì nǐ qiàn wǒ yì bēi kāfēi.", "en": "This time you owe me a coffee.", "tiles": ["这次", "你", "欠", "我", "一", "杯", "咖啡"] },
+            { "id": "fl-suan-ni-ying", "text": "好吧，这次算你赢。", "pinyin": "Hǎo ba, zhè cì suàn nǐ yíng.", "en": "Fine, I'll give you this one.", "tiles": ["好吧", "这次", "算", "你", "赢"] }
+          ]
+        },
+        {
+          "id": "zh-25-2",
+          "title": "Pick-up lines, smooth and cheesy",
+          "items": [
+            { "id": "fl-tuijian", "text": "你能推荐一下吗？看你挺懂的。", "pinyin": "Nǐ néng tuījiàn yíxià ma? Kàn nǐ tǐng dǒng de.", "en": "Could you recommend something? You seem to know your stuff.", "tiles": ["你", "能", "推荐", "一下", "吗", "看", "你", "挺", "懂", "的"] },
+            { "id": "fl-que-dian-ni", "text": "你知道我的缺点是什么吗？缺点你。", "pinyin": "Nǐ zhīdào wǒ de quēdiǎn shì shénme ma? Quē diǎn nǐ.", "en": "Know what my flaw (缺点) is? Missing (缺) a bit (点) of you.", "tiles": ["你", "知道", "我", "的", "缺点", "是", "什么", "吗", "缺", "点", "你"] },
+            { "id": "fl-nao-zi-li-pao", "text": "你累不累？你在我脑子里跑了一整天了。", "pinyin": "Nǐ lèi bu lèi? Nǐ zài wǒ nǎozi li pǎo le yì zhěng tiān le.", "en": "Aren't you tired? You've been running through my mind all day.", "tiles": ["你", "累不累", "你", "在", "我", "脑子", "里", "跑", "了", "一整天", "了"] },
+            { "id": "fl-guai-haokan", "text": "我觉得你今天有点儿怪……怪好看的。", "pinyin": "Wǒ juéde nǐ jīntiān yǒudiǎnr guài… guài hǎokàn de.", "en": "I think you're a bit strange (怪) today… strangely (怪) good-looking.", "tiles": ["我", "觉得", "你", "今天", "有点儿", "怪", "怪", "好看", "的"] },
+            { "id": "fl-hao-tu", "text": "好土啊，但是你笑了！", "pinyin": "Hǎo tǔ a, dànshì nǐ xiào le!", "en": "So cheesy, but you laughed!", "tiles": ["好", "土", "啊", "但是", "你", "笑", "了"] },
+            { "id": "fl-qing-ni-he-yibei", "text": "我能请你喝一杯吗？", "pinyin": "Wǒ néng qǐng nǐ hē yì bēi ma?", "en": "Can I buy you a drink?", "tiles": ["我", "能", "请", "你", "喝", "一", "杯", "吗"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u26",
+      "title": "Flirty texts & clear signals",
+      "lessons": [
+        {
+          "id": "zh-26-1",
+          "title": "Flirty texts and app openers",
+          "items": [
+            { "id": "fl-liang-zhen-yi-jia", "text": "两真一假，你先来😉", "pinyin": "Liǎng zhēn yì jiǎ, nǐ xiān lái.", "en": "Two truths and a lie, you go first 😉", "tiles": ["两", "真", "一", "假", "你", "先", "来"], "say": "两真一假，你先来。" },
+            { "id": "fl-pa-shan-zhaopian", "text": "你那张爬山的照片让我好奇，是在哪儿拍的？", "pinyin": "Nǐ nà zhāng páshān de zhàopiàn ràng wǒ hàoqí, shì zài nǎr pāi de?", "en": "Your hiking photo has me curious. Where was it taken?", "tiles": ["你", "那", "张", "爬山", "的", "照片", "让", "我", "好奇", "是", "在", "哪儿", "拍", "的"] },
+            { "id": "fl-hai-zai-xiang", "text": "我还在想昨晚我们聊的天🙈", "pinyin": "Wǒ hái zài xiǎng zuówǎn wǒmen liáo de tiān.", "en": "I'm still thinking about our chat last night 🙈", "tiles": ["我", "还", "在", "想", "昨晚", "我们", "聊", "的", "天"], "say": "我还在想昨晚我们聊的天。" },
+            { "id": "fl-zaoan", "text": "早安，昨晚睡得好吗？☀️", "pinyin": "Zǎo'ān, zuówǎn shuì de hǎo ma?", "en": "Morning! Did you sleep well? ☀️", "tiles": ["早安", "昨晚", "睡", "得", "好", "吗"], "say": "早安，昨晚睡得好吗？" },
+            { "id": "fl-qian-yi-ju-taiqiu", "text": "你还欠我一局台球😏", "pinyin": "Nǐ hái qiàn wǒ yì jú táiqiú.", "en": "You still owe me a game of pool 😏", "tiles": ["你", "还", "欠", "我", "一", "局", "台球"], "say": "你还欠我一局台球。" },
+            { "id": "fl-wanan-haomeng", "text": "晚安，做个好梦😘", "pinyin": "Wǎn'ān, zuò ge hǎo mèng.", "en": "Good night, sweet dreams 😘", "tiles": ["晚安", "做", "个", "好梦"], "say": "晚安，做个好梦。" }
+          ]
+        },
+        {
+          "id": "zh-26-2",
+          "title": "Smooth moves and graceful exits",
+          "items": [
+            { "id": "fl-jia-weixin", "text": "跟你聊得很开心，能加个微信吗？", "pinyin": "Gēn nǐ liáo de hěn kāixīn, néng jiā ge Wēixìn ma?", "en": "I've really enjoyed talking with you. Can I add you on WeChat?", "tiles": ["跟", "你", "聊", "得", "很", "开心", "能", "加", "个", "微信", "吗"] },
+            { "id": "fl-huan-ge-difang", "text": "要不要换个地方接着聊？", "pinyin": "Yào bu yào huàn ge dìfang jiēzhe liáo?", "en": "Want to go somewhere else and keep talking?", "tiles": ["要不要", "换", "个", "地方", "接着", "聊"] },
+            { "id": "fl-zai-jianmian", "text": "很高兴认识你，希望还能再见面。", "pinyin": "Hěn gāoxìng rènshi nǐ, xīwàng hái néng zài jiànmiàn.", "en": "Really nice to meet you. I hope we can meet again.", "tiles": ["很", "高兴", "认识", "你", "希望", "还", "能", "再", "见面"] },
+            { "id": "fl-wuhui-le", "text": "不好意思，是我误会了。", "pinyin": "Bù hǎoyìsi, shì wǒ wùhuì le.", "en": "Sorry, I misread things.", "tiles": ["不好意思", "是", "我", "误会", "了"] },
+            { "id": "fl-liaotian-yukuai", "text": "没关系，跟你聊天很愉快。", "pinyin": "Méi guānxi, gēn nǐ liáotiān hěn yúkuài.", "en": "No worries, it was lovely chatting with you.", "tiles": ["没关系", "跟", "你", "聊天", "很", "愉快"] },
+            { "id": "fl-zunzhong-ni", "text": "我尊重你的决定。", "pinyin": "Wǒ zūnzhòng nǐ de juédìng.", "en": "I respect your decision.", "tiles": ["我", "尊重", "你", "的", "决定"] }
           ]
         }
       ]

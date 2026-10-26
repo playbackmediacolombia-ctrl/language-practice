@@ -295,6 +295,100 @@
         { "q": "小明有什么主意？", "qEn": "What's Xiaoming's idea?", "options": [{ "text": "找一个多一间房的公寓", "en": "Find an apartment with an extra room" }, { "text": "再等一年", "en": "Wait another year" }, { "text": "住在他父母家", "en": "Live at his parents'" }], "answer": 0 },
         { "q": "房租和生活费可以怎么分？", "qEn": "How could they split the rent and living costs?", "options": [{ "text": "一人一半，或者按收入来分", "en": "Half and half, or by income" }, { "text": "都由小明付", "en": "Xiaoming pays it all" }, { "text": "林林付房租", "en": "Linlin pays the rent" }], "answer": 0 }
       ]
+    },
+    {
+      "id": "zh-fl-signals",
+      "level": 4,
+      "kind": "dialogue",
+      "topic": "flirting",
+      "title": "是撩还是客气？",
+      "en": "Flirting, or just being polite?",
+      "speakers": { "tingting": { "name": "婷婷", "voice": "a" }, "dawei": { "name": "大伟", "voice": "b" } },
+      "lines": [
+        { "speaker": "tingting", "text": "大伟，你觉得咖啡店那个店员是不是在撩我？", "seg": "大伟 ， 你 觉得 咖啡店 那个 店员 是不是 在 撩 我 ？", "pinyin": "Dàwěi, nǐ juéde kāfēidiàn nàge diànyuán shì bu shì zài liáo wǒ?", "en": "Dawei, do you think the guy at the café is flirting with me?" },
+        { "speaker": "dawei", "text": "嗯……他都做什么了？", "seg": "嗯 …… 他 都 做 什么 了 ？", "pinyin": "Ńg… tā dōu zuò shénme le?", "en": "Hmm… what does he do?" },
+        { "speaker": "tingting", "text": "他每次都对我笑，昨天还在杯子上写了“祝你今天开心”。", "seg": "他 每次 都 对 我 笑 ， 昨天 还 在 杯子 上 写 了 “ 祝 你 今天 开心 ” 。", "pinyin": "Tā měi cì dōu duì wǒ xiào, zuótiān hái zài bēizi shang xiě le \"zhù nǐ jīntiān kāixīn\".", "en": "He always smiles at me, and yesterday he even wrote \"have a happy day\" on my cup." },
+        { "speaker": "dawei", "text": "也可能只是客气。他会问你问题吗？", "seg": "也 可能 只是 客气 。 他 会 问 你 问题 吗 ？", "pinyin": "Yě kěnéng zhǐshì kèqi. Tā huì wèn nǐ wèntí ma?", "en": "It might just be politeness. Does he ask you questions?" },
+        { "speaker": "tingting", "text": "会，他问我上课的事，而且我说过的他都记得。", "seg": "会 ， 他 问 我 上课 的 事 ， 而且 我 说 过 的 他 都 记得 。", "pinyin": "Huì, tā wèn wǒ shàngkè de shì, érqiě wǒ shuō guo de tā dōu jìde.", "en": "Yes, he asks about my classes, and he remembers everything I've said." },
+        { "speaker": "dawei", "text": "那就是对你有意思了！约他出来吧！", "seg": "那 就是 对 你 有 意思 了 ！ 约 他 出来 吧 ！", "pinyin": "Nà jiù shì duì nǐ yǒu yìsi le! Yuē tā chūlai ba!", "en": "Then he's definitely into you! Ask him out!" }
+      ],
+      "glossary": {
+        "觉得": { "py": "juéde", "en": "to think" }, "咖啡店": { "py": "kāfēidiàn", "en": "café" }, "店员": { "py": "diànyuán", "en": "shop assistant" },
+        "是不是": { "py": "shì bu shì", "en": "whether, is it that" }, "撩": { "py": "liáo", "en": "to flirt with" },
+        "每次": { "py": "měi cì", "en": "every time" }, "笑": { "py": "xiào", "en": "to smile, laugh" }, "杯子": { "py": "bēizi", "en": "cup" },
+        "写": { "py": "xiě", "en": "to write" }, "祝": { "py": "zhù", "en": "to wish" }, "开心": { "py": "kāixīn", "en": "happy" },
+        "客气": { "py": "kèqi", "en": "polite" }, "问题": { "py": "wèntí", "en": "question" }, "上课": { "py": "shàngkè", "en": "to have class" },
+        "而且": { "py": "érqiě", "en": "and also" }, "记得": { "py": "jìde", "en": "to remember" }, "有": { "py": "yǒu", "en": "有意思 = to be into someone" },
+        "意思": { "py": "yìsi", "en": "对你有意思 = into you" }, "约": { "py": "yuē", "en": "to ask out, arrange" }, "出来": { "py": "chūlai", "en": "out" }
+      },
+      "questions": [
+        { "q": "店员在杯子上写了什么？", "qEn": "What did the café guy write on the cup?", "options": [{ "text": "祝你今天开心", "en": "Have a happy day" }, { "text": "他的电话号码", "en": "His phone number" }, { "text": "他的名字", "en": "His name" }], "answer": 0 },
+        { "q": "大伟觉得哪个信号说明他喜欢婷婷？", "qEn": "Which sign does Dawei think shows he likes Tingting?", "options": [{ "text": "他问问题，而且什么都记得", "en": "He asks questions and remembers everything" }, { "text": "他给她打折", "en": "He gives her discounts" }, { "text": "他总是很忙", "en": "He's always busy" }], "answer": 0 },
+        { "q": "大伟最后建议婷婷做什么？", "qEn": "What does Dawei suggest in the end?", "options": [{ "text": "约他出来", "en": "Ask him out" }, { "text": "换一家咖啡店", "en": "Go to another café" }, { "text": "再等一个月", "en": "Wait another month" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "zh-fl-worst-line",
+      "level": 5,
+      "kind": "dialogue",
+      "topic": "flirting",
+      "title": "最土的情话",
+      "en": "The cheesiest line",
+      "speakers": { "xiaowen": { "name": "小雯", "voice": "a" }, "haoran": { "name": "浩然", "voice": "b" } },
+      "lines": [
+        { "speaker": "haoran", "text": "你知道我的缺点是什么吗？缺点你。", "seg": "你 知道 我 的 缺点 是 什么 吗 ？ 缺 点 你 。", "pinyin": "Nǐ zhīdào wǒ de quēdiǎn shì shénme ma? Quē diǎn nǐ.", "en": "Know what my flaw is? Missing a bit of you." },
+        { "speaker": "xiaowen", "text": "哈哈哈，真的假的？这是我听过最土的情话！", "seg": "哈哈哈 ， 真的假的 ？ 这 是 我 听 过 最 土 的 情话 ！", "pinyin": "Hāhāhā, zhēn de jiǎ de? Zhè shì wǒ tīng guo zuì tǔ de qínghuà!", "en": "Hahaha, seriously? That's the cheesiest line I've ever heard!" },
+        { "speaker": "haoran", "text": "我知道，是我朋友让我说的。不过你笑了，说明有用。", "seg": "我 知道 ， 是 我 朋友 让 我 说 的 。 不过 你 笑 了 ， 说明 有用 。", "pinyin": "Wǒ zhīdào, shì wǒ péngyou ràng wǒ shuō de. Búguò nǐ xiào le, shuōmíng yǒuyòng.", "en": "I know, my friend made me say it. But you laughed, so it worked." },
+        { "speaker": "xiaowen", "text": "好吧，这点我承认。勇气可嘉。", "seg": "好吧 ， 这 点 我 承认 。 勇气 可嘉 。", "pinyin": "Hǎo ba, zhè diǎn wǒ chéngrèn. Yǒngqì kě jiā.", "en": "Fine, I'll admit that. Points for courage." },
+        { "speaker": "haoran", "text": "那看在我这么勇敢的份上，能请你喝一杯吗？", "seg": "那 看 在 我 这么 勇敢 的 份 上 ， 能 请 你 喝 一 杯 吗 ？", "pinyin": "Nà kàn zài wǒ zhème yǒnggǎn de fèn shang, néng qǐng nǐ hē yì bēi ma?", "en": "Then, seeing how brave I was, can I buy you a drink?" },
+        { "speaker": "xiaowen", "text": "一杯柠檬水可以，但你得保证别再说土味情话了。", "seg": "一 杯 柠檬水 可以 ， 但 你 得 保证 别 再 说 土味 情话 了 。", "pinyin": "Yì bēi níngméngshuǐ kěyǐ, dàn nǐ děi bǎozhèng bié zài shuō tǔwèi qínghuà le.", "en": "A lemonade is fine, but you have to promise no more cheesy lines." }
+      ],
+      "glossary": {
+        "缺点": { "py": "quēdiǎn", "en": "flaw (here a pun: 缺 = missing + 点 = a bit)" }, "缺": { "py": "quē", "en": "to lack, be missing" },
+        "点": { "py": "diǎn", "en": "a bit" }, "真的假的": { "py": "zhēn de jiǎ de", "en": "seriously? for real?" },
+        "土": { "py": "tǔ", "en": "cheesy, uncool" }, "情话": { "py": "qínghuà", "en": "sweet talk, love line" },
+        "让": { "py": "ràng", "en": "to make, let (someone do)" }, "说明": { "py": "shuōmíng", "en": "to show, mean" },
+        "有用": { "py": "yǒuyòng", "en": "useful, it works" }, "承认": { "py": "chéngrèn", "en": "to admit" }, "勇气": { "py": "yǒngqì", "en": "courage" },
+        "可嘉": { "py": "kě jiā", "en": "praiseworthy" }, "勇敢": { "py": "yǒnggǎn", "en": "brave" }, "份": { "py": "fèn", "en": "看在…的份上 = considering…" },
+        "请": { "py": "qǐng", "en": "to treat, buy for" }, "柠檬水": { "py": "níngméngshuǐ", "en": "lemonade" },
+        "保证": { "py": "bǎozhèng", "en": "to promise" }, "土味": { "py": "tǔwèi", "en": "cheesy (土味情话 = cheesy love lines)" }
+      },
+      "questions": [
+        { "q": "浩然为什么说那句情话？", "qEn": "Why did Haoran say that line?", "options": [{ "text": "他朋友让他说的", "en": "His friend made him" }, { "text": "他在书上看到的", "en": "He read it in a book" }, { "text": "小雯让他说的", "en": "Xiaowen asked him to" }], "answer": 0 },
+        { "q": "小雯承认了什么？", "qEn": "What does Xiaowen admit?", "options": [{ "text": "浩然很有勇气", "en": "Haoran had courage" }, { "text": "她喜欢土味情话", "en": "She likes cheesy lines" }, { "text": "她想要他的电话", "en": "She wants his number" }], "answer": 0 },
+        { "q": "小雯答应喝饮料的条件是什么？", "qEn": "On what condition does Xiaowen accept the drink?", "options": [{ "text": "浩然别再说土味情话", "en": "Haoran stops using cheesy lines" }, { "text": "浩然请客", "en": "Haoran pays" }, { "text": "浩然叫上朋友", "en": "Haoran brings his friend" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "zh-fl-graceful-no",
+      "level": 6,
+      "kind": "dialogue",
+      "topic": "flirting",
+      "title": "体面地拒绝",
+      "en": "Saying no gracefully",
+      "speakers": { "yuqing": { "name": "雨晴", "voice": "a" }, "zhihao": { "name": "志豪", "voice": "b" } },
+      "lines": [
+        { "speaker": "zhihao", "text": "雨晴，今晚跟你聊得特别开心。能加个微信吗？", "seg": "雨晴 ， 今晚 跟 你 聊 得 特别 开心 。 能 加 个 微信 吗 ？", "pinyin": "Yǔqíng, jīnwǎn gēn nǐ liáo de tèbié kāixīn. Néng jiā ge Wēixìn ma?", "en": "Yuqing, I really enjoyed talking with you tonight. Can I add you on WeChat?" },
+        { "speaker": "yuqing", "text": "谢谢你，志豪。我也聊得很开心，不过我现在不想谈恋爱。", "seg": "谢谢 你 ， 志豪 。 我 也 聊 得 很 开心 ， 不过 我 现在 不 想 谈恋爱 。", "pinyin": "Xièxie nǐ, Zhìháo. Wǒ yě liáo de hěn kāixīn, búguò wǒ xiànzài bù xiǎng tán liàn'ài.", "en": "Thank you, Zhihao. I enjoyed it too, but I don't want to date anyone right now." },
+        { "speaker": "zhihao", "text": "没关系，我完全理解。谢谢你这么坦诚。", "seg": "没关系 ， 我 完全 理解 。 谢谢 你 这么 坦诚 。", "pinyin": "Méi guānxi, wǒ wánquán lǐjiě. Xièxie nǐ zhème tǎnchéng.", "en": "That's okay, I completely understand. Thank you for being so honest." },
+        { "speaker": "yuqing", "text": "也谢谢你这么大方。今晚的聊天真的很愉快。", "seg": "也 谢谢 你 这么 大方 。 今晚 的 聊天 真的 很 愉快 。", "pinyin": "Yě xièxie nǐ zhème dàfang. Jīnwǎn de liáotiān zhēn de hěn yúkuài.", "en": "And thank you for being so gracious. Tonight's chat was really lovely." },
+        { "speaker": "zhihao", "text": "以后读书会上还可以一起聊书。", "seg": "以后 读书会 上 还 可以 一起 聊 书 。", "pinyin": "Yǐhòu dúshūhuì shang hái kěyǐ yìqǐ liáo shū.", "en": "We can still talk about books together at book club." },
+        { "speaker": "yuqing", "text": "好啊，下次读书会见！", "seg": "好 啊 ， 下次 读书会 见 ！", "pinyin": "Hǎo a, xià cì dúshūhuì jiàn!", "en": "Sure, see you at the next book club!" }
+      ],
+      "glossary": {
+        "聊": { "py": "liáo", "en": "to chat" }, "开心": { "py": "kāixīn", "en": "happy, enjoyable" }, "加": { "py": "jiā", "en": "to add" },
+        "微信": { "py": "Wēixìn", "en": "WeChat" }, "不过": { "py": "búguò", "en": "but" },
+        "谈恋爱": { "py": "tán liàn'ài", "en": "to date, be in a relationship" }, "没关系": { "py": "méi guānxi", "en": "it's okay" },
+        "完全": { "py": "wánquán", "en": "completely" }, "理解": { "py": "lǐjiě", "en": "to understand" },
+        "坦诚": { "py": "tǎnchéng", "en": "honest, candid" }, "大方": { "py": "dàfang", "en": "gracious, generous" },
+        "聊天": { "py": "liáotiān", "en": "chat" }, "愉快": { "py": "yúkuài", "en": "pleasant" }, "以后": { "py": "yǐhòu", "en": "from now on, later" },
+        "读书会": { "py": "dúshūhuì", "en": "book club" }, "书": { "py": "shū", "en": "book" }, "下次": { "py": "xià cì", "en": "next time" }
+      },
+      "questions": [
+        { "q": "志豪想要什么？", "qEn": "What does Zhihao want?", "options": [{ "text": "加雨晴的微信", "en": "To add Yuqing on WeChat" }, { "text": "借一本书", "en": "To borrow a book" }, { "text": "一起喝咖啡", "en": "To have coffee together" }], "answer": 0 },
+        { "q": "雨晴为什么拒绝？", "qEn": "Why does Yuqing say no?", "options": [{ "text": "她现在不想谈恋爱", "en": "She doesn't want to date right now" }, { "text": "她已经有男朋友了", "en": "She already has a boyfriend" }, { "text": "她不喜欢志豪", "en": "She doesn't like Zhihao" }], "answer": 0 },
+        { "q": "志豪的反应怎么样？", "qEn": "How does Zhihao react?", "options": [{ "text": "他理解，还谢谢她坦诚", "en": "He understands and thanks her for her honesty" }, { "text": "他生气了", "en": "He got angry" }, { "text": "他一直坚持", "en": "He keeps insisting" }], "answer": 0 }
+      ]
     }
   ]
 }

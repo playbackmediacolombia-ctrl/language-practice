@@ -5,9 +5,9 @@
     { "id": "sentences", "level": "Beginner", "title": "Short sentences", "about": "Like a young child: ask for things, say what you have and see.", "units": ["u4", "u5", "u6"] },
     { "id": "conversation", "level": "Elementary", "title": "Conversation", "about": "Talk with people: meet, shop, describe your day.", "units": ["u7", "u8", "u9"] },
     { "id": "reading", "level": "Intermediate", "title": "Reading & writing", "about": "Like school: tell stories, describe people, write messages and make plans.", "units": ["u10", "u11"] },
-    { "id": "upper", "level": "Upper-intermediate", "title": "Life as an adult", "about": "Work, money, the doctor, and sorting out problems when you travel.", "units": ["u12", "u13", "u14"], "electives": ["u21"] },
-    { "id": "advanced", "level": "Advanced", "title": "Ideas and arguments", "about": "Follow the news, give your opinion, debate, and switch between formal and casual speech.", "units": ["u15", "u16", "u17"], "electives": ["u22"] },
-    { "id": "fluent", "level": "Fluent", "title": "Sounding native", "about": "Idioms, slang and the little words that make you sound like a local.", "units": ["u18", "u19", "u20"], "electives": ["u23"] }
+    { "id": "upper", "level": "Upper-intermediate", "title": "Life as an adult", "about": "Work, money, the doctor, and sorting out problems when you travel.", "units": ["u12", "u13", "u14"], "electives": ["u21", "u24"] },
+    { "id": "advanced", "level": "Advanced", "title": "Ideas and arguments", "about": "Follow the news, give your opinion, debate, and switch between formal and casual speech.", "units": ["u15", "u16", "u17"], "electives": ["u22", "u25"] },
+    { "id": "fluent", "level": "Fluent", "title": "Sounding native", "about": "Idioms, slang and the little words that make you sound like a local.", "units": ["u18", "u19", "u20"], "electives": ["u23", "u26"] }
   ],
   "units": {
     "u1": "The sounds",
@@ -32,6 +32,10 @@
     "u20": "Fluent conversation",
     "u21": "Dating & relationships",
     "u22": "Texting & dating apps",
-    "u23": "Love, couples & family"
-  }
+    "u23": "Love, couples & family",
+    "u24": "Flirting with charm",
+    "u25": "Playful teasing & pick-up lines",
+    "u26": "Flirty texts & clear signals"
+  },
+  "adult": ["u24", "u25", "u26"]
 }

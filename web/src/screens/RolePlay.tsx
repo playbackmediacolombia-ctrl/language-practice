@@ -8,6 +8,7 @@ import { navigate } from '../lib/router';
 import { getScenario, getScenarios, LEVELS, promptMode, type Scenario, type ScenarioLine, TOPICS } from '../lib/scenarios';
 import { isModelReady, loadModel, transcribe } from '../lib/whisper';
 import { Icon, Screen, Waveform } from '../ui';
+import { AdultGate, AdultGateScreen } from './AdultGate';
 import { LangSwitcher } from './Path';
 
 const ROLEPLAY_XP = 10;
@@ -15,12 +16,21 @@ const ROLEPLAY_XP = 10;
 const PASS = 0.5;
 
 const testHook = location.search.includes('test');
+/** A hint: the first two words of a line (two characters in Chinese), then "…". */
+function startOf(text: string, lang: Lang): string {
+  if (lang === 'zh') return [...text.replace(/[^\p{Script=Han}]/gu, '')].slice(0, 2).join('') + '…';
+  const words = text.split(/\s+/);
+  return words.length <= 2 ? `${words[0]}…` : `${words.slice(0, 2).join(' ')}…`;
+}
+
 const gradeClass = (score: number) => (score >= 0.85 ? 'ok' : score >= PASS ? 'close' : 'wrong');
 
 /** Practice › Real-life role-plays: three per level, Beginner to Fluent. */
 export function RolePlayList({ lang }: { lang: Lang }) {
   const progress = useProgress();
-  const all = getScenarios(lang);
+  // Flirting role-plays wait behind the one-tap 18+ check.
+  const hidden = progress.adult ? 0 : getScenarios(lang).filter((s) => s.topic === 'flirting').length;
+  const all = getScenarios(lang).filter((s) => progress.adult || s.topic !== 'flirting');
   return (
     <Screen title="Role-plays" back="/practice">
       <LangSwitcher lang={lang} to={(l) => `/${l}/roleplay`} />
@@ -72,6 +82,7 @@ export function RolePlayList({ lang }: { lang: Lang }) {
           </section>
         );
       })}
+      {hidden > 0 && <AdultGate count={`${hidden} role-plays`} />}
     </Screen>
   );
 }
@@ -87,6 +98,9 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
   const [turns, setTurns] = useState<Record<number, Turn>>({});
   const [phase, setPhase] = useState<TurnPhase>('ready');
   const [reveal, setReveal] = useState(false);
+  // Stuck? A hint (how the line starts) after one miss or on request, the whole line after two.
+  const [misses, setMisses] = useState(0);
+  const [hinted, setHinted] = useState(false);
   const [english, setEnglish] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
@@ -124,6 +138,8 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
     if (!line || line.who !== 'you') return;
     setPhase('ready');
     setReveal(promptMode(scenario!.level) === 'words');
+    setMisses(0);
+    setHinted(false);
     setError(null);
     if (testHook) Object.assign(window, { __roleplayAudio: new URL(line.audio, location.href).href, __roleplayLines: lines.map((l) => new URL(l.audio, location.href).href) });
   }, [step]);
@@ -198,6 +214,10 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
     const ok = turn.score! >= PASS;
     sfx(ok ? 'correct' : 'wrong');
     haptic(ok ? 'success' : 'error');
+    if (!ok) {
+      setMisses((m) => m + 1);
+      if (misses + 1 >= 2) setReveal(true);
+    }
     if (ok) {
       setReveal(true);
       const here = step;
@@ -339,6 +359,11 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
             tapFeedback();
             setReveal(true);
           }}
+          hint={misses > 0 || hinted ? startOf(line.text, lang) : null}
+          onHint={() => {
+            tapFeedback();
+            setHinted(true);
+          }}
           onSpeak={speak}
           onSkip={() => {
             tapFeedback();
@@ -364,10 +389,12 @@ function TurnPanel(props: {
   error: string | null;
   analyser: AnalyserNode | null;
   onReveal: () => void;
+  hint: string | null;
+  onHint: () => void;
   onSpeak: () => void;
   onSkip: () => void;
 }) {
-  const { lang, line, mode, reveal, phase, turn, graded, error, analyser, onReveal, onSpeak, onSkip } = props;
+  const { lang, line, mode, reveal, phase, turn, graded, error, analyser, onReveal, hint, onHint, onSpeak, onSkip } = props;
   const busy = phase === 'listening' || phase === 'heard';
   const failed = phase === 'graded' && turn?.score != null && turn.score < PASS;
   const status =
@@ -399,9 +426,23 @@ function TurnPanel(props: {
             {line.pinyin && <div className="pinyin small">{line.pinyin}</div>}
           </div>
         ) : (
-          <button className="link-btn" onClick={onReveal} data-testid="show-words">
-            Show the words
-          </button>
+          <>
+            {hint && (
+              <div className="turn-hint" lang={lang} data-testid="turn-hint">
+                Starts with <b>{hint}</b>
+              </div>
+            )}
+            <div className="row" style={{ gap: 16 }}>
+              {!hint && (
+                <button className="link-btn" onClick={onHint} data-testid="show-hint">
+                  Hint
+                </button>
+              )}
+              <button className="link-btn" onClick={onReveal} data-testid="show-words">
+                Show the words
+              </button>
+            </div>
+          </>
         )}
       </div>
       <div className="row turn-actions">
@@ -447,4 +488,11 @@ function TurnPanel(props: {
       {error && <p style={{ color: 'var(--wrong)', margin: 0 }}>{error}</p>}
     </div>
   );
+}
+
+/** A flirting role-play opens only after the 18+ check. */
+export function GatedRolePlay(props: { lang: Lang; id: string }) {
+  const { adult } = useProgress();
+  if (!adult && getScenario(props.lang, props.id)?.topic === 'flirting') return <AdultGateScreen back={`/${props.lang}/roleplay`} />;
+  return <RolePlayScreen {...props} />;
 }

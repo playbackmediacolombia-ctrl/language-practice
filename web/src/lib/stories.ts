@@ -8,7 +8,7 @@ import type { Lang } from './content';
 
 // Short listening stories and dialogues, six levels per language, with a glossary for
 // tap-to-translate and comprehension questions. One clip per line, made by the audio script.
-// Reading practice (news-style articles for Advanced and Fluent) works the same way.
+// Reading practice (short articles at every level) works the same way.
 
 const audioFiles = import.meta.glob<string>('../../../assets/audio/stories/*/*.mp3', {
   eager: true,
@@ -25,7 +25,7 @@ export type Story = {
   level: number;
   kind: 'story' | 'dialogue' | 'article';
   /** Dialogues that belong to an optional topic, like dating. */
-  topic?: 'dating';
+  topic?: 'dating' | 'flirting';
   /** Articles: where the (made-up) news is from, shown as a dateline. */
   place?: string;
   title: string;
@@ -45,7 +45,7 @@ export const LEVELS = [
   { level: 6, title: 'Fluent', about: 'Big conversations, said tactfully.' },
 ];
 
-export const STORY_TOPICS = { dating: 'Dating' };
+export const STORY_TOPICS = { dating: 'Dating', flirting: 'Flirting (18+)' };
 
 type RawStory = Omit<Story, 'lines'> & { lines: Omit<Line, 'audio'>[] };
 const RAW = { es, fr, zh } as unknown as Record<Lang, { stories: RawStory[] }>;
@@ -68,7 +68,7 @@ function load(lang: Lang, which: 'stories' | 'articles'): Story[] {
 }
 
 export const getStories = (lang: Lang) => load(lang, 'stories');
-/** Reading practice: news-style articles, levels 5 (Advanced) and 6 (Fluent). */
+/** Reading practice: short practice articles at every level, Beginner to Fluent. */
 export const getArticles = (lang: Lang) => load(lang, 'articles');
 
 export const getStory = (lang: Lang, id: string) => getStories(lang).find((s) => s.id === id) ?? getArticles(lang).find((s) => s.id === id);
@@ -77,6 +77,10 @@ export const getStory = (lang: Lang, id: string) => getStories(lang).find((s) =>
 export const listPath = (lang: Lang, story: Story) => (story.kind === 'article' ? `/${lang}/reading` : `/${lang}/stories`);
 
 export const READING_LEVELS = [
+  { level: 1, title: 'Beginner', about: 'A few short, simple sentences.' },
+  { level: 2, title: 'Elementary', about: 'Everyday places and prices.' },
+  { level: 3, title: 'Intermediate', about: 'A news story in the past tense.' },
+  { level: 4, title: 'Upper-intermediate', about: 'A trend, with facts and opinions.' },
   { level: 5, title: 'Advanced', about: 'News-style reports: tap any word you don’t know.' },
   { level: 6, title: 'Fluent', about: 'Opinion and analysis, as you’d read in a newspaper.' },
 ];

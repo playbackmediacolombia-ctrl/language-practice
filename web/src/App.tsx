@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { usePracticeTime } from './lib/activity';
-import { getTopic, isLang } from './lib/content';
+import { getTopic, isLang, type Lang } from './lib/content';
 import { setPref, useProgress } from './lib/progress';
 import { navigate, useRoute } from './lib/router';
 import { isModelReady, loadModel } from './lib/whisper';
@@ -16,13 +16,15 @@ import { Reminder } from './screens/Reminder';
 import { Settings } from './screens/Settings';
 import { TopicScreen } from './screens/TopicScreen';
 import { AchievementHost } from './Achievements';
+import { getLesson, isAdultLesson } from './lib/course';
+import { AdultGateScreen } from './screens/AdultGate';
 import { TabBar, useActiveTab } from './ui';
 
 const RolePlays = lazy(() => import('./screens/RolePlay').then((m) => ({ default: m.RolePlayList })));
-const RolePlayScreen = lazy(() => import('./screens/RolePlay').then((m) => ({ default: m.RolePlayScreen })));
+const RolePlayScreen = lazy(() => import('./screens/RolePlay').then((m) => ({ default: m.GatedRolePlay })));
 const Articles = lazy(() => import('./screens/Stories').then((m) => ({ default: m.ArticleList })));
 const Stories = lazy(() => import('./screens/Stories').then((m) => ({ default: m.StoryList })));
-const StoryScreen = lazy(() => import('./screens/Stories').then((m) => ({ default: m.StoryScreen })));
+const StoryScreen = lazy(() => import('./screens/Stories').then((m) => ({ default: m.GatedStory })));
 const Writing = lazy(() => import('./screens/Writing').then((m) => ({ default: m.WritingList })));
 const WritingChar = lazy(() => import('./screens/Writing').then((m) => ({ default: m.WritingScreen })));
 
@@ -46,7 +48,7 @@ export function App() {
 
 function Routes() {
   const [first, topic, mode] = useRoute();
-  const { lang: saved } = useProgress();
+  const { lang: saved, adult } = useProgress();
   const lang = isLang(first) ? first : null;
   // Anything past a language's path (lessons, reviews, phrasebook, stories, writing) is practice.
   usePracticeTime(lang && topic ? lang : null);
@@ -66,6 +68,8 @@ function Routes() {
   if (first === 'practice') return <PracticeHub lang={saved ?? 'es'} />;
   if (!lang) return saved ? <Path lang={saved} /> : <Home />;
   if (!topic) return <Path lang={lang} />;
+  // Flirting lessons, role-plays and dialogues need the one-tap 18+ check first.
+  if (!adult && mode && isAdultRoute(lang, topic, mode)) return <AdultGateScreen back={topic === 'learn' ? `/${lang}` : `/${lang}/${topic}`} />;
   if (topic === 'roleplay')
     return <Suspense fallback={null}>{mode ? <RolePlayScreen key={mode} lang={lang} id={mode} /> : <RolePlays lang={lang} />}</Suspense>;
   if (topic === 'reading')
@@ -108,4 +112,12 @@ function Routes() {
   if (mode === 'flashcards') return <Flashcards lang={lang} topic={topic} />;
   if (mode === 'quiz') return <Quiz lang={lang} topic={topic} />;
   return <TopicScreen lang={lang} topic={topic} />;
+}
+
+function isAdultRoute(lang: Lang, topic: string, id: string): boolean {
+  if (topic === 'learn') {
+    const lesson = getLesson(lang, id);
+    return !!lesson && isAdultLesson(lesson);
+  }
+  return false; // role-plays and dialogues check for themselves (their screens load only when opened)
 }

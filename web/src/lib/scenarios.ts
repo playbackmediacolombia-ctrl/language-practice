@@ -4,8 +4,9 @@ import zh from '../../../shared/scenarios/zh.json';
 import type { Lang } from './content';
 
 // Real-life role-plays: you play one side of a conversation (ordering food, the doctor, the
-// airport…) and Whisper grades what you say. Three per level, from Beginner to Fluent; each
-// topic comes back at three levels, harder each time. One clip per line from the audio script.
+// airport, the hotel, a job interview…) and Whisper grades what you say, with a hint if you're
+// stuck. Every level has several; each topic comes back at three levels, harder each time.
+// One clip per line from the audio script.
 
 const audioFiles = import.meta.glob<string>('../../../assets/audio/scenarios/*/*.mp3', {
   eager: true,
@@ -13,7 +14,7 @@ const audioFiles = import.meta.glob<string>('../../../assets/audio/scenarios/*/*
   import: 'default',
 });
 
-export type Topic = 'food' | 'directions' | 'shopping' | 'smalltalk' | 'doctor' | 'airport' | 'dating';
+export type Topic = 'food' | 'directions' | 'shopping' | 'smalltalk' | 'doctor' | 'airport' | 'hotel' | 'job' | 'dating' | 'flirting';
 export type ScenarioLine = { who: 'them' | 'you'; text: string; en: string; pinyin?: string; alt?: string[]; audio: string };
 export type Scenario = {
   id: string;
@@ -36,7 +37,10 @@ export const TOPICS: Record<Topic, { label: string; emoji: string }> = {
   smalltalk: { label: 'Small talk', emoji: '💬' },
   doctor: { label: 'At the doctor', emoji: '🩺' },
   airport: { label: 'At the airport', emoji: '✈️' },
+  hotel: { label: 'At the hotel', emoji: '🏨' },
+  job: { label: 'Job interview', emoji: '💼' },
   dating: { label: 'Dating', emoji: '💕' },
+  flirting: { label: 'Flirting (18+)', emoji: '😉' },
 };
 
 /**

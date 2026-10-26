@@ -254,6 +254,36 @@
         "Offering to help clear the table always goes down well."
       ],
       "examples": ["dt-me-ha-hablado-de-ustedes", "dt-les-traje-un-detallito"]
+    },
+    {
+      "lesson": "es-24-1",
+      "title": "Culture: compliments in Colombia",
+      "body": [
+        "Warm compliments are part of everyday conversation, and a well-placed \"¡qué linda sonrisa!\" in a friendly chat comes across as charming.",
+        "A piropo shouted at a stranger in the street is a different thing: many people find it rude or intimidating, and it's best left out.",
+        "Compliment something specific (their laugh, their style, their taste in music) and watch how they respond before going further."
+      ],
+      "examples": ["fl-como-te-ries", "fl-buen-gusto-musica"]
+    },
+    {
+      "lesson": "es-25-1",
+      "title": "Culture: teasing (mamar gallo)",
+      "body": [
+        "Colombians love playful teasing, called mamar gallo. Light, friendly jokes and a quick comeback are a big part of flirting.",
+        "Keep it about small things (who won the game, who's the better dancer), never someone's looks or anything they might be sensitive about.",
+        "Cheesy pick-up lines work best said with a grin, as a joke you're both in on."
+      ],
+      "examples": ["fl-te-gane-otra-vez", "fl-malisima"]
+    },
+    {
+      "lesson": "es-26-2",
+      "title": "Culture: being clear and kind",
+      "body": [
+        "Being direct about liking someone is fine, and asking for their number is normal. A \"no\" or a vague answer should be taken gracefully.",
+        "If you misread the situation, a simple apology and a friendly exit (\"fue un gusto charlar contigo\") leaves everyone comfortable.",
+        "Good-morning messages like \"¿cómo amaneciste?\" are a sweet, common way to show interest by text."
+      ],
+      "examples": ["fl-pedir-numero", "fl-respeto-tu-respuesta"]
     }
   ]
 }

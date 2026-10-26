@@ -1,14 +1,17 @@
 import { type CSSProperties, useEffect, useState } from 'react';
 import { Flag, Sticker, TONES, UnitArt } from '../art';
+import { playPhrase } from '../lib/audio';
 import { type Lang, LANGS } from '../lib/content';
 import { currentLevel, getLessons, getLevels, getPath, hasStarted, lessonStates, weakItems } from '../lib/course';
 import { tapFeedback } from '../lib/fx';
-import { heartsNow, lessonDone, type Progress, streak, todayXp, useProgress, weakness } from '../lib/progress';
 import { newHomeIsLive, onOldAddress } from '../lib/move';
-import { LevelTiles } from './Level';
+import { heartsNow, lessonDone, type Progress, streak, todayXp, useProgress, weakness } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { isModelReady } from '../lib/whisper';
+import { wordOfDay } from '../lib/wordOfDay';
 import { CountUp, Flame, Icon, ProgressBar } from '../ui';
+import { AdultGate } from './AdultGate';
+import { LevelTiles } from './Level';
 
 /** The Learn tab's top bar: your language (tap to switch), streak, XP and hearts. */
 function TopBar({ lang, progress, onFlag }: { lang: Lang; progress: Progress; onFlag: () => void }) {
@@ -51,6 +54,42 @@ function DailyGoal({ progress }: { progress: Progress }) {
       </div>
       <ProgressBar value={today / progress.goal} tone="flame" />
     </div>
+  );
+}
+
+/** Word of the day: a word from your level, its meaning and a sentence that uses it, with audio. */
+function WordOfTheDay({ lang, progress }: { lang: Lang; progress: Progress }) {
+  const today = wordOfDay(progress, lang);
+  if (!today) return null;
+  const { word, example } = today;
+  return (
+    <section className="card word-day" data-testid="word-of-day" aria-label="Word of the day">
+      <div className="word-day-kicker">Word of the day</div>
+      <div className="row" style={{ alignItems: 'flex-start' }}>
+        <div className="grow">
+          <div className="word-day-word" lang={lang}>
+            {word.text}
+          </div>
+          {word.pinyin && <div className="pinyin">{word.pinyin}</div>}
+          <div className="word-day-en">{word.en}</div>
+        </div>
+        <button className="btn secondary sound-sm" onClick={() => playPhrase(word.audio)} aria-label={`Hear “${word.text}”`} data-testid="word-day-play">
+          <Icon name="speaker" size={22} />
+        </button>
+      </div>
+      {example && (
+        <button className="word-day-example" onClick={() => playPhrase(example.audio)} aria-label={`Hear the example: ${example.text}`}>
+          <Icon name="speaker" size={18} />
+          <span className="grow">
+            <span className="word-day-sentence" lang={lang}>
+              {example.text}
+            </span>
+            {example.pinyin && <span className="pinyin small">{example.pinyin}</span>}
+            <span className="muted small">{example.en}</span>
+          </span>
+        </button>
+      )}
+    </section>
   );
 }
 
@@ -195,6 +234,7 @@ export function Path({ lang }: { lang: Lang }) {
           </button>
         )}
         <DailyGoal progress={progress} />
+        <WordOfTheDay lang={lang} progress={progress} />
         <StreakWarning
           progress={progress}
           onPractice={() => open(current ? `/${lang}/learn/${current.id}` : learned.length >= 4 ? `/${lang}/learn/review` : `/${lang}`)}
@@ -289,6 +329,9 @@ export function Path({ lang }: { lang: Lang }) {
                     </span>
                   </div>
                   {unit.elective && <p className="muted small unit-note">An extra topic for when you want it. It never holds up your path.</p>}
+                  {unit.adult && !progress.adult ? (
+                    <AdultGate count={`${unit.lessons.length} lessons`} />
+                  ) : (
                   <ol className="lessons path">
                     {unit.lessons.map((lesson) => {
                       const state = states.get(lesson.id)!;
@@ -318,6 +361,7 @@ export function Path({ lang }: { lang: Lang }) {
                       );
                     })}
                   </ol>
+                  )}
                 </section>
               );
             })}

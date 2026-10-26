@@ -266,6 +266,88 @@
         { "q": "¿Qué propone Andrés?", "qEn": "What does Andrés suggest?", "options": [{ "text": "Un apartamento con un cuarto extra", "en": "An apartment with an extra room" }, { "text": "Esperar un año más", "en": "Waiting another year" }, { "text": "Vivir con sus papás", "en": "Living with his parents" }], "answer": 0 },
         { "q": "¿Cómo podrían repartir los gastos?", "qEn": "How could they split the costs?", "options": [{ "text": "Mitad y mitad, o según lo que gane cada uno", "en": "Half and half, or by what each earns" }, { "text": "Andrés pagaría todo", "en": "Andrés would pay everything" }, { "text": "Laura pagaría el arriendo", "en": "Laura would pay the rent" }], "answer": 0 }
       ]
+    },
+    {
+      "id": "es-fl-signals",
+      "level": 4,
+      "kind": "dialogue",
+      "topic": "flirting",
+      "title": "¿Coqueteo o amabilidad?",
+      "en": "Flirting, or just being nice?",
+      "speakers": { "valeria": { "name": "Valeria", "voice": "a" }, "nico": { "name": "Nico", "voice": "b" } },
+      "lines": [
+        { "speaker": "valeria", "text": "Nico, ¿tú crees que el de la cafetería me está coqueteando?", "en": "Nico, do you think the guy at the café is flirting with me?" },
+        { "speaker": "nico", "text": "Mmm… ¿qué hace?", "en": "Hmm… what does he do?" },
+        { "speaker": "valeria", "text": "Siempre me sonríe y ayer me escribió «que tengas un lindo día» en el vaso.", "en": "He always smiles at me, and yesterday he wrote \"have a lovely day\" on my cup." },
+        { "speaker": "nico", "text": "Puede ser amabilidad. ¿Te hace preguntas o solo te cobra?", "en": "It could be just friendliness. Does he ask you questions or just ring you up?" },
+        { "speaker": "valeria", "text": "Me pregunta por mis clases y se acuerda de todo lo que le cuento.", "en": "He asks about my classes and remembers everything I tell him." },
+        { "speaker": "nico", "text": "Ah, entonces sí: le gustas. ¡Invítalo a salir!", "en": "Oh, then yes: he likes you. Ask him out!" }
+      ],
+      "glossary": {
+        "crees": "you think", "cafetería": "café", "coqueteando": "flirting", "sonríe": "smiles", "escribió": "wrote", "lindo": "lovely",
+        "vaso": "cup", "amabilidad": "friendliness, kindness", "preguntas": "questions", "cobra": "charges, rings you up", "clases": "classes",
+        "acuerda": "se acuerda = remembers", "cuento": "I tell", "gustas": "le gustas = he likes you", "invítalo": "invite him", "salir": "to go out"
+      },
+      "questions": [
+        { "q": "¿Qué le escribió el chico en el vaso?", "qEn": "What did the guy write on her cup?", "options": [{ "text": "«Que tengas un lindo día»", "en": "\"Have a lovely day\"" }, { "text": "Su número", "en": "His number" }, { "text": "Su nombre", "en": "His name" }], "answer": 0 },
+        { "q": "Según Nico, ¿qué señal muestra que le gusta?", "qEn": "According to Nico, what sign shows he likes her?", "options": [{ "text": "Que le hace preguntas y se acuerda de todo", "en": "He asks questions and remembers everything" }, { "text": "Que le cobra menos", "en": "He charges her less" }, { "text": "Que siempre está ocupado", "en": "He's always busy" }], "answer": 0 },
+        { "q": "¿Qué le aconseja Nico al final?", "qEn": "What does Nico advise in the end?", "options": [{ "text": "Que lo invite a salir", "en": "To ask him out" }, { "text": "Que cambie de cafetería", "en": "To switch cafés" }, { "text": "Que espere un mes", "en": "To wait a month" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-fl-worst-line",
+      "level": 5,
+      "kind": "dialogue",
+      "topic": "flirting",
+      "title": "La peor frase",
+      "en": "The worst pick-up line",
+      "speakers": { "daniela": { "name": "Daniela", "voice": "a" }, "sebas": { "name": "Sebas", "voice": "b" } },
+      "lines": [
+        { "speaker": "sebas", "text": "Disculpa, ¿tienes un mapa? Es que me perdí en tus ojos.", "en": "Excuse me, do you have a map? I got lost in your eyes." },
+        { "speaker": "daniela", "text": "Jajaja, ¿en serio? Esa es la frase más mala que he oído.", "en": "Hahaha, seriously? That's the worst line I've ever heard." },
+        { "speaker": "sebas", "text": "Lo sé, mi amigo me retó a decirla. Pero funcionó: te hice reír.", "en": "I know, my friend dared me to say it. But it worked: I made you laugh." },
+        { "speaker": "daniela", "text": "Bueno, eso sí. Te doy un punto por valiente.", "en": "Well, that's true. I'll give you a point for bravery." },
+        { "speaker": "sebas", "text": "Entonces, con ese punto, ¿te puedo invitar a algo de tomar?", "en": "Then, with that point, can I buy you a drink?" },
+        { "speaker": "daniela", "text": "Una limonada, pero solo si prometes no usar más frases así.", "en": "A lemonade, but only if you promise not to use any more lines like that." }
+      ],
+      "glossary": {
+        "mapa": "map", "perdí": "I got lost", "ojos": "eyes", "serio": "en serio = seriously", "frase": "line, phrase", "oído": "heard",
+        "retó": "dared", "funcionó": "it worked", "reír": "to laugh", "punto": "point", "valiente": "brave", "invitar": "to treat, buy (for someone)",
+        "tomar": "to drink", "limonada": "lemonade", "prometes": "you promise"
+      },
+      "questions": [
+        { "q": "¿Por qué dijo Sebas esa frase?", "qEn": "Why did Sebas say that line?", "options": [{ "text": "Su amigo lo retó", "en": "His friend dared him" }, { "text": "La leyó en un libro", "en": "He read it in a book" }, { "text": "Daniela se la pidió", "en": "Daniela asked for it" }], "answer": 0 },
+        { "q": "¿Qué le da Daniela a Sebas?", "qEn": "What does Daniela give Sebas?", "options": [{ "text": "Un punto por valiente", "en": "A point for bravery" }, { "text": "Su número", "en": "Her number" }, { "text": "Un mapa", "en": "A map" }], "answer": 0 },
+        { "q": "¿Con qué condición acepta Daniela la bebida?", "qEn": "On what condition does Daniela accept the drink?", "options": [{ "text": "Que no use más frases así", "en": "That he doesn't use more lines like that" }, { "text": "Que pague él", "en": "That he pays" }, { "text": "Que invite a su amigo", "en": "That he invites his friend" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-fl-graceful-no",
+      "level": 6,
+      "kind": "dialogue",
+      "topic": "flirting",
+      "title": "Un «no» con buena onda",
+      "en": "A friendly no",
+      "speakers": { "mariana": { "name": "Mariana", "voice": "a" }, "felipe": { "name": "Felipe", "voice": "b" } },
+      "lines": [
+        { "speaker": "felipe", "text": "Mariana, me la pasé muy bien hablando contigo esta noche. ¿Te puedo pedir tu número?", "en": "Mariana, I had a great time talking with you tonight. Can I ask for your number?" },
+        { "speaker": "mariana", "text": "Qué detalle, Felipe. Yo también la pasé bien, pero ahora mismo no estoy buscando salir con nadie.", "en": "That's sweet, Felipe. I had a good time too, but right now I'm not looking to date anyone." },
+        { "speaker": "felipe", "text": "Tranquila, lo entiendo perfectamente. Gracias por decírmelo con tanta sinceridad.", "en": "No problem, I completely understand. Thanks for being so honest with me." },
+        { "speaker": "mariana", "text": "Gracias a ti por tomarlo tan bien. Fue una conversación muy chévere.", "en": "Thank you for taking it so well. It was a really great conversation." },
+        { "speaker": "felipe", "text": "Igual, si algún día quieres seguir hablando de libros, aquí estoy.", "en": "Anyway, if you ever want to keep talking about books, I'm here." },
+        { "speaker": "mariana", "text": "¡Hecho! Seguro nos vemos en el próximo club de lectura.", "en": "Deal! I'm sure we'll see each other at the next book club." }
+      ],
+      "glossary": {
+        "pasé": "me la pasé bien = I had a good time", "hablando": "talking", "pedir": "to ask for", "número": "number",
+        "detalle": "¡qué detalle! = how sweet", "buscando": "looking for", "salir": "salir con = to date", "entiendo": "I understand",
+        "perfectamente": "perfectly", "sinceridad": "honesty", "tomarlo": "taking it", "conversación": "conversation", "chévere": "great (Colombia)",
+        "igual": "anyway", "seguir": "to keep on", "libros": "books", "hecho": "deal", "club": "club", "lectura": "reading"
+      },
+      "questions": [
+        { "q": "¿Qué le pide Felipe a Mariana?", "qEn": "What does Felipe ask Mariana for?", "options": [{ "text": "Su número", "en": "Her number" }, { "text": "Un libro", "en": "A book" }, { "text": "Un café", "en": "A coffee" }], "answer": 0 },
+        { "q": "¿Por qué le dice que no Mariana?", "qEn": "Why does Mariana say no?", "options": [{ "text": "Ahora no busca salir con nadie", "en": "She isn't looking to date anyone right now" }, { "text": "Ya tiene novio", "en": "She already has a boyfriend" }, { "text": "No le cae bien Felipe", "en": "She doesn't like Felipe" }], "answer": 0 },
+        { "q": "¿Cómo reacciona Felipe?", "qEn": "How does Felipe react?", "options": [{ "text": "Lo entiende y le agradece la sinceridad", "en": "He understands and thanks her for her honesty" }, { "text": "Se enoja", "en": "He gets angry" }, { "text": "Insiste", "en": "He insists" }], "answer": 0 }
+      ]
     }
   ]
 }

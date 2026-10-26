@@ -21,12 +21,12 @@ await run(async () => {
   await page.locator('[data-testid^=article-]').first().waitFor();
   const levels = await page.locator('.section-title').allInnerTexts();
   const n = await page.locator('[data-testid^=article-]').count();
-  expect(levels.join() === 'ADVANCED,FLUENT', `list: Advanced and Fluent (${levels.join(', ')})`);
-  expect(n === 4, `list: 4 Spanish articles (${n})`);
+  expect(levels.join() === 'BEGINNER,ELEMENTARY,INTERMEDIATE,UPPER-INTERMEDIATE,ADVANCED,FLUENT', `list: every level (${levels.join(', ')})`);
+  expect(n === data('es').length, `list: all ${data('es').length} Spanish articles (${n})`);
   await page.screenshot({ path: 'A-list.png' });
 
   // ---------- A Spanish article ----------
-  const es = data('es')[0];
+  const es = data('es').find((a) => a.id === 'es-news-bikes');
   await page.getByTestId(`article-${es.id}`).click();
   await page.locator('.story-line').first().waitFor();
   const head = await page.locator('.story-head').innerText();
@@ -58,7 +58,7 @@ await run(async () => {
   expect(/#\/es\/reading$/.test(page.url()), 'back goes to the reading list, not stories');
 
   // ---------- A Mandarin article: words come pre-split, with pinyin ----------
-  const zh = data('zh')[0];
+  const zh = data('zh').find((a) => a.id === 'zh-news-bikes');
   await page.goto(`${BASE}#/zh/reading/${zh.id}`);
   await page.locator('.story-line').first().waitFor();
   await page.locator('.story-line').first().getByRole('button', { name: '免费', exact: true }).click();
@@ -68,7 +68,7 @@ await run(async () => {
   await page.screenshot({ path: 'A-zh.png' });
 
   // ---------- French: the questions are in French, with English under them ----------
-  const fr = data('fr')[3];
+  const fr = data('fr').find((a) => a.level === 6);
   await page.goto(`${BASE}#/fr/reading/${fr.id}`);
   await page.locator('.question').first().waitFor();
   const q1 = await page.locator('.question').first().innerText();

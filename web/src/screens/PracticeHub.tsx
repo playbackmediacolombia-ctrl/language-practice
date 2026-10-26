@@ -112,8 +112,8 @@ export function PracticeHub({ lang }: { lang: Lang }) {
             <Sticker name="news" size={40} />
           </span>
           <div className="grow">
-            <div className="card-title">Reading: news articles</div>
-            <p className="muted small">Advanced and Fluent: tap any word to translate it, then answer questions</p>
+            <div className="card-title">Reading practice</div>
+            <p className="muted small">Short articles for every level: tap any word to translate it, listen to each sentence</p>
           </div>
           <Icon name="chevron" style={{ color: 'var(--faint)' }} />
         </div>

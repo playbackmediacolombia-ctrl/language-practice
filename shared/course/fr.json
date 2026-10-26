@@ -919,7 +919,7 @@
             { "id": "dt-truc-le-plus-fou", "text": "C'est quoi le truc le plus fou que t'aies jamais fait ?", "en": "What's the craziest thing you've ever done?" },
             { "id": "dt-un-cafe-pour-voir", "text": "On se prend un café pour voir ?", "en": "Shall we grab a coffee and see?" },
             { "id": "dt-rien-de-serieux", "text": "Je ne cherche rien de sérieux pour l'instant.", "en": "I'm not looking for anything serious for now." },
-            { "id": "dt-pas-le-feeling", "text": "T'es vraiment cool, mais je ne sens pas le feeling.", "en": "You're really cool, but I'm not feeling it." }
+            { "id": "dt-pas-le-feeling", "text": "T'es vraiment cool, mais le feeling ne passe pas.", "en": "You're really cool, but I'm not feeling it." }
           ]
         }
       ]
@@ -950,6 +950,96 @@
             { "id": "dt-je-peux-aider", "text": "Je peux vous aider à débarrasser ?", "en": "Can I help you clear the table?" },
             { "id": "dt-belle-mere-adorable", "text": "Ma belle-mère est adorable.", "en": "My mother-in-law is lovely." },
             { "id": "dt-dejeuner-dimanche", "text": "On se voit dimanche pour le déjeuner en famille.", "en": "See you Sunday for the family lunch." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u24",
+      "title": "Flirting with charm",
+      "lessons": [
+        {
+          "id": "fr-24-1",
+          "title": "Compliments",
+          "items": [
+            { "id": "fl-ton-rire", "text": "J'adore ton rire.", "en": "I love your laugh." },
+            { "id": "fl-belle-voix", "text": "T'as une très belle voix.", "en": "You have a really lovely voice." },
+            { "id": "fl-couleur-te-va", "text": "Cette couleur te va super bien.", "en": "That color really suits you." },
+            { "id": "fl-je-rigole-avec-toi", "text": "Avec toi, je rigole tout le temps.", "en": "I'm always laughing when I'm with you." },
+            { "id": "fl-beaux-yeux", "text": "T'as de très beaux yeux, tu sais.", "en": "You have really beautiful eyes, you know." },
+            { "id": "fl-bon-gout-musique", "text": "T'as vraiment bon goût en musique !", "en": "You've got really good taste in music!" }
+          ]
+        },
+        {
+          "id": "fr-24-2",
+          "title": "Reading the signals",
+          "items": [
+            { "id": "fl-tu-me-dragues", "text": "Tu me dragues, là ?", "en": "Are you hitting on me right now?" },
+            { "id": "fl-je-crois-que-tu-lui-plais", "text": "Je crois que tu lui plais.", "en": "I think they like you." },
+            { "id": "fl-il-te-regarde", "text": "Il n'arrête pas de te regarder.", "en": "He can't stop looking at you.", "alt": ["Elle n'arrête pas de te regarder."] },
+            { "id": "fl-ou-juste-sympa", "text": "Je ne sais pas s'il me drague ou s'il est juste sympa.", "en": "I don't know if he's flirting with me or just being nice.", "alt": ["Je ne sais pas si elle me drague ou si elle est juste sympa."] },
+            { "id": "fl-bon-signe", "text": "S'il relance la conversation, c'est bon signe.", "en": "If he keeps the conversation going, it's a good sign.", "alt": ["Si elle relance la conversation, c'est bon signe."] },
+            { "id": "fl-mieux-te-connaitre", "text": "J'aimerais bien apprendre à te connaître.", "en": "I'd really like to get to know you." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u25",
+      "title": "Playful teasing & pick-up lines",
+      "lessons": [
+        {
+          "id": "fr-25-1",
+          "title": "Teasing and comebacks",
+          "items": [
+            { "id": "fl-toujours-comme-ca", "text": "T'es toujours comme ça, ou c'est juste avec moi ?", "en": "Are you always like this, or is it just with me?" },
+            { "id": "fl-modeste", "text": "Toujours aussi modeste, à ce que je vois 😏", "en": "Modest as ever, I see 😏", "say": "Toujours aussi modeste, à ce que je vois." },
+            { "id": "fl-encore-gagne", "text": "J'ai encore gagné. Avoue.", "en": "I won again. Admit it." },
+            { "id": "fl-je-t-ai-vu-sourire", "text": "Fais pas l'innocent, je t'ai vu sourire.", "en": "Don't play innocent, I saw you smile.", "alt": ["Fais pas l'innocente, je t'ai vue sourire."] },
+            { "id": "fl-tu-me-dois-un-cafe", "text": "Pour celle-là, tu me dois un café.", "en": "For that one, you owe me a coffee." },
+            { "id": "fl-tu-gagnes-cette-fois", "text": "D'accord, t'as gagné… pour cette fois.", "en": "Okay, you win… this time." }
+          ]
+        },
+        {
+          "id": "fr-25-2",
+          "title": "Pick-up lines, smooth and cheesy",
+          "items": [
+            { "id": "fl-tu-me-conseilles", "text": "Tu me conseilles quoi sur la carte ? T'as l'air de t'y connaître.", "en": "What would you recommend on the menu? You look like you know your stuff." },
+            { "id": "fl-coup-de-foudre", "text": "Tu crois au coup de foudre, ou je repasse ?", "en": "Do you believe in love at first sight, or should I walk past again?" },
+            { "id": "fl-perdu-dans-tes-yeux", "text": "T'aurais pas une carte ? Je me suis perdu dans tes yeux.", "en": "Do you have a map? I got lost in your eyes.", "alt": ["T'aurais pas une carte ? Je me suis perdue dans tes yeux."] },
+            { "id": "fl-tombe-du-ciel", "text": "Ça a fait mal quand t'es tombé du ciel ?", "en": "Did it hurt when you fell from heaven?", "alt": ["Ça a fait mal quand t'es tombée du ciel ?"] },
+            { "id": "fl-elle-etait-nulle", "text": "Elle était nulle, celle-là, mais je t'ai fait rire.", "en": "That one was awful, but I made you laugh." },
+            { "id": "fl-je-t-offre-un-verre", "text": "Je peux t'offrir un verre ?", "en": "Can I buy you a drink?" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u26",
+      "title": "Flirty texts & clear signals",
+      "lessons": [
+        {
+          "id": "fr-26-1",
+          "title": "Flirty texts and app openers",
+          "items": [
+            { "id": "fl-deux-verites", "text": "Deux vérités et un mensonge : à toi de commencer 😉", "en": "Two truths and a lie: you go first 😉", "say": "Deux vérités et un mensonge : à toi de commencer." },
+            { "id": "fl-photo-montagne", "text": "Ta photo à la montagne m'intrigue. C'était où ?", "en": "Your mountain photo has me curious. Where was it?" },
+            { "id": "fl-je-repense", "text": "Je repense encore à notre conversation d'hier soir 🙈", "en": "I'm still thinking about our conversation last night 🙈", "say": "Je repense encore à notre conversation d'hier soir." },
+            { "id": "fl-bien-dormi", "text": "Bonjour toi, bien dormi ? ☀️", "en": "Morning, you. Sleep well? ☀️", "say": "Bonjour toi, bien dormi ?" },
+            { "id": "fl-revanche", "text": "Tu me dois une revanche au billard 😏", "en": "You owe me a rematch at pool 😏", "say": "Tu me dois une revanche au billard." },
+            { "id": "fl-on-remet-ca", "text": "Quand tu veux, on remet ça 😘", "en": "Let's do it again whenever you like 😘", "say": "Quand tu veux, on remet ça." }
+          ]
+        },
+        {
+          "id": "fr-26-2",
+          "title": "Smooth moves and graceful exits",
+          "items": [
+            { "id": "fl-ton-numero", "text": "Je t'aime bien. Je peux avoir ton numéro ?", "en": "I really like you. Can I have your number?" },
+            { "id": "fl-continuer-ailleurs", "text": "Ça te dirait qu'on continue cette conversation ailleurs ?", "en": "How about we continue this conversation somewhere else?" },
+            { "id": "fl-on-se-revoie", "text": "J'ai adoré te rencontrer. J'espère qu'on se reverra.", "en": "I loved meeting you. I hope we'll see each other again." },
+            { "id": "fl-mal-compris", "text": "Je crois que j'ai mal compris. Désolé.", "en": "I think I misread things. Sorry.", "alt": ["Je crois que j'ai mal compris. Désolée."] },
+            { "id": "fl-c-etait-sympa", "text": "Pas de souci, c'était sympa de discuter.", "en": "No worries, it was nice chatting." },
+            { "id": "fl-je-respecte", "text": "Je respecte ta réponse.", "en": "I respect your answer." }
           ]
         }
       ]
