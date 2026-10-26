@@ -1,0 +1,27 @@
+{
+  "stages": [
+    { "id": "sounds", "title": "Sounds", "about": "Like a baby: hear and make the sounds of the language.", "units": ["u1"] },
+    { "id": "words", "title": "First words", "about": "Like a toddler: the words a child says first.", "units": ["u2", "u3"] },
+    { "id": "sentences", "title": "Short sentences", "about": "Like a young child: ask for things, say what you have and see.", "units": ["u4", "u5", "u6"] },
+    { "id": "conversation", "title": "Conversation", "about": "Talk with people: meet, shop, describe your day.", "units": ["u7", "u8", "u9"] },
+    { "id": "reading", "title": "Reading & writing", "about": "Like school: read short texts and write messages.", "units": ["u10", "u11"] },
+    { "id": "adult", "title": "Adult topics", "about": "Work, health, the news, and holding your own in a real conversation.", "units": ["u12", "u13", "u14", "u15"] }
+  ],
+  "units": {
+    "u1": "The sounds",
+    "u2": "First words",
+    "u3": "Family and home",
+    "u4": "I want, I have",
+    "u5": "Colors, numbers and questions",
+    "u6": "Where things are",
+    "u7": "Meeting people",
+    "u8": "Shopping and eating out",
+    "u9": "My day",
+    "u10": "Reading short stories",
+    "u11": "Writing messages",
+    "u12": "Work and money",
+    "u13": "Health and feelings",
+    "u14": "News and opinions",
+    "u15": "Fluent conversation"
+  }
+}

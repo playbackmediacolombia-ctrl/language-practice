@@ -7,6 +7,9 @@ A personal app for practicing Spanish, French and Mandarin. It costs $0: there a
 - **Listen & repeat:** Whisper runs on the phone and colors each word green (right), orange (almost) or red (missed). Chinese is compared by sound (pinyin), so a same-sounding character isn't marked wrong. In the web app recording stops by itself when you finish talking, and a voice says "Great job!", "Close, try again." or "Not quite" (clips in `web/public/feedback/`, made by the same audio script).
 - **Flashcards** (Leitner boxes) and a **quiz**. Progress is saved on the device.
 
+- **Lesson path (web app):** short lessons that unlock one after another, from sounds to first words, then sentences, conversation, reading & writing and adult topics. Each lesson mixes listen-and-pick, word tiles, match the pairs, type what you hear and say it out loud (Whisper). Every answer gets a banner, a chime and a voice. XP, daily streak, daily goal, hearts (one back every 30 minutes, or by reviewing) and a review of your weakest words. Everything is saved on the phone; no account.
+  - Content lives in `shared/course/`: `outline.json` (stages and units for all languages) and one file per language. Add a unit there, run the audio script, push.
+
 There are two front ends that share the lessons, audio and matching code:
 
 | Folder | What | How you get it on the iPhone |

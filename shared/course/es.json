@@ -1,0 +1,110 @@
+{
+  "units": [
+    {
+      "id": "u1",
+      "title": "The sounds of Spanish",
+      "lessons": [
+        {
+          "id": "es-1-1",
+          "title": "Five vowels",
+          "items": [
+            { "id": "a", "text": "a", "en": "“ah”, as in father", "kind": "sound" },
+            { "id": "e", "text": "e", "en": "“eh”, as in bed", "kind": "sound" },
+            { "id": "i", "text": "i", "en": "“ee”, as in see", "kind": "sound" },
+            { "id": "o", "text": "o", "en": "“oh”, short and pure", "kind": "sound" },
+            { "id": "u", "text": "u", "en": "“oo”, as in food", "kind": "sound" }
+          ]
+        },
+        {
+          "id": "es-1-2",
+          "title": "Ma, me, mi",
+          "items": [
+            { "id": "ma", "text": "ma", "en": "“mah”", "kind": "sound" },
+            { "id": "mi", "text": "mi", "en": "“mee”", "kind": "sound" },
+            { "id": "mo", "text": "mo", "en": "“moh”", "kind": "sound" },
+            { "id": "mama", "text": "mamá", "en": "mom" },
+            { "id": "mapa", "text": "mapa", "en": "map" },
+            { "id": "mesa", "text": "mesa", "en": "table" }
+          ]
+        },
+        {
+          "id": "es-1-3",
+          "title": "P, T and the stress",
+          "items": [
+            { "id": "papa", "text": "papá", "en": "dad" },
+            { "id": "pato", "text": "pato", "en": "duck" },
+            { "id": "te", "text": "té", "en": "tea" },
+            { "id": "cafe", "text": "café", "en": "coffee" },
+            { "id": "tomate", "text": "tomate", "en": "tomato" }
+          ]
+        },
+        {
+          "id": "es-1-4",
+          "title": "Ñ, rr and j",
+          "items": [
+            { "id": "nino", "text": "niño", "en": "boy" },
+            { "id": "ano", "text": "año", "en": "year" },
+            { "id": "perro", "text": "perro", "en": "dog" },
+            { "id": "pero", "text": "pero", "en": "but" },
+            { "id": "jugo", "text": "jugo", "en": "juice" },
+            { "id": "rojo", "text": "rojo", "en": "red" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u2",
+      "title": "First words",
+      "lessons": [
+        {
+          "id": "es-2-1",
+          "title": "Hello and goodbye",
+          "items": [
+            { "id": "hola", "text": "hola", "en": "hello" },
+            { "id": "adios", "text": "adiós", "en": "goodbye" },
+            { "id": "si", "text": "sí", "en": "yes" },
+            { "id": "no", "text": "no", "en": "no" },
+            { "id": "hola-mama", "text": "Hola, mamá.", "en": "Hello, mom." },
+            { "id": "adios-papa", "text": "Adiós, papá.", "en": "Goodbye, dad." }
+          ]
+        },
+        {
+          "id": "es-2-2",
+          "title": "Please and thank you",
+          "items": [
+            { "id": "gracias", "text": "gracias", "en": "thank you" },
+            { "id": "por-favor", "text": "por favor", "en": "please" },
+            { "id": "agua", "text": "agua", "en": "water" },
+            { "id": "si-gracias", "text": "Sí, gracias.", "en": "Yes, thank you." },
+            { "id": "no-gracias", "text": "No, gracias.", "en": "No, thank you." },
+            { "id": "agua-por-favor", "text": "Agua, por favor.", "en": "Water, please." }
+          ]
+        },
+        {
+          "id": "es-2-3",
+          "title": "Food and drink",
+          "items": [
+            { "id": "leche", "text": "leche", "en": "milk" },
+            { "id": "pan", "text": "pan", "en": "bread" },
+            { "id": "manzana", "text": "manzana", "en": "apple" },
+            { "id": "quiero-leche", "text": "Quiero leche.", "en": "I want milk." },
+            { "id": "quiero-pan", "text": "Quiero pan.", "en": "I want bread." },
+            { "id": "mas-agua", "text": "Más agua.", "en": "More water." }
+          ]
+        },
+        {
+          "id": "es-2-4",
+          "title": "Animals and home",
+          "items": [
+            { "id": "gato", "text": "gato", "en": "cat" },
+            { "id": "casa", "text": "casa", "en": "house" },
+            { "id": "el-perro", "text": "el perro", "en": "the dog" },
+            { "id": "el-gato", "text": "el gato", "en": "the cat" },
+            { "id": "mi-casa", "text": "mi casa", "en": "my house" },
+            { "id": "mi-mama", "text": "mi mamá", "en": "my mom" }
+          ]
+        }
+      ]
+    }
+  ]
+}

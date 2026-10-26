@@ -22,7 +22,11 @@ FEEDBACK = {
     "great": "Great job!",
     "close": "Close, try again.",
     "retry": "Not quite. Listen, and try again.",
+    "try-again": "Try again.",
 }
+# The lesson path: one clip per course item, in assets/audio/course/<lang>/<item id>.mp3.
+COURSE_DIR = ROOT / "shared" / "course"
+COURSE_AUDIO_DIR = AUDIO_DIR / "course"
 
 VOICES = {
     "es": "es-CO-SalomeNeural",
@@ -64,6 +68,19 @@ async def main() -> None:
             print(f"{lang}  {phrase['id']}")
             await synth(text_for(phrase, lang), voice, out)
             made += 1
+
+    for lang, voice in VOICES.items():
+        course = json.loads((COURSE_DIR / f"{lang}.json").read_text(encoding="utf-8"))
+        (COURSE_AUDIO_DIR / lang).mkdir(parents=True, exist_ok=True)
+        for unit in course["units"]:
+            for lesson in unit["lessons"]:
+                for item in lesson["items"]:
+                    out = COURSE_AUDIO_DIR / lang / f"{item['id']}.mp3"
+                    if out.exists() and out.stat().st_size > 0:
+                        continue
+                    print(f"course {lang}  {item['id']}")
+                    await synth(item.get("say", item["text"]), voice, out)
+                    made += 1
 
     FEEDBACK_DIR.mkdir(parents=True, exist_ok=True)
     for name, text in FEEDBACK.items():

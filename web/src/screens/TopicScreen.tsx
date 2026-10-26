@@ -10,7 +10,7 @@ export function TopicScreen({ lang, topic }: { lang: Lang; topic: string }) {
   const quizBest = progress.quiz[`${lang}:${topic}`];
 
   return (
-    <Screen title={getTopic(topic)?.title ?? ''} back={`/${lang}`}>
+    <Screen title={getTopic(topic)?.title ?? ''} back={`/${lang}/phrasebook`}>
       <button className="btn" onClick={() => navigate(`/${lang}/${topic}/practice`)}>
         🎙️ Listen &amp; repeat
       </button>

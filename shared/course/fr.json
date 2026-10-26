@@ -1,0 +1,112 @@
+{
+  "units": [
+    {
+      "id": "u1",
+      "title": "The sounds of French",
+      "lessons": [
+        {
+          "id": "fr-1-1",
+          "title": "U and ou",
+          "items": [
+            { "id": "tu", "text": "tu", "en": "you" },
+            { "id": "tout", "text": "tout", "en": "all" },
+            { "id": "rue", "text": "rue", "en": "street" },
+            { "id": "roue", "text": "roue", "en": "wheel" },
+            { "id": "vu", "text": "vu", "en": "seen" },
+            { "id": "vous", "text": "vous", "en": "you (polite)" }
+          ]
+        },
+        {
+          "id": "fr-1-2",
+          "title": "Nasal sounds",
+          "items": [
+            { "id": "bon", "text": "bon", "en": "good" },
+            { "id": "blanc", "text": "blanc", "en": "white" },
+            { "id": "vin", "text": "vin", "en": "wine" },
+            { "id": "un", "text": "un", "en": "one" },
+            { "id": "pain", "text": "pain", "en": "bread" },
+            { "id": "maman", "text": "maman", "en": "mom" }
+          ]
+        },
+        {
+          "id": "fr-1-3",
+          "title": "The French r",
+          "items": [
+            { "id": "rouge", "text": "rouge", "en": "red" },
+            { "id": "riz", "text": "riz", "en": "rice" },
+            { "id": "frere", "text": "frère", "en": "brother" },
+            { "id": "trois", "text": "trois", "en": "three" },
+            { "id": "tres", "text": "très", "en": "very" }
+          ]
+        },
+        {
+          "id": "fr-1-4",
+          "title": "Silent letters",
+          "items": [
+            { "id": "petit", "text": "petit", "en": "small" },
+            { "id": "grand", "text": "grand", "en": "big" },
+            { "id": "chat", "text": "chat", "en": "cat" },
+            { "id": "lait", "text": "lait", "en": "milk" },
+            { "id": "nez", "text": "nez", "en": "nose" },
+            { "id": "et", "text": "et", "en": "and" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u2",
+      "title": "First words",
+      "lessons": [
+        {
+          "id": "fr-2-1",
+          "title": "Hello and goodbye",
+          "items": [
+            { "id": "bonjour", "text": "bonjour", "en": "hello" },
+            { "id": "au-revoir", "text": "au revoir", "en": "goodbye" },
+            { "id": "oui", "text": "oui", "en": "yes" },
+            { "id": "non", "text": "non", "en": "no" },
+            { "id": "papa", "text": "papa", "en": "dad" },
+            { "id": "bonjour-maman", "text": "Bonjour, maman.", "en": "Hello, mom." },
+            { "id": "au-revoir-papa", "text": "Au revoir, papa.", "en": "Goodbye, dad." }
+          ]
+        },
+        {
+          "id": "fr-2-2",
+          "title": "Please and thank you",
+          "items": [
+            { "id": "merci", "text": "merci", "en": "thank you" },
+            { "id": "sil-te-plait", "text": "s'il te plaît", "en": "please" },
+            { "id": "eau", "text": "eau", "en": "water" },
+            { "id": "oui-merci", "text": "Oui, merci.", "en": "Yes, thank you." },
+            { "id": "non-merci", "text": "Non, merci.", "en": "No, thank you." },
+            { "id": "de-leau", "text": "De l'eau, s'il te plaît.", "en": "Water, please.", "tiles": ["De", "l'eau", "s'il", "te", "plaît"] }
+          ]
+        },
+        {
+          "id": "fr-2-3",
+          "title": "Food and drink",
+          "items": [
+            { "id": "pomme", "text": "pomme", "en": "apple" },
+            { "id": "encore", "text": "encore", "en": "more / again" },
+            { "id": "du-pain", "text": "du pain", "en": "some bread" },
+            { "id": "je-veux-du-lait", "text": "Je veux du lait.", "en": "I want milk." },
+            { "id": "je-veux-une-pomme", "text": "Je veux une pomme.", "en": "I want an apple." },
+            { "id": "encore-de-leau", "text": "Encore de l'eau.", "en": "More water.", "tiles": ["Encore", "de", "l'eau"] }
+          ]
+        },
+        {
+          "id": "fr-2-4",
+          "title": "Animals and home",
+          "items": [
+            { "id": "chien", "text": "chien", "en": "dog" },
+            { "id": "maison", "text": "maison", "en": "house" },
+            { "id": "le-chat", "text": "le chat", "en": "the cat" },
+            { "id": "le-chien", "text": "le chien", "en": "the dog" },
+            { "id": "ma-maison", "text": "ma maison", "en": "my house" },
+            { "id": "ma-maman", "text": "ma maman", "en": "my mom" }
+          ]
+        }
+      ]
+    }
+  ]
+}

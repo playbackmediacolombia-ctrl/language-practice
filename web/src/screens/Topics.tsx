@@ -8,7 +8,7 @@ export function Topics({ lang }: { lang: Lang }) {
   const info = langInfo(lang);
 
   return (
-    <Screen title={`${info.flag} ${info.name}`} back="/">
+    <Screen title={`${info.flag} ${info.name}`} back={`/${lang}`}>
       {getTopics().map((topic) => {
         const phrases = getPhrases(lang, topic.id);
         const learned = phrases.reduce((sum, p) => sum + cardBox(progress, lang, p.id) / MAX_BOX, 0) / phrases.length;

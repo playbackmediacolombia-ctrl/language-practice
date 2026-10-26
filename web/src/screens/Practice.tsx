@@ -11,16 +11,18 @@ type State =
   | { kind: 'idle' }
   | { kind: 'listening'; heard: boolean } // `heard` once speech has started
   | { kind: 'checking'; download: number | null } // `download` if the model has to be fetched again
-  | { kind: 'result'; heard: string; result: Comparison; grade: Feedback }
+  | { kind: 'result'; heard: string; result: Comparison; grade: Grade }
   | { kind: 'error'; message: string };
 
-const GRADES: Record<Feedback, { label: string; className: string }> = {
+type Grade = Exclude<Feedback, 'try-again'>;
+
+const GRADES: Record<Grade, { label: string; className: string }> = {
   great: { label: 'Great job!', className: 'ok' },
   close: { label: 'Close, try again.', className: 'close' },
   retry: { label: 'Not quite. Listen, and try again.', className: 'wrong' },
 };
 
-function gradeFor(score: number): Feedback {
+function gradeFor(score: number): Grade {
   return score >= 0.85 ? 'great' : score >= 0.5 ? 'close' : 'retry';
 }
 

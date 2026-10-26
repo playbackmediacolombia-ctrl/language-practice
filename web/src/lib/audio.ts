@@ -24,7 +24,43 @@ function audioContext(): AudioContext {
   return ctx;
 }
 
-export type Feedback = 'great' | 'close' | 'retry';
+type AudioSession = { type: string };
+const session = (navigator as { audioSession?: AudioSession }).audioSession;
+// Safari 16.4+: play Web Audio sounds even with the silent switch on, like the phrase audio does.
+if (session) session.type = 'playback';
+
+const FEEDBACK = ['great', 'close', 'retry', 'try-again'] as const;
+
+/** Call from a tap before sounds play without one (iOS). Also preloads the feedback voice. */
+export function unlockAudio() {
+  audioContext();
+  FEEDBACK.forEach((name) => void feedbackClip(name));
+}
+
+/** A short two-note chime: rising when right, falling when wrong. */
+export function playChime(right: boolean) {
+  try {
+    const c = audioContext();
+    const notes = right ? [660, 990] : [330, 220];
+    notes.forEach((freq, i) => {
+      const t = c.currentTime + i * 0.12;
+      const osc = c.createOscillator();
+      const gain = c.createGain();
+      osc.type = right ? 'sine' : 'triangle';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.exponentialRampToValueAtTime(0.25, t + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.25);
+      osc.connect(gain).connect(c.destination);
+      osc.start(t);
+      osc.stop(t + 0.3);
+    });
+  } catch {
+    // No sound is fine; the banner shows the result.
+  }
+}
+
+export type Feedback = (typeof FEEDBACK)[number];
 const feedbackClips = new Map<Feedback, Promise<AudioBuffer>>();
 
 function feedbackClip(name: Feedback): Promise<AudioBuffer> {
@@ -39,15 +75,15 @@ function feedbackClip(name: Feedback): Promise<AudioBuffer> {
   return clip;
 }
 
-/** Says "Great job!" etc. Needs a recording to have started first (that unlocks audio on iOS). */
-export async function playFeedback(name: Feedback) {
+/** Says "Great job!" etc. Needs unlockAudio() or a recording first (iOS). */
+export async function playFeedback(name: Feedback, delay = 0) {
   try {
     const buffer = await feedbackClip(name);
     const c = audioContext();
     const source = c.createBufferSource();
     source.buffer = buffer;
     source.connect(c.destination);
-    source.start();
+    source.start(c.currentTime + delay);
   } catch {
     // Spoken feedback is a bonus; the colored result is already on screen.
   }
@@ -76,7 +112,8 @@ export async function startRecording(onSpeechStart?: () => void): Promise<Record
   }
   const c = audioContext();
   player.pause();
-  (['great', 'close', 'retry'] as const).forEach((name) => void feedbackClip(name));
+  unlockAudio();
+  if (session) session.type = 'play-and-record';
 
   let stream: MediaStream;
   try {
@@ -84,6 +121,7 @@ export async function startRecording(onSpeechStart?: () => void): Promise<Record
       audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true },
     });
   } catch {
+    if (session) session.type = 'playback';
     throw new Error('Microphone access was blocked. Allow it in Settings › Safari › Microphone (or tap "aA" › Website Settings).');
   }
   await c.resume();
@@ -112,6 +150,7 @@ export async function startRecording(onSpeechStart?: () => void): Promise<Record
       source.disconnect();
       processor.disconnect();
       stream.getTracks().forEach((t) => t.stop()); // turn the mic indicator off
+      if (session) session.type = 'playback';
       if (speechStart < 0) return resolve(new Float32Array(0));
       const pad = Math.ceil(PAD / frameSeconds);
       const kept = frames.slice(Math.max(0, speechStart - pad), lastSpeech + 1 + pad);
