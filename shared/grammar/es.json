@@ -224,6 +224,36 @@
         "Le agradecería que is followed by the past subjunctive: que me respondiera (that you replied)."
       ],
       "examples": ["seria-tan-amable", "le-agradeceria-que", "podria-decirme"]
+    },
+    {
+      "lesson": "es-21-1",
+      "title": "Culture: dating in Colombia",
+      "body": [
+        "Meeting through friends, at a party or a dance class is very common, and a first plan is often a group outing before a one-on-one date.",
+        "Compliments are warm and frequent: linda (lovely) and bonito (nice) are everyday words, and a kind \"¡Qué detalle!\" is the gracious way to take one.",
+        "Social plans often start late (\"la hora colombiana\"), but if you've agreed on a time for a coffee date, being on time is appreciated."
+      ],
+      "examples": ["dt-sonrisa-linda", "dt-gracias-que-detalle"]
+    },
+    {
+      "lesson": "es-22-1",
+      "title": "Culture: texting in Colombia",
+      "body": [
+        "Almost everyone texts on WhatsApp, and voice notes are just as common as written messages.",
+        "\"¿Qué más?\" is the classic Colombian hello. Laughter is \"jajaja\", and \"tqm\" (te quiero mucho) goes to friends and partners alike.",
+        "Getting \"left on read\" is \"dejar en visto\". \"Cuadrar\" means to set up a plan."
+      ],
+      "examples": ["dt-que-mas-como-vas", "dt-cuadramos-jueves"]
+    },
+    {
+      "lesson": "es-23-2",
+      "title": "Culture: meeting the family",
+      "body": [
+        "Family matters a lot, and meeting your partner's family can happen fairly early, often at a Sunday lunch.",
+        "Use usted with your partner's parents until they tell you to use tú, and bring something small: dessert, pastries or flowers.",
+        "Offering to help clear the table always goes down well."
+      ],
+      "examples": ["dt-me-ha-hablado-de-ustedes", "dt-les-traje-un-detallito"]
     }
   ]
 }

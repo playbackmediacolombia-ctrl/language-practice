@@ -46,7 +46,7 @@ function defaultTiles(text: string): string[] {
   return text
     .split(/\s+/)
     .map((w) => w.replace(/^[¿¡"“]+|[.,!?;:"”…]+$/g, ''))
-    .filter(Boolean);
+    .filter((w) => /[\p{L}\p{N}]/u.test(w)); // no tiles for an emoji on its own
 }
 
 function toItem(lang: Lang, raw: RawItem): Item {

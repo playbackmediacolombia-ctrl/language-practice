@@ -243,6 +243,36 @@
         "It's very common in requests and instructions."
       ],
       "examples": ["ba-yan-di-gei-wo", "mafan-nin-bang-wo-yixia"]
+    },
+    {
+      "lesson": "zh-21-1",
+      "title": "Culture: dating in China",
+      "body": [
+        "Many people meet through friends, classmates or work, and family-arranged introductions (相亲 xiāngqīn) are still common, especially in your late twenties.",
+        "Accepting a compliment by playing it down is polite: 哪里哪里 (oh, not at all) is the classic reply. Saying a flat \"thank you\" is fine too among young people.",
+        "Dating is often talked about with an eye on the future, so asking early what someone is looking for isn't unusual."
+      ],
+      "examples": ["dt-xiao-qilai", "dt-nali-nali"]
+    },
+    {
+      "lesson": "zh-22-1",
+      "title": "Culture: chatting on WeChat",
+      "body": [
+        "Almost everyone chats on WeChat, and stickers (表情包 biǎoqíngbāo) are part of the conversation. Long gaps are normal; 在吗 (you there?) opens a chat.",
+        "Laughing is 哈哈哈 and 笑死我了 (literally \"I'm laughing to death\"). 520 (wǔ èr líng) sounds like 我爱你 and May 20 is an unofficial Valentine's Day.",
+        "已读不回 (read, no reply) is the Chinese \"left on read\". Saying 晚安 (good night) is a sweet way to end an evening chat."
+      ],
+      "examples": ["dt-zai-ma", "dt-yidu-buhui"]
+    },
+    {
+      "lesson": "zh-23-2",
+      "title": "Culture: meeting the parents",
+      "body": [
+        "Meeting the parents (见家长 jiàn jiāzhǎng) usually means the relationship is serious. Call them 叔叔 (uncle) and 阿姨 (auntie), and use 您.",
+        "Bring a gift: good fruit, tea, or a local specialty. Avoid clocks (送钟 sounds like attending a funeral) and anything in fours.",
+        "Praise the cooking and offer to help clear up; the parents may well insist you sit down."
+      ],
+      "examples": ["dt-ayi-hao", "dt-dian-xiaoyisi"]
     }
   ]
 }

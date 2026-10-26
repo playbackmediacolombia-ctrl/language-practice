@@ -11,7 +11,8 @@ const read = (path) => JSON.parse(readFileSync(join(root, path), 'utf8'));
 const outline = read('shared/course/outline.json');
 const errors = [];
 
-const inOutline = new Set(outline.stages.flatMap((s) => s.units));
+const inOutline = new Set(outline.stages.flatMap((s) => [...s.units, ...(s.electives ?? [])]));
+for (const id of outline.adult ?? []) if (!inOutline.has(id)) errors.push(`outline: adult unit ${id} isn't an elective on any stage`);
 for (const id of inOutline) if (!outline.units[id]) errors.push(`outline: ${id} has no title`);
 
 const hanzi = (s) => s.replace(/[^\p{Script=Han}]/gu, '');

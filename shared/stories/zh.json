@@ -199,6 +199,102 @@
         { "q": "什么时候开始的？", "qEn": "When did it start?", "options": [{ "text": "昨天晚上", "en": "Last night" }, { "text": "今天早上", "en": "This morning" }, { "text": "上个星期", "en": "Last week" }], "answer": 0 },
         { "q": "药一天吃几次？", "qEn": "How many times a day should she take the medicine?", "options": [{ "text": "三次", "en": "Three times" }, { "text": "两次", "en": "Twice" }, { "text": "一次", "en": "Once" }], "answer": 0 }
       ]
+    },
+    {
+      "id": "zh-dt-first-date",
+      "level": 4,
+      "kind": "dialogue",
+      "topic": "dating",
+      "title": "第一次约会",
+      "en": "A first date",
+      "speakers": { "xiaoyu": { "name": "小雨", "voice": "a" }, "zixuan": { "name": "子轩", "voice": "b" } },
+      "lines": [
+        { "speaker": "xiaoyu", "text": "嗨！不好意思，来晚了，路上太堵了。", "seg": "嗨 ！ 不好意思 ， 来 晚 了 ， 路上 太 堵 了 。", "pinyin": "Hāi! Bù hǎoyìsi, lái wǎn le, lùshang tài dǔ le.", "en": "Hi! Sorry I'm late, the traffic was terrible." },
+        { "speaker": "zixuan", "text": "没事，我也刚到。你想喝什么？", "seg": "没事 ， 我 也 刚 到 。 你 想 喝 什么 ？", "pinyin": "Méi shì, wǒ yě gāng dào. Nǐ xiǎng hē shénme?", "en": "No worries, I just got here too. What would you like to drink?" },
+        { "speaker": "xiaoyu", "text": "一杯卡布奇诺吧。哇，这家店真不错！", "seg": "一 杯 卡布奇诺 吧 。 哇 ， 这 家 店 真 不错 ！", "pinyin": "Yì bēi kǎbùqínuò ba. Wā, zhè jiā diàn zhēn búcuò!", "en": "A cappuccino, please. Wow, this place is really nice!" },
+        { "speaker": "zixuan", "text": "你上次说喜欢安静的地方，我就选了这儿。", "seg": "你 上次 说 喜欢 安静 的 地方 ， 我 就 选 了 这儿 。", "pinyin": "Nǐ shàng cì shuō xǐhuan ānjìng de dìfang, wǒ jiù xuǎn le zhèr.", "en": "You said last time you like quiet places, so I chose here." },
+        { "speaker": "xiaoyu", "text": "你还记得呀，真贴心！", "seg": "你 还 记得 呀 ， 真 贴心 ！", "pinyin": "Nǐ hái jìde ya, zhēn tiēxīn!", "en": "You remembered, that's so thoughtful!" },
+        { "speaker": "zixuan", "text": "当然。对了，你为什么想学建筑呢？", "seg": "当然 。 对了 ， 你 为什么 想 学 建筑 呢 ？", "pinyin": "Dāngrán. Duì le, nǐ wèishénme xiǎng xué jiànzhù ne?", "en": "Of course. By the way, why did you want to study architecture?" }
+      ],
+      "glossary": {
+        "不好意思": { "py": "bù hǎoyìsi", "en": "sorry, excuse me" }, "晚": { "py": "wǎn", "en": "late" }, "路上": { "py": "lùshang", "en": "on the way" },
+        "堵": { "py": "dǔ", "en": "jammed (traffic)" }, "没事": { "py": "méi shì", "en": "no worries" }, "刚": { "py": "gāng", "en": "just (now)" },
+        "到": { "py": "dào", "en": "to arrive" }, "卡布奇诺": { "py": "kǎbùqínuò", "en": "cappuccino" }, "店": { "py": "diàn", "en": "shop, place" },
+        "不错": { "py": "búcuò", "en": "nice, not bad" }, "上次": { "py": "shàng cì", "en": "last time" }, "安静": { "py": "ānjìng", "en": "quiet" },
+        "地方": { "py": "dìfang", "en": "place" }, "选": { "py": "xuǎn", "en": "to choose" }, "记得": { "py": "jìde", "en": "to remember" },
+        "贴心": { "py": "tiēxīn", "en": "thoughtful, caring" }, "当然": { "py": "dāngrán", "en": "of course" },
+        "对了": { "py": "duì le", "en": "by the way" }, "为什么": { "py": "wèishénme", "en": "why" }, "学": { "py": "xué", "en": "to study" },
+        "建筑": { "py": "jiànzhù", "en": "architecture" }
+      },
+      "questions": [
+        { "q": "小雨为什么来晚了？", "qEn": "Why was Xiaoyu late?", "options": [{ "text": "路上太堵了", "en": "The traffic was terrible" }, { "text": "她睡过头了", "en": "She overslept" }, { "text": "她迷路了", "en": "She got lost" }], "answer": 0 },
+        { "q": "子轩为什么选了这家店？", "qEn": "Why did Zixuan choose this place?", "options": [{ "text": "因为小雨喜欢安静的地方", "en": "Because Xiaoyu likes quiet places" }, { "text": "因为很便宜", "en": "Because it's cheap" }, { "text": "因为离他家近", "en": "Because it's near his home" }], "answer": 0 },
+        { "q": "小雨学什么？", "qEn": "What does Xiaoyu study?", "options": [{ "text": "建筑", "en": "Architecture" }, { "text": "医学", "en": "Medicine" }, { "text": "音乐", "en": "Music" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "zh-dt-left-on-read",
+      "level": 5,
+      "kind": "dialogue",
+      "topic": "dating",
+      "title": "已读不回？",
+      "en": "Left on read?",
+      "speakers": { "jiajia": { "name": "佳佳", "voice": "a" }, "ajie": { "name": "阿杰", "voice": "b" } },
+      "lines": [
+        { "speaker": "jiajia", "text": "阿杰，救命！我三个小时前给浩然发了消息，他已读不回。", "seg": "阿杰 ， 救命 ！ 我 三 个 小时 前 给 浩然 发 了 消息 ， 他 已读 不 回 。", "pinyin": "Ā Jié, jiùmìng! Wǒ sān ge xiǎoshí qián gěi Hàorán fā le xiāoxi, tā yǐdú bù huí.", "en": "Ajie, help! I messaged Haoran three hours ago, and he left me on read." },
+        { "speaker": "ajie", "text": "你发了什么？", "seg": "你 发 了 什么 ？", "pinyin": "Nǐ fā le shénme?", "en": "What did you send?" },
+        { "speaker": "jiajia", "text": "就一句“在吗？周六有空吗？”，还加了个表情包。", "seg": "就 一 句 “ 在 吗 ？ 周六 有空 吗 ？ ” ， 还 加 了 个 表情包 。", "pinyin": "Jiù yí jù \"zài ma? Zhōuliù yǒu kòng ma?\", hái jiā le ge biǎoqíngbāo.", "en": "Just \"You there? Free on Saturday?\", plus a sticker." },
+        { "speaker": "ajie", "text": "别急，他可能在忙。先别再发了。", "seg": "别 急 ， 他 可能 在 忙 。 先 别 再 发 了 。", "pinyin": "Bié jí, tā kěnéng zài máng. Xiān bié zài fā le.", "en": "Don't panic, he might be busy. Don't send anything else for now." },
+        { "speaker": "jiajia", "text": "你说得对。啊，他回了！说周六正好有空。", "seg": "你 说 得 对 。 啊 ， 他 回 了 ！ 说 周六 正好 有空 。", "pinyin": "Nǐ shuō de duì. À, tā huí le! Shuō zhōuliù zhènghǎo yǒu kòng.", "en": "You're right. Oh, he replied! He says he's free on Saturday." },
+        { "speaker": "ajie", "text": "你看吧！不过别想太多，慢慢来。", "seg": "你 看 吧 ！ 不过 别 想 太 多 ， 慢慢 来 。", "pinyin": "Nǐ kàn ba! Búguò bié xiǎng tài duō, mànmàn lái.", "en": "See? But don't overthink it, take it slow." }
+      ],
+      "glossary": {
+        "救命": { "py": "jiùmìng", "en": "help!" }, "小时": { "py": "xiǎoshí", "en": "hour" }, "发": { "py": "fā", "en": "to send" },
+        "消息": { "py": "xiāoxi", "en": "message" }, "已读": { "py": "yǐdú", "en": "read (a message)" }, "回": { "py": "huí", "en": "to reply" },
+        "句": { "py": "jù", "en": "(measure word for sentences)" }, "周六": { "py": "zhōuliù", "en": "Saturday" },
+        "有空": { "py": "yǒu kòng", "en": "to be free" }, "加": { "py": "jiā", "en": "to add" },
+        "表情包": { "py": "biǎoqíngbāo", "en": "sticker, meme image" }, "别": { "py": "bié", "en": "don't" },
+        "急": { "py": "jí", "en": "anxious, in a hurry" }, "可能": { "py": "kěnéng", "en": "maybe" }, "忙": { "py": "máng", "en": "busy" },
+        "正好": { "py": "zhènghǎo", "en": "just right, happens to" }, "不过": { "py": "búguò", "en": "but" }, "慢慢": { "py": "mànmàn", "en": "slowly" }
+      },
+      "questions": [
+        { "q": "浩然看了佳佳的消息以后怎么样了？", "qEn": "What did Haoran do after reading Jiajia's message?", "options": [{ "text": "已读不回", "en": "Read it and didn't reply" }, { "text": "马上打了电话", "en": "Called right away" }, { "text": "把她删了", "en": "Deleted her" }], "answer": 0 },
+        { "q": "阿杰建议佳佳怎么做？", "qEn": "What does Ajie advise Jiajia to do?", "options": [{ "text": "先别再发消息", "en": "Not to send anything else for now" }, { "text": "马上打电话", "en": "Call him right away" }, { "text": "删掉消息", "en": "Delete the message" }], "answer": 0 },
+        { "q": "浩然最后怎么回的？", "qEn": "What did Haoran reply in the end?", "options": [{ "text": "周六正好有空", "en": "He's free on Saturday" }, { "text": "他很忙", "en": "He's very busy" }, { "text": "他想周日见", "en": "He wants to meet on Sunday" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "zh-dt-move-in",
+      "level": 6,
+      "kind": "dialogue",
+      "topic": "dating",
+      "title": "要不要住在一起？",
+      "en": "Moving in together?",
+      "speakers": { "linlin": { "name": "林林", "voice": "a" }, "xiaoming": { "name": "小明", "voice": "b" } },
+      "lines": [
+        { "speaker": "xiaoming", "text": "林林，上次说的搬到一起住的事，你想得怎么样了？", "seg": "林林 ， 上次 说 的 搬 到 一起 住 的 事 ， 你 想 得 怎么样 了 ？", "pinyin": "Línlin, shàng cì shuō de bān dào yìqǐ zhù de shì, nǐ xiǎng de zěnmeyàng le?", "en": "Linlin, have you thought about what we talked about last time, moving in together?" },
+        { "speaker": "linlin", "text": "我挺期待的，可是也有点儿怕没有自己的空间。", "seg": "我 挺 期待 的 ， 可是 也 有点儿 怕 没有 自己 的 空间 。", "pinyin": "Wǒ tǐng qīdài de, kěshì yě yǒudiǎnr pà méiyǒu zìjǐ de kōngjiān.", "en": "I'm really looking forward to it, but I'm also a bit afraid of not having my own space." },
+        { "speaker": "xiaoming", "text": "我理解。我们可以找个多一间房的公寓，每人都有自己的小角落。", "seg": "我 理解 。 我们 可以 找 个 多 一 间 房 的 公寓 ， 每 人 都 有 自己 的 小 角落 。", "pinyin": "Wǒ lǐjiě. Wǒmen kěyǐ zhǎo ge duō yì jiān fáng de gōngyù, měi rén dōu yǒu zìjǐ de xiǎo jiǎoluò.", "en": "I understand. We could find an apartment with an extra room, so each of us has our own little corner." },
+        { "speaker": "linlin", "text": "那太好了。还得商量一下房租和生活费怎么分。", "seg": "那 太 好 了 。 还 得 商量 一下 房租 和 生活费 怎么 分 。", "pinyin": "Nà tài hǎo le. Hái děi shāngliang yíxià fángzū hé shēnghuófèi zěnme fēn.", "en": "That would be great. We'd also have to talk about how to split the rent and living costs." },
+        { "speaker": "xiaoming", "text": "当然，可以一人一半，也可以按收入来分，你觉得哪种公平就哪种。", "seg": "当然 ， 可以 一 人 一半 ， 也 可以 按 收入 来 分 ， 你 觉得 哪 种 公平 就 哪 种 。", "pinyin": "Dāngrán, kěyǐ yì rén yíbàn, yě kěyǐ àn shōurù lái fēn, nǐ juéde nǎ zhǒng gōngpíng jiù nǎ zhǒng.", "en": "Of course. We could split it half and half, or by income, whichever you think is fairer." },
+        { "speaker": "linlin", "text": "你想得真周到。那就这么定了，不过不着急，慢慢来。", "seg": "你 想 得 真 周到 。 那 就 这么 定 了 ， 不过 不 着急 ， 慢慢 来 。", "pinyin": "Nǐ xiǎng de zhēn zhōudào. Nà jiù zhème dìng le, búguò bù zháojí, mànmàn lái.", "en": "You've really thought it through. Then it's settled, but there's no rush, let's take it slow." }
+      ],
+      "glossary": {
+        "上次": { "py": "shàng cì", "en": "last time" }, "搬": { "py": "bān", "en": "to move" }, "一起": { "py": "yìqǐ", "en": "together" },
+        "住": { "py": "zhù", "en": "to live" }, "期待": { "py": "qīdài", "en": "to look forward to" }, "可是": { "py": "kěshì", "en": "but" },
+        "怕": { "py": "pà", "en": "to be afraid" }, "自己": { "py": "zìjǐ", "en": "oneself, own" }, "空间": { "py": "kōngjiān", "en": "space" },
+        "理解": { "py": "lǐjiě", "en": "to understand" }, "间": { "py": "jiān", "en": "(measure word for rooms)" }, "房": { "py": "fáng", "en": "room" },
+        "公寓": { "py": "gōngyù", "en": "apartment" }, "角落": { "py": "jiǎoluò", "en": "corner" }, "商量": { "py": "shāngliang", "en": "to discuss" },
+        "房租": { "py": "fángzū", "en": "rent" }, "生活费": { "py": "shēnghuófèi", "en": "living costs" }, "分": { "py": "fēn", "en": "to split, divide" },
+        "一半": { "py": "yíbàn", "en": "half" }, "按": { "py": "àn", "en": "according to" }, "收入": { "py": "shōurù", "en": "income" },
+        "公平": { "py": "gōngpíng", "en": "fair" }, "周到": { "py": "zhōudào", "en": "thoughtful, thorough" },
+        "定": { "py": "dìng", "en": "to decide, settle" }, "着急": { "py": "zháojí", "en": "in a hurry" }
+      },
+      "questions": [
+        { "q": "林林担心什么？", "qEn": "What is Linlin worried about?", "options": [{ "text": "没有自己的空间", "en": "Not having her own space" }, { "text": "房租太贵", "en": "The rent being too high" }, { "text": "家人反对", "en": "Her family objecting" }], "answer": 0 },
+        { "q": "小明有什么主意？", "qEn": "What's Xiaoming's idea?", "options": [{ "text": "找一个多一间房的公寓", "en": "Find an apartment with an extra room" }, { "text": "再等一年", "en": "Wait another year" }, { "text": "住在他父母家", "en": "Live at his parents'" }], "answer": 0 },
+        { "q": "房租和生活费可以怎么分？", "qEn": "How could they split the rent and living costs?", "options": [{ "text": "一人一半，或者按收入来分", "en": "Half and half, or by income" }, { "text": "都由小明付", "en": "Xiaoming pays it all" }, { "text": "林林付房租", "en": "Linlin pays the rent" }], "answer": 0 }
+      ]
     }
   ]
 }

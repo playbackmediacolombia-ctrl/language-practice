@@ -6,7 +6,7 @@ import frReading from '../../../shared/reading/fr.json';
 import zhReading from '../../../shared/reading/zh.json';
 import type { Lang } from './content';
 
-// Short listening stories and dialogues, three levels per language, with a glossary for
+// Short listening stories and dialogues, six levels per language, with a glossary for
 // tap-to-translate and comprehension questions. One clip per line, made by the audio script.
 // Reading practice (news-style articles for Advanced and Fluent) works the same way.
 
@@ -24,6 +24,8 @@ export type Story = {
   id: string;
   level: number;
   kind: 'story' | 'dialogue' | 'article';
+  /** Dialogues that belong to an optional topic, like dating. */
+  topic?: 'dating';
   /** Articles: where the (made-up) news is from, shown as a dateline. */
   place?: string;
   title: string;
@@ -38,7 +40,12 @@ export const LEVELS = [
   { level: 1, title: 'Beginner', about: 'After "First words": short, simple sentences.' },
   { level: 2, title: 'Elementary', about: 'After "Short sentences": everyday scenes.' },
   { level: 3, title: 'Intermediate', about: 'After "Conversation": the past tense, longer lines.' },
+  { level: 4, title: 'Upper-intermediate', about: 'Real-life conversations about relationships and plans.' },
+  { level: 5, title: 'Advanced', about: 'Quicker exchanges, with slang and texting talk.' },
+  { level: 6, title: 'Fluent', about: 'Big conversations, said tactfully.' },
 ];
+
+export const STORY_TOPICS = { dating: 'Dating' };
 
 type RawStory = Omit<Story, 'lines'> & { lines: Omit<Line, 'audio'>[] };
 const RAW = { es, fr, zh } as unknown as Record<Lang, { stories: RawStory[] }>;

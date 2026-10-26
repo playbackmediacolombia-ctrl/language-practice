@@ -861,6 +861,96 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u21",
+      "title": "Dating & relationships",
+      "lessons": [
+        {
+          "id": "es-21-1",
+          "title": "Meeting someone",
+          "items": [
+            { "id": "dt-te-molesta-si-me-siento", "text": "¿Te molesta si me siento aquí?", "en": "Do you mind if I sit here?" },
+            { "id": "dt-de-donde-conoces-a-laura", "text": "¿Y tú de dónde conoces a Laura?", "en": "And how do you know Laura?" },
+            { "id": "dt-que-buena-musica", "text": "¡Qué buena música ponen aquí!", "en": "They play great music here!" },
+            { "id": "dt-me-encanta-tu-estilo", "text": "Me encanta tu estilo.", "en": "I love your style." },
+            { "id": "dt-sonrisa-linda", "text": "Tienes una sonrisa muy linda.", "en": "You have a lovely smile." },
+            { "id": "dt-gracias-que-detalle", "text": "¡Ay, gracias! Qué detalle.", "en": "Oh, thank you! That's sweet of you." }
+          ]
+        },
+        {
+          "id": "es-21-2",
+          "title": "Asking someone out",
+          "items": [
+            { "id": "dt-tomar-algo", "text": "¿Te gustaría tomar algo un día de estos?", "en": "Would you like to get a drink one of these days?" },
+            { "id": "dt-ir-a-cine", "text": "¿Qué tal si vamos a cine el sábado?", "en": "How about going to the movies on Saturday?" },
+            { "id": "dt-me-encantaria", "text": "¡Me encantaría!", "en": "I'd love to!" },
+            { "id": "dt-este-finde-no-puedo", "text": "Este fin de semana no puedo, pero ¿qué tal el otro?", "en": "I can't this weekend, but how about the next one?" },
+            { "id": "dt-estoy-saliendo-con-alguien", "text": "Gracias, pero estoy saliendo con alguien.", "en": "Thanks, but I'm seeing someone." },
+            { "id": "dt-prefiero-amigos", "text": "Te lo agradezco, pero prefiero que seamos amigos.", "en": "I appreciate it, but I'd rather we just be friends." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u22",
+      "title": "Texting & dating apps",
+      "lessons": [
+        {
+          "id": "es-22-1",
+          "title": "Texting",
+          "items": [
+            { "id": "dt-que-mas-como-vas", "text": "¿Qué más? ¿Cómo vas?", "en": "Hey, what's up? How's it going?" },
+            { "id": "dt-me-hiciste-reir", "text": "Jajaja, me hiciste reír 😂", "en": "Hahaha, you made me laugh 😂", "say": "Jajaja, me hiciste reír." },
+            { "id": "dt-cuadramos-jueves", "text": "¿Cuadramos para el jueves?", "en": "Shall we make plans for Thursday?" },
+            { "id": "dt-llegue-bien", "text": "Llegué bien a la casa. Gracias por esta noche ❤️", "en": "Got home safe. Thanks for tonight ❤️", "say": "Llegué bien a la casa. Gracias por esta noche." },
+            { "id": "dt-se-me-paso-contestarte", "text": "Perdón, se me pasó contestarte 🙈", "en": "Sorry, I forgot to reply 🙈", "say": "Perdón, se me pasó contestarte." },
+            { "id": "dt-me-dejaste-en-visto", "text": "¡Me dejaste en visto!", "en": "You left me on read!" }
+          ]
+        },
+        {
+          "id": "es-22-2",
+          "title": "Dating apps",
+          "items": [
+            { "id": "dt-hicimos-match", "text": "¡Hicimos match!", "en": "We matched!" },
+            { "id": "dt-foto-con-el-perro", "text": "Me dio risa tu foto con el perro 🐶", "en": "Your photo with the dog made me laugh 🐶", "say": "Me dio risa tu foto con el perro." },
+            { "id": "dt-lo-mas-espontaneo", "text": "¿Qué es lo más espontáneo que has hecho?", "en": "What's the most spontaneous thing you've ever done?" },
+            { "id": "dt-cafe-y-vemos", "text": "¿Nos tomamos un café y vemos qué tal?", "en": "Shall we grab a coffee and see how it goes?" },
+            { "id": "dt-nada-serio", "text": "Por ahora no busco nada serio.", "en": "I'm not looking for anything serious right now." },
+            { "id": "dt-no-siento-quimica", "text": "Me pareces muy chévere, pero no siento química.", "en": "I think you're really great, but I don't feel the chemistry." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u23",
+      "title": "Love, couples & family",
+      "lessons": [
+        {
+          "id": "es-23-1",
+          "title": "Talking about feelings",
+          "items": [
+            { "id": "dt-muy-a-gusto-contigo", "text": "Me siento muy a gusto contigo.", "en": "I feel really comfortable with you." },
+            { "id": "dt-me-estoy-enamorando", "text": "Creo que me estoy enamorando de ti.", "en": "I think I'm falling for you." },
+            { "id": "dt-en-que-estamos", "text": "Me gustaría saber en qué estamos.", "en": "I'd like to know where we stand." },
+            { "id": "dt-comunicarnos", "text": "Para mí es importante que nos comuniquemos.", "en": "It matters to me that we communicate." },
+            { "id": "dt-necesito-espacio", "text": "Necesito un poco de espacio, pero te quiero.", "en": "I need a little space, but I love you." },
+            { "id": "dt-vivir-juntos", "text": "Llevamos dos años juntos y estamos pensando en vivir juntos.", "en": "We've been together two years and we're thinking of moving in together." }
+          ]
+        },
+        {
+          "id": "es-23-2",
+          "title": "Meeting the family",
+          "items": [
+            { "id": "dt-me-ha-hablado-de-ustedes", "text": "Mucho gusto, señora. Andrés me ha hablado mucho de ustedes.", "en": "Nice to meet you, ma'am. Andrés has told me so much about you all." },
+            { "id": "dt-les-traje-un-detallito", "text": "Les traje un detallito.", "en": "I brought you a little something." },
+            { "id": "dt-que-rico-todo", "text": "¡Qué rico todo! ¿Usted lo preparó?", "en": "Everything's delicious! Did you make it?" },
+            { "id": "dt-le-ayudo-a-recoger", "text": "Con mucho gusto le ayudo a recoger la mesa.", "en": "I'd be glad to help you clear the table." },
+            { "id": "dt-mi-suegra-es-un-amor", "text": "Mi suegra es un amor.", "en": "My mother-in-law is a sweetheart." },
+            { "id": "dt-almuerzo-familiar", "text": "Nos vemos el domingo en el almuerzo familiar.", "en": "See you Sunday at the family lunch." }
+          ]
+        }
+      ]
     }
   ]
 }

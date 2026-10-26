@@ -210,10 +210,12 @@ export function Path({ lang }: { lang: Lang }) {
                   <div className="grow" style={{ fontWeight: 750, fontSize: 18, fontFamily: 'var(--font-round)' }}>
                     {unit.title}
                   </div>
+                  {unit.elective && <span className="unit-badge">Optional</span>}
                   <span className="muted small">
                     {done}/{unit.lessons.length}
                   </span>
                 </div>
+                {unit.elective && <p className="muted small unit-note">An extra topic for when you want it. It never holds up your path.</p>}
                 <ProgressBar value={done / unit.lessons.length} />
                 <ol className="lessons">
                   {unit.lessons.map((lesson) => {

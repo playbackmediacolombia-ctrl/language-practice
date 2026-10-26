@@ -219,6 +219,36 @@
         "Tu also shrinks to t' before a vowel: t'as vu ?, t'inquiète. Keep the full forms for writing."
       ],
       "examples": ["chais-pas", "ty-vas-quand", "tinquiete"]
+    },
+    {
+      "lesson": "fr-21-1",
+      "title": "Culture: dating in France",
+      "body": [
+        "French people rarely talk about \"dating\" as a stage: you meet through friends, go for a drink (boire un verre), and things move on from there without much labeling.",
+        "Compliments tend to be understated and specific (ton style, ton sourire) rather than effusive. A simple \"c'est gentil\" is the natural thank-you.",
+        "Friends greet each other with la bise (a kiss on each cheek); a first meeting in a romantic context often starts with it too."
+      ],
+      "examples": ["dt-j-adore-ton-style", "dt-c-est-gentil"]
+    },
+    {
+      "lesson": "fr-22-1",
+      "title": "Culture: texting in France",
+      "body": [
+        "Texts are short and full of abbreviations: mdr (mort de rire, LOL), dsl (désolé, sorry), dispo (disponible, free), and the ne of ne…pas almost always disappears.",
+        "\"Coucou\" is the friendly hello for friends and dates. English loanwords like matcher, ghoster and le feeling are everyday app slang.",
+        "Splitting the bill (on partage) is common on dates, though some still offer to pay the first time."
+      ],
+      "examples": ["dt-mdr", "dt-dispo-jeudi"]
+    },
+    {
+      "lesson": "fr-23-2",
+      "title": "Culture: meeting the family",
+      "body": [
+        "Meeting the parents usually means things are serious. Use vous with them until they suggest tu.",
+        "Bring a small gift (une petite attention): flowers, chocolates or a good dessert. Wine is fine, but some hosts already have it planned.",
+        "Sunday lunch can last for hours. Offering to help clear the table (débarrasser) is always appreciated."
+      ],
+      "examples": ["dt-ravi-de-vous-rencontrer", "dt-petite-attention"]
     }
   ]
 }

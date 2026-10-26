@@ -860,6 +860,96 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u21",
+      "title": "Dating & relationships",
+      "lessons": [
+        {
+          "id": "zh-21-1",
+          "title": "Meeting someone",
+          "items": [
+            { "id": "dt-zhe-li-you-ren-ma", "text": "这儿有人吗？", "pinyin": "Zhèr yǒu rén ma?", "en": "Is anyone sitting here?", "tiles": ["这儿", "有", "人", "吗"] },
+            { "id": "dt-zenme-renshi", "text": "你跟小雨是怎么认识的？", "pinyin": "Nǐ gēn Xiǎoyǔ shì zěnme rènshi de?", "en": "How do you know Xiaoyu?", "tiles": ["你", "跟", "小雨", "是", "怎么", "认识", "的"] },
+            { "id": "dt-yinyue-bucuo", "text": "这儿的音乐挺不错的。", "pinyin": "Zhèr de yīnyuè tǐng búcuò de.", "en": "The music here is pretty good.", "tiles": ["这儿", "的", "音乐", "挺", "不错", "的"] },
+            { "id": "dt-chuanda", "text": "你的穿搭很有品味。", "pinyin": "Nǐ de chuāndā hěn yǒu pǐnwèi.", "en": "Your outfit is really stylish.", "tiles": ["你", "的", "穿搭", "很", "有", "品味"] },
+            { "id": "dt-xiao-qilai", "text": "你笑起来真好看。", "pinyin": "Nǐ xiào qǐlai zhēn hǎokàn.", "en": "You look really nice when you smile.", "tiles": ["你", "笑", "起来", "真", "好看"] },
+            { "id": "dt-nali-nali", "text": "哪里哪里，谢谢你。", "pinyin": "Nǎli nǎli, xièxie nǐ.", "en": "Oh, not at all. Thank you.", "tiles": ["哪里", "哪里", "谢谢", "你"] }
+          ]
+        },
+        {
+          "id": "zh-21-2",
+          "title": "Asking someone out",
+          "items": [
+            { "id": "dt-yiqi-he-kafei", "text": "改天一起喝杯咖啡吧？", "pinyin": "Gǎitiān yìqǐ hē bēi kāfēi ba?", "en": "Shall we get a coffee together sometime?", "tiles": ["改天", "一起", "喝", "杯", "咖啡", "吧"] },
+            { "id": "dt-zhouliu-dianying", "text": "周六一起去看电影怎么样？", "pinyin": "Zhōuliù yìqǐ qù kàn diànyǐng zěnmeyàng?", "en": "How about seeing a movie together on Saturday?", "tiles": ["周六", "一起", "去", "看", "电影", "怎么样"] },
+            { "id": "dt-hao-a", "text": "好啊，我很乐意！", "pinyin": "Hǎo a, wǒ hěn lèyì!", "en": "Sure, I'd love to!", "tiles": ["好", "啊", "我", "很", "乐意"] },
+            { "id": "dt-zhe-zhoumo-buxing", "text": "这周末不行，下周末可以吗？", "pinyin": "Zhè zhōumò bù xíng, xià zhōumò kěyǐ ma?", "en": "This weekend doesn't work. How about next weekend?", "tiles": ["这", "周末", "不", "行", "下", "周末", "可以", "吗"] },
+            { "id": "dt-you-duixiang-le", "text": "谢谢，不过我已经有对象了。", "pinyin": "Xièxie, búguò wǒ yǐjīng yǒu duìxiàng le.", "en": "Thanks, but I'm already seeing someone.", "tiles": ["谢谢", "不过", "我", "已经", "有", "对象", "了"] },
+            { "id": "dt-dang-pengyou", "text": "谢谢你，不过我觉得我们还是当朋友吧。", "pinyin": "Xièxie nǐ, búguò wǒ juéde wǒmen háishi dāng péngyou ba.", "en": "Thank you, but I think we should just be friends.", "tiles": ["谢谢", "你", "不过", "我", "觉得", "我们", "还是", "当", "朋友", "吧"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u22",
+      "title": "Texting & dating apps",
+      "lessons": [
+        {
+          "id": "zh-22-1",
+          "title": "Texting",
+          "items": [
+            { "id": "dt-zai-ma", "text": "在吗？", "pinyin": "Zài ma?", "en": "You there?", "tiles": ["在", "吗"] },
+            { "id": "dt-hahaha", "text": "哈哈哈，笑死我了😂", "pinyin": "Hāhāhā, xiào sǐ wǒ le.", "en": "Hahaha, that's hilarious 😂", "tiles": ["哈哈哈", "笑死", "我", "了"], "say": "哈哈哈，笑死我了。" },
+            { "id": "dt-zhousi-you-kong", "text": "周四晚上有空吗？", "pinyin": "Zhōusì wǎnshang yǒu kòng ma?", "en": "Are you free Thursday evening?", "tiles": ["周四", "晚上", "有", "空", "吗"] },
+            { "id": "dt-dao-jia-le", "text": "到家了，今晚很开心❤️", "pinyin": "Dào jiā le, jīnwǎn hěn kāixīn.", "en": "Home now. Had a great time tonight ❤️", "tiles": ["到", "家", "了", "今晚", "很", "开心"], "say": "到家了，今晚很开心。" },
+            { "id": "dt-gang-kandao", "text": "不好意思，刚看到消息🙈", "pinyin": "Bù hǎoyìsi, gāng kàndào xiāoxi.", "en": "Sorry, I only just saw your message 🙈", "tiles": ["不好意思", "刚", "看到", "消息"], "say": "不好意思，刚看到消息。" },
+            { "id": "dt-yidu-buhui", "text": "你怎么已读不回？", "pinyin": "Nǐ zěnme yǐdú bù huí?", "en": "Why did you leave me on read?", "tiles": ["你", "怎么", "已读", "不", "回"] }
+          ]
+        },
+        {
+          "id": "zh-22-2",
+          "title": "Dating apps",
+          "items": [
+            { "id": "dt-pipei", "text": "我们配对成功了！", "pinyin": "Wǒmen pèiduì chénggōng le!", "en": "We matched!", "tiles": ["我们", "配对", "成功", "了"] },
+            { "id": "dt-gou-de-zhaopian", "text": "你和狗的照片太可爱了🐶", "pinyin": "Nǐ hé gǒu de zhàopiàn tài kě'ài le.", "en": "Your photo with the dog is so cute 🐶", "tiles": ["你", "和", "狗", "的", "照片", "太", "可爱", "了"], "say": "你和狗的照片太可爱了。" },
+            { "id": "dt-zui-fengkuang", "text": "你做过最疯狂的事是什么？", "pinyin": "Nǐ zuò guo zuì fēngkuáng de shì shì shénme?", "en": "What's the craziest thing you've ever done?", "tiles": ["你", "做", "过", "最", "疯狂", "的", "事", "是", "什么"] },
+            { "id": "dt-jianmian-hekafei", "text": "要不要见个面，喝杯咖啡？", "pinyin": "Yào bu yào jiàn ge miàn, hē bēi kāfēi?", "en": "Want to meet up for a coffee?", "tiles": ["要", "不", "要", "见", "个", "面", "喝", "杯", "咖啡"] },
+            { "id": "dt-bu-zhaoji", "text": "我现在不想谈认真的。", "pinyin": "Wǒ xiànzài bù xiǎng tán rènzhēn de.", "en": "I'm not looking for anything serious right now.", "tiles": ["我", "现在", "不", "想", "谈", "认真", "的"] },
+            { "id": "dt-meiyou-dianfeng", "text": "你人很好，但是我觉得我们不太来电。", "pinyin": "Nǐ rén hěn hǎo, dànshì wǒ juéde wǒmen bú tài láidiàn.", "en": "You're really nice, but I don't think we have chemistry.", "tiles": ["你", "人", "很", "好", "但是", "我", "觉得", "我们", "不", "太", "来电"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u23",
+      "title": "Love, couples & family",
+      "lessons": [
+        {
+          "id": "zh-23-1",
+          "title": "Talking about feelings",
+          "items": [
+            { "id": "dt-gen-ni-zai-yiqi", "text": "跟你在一起我很自在。", "pinyin": "Gēn nǐ zài yìqǐ wǒ hěn zìzai.", "en": "I feel really at ease with you.", "tiles": ["跟", "你", "在", "一起", "我", "很", "自在"] },
+            { "id": "dt-xihuan-shang-ni", "text": "我好像喜欢上你了。", "pinyin": "Wǒ hǎoxiàng xǐhuan shang nǐ le.", "en": "I think I've fallen for you.", "tiles": ["我", "好像", "喜欢", "上", "你", "了"] },
+            { "id": "dt-women-suan-shenme", "text": "我想知道，我们现在算什么关系？", "pinyin": "Wǒ xiǎng zhīdào, wǒmen xiànzài suàn shénme guānxi?", "en": "I'd like to know: what are we to each other now?", "tiles": ["我", "想", "知道", "我们", "现在", "算", "什么", "关系"] },
+            { "id": "dt-goutong", "text": "对我来说，沟通很重要。", "pinyin": "Duì wǒ lái shuō, gōutōng hěn zhòngyào.", "en": "Communication is really important to me.", "tiles": ["对", "我", "来说", "沟通", "很", "重要"] },
+            { "id": "dt-xuyao-kongjian", "text": "我需要一点儿自己的空间，但我还是爱你。", "pinyin": "Wǒ xūyào yìdiǎnr zìjǐ de kōngjiān, dàn wǒ háishi ài nǐ.", "en": "I need a little space of my own, but I still love you.", "tiles": ["我", "需要", "一点儿", "自己", "的", "空间", "但", "我", "还是", "爱", "你"] },
+            { "id": "dt-tongju", "text": "我们在一起两年了，打算搬到一起住。", "pinyin": "Wǒmen zài yìqǐ liǎng nián le, dǎsuàn bān dào yìqǐ zhù.", "en": "We've been together two years and plan to move in together.", "tiles": ["我们", "在", "一起", "两", "年", "了", "打算", "搬", "到", "一起", "住"] }
+          ]
+        },
+        {
+          "id": "zh-23-2",
+          "title": "Meeting the family",
+          "items": [
+            { "id": "dt-ayi-hao", "text": "阿姨好，叔叔好！常听小明提起你们。", "pinyin": "Āyí hǎo, shūshu hǎo! Cháng tīng Xiǎo Míng tíqǐ nǐmen.", "en": "Hello, Auntie! Hello, Uncle! Xiaoming often talks about you.", "tiles": ["阿姨", "好", "叔叔", "好", "常", "听", "小明", "提起", "你们"] },
+            { "id": "dt-dian-xiaoyisi", "text": "一点儿小心意，请收下。", "pinyin": "Yìdiǎnr xiǎo xīnyì, qǐng shōuxià.", "en": "Just a small gift. Please accept it.", "tiles": ["一点儿", "小", "心意", "请", "收下"] },
+            { "id": "dt-ayi-shouyi", "text": "阿姨的手艺真好！", "pinyin": "Āyí de shǒuyì zhēn hǎo!", "en": "Auntie, your cooking is wonderful!", "tiles": ["阿姨", "的", "手艺", "真", "好"] },
+            { "id": "dt-wo-lai-shoushi", "text": "我来帮您收拾吧。", "pinyin": "Wǒ lái bāng nín shōushi ba.", "en": "Let me help you tidy up.", "tiles": ["我", "来", "帮", "您", "收拾", "吧"] },
+            { "id": "dt-ta-mama-ren-hao", "text": "他妈妈人特别好。", "pinyin": "Tā māma rén tèbié hǎo.", "en": "His mom is really lovely.", "tiles": ["他", "妈妈", "人", "特别", "好"] },
+            { "id": "dt-zhouri-chi-fan", "text": "周日去他家吃饭。", "pinyin": "Zhōurì qù tā jiā chī fàn.", "en": "On Sunday we're having dinner at his family's.", "tiles": ["周日", "去", "他", "家", "吃", "饭"] }
+          ]
+        }
+      ]
     }
   ]
 }

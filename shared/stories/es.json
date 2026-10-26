@@ -179,6 +179,93 @@
         { "q": "¿Cuántas veces al día debe tomar el jarabe?", "qEn": "How many times a day should he take the syrup?", "options": [{ "text": "Tres", "en": "Three" }, { "text": "Una", "en": "One" }, { "text": "Dos", "en": "Two" }], "answer": 0 },
         { "q": "¿Qué le dice la doctora sobre el trabajo?", "qEn": "What does the doctor tell him about work?", "options": [{ "text": "Que descanse dos días en casa", "en": "To rest at home for two days" }, { "text": "Que vaya mañana", "en": "To go tomorrow" }, { "text": "Que trabaje desde casa", "en": "To work from home" }], "answer": 0 }
       ]
+    },
+    {
+      "id": "es-dt-first-date",
+      "level": 4,
+      "kind": "dialogue",
+      "topic": "dating",
+      "title": "Una primera cita",
+      "en": "A first date",
+      "speakers": { "sofia": { "name": "Sofía", "voice": "a" }, "mateo": { "name": "Mateo", "voice": "b" } },
+      "lines": [
+        { "speaker": "sofia", "text": "¡Hola! Perdón la demora, había un trancón terrible.", "en": "Hi! Sorry I'm late, there was a terrible traffic jam." },
+        { "speaker": "mateo", "text": "Tranquila, yo también acabo de llegar. ¿Qué quieres tomar?", "en": "Don't worry, I just got here too. What would you like?" },
+        { "speaker": "sofia", "text": "Un capuchino. Oye, me encanta este lugar.", "en": "A cappuccino. Hey, I love this place." },
+        { "speaker": "mateo", "text": "Lo escogí porque dijiste que te gustaban los sitios tranquilos.", "en": "I picked it because you said you liked quiet places." },
+        { "speaker": "sofia", "text": "¡Qué detalle! Te acordaste.", "en": "That's so thoughtful! You remembered." },
+        { "speaker": "mateo", "text": "Claro. Entonces, ¿por qué decidiste estudiar arquitectura?", "en": "Of course. So, why did you decide to study architecture?" }
+      ],
+      "glossary": {
+        "demora": "delay", "trancón": "traffic jam (Colombia)", "terrible": "terrible", "tranquila": "don't worry, relax",
+        "acabo": "acabo de = I just", "llegar": "to arrive", "tomar": "to drink, have", "capuchino": "cappuccino", "encanta": "me encanta = I love",
+        "lugar": "place", "escogí": "I chose", "dijiste": "you said", "gustaban": "te gustaban = you liked", "sitios": "places", "tranquilos": "quiet",
+        "detalle": "¡qué detalle! = how thoughtful!", "acordaste": "te acordaste = you remembered", "decidiste": "you decided", "estudiar": "to study",
+        "arquitectura": "architecture"
+      },
+      "questions": [
+        { "q": "¿Por qué llegó tarde Sofía?", "qEn": "Why was Sofía late?", "options": [{ "text": "Por un trancón", "en": "Because of a traffic jam" }, { "text": "Porque se quedó dormida", "en": "Because she overslept" }, { "text": "Porque se perdió", "en": "Because she got lost" }], "answer": 0 },
+        { "q": "¿Por qué escogió Mateo ese lugar?", "qEn": "Why did Mateo pick that place?", "options": [{ "text": "Porque a Sofía le gustan los sitios tranquilos", "en": "Because Sofía likes quiet places" }, { "text": "Porque es barato", "en": "Because it's cheap" }, { "text": "Porque queda cerca de su casa", "en": "Because it's near his home" }], "answer": 0 },
+        { "q": "¿Qué estudia Sofía?", "qEn": "What does Sofía study?", "options": [{ "text": "Arquitectura", "en": "Architecture" }, { "text": "Medicina", "en": "Medicine" }, { "text": "Música", "en": "Music" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-dt-left-on-read",
+      "level": 5,
+      "kind": "dialogue",
+      "topic": "dating",
+      "title": "¿Me dejó en visto?",
+      "en": "Did he leave me on read?",
+      "speakers": { "camila": { "name": "Camila", "voice": "a" }, "julian": { "name": "Julián", "voice": "b" } },
+      "lines": [
+        { "speaker": "camila", "text": "Julián, ayúdame. Le escribí a Santiago hace tres horas y me dejó en visto.", "en": "Julián, help me. I texted Santiago three hours ago and he left me on read." },
+        { "speaker": "julian", "text": "¿Y qué le escribiste?", "en": "And what did you write?" },
+        { "speaker": "camila", "text": "Solo «¿Qué más? ¿Cuadramos para el sábado?», con un emoji.", "en": "Just \"What's up? Shall we make plans for Saturday?\", with an emoji." },
+        { "speaker": "julian", "text": "Tranquila, de pronto está trabajando. No le mandes otro mensaje todavía.", "en": "Relax, maybe he's working. Don't send him another message yet." },
+        { "speaker": "camila", "text": "Tienes razón. ¡Ay, me acaba de responder! Dice que el sábado le queda perfecto.", "en": "You're right. Oh, he just replied! He says Saturday is perfect for him." },
+        { "speaker": "julian", "text": "¿Ves? Te dije. Eso sí, no te hagas ilusiones tan rápido.", "en": "See? I told you. Just don't get your hopes up too fast." }
+      ],
+      "glossary": {
+        "ayúdame": "help me", "escribí": "I wrote", "horas": "hours", "dejó": "me dejó en visto = left me on read", "visto": "en visto = on read",
+        "escribiste": "you wrote", "cuadramos": "shall we set a plan? (Colombia)", "sábado": "Saturday", "emoji": "emoji", "tranquila": "relax",
+        "pronto": "de pronto = maybe (Colombia)", "trabajando": "working", "mandes": "no le mandes = don't send him", "mensaje": "message",
+        "todavía": "yet", "razón": "tienes razón = you're right", "responder": "to reply", "queda": "le queda perfecto = works perfectly for him",
+        "ilusiones": "no te hagas ilusiones = don't get your hopes up"
+      },
+      "questions": [
+        { "q": "¿Qué pasó con el mensaje de Camila?", "qEn": "What happened with Camila's message?", "options": [{ "text": "Santiago lo leyó y no respondió", "en": "Santiago read it and didn't reply" }, { "text": "No le llegó", "en": "It didn't arrive" }, { "text": "Santiago la llamó", "en": "Santiago called her" }], "answer": 0 },
+        { "q": "¿Qué le aconseja Julián?", "qEn": "What does Julián advise her?", "options": [{ "text": "No mandar otro mensaje todavía", "en": "Not to send another message yet" }, { "text": "Llamarlo enseguida", "en": "To call him straight away" }, { "text": "Borrar el mensaje", "en": "To delete the message" }], "answer": 0 },
+        { "q": "¿Qué respondió Santiago al final?", "qEn": "What did Santiago reply in the end?", "options": [{ "text": "Que el sábado le queda perfecto", "en": "That Saturday is perfect" }, { "text": "Que está muy ocupado", "en": "That he's very busy" }, { "text": "Que prefiere el domingo", "en": "That he prefers Sunday" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "es-dt-move-in",
+      "level": 6,
+      "kind": "dialogue",
+      "topic": "dating",
+      "title": "¿Vivir juntos?",
+      "en": "Moving in together?",
+      "speakers": { "laura": { "name": "Laura", "voice": "a" }, "andres": { "name": "Andrés", "voice": "b" } },
+      "lines": [
+        { "speaker": "andres", "text": "Laura, ¿has pensado en lo que hablamos? Lo de vivir juntos.", "en": "Laura, have you thought about what we talked about? Moving in together." },
+        { "speaker": "laura", "text": "Sí, y me ilusiona mucho, pero me da un poco de miedo perder mi espacio.", "en": "Yes, and I'm really excited about it, but I'm a little scared of losing my space." },
+        { "speaker": "andres", "text": "Te entiendo. Podríamos buscar un apartamento con un cuarto extra, para que cada uno tenga su rincón.", "en": "I understand. We could look for an apartment with an extra room, so each of us has our own corner." },
+        { "speaker": "laura", "text": "Eso me encantaría. Y tendríamos que hablar de cómo repartimos los gastos.", "en": "I'd love that. And we'd have to talk about how we split the costs." },
+        { "speaker": "andres", "text": "Claro: mitad y mitad, o según lo que gane cada uno. Lo que te parezca más justo.", "en": "Of course: half and half, or according to what each of us earns. Whatever seems fairest to you." },
+        { "speaker": "laura", "text": "Me parece muy maduro de tu parte. Hagámoslo, pero sin afanes.", "en": "That's very mature of you. Let's do it, but with no rush." }
+      ],
+      "glossary": {
+        "pensado": "thought", "hablamos": "we talked", "juntos": "together", "ilusiona": "me ilusiona = I'm excited about it",
+        "miedo": "me da miedo = it scares me", "perder": "to lose", "espacio": "space", "entiendo": "I understand", "podríamos": "we could",
+        "buscar": "to look for", "apartamento": "apartment", "cuarto": "room", "extra": "extra", "rincón": "corner", "tendríamos": "we would have to",
+        "repartimos": "we split", "gastos": "costs, expenses", "mitad": "half", "según": "according to", "gane": "earns (subjunctive)",
+        "justo": "fair", "maduro": "mature", "afanes": "sin afanes = with no rush (Colombia)"
+      },
+      "questions": [
+        { "q": "¿Qué le preocupa a Laura?", "qEn": "What worries Laura?", "options": [{ "text": "Perder su espacio", "en": "Losing her space" }, { "text": "El precio del apartamento", "en": "The apartment's price" }, { "text": "Lo que dirá su familia", "en": "What her family will say" }], "answer": 0 },
+        { "q": "¿Qué propone Andrés?", "qEn": "What does Andrés suggest?", "options": [{ "text": "Un apartamento con un cuarto extra", "en": "An apartment with an extra room" }, { "text": "Esperar un año más", "en": "Waiting another year" }, { "text": "Vivir con sus papás", "en": "Living with his parents" }], "answer": 0 },
+        { "q": "¿Cómo podrían repartir los gastos?", "qEn": "How could they split the costs?", "options": [{ "text": "Mitad y mitad, o según lo que gane cada uno", "en": "Half and half, or by what each earns" }, { "text": "Andrés pagaría todo", "en": "Andrés would pay everything" }, { "text": "Laura pagaría el arriendo", "en": "Laura would pay the rent" }], "answer": 0 }
+      ]
     }
   ]
 }

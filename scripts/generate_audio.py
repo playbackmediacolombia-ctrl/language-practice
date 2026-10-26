@@ -66,7 +66,8 @@ def spoken_english(text: str) -> str:
     """How a meaning is read aloud: notes like "(woman)" and "lit." spelled out, "/" as "or"."""
     text = text.replace(" / ", ", or ").replace("(lit. ", "(literally, ")
     text = re.sub(r"\((man|woman)\)", r"(said by a \1)", text)
-    return text
+    # Emoji are for the eye only; the voice would read them out (or fail on them).
+    return re.sub(r"\s*[\U0001F000-\U0001FAFF\u2600-\u27BF\uFE0F\u200D]+", "", text).strip()
 
 
 def english_file(text: str) -> str:

@@ -7,7 +7,8 @@ const course = (f) => JSON.parse(readFileSync(new URL(`../../shared/course/${f}.
 const OUTLINE = course('outline');
 const STAGES = OUTLINE.stages.length;
 const UNITS = OUTLINE.stages.reduce((n, s) => n + s.units.length, 0);
-const ES_UNITS = course('es').units.length;
+const CORE = new Set(OUTLINE.stages.flatMap((s) => s.units));
+const ES_UNITS = course('es').units.filter((u) => CORE.has(u.id)).length; // electives are never "coming soon"
 
 const BASE = 'http://localhost:4173/?test';
 await run(async () => {

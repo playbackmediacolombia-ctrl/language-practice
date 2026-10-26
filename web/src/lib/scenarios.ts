@@ -13,7 +13,7 @@ const audioFiles = import.meta.glob<string>('../../../assets/audio/scenarios/*/*
   import: 'default',
 });
 
-export type Topic = 'food' | 'directions' | 'shopping' | 'smalltalk' | 'doctor' | 'airport';
+export type Topic = 'food' | 'directions' | 'shopping' | 'smalltalk' | 'doctor' | 'airport' | 'dating';
 export type ScenarioLine = { who: 'them' | 'you'; text: string; en: string; pinyin?: string; alt?: string[]; audio: string };
 export type Scenario = {
   id: string;
@@ -36,6 +36,7 @@ export const TOPICS: Record<Topic, { label: string; emoji: string }> = {
   smalltalk: { label: 'Small talk', emoji: '💬' },
   doctor: { label: 'At the doctor', emoji: '🩺' },
   airport: { label: 'At the airport', emoji: '✈️' },
+  dating: { label: 'Dating', emoji: '💕' },
 };
 
 /**

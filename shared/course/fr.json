@@ -863,6 +863,96 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u21",
+      "title": "Dating & relationships",
+      "lessons": [
+        {
+          "id": "fr-21-1",
+          "title": "Meeting someone",
+          "items": [
+            { "id": "dt-place-libre", "text": "Cette place est libre ?", "en": "Is this seat free?" },
+            { "id": "dt-connais-camille", "text": "Et toi, tu connais Camille comment ?", "en": "And how do you know Camille?" },
+            { "id": "dt-ambiance-sympa", "text": "L'ambiance est super sympa ici.", "en": "The atmosphere's really nice here." },
+            { "id": "dt-j-adore-ton-style", "text": "J'adore ton style.", "en": "I love your style." },
+            { "id": "dt-joli-sourire", "text": "Tu as un très joli sourire.", "en": "You have a lovely smile." },
+            { "id": "dt-c-est-gentil", "text": "Oh, merci, c'est gentil !", "en": "Oh, thanks, that's kind of you!" }
+          ]
+        },
+        {
+          "id": "fr-21-2",
+          "title": "Asking someone out",
+          "items": [
+            { "id": "dt-boire-un-verre", "text": "Ça te dirait d'aller boire un verre un de ces jours ?", "en": "Would you like to go for a drink one of these days?" },
+            { "id": "dt-cine-samedi", "text": "On va au ciné samedi ?", "en": "Shall we go to the movies on Saturday?" },
+            { "id": "dt-avec-plaisir", "text": "Avec plaisir !", "en": "I'd love to!" },
+            { "id": "dt-pas-ce-week-end", "text": "Ce week-end, je ne peux pas, mais le suivant, si tu veux.", "en": "I can't this weekend, but the next one, if you like." },
+            { "id": "dt-je-vois-quelqu-un", "text": "C'est gentil, mais je vois déjà quelqu'un.", "en": "That's sweet, but I'm already seeing someone." },
+            { "id": "dt-rester-amis", "text": "Je t'aime beaucoup, mais je préfère qu'on reste amis.", "en": "I really like you, but I'd rather we stay friends." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u22",
+      "title": "Texting & dating apps",
+      "lessons": [
+        {
+          "id": "fr-22-1",
+          "title": "Texting",
+          "items": [
+            { "id": "dt-coucou-ca-va", "text": "Coucou ! Ça va ?", "en": "Hey! How are you?" },
+            { "id": "dt-mdr", "text": "Mdr, t'es trop drôle 😂", "en": "LOL, you're so funny 😂", "say": "Mort de rire, t'es trop drôle." },
+            { "id": "dt-dispo-jeudi", "text": "T'es dispo jeudi soir ?", "en": "Are you free Thursday evening?" },
+            { "id": "dt-bien-rentree", "text": "Bien rentrée ! Merci pour la soirée ❤️", "en": "Got home safe! Thanks for the evening ❤️", "say": "Bien rentrée ! Merci pour la soirée." },
+            { "id": "dt-dsl-pas-repondu", "text": "Dsl, j'avais pas vu ton message 🙈", "en": "Sorry, I hadn't seen your message 🙈", "say": "Désolé, j'avais pas vu ton message." },
+            { "id": "dt-tu-m-as-ghoste", "text": "Tu m'as ghosté ou quoi ?", "en": "Did you just ghost me?" }
+          ]
+        },
+        {
+          "id": "fr-22-2",
+          "title": "Dating apps",
+          "items": [
+            { "id": "dt-on-a-matche", "text": "On a matché !", "en": "We matched!" },
+            { "id": "dt-photo-chien", "text": "Ta photo avec le chien m'a fait rire 🐶", "en": "Your photo with the dog made me laugh 🐶", "say": "Ta photo avec le chien m'a fait rire." },
+            { "id": "dt-truc-le-plus-fou", "text": "C'est quoi le truc le plus fou que t'aies jamais fait ?", "en": "What's the craziest thing you've ever done?" },
+            { "id": "dt-un-cafe-pour-voir", "text": "On se prend un café pour voir ?", "en": "Shall we grab a coffee and see?" },
+            { "id": "dt-rien-de-serieux", "text": "Je ne cherche rien de sérieux pour l'instant.", "en": "I'm not looking for anything serious for now." },
+            { "id": "dt-pas-le-feeling", "text": "T'es vraiment cool, mais je ne sens pas le feeling.", "en": "You're really cool, but I'm not feeling it." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u23",
+      "title": "Love, couples & family",
+      "lessons": [
+        {
+          "id": "fr-23-1",
+          "title": "Talking about feelings",
+          "items": [
+            { "id": "dt-bien-avec-toi", "text": "Je me sens vraiment bien avec toi.", "en": "I feel really good with you." },
+            { "id": "dt-je-tombe-amoureux", "text": "Je crois que je suis en train de tomber amoureux.", "en": "I think I'm falling in love.", "alt": ["Je crois que je suis en train de tomber amoureuse."] },
+            { "id": "dt-on-en-est-ou", "text": "J'aimerais savoir où on en est, tous les deux.", "en": "I'd like to know where we stand, the two of us." },
+            { "id": "dt-on-se-parle", "text": "Pour moi, c'est important qu'on se parle.", "en": "It matters to me that we talk to each other." },
+            { "id": "dt-besoin-d-espace", "text": "J'ai besoin d'un peu d'espace, mais je t'aime.", "en": "I need a bit of space, but I love you." },
+            { "id": "dt-emmenager", "text": "Ça fait deux ans qu'on est ensemble, et on pense à emménager ensemble.", "en": "We've been together two years, and we're thinking of moving in together." }
+          ]
+        },
+        {
+          "id": "fr-23-2",
+          "title": "Meeting the family",
+          "items": [
+            { "id": "dt-ravi-de-vous-rencontrer", "text": "Bonjour, ravi de vous rencontrer. Thomas m'a beaucoup parlé de vous.", "en": "Hello, delighted to meet you. Thomas has told me a lot about you.", "alt": ["Bonjour, ravie de vous rencontrer. Thomas m'a beaucoup parlé de vous."] },
+            { "id": "dt-petite-attention", "text": "Je vous ai apporté une petite attention.", "en": "I've brought you a little something." },
+            { "id": "dt-c-est-delicieux", "text": "C'est délicieux ! C'est vous qui l'avez fait ?", "en": "It's delicious! Did you make it?" },
+            { "id": "dt-je-peux-aider", "text": "Je peux vous aider à débarrasser ?", "en": "Can I help you clear the table?" },
+            { "id": "dt-belle-mere-adorable", "text": "Ma belle-mère est adorable.", "en": "My mother-in-law is lovely." },
+            { "id": "dt-dejeuner-dimanche", "text": "On se voit dimanche pour le déjeuner en famille.", "en": "See you Sunday for the family lunch." }
+          ]
+        }
+      ]
     }
   ]
 }

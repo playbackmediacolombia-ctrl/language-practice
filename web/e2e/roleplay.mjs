@@ -1,4 +1,5 @@
 // Real-life role-plays: the other person talks, you say your lines, Whisper grades them.
+import { readFileSync } from 'node:fs';
 import { devices, launch, run } from './harness.mjs';
 
 const BASE = 'http://localhost:4173/?test';
@@ -66,7 +67,8 @@ await run(async () => {
   const levels = await page.locator('.section-title').allInnerTexts();
   const count = await page.locator('[data-testid^=roleplay-es-]').count();
   expect(levels.join() === 'BEGINNER,ELEMENTARY,INTERMEDIATE,UPPER-INTERMEDIATE,ADVANCED,FLUENT' || levels.length === 6, `list: six levels (${levels.join(', ')})`);
-  expect(count === 18, `list: 18 Spanish role-plays (${count})`);
+  const inData = JSON.parse(readFileSync(new URL('../../shared/scenarios/es.json', import.meta.url), 'utf8')).scenarios.length;
+  expect(count === inData, `list: all ${inData} Spanish role-plays (${count})`);
   await page.screenshot({ path: 'R-list.png' });
 
   // ---------- Beginner: words shown, every line said right ----------

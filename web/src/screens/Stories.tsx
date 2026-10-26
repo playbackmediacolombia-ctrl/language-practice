@@ -6,7 +6,7 @@ import { type Lang, shuffle } from '../lib/content';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
 import { getProgress, recordShadowing, recordShadowLine, recordStory, recordStoryAnswer, type Speed, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
-import { getArticles, getStories, getStory, type Gloss, LEVELS, type Line, listPath, optionEn, optionText, READING_LEVELS, type Story } from '../lib/stories';
+import { getArticles, getStories, getStory, type Gloss, LEVELS, type Line, listPath, optionEn, optionText, READING_LEVELS, type Story, STORY_TOPICS } from '../lib/stories';
 import { isModelReady, loadModel, transcribe } from '../lib/whisper';
 import { Icon, Screen, SpeedPicker, Waveform } from '../ui';
 import { LangSwitcher } from './Path';
@@ -22,7 +22,7 @@ type ShadowPhase = 'listen' | 'speak' | 'heard' | 'checking' | 'result';
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const testHook = location.search.includes('test');
 
-/** Practice tab › Stories & dialogues: three levels, a story and a dialogue each. */
+/** Practice tab › Stories & dialogues: a story and a dialogue at each early level, then conversations. */
 export function StoryList({ lang }: { lang: Lang }) {
   const progress = useProgress();
   const stories = getStories(lang);
@@ -61,7 +61,7 @@ export function StoryList({ lang }: { lang: Lang }) {
                         {s.title}
                       </span>
                       <span className="row-hint">
-                        {s.en} · {s.kind === 'dialogue' ? 'Dialogue' : 'Story'} · {s.lines.length} lines
+                        {s.en} · {s.topic ? STORY_TOPICS[s.topic] : s.kind === 'dialogue' ? 'Dialogue' : 'Story'} · {s.lines.length} lines
                       </span>
                     </span>
                     {best !== undefined && (

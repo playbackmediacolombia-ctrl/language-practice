@@ -172,6 +172,93 @@
         { "q": "Pourquoi veut-il changer de travail ?", "qEn": "Why does he want to change jobs?", "options": [{ "text": "Pour avoir plus de responsabilités", "en": "To have more responsibility" }, { "text": "Pour gagner plus d'argent", "en": "To earn more money" }, { "text": "Pour travailler moins", "en": "To work less" }], "answer": 0 },
         { "q": "Quelles langues parle-t-il ?", "qEn": "Which languages does he speak?", "options": [{ "text": "Anglais couramment et un peu d'espagnol", "en": "Fluent English and a little Spanish" }, { "text": "Seulement le français", "en": "Only French" }, { "text": "Allemand et italien", "en": "German and Italian" }], "answer": 0 }
       ]
+    },
+    {
+      "id": "fr-dt-first-date",
+      "level": 4,
+      "kind": "dialogue",
+      "topic": "dating",
+      "title": "Un premier rendez-vous",
+      "en": "A first date",
+      "speakers": { "lea": { "name": "Léa", "voice": "a" }, "hugo": { "name": "Hugo", "voice": "b" } },
+      "lines": [
+        { "speaker": "lea", "text": "Salut ! Désolée pour le retard, le métro était bloqué.", "en": "Hi! Sorry I'm late, the metro was stuck." },
+        { "speaker": "hugo", "text": "Pas de souci, je viens d'arriver aussi. Tu veux boire quoi ?", "en": "No problem, I've just arrived too. What would you like to drink?" },
+        { "speaker": "lea", "text": "Un chocolat chaud. Oh, j'adore cet endroit !", "en": "A hot chocolate. Oh, I love this place!" },
+        { "speaker": "hugo", "text": "Je l'ai choisi parce que tu m'avais dit que tu aimais les endroits calmes.", "en": "I chose it because you told me you liked quiet places." },
+        { "speaker": "lea", "text": "C'est trop gentil, tu t'en es souvenu !", "en": "That's so sweet, you remembered!" },
+        { "speaker": "hugo", "text": "Évidemment. Alors, pourquoi tu as choisi d'étudier l'architecture ?", "en": "Of course. So, why did you choose to study architecture?" }
+      ],
+      "glossary": {
+        "désolée": "sorry", "retard": "lateness (en retard = late)", "métro": "metro, subway", "bloqué": "stuck", "souci": "pas de souci = no problem",
+        "viens": "je viens de = I've just", "arriver": "to arrive", "boire": "to drink", "chocolat": "chocolate", "chaud": "hot", "j'adore": "I love",
+        "endroit": "place", "choisi": "chosen", "calmes": "quiet", "gentil": "kind, sweet", "souvenu": "tu t'en es souvenu = you remembered",
+        "évidemment": "of course", "étudier": "to study", "l'architecture": "architecture"
+      },
+      "questions": [
+        { "q": "Pourquoi Léa est-elle en retard ?", "qEn": "Why is Léa late?", "options": [{ "text": "Le métro était bloqué", "en": "The metro was stuck" }, { "text": "Elle s'est réveillée tard", "en": "She woke up late" }, { "text": "Elle s'est perdue", "en": "She got lost" }], "answer": 0 },
+        { "q": "Pourquoi Hugo a-t-il choisi cet endroit ?", "qEn": "Why did Hugo pick this place?", "options": [{ "text": "Parce que Léa aime les endroits calmes", "en": "Because Léa likes quiet places" }, { "text": "Parce que c'est pas cher", "en": "Because it's cheap" }, { "text": "Parce que c'est près de chez lui", "en": "Because it's near his place" }], "answer": 0 },
+        { "q": "Qu'est-ce que Léa étudie ?", "qEn": "What does Léa study?", "options": [{ "text": "L'architecture", "en": "Architecture" }, { "text": "La médecine", "en": "Medicine" }, { "text": "La musique", "en": "Music" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-dt-left-on-read",
+      "level": 5,
+      "kind": "dialogue",
+      "topic": "dating",
+      "title": "Il m'a laissée en vu ?",
+      "en": "Did he leave me on read?",
+      "speakers": { "chloe": { "name": "Chloé", "voice": "a" }, "karim": { "name": "Karim", "voice": "b" } },
+      "lines": [
+        { "speaker": "chloe", "text": "Karim, au secours. J'ai écrit à Antoine il y a trois heures, et il m'a laissée en vu.", "en": "Karim, help. I wrote to Antoine three hours ago, and he left me on read." },
+        { "speaker": "karim", "text": "Tu lui as écrit quoi ?", "en": "What did you write to him?" },
+        { "speaker": "chloe", "text": "Juste « Coucou, t'es dispo samedi ? », avec un smiley.", "en": "Just \"Hey, are you free Saturday?\", with a smiley." },
+        { "speaker": "karim", "text": "Détends-toi, il bosse peut-être. Ne lui renvoie pas de message tout de suite.", "en": "Relax, maybe he's working. Don't send him another message right away." },
+        { "speaker": "chloe", "text": "T'as raison. Oh, il vient de répondre ! Il dit que samedi, c'est parfait.", "en": "You're right. Oh, he just replied! He says Saturday is perfect." },
+        { "speaker": "karim", "text": "Tu vois ? Mais ne t'emballe pas trop vite.", "en": "See? But don't get carried away too fast." }
+      ],
+      "glossary": {
+        "secours": "au secours = help!", "écrit": "written", "heures": "hours", "laissée": "il m'a laissée en vu = he left me on read",
+        "vu": "en vu = on read", "coucou": "hey (friendly hello)", "dispo": "free (disponible)", "samedi": "Saturday", "smiley": "smiley, emoji",
+        "détends-toi": "relax", "bosse": "is working (slang)", "peut-être": "maybe", "renvoie": "ne lui renvoie pas = don't send him again",
+        "message": "message", "suite": "tout de suite = right away", "raison": "t'as raison = you're right", "répondre": "to reply",
+        "parfait": "perfect", "t'emballe": "ne t'emballe pas = don't get carried away", "vite": "fast"
+      },
+      "questions": [
+        { "q": "Qu'est-ce qui s'est passé avec le message de Chloé ?", "qEn": "What happened with Chloé's message?", "options": [{ "text": "Antoine l'a lu sans répondre", "en": "Antoine read it without replying" }, { "text": "Il n'est pas arrivé", "en": "It didn't arrive" }, { "text": "Antoine l'a appelée", "en": "Antoine called her" }], "answer": 0 },
+        { "q": "Que lui conseille Karim ?", "qEn": "What does Karim advise?", "options": [{ "text": "De ne pas renvoyer de message tout de suite", "en": "Not to send another message right away" }, { "text": "De l'appeler", "en": "To call him" }, { "text": "De supprimer le message", "en": "To delete the message" }], "answer": 0 },
+        { "q": "Qu'a répondu Antoine ?", "qEn": "What did Antoine reply?", "options": [{ "text": "Que samedi, c'est parfait", "en": "That Saturday is perfect" }, { "text": "Qu'il est très occupé", "en": "That he's very busy" }, { "text": "Qu'il préfère dimanche", "en": "That he prefers Sunday" }], "answer": 0 }
+      ]
+    },
+    {
+      "id": "fr-dt-move-in",
+      "level": 6,
+      "kind": "dialogue",
+      "topic": "dating",
+      "title": "Emménager ensemble ?",
+      "en": "Moving in together?",
+      "speakers": { "camille": { "name": "Camille", "voice": "a" }, "thomas": { "name": "Thomas", "voice": "b" } },
+      "lines": [
+        { "speaker": "thomas", "text": "Camille, t'as réfléchi à ce dont on a parlé ? Emménager ensemble.", "en": "Camille, have you thought about what we talked about? Moving in together." },
+        { "speaker": "camille", "text": "Oui, et ça me fait très envie, mais j'ai un peu peur de perdre mon espace.", "en": "Yes, and I really want to, but I'm a bit afraid of losing my space." },
+        { "speaker": "thomas", "text": "Je comprends. On pourrait chercher un appart avec une pièce en plus, pour que chacun ait son coin.", "en": "I understand. We could look for a flat with an extra room, so each of us has a corner." },
+        { "speaker": "camille", "text": "Ça me plairait beaucoup. Et il faudrait parler de comment on partage les frais.", "en": "I'd really like that. And we'd need to talk about how we split the costs." },
+        { "speaker": "thomas", "text": "Bien sûr : moitié-moitié, ou selon ce que chacun gagne. Ce qui te semble le plus juste.", "en": "Of course: half-half, or according to what each of us earns. Whatever seems fairest to you." },
+        { "speaker": "camille", "text": "Je trouve ça très mature. On se lance, mais sans précipitation.", "en": "I think that's very mature. Let's go for it, but without rushing." }
+      ],
+      "glossary": {
+        "réfléchi": "thought (t'as réfléchi = have you thought)", "parlé": "talked", "emménager": "to move in", "ensemble": "together",
+        "envie": "ça me fait envie = I really want it", "peur": "fear (j'ai peur = I'm afraid)", "perdre": "to lose", "espace": "space",
+        "comprends": "I understand", "pourrait": "could", "chercher": "to look for", "appart": "flat, apartment (appartement)", "pièce": "room",
+        "chacun": "each one", "coin": "corner", "plairait": "ça me plairait = I'd like that", "faudrait": "il faudrait = we'd need to",
+        "partage": "split, share", "frais": "costs", "moitié-moitié": "half-half", "selon": "according to", "gagne": "earns", "juste": "fair",
+        "mature": "mature", "lance": "on se lance = let's go for it", "précipitation": "rushing"
+      },
+      "questions": [
+        { "q": "Qu'est-ce qui inquiète Camille ?", "qEn": "What worries Camille?", "options": [{ "text": "De perdre son espace", "en": "Losing her space" }, { "text": "Le prix de l'appart", "en": "The flat's price" }, { "text": "Ce que dira sa famille", "en": "What her family will say" }], "answer": 0 },
+        { "q": "Que propose Thomas ?", "qEn": "What does Thomas suggest?", "options": [{ "text": "Un appart avec une pièce en plus", "en": "A flat with an extra room" }, { "text": "D'attendre un an", "en": "Waiting a year" }, { "text": "D'habiter chez ses parents", "en": "Living at his parents'" }], "answer": 0 },
+        { "q": "Comment pourraient-ils partager les frais ?", "qEn": "How could they split the costs?", "options": [{ "text": "Moitié-moitié, ou selon ce que chacun gagne", "en": "Half-half, or by what each earns" }, { "text": "Thomas paierait tout", "en": "Thomas would pay everything" }, { "text": "Camille paierait le loyer", "en": "Camille would pay the rent" }], "answer": 0 }
+      ]
     }
   ]
 }
