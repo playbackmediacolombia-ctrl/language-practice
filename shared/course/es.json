@@ -273,6 +273,132 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u7",
+      "title": "Meeting people",
+      "lessons": [
+        {
+          "id": "es-7-1",
+          "title": "Names",
+          "items": [
+            { "id": "nombre", "text": "nombre", "en": "name" },
+            { "id": "cual-es-tu-nombre", "text": "¿Cuál es tu nombre?", "en": "What's your name?" },
+            { "id": "me-llamo-ana", "text": "Me llamo Ana.", "en": "My name is Ana." },
+            { "id": "mucho-gusto", "text": "Mucho gusto.", "en": "Nice to meet you." },
+            { "id": "igualmente", "text": "Igualmente.", "en": "Likewise." },
+            { "id": "te-presento-a-mi-amigo", "text": "Te presento a mi amigo.", "en": "Let me introduce my friend." }
+          ]
+        },
+        {
+          "id": "es-7-2",
+          "title": "Where are you from?",
+          "items": [
+            { "id": "de-donde-eres", "text": "¿De dónde eres?", "en": "Where are you from?" },
+            { "id": "soy-de-estados-unidos", "text": "Soy de Estados Unidos.", "en": "I'm from the United States." },
+            { "id": "donde-vives", "text": "¿Dónde vives?", "en": "Where do you live?" },
+            { "id": "vivo-en-bogota", "text": "Vivo en Bogotá.", "en": "I live in Bogotá." },
+            { "id": "hablas-ingles", "text": "¿Hablas inglés?", "en": "Do you speak English?" },
+            { "id": "hablo-un-poco-de-espanol", "text": "Hablo un poco de español.", "en": "I speak a little Spanish." }
+          ]
+        },
+        {
+          "id": "es-7-3",
+          "title": "Getting to know you",
+          "items": [
+            { "id": "como-estas", "text": "¿Cómo estás?", "en": "How are you?" },
+            { "id": "muy-bien-y-tu", "text": "Muy bien, ¿y tú?", "en": "Very well, and you?" },
+            { "id": "a-que-te-dedicas", "text": "¿A qué te dedicas?", "en": "What do you do for a living?" },
+            { "id": "soy-profesora", "text": "Soy profesora.", "en": "I'm a teacher. (woman)" },
+            { "id": "tengo-treinta-anos", "text": "Tengo treinta años.", "en": "I'm thirty years old." },
+            { "id": "estoy-casado", "text": "Estoy casado.", "en": "I'm married. (man)" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u8",
+      "title": "Shopping and eating out",
+      "lessons": [
+        {
+          "id": "es-8-1",
+          "title": "At the shop",
+          "items": [
+            { "id": "cuanto-cuesta", "text": "¿Cuánto cuesta?", "en": "How much does it cost?" },
+            { "id": "es-muy-caro", "text": "Es muy caro.", "en": "It's very expensive." },
+            { "id": "es-barato", "text": "Es barato.", "en": "It's cheap." },
+            { "id": "me-lo-llevo", "text": "Me lo llevo.", "en": "I'll take it." },
+            { "id": "tiene-otra-talla", "text": "¿Tiene otra talla?", "en": "Do you have another size?" },
+            { "id": "solo-estoy-mirando", "text": "Solo estoy mirando, gracias.", "en": "I'm just looking, thanks." }
+          ]
+        },
+        {
+          "id": "es-8-2",
+          "title": "At the restaurant",
+          "items": [
+            { "id": "una-mesa-para-dos", "text": "Una mesa para dos, por favor.", "en": "A table for two, please." },
+            { "id": "la-carta-por-favor", "text": "La carta, por favor.", "en": "The menu, please." },
+            { "id": "que-me-recomienda", "text": "¿Qué me recomienda?", "en": "What do you recommend?" },
+            { "id": "la-cuenta-por-favor", "text": "La cuenta, por favor.", "en": "The check, please." },
+            { "id": "puedo-pagar-con-tarjeta", "text": "¿Puedo pagar con tarjeta?", "en": "Can I pay by card?" },
+            { "id": "esta-incluida-la-propina", "text": "¿Está incluida la propina?", "en": "Is the tip included?" }
+          ]
+        },
+        {
+          "id": "es-8-3",
+          "title": "Ordering food",
+          "items": [
+            { "id": "quisiera-un-cafe", "text": "Quisiera un café.", "en": "I'd like a coffee." },
+            { "id": "para-mi-el-pollo", "text": "Para mí, el pollo.", "en": "The chicken for me." },
+            { "id": "sin-cebolla", "text": "sin cebolla", "en": "without onion" },
+            { "id": "soy-vegetariano", "text": "Soy vegetariano.", "en": "I'm vegetarian. (man)" },
+            { "id": "esta-delicioso", "text": "¡Está delicioso!", "en": "It's delicious!" },
+            { "id": "me-trae-un-vaso-de-agua", "text": "¿Me trae un vaso de agua?", "en": "Could you bring me a glass of water?" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u9",
+      "title": "My day",
+      "lessons": [
+        {
+          "id": "es-9-1",
+          "title": "Morning routine",
+          "items": [
+            { "id": "me-levanto-a-las-siete", "text": "Me levanto a las siete.", "en": "I get up at seven." },
+            { "id": "me-ducho", "text": "Me ducho.", "en": "I take a shower." },
+            { "id": "desayuno", "text": "Desayuno pan con huevo.", "en": "I have bread and eggs for breakfast." },
+            { "id": "me-visto", "text": "Me visto.", "en": "I get dressed." },
+            { "id": "salgo-de-casa", "text": "Salgo de casa a las ocho.", "en": "I leave home at eight." },
+            { "id": "voy-al-trabajo-en-bus", "text": "Voy al trabajo en bus.", "en": "I go to work by bus." }
+          ]
+        },
+        {
+          "id": "es-9-2",
+          "title": "Time and days",
+          "items": [
+            { "id": "que-hora-es", "text": "¿Qué hora es?", "en": "What time is it?" },
+            { "id": "son-las-tres", "text": "Son las tres.", "en": "It's three o'clock." },
+            { "id": "hoy", "text": "hoy", "en": "today" },
+            { "id": "manana", "text": "mañana", "en": "tomorrow" },
+            { "id": "ayer", "text": "ayer", "en": "yesterday" },
+            { "id": "el-lunes-trabajo", "text": "El lunes trabajo.", "en": "On Monday I work." }
+          ]
+        },
+        {
+          "id": "es-9-3",
+          "title": "What did you do?",
+          "items": [
+            { "id": "que-hiciste-ayer", "text": "¿Qué hiciste ayer?", "en": "What did you do yesterday?" },
+            { "id": "fui-al-parque", "text": "Fui al parque.", "en": "I went to the park." },
+            { "id": "comi-con-mi-familia", "text": "Comí con mi familia.", "en": "I ate with my family." },
+            { "id": "vi-una-pelicula", "text": "Vi una película.", "en": "I watched a movie." },
+            { "id": "estuve-en-casa", "text": "Estuve en casa todo el día.", "en": "I was home all day." },
+            { "id": "la-pase-muy-bien", "text": "La pasé muy bien.", "en": "I had a great time." }
+          ]
+        }
+      ]
     }
   ]
 }

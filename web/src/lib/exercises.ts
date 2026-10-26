@@ -33,13 +33,18 @@ function distractors(item: Item, near: Item[], pool: Item[], n: number, same = (
   return [...fromNear, ...rest];
 }
 
+/** Same meaning in English, ignoring case, punctuation and notes like "(polite)": two such items can't be told apart. */
+const gist = (en: string) => en.toLowerCase().replace(/\(.*?\)/g, '').replace(/[^a-z0-9' ]/g, '').trim();
+const sameMeaning = (a: Item, b: Item) => gist(a.en) === gist(b.en);
+
 function meaning(item: Item, near: Item[], pool: Item[], isNew: boolean): Exercise {
-  const others = distractors(item, near, pool, 4, (o) => o.en === item.en).map((o) => o.en);
+  const others = distractors(item, near, pool, 4, (o) => sameMeaning(o, item)).map((o) => o.en);
   return { type: 'meaning', item, options: shuffle([item.en, ...others]), isNew };
 }
 
 function choice(type: 'listen' | 'translate', item: Item, near: Item[], pool: Item[]): Exercise {
-  return { type, item, options: shuffle([item, ...distractors(item, near, pool, 4)]) };
+  // Neither the same words nor the same meaning, so only one option can be right.
+  return { type, item, options: shuffle([item, ...distractors(item, near, pool, 4, (o) => o.text === item.text || sameMeaning(o, item))]) };
 }
 
 function tiles(item: Item, pool: Item[]): Exercise {

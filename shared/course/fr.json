@@ -275,6 +275,132 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u7",
+      "title": "Meeting people",
+      "lessons": [
+        {
+          "id": "fr-7-1",
+          "title": "Names",
+          "items": [
+            { "id": "nom", "text": "le nom", "en": "the name" },
+            { "id": "vous-vous-appelez-comment", "text": "Vous vous appelez comment ?", "en": "What's your name? (polite)" },
+            { "id": "je-mappelle-claire", "text": "Je m'appelle Claire.", "en": "My name is Claire." },
+            { "id": "enchante", "text": "Enchanté.", "en": "Nice to meet you." },
+            { "id": "moi-de-meme", "text": "Moi de même.", "en": "Likewise." },
+            { "id": "je-te-presente-mon-ami", "text": "Je te présente mon ami.", "en": "Let me introduce my friend." }
+          ]
+        },
+        {
+          "id": "fr-7-2",
+          "title": "Where are you from?",
+          "items": [
+            { "id": "tu-viens-dou", "text": "Tu viens d'où ?", "en": "Where are you from?" },
+            { "id": "je-viens-des-etats-unis", "text": "Je viens des États-Unis.", "en": "I'm from the United States." },
+            { "id": "tu-habites-ou", "text": "Tu habites où ?", "en": "Where do you live?" },
+            { "id": "jhabite-a-lyon", "text": "J'habite à Lyon.", "en": "I live in Lyon." },
+            { "id": "tu-parles-anglais", "text": "Tu parles anglais ?", "en": "Do you speak English?" },
+            { "id": "je-parle-un-peu-francais", "text": "Je parle un peu français.", "en": "I speak a little French." }
+          ]
+        },
+        {
+          "id": "fr-7-3",
+          "title": "Getting to know you",
+          "items": [
+            { "id": "ca-va", "text": "Ça va ?", "en": "How are you?" },
+            { "id": "ca-va-bien-et-toi", "text": "Ça va bien, et toi ?", "en": "I'm fine, and you?" },
+            { "id": "tu-fais-quoi-dans-la-vie", "text": "Tu fais quoi dans la vie ?", "en": "What do you do for a living?" },
+            { "id": "je-suis-professeure", "text": "Je suis professeure.", "en": "I'm a teacher. (woman)" },
+            { "id": "jai-trente-ans", "text": "J'ai trente ans.", "en": "I'm thirty years old." },
+            { "id": "je-suis-marie", "text": "Je suis marié.", "en": "I'm married. (man)" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u8",
+      "title": "Shopping and eating out",
+      "lessons": [
+        {
+          "id": "fr-8-1",
+          "title": "At the shop",
+          "items": [
+            { "id": "ca-coute-combien", "text": "Ça coûte combien ?", "en": "How much does it cost?" },
+            { "id": "cest-trop-cher", "text": "C'est trop cher.", "en": "It's too expensive." },
+            { "id": "cest-pas-cher", "text": "C'est pas cher.", "en": "It's cheap." },
+            { "id": "je-le-prends", "text": "Je le prends.", "en": "I'll take it." },
+            { "id": "vous-avez-une-autre-taille", "text": "Vous avez une autre taille ?", "en": "Do you have another size?" },
+            { "id": "je-regarde-seulement", "text": "Je regarde seulement, merci.", "en": "I'm just looking, thanks." }
+          ]
+        },
+        {
+          "id": "fr-8-2",
+          "title": "At the restaurant",
+          "items": [
+            { "id": "une-table-pour-deux", "text": "Une table pour deux, s'il vous plaît.", "en": "A table for two, please." },
+            { "id": "la-carte-svp", "text": "La carte, s'il vous plaît.", "en": "The menu, please." },
+            { "id": "quest-ce-que-vous-conseillez", "text": "Qu'est-ce que vous me conseillez ?", "en": "What do you recommend?" },
+            { "id": "laddition-svp", "text": "L'addition, s'il vous plaît.", "en": "The check, please." },
+            { "id": "je-peux-payer-par-carte", "text": "Je peux payer par carte ?", "en": "Can I pay by card?" },
+            { "id": "le-service-est-compris", "text": "Le service est compris ?", "en": "Is service included?" }
+          ]
+        },
+        {
+          "id": "fr-8-3",
+          "title": "Ordering food",
+          "items": [
+            { "id": "je-voudrais-un-cafe", "text": "Je voudrais un café.", "en": "I'd like a coffee." },
+            { "id": "pour-moi-le-poulet", "text": "Pour moi, le poulet.", "en": "The chicken for me." },
+            { "id": "sans-oignon", "text": "sans oignon", "en": "without onion" },
+            { "id": "je-suis-vegetarien", "text": "Je suis végétarien.", "en": "I'm vegetarian. (man)" },
+            { "id": "cest-delicieux", "text": "C'est délicieux !", "en": "It's delicious!" },
+            { "id": "une-carafe-deau", "text": "Une carafe d'eau, s'il vous plaît.", "en": "A jug of tap water, please." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u9",
+      "title": "My day",
+      "lessons": [
+        {
+          "id": "fr-9-1",
+          "title": "Morning routine",
+          "items": [
+            { "id": "je-me-leve-a-sept-heures", "text": "Je me lève à sept heures.", "en": "I get up at seven." },
+            { "id": "je-me-douche", "text": "Je me douche.", "en": "I take a shower." },
+            { "id": "je-prends-le-petit-dejeuner", "text": "Je prends le petit-déjeuner.", "en": "I have breakfast." },
+            { "id": "je-mhabille", "text": "Je m'habille.", "en": "I get dressed." },
+            { "id": "je-pars-a-huit-heures", "text": "Je pars à huit heures.", "en": "I leave at eight." },
+            { "id": "je-vais-au-travail-en-metro", "text": "Je vais au travail en métro.", "en": "I go to work by subway." }
+          ]
+        },
+        {
+          "id": "fr-9-2",
+          "title": "Time and days",
+          "items": [
+            { "id": "il-est-quelle-heure", "text": "Il est quelle heure ?", "en": "What time is it?" },
+            { "id": "il-est-trois-heures", "text": "Il est trois heures.", "en": "It's three o'clock." },
+            { "id": "aujourdhui", "text": "aujourd'hui", "en": "today" },
+            { "id": "demain", "text": "demain", "en": "tomorrow" },
+            { "id": "hier", "text": "hier", "en": "yesterday" },
+            { "id": "le-lundi-je-travaille", "text": "Le lundi, je travaille.", "en": "On Mondays I work." }
+          ]
+        },
+        {
+          "id": "fr-9-3",
+          "title": "What did you do?",
+          "items": [
+            { "id": "tas-fait-quoi-hier", "text": "Tu as fait quoi hier ?", "en": "What did you do yesterday?" },
+            { "id": "je-suis-alle-au-parc", "text": "Je suis allé au parc.", "en": "I went to the park. (man)" },
+            { "id": "jai-mange-avec-ma-famille", "text": "J'ai mangé avec ma famille.", "en": "I ate with my family." },
+            { "id": "jai-regarde-un-film", "text": "J'ai regardé un film.", "en": "I watched a movie." },
+            { "id": "je-suis-reste-a-la-maison", "text": "Je suis resté à la maison toute la journée.", "en": "I stayed home all day. (man)" },
+            { "id": "je-me-suis-bien-amuse", "text": "Je me suis bien amusé.", "en": "I had a great time. (man)" }
+          ]
+        }
+      ]
     }
   ]
 }
