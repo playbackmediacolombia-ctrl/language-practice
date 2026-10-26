@@ -122,6 +122,44 @@ export function placedLessons(p: Progress, lang: Lang): number {
   return stages.slice(0, upTo + 1).reduce((n, s) => n + s.units.filter((u) => !u.elective).reduce((m, u) => m + u.lessons.length, 0), 0);
 }
 
+/** Main-path lessons before a stage. */
+function startLessons(lang: Lang, stageId: string): number {
+  const stages = getPath(lang);
+  const at = stages.findIndex((s) => s.id === stageId);
+  return stages.slice(0, Math.max(0, at)).reduce((n, s) => n + s.units.filter((u) => !u.elective).reduce((m, u) => m + u.lessons.length, 0), 0);
+}
+
+/** The six levels, Beginner to Fluent, each with its stages (a level spans one or more). */
+export type Level = { name: string; cefr: string; about: string; stages: Stage[] };
+const LEVEL_INFO: Record<string, { cefr: string; about: string }> = {
+  Beginner: { cefr: 'A1', about: 'Brand new: the sounds, first words and short sentences.' },
+  Elementary: { cefr: 'A2', about: 'Meet people, shop, eat out and talk about your day.' },
+  Intermediate: { cefr: 'B1', about: 'Tell stories, describe people, write messages, make plans.' },
+  'Upper-intermediate': { cefr: 'B2', about: 'Work, money, the doctor and sorting out travel problems.' },
+  Advanced: { cefr: 'C1', about: 'Follow the news, give opinions, debate, switch formal and casual.' },
+  Fluent: { cefr: 'C2', about: 'Idioms, slang and the little words that make you sound local.' },
+};
+export function getLevels(lang: Lang): Level[] {
+  const levels: Level[] = [];
+  for (const stage of getPath(lang)) {
+    const last = levels[levels.length - 1];
+    if (last?.name === stage.level) last.stages.push(stage);
+    else levels.push({ name: stage.level, ...(LEVEL_INFO[stage.level] ?? { cefr: '', about: stage.about }), stages: [stage] });
+  }
+  return levels;
+}
+
+/** The level your next lesson is in (the last one when everything's done). */
+export function currentLevel(p: Progress, lang: Lang): string {
+  const states = lessonStates(p, lang);
+  for (const stage of getPath(lang)) for (const u of stage.units) if (!u.elective && u.lessons.some((l) => states.get(l.id) === 'current')) return stage.level;
+  return getPath(lang).at(-1)!.level;
+}
+
+/** Has this language been started at all (a lesson done, a level picked or a test taken)? */
+export const hasStarted = (p: Progress, lang: Lang) =>
+  !!p.placement[lang] || !!p.levelStart?.[lang] || getLessons(lang).some((l) => lessonDone(p, lang, l.id));
+
 /**
  * Where each lesson stands: 'done'; 'current', the first one not done past what a placement test
  * unlocked; 'open', unlocked by the test but not done; or 'locked'.
@@ -130,7 +168,9 @@ export type LessonState = 'done' | 'current' | 'open' | 'locked';
 export function lessonStates(p: Progress, lang: Lang): Map<string, LessonState> {
   const lessons = coreLessons(lang);
   const placed = placedLessons(p, lang);
-  const current = lessons.findIndex((l, i) => i >= placed && !lessonDone(p, lang, l.id));
+  // A picked level sets where your next lesson is; otherwise it's just past what the test unlocked.
+  const start = p.levelStart?.[lang] ? startLessons(lang, p.levelStart[lang]!) : placed;
+  const current = lessons.findIndex((l, i) => i >= start && !lessonDone(p, lang, l.id));
   const states = new Map(
     lessons.map((l, i) => {
       const state: LessonState = lessonDone(p, lang, l.id) ? 'done' : i === current ? 'current' : i < placed || current === -1 ? 'open' : 'locked';

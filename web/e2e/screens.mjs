@@ -28,6 +28,8 @@ const seed = (p, days) => ({
 const SCREENS = [
   ['learn', '#/es'],
   ['learn-mandarin', '#/zh'],
+  ['learn-french-new', '#/fr'],
+  ['level', '#/es/level'],
   ['practice', '#/practice'],
   ['progress', '#/progress'],
   ['settings', '#/settings'],

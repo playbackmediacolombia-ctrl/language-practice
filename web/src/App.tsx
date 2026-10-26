@@ -6,6 +6,7 @@ import { navigate, useRoute } from './lib/router';
 import { isModelReady, loadModel } from './lib/whisper';
 import { Flashcards } from './screens/Flashcards';
 import { Home } from './screens/Home';
+import { LevelScreen } from './screens/Level';
 import { Path } from './screens/Path';
 import { PracticeHub } from './screens/PracticeHub';
 import { ProgressScreen } from './screens/ProgressScreen';
@@ -81,6 +82,7 @@ function Routes() {
     return (
       <Suspense fallback={null}>{mode ? <HandsFreePlayer key={mode} lang={lang} id={mode} /> : <HandsFreeList lang={lang} />}</Suspense>
     );
+  if (topic === 'level') return <LevelScreen lang={lang} />;
   if (topic === 'placement')
     return (
       <Suspense fallback={null}>

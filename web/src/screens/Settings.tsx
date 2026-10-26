@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { playPhrase } from '../lib/audio';
 import { type BackupSummary, currentSummary, readBackup, saveBackup } from '../lib/backup';
-import { getPhrases, getTopics } from '../lib/content';
+import { getPhrases, getTopics, LANGS } from '../lib/content';
+import { currentLevel, hasStarted } from '../lib/course';
 import { onOldAddress } from '../lib/move';
 import { BUILD, checkForUpdate, formatBytes, offlineStatus, type OfflineStatus, useOnline } from '../lib/offline';
 import { GOALS, resetProgress, setGoal, setPref, setSpeaking, setVoice, type Speed, type Theme, useProgress } from '../lib/progress';
 import { chosenModel, deleteModel, isModelReady, loadModel, type ModelKey, MODELS, setChosenModel } from '../lib/whisper';
 import { tapFeedback } from '../lib/fx';
 import { navigate } from '../lib/router';
-import { Icon, ProgressBar, Screen, Segmented, Toggle } from '../ui';
+import { Icon, LangIcon, ProgressBar, Screen, Segmented, Toggle } from '../ui';
 
 export function Settings() {
   const [model, setModel] = useState<ModelKey>(chosenModel());
@@ -219,6 +220,20 @@ export function Settings() {
             </button>
           )}
         </div>
+      </div>
+
+      <div className="section-title">Your level</div>
+      <div className="list" data-testid="settings-levels">
+        {LANGS.map((l) => (
+          <button key={l.id} className="list-row link" onClick={() => navigate(`/${l.id}/level`)} data-testid={`settings-level-${l.id}`}>
+            <LangIcon lang={l.id} size={34} />
+            <span className="grow">
+              <span className="row-title">{l.name}</span>
+              <span className="row-hint">{hasStarted(prefs, l.id) ? currentLevel(prefs, l.id) : 'Not started'} · change level</span>
+            </span>
+            <Icon name="chevron" />
+          </button>
+        ))}
       </div>
 
       <div className="section-title">{onOldAddress ? 'New address' : 'Moving from the old address'}</div>

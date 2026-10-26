@@ -4,7 +4,7 @@ import { registerSW } from 'virtual:pwa-register';
 import { App } from './App';
 import { applyUpdateWhenIdle, requestPersistence, watchForUpdates } from './lib/offline';
 import { initTheme } from './lib/theme';
-import '@fontsource-variable/nunito/wght.css'; // rounded, friendly type (SIL Open Font License), bundled so it works offline
+import '@fontsource-variable/plus-jakarta-sans/wght.css'; // Plus Jakarta Sans (SIL Open Font License), bundled so it works offline
 import './styles.css';
 
 const updateSW = registerSW({

@@ -19,6 +19,9 @@ export const PALETTE = {
 };
 const P = PALETTE;
 
+/** Banner colors by stage, from the logo (see .tone-* in styles.css). */
+export const TONES = ['blue', 'sun', 'sky', 'orange', 'navy'];
+
 /** A five-pointed star centred on (x, y), for the Chinese flag. */
 function star(x: number, y: number, r: number, turn = 0) {
   const pts = Array.from({ length: 10 }, (_, i) => {
@@ -84,7 +87,7 @@ const STICKERS: Record<string, ReactNode> = {
   words: (
     <>
       <path d="M12 18a6 6 0 0 1 6-6h28a6 6 0 0 1 6 6v18a6 6 0 0 1-6 6H28l-10 8v-8a6 6 0 0 1-6-6Z" fill={P.skyLight} {...S} />
-      <text x="32" y="34" textAnchor="middle" fontSize="18" fontWeight="900" fill={P.white} fontFamily="Nunito Variable, sans-serif">
+      <text x="32" y="34" textAnchor="middle" fontSize="18" fontWeight="800" fill={P.white} fontFamily="Plus Jakarta Sans Variable, sans-serif">
         hi!
       </text>
     </>
@@ -185,8 +188,8 @@ const STICKERS: Record<string, ReactNode> = {
     <>
       <path d="M6 18a5 5 0 0 1 5-5h18a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H18l-7 6v-6a5 5 0 0 1-5-5Z" fill={P.red} {...S} />
       <path d="M58 30a5 5 0 0 0-5-5H35a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h11l7 6v-6a5 5 0 0 0 5-5Z" fill={P.blue} {...S} />
-      <text x="20" y="29" textAnchor="middle" fontSize="15" fontWeight="900" fill={P.white} fontFamily="Nunito Variable, sans-serif">!</text>
-      <text x="44" y="41" textAnchor="middle" fontSize="15" fontWeight="900" fill={P.white} fontFamily="Nunito Variable, sans-serif">?</text>
+      <text x="20" y="29" textAnchor="middle" fontSize="15" fontWeight="800" fill={P.white} fontFamily="Plus Jakarta Sans Variable, sans-serif">!</text>
+      <text x="44" y="41" textAnchor="middle" fontSize="15" fontWeight="800" fill={P.white} fontFamily="Plus Jakarta Sans Variable, sans-serif">?</text>
     </>
   ),
   bowtie: (

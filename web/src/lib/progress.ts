@@ -37,6 +37,8 @@ export type Progress = {
   roleplays: Record<string, number>;
   /** Placement test result per language: the last stage tested out of (it and every stage before it are unlocked). */
   placement: Partial<Record<Lang, string>>;
+  /** Pick your level: the stage you chose to start at, per language. Your next lesson is the first one not done from there. */
+  levelStart: Partial<Record<Lang, string>>;
   /** Big achievements already celebrated (see achievements.ts); null until first worked out. */
   celebrated: string[] | null;
   /** Per day and language: answers right (r) and given (n), and seconds practiced (s). For the stats. */
@@ -78,6 +80,7 @@ const EMPTY: Progress = {
   writing: {},
   stories: {},
   placement: {},
+  levelStart: {},
   celebrated: null,
   shadow: {},
   roleplays: {},
@@ -311,7 +314,27 @@ export const markCelebrated = (keys: string[]) =>
   update((p) => ({ ...p, celebrated: [...new Set([...(p.celebrated ?? []), ...keys])] }));
 
 /** Unlocks a language's path up to and including a stage (see placement.ts, which never moves it back). */
-export const setPlacement = (lang: Lang, stageId: string) => update((p) => ({ ...p, placement: { ...p.placement, [lang]: stageId } }));
+/** The placement test's result: unlocks up to that stage, and your next lesson is just past it. */
+export const setPlacement = (lang: Lang, stageId: string) =>
+  update((p) => {
+    const { [lang]: _, ...levelStart } = p.levelStart;
+    return { ...p, placement: { ...p.placement, [lang]: stageId }, levelStart };
+  });
+
+/**
+ * Pick your level: start at `startStage`, with everything before it unlocked (`unlockTo`, the
+ * stage just before it, or null at the very start). Never locks anything already unlocked and
+ * never touches XP, streak or finished lessons.
+ */
+export const pickLevel = (lang: Lang, startStage: string, unlockTo: string | null, stageOrder: string[]) =>
+  update((p) => {
+    const had = p.placement[lang];
+    const keep = had && (!unlockTo || stageOrder.indexOf(had) > stageOrder.indexOf(unlockTo)) ? had : unlockTo;
+    const placement = { ...p.placement };
+    if (keep) placement[lang] = keep;
+    else delete placement[lang];
+    return { ...p, placement, levelStart: { ...p.levelStart, [lang]: startStage } };
+  });
 
 /** One line repeated in shadowing, graded by Whisper (null: not graded, no speech model). */
 export const recordShadowLine = (lang: Lang, score: number | null) => score !== null && update((p) => tally(p, lang, score >= 0.5));

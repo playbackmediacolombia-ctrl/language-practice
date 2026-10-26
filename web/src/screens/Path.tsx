@@ -1,10 +1,11 @@
 import { type CSSProperties, useEffect, useState } from 'react';
-import { Flag, Sticker, UnitArt } from '../art';
+import { Flag, Sticker, TONES, UnitArt } from '../art';
 import { type Lang, LANGS } from '../lib/content';
-import { getLessons, getPath, lessonStates, weakItems } from '../lib/course';
+import { currentLevel, getLessons, getLevels, getPath, hasStarted, lessonStates, weakItems } from '../lib/course';
 import { tapFeedback } from '../lib/fx';
 import { heartsNow, lessonDone, type Progress, streak, todayXp, useProgress, weakness } from '../lib/progress';
 import { newHomeIsLive, onOldAddress } from '../lib/move';
+import { LevelTiles } from './Level';
 import { navigate } from '../lib/router';
 import { isModelReady } from '../lib/whisper';
 import { CountUp, Flame, Icon, ProgressBar } from '../ui';
@@ -107,8 +108,6 @@ export function LangSwitcher({ lang, to }: { lang: Lang; to: (l: Lang) => string
 
 /** How far each lesson node sits from the middle, so the path winds back and forth. */
 const WIND = [0, 46, 74, 46, 0, -46, -74, -46];
-/** Unit banner colors, from the logo, by stage. */
-const TONES = ['blue', 'sun', 'sky', 'orange', 'navy'];
 
 let scrollToCurrent = false;
 /** The next time the path opens, scroll to the current lesson (after a placement test moved it far down). */
@@ -160,9 +159,9 @@ export function Path({ lang }: { lang: Lang }) {
   const states = lessonStates(progress, lang);
   const learned = lessons.filter((l) => lessonDone(progress, lang, l.id)).flatMap((l) => l.items);
   const weak = weakItems(progress, lang, learned.length).filter((i) => weakness(progress, lang, i.id) < 3);
-  const name = LANGS.find((l) => l.id === lang)!.name;
-  // Offer the placement test until it's been taken or the path is well under way.
-  const offerPlacement = !progress.placement[lang] && lessons.filter((l) => lessonDone(progress, lang, l.id)).length < 12;
+  // A language not started yet opens with Pick your level; afterwards a bar shows the level to change it.
+  const started = hasStarted(progress, lang);
+  const level = getLevels(lang).find((l) => l.name === currentLevel(progress, lang))!;
 
   const open = (path: string) => {
     tapFeedback();
@@ -202,15 +201,30 @@ export function Path({ lang }: { lang: Lang }) {
           onRemind={() => open('/settings/reminder')}
         />
 
-        {(offerPlacement || learned.length >= 4 || (progress.speaking && !isModelReady())) && (
+        {started ? (
+          <button className="level-bar" onClick={() => open(`/${lang}/level`)} data-testid="level-change">
+            <span className="level-bar-label">Level</span>
+            <span className="grow level-bar-name">
+              {level.name} <span className="muted">{level.cefr}</span>
+            </span>
+            <span className="level-bar-cta">Change</span>
+          </button>
+        ) : (
+          <section className="card level-start" data-testid="level-start">
+            <h2 className="start-title">Where do you want to start?</h2>
+            <p className="muted">Pick any level. Everything below it unlocks, and you can change it any time.</p>
+            <LevelTiles
+              lang={lang}
+              onPicked={() => requestAnimationFrame(() => document.querySelector('.lesson-node.current')?.scrollIntoView({ block: 'center', behavior: 'smooth' }))}
+            />
+            <button className="btn secondary" onClick={() => open(`/${lang}/placement`)} data-testid="placement-card">
+              <Icon name="target" size={20} /> Not sure? Take a quick test
+            </button>
+          </section>
+        )}
+
+        {(learned.length >= 4 || (progress.speaking && !isModelReady())) && (
           <div className="quick-row">
-            {offerPlacement && (
-              <button className="quick" data-testid="placement-card" onClick={() => open(`/${lang}/placement`)} aria-label={`Already know some ${name}? Take the placement test`}>
-                <Sticker name="trophy" size={44} />
-                <span className="quick-title">Placement test</span>
-                <span className="quick-hint">Know some {name}? Skip ahead</span>
-              </button>
-            )}
             {learned.length >= 4 && (
               <button className="quick" onClick={() => open(`/${lang}/learn/review`)} aria-label="Review weak words">
                 <Sticker name="bulb" size={44} />
@@ -284,6 +298,7 @@ export function Path({ lang }: { lang: Lang }) {
                           {state === 'current' && <span className="node-cta">Start</span>}
                           <button
                             className={`lesson-node ${state}`}
+                            data-lesson={lesson.id}
                             disabled={state === 'locked'}
                             onClick={() => open(`/${lang}/learn/${lesson.id}`)}
                           >
@@ -292,7 +307,7 @@ export function Path({ lang }: { lang: Lang }) {
                             </span>
                             <span className="sr-only">
                               {lesson.title}
-                              {state === 'done' ? ', done: practice again' : state === 'open' ? ', tested out' : state === 'locked' ? ', locked' : ''}
+                              {state === 'done' ? ', done: practice again' : state === 'open' ? ', unlocked' : state === 'locked' ? ', locked' : ''}
                             </span>
                           </button>
                           <span className="node-label" aria-hidden="true">

@@ -28,7 +28,8 @@ export function earned(p: Progress): Achievement[] {
   for (const { id: lang, name } of LANGS) {
     const stages = getPath(lang);
     const placedAt = stages.findIndex((s) => s.id === p.placement[lang]);
-    if (placedAt >= 0) {
+    // A level you picked yourself isn't a test result, so only the placement test gets celebrated.
+    if (placedAt >= 0 && !p.levelStart?.[lang]) {
       out.push({
         key: `placement:${lang}:${stages[placedAt].id}`,
         rank: 3,
