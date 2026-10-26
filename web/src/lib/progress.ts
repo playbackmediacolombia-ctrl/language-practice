@@ -27,6 +27,8 @@ export type Progress = {
   writing: Record<string, WritingProgress>;
   /** Stories and dialogues finished: best share of questions right (0..1). Key: `${lang}:${storyId}`. */
   stories: Record<string, number>;
+  /** Placement test result per language: the last stage tested out of (it and every stage before it are unlocked). */
+  placement: Partial<Record<Lang, string>>;
   /** Per day and language: answers right (r) and given (n), and seconds practiced (s). For the stats. */
   log: Record<string, Partial<Record<Lang, { r: number; n: number; s: number }>>>;
   hearts: number;
@@ -58,6 +60,7 @@ const EMPTY: Progress = {
   srs: {},
   writing: {},
   stories: {},
+  placement: {},
   log: {},
   hearts: MAX_HEARTS,
   heartsAt: 0,
@@ -250,6 +253,9 @@ export function recordStory(lang: Lang, storyId: string, score: number, xp: numb
   update((p) => ({ ...p, stories: { ...p.stories, [k]: Math.max(score, p.stories[k] ?? 0) } }));
   completeLesson(lang, null, xp);
 }
+
+/** Unlocks a language's path up to and including a stage (see placement.ts, which never moves it back). */
+export const setPlacement = (lang: Lang, stageId: string) => update((p) => ({ ...p, placement: { ...p.placement, [lang]: stageId } }));
 
 /** A character finished in the writing practice ('trace' over the outline, or from 'memory'). */
 export function recordWriting(char: string, mode: 'trace' | 'memory', mistakes: number) {

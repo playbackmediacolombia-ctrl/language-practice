@@ -108,6 +108,13 @@ export function reviewExercises(items: Item[], all: Item[], lang: Lang, speaking
   return result;
 }
 
+/** A placement test question about `item`: read it, produce it or hear it (by turn), with distractors from `near`. */
+export function placementQuestion(item: Item, near: Item[], n: number): Exercise {
+  if (item.kind === 'sound') return choice('listen', item, near, near);
+  const kind = (['meaning', 'translate', 'listen'] as const)[n % 3];
+  return kind === 'meaning' ? meaning(item, near, near, false) : choice(kind, item, near, near);
+}
+
 // ---- Checking typed answers ----
 
 export type TypedResult = { right: boolean; note?: string };

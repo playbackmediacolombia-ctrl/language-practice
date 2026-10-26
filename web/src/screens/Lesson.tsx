@@ -46,7 +46,7 @@ type Result = {
 
 const testHook = location.search.includes('test');
 
-function autoPlay(ex: Exercise | undefined) {
+export function autoPlay(ex: Exercise | undefined) {
   if (ex && (ex.type === 'meaning' || ex.type === 'listen' || ex.type === 'type')) playPhrase(ex.item.audio);
 }
 
@@ -288,7 +288,7 @@ function NoHeartsMessage({ lang }: { lang: Lang }) {
   );
 }
 
-function LessonFrame({
+export function LessonFrame({
   onQuit,
   value,
   hearts,
@@ -387,9 +387,16 @@ function CheckBar({ disabled, onCheck, children }: { disabled: boolean; onCheck:
   );
 }
 
-type ViewProps = { ex: Exercise; lang: Lang; answered: boolean; onSubmit: (r: Result) => void };
+type ViewProps = {
+  ex: Exercise;
+  lang: Lang;
+  answered: boolean;
+  onSubmit: (r: Result) => void;
+  /** Adds an "I don't know" button (the placement test, where guessing would skew the result). */
+  onSkip?: () => void;
+};
 
-function ExerciseView(props: ViewProps) {
+export function ExerciseView(props: ViewProps) {
   switch (props.ex.type) {
     case 'meaning':
     case 'listen':
@@ -406,7 +413,7 @@ function ExerciseView(props: ViewProps) {
   }
 }
 
-function ChoiceExercise({ ex, answered, onSubmit }: ViewProps) {
+function ChoiceExercise({ ex, answered, onSubmit, onSkip }: ViewProps) {
   const [picked, setPicked] = useState<number | null>(null);
   if (ex.type !== 'meaning' && ex.type !== 'listen' && ex.type !== 'translate') return null;
 
@@ -463,7 +470,13 @@ function ChoiceExercise({ ex, answered, onSubmit }: ViewProps) {
         <CheckBar
           disabled={picked === null}
           onCheck={() => onSubmit({ right: picked === correct, free: ex.type === 'meaning' && ex.isNew })}
-        />
+        >
+          {onSkip && (
+            <button className="btn secondary" onClick={onSkip}>
+              I don't know
+            </button>
+          )}
+        </CheckBar>
       )}
     </>
   );

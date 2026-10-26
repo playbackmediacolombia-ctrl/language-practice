@@ -399,6 +399,7 @@ button.card { text-align: left; width: 100%; cursor: pointer; }
 }
 .lesson-node.done .node-dot { background: var(--ok-bright); color: #fff; }
 .lesson-node.current .node-dot { background: var(--accent-fill); color: #fff; animation: beacon 2.2s ease-out infinite; }
+.lesson-node.open .node-dot { background: var(--accent-bg); color: var(--accent); }
 @keyframes beacon {
   0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
   70%, 100% { box-shadow: 0 0 0 10px transparent; }

@@ -22,6 +22,7 @@ const WritingChar = lazy(() => import('./screens/Writing').then((m) => ({ defaul
 // Practice and Lesson pull in the Chinese pinyin dictionary, so they load only when opened.
 const Practice = lazy(() => import('./screens/Practice'));
 const Lesson = lazy(() => import('./screens/Lesson'));
+const Placement = lazy(() => import('./screens/Placement'));
 
 export function App() {
   const tab = useActiveTab();
@@ -62,6 +63,12 @@ function Routes() {
     navigate('/practice', { replace: true });
     return null;
   }
+  if (topic === 'placement')
+    return (
+      <Suspense fallback={null}>
+        <Placement lang={lang} />
+      </Suspense>
+    );
   if (topic === 'learn' && mode)
     return (
       <Suspense fallback={null}>

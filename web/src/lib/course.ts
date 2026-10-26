@@ -105,6 +105,30 @@ export function getItem(lang: Lang, id: string): Item | undefined {
   return undefined;
 }
 
+/** How many lessons, from the start of the path, a placement test unlocked. */
+export function placedLessons(p: Progress, lang: Lang): number {
+  const stages = getPath(lang);
+  const upTo = stages.findIndex((s) => s.id === p.placement[lang]);
+  return stages.slice(0, upTo + 1).reduce((n, s) => n + s.units.reduce((m, u) => m + u.lessons.length, 0), 0);
+}
+
+/**
+ * Where each lesson stands: 'done'; 'current', the first one not done past what a placement test
+ * unlocked; 'open', unlocked by the test but not done; or 'locked'.
+ */
+export type LessonState = 'done' | 'current' | 'open' | 'locked';
+export function lessonStates(p: Progress, lang: Lang): Map<string, LessonState> {
+  const lessons = getLessons(lang);
+  const placed = placedLessons(p, lang);
+  const current = lessons.findIndex((l, i) => i >= placed && !lessonDone(p, lang, l.id));
+  return new Map(
+    lessons.map((l, i) => {
+      const state: LessonState = lessonDone(p, lang, l.id) ? 'done' : i === current ? 'current' : i < placed || current === -1 ? 'open' : 'locked';
+      return [l.id, state];
+    }),
+  );
+}
+
 /** Number of the unit within the whole path (1-based), for display. */
 export function unitNumber(lang: Lang, unitId: string): number {
   return getPath(lang).flatMap((s) => s.units).findIndex((u) => u.id === unitId) + 1;

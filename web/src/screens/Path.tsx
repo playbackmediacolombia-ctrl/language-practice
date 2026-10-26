@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import { type Lang, LANGS } from '../lib/content';
-import { getLessons, getPath, weakItems } from '../lib/course';
+import { getLessons, getPath, lessonStates, weakItems } from '../lib/course';
 import { tapFeedback } from '../lib/fx';
 import { heartsNow, lessonDone, type Progress, streak, todayXp, useProgress, weakness } from '../lib/progress';
 import { navigate } from '../lib/router';
@@ -59,14 +60,24 @@ export function LangSwitcher({ lang, to }: { lang: Lang; to: (l: Lang) => string
   );
 }
 
+let scrollToCurrent = false;
+/** The next time the path opens, scroll to the current lesson (after a placement test moved it far down). */
+export const showCurrentLesson = () => (scrollToCurrent = true);
+
 export function Path({ lang }: { lang: Lang }) {
   const progress = useProgress();
+  useEffect(() => {
+    if (!scrollToCurrent) return;
+    scrollToCurrent = false;
+    (document.querySelector('.lesson-node.current') ?? document.querySelector('.lesson-node.open'))?.scrollIntoView({ block: 'center' });
+  }, []);
   const lessons = getLessons(lang);
-  // The first lesson not yet finished; everything after it is locked.
-  const current = lessons.findIndex((l) => !lessonDone(progress, lang, l.id));
+  const states = lessonStates(progress, lang);
   const learned = lessons.filter((l) => lessonDone(progress, lang, l.id)).flatMap((l) => l.items);
   const weak = weakItems(progress, lang, learned.length).filter((i) => weakness(progress, lang, i.id) < 3);
-  let lessonNumber = 0;
+  const name = LANGS.find((l) => l.id === lang)!.name;
+  // Offer the placement test until it's been taken or the path is well under way.
+  const offerPlacement = !progress.placement[lang] && lessons.filter((l) => lessonDone(progress, lang, l.id)).length < 12;
 
   const open = (path: string) => {
     tapFeedback();
@@ -77,6 +88,21 @@ export function Path({ lang }: { lang: Lang }) {
     <Screen title="Learn" large>
       <LangSwitcher lang={lang} to={(l) => `/${l}`} />
       <StatsBar progress={progress} />
+
+      {offerPlacement && (
+        <button className="card review-card" data-testid="placement-card" onClick={() => open(`/${lang}/placement`)}>
+          <div className="row">
+            <span className="row-icon">
+              <Icon name="target" />
+            </span>
+            <div className="grow">
+              <div style={{ fontWeight: 700, fontSize: 17 }}>Already know some {name}?</div>
+              <p className="muted small">Take a 5-minute placement test to skip ahead to your level.</p>
+            </div>
+            <Icon name="chevron" style={{ color: 'var(--faint)' }} />
+          </div>
+        </button>
+      )}
 
       {learned.length >= 4 && (
         <button className="card review-card" onClick={() => open(`/${lang}/learn/review`)}>
@@ -150,8 +176,7 @@ export function Path({ lang }: { lang: Lang }) {
                 <ProgressBar value={done / unit.lessons.length} />
                 <ol className="lessons">
                   {unit.lessons.map((lesson) => {
-                    const n = lessonNumber++;
-                    const state = current === -1 || n < current ? 'done' : n === current ? 'current' : 'locked';
+                    const state = states.get(lesson.id)!;
                     return (
                       <li key={lesson.id}>
                         <button
@@ -160,11 +185,12 @@ export function Path({ lang }: { lang: Lang }) {
                           onClick={() => open(`/${lang}/learn/${lesson.id}`)}
                         >
                           <span className="node-dot">
-                            <Icon name={state === 'done' ? 'check' : state === 'current' ? 'play' : 'lock'} size={state === 'current' ? 18 : 20} />
+                            <Icon name={state === 'done' ? 'check' : state === 'locked' ? 'lock' : 'play'} size={state === 'done' || state === 'locked' ? 20 : 18} />
                           </span>
                           <span className="grow">{lesson.title}</span>
                           {state === 'current' && <span className="node-cta">Start</span>}
                           {state === 'done' && <span className="muted small">Practice</span>}
+                          {state === 'open' && <span className="muted small">Tested out</span>}
                         </button>
                       </li>
                     );
@@ -175,6 +201,12 @@ export function Path({ lang }: { lang: Lang }) {
           })}
         </section>
       ))}
+
+      {progress.placement[lang] && (
+        <button className="btn secondary" style={{ marginTop: 8 }} onClick={() => open(`/${lang}/placement`)}>
+          <Icon name="target" size={18} /> Retake the placement test
+        </button>
+      )}
     </Screen>
   );
 }
