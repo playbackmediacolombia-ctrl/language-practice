@@ -105,6 +105,174 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u3",
+      "title": "Family and home",
+      "lessons": [
+        {
+          "id": "es-3-1",
+          "title": "My family",
+          "items": [
+            { "id": "hermano", "text": "hermano", "en": "brother" },
+            { "id": "hermana", "text": "hermana", "en": "sister" },
+            { "id": "abuela", "text": "abuela", "en": "grandma" },
+            { "id": "abuelo", "text": "abuelo", "en": "grandpa" },
+            { "id": "es-mi-hermano", "text": "Es mi hermano.", "en": "He's my brother." },
+            { "id": "tengo-una-hermana", "text": "Tengo una hermana.", "en": "I have a sister." }
+          ]
+        },
+        {
+          "id": "es-3-2",
+          "title": "At home",
+          "items": [
+            { "id": "cocina", "text": "cocina", "en": "kitchen" },
+            { "id": "cuarto", "text": "cuarto", "en": "bedroom" },
+            { "id": "cama", "text": "cama", "en": "bed" },
+            { "id": "puerta", "text": "puerta", "en": "door" },
+            { "id": "mi-cuarto-es-grande", "text": "Mi cuarto es grande.", "en": "My bedroom is big." },
+            { "id": "la-casa-es-pequena", "text": "La casa es pequeña.", "en": "The house is small." }
+          ]
+        },
+        {
+          "id": "es-3-3",
+          "title": "Eat and sleep",
+          "items": [
+            { "id": "comer", "text": "comer", "en": "to eat" },
+            { "id": "dormir", "text": "dormir", "en": "to sleep" },
+            { "id": "tengo-hambre", "text": "Tengo hambre.", "en": "I'm hungry." },
+            { "id": "tengo-sueno", "text": "Tengo sueño.", "en": "I'm sleepy." },
+            { "id": "buenas-noches", "text": "Buenas noches.", "en": "Good night." },
+            { "id": "vamos-a-comer", "text": "Vamos a comer.", "en": "Let's eat." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u4",
+      "title": "I want, I have, I like",
+      "lessons": [
+        {
+          "id": "es-4-1",
+          "title": "I want to…",
+          "items": [
+            { "id": "jugar", "text": "jugar", "en": "to play" },
+            { "id": "quiero-jugar", "text": "Quiero jugar.", "en": "I want to play." },
+            { "id": "quiero-dormir", "text": "Quiero dormir.", "en": "I want to sleep." },
+            { "id": "quieres-agua", "text": "¿Quieres agua?", "en": "Do you want water?" },
+            { "id": "no-quiero", "text": "No quiero.", "en": "I don't want to." },
+            { "id": "quiero-ir-a-casa", "text": "Quiero ir a casa.", "en": "I want to go home." }
+          ]
+        },
+        {
+          "id": "es-4-2",
+          "title": "I have",
+          "items": [
+            { "id": "pelota", "text": "pelota", "en": "ball" },
+            { "id": "libro", "text": "libro", "en": "book" },
+            { "id": "tengo-un-libro", "text": "Tengo un libro.", "en": "I have a book." },
+            { "id": "tienes-un-lapiz", "text": "¿Tienes un lápiz?", "en": "Do you have a pencil?" },
+            { "id": "no-tengo-hermanos", "text": "No tengo hermanos.", "en": "I don't have any brothers or sisters." },
+            { "id": "ella-tiene-un-perro", "text": "Ella tiene un perro.", "en": "She has a dog." }
+          ]
+        },
+        {
+          "id": "es-4-3",
+          "title": "I like",
+          "items": [
+            { "id": "chocolate", "text": "chocolate", "en": "chocolate" },
+            { "id": "me-gusta", "text": "me gusta", "en": "I like" },
+            { "id": "me-gusta-el-chocolate", "text": "Me gusta el chocolate.", "en": "I like chocolate." },
+            { "id": "no-me-gusta-la-leche", "text": "No me gusta la leche.", "en": "I don't like milk." },
+            { "id": "te-gustan-los-perros", "text": "¿Te gustan los perros?", "en": "Do you like dogs?" },
+            { "id": "me-encanta", "text": "¡Me encanta!", "en": "I love it!" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u5",
+      "title": "Colors, numbers and questions",
+      "lessons": [
+        {
+          "id": "es-5-1",
+          "title": "Colors",
+          "items": [
+            { "id": "azul", "text": "azul", "en": "blue" },
+            { "id": "verde", "text": "verde", "en": "green" },
+            { "id": "amarillo", "text": "amarillo", "en": "yellow" },
+            { "id": "blanco", "text": "blanco", "en": "white" },
+            { "id": "el-carro-es-azul", "text": "El carro es azul.", "en": "The car is blue." },
+            { "id": "la-casa-blanca", "text": "la casa blanca", "en": "the white house" }
+          ]
+        },
+        {
+          "id": "es-5-2",
+          "title": "How many?",
+          "items": [
+            { "id": "dos-gatos", "text": "dos gatos", "en": "two cats" },
+            { "id": "tres-manzanas", "text": "tres manzanas", "en": "three apples" },
+            { "id": "cinco-libros", "text": "cinco libros", "en": "five books" },
+            { "id": "diez-perros", "text": "diez perros", "en": "ten dogs" },
+            { "id": "cuantos-anos-tienes", "text": "¿Cuántos años tienes?", "en": "How old are you?" },
+            { "id": "tengo-siete-anos", "text": "Tengo siete años.", "en": "I'm seven years old." }
+          ]
+        },
+        {
+          "id": "es-5-3",
+          "title": "What? Who? Where?",
+          "items": [
+            { "id": "que-es-esto", "text": "¿Qué es esto?", "en": "What is this?" },
+            { "id": "quien-es", "text": "¿Quién es?", "en": "Who is it?" },
+            { "id": "donde-esta-mama", "text": "¿Dónde está mamá?", "en": "Where is mom?" },
+            { "id": "por-que", "text": "¿Por qué?", "en": "Why?" },
+            { "id": "es-un-gato", "text": "Es un gato.", "en": "It's a cat." },
+            { "id": "como-te-llamas", "text": "¿Cómo te llamas?", "en": "What's your name?" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u6",
+      "title": "Where things are",
+      "lessons": [
+        {
+          "id": "es-6-1",
+          "title": "In, on, under",
+          "items": [
+            { "id": "en", "text": "en", "en": "in / on" },
+            { "id": "debajo-de", "text": "debajo de", "en": "under" },
+            { "id": "encima-de", "text": "encima de", "en": "on top of" },
+            { "id": "el-libro-esta-en-la-mesa", "text": "El libro está en la mesa.", "en": "The book is on the table." },
+            { "id": "el-gato-esta-debajo-de-la-cama", "text": "El gato está debajo de la cama.", "en": "The cat is under the bed." },
+            { "id": "la-leche-esta-en-la-cocina", "text": "La leche está en la cocina.", "en": "The milk is in the kitchen." }
+          ]
+        },
+        {
+          "id": "es-6-2",
+          "title": "Here and there",
+          "items": [
+            { "id": "aqui", "text": "aquí", "en": "here" },
+            { "id": "alli", "text": "allí", "en": "there" },
+            { "id": "cerca", "text": "cerca", "en": "near" },
+            { "id": "lejos", "text": "lejos", "en": "far" },
+            { "id": "el-bano-esta-alli", "text": "El baño está allí.", "en": "The bathroom is over there." },
+            { "id": "esta-cerca", "text": "¿Está cerca?", "en": "Is it near?" }
+          ]
+        },
+        {
+          "id": "es-6-3",
+          "title": "Left and right",
+          "items": [
+            { "id": "izquierda", "text": "izquierda", "en": "left" },
+            { "id": "derecha", "text": "derecha", "en": "right" },
+            { "id": "derecho", "text": "derecho", "en": "straight ahead" },
+            { "id": "gira-a-la-izquierda", "text": "Gira a la izquierda.", "en": "Turn left." },
+            { "id": "sigue-derecho", "text": "Sigue derecho.", "en": "Go straight ahead." },
+            { "id": "esta-a-la-derecha", "text": "Está a la derecha.", "en": "It's on the right." }
+          ]
+        }
+      ]
     }
   ]
 }

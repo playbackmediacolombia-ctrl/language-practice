@@ -104,6 +104,174 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u3",
+      "title": "Family and home",
+      "lessons": [
+        {
+          "id": "zh-3-1",
+          "title": "My family",
+          "items": [
+            { "id": "gege", "text": "哥哥", "pinyin": "gēge", "en": "older brother" },
+            { "id": "jiejie", "text": "姐姐", "pinyin": "jiějie", "en": "older sister" },
+            { "id": "nainai", "text": "奶奶", "pinyin": "nǎinai", "en": "grandma (dad's mom)" },
+            { "id": "yeye", "text": "爷爷", "pinyin": "yéye", "en": "grandpa (dad's dad)" },
+            { "id": "zhe-shi-wo-gege", "text": "这是我哥哥", "pinyin": "zhè shì wǒ gēge", "en": "This is my older brother.", "tiles": ["这", "是", "我", "哥哥"] },
+            { "id": "wo-you-yige-jiejie", "text": "我有一个姐姐", "pinyin": "wǒ yǒu yí ge jiějie", "en": "I have an older sister.", "tiles": ["我", "有", "一个", "姐姐"] }
+          ]
+        },
+        {
+          "id": "zh-3-2",
+          "title": "At home",
+          "items": [
+            { "id": "chufang", "text": "厨房", "pinyin": "chúfáng", "en": "kitchen" },
+            { "id": "fangjian", "text": "房间", "pinyin": "fángjiān", "en": "room" },
+            { "id": "chuang", "text": "床", "pinyin": "chuáng", "en": "bed" },
+            { "id": "men", "text": "门", "pinyin": "mén", "en": "door" },
+            { "id": "wode-fangjian-hen-da", "text": "我的房间很大", "pinyin": "wǒ de fángjiān hěn dà", "en": "My room is big.", "tiles": ["我的", "房间", "很", "大"] },
+            { "id": "jia-hen-xiao", "text": "我家很小", "pinyin": "wǒ jiā hěn xiǎo", "en": "My home is small.", "tiles": ["我", "家", "很", "小"] }
+          ]
+        },
+        {
+          "id": "zh-3-3",
+          "title": "Eat and sleep",
+          "items": [
+            { "id": "chifan", "text": "吃饭", "pinyin": "chīfàn", "en": "to eat (a meal)" },
+            { "id": "shuijiao", "text": "睡觉", "pinyin": "shuìjiào", "en": "to sleep" },
+            { "id": "wo-e-le", "text": "我饿了", "pinyin": "wǒ è le", "en": "I'm hungry.", "tiles": ["我", "饿", "了"] },
+            { "id": "wo-kun-le", "text": "我困了", "pinyin": "wǒ kùn le", "en": "I'm sleepy.", "tiles": ["我", "困", "了"] },
+            { "id": "wanan", "text": "晚安", "pinyin": "wǎn'ān", "en": "Good night." },
+            { "id": "chifan-le", "text": "吃饭了", "pinyin": "chīfàn le", "en": "Time to eat!", "tiles": ["吃饭", "了"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u4",
+      "title": "I want, I have, I like",
+      "lessons": [
+        {
+          "id": "zh-4-1",
+          "title": "I want to…",
+          "items": [
+            { "id": "wan", "text": "玩", "pinyin": "wán", "en": "to play" },
+            { "id": "wo-xiang-wan", "text": "我想玩", "pinyin": "wǒ xiǎng wán", "en": "I want to play.", "tiles": ["我", "想", "玩"] },
+            { "id": "wo-xiang-shuijiao", "text": "我想睡觉", "pinyin": "wǒ xiǎng shuìjiào", "en": "I want to sleep.", "tiles": ["我", "想", "睡觉"] },
+            { "id": "ni-yao-he-shui-ma", "text": "你要喝水吗？", "pinyin": "nǐ yào hē shuǐ ma?", "en": "Do you want some water?", "tiles": ["你", "要", "喝", "水", "吗"] },
+            { "id": "wo-bu-xiang", "text": "我不想", "pinyin": "wǒ bù xiǎng", "en": "I don't want to.", "tiles": ["我", "不", "想"] },
+            { "id": "wo-xiang-huijia", "text": "我想回家", "pinyin": "wǒ xiǎng huí jiā", "en": "I want to go home.", "tiles": ["我", "想", "回", "家"] }
+          ]
+        },
+        {
+          "id": "zh-4-2",
+          "title": "I have",
+          "items": [
+            { "id": "qiu", "text": "球", "pinyin": "qiú", "en": "ball" },
+            { "id": "shu", "text": "书", "pinyin": "shū", "en": "book" },
+            { "id": "wo-you-yiben-shu", "text": "我有一本书", "pinyin": "wǒ yǒu yì běn shū", "en": "I have a book.", "tiles": ["我", "有", "一本", "书"] },
+            { "id": "ni-you-bi-ma", "text": "你有笔吗？", "pinyin": "nǐ yǒu bǐ ma?", "en": "Do you have a pen?", "tiles": ["你", "有", "笔", "吗"] },
+            { "id": "wo-meiyou-gege", "text": "我没有哥哥", "pinyin": "wǒ méiyǒu gēge", "en": "I don't have an older brother.", "tiles": ["我", "没有", "哥哥"] },
+            { "id": "ta-you-yizhi-gou", "text": "她有一只狗", "pinyin": "tā yǒu yì zhī gǒu", "en": "She has a dog.", "tiles": ["她", "有", "一只", "狗"] }
+          ]
+        },
+        {
+          "id": "zh-4-3",
+          "title": "I like",
+          "items": [
+            { "id": "qiaokeli", "text": "巧克力", "pinyin": "qiǎokèlì", "en": "chocolate" },
+            { "id": "xihuan", "text": "喜欢", "pinyin": "xǐhuan", "en": "to like" },
+            { "id": "wo-xihuan-qiaokeli", "text": "我喜欢巧克力", "pinyin": "wǒ xǐhuan qiǎokèlì", "en": "I like chocolate.", "tiles": ["我", "喜欢", "巧克力"] },
+            { "id": "wo-bu-xihuan-niunai", "text": "我不喜欢牛奶", "pinyin": "wǒ bù xǐhuan niúnǎi", "en": "I don't like milk.", "tiles": ["我", "不", "喜欢", "牛奶"] },
+            { "id": "ni-xihuan-gou-ma", "text": "你喜欢狗吗？", "pinyin": "nǐ xǐhuan gǒu ma?", "en": "Do you like dogs?", "tiles": ["你", "喜欢", "狗", "吗"] },
+            { "id": "wo-hen-xihuan", "text": "我很喜欢", "pinyin": "wǒ hěn xǐhuan", "en": "I really like it.", "tiles": ["我", "很", "喜欢"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u5",
+      "title": "Colors, numbers and questions",
+      "lessons": [
+        {
+          "id": "zh-5-1",
+          "title": "Colors",
+          "items": [
+            { "id": "lanse", "text": "蓝色", "pinyin": "lánsè", "en": "blue" },
+            { "id": "lvse", "text": "绿色", "pinyin": "lǜsè", "en": "green" },
+            { "id": "huangse", "text": "黄色", "pinyin": "huángsè", "en": "yellow" },
+            { "id": "baise", "text": "白色", "pinyin": "báisè", "en": "white" },
+            { "id": "che-shi-lanse-de", "text": "车是蓝色的", "pinyin": "chē shì lánsè de", "en": "The car is blue.", "tiles": ["车", "是", "蓝色", "的"] },
+            { "id": "baise-de-fangzi", "text": "白色的房子", "pinyin": "báisè de fángzi", "en": "the white house", "tiles": ["白色", "的", "房子"] }
+          ]
+        },
+        {
+          "id": "zh-5-2",
+          "title": "How many?",
+          "items": [
+            { "id": "liang-zhi-mao", "text": "两只猫", "pinyin": "liǎng zhī māo", "en": "two cats", "tiles": ["两只", "猫"] },
+            { "id": "san-ge-pingguo", "text": "三个苹果", "pinyin": "sān ge píngguǒ", "en": "three apples", "tiles": ["三个", "苹果"] },
+            { "id": "wu-ben-shu", "text": "五本书", "pinyin": "wǔ běn shū", "en": "five books", "tiles": ["五本", "书"] },
+            { "id": "ji-ge", "text": "几个？", "pinyin": "jǐ ge?", "en": "How many?" },
+            { "id": "ni-ji-sui", "text": "你几岁？", "pinyin": "nǐ jǐ suì?", "en": "How old are you? (to a child)", "tiles": ["你", "几", "岁"] },
+            { "id": "wo-qi-sui", "text": "我七岁", "pinyin": "wǒ qī suì", "en": "I'm seven years old.", "tiles": ["我", "七", "岁"] }
+          ]
+        },
+        {
+          "id": "zh-5-3",
+          "title": "What? Who? Where?",
+          "items": [
+            { "id": "zhe-shi-shenme", "text": "这是什么？", "pinyin": "zhè shì shénme?", "en": "What is this?", "tiles": ["这", "是", "什么"] },
+            { "id": "ta-shi-shei", "text": "他是谁？", "pinyin": "tā shì shéi?", "en": "Who is he?", "tiles": ["他", "是", "谁"] },
+            { "id": "mama-zai-nali", "text": "妈妈在哪里？", "pinyin": "māma zài nǎlǐ?", "en": "Where is mom?", "tiles": ["妈妈", "在", "哪里"] },
+            { "id": "weishenme", "text": "为什么？", "pinyin": "wèishénme?", "en": "Why?" },
+            { "id": "zhe-shi-mao", "text": "这是猫", "pinyin": "zhè shì māo", "en": "This is a cat.", "tiles": ["这", "是", "猫"] },
+            { "id": "ni-jiao-shenme-mingzi", "text": "你叫什么名字？", "pinyin": "nǐ jiào shénme míngzi?", "en": "What's your name?", "tiles": ["你", "叫", "什么", "名字"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u6",
+      "title": "Where things are",
+      "lessons": [
+        {
+          "id": "zh-6-1",
+          "title": "In, on, under",
+          "items": [
+            { "id": "limian", "text": "里面", "pinyin": "lǐmiàn", "en": "inside" },
+            { "id": "shangmian", "text": "上面", "pinyin": "shàngmiàn", "en": "on top" },
+            { "id": "xiamian", "text": "下面", "pinyin": "xiàmiàn", "en": "underneath" },
+            { "id": "shu-zai-zhuozi-shang", "text": "书在桌子上", "pinyin": "shū zài zhuōzi shang", "en": "The book is on the table.", "tiles": ["书", "在", "桌子", "上"] },
+            { "id": "mao-zai-chuang-xiamian", "text": "猫在床下面", "pinyin": "māo zài chuáng xiàmiàn", "en": "The cat is under the bed.", "tiles": ["猫", "在", "床", "下面"] },
+            { "id": "niunai-zai-chufang", "text": "牛奶在厨房里", "pinyin": "niúnǎi zài chúfáng li", "en": "The milk is in the kitchen.", "tiles": ["牛奶", "在", "厨房", "里"] }
+          ]
+        },
+        {
+          "id": "zh-6-2",
+          "title": "Here and there",
+          "items": [
+            { "id": "zheli", "text": "这里", "pinyin": "zhèlǐ", "en": "here" },
+            { "id": "nali", "text": "那里", "pinyin": "nàlǐ", "en": "there" },
+            { "id": "jin", "text": "近", "pinyin": "jìn", "en": "near" },
+            { "id": "yuan", "text": "远", "pinyin": "yuǎn", "en": "far" },
+            { "id": "cesuo-zai-nali", "text": "厕所在那里", "pinyin": "cèsuǒ zài nàlǐ", "en": "The bathroom is over there.", "tiles": ["厕所", "在", "那里"] },
+            { "id": "yuan-bu-yuan", "text": "远不远？", "pinyin": "yuǎn bu yuǎn?", "en": "Is it far?", "tiles": ["远", "不", "远"] }
+          ]
+        },
+        {
+          "id": "zh-6-3",
+          "title": "Left and right",
+          "items": [
+            { "id": "zuobian", "text": "左边", "pinyin": "zuǒbian", "en": "left side" },
+            { "id": "youbian", "text": "右边", "pinyin": "yòubian", "en": "right side" },
+            { "id": "yizhi-zou", "text": "一直走", "pinyin": "yìzhí zǒu", "en": "Go straight ahead.", "tiles": ["一直", "走"] },
+            { "id": "wang-zuo-guai", "text": "往左拐", "pinyin": "wǎng zuǒ guǎi", "en": "Turn left.", "tiles": ["往", "左", "拐"] },
+            { "id": "wang-you-guai", "text": "往右拐", "pinyin": "wǎng yòu guǎi", "en": "Turn right.", "tiles": ["往", "右", "拐"] },
+            { "id": "zai-youbian", "text": "在右边", "pinyin": "zài yòubian", "en": "It's on the right.", "tiles": ["在", "右边"] }
+          ]
+        }
+      ]
     }
   ]
 }

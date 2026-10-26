@@ -107,6 +107,174 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u3",
+      "title": "Family and home",
+      "lessons": [
+        {
+          "id": "fr-3-1",
+          "title": "My family",
+          "items": [
+            { "id": "mon-frere", "text": "mon frère", "en": "my brother" },
+            { "id": "soeur", "text": "ma sœur", "en": "my sister" },
+            { "id": "mamie", "text": "mamie", "en": "grandma" },
+            { "id": "papi", "text": "papi", "en": "grandpa" },
+            { "id": "cest-mon-frere", "text": "C'est mon frère.", "en": "He's my brother." },
+            { "id": "jai-une-soeur", "text": "J'ai une sœur.", "en": "I have a sister." }
+          ]
+        },
+        {
+          "id": "fr-3-2",
+          "title": "At home",
+          "items": [
+            { "id": "cuisine", "text": "la cuisine", "en": "the kitchen" },
+            { "id": "chambre", "text": "la chambre", "en": "the bedroom" },
+            { "id": "lit", "text": "le lit", "en": "the bed" },
+            { "id": "porte", "text": "la porte", "en": "the door" },
+            { "id": "ma-chambre-est-grande", "text": "Ma chambre est grande.", "en": "My bedroom is big." },
+            { "id": "la-maison-est-petite", "text": "La maison est petite.", "en": "The house is small." }
+          ]
+        },
+        {
+          "id": "fr-3-3",
+          "title": "Eat and sleep",
+          "items": [
+            { "id": "manger", "text": "manger", "en": "to eat" },
+            { "id": "dormir", "text": "dormir", "en": "to sleep" },
+            { "id": "jai-faim", "text": "J'ai faim.", "en": "I'm hungry." },
+            { "id": "jai-sommeil", "text": "J'ai sommeil.", "en": "I'm sleepy." },
+            { "id": "bonne-nuit", "text": "Bonne nuit.", "en": "Good night." },
+            { "id": "on-mange", "text": "On mange !", "en": "Let's eat!" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u4",
+      "title": "I want, I have, I like",
+      "lessons": [
+        {
+          "id": "fr-4-1",
+          "title": "I want to…",
+          "items": [
+            { "id": "jouer", "text": "jouer", "en": "to play" },
+            { "id": "je-veux-jouer", "text": "Je veux jouer.", "en": "I want to play." },
+            { "id": "je-veux-dormir", "text": "Je veux dormir.", "en": "I want to sleep." },
+            { "id": "tu-veux-de-leau", "text": "Tu veux de l'eau ?", "en": "Do you want some water?" },
+            { "id": "je-ne-veux-pas", "text": "Je ne veux pas.", "en": "I don't want to." },
+            { "id": "je-veux-rentrer", "text": "Je veux rentrer à la maison.", "en": "I want to go home." }
+          ]
+        },
+        {
+          "id": "fr-4-2",
+          "title": "I have",
+          "items": [
+            { "id": "ballon", "text": "un ballon", "en": "a ball" },
+            { "id": "livre", "text": "un livre", "en": "a book" },
+            { "id": "jai-un-livre", "text": "J'ai un livre.", "en": "I have a book." },
+            { "id": "tu-as-un-crayon", "text": "Tu as un crayon ?", "en": "Do you have a pencil?" },
+            { "id": "je-nai-pas-de-frere", "text": "Je n'ai pas de frère.", "en": "I don't have a brother." },
+            { "id": "elle-a-un-chien", "text": "Elle a un chien.", "en": "She has a dog." }
+          ]
+        },
+        {
+          "id": "fr-4-3",
+          "title": "I like",
+          "items": [
+            { "id": "chocolat", "text": "le chocolat", "en": "chocolate" },
+            { "id": "jaime", "text": "j'aime", "en": "I like" },
+            { "id": "jaime-le-chocolat", "text": "J'aime le chocolat.", "en": "I like chocolate." },
+            { "id": "je-naime-pas-le-lait", "text": "Je n'aime pas le lait.", "en": "I don't like milk." },
+            { "id": "tu-aimes-les-chiens", "text": "Tu aimes les chiens ?", "en": "Do you like dogs?" },
+            { "id": "jadore", "text": "J'adore !", "en": "I love it!" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u5",
+      "title": "Colors, numbers and questions",
+      "lessons": [
+        {
+          "id": "fr-5-1",
+          "title": "Colors",
+          "items": [
+            { "id": "bleu", "text": "bleu", "en": "blue" },
+            { "id": "vert", "text": "vert", "en": "green" },
+            { "id": "jaune", "text": "jaune", "en": "yellow" },
+            { "id": "noir", "text": "noir", "en": "black" },
+            { "id": "la-voiture-est-bleue", "text": "La voiture est bleue.", "en": "The car is blue." },
+            { "id": "la-maison-blanche", "text": "la maison blanche", "en": "the white house" }
+          ]
+        },
+        {
+          "id": "fr-5-2",
+          "title": "How many?",
+          "items": [
+            { "id": "deux-chats", "text": "deux chats", "en": "two cats" },
+            { "id": "trois-pommes", "text": "trois pommes", "en": "three apples" },
+            { "id": "cinq-livres", "text": "cinq livres", "en": "five books" },
+            { "id": "dix-chiens", "text": "dix chiens", "en": "ten dogs" },
+            { "id": "tu-as-quel-age", "text": "Tu as quel âge ?", "en": "How old are you?" },
+            { "id": "jai-sept-ans", "text": "J'ai sept ans.", "en": "I'm seven years old." }
+          ]
+        },
+        {
+          "id": "fr-5-3",
+          "title": "What? Who? Where?",
+          "items": [
+            { "id": "quest-ce-que-cest", "text": "Qu'est-ce que c'est ?", "en": "What is this?" },
+            { "id": "qui-est-ce", "text": "Qui est-ce ?", "en": "Who is it?" },
+            { "id": "ou-est-maman", "text": "Où est maman ?", "en": "Where is mom?" },
+            { "id": "pourquoi", "text": "Pourquoi ?", "en": "Why?" },
+            { "id": "cest-un-chat", "text": "C'est un chat.", "en": "It's a cat." },
+            { "id": "comment-tu-tappelles", "text": "Comment tu t'appelles ?", "en": "What's your name?" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u6",
+      "title": "Where things are",
+      "lessons": [
+        {
+          "id": "fr-6-1",
+          "title": "In, on, under",
+          "items": [
+            { "id": "dans", "text": "dans", "en": "in" },
+            { "id": "sur", "text": "sur", "en": "on" },
+            { "id": "sous", "text": "sous", "en": "under" },
+            { "id": "le-livre-est-sur-la-table", "text": "Le livre est sur la table.", "en": "The book is on the table." },
+            { "id": "le-chat-est-sous-le-lit", "text": "Le chat est sous le lit.", "en": "The cat is under the bed." },
+            { "id": "le-lait-est-dans-la-cuisine", "text": "Le lait est dans la cuisine.", "en": "The milk is in the kitchen." }
+          ]
+        },
+        {
+          "id": "fr-6-2",
+          "title": "Here and there",
+          "items": [
+            { "id": "ici", "text": "ici", "en": "here" },
+            { "id": "la-bas", "text": "là-bas", "en": "over there" },
+            { "id": "pres", "text": "près", "en": "near" },
+            { "id": "loin", "text": "loin", "en": "far" },
+            { "id": "les-toilettes-sont-la-bas", "text": "Les toilettes sont là-bas.", "en": "The bathroom is over there." },
+            { "id": "cest-loin", "text": "C'est loin ?", "en": "Is it far?" }
+          ]
+        },
+        {
+          "id": "fr-6-3",
+          "title": "Left and right",
+          "items": [
+            { "id": "a-gauche", "text": "à gauche", "en": "on the left" },
+            { "id": "a-droite", "text": "à droite", "en": "on the right" },
+            { "id": "tout-droit", "text": "tout droit", "en": "straight ahead" },
+            { "id": "tourne-a-gauche", "text": "Tourne à gauche.", "en": "Turn left." },
+            { "id": "va-tout-droit", "text": "Va tout droit.", "en": "Go straight ahead." },
+            { "id": "cest-a-droite", "text": "C'est à droite.", "en": "It's on the right." }
+          ]
+        }
+      ]
     }
   ]
 }

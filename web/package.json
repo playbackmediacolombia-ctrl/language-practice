@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "node scripts/hanzi-data.mjs && tsc --noEmit && vite build",
+    "build": "node scripts/hanzi-data.mjs && node scripts/check-course.mjs && tsc --noEmit && vite build",
     "preview": "vite preview --host",
     "icons": "node scripts/generate-icons.mjs",
-    "hanzi": "node scripts/hanzi-data.mjs"
+    "hanzi": "node scripts/hanzi-data.mjs",
+    "check-course": "node scripts/check-course.mjs"
   },
   "dependencies": {
     "@huggingface/transformers": "^4.3.1",

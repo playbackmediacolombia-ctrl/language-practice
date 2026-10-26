@@ -6,7 +6,7 @@ import { getPhrases, getTopics, type Lang, type Phrase } from './content';
 import { lessonDone, type Progress, weakness } from './progress';
 import { type Card, dayNumber, dueKeys, forecast } from './srs';
 
-// The lesson path. The outline (stages and units, beginner to fluent) is shared by every
+// The lesson path. The outline (levels, stages and units, beginner to fluent) is shared by every
 // language; each language file fills in the units that have been written so far.
 
 const audioFiles = import.meta.glob<string>('../../../assets/audio/course/*/*.mp3', {
@@ -36,7 +36,8 @@ export type Item = {
 
 export type Lesson = { id: string; title: string; unitId: string; items: Item[] };
 export type Unit = { id: string; title: string; lessons: Lesson[] };
-export type Stage = { id: string; title: string; about: string; units: Unit[] };
+/** `level` is the CEFR-style band shown on the path: Beginner, Elementary, … Fluent. */
+export type Stage = { id: string; level: string; title: string; about: string; units: Unit[] };
 
 const COURSES: Record<Lang, RawCourse> = { es, fr, zh } as Record<Lang, RawCourse>;
 
@@ -70,6 +71,7 @@ export function getPath(lang: Lang): Stage[] {
     const written = new Map(COURSES[lang].units.map((u) => [u.id, u]));
     stages = outline.stages.map((s) => ({
       id: s.id,
+      level: s.level,
       title: s.title,
       about: s.about,
       units: s.units.map((id) => {

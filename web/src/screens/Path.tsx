@@ -112,6 +112,11 @@ export function Path({ lang }: { lang: Lang }) {
 
       {getPath(lang).map((stage, s) => (
         <section key={stage.id} className="stage">
+          {stage.level !== getPath(lang)[s - 1]?.level && (
+            <h2 className="level-head" data-testid={`level-${stage.id}`}>
+              {stage.level}
+            </h2>
+          )}
           <div className="stage-head">
             <span className="stage-num">{s + 1}</span>
             <div>
