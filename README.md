@@ -4,7 +4,7 @@ A personal app for practicing Spanish, French and Mandarin. It costs $0: there a
 
 - **Lessons:** 5 topics (greetings, food, travel, numbers, directions) with 8 phrases each, in `shared/phrases.json`.
 - **Voices:** made once with the free Microsoft Edge voices (`edge-tts`) and bundled as MP3s in `assets/audio/`.
-- **Listen & repeat:** Whisper runs on the phone and colors each word green (right), orange (almost) or red (missed). Chinese is compared by sound (pinyin), so a same-sounding character isn't marked wrong.
+- **Listen & repeat:** Whisper runs on the phone and colors each word green (right), orange (almost) or red (missed). Chinese is compared by sound (pinyin), so a same-sounding character isn't marked wrong. In the web app recording stops by itself when you finish talking, and a voice says "Great job!", "Close, try again." or "Not quite" (clips in `web/public/feedback/`, made by the same audio script).
 - **Flashcards** (Leitner boxes) and a **quiz**. Progress is saved on the device.
 
 There are two front ends that share the lessons, audio and matching code:

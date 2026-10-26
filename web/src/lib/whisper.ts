@@ -64,7 +64,26 @@ function getWorker(): Worker {
       pending.delete(msg.id);
     }
   };
+  // If the worker dies (e.g. iOS kills it for using too much memory), fail everything waiting
+  // on it instead of spinning forever, and start a fresh worker next time.
+  worker.onerror = (e) => {
+    e.preventDefault();
+    resetWorker(new Error(e.message || 'The speech checker stopped unexpectedly. Try again.'));
+  };
   return worker;
+}
+
+let failLoad: ((e: Error) => void) | null = null;
+
+function resetWorker(error: Error) {
+  worker?.terminate();
+  worker = null;
+  workerModel = null;
+  loadPromise = null;
+  failLoad?.(error);
+  failLoad = null;
+  pending.forEach((p) => p.reject(error));
+  pending.clear();
 }
 
 /**
@@ -79,15 +98,18 @@ export function loadModel(onProgress?: (fraction: number) => void): Promise<void
   workerModel = key;
   const w = getWorker();
   loadPromise = new Promise<void>((resolve, reject) => {
+    failLoad = reject;
     const onMessage = (e: MessageEvent<WorkerResponse>) => {
       if (e.data.type === 'ready') {
         w.removeEventListener('message', onMessage);
+        failLoad = null;
         const ready = new Set((read(READY_KEY) ?? '').split(',').filter(Boolean));
         ready.add(key);
         write(READY_KEY, [...ready].join(','));
         resolve();
       } else if (e.data.type === 'error' && e.data.id === undefined) {
         w.removeEventListener('message', onMessage);
+        failLoad = null;
         loadPromise = null;
         workerModel = null;
         reject(new Error(e.data.message));
@@ -101,11 +123,20 @@ export function loadModel(onProgress?: (fraction: number) => void): Promise<void
   return loadPromise;
 }
 
-export async function transcribe(audio: Float32Array, lang: Lang): Promise<string> {
-  await loadModel();
+/** `onProgress` reports a re-download, in case the browser cleared its cached copy. */
+export async function transcribe(audio: Float32Array, lang: Lang, onProgress?: (fraction: number) => void): Promise<string> {
+  await loadModel(onProgress);
   const id = nextId++;
   return new Promise((resolve, reject) => {
-    pending.set(id, { resolve, reject });
+    const timer = setTimeout(() => {
+      pending.delete(id);
+      reject(new Error('Checking took too long. Try again.'));
+    }, 60_000);
+    const settle = <T>(fn: (v: T) => void) => (v: T) => {
+      clearTimeout(timer);
+      fn(v);
+    };
+    pending.set(id, { resolve: settle(resolve), reject: settle(reject) });
     getWorker().postMessage({ type: 'transcribe', id, audio, language: LANGUAGE[lang] } satisfies WorkerRequest, [
       audio.buffer,
     ]);

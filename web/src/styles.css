@@ -147,3 +147,12 @@ button.card:active { opacity: 0.75; }
 }
 .choice label:has(input:checked) { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent) inset; }
 .choice input { display: none; }
+
+.mic.checking { background: var(--muted); opacity: 1; }
+.status { text-align: center; margin: 0; font-size: 17px; font-weight: 600; min-height: 1.4em; }
+
+.grade.ok { background: var(--ok-bg); border-color: var(--ok); color: var(--ok); }
+.grade.close { background: var(--close-bg); border-color: var(--close); color: var(--close); }
+.grade.wrong { background: var(--wrong-bg); border-color: var(--wrong); color: var(--wrong); }
+.grade .token { background: var(--card); }
+.grade .muted { color: var(--text); }
