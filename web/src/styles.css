@@ -745,6 +745,64 @@ a.btn { text-decoration: none; }
 .hint-slider-labels { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: var(--muted); }
 .hint-slider-labels .active { color: var(--accent); }
 
+/* The bird in lessons and celebrations: cheers a right answer, says "oops" to a wrong one,
+   shows off a streak, and dances when a lesson (or a big achievement) is done. */
+.banner > .banner-bird { width: 58px; max-width: none; margin: 0; }
+.banner-bird { position: absolute; right: max(12px, env(safe-area-inset-right)); top: -44px; pointer-events: none; transform: scaleX(-1); }
+.bird-wing.far { transform-box: fill-box; transform-origin: 10% 90%; }
+.bird-flame, .bird-notes { transform-box: fill-box; transform-origin: 50% 100%; }
+.bird.pose-cheer.seen .bird-all { animation: bird-cheer 0.9s var(--spring) both; }
+.bird.pose-cheer.seen .bird-wing.up, .bird.pose-streak.seen .bird-wing.up { animation: bird-flap 0.45s ease-in-out 3; }
+.bird.pose-cheer.seen .bird-wing.far, .bird.pose-streak.seen .bird-wing.far { animation: bird-flap-far 0.45s ease-in-out 3; }
+.bird.pose-streak.seen .bird-all { animation: bird-cheer 0.9s var(--spring) both; }
+.bird.pose-streak.seen .bird-flame { animation: flame-dance 0.6s ease-in-out infinite alternate; }
+.bird.pose-oops.seen .bird-head { animation: bird-oops 0.8s ease-in-out both; }
+.bird.pose-oops.seen .bird-all { animation: bird-shrug 0.8s ease-in-out both; }
+.bird.pose-dance.seen .bird-all { animation: bird-dance 1.1s ease-in-out infinite; }
+.bird.pose-dance.seen .bird-wing.up { animation: bird-flap 0.55s ease-in-out infinite; }
+.bird.pose-dance.seen .bird-wing.far { animation: bird-flap-far 0.55s ease-in-out infinite; }
+.bird.pose-dance.seen .bird-notes path { animation: note-float 1.6s ease-in-out infinite; }
+.bird.pose-dance.seen .bird-notes path:nth-child(2) { animation-delay: 0.5s; }
+@keyframes bird-cheer { 0% { transform: translateY(8%) scale(0.8); opacity: 0; } 45% { transform: translateY(-12%) scale(1.04); opacity: 1; } 70% { transform: translateY(0) scale(0.98, 1.02); } 100% { transform: none; } }
+@keyframes bird-flap { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-18deg); } }
+@keyframes bird-flap-far { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(16deg); } }
+@keyframes flame-dance { from { transform: scale(0.9) rotate(-6deg); } to { transform: scale(1.1) rotate(6deg); } }
+@keyframes bird-oops { 0% { transform: rotate(0deg); } 25% { transform: rotate(-8deg); } 50% { transform: rotate(6deg); } 75% { transform: rotate(-4deg); } 100% { transform: rotate(0deg); } }
+@keyframes bird-shrug { 0% { transform: translateY(6%); opacity: 0; } 30% { transform: translateY(-3%); opacity: 1; } 100% { transform: none; } }
+@keyframes bird-dance { 0%, 100% { transform: rotate(-7deg) translateY(0); } 25% { transform: rotate(0deg) translateY(-9%); } 50% { transform: rotate(7deg) translateY(0); } 75% { transform: rotate(0deg) translateY(-9%); } }
+@keyframes note-float { 0% { opacity: 0; transform: translateY(6px); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(-14px); } }
+.goal-bird { flex: none; margin: -12px -6px -10px 0; transform: scaleX(-1); }
+.trophy-row { display: flex; align-items: flex-end; justify-content: center; gap: 4px; }
+.trophy-row .trophy { margin: 0; }
+.complete-bird { margin-bottom: -6px; }
+.achievement-bird { margin: -8px auto -4px; display: block; }
+
+/* A faint logo behind every lesson page. */
+.page.lesson { position: relative; isolation: isolate; }
+.lesson-watermark {
+  position: fixed; left: 50%; top: 52%; width: min(70vw, 360px); height: auto; transform: translate(-50%, -50%);
+  opacity: 0.05; pointer-events: none; z-index: -1; filter: grayscale(0.2);
+}
+:root[data-theme='dark'] .lesson-watermark { opacity: 0.06; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .lesson-watermark { opacity: 0.06; } }
+
+/* Loading placeholders that shimmer instead of a bare spinner. */
+.shimmer {
+  border-radius: 10px; min-height: 14px;
+  background: linear-gradient(90deg, var(--card-2) 25%, color-mix(in srgb, var(--card-2) 40%, #fff) 50%, var(--card-2) 75%);
+  background-size: 200% 100%; animation: shimmer 1.4s linear infinite;
+}
+:root[data-theme='dark'] .shimmer { background: linear-gradient(90deg, #17244a 25%, #22336a 50%, #17244a 75%); background-size: 200% 100%; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .shimmer { background: linear-gradient(90deg, #17244a 25%, #22336a 50%, #17244a 75%); background-size: 200% 100%; } }
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.shimmer-lines { display: flex; flex-direction: column; gap: 8px; padding: 4px 0; min-width: 160px; }
+.shimmer-lines .shimmer:nth-child(2) { width: 70%; }
+
+/* Settings › Text size: the whole page scales, so nothing overlaps or gets cut off. */
+:root[data-text='large'] body { zoom: 1.12; }
+:root[data-text='larger'] body { zoom: 1.25; }
+.row-icon.sticker-icon { background: var(--card-2); }
+
 /* =========================================================================
    Lists & settings
    ========================================================================= */
@@ -1045,7 +1103,7 @@ button.card:disabled { opacity: 0.6; cursor: default; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  .mic.on::before, .mic.on::after, .flame.lit, .path-step.current .lesson-node, .node-cta, .coin-ring-fill, .path-buddy, .unit-sticker, .bird *, .hint-bubble, .path-chest, .chest-burst, .chest-rays, .lesson-pop, .path-sticky, .jump-lesson, .quick .unit-art, .start-sticker, .level-tile, .stat-pill .icon.heart { animation: none !important; }
+  .mic.on::before, .mic.on::after, .flame.lit, .path-step.current .lesson-node, .node-cta, .coin-ring-fill, .path-buddy, .unit-sticker, .bird *, .hint-bubble, .shimmer, .path-chest, .chest-burst, .chest-rays, .lesson-pop, .path-sticky, .jump-lesson, .quick .unit-art, .start-sticker, .level-tile, .stat-pill .icon.heart { animation: none !important; }
 }
 
 /* =========================================================================

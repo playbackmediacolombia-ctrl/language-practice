@@ -18,6 +18,7 @@ import { ToneChart } from '../ToneChart';
 import { Burst, Confetti, CountUp, Flame, Icon, ProgressBar, Waveform } from '../ui';
 import { Heatmap } from '../Heatmap';
 import { HintBubble, type HintSet, hintsFor, useHintTimer } from '../Hints';
+import { Bird } from '../Bird';
 
 const REVIEW_XP = 5;
 const DAILY_XP = 10;
@@ -285,8 +286,11 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     return (
       <main className="page fill celebrate">
         <Confetti pieces={perfect ? 90 : 60} />
-        <div className={perfect ? 'trophy perfect' : 'trophy done'}>
-          <Icon name={perfect ? 'star' : 'check'} size={72} />
+        <div className="trophy-row">
+          <div className={perfect ? 'trophy perfect' : 'trophy done'}>
+            <Icon name={perfect ? 'star' : 'check'} size={72} />
+          </div>
+          <Bird pose="dance" size={104} className="complete-bird" />
         </div>
         <h2 className="heading">{daily ? 'Daily review done!' : drill ? 'Mistakes practiced!' : review ? 'Review complete!' : 'Lesson complete!'}</h2>
         <div className="cheer">
@@ -452,6 +456,9 @@ export function LessonFrame({
   action?: ReactNode;
   children: ReactNode;
 }) {
+  // Sound effects and spoken feedback, on or off together (the same switches as in Settings).
+  const { sfx: sounds, voice } = useProgress();
+  const muted = !sounds && !voice;
   // Shake the heart counter when one is lost.
   const prev = useRef(hearts);
   const lost = hearts !== null && prev.current !== null && hearts < prev.current;
@@ -469,6 +476,18 @@ export function LessonFrame({
             <ProgressBar value={value} />
           </div>
           {action}
+          <button
+            className="icon-btn"
+            aria-label={muted ? 'Turn sounds on' : 'Mute sounds'}
+            aria-pressed={muted}
+            data-testid="lesson-mute"
+            onClick={() => {
+              setPref('sfx', muted);
+              setPref('voice', muted);
+            }}
+          >
+            <Icon name={muted ? 'mute' : 'speaker'} size={22} />
+          </button>
           <span key={hearts ?? 'inf'} className={lost ? 'hearts lost' : 'hearts'} aria-label={hearts === null ? 'Practice, no hearts' : `${hearts} hearts`}>
             {hearts === null ? (
               <Icon name="review" size={22} style={{ color: 'var(--accent)' }} />
@@ -481,6 +500,7 @@ export function LessonFrame({
         </div>
       </header>
       <main className="page fill lesson" data-feedback={feedback}>
+        <img className="lesson-watermark" src="brand/mark.png" alt="" aria-hidden="true" />
         {children}
       </main>
     </>
@@ -929,6 +949,7 @@ function ResultBanner({ ex, result, lang, onContinue }: { ex: Exercise; result: 
   const tone = result.skipped ? 'neutral' : result.right ? (streak ? 'ok streak' : 'ok') : 'bad';
   return (
     <div className={`banner ${tone}`} role="status">
+      {!result.skipped && <Bird pose={result.right ? (streak ? 'streak' : 'cheer') : 'oops'} size={58} className="banner-bird" />}
       {streak && (
         <div className="streak-chip">
           <Flame lit size={18} /> {streak} in a row!

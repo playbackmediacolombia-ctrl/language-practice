@@ -125,6 +125,27 @@ const STICKERS: Record<string, ReactNode> = {
       <circle cx="22" cy="39" r="4" fill={P.skyLight} />
     </>
   ),
+  bag: (
+    <>
+      <path d="M14 22h36l-3 30H17Z" fill={P.orange} {...S} />
+      <path d="M24 26v-6a8 8 0 0 1 16 0v6" fill="none" {...S} />
+      <path d="M18 30h28" stroke={P.sun} strokeWidth={5} />
+      <circle cx="24" cy="27" r="2.2" fill={P.navy} />
+      <circle cx="40" cy="27" r="2.2" fill={P.navy} />
+    </>
+  ),
+  numbers: (
+    <>
+      <rect x="8" y="14" width="48" height="36" rx="9" fill={P.white} {...S} />
+      <text x="32" y="40" textAnchor="middle" fontSize="20" fontWeight="800" fill={P.blue} fontFamily="inherit">123</text>
+    </>
+  ),
+  wave: (
+    <>
+      <path d="M22 50c-6-6-10-14-8-22l3-12a3 3 0 0 1 6 1l-1 9 4-16a3 3 0 0 1 6 1l-3 14 5-17a3 3 0 0 1 6 2l-4 16 5-12a3 3 0 0 1 5 2l-6 18c-2 8-6 14-12 17Z" fill={P.sun} {...S} />
+      <path d="M10 18a10 10 0 0 1 6-8M50 44a10 10 0 0 1-4 8" fill="none" {...S} stroke={P.sky} />
+    </>
+  ),
   pin: (
     <>
       <path d="M32 54S16 37 16 27a16 16 0 0 1 32 0c0 10-16 27-16 27Z" fill={P.red} {...S} />

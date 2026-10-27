@@ -35,8 +35,11 @@ export function useDarkMode(): boolean {
 export function initTheme() {
   let last: Theme | null = null;
   const sync = () => {
-    const theme = getProgress().theme;
+    const { theme, textSize } = getProgress();
     if (theme !== last) apply((last = theme));
+    // Settings › Text size: the stylesheet scales the whole page (layouts stay the same).
+    if (textSize === 'default') delete document.documentElement.dataset.text;
+    else document.documentElement.dataset.text = textSize;
   };
   sync();
   subscribe(sync);

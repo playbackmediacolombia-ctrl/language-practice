@@ -62,6 +62,8 @@ export type Progress = {
   characters: boolean;
   /** Seconds of quiet before each timed hint (lessons, role-plays, the AI partner); 0 is off. */
   hintWait: HintWait;
+  /** Everything a little bigger, for easier reading. */
+  textSize: TextSize;
   /** Words the AI conversation partner taught you that aren't in the course, by `${lang}:ai:${slug}` (their review card is in `srs`). */
   talkWords: Record<string, TalkWord>;
   /** Reward chests opened on the lesson path, key `${lang}:${unitId}`, value when. Each gives its XP once. */
@@ -77,8 +79,9 @@ export const MISTAKE_RIGHTS = 3;
 export type Theme = 'auto' | 'light' | 'dark';
 export type Speed = 'slow' | 'normal' | 'fast';
 export type HintWait = 0 | 5 | 10 | 20;
+export type TextSize = 'default' | 'large' | 'larger';
 export const HINT_WAITS: HintWait[] = [5, 10, 20, 0];
-export type Prefs = Pick<Progress, 'goal' | 'speaking' | 'voice' | 'sfx' | 'haptics' | 'speed' | 'theme' | 'lang' | 'adult' | 'speakFirst' | 'characters' | 'hintWait'>;
+export type Prefs = Pick<Progress, 'goal' | 'speaking' | 'voice' | 'sfx' | 'haptics' | 'speed' | 'theme' | 'lang' | 'adult' | 'speakFirst' | 'characters' | 'hintWait' | 'textSize'>;
 
 export const MAX_HEARTS = 5;
 export const HEART_REFILL_MS = 30 * 60 * 1000;
@@ -117,6 +120,7 @@ const EMPTY: Progress = {
   speakFirst: { zh: true },
   characters: true,
   hintWait: 10,
+  textSize: 'default',
   talkWords: {},
   chests: {},
 };
@@ -449,7 +453,7 @@ export function replaceProgress(saved: Partial<Progress>) {
 
 export function resetProgress() {
   update((p) => {
-    const prefs: Prefs = { goal: p.goal, speaking: p.speaking, voice: p.voice, sfx: p.sfx, haptics: p.haptics, speed: p.speed, theme: p.theme, lang: p.lang, adult: p.adult, speakFirst: p.speakFirst, characters: p.characters, hintWait: p.hintWait };
+    const prefs: Prefs = { goal: p.goal, speaking: p.speaking, voice: p.voice, sfx: p.sfx, haptics: p.haptics, speed: p.speed, theme: p.theme, lang: p.lang, adult: p.adult, speakFirst: p.speakFirst, characters: p.characters, hintWait: p.hintWait, textSize: p.textSize };
     return { ...EMPTY, ...prefs };
   });
 }

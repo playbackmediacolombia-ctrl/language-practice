@@ -314,6 +314,15 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
             </div>
           ),
         )}
+        {phase === 'thinking' && (
+          <div className="story-line left" aria-hidden="true" data-testid="talk-typing">
+            <div className="speaker">{scenario?.them ?? 'Partner'}</div>
+            <div className="bubble shimmer-lines">
+              <span className="shimmer" />
+              <span className="shimmer" />
+            </div>
+          </div>
+        )}
         <div ref={endRef} />
       </div>
 

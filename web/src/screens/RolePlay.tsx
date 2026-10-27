@@ -11,6 +11,7 @@ import { getScenario, getScenarios, LEVELS, promptMode, type Scenario, type Scen
 import { isModelReady, loadModel, transcribe } from '../lib/whisper';
 import { Icon, Screen, Waveform } from '../ui';
 import { AdultGate, AdultGateScreen } from './AdultGate';
+import { Sticker, type StickerName } from '../art';
 import { LangSwitcher } from './Path';
 import { Heatmap } from '../Heatmap';
 import { HintBubble, type HintLevel, hintsFor, useHintTimer } from '../Hints';
@@ -20,6 +21,12 @@ const ROLEPLAY_XP = 10;
 const PASS = 0.5;
 
 const testHook = location.search.includes('test');
+
+/** Each role-play topic's sticker (drawn icons rather than emoji). */
+const TOPIC_STICKERS: Record<keyof typeof TOPICS, StickerName> = {
+  food: 'cup', directions: 'pin', shopping: 'bag', smalltalk: 'chat', doctor: 'health',
+  airport: 'plane', hotel: 'home', job: 'briefcase', dating: 'hearts', flirting: 'wink',
+};
 
 /** A line said only with a hint costs 1 XP, never more than half. */
 const roleplayXp = (hinted: number) => ROLEPLAY_XP - Math.min(hinted, ROLEPLAY_XP / 2);
@@ -65,8 +72,8 @@ export function RolePlayList({ lang }: { lang: Lang }) {
                       navigate(`/${lang}/roleplay/${s.id}`);
                     }}
                   >
-                    <span className="row-icon" aria-hidden="true">
-                      {TOPICS[s.topic].emoji}
+                    <span className="row-icon sticker-icon" aria-hidden="true">
+                      <Sticker name={TOPIC_STICKERS[s.topic]} size={36} />
                     </span>
                     <span className="grow" style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                       <span className="row-title">{s.en}</span>

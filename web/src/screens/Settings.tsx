@@ -6,7 +6,7 @@ import { getPhrases, getTopics, LANGS } from '../lib/content';
 import { currentLevel, hasStarted } from '../lib/course';
 import { onOldAddress } from '../lib/move';
 import { BUILD, checkForUpdate, formatBytes, offlineStatus, type OfflineStatus, useOnline } from '../lib/offline';
-import { GOALS, HINT_WAITS, resetProgress, setGoal, setPref, setSpeaking, setVoice, type Speed, type Theme, useProgress } from '../lib/progress';
+import { GOALS, HINT_WAITS, resetProgress, setGoal, setPref, setSpeaking, setVoice, type Speed, type TextSize, type Theme, useProgress } from '../lib/progress';
 import { chosenModel, deleteModel, isModelReady, loadModel, type ModelKey, MODELS, setChosenModel } from '../lib/whisper';
 import { tapFeedback } from '../lib/fx';
 import { navigate } from '../lib/router';
@@ -107,6 +107,20 @@ export function Settings() {
             ]}
           />
           <p className="muted small">Automatic follows your iPhone's Light/Dark setting.</p>
+        </div>
+        <div className="list-block" data-testid="text-size">
+          <span className="row-title">Text size</span>
+          <Segmented
+            label="Text size"
+            value={prefs.textSize}
+            onChange={(size: TextSize) => setPref('textSize', size)}
+            options={[
+              { value: 'default', label: 'Default' },
+              { value: 'large', label: 'Large' },
+              { value: 'larger', label: 'Larger' },
+            ]}
+          />
+          <p className="muted small">Makes every screen bigger: words, buttons and pictures.</p>
         </div>
       </div>
 

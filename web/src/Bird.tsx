@@ -3,10 +3,12 @@ import { PALETTE as P } from './art';
 
 // The app's macaw, drawn in code in the logo's colors (an original drawing, no image files).
 // Poses for the lesson path: it peeks over a ledge, hops, waves, reads, holds a globe or naps.
-// It plays its pose when it scrolls into view; with Reduce Motion it simply stands still.
+// In lessons it thinks of hints, cheers a right answer, says "oops" to a wrong one, dances
+// when a lesson is done and shows off a streak. It plays its pose when it comes into view;
+// with Reduce Motion it simply stands still in that pose.
 
-/** `think` (eyes up, for hints) isn't one of the path's poses. */
-export type BirdPose = 'peek' | 'hop' | 'wave' | 'read' | 'globe' | 'nap' | 'think';
+/** `think`, `cheer`, `oops`, `dance` and `streak` are for lessons and celebrations, not the path. */
+export type BirdPose = 'peek' | 'hop' | 'wave' | 'read' | 'globe' | 'nap' | 'think' | 'cheer' | 'oops' | 'dance' | 'streak';
 export const BIRD_POSES: BirdPose[] = ['peek', 'hop', 'wave', 'read', 'globe', 'nap'];
 
 function Head({ pose }: { pose: BirdPose }) {
@@ -20,6 +22,15 @@ function Head({ pose }: { pose: BirdPose }) {
       <path d="M66 52 Q70 55 75 54" stroke="#d6dff0" strokeWidth="1.6" fill="none" strokeLinecap="round" />
       {pose === 'nap' ? (
         <path d="M67 42 Q72 46 77 42" stroke={P.navy} strokeWidth="2.6" fill="none" strokeLinecap="round" />
+      ) : happy(pose) ? (
+        <path d="M67.5 42.5 Q72.5 35.5 77.5 42.5" stroke={P.navy} strokeWidth="3" fill="none" strokeLinecap="round" />
+      ) : pose === 'oops' ? (
+        <g className="bird-eye">
+          <circle cx="71.5" cy="44" r="4" fill={P.navy} />
+          <circle cx="72.8" cy="42.6" r="1.4" fill={P.white} />
+          <path d="M66 35 Q71 33 77 36" stroke={P.navy} strokeWidth="2" fill="none" strokeLinecap="round" />
+          <path d="M86 28 q3 5 0 7 q-3 -2 0 -7 Z" fill={P.skyLight} />
+        </g>
       ) : (
         <g className="bird-eye">
           <circle cx={up ? 74 : 72.5} cy={down ? 44 : up ? 38.5 : 41} r="4.4" fill={P.navy} />
@@ -28,6 +39,18 @@ function Head({ pose }: { pose: BirdPose }) {
       )}
       <path d="M81 34 Q97 33 97 50 Q97 58 90 61 Q92 50 82 48 Z" fill={P.navy} />
       <path d="M82 48 Q89 50 89 56 Q85 60 80 55 Z" fill={P.slate} />
+    </g>
+  );
+}
+
+const happy = (pose: BirdPose) => pose === 'cheer' || pose === 'dance' || pose === 'streak';
+
+/** The far wing, raised behind the body (cheering with both wings). */
+function FarWing() {
+  return (
+    <g className="bird-wing far">
+      <path d="M66 62 Q82 44 96 42 Q94 56 74 74 Z" fill={P.deep} opacity="0.85" />
+      <path d="M96 42 Q99 48 93 52 L88 48 Z" fill={P.skyLight} />
     </g>
   );
 }
@@ -80,6 +103,20 @@ function Prop({ pose }: { pose: BirdPose }) {
         <circle cx="72" cy="86" r="14" fill="none" stroke={P.deep} strokeWidth="2" />
       </g>
     );
+  if (pose === 'streak')
+    return (
+      <g className="bird-flame">
+        <path d="M100 30 C92 22 98 12 94 4 C104 10 110 20 106 30 C104 34 100 34 100 30 Z" fill={P.orange} />
+        <path d="M100 30 C97 25 101 20 99 15 C105 19 106 25 103 30 Z" fill={P.sun} />
+      </g>
+    );
+  if (pose === 'dance')
+    return (
+      <g className="bird-notes" fill={P.sky}>
+        <path d="M98 14 v16 a4 3 0 1 1 -2 -2.6 V16 l10 -3 v3 Z" />
+        <path d="M14 30 v12 a3.5 2.6 0 1 1 -2 -2.2 V30 Z" />
+      </g>
+    );
   if (pose === 'nap')
     return (
       <g className="bird-zz" fill={P.slate} fontWeight="800" fontFamily="inherit">
@@ -130,8 +167,9 @@ export function Bird({ pose, size = 72, className = '' }: { pose: BirdPose; size
         </>
       ) : (
         <g className="bird-all">
+          {happy(pose) && <FarWing />}
           <Body />
-          {pose !== 'read' && pose !== 'globe' && <Wing up={pose === 'wave'} />}
+          {pose !== 'read' && pose !== 'globe' && <Wing up={pose === 'wave' || happy(pose)} />}
           <Head pose={pose} />
           <Prop pose={pose} />
           {(pose === 'read' || pose === 'globe') && <Wing />}

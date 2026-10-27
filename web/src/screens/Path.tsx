@@ -54,6 +54,7 @@ function DailyGoal({ progress }: { progress: Progress }) {
         <span className="goal-count">
           {Math.min(today, progress.goal)}/{progress.goal} XP
         </span>
+        {done && <Bird pose="wave" size={46} className="goal-bird" />}
       </div>
       <ProgressBar value={today / progress.goal} tone="flame" />
     </div>

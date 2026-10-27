@@ -5,7 +5,10 @@ import { cardBox, lessonDone, MAX_BOX, MISTAKE_RIGHTS, useProgress, weakness } f
 import { navigate } from '../lib/router';
 import { Icon, ProgressBar, Screen } from '../ui';
 import { LangSwitcher } from './Path';
-import { Sticker } from '../art';
+import { Sticker, type StickerName } from '../art';
+
+/** Each phrasebook topic's sticker (drawn icons rather than emoji). */
+const PHRASE_STICKERS: Record<string, StickerName> = { greetings: 'wave', food: 'cup', travel: 'plane', numbers: 'numbers', directions: 'pin' };
 
 /** Practice tab: review weak lesson words, or drill phrasebook topics. */
 export function PracticeHub({ lang }: { lang: Lang }) {
@@ -196,8 +199,8 @@ export function PracticeHub({ lang }: { lang: Lang }) {
           const known = phrases.reduce((sum, p) => sum + cardBox(progress, lang, p.id) / MAX_BOX, 0) / phrases.length;
           return (
             <button key={topic.id} className="list-row link" onClick={() => open(`/${lang}/${topic.id}`)}>
-              <span className="row-icon" style={{ fontSize: 20 }}>
-                {topic.emoji}
+              <span className="row-icon sticker-icon" aria-hidden="true">
+                <Sticker name={PHRASE_STICKERS[topic.id] ?? 'words'} size={36} />
               </span>
               <span className="grow" style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                 <span className="row">

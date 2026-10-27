@@ -3,6 +3,7 @@ import { type Achievement, earned, pending } from './lib/achievements';
 import { haptic, reducedMotion, sfx } from './lib/fx';
 import { markCelebrated, useProgress } from './lib/progress';
 import { useRoute } from './lib/router';
+import { Bird } from './Bird';
 import { Confetti } from './ui';
 
 /**
@@ -51,6 +52,7 @@ function Celebration({ achievements, onDone }: { achievements: Achievement[]; on
           <span className="achievement-glow" aria-hidden="true" />
           <img src="brand/logo.webp" alt="Learnguage" width={220} height={180} />
         </div>
+        <Bird pose={/streak/i.test(main.key) ? 'streak' : 'dance'} size={84} className="achievement-bird" />
         <h2 id="achievement-title" className="achievement-title">
           {main.title}
         </h2>
