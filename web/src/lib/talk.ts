@@ -24,8 +24,8 @@ export type TalkReply = {
 };
 export type TalkScenario = { setting: string; them: string; en: string };
 
-/** Why a reply didn't come: no signal, today's free quota used up, the Gemini key rejected, or the service is down. */
-export type TalkProblem = 'offline' | 'quota' | 'setup' | 'unavailable';
+/** Why a reply didn't come: no signal, today's free quota used up, Google busy, the Gemini key rejected, or the service is down. */
+export type TalkProblem = 'offline' | 'quota' | 'busy' | 'setup' | 'unavailable';
 export class TalkError extends Error {
   constructor(readonly problem: TalkProblem) {
     super(problem);
@@ -35,13 +35,15 @@ export class TalkError extends Error {
 export const PROBLEM_TEXT: Record<TalkProblem, string> = {
   offline: "You're offline. The AI partner needs the internet; everything else in the app still works.",
   quota: "Today's free AI conversations are used up. They come back tomorrow, and the rest of the app works as usual.",
+  busy: "Google's free AI is very busy right now. Wait a minute and try again.",
   setup: "The AI partner isn't set up right: Google rejected its Gemini key. Store the key again in the Worker (see the README). Everything else in the app works.",
   unavailable: "The AI partner isn't answering right now. Try again in a little while.",
 };
 
-/** A failed reply: the Worker says 'key' when Google rejected the Gemini key, 'not_configured' when there is none. */
+/** A failed reply: the Worker says 'key' when Google rejected the Gemini key, 'not_configured' when there is none, 'busy' when every model is overloaded. */
 async function problemOf(res: Response): Promise<TalkProblem> {
   const body = (await res.json().catch(() => null)) as { error?: string } | null;
+  if (body?.error === 'busy') return 'busy';
   return body?.error === 'key' || body?.error === 'not_configured' ? 'setup' : 'unavailable';
 }
 
@@ -53,7 +55,7 @@ export async function nextReply(req: { lang: Lang; level: string; scenario?: Tal
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(req),
-      signal: AbortSignal.timeout(30000),
+      signal: AbortSignal.timeout(45000),
     });
   } catch {
     throw new TalkError(navigator.onLine ? 'unavailable' : 'offline');
@@ -77,7 +79,7 @@ export async function nameObject(lang: Lang, image: string): Promise<Named> {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ lang, image }),
-      signal: AbortSignal.timeout(30000),
+      signal: AbortSignal.timeout(45000),
     });
   } catch {
     throw new TalkError(navigator.onLine ? 'unavailable' : 'offline');

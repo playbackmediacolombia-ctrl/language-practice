@@ -46,6 +46,7 @@ await run(async () => {
     if (mode === 'quota') return route.fulfill({ status: 429, contentType: 'application/json', body: '{"error":"quota"}' });
     if (mode === 'down') return route.abort('failed');
     if (mode === 'key') return route.fulfill({ status: 502, contentType: 'application/json', body: '{"error":"key"}' });
+    if (mode === 'busy') return route.fulfill({ status: 503, contentType: 'application/json', body: '{"error":"busy"}' });
     const first = !body.history.length;
     const reply = first
       ? { reply: '¡Hola! ¿Tienes hermanos?', translation: 'Hi! Do you have brothers or sisters?', newWords: [{ word: 'hermanos', meaning: 'brothers and sisters, siblings' }], done: false }
@@ -130,6 +131,10 @@ await run(async () => {
   await page.getByTestId('talk-retry').click();
   await page.waitForTimeout(500);
   expect(/rejected its Gemini key/.test(await page.getByTestId('talk-problem').innerText()), 'a rejected Gemini key: says so plainly, not "isn\'t answering"');
+  mode = 'busy';
+  await page.getByTestId('talk-retry').click();
+  await page.waitForTimeout(500);
+  expect(/very busy right now/.test(await page.getByTestId('talk-problem').innerText()) && (await page.getByTestId('talk-retry').count()) > 0, 'Google too busy: "wait a minute", with Try again');
 
   // ---------- A role-play with the AI ----------
   mode = 'ok';

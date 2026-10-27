@@ -109,14 +109,20 @@ async function underDailyLimit(env, kind = 'count', limit = env.DAILY_LIMIT ?? 3
 }
 
 /**
- * Calls Gemini with the configured model, falling back to Google's current Flash alias if that
- * model has been retired. A rejected key is reported as code 'key', so the app can say so.
+ * Calls Gemini with the configured model, falling back to Google's current Flash aliases if that
+ * model has been retired (404), is too busy (5xx or too slow, tried twice first) or is rate-limited
+ * (429). A rejected key is reported as code 'key', and all models busy as 'busy', so the app can say so.
  */
 async function gemini(env, payload) {
-  const models = [env.GEMINI_MODEL, 'gemini-flash-latest'].filter((m, i, all) => m && all.indexOf(m) === i);
-  for (const model of models) {
+  const models = [env.GEMINI_MODEL, 'gemini-flash-lite-latest', 'gemini-flash-latest', 'gemini-2.5-flash-lite'].filter((m, i, all) => m && all.indexOf(m) === i);
+  const tries = models.flatMap((model, i) => [{ model }, { model, again: true, last: i === models.length - 1 }]);
+  let busyLast = false;
+  for (let t = 0; t < tries.length; t++) {
+    const { model, again, last } = tries[t];
+    const started = Date.now();
     const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
       method: 'POST',
+      signal: AbortSignal.timeout(18000),
       headers: { 'content-type': 'application/json', 'x-goog-api-key': String(env.GEMINI_API_KEY).trim() },
       // 2.5 Flash "thinks" by default, and thinking counts against maxOutputTokens: turn it off
       // so replies (short JSON) are never cut off; other models get extra room instead.
@@ -126,9 +132,22 @@ async function gemini(env, payload) {
           ? { ...payload.generationConfig, thinkingConfig: { thinkingBudget: 0 } }
           : { ...payload.generationConfig, maxOutputTokens: Math.max(payload.generationConfig.maxOutputTokens ?? 0, 2048) },
       }),
-    });
-    if (res.status === 404 && model !== models.at(-1)) continue; // model retired: try the next
-    if (res.status === 429) throw Object.assign(new Error('quota'), { code: 'quota' });
+    }).catch(() => null); // too slow: treated like a busy model
+    console.log(`gemini ${model} ${res?.status ?? 'timeout'} ${Date.now() - started}ms`);
+    if (res?.status === 404 && !(last && again)) {
+      if (!again) t++; // model retired: skip straight to the next
+      continue;
+    }
+    // Busy (5xx): once more, then the next model. Too slow, or rate-limited (429, each model has
+    // its own free per-minute allowance): straight to the next.
+    const busy = !res || res.status >= 500 || res.status === 429;
+    busyLast = busy;
+    if (busy && !(last && again)) {
+      if (!res || res.status === 429) t += again ? 0 : 1;
+      else if (!again) await new Promise((r) => setTimeout(r, 500));
+      continue;
+    }
+    if (busy) throw Object.assign(new Error(`gemini ${model} busy (${res?.status ?? 'timeout'})`), { code: 'busy' });
     if (!res.ok) {
       const text = (await res.text()).slice(0, 300);
       const key = /API_KEY_INVALID|API key not valid|PERMISSION_DENIED|API_KEY_SERVICE_BLOCKED/.test(text);
@@ -137,7 +156,7 @@ async function gemini(env, payload) {
     const data = await res.json();
     return data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
   }
-  throw Object.assign(new Error('no model'), { code: 'ai' });
+  throw Object.assign(new Error(busyLast ? 'gemini busy' : 'no model'), { code: busyLast ? 'busy' : 'ai' });
 }
 
 async function askGemini(env, body) {
@@ -232,7 +251,7 @@ export default {
         named = await nameObject(env, body);
       } catch (e) {
         console.log('vision failed', String(e).slice(0, 300));
-        return json({ error: e.code === 'quota' || e.code === 'key' ? e.code : 'ai' }, e.code === 'quota' ? 429 : 502, ok);
+        return json({ error: ['busy', 'key'].includes(e.code) ? e.code : 'ai' }, e.code === 'busy' ? 503 : 502, ok);
       }
       const audio = named.found && named.word ? await speak(env, named.word, body.lang) : null;
       return json({ ...named, audio }, 200, ok);
@@ -245,7 +264,7 @@ export default {
       reply = await askGemini(env, body);
     } catch (e) {
       console.log('ai failed', String(e).slice(0, 300));
-      return json({ error: e.code === 'quota' || e.code === 'key' ? e.code : 'ai' }, e.code === 'quota' ? 429 : 502, ok);
+      return json({ error: ['busy', 'key'].includes(e.code) ? e.code : 'ai' }, e.code === 'busy' ? 503 : 502, ok);
     }
     const audio = body.voice ? await speak(env, reply.reply, body.lang) : null;
     // 'device': this language has no AI voice, so the phone reads it (no need to say it's resting).

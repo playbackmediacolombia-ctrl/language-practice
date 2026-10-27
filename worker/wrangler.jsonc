@@ -16,6 +16,6 @@
     "DAILY_LIMIT": "300",
     // Camera mode photos per day, across everyone.
     "VISION_LIMIT": "100",
-    "GEMINI_MODEL": "gemini-2.5-flash"
+    "GEMINI_MODEL": "gemini-flash-lite-latest"
   }
 }
