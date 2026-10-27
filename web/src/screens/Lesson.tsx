@@ -9,19 +9,7 @@ import { allClips, Coach, type Line, type Reaction } from '../lib/feedback';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
 import { checkTiles, checkTyped, type Exercise, itemsOf, lessonExercises, mistakeExercises, reviewExercises, speakingFirst } from '../lib/exercises';
 import { getTip } from '../lib/grammar';
-import {
-  completeLesson,
-  gainHeart,
-  heartsNow,
-  loseHeart,
-  markTipSeen,
-  MISTAKE_RIGHTS,
-  recordAnswer,
-  setPref,
-  streak,
-  todayXp,
-  useProgress,
-} from '../lib/progress';
+import { completeLesson, gainHeart, heartsNow, LESSON_XP, loseHeart, markTipSeen, MISTAKE_RIGHTS, PERFECT_BONUS, recordAnswer, setPref, streak, todayXp, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { type Contour, pitchTrack, toContour } from '../lib/pitch';
 import { isModelReady, transcribe } from '../lib/whisper';
@@ -30,8 +18,6 @@ import { ToneChart } from '../ToneChart';
 import { Burst, Confetti, CountUp, Flame, Icon, ProgressBar, Waveform } from '../ui';
 import { Heatmap } from '../Heatmap';
 
-const LESSON_XP = 10;
-const PERFECT_BONUS = 5;
 const REVIEW_XP = 5;
 const DAILY_XP = 10;
 const MISTAKES_XP = 10;

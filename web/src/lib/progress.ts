@@ -62,6 +62,8 @@ export type Progress = {
   characters: boolean;
   /** Words the AI conversation partner taught you that aren't in the course, by `${lang}:ai:${slug}` (their review card is in `srs`). */
   talkWords: Record<string, TalkWord>;
+  /** Reward chests opened on the lesson path, key `${lang}:${unitId}`, value when. Each gives its XP once. */
+  chests: Record<string, number>;
 };
 
 export type TalkWord = { text: string; en: string; pinyin?: string };
@@ -111,6 +113,7 @@ const EMPTY: Progress = {
   speakFirst: { zh: true },
   characters: true,
   talkWords: {},
+  chests: {},
 };
 
 function load(): Progress {
@@ -298,6 +301,24 @@ export const loseHeart = () => update((p) => setHearts(p, -1));
 export const gainHeart = () => update((p) => setHearts(p, 1));
 
 export const lessonDone = (p: Progress, lang: Lang, lessonId: string) => (p.lessons[`${lang}:${lessonId}`] ?? 0) > 0;
+
+/** XP for finishing a lesson, and the bonus when it had no mistakes. */
+export const LESSON_XP = 10;
+export const PERFECT_BONUS = 5;
+
+/** XP in a reward chest on the lesson path. */
+export const CHEST_XP = 15;
+
+/** Opens a unit's reward chest: its XP once (opening it again gives nothing). Returns whether it was new. */
+export function openChest(lang: Lang, unitId: string): boolean {
+  const k = `${lang}:${unitId}`;
+  if (progress.chests[k]) return false;
+  update((p) => {
+    const day = dateKey();
+    return { ...p, xp: p.xp + CHEST_XP, days: { ...p.days, [day]: (p.days[day] ?? 0) + CHEST_XP }, chests: { ...p.chests, [k]: Date.now() } };
+  });
+  return true;
+}
 
 /** A lesson (or review, `lessonId` null) was finished: add XP and count today toward the streak. */
 export function completeLesson(lang: Lang, lessonId: string | null, xp: number) {

@@ -172,6 +172,7 @@ await run(async () => {
     // Mistakes cost hearts; refill them so a run of planted mistakes can't end in "Out of hearts".
     await editProgress(page, (p) => ({ ...p, hearts: 5, heartsAt: Date.now() }));
     await page.locator('.lesson-node.current').click();
+    await page.getByTestId('lesson-start').click();
     const r = await playLesson(lang, { mistakeAt: new Set(mistakes), label });
     await page.getByText(/complete!/).waitFor();
     if (label !== 'quiet') await page.waitForFunction(() => window.__sounds.length > 0, null, { timeout: 6000 }).catch(() => {});

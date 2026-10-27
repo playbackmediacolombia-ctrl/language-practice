@@ -130,6 +130,7 @@ await run(async () => {
     // Turn the voice off so only sound effects make sound here.
     await editProgress(page, (p) => ({ ...p, voice: false }));
     await page.locator('.lesson-node.current').click();
+    await page.getByTestId('lesson-start').click();
     await page.getByRole('button', { name: 'Start', exact: true }).click();
     expect(await page.locator('.tabbar').count() === 0, 'tab bar hides during a lesson');
 
@@ -251,6 +252,7 @@ await run(async () => {
     const page = await newPage({ reducedMotion: 'reduce' });
     await page.goto(`${BASE}#/es`);
     await page.locator('.lesson-node.current').click();
+    await page.getByTestId('lesson-start').click();
     await page.getByRole('button', { name: 'Start', exact: true }).click();
     await answerRight(page);
     const rm = await page.evaluate(() => ({

@@ -1,11 +1,12 @@
-import { type CSSProperties, useEffect, useState } from 'react';
+import { type CSSProperties, Fragment, useEffect, useRef, useState } from 'react';
 import { Flag, Sticker, UnitArt } from '../art';
+import { Bird, BIRD_POSES } from '../Bird';
 import { playPhrase } from '../lib/audio';
 import { type Lang, LANGS } from '../lib/content';
-import { currentLevel, getLessons, getLevels, getPath, hasStarted, lessonStates, weakItems } from '../lib/course';
-import { tapFeedback } from '../lib/fx';
+import { currentLevel, getLessons, getLevels, getPath, hasStarted, type Lesson, lessonStates, weakItems } from '../lib/course';
+import { haptic, reducedMotion, sfx, tapFeedback } from '../lib/fx';
 import { newHomeIsLive, onOldAddress } from '../lib/move';
-import { heartsNow, lessonDone, type Progress, streak, todayXp, useProgress, weakness } from '../lib/progress';
+import { CHEST_XP, heartsNow, LESSON_XP, PERFECT_BONUS, lessonDone, openChest, type Progress, streak, todayXp, useProgress, weakness } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { isModelReady } from '../lib/whisper';
 import { wordOfDay } from '../lib/wordOfDay';
@@ -185,6 +186,153 @@ function ProgressRing({ done, total }: { done: number; total: number }) {
   );
 }
 
+/** A gold chest with a navy lock; open, its lid tips back over a glow of coins. */
+function ChestArt({ open }: { open: boolean }) {
+  return (
+    <svg className="chest-art" width={76} height={68} viewBox="0 0 80 72" aria-hidden="true">
+      {open && <ellipse className="chest-glow" cx="40" cy="32" rx="30" ry="16" />}
+      {open && (
+        <g className="chest-coins">
+          <circle cx="30" cy="34" r="6" />
+          <circle cx="42" cy="31" r="6" />
+          <circle cx="52" cy="35" r="5.5" />
+        </g>
+      )}
+      <rect x="10" y="34" width="60" height="32" rx="7" className="chest-body" />
+      <rect x="10" y="34" width="60" height="7" className="chest-rim" />
+      <rect x="36" y="34" width="8" height="32" className="chest-band" />
+      <g className="chest-lid" transform={open ? 'rotate(-32 12 34)' : undefined}>
+        <path d="M10 36 Q10 13 40 13 Q70 13 70 36 Z" className="chest-lid-top" />
+        <rect x="36" y="13.5" width="8" height="22.5" className="chest-lid-band" />
+        <path d="M18 22 Q26 17 36 16" className="chest-shine" />
+      </g>
+      {!open && <rect x="33" y="31" width="14" height="13" rx="3.5" className="chest-lock" />}
+      {!open && <circle cx="40" cy="37" r="2.2" className="chest-keyhole" />}
+    </svg>
+  );
+}
+
+/** A reward chest halfway along a unit: locked until the lessons before it are done, then it wiggles; it gives its XP once. */
+function Chest({ lang, unitId, ready, opened }: { lang: Lang; unitId: string; ready: boolean; opened: boolean }) {
+  const [burst, setBurst] = useState(false);
+  const state = opened ? 'opened' : ready ? 'ready' : 'locked';
+  return (
+    <>
+      <button
+        className={`path-chest ${state}`}
+        disabled={state !== 'ready'}
+        data-testid="reward-chest"
+        data-state={state}
+        aria-label={opened ? 'Reward chest, opened' : ready ? `Open the reward chest: +${CHEST_XP} XP` : 'Reward chest: finish the lessons before it to open it'}
+        onClick={() => {
+          if (!openChest(lang, unitId)) return;
+          sfx('complete');
+          haptic('success');
+          setBurst(true);
+          setTimeout(() => setBurst(false), 1900);
+        }}
+      >
+        <ChestArt open={opened} />
+      </button>
+      {burst && (
+        <span className="chest-burst" role="status" data-testid="chest-xp">
+          <span className="chest-rays" aria-hidden="true" />+{CHEST_XP} XP
+        </span>
+      )}
+    </>
+  );
+}
+
+/** What a lesson covers, in a line: how many words or sounds, and the first few. */
+function covers(lesson: Lesson): string {
+  if (lesson.quiz?.length) return 'Culture tips, useful phrases and a short quiz';
+  const sounds = lesson.items.every((i) => i.kind === 'sound');
+  const first = lesson.items.slice(0, 3).map((i) => i.text);
+  const more = lesson.items.length > first.length ? '\u00a0…' : '';
+  return `${lesson.items.length} ${sounds ? 'sounds' : 'words and phrases'}: ${first.join(' · ')}${more}`;
+}
+
+/** Tapping a coin opens this under it: the lesson's name, what it covers and its XP, and Start. */
+function LessonPop({ lesson, unitLabel, index, total, done, x, onStart }: { lesson: Lesson; unitLabel: string; index: number; total: number; done: boolean; x: number; onStart: () => void }) {
+  const box = useRef<HTMLLIElement>(null);
+  const start = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    start.current?.focus({ preventScroll: true });
+    box.current?.scrollIntoView({ block: 'nearest', behavior: reducedMotion() ? 'auto' : 'smooth' });
+  }, []);
+  return (
+    <li ref={box} className="lesson-pop" style={{ '--x': `${x}px` } as CSSProperties} data-testid="lesson-pop" role="group" aria-label={lesson.title}>
+      <div className="lesson-pop-kicker">
+        {unitLabel} · Lesson {index + 1} of {total}
+      </div>
+      <div className="lesson-pop-title">{lesson.title}</div>
+      <p className="lesson-pop-covers">{covers(lesson)}</p>
+      <button ref={start} className="btn lesson-pop-start" data-testid="lesson-start" onClick={onStart}>
+        {done ? 'Practice again' : 'Start'} <span className="lesson-pop-xp">+{LESSON_XP} XP</span>
+      </button>
+      <p className="lesson-pop-bonus">+{PERFECT_BONUS} more if you make no mistakes</p>
+    </li>
+  );
+}
+
+type Stuck = { id: string; label: string; title: string; tone: string; count: string };
+
+/** Which unit you're scrolling through, once its own banner has gone under the top bar. */
+function useStuckUnit(): Stuck | null {
+  const [stuck, setStuck] = useState<Stuck | null>(null);
+  useEffect(() => {
+    let frame = 0;
+    const check = () => {
+      frame = 0;
+      const top = (document.querySelector('.topbar')?.getBoundingClientRect().bottom ?? 0) + 4;
+      let found: HTMLElement | null = null;
+      for (const el of document.querySelectorAll<HTMLElement>('.card.unit[data-unit]')) {
+        const box = el.getBoundingClientRect();
+        if (box.top > top) break;
+        if (box.bottom > top + 60) found = el;
+      }
+      const banner = found?.querySelector('.unit-banner');
+      const d = found?.dataset;
+      setStuck((cur) => {
+        if (!found || !d || !banner || banner.getBoundingClientRect().bottom > top) return null;
+        if (cur && cur.id === d.unit && cur.count === d.count) return cur;
+        return { id: d.unit!, label: d.label!, title: d.title!, tone: d.tone!, count: d.count! };
+      });
+    };
+    const onScroll = () => (frame ||= requestAnimationFrame(check));
+    addEventListener('scroll', onScroll, { passive: true });
+    check();
+    return () => {
+      removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+  return stuck;
+}
+
+/** Whether your current lesson is off screen, and which way it is. */
+function useCurrentAway(id: string | undefined): 'up' | 'down' | null {
+  const [away, setAway] = useState<'up' | 'down' | null>(null);
+  useEffect(() => {
+    let frame = 0;
+    const check = () => {
+      frame = 0;
+      const box = id && document.querySelector(`.lesson-node[data-lesson="${id}"]`)?.getBoundingClientRect();
+      setAway(!box ? null : box.bottom < 60 ? 'up' : box.top > innerHeight - 80 ? 'down' : null);
+    };
+    const onScroll = () => (frame ||= requestAnimationFrame(check));
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll);
+    check();
+    return () => {
+      removeEventListener('scroll', onScroll);
+      removeEventListener('resize', onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, [id]);
+  return away;
+}
+
 let scrollToCurrent = false;
 /** The next time the path opens, scroll to the current lesson (after a placement test moved it far down). */
 export const showCurrentLesson = () => (scrollToCurrent = true);
@@ -251,12 +399,38 @@ export function Path({ lang }: { lang: Lang }) {
     if (onOldAddress) void newHomeIsLive().then(setMovedLive);
   }, []);
   const stages = getPath(lang);
+  const [pop, setPop] = useState<string | null>(null);
+  useEffect(() => {
+    if (!pop) return;
+    // A tap anywhere else, or Escape, closes the lesson popup.
+    const close = (e: Event) => {
+      const t = e.target as Element;
+      if (e instanceof KeyboardEvent ? e.key === 'Escape' : !t.closest?.('.lesson-pop, .lesson-node')) setPop(null);
+    };
+    document.addEventListener('pointerdown', close);
+    document.addEventListener('keydown', close);
+    return () => {
+      document.removeEventListener('pointerdown', close);
+      document.removeEventListener('keydown', close);
+    };
+  }, [pop]);
+  const stuck = useStuckUnit();
+  const target = current ?? lessons.find((l) => states.get(l.id) === 'open');
+  const away = useCurrentAway(target?.id);
   let unitNo = 0;
+  let birdNo = 0; // the units' birds take turns at the poses
   let nodeNo = 0; // position along the whole path, for the winding
 
   return (
     <>
       <TopBar lang={lang} progress={progress} onFlag={() => setPicking(true)} />
+      {stuck && (
+        <div className={`path-sticky tone-${stuck.tone}`} data-testid="sticky-unit" aria-hidden="true" key={stuck.id}>
+          <span className="path-sticky-label">{stuck.label}</span>
+          <span className="grow path-sticky-title">{stuck.title}</span>
+          <span className="path-sticky-count">{stuck.count}</span>
+        </div>
+      )}
       <main className="page path-page">
         {movedLive && (
           <button className="card review-card move-card" onClick={() => open('/move')} data-testid="move-banner">
@@ -349,8 +523,16 @@ export function Path({ lang }: { lang: Lang }) {
               const label = unit.culture ? 'Culture' : unit.elective ? 'Extra topic' : `Unit ${++unitNo}`;
               // Each unit its own color from the logo, matching its banner and its lesson coins.
               const tone = unit.culture ? 'sky' : unit.elective ? 'cream' : UNIT_TONES[(unitNo - 1) % UNIT_TONES.length];
+              const count = done === unit.lessons.length ? 'Complete!' : `${done} of ${unit.lessons.length} lessons`;
+              const gated = unit.adult && !progress.adult;
+              // Halfway along: a reward chest, ready once the lessons before it are done.
+              const chestAt = unit.lessons.length >= 2 ? Math.ceil(unit.lessons.length / 2) : -1;
+              const chestReady = chestAt > 0 && unit.lessons.slice(0, chestAt).every((l) => lessonDone(progress, lang, l.id));
+              // A bird beside the second lesson, in this unit's pose (not where the current lesson's buddy already is).
+              const birdAt = Math.min(1, unit.lessons.length - 1);
+              const pose = BIRD_POSES[gated ? 0 : birdNo++ % BIRD_POSES.length];
               return (
-                <section key={unit.id} className={`card unit tone-${tone}`}>
+                <section key={unit.id} className={`card unit tone-${tone}`} data-unit={unit.id} data-label={label} data-title={unit.title} data-tone={tone} data-count={count}>
                   <div className="unit-banner">
                     <div className="grow">
                       <div className="unit-kicker">
@@ -359,7 +541,7 @@ export function Path({ lang }: { lang: Lang }) {
                       </div>
                       <div className="unit-title">{unit.title}</div>
                       <div className="unit-count">
-                        {done === unit.lessons.length ? 'Complete!' : `${done} of ${unit.lessons.length} lessons`}
+                        {count}
                       </div>
                     </div>
                     <span className="unit-sticker">
@@ -367,15 +549,17 @@ export function Path({ lang }: { lang: Lang }) {
                     </span>
                   </div>
                   {unit.elective && <p className="muted small unit-note">{unit.culture ? 'A short culture lesson: tips, useful phrases and a quiz. It never holds up your path.' : 'An extra topic for when you want it. It never holds up your path.'}</p>}
-                  {unit.adult && !progress.adult ? (
+                  {gated ? (
                     <AdultGate count={`${unit.lessons.length} lessons`} />
                   ) : (
                   <ol className="lessons path">
-                    {unit.lessons.map((lesson) => {
+                    {unit.lessons.map((lesson, i) => {
                       const state = states.get(lesson.id)!;
                       const x = WIND[nodeNo++ % WIND.length];
+                      const chestX = i + 1 === chestAt ? WIND[nodeNo++ % WIND.length] : 0;
                       return (
-                        <li key={lesson.id} className={`path-step ${state}`} style={{ '--x': `${x}px` } as CSSProperties}>
+                        <Fragment key={lesson.id}>
+                        <li className={`path-step ${state}`} style={{ '--x': `${x}px` } as CSSProperties}>
                           {state === 'current' && <span className="node-cta">Start</span>}
                           {state === 'current' && <ProgressRing done={done} total={unit.lessons.length} />}
                           <button
@@ -383,7 +567,11 @@ export function Path({ lang }: { lang: Lang }) {
                             data-lesson={lesson.id}
                             data-kind={lessonKind(lang, stage.id, unit.id, lesson.title)}
                             disabled={state === 'locked'}
-                            onClick={() => open(`/${lang}/learn/${lesson.id}`)}
+                            aria-expanded={pop === lesson.id}
+                            onClick={() => {
+                              tapFeedback();
+                              setPop(pop === lesson.id ? null : lesson.id);
+                            }}
                           >
                             <span className="node-dot">
                               {state === 'locked' ? <Icon name="lock" size={26} /> : <CoinIcon kind={lessonKind(lang, stage.id, unit.id, lesson.title)} />}
@@ -401,8 +589,38 @@ export function Path({ lang }: { lang: Lang }) {
                           <span className="node-label" aria-hidden="true">
                             {lesson.title}
                           </span>
-                          {state === 'current' && <img className="path-buddy" src="brand/mark.png" alt="" width={54} height={41} style={{ '--side': x > 0 ? -1 : 1 } as CSSProperties} />}
+                          {state === 'current' ? (
+                            <span className="path-buddy" style={{ '--side': x > 0 ? -1 : 1 } as CSSProperties}>
+                              <Bird pose="hop" size={62} />
+                            </span>
+                          ) : (
+                            i === birdAt && (
+                              <span className="path-bird" style={{ '--side': x > 0 ? -1 : x < 0 ? 1 : nodeNo % 2 ? 1 : -1 } as CSSProperties}>
+                                <Bird pose={pose} size={78} />
+                              </span>
+                            )
+                          )}
                         </li>
+                        {pop === lesson.id && (
+                          <LessonPop
+                            lesson={lesson}
+                            unitLabel={label}
+                            index={i}
+                            total={unit.lessons.length}
+                            done={state === 'done'}
+                            x={x}
+                            onStart={() => {
+                              setPop(null);
+                              open(`/${lang}/learn/${lesson.id}`);
+                            }}
+                          />
+                        )}
+                        {i + 1 === chestAt && (
+                          <li className="path-step chest-step" style={{ '--x': `${chestX}px` } as CSSProperties}>
+                            <Chest lang={lang} unitId={unit.id} ready={chestReady} opened={!!progress.chests[`${lang}:${unit.id}`]} />
+                          </li>
+                        )}
+                        </Fragment>
                       );
                     })}
                     <li className="path-step review-step" style={{ '--x': `${WIND[nodeNo++ % WIND.length]}px` } as CSSProperties}>
@@ -437,6 +655,21 @@ export function Path({ lang }: { lang: Lang }) {
         {/* At the very bottom, below everything else. */}
         <InstallCard />
       </main>
+
+      {away && target && (
+        <button
+          className={`jump-lesson ${away}`}
+          data-testid="jump-to-lesson"
+          aria-label={`Jump to your lesson: ${target.title}`}
+          onClick={() => {
+            tapFeedback();
+            document.querySelector(`.lesson-node[data-lesson="${target.id}"]`)?.scrollIntoView({ block: 'center', behavior: reducedMotion() ? 'auto' : 'smooth' });
+          }}
+        >
+          <Icon name="chevron" size={22} />
+          <span className="sr-only">Jump to your lesson</span>
+        </button>
+      )}
 
       {picking && (
         <div className="sheet-backdrop" onClick={() => setPicking(false)}>

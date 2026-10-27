@@ -43,6 +43,12 @@ await run(async () => {
     await page.evaluate(() => window.scrollBy(0, -200));
     await page.waitForTimeout(900);
     await page.screenshot({ path: `${DIR}${scheme}-2-current.png` });
+    if (await page.locator('.lesson-node.current').isVisible()) {
+      await page.locator('.lesson-node.current').click();
+      await page.waitForTimeout(700);
+      await page.screenshot({ path: `${DIR}${scheme}-2b-popup.png` });
+      await page.keyboard.press('Escape');
+    }
     await page.evaluate(() => window.scrollBy(0, 1600));
     await page.waitForTimeout(900);
     await page.screenshot({ path: `${DIR}${scheme}-3-further.png` });

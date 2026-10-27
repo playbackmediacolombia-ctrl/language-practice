@@ -177,6 +177,7 @@ await run(async () => {
   expect(stages === STAGES, `path: all ${STAGES} stages, from sounds to adult topics (${stages})`);
 
   await page.locator('.lesson-node.current').click();
+  await page.getByTestId('lesson-start').click();
   await page.getByRole('button', { name: 'Start', exact: true }).waitFor();
   const firstNonIntro = await page.evaluate(() => 0); // mistake goes on the first exercise that costs a heart
   let es1 = await (async () => {
@@ -208,6 +209,7 @@ await run(async () => {
 
   // ---------- Spanish lesson 2 (has words, so speaking + translate), perfect ----------
   await page.locator('.lesson-node.current').click();
+  await page.getByTestId('lesson-start').click();
   const es2 = await playLesson('es', { label: 'es2' });
   console.log('  es2 exercises:', es2.types.join(', '));
   const speaks = es2.log.filter((l) => l.type === 'speak');
@@ -222,6 +224,7 @@ await run(async () => {
   // ---------- Mandarin: tones lesson, typing pinyin with tone numbers ----------
   await page.goto(`${BASE}#/zh`);
   await page.locator('.lesson-node.current').click();
+  await page.getByTestId('lesson-start').click();
   const zh1 = await playLesson('zh', { label: 'zh1' });
   console.log('  zh1 exercises:', zh1.types.join(', '));
   expect(zh1.log.every((l) => l.cls.includes('ok')), 'zh tones lesson: all right (pinyin typed as ma3)');
@@ -229,6 +232,7 @@ await run(async () => {
   await page.getByRole('button', { name: 'Continue' }).click();
   await page.waitForTimeout(600); // screen transition
   await page.locator('.lesson-node.current').click();
+  await page.getByTestId('lesson-start').click();
   const zh2 = await playLesson('zh', { label: 'zh2' });
   console.log('  zh2 bad:', JSON.stringify(zh2.log.filter((l) => !l.cls.includes('ok'))));
   expect(zh2.log.every((l) => l.cls.includes('ok')), `zh lesson 2 all right (${zh2.types.join(', ')})`);
@@ -238,6 +242,7 @@ await run(async () => {
   // ---------- French lesson 1, and a French unit-2 lesson for sentence tiles ----------
   await page.goto(`${BASE}#/fr`);
   await page.locator('.lesson-node.current').click();
+  await page.getByTestId('lesson-start').click();
   const fr1 = await playLesson('fr', { label: 'fr1' });
   console.log('  fr1 bad:', JSON.stringify(fr1.log.filter((l) => !l.cls.includes('ok'))));
   expect(fr1.log.every((l) => l.cls.includes('ok')), `fr lesson 1 all right (${fr1.types.join(', ')})`);
@@ -248,6 +253,7 @@ await run(async () => {
     for (const id of ['fr-1-2', 'fr-1-3', 'fr-1-4']) p.lessons[`fr:${id}`] = 1;
   });
   await page.locator('.lesson-node.current').click();
+  await page.getByTestId('lesson-start').click();
   await page.getByRole('button', { name: 'Start', exact: true }).waitFor();
   const fr21 = await playLesson('fr', { label: 'fr21' });
   expect(fr21.types.includes('tiles') && fr21.log.every((l) => l.cls.includes('ok')), `fr unit 2: sentence tiles right (${fr21.types.join(', ')})`);
@@ -274,6 +280,7 @@ await run(async () => {
     p.heartsAt = Date.now();
   });
   await page.locator('.lesson-node.current').click();
+  await page.getByTestId('lesson-start').click();
   await playLesson('es', { label: 'hearts', mistakeAt: 'costly' });
   expect(await page.getByText('Out of hearts').isVisible(), 'losing the last heart ends the lesson with "Out of hearts"');
   await shot('no-hearts');

@@ -109,6 +109,7 @@ await run(async () => {
     await page.screenshot({ path: `B-${scheme}-learn.png` });
     await page.locator('.tabbar').getByRole('button', { name: 'Learn' }).click();
     await page.locator('.lesson-node.current').click();
+    await page.getByTestId('lesson-start').click();
     await page.getByRole('button', { name: 'Start', exact: true }).waitFor();
     expect((await page.locator('.header .brand').count()) === 0, `${scheme}: no logo in the lesson header (stays focused)`);
     await page.goto(`${BASE}#/progress`);

@@ -32,6 +32,7 @@ await run(async () => {
   await page.screenshot({ path: 'K-path.png' });
 
   await unit.locator('.lesson-node').click();
+  await page.getByTestId('lesson-start').click();
   await page.getByTestId('grammar-tip').waitFor();
   const tip = await page.getByTestId('grammar-tip').innerText();
   expect(/culture note/i.test(tip) && /Spain/.test(tip) && /Colombia/.test(tip), 'the culture note pops up first, covering Spain and Latin America');

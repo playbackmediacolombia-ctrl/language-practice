@@ -52,6 +52,7 @@ await run(async () => {
   await unit.scrollIntoViewIfNeeded();
   await page.screenshot({ path: 'D-path.png' });
   await unit.locator('.lesson-node').first().click();
+  await page.getByTestId('lesson-start').click();
   await page.waitForTimeout(600);
   expect(/#\/es\/learn\/es-21-1$/.test(page.url()), `an open dating lesson starts (${page.url().split('#')[1]})`);
 

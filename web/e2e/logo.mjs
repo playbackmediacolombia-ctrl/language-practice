@@ -77,6 +77,7 @@ await run(async () => {
   /** Finishes the current lesson on the path, then taps Continue on "Lesson complete!". */
   async function finishCurrent(page) {
     await page.locator('.lesson-node.current').click();
+    await page.getByTestId('lesson-start').click();
     await playLesson(page);
     await page.waitForTimeout(400);
     const duringComplete = await overlay(page).count();
