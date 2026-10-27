@@ -64,6 +64,11 @@ await run(async () => {
     await page.goto(`${BASE}#/es`);
     await page.getByTestId('install-card').waitFor();
     expect(true, 'the card is on the Learn tab too');
+    const last = await page.evaluate(() => {
+      const kids = [...document.querySelector('main.page').children].filter((e) => e.offsetHeight > 0);
+      return kids.at(-1)?.dataset.testid;
+    });
+    expect(last === 'install-card', `on the Learn tab it's the very last thing on the page (${last})`);
     await page.getByTestId('install-dismiss').click();
     expect((await page.getByTestId('install-card').count()) === 0, 'dismiss: gone');
     await page.reload();

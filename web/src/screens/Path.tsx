@@ -234,7 +234,6 @@ export function Path({ lang }: { lang: Lang }) {
             </div>
           </button>
         )}
-        <InstallCard />
         <DailyGoal progress={progress} />
         <WordOfTheDay lang={lang} progress={progress} />
         <StreakWarning
@@ -375,6 +374,8 @@ export function Path({ lang }: { lang: Lang }) {
             <Icon name="target" size={18} /> Retake the placement test
           </button>
         )}
+        {/* At the very bottom, below everything else. */}
+        <InstallCard />
       </main>
 
       {picking && (
