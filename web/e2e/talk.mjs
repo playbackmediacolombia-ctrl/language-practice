@@ -45,6 +45,7 @@ await run(async () => {
     requests.push(body);
     if (mode === 'quota') return route.fulfill({ status: 429, contentType: 'application/json', body: '{"error":"quota"}' });
     if (mode === 'down') return route.abort('failed');
+    if (mode === 'key') return route.fulfill({ status: 502, contentType: 'application/json', body: '{"error":"key"}' });
     const first = !body.history.length;
     const reply = first
       ? { reply: '¡Hola! ¿Tienes hermanos?', translation: 'Hi! Do you have brothers or sisters?', newWords: [{ word: 'hermanos', meaning: 'brothers and sisters, siblings' }], done: false }
@@ -125,6 +126,10 @@ await run(async () => {
   await page.waitForTimeout(500);
   expect(/You're offline/.test(await page.getByTestId('talk-problem').innerText()), 'offline: says so, the rest of the app still works');
   await context.setOffline(false);
+  mode = 'key';
+  await page.getByTestId('talk-retry').click();
+  await page.waitForTimeout(500);
+  expect(/rejected its Gemini key/.test(await page.getByTestId('talk-problem').innerText()), 'a rejected Gemini key: says so plainly, not "isn\'t answering"');
 
   // ---------- A role-play with the AI ----------
   mode = 'ok';

@@ -11,7 +11,7 @@
   // Today's request count, for the daily cap.
   "kv_namespaces": [{ "binding": "USAGE", "id": "1570b2bc71e8496e80ee3081aa6fd8cf" }],
   "vars": {
-    "ALLOWED_ORIGINS": "https://learnguage.net,https://playbackmediacolombia-ctrl.github.io",
+    "ALLOWED_ORIGINS": "https://learnguage.net,https://www.learnguage.net,https://playbackmediacolombia-ctrl.github.io",
     // Replies per day across everyone, well under the free Gemini quota.
     "DAILY_LIMIT": "300",
     // Camera mode photos per day, across everyone.

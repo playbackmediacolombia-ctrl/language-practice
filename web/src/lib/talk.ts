@@ -24,8 +24,8 @@ export type TalkReply = {
 };
 export type TalkScenario = { setting: string; them: string; en: string };
 
-/** Why a reply didn't come: no signal, today's free quota used up, or the service is down. */
-export type TalkProblem = 'offline' | 'quota' | 'unavailable';
+/** Why a reply didn't come: no signal, today's free quota used up, the Gemini key rejected, or the service is down. */
+export type TalkProblem = 'offline' | 'quota' | 'setup' | 'unavailable';
 export class TalkError extends Error {
   constructor(readonly problem: TalkProblem) {
     super(problem);
@@ -35,8 +35,15 @@ export class TalkError extends Error {
 export const PROBLEM_TEXT: Record<TalkProblem, string> = {
   offline: "You're offline. The AI partner needs the internet; everything else in the app still works.",
   quota: "Today's free AI conversations are used up. They come back tomorrow, and the rest of the app works as usual.",
+  setup: "The AI partner isn't set up right: Google rejected its Gemini key. Store the key again in the Worker (see the README). Everything else in the app works.",
   unavailable: "The AI partner isn't answering right now. Try again in a little while.",
 };
+
+/** A failed reply: the Worker says 'key' when Google rejected the Gemini key, 'not_configured' when there is none. */
+async function problemOf(res: Response): Promise<TalkProblem> {
+  const body = (await res.json().catch(() => null)) as { error?: string } | null;
+  return body?.error === 'key' || body?.error === 'not_configured' ? 'setup' : 'unavailable';
+}
 
 export async function nextReply(req: { lang: Lang; level: string; scenario?: TalkScenario; history: TalkMessage[]; voice: boolean }): Promise<TalkReply> {
   if (!navigator.onLine) throw new TalkError('offline');
@@ -52,7 +59,7 @@ export async function nextReply(req: { lang: Lang; level: string; scenario?: Tal
     throw new TalkError(navigator.onLine ? 'unavailable' : 'offline');
   }
   if (res.status === 429) throw new TalkError('quota');
-  if (!res.ok) throw new TalkError('unavailable');
+  if (!res.ok) throw new TalkError(await problemOf(res));
   const data = (await res.json()) as TalkReply;
   if (!data?.reply) throw new TalkError('unavailable');
   const correction = data.correction?.corrected?.trim() ? data.correction : null;
@@ -76,7 +83,7 @@ export async function nameObject(lang: Lang, image: string): Promise<Named> {
     throw new TalkError(navigator.onLine ? 'unavailable' : 'offline');
   }
   if (res.status === 429) throw new TalkError('quota');
-  if (!res.ok) throw new TalkError('unavailable');
+  if (!res.ok) throw new TalkError(await problemOf(res));
   return (await res.json()) as Named;
 }
 

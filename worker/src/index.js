@@ -108,23 +108,52 @@ async function underDailyLimit(env, kind = 'count', limit = env.DAILY_LIMIT ?? 3
   return true;
 }
 
+/**
+ * Calls Gemini with the configured model, falling back to Google's current Flash alias if that
+ * model has been retired. A rejected key is reported as code 'key', so the app can say so.
+ */
+async function gemini(env, payload) {
+  const models = [env.GEMINI_MODEL, 'gemini-flash-latest'].filter((m, i, all) => m && all.indexOf(m) === i);
+  for (const model of models) {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-goog-api-key': String(env.GEMINI_API_KEY).trim() },
+      // 2.5 Flash "thinks" by default, and thinking counts against maxOutputTokens: turn it off
+      // so replies (short JSON) are never cut off; other models get extra room instead.
+      body: JSON.stringify({
+        ...payload,
+        generationConfig: model.startsWith('gemini-2.5')
+          ? { ...payload.generationConfig, thinkingConfig: { thinkingBudget: 0 } }
+          : { ...payload.generationConfig, maxOutputTokens: Math.max(payload.generationConfig.maxOutputTokens ?? 0, 2048) },
+      }),
+    });
+    if (res.status === 404 && model !== models.at(-1)) continue; // model retired: try the next
+    if (res.status === 429) throw Object.assign(new Error('quota'), { code: 'quota' });
+    if (!res.ok) {
+      const text = (await res.text()).slice(0, 300);
+      const key = /API_KEY_INVALID|API key not valid|PERMISSION_DENIED|API_KEY_SERVICE_BLOCKED/.test(text);
+      throw Object.assign(new Error(`gemini ${model} ${res.status}: ${text}`), { code: key ? 'key' : 'ai' });
+    }
+    const data = await res.json();
+    return data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
+  }
+  throw Object.assign(new Error('no model'), { code: 'ai' });
+}
+
 async function askGemini(env, body) {
   const contents = body.history.slice(-20).map((m) => ({ role: m.role === 'model' ? 'model' : 'user', parts: [{ text: String(m.text).slice(0, 600) }] }));
   if (!contents.length || contents[0].role !== 'user') contents.unshift({ role: 'user', parts: [{ text: '(The learner has just opened the conversation. Greet them and start.)' }] });
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${env.GEMINI_MODEL}:generateContent`, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
-    body: JSON.stringify({
-      systemInstruction: { parts: [{ text: instructions(body) }] },
-      contents,
-      generationConfig: { temperature: 0.8, maxOutputTokens: 600, responseMimeType: 'application/json', responseSchema: REPLY_SCHEMA },
-    }),
+  const text = await gemini(env, {
+    systemInstruction: { parts: [{ text: instructions(body) }] },
+    contents,
+    generationConfig: { temperature: 0.8, maxOutputTokens: 600, responseMimeType: 'application/json', responseSchema: REPLY_SCHEMA },
   });
-  if (res.status === 429) throw Object.assign(new Error('quota'), { code: 'quota' });
-  if (!res.ok) throw Object.assign(new Error(`gemini ${res.status}: ${(await res.text()).slice(0, 300)}`), { code: 'ai' });
-  const data = await res.json();
-  const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
-  const out = JSON.parse(text);
+  let out;
+  try {
+    out = JSON.parse(text);
+  } catch {
+    throw Object.assign(new Error(`bad JSON: ${text.slice(0, 120)}`), { code: 'ai' });
+  }
   if (!out.reply) throw Object.assign(new Error('empty reply'), { code: 'ai' });
   return out;
 }
@@ -145,19 +174,16 @@ const VISION_SCHEMA = {
 
 async function nameObject(env, body) {
   const L = LANGS[body.lang];
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${env.GEMINI_MODEL}:generateContent`, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
-    body: JSON.stringify({
-      systemInstruction: { parts: [{ text: `You help someone learning ${L.variety}. Name the single main object in the photo the way a native speaker would in everyday life. Never describe or identify people, faces or personal details; if the photo is mainly a person, set found to false.` }] },
-      contents: [{ role: 'user', parts: [{ inline_data: { mime_type: 'image/jpeg', data: body.image } }, { text: `What is the main object? Answer in ${L.name}.` }] }],
-      generationConfig: { temperature: 0.2, maxOutputTokens: 300, responseMimeType: 'application/json', responseSchema: VISION_SCHEMA },
-    }),
+  const text = await gemini(env, {
+    systemInstruction: { parts: [{ text: `You help someone learning ${L.variety}. Name the single main object in the photo the way a native speaker would in everyday life. Never describe or identify people, faces or personal details; if the photo is mainly a person, set found to false.` }] },
+    contents: [{ role: 'user', parts: [{ inline_data: { mime_type: 'image/jpeg', data: body.image } }, { text: `What is the main object? Answer in ${L.name}.` }] }],
+    generationConfig: { temperature: 0.2, maxOutputTokens: 300, responseMimeType: 'application/json', responseSchema: VISION_SCHEMA },
   });
-  if (res.status === 429) throw Object.assign(new Error('quota'), { code: 'quota' });
-  if (!res.ok) throw Object.assign(new Error(`gemini ${res.status}: ${(await res.text()).slice(0, 300)}`), { code: 'ai' });
-  const data = await res.json();
-  return JSON.parse(data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? '{}');
+  try {
+    return JSON.parse(text || '{}');
+  } catch {
+    throw Object.assign(new Error(`bad JSON: ${text.slice(0, 120)}`), { code: 'ai' });
+  }
 }
 
 /** The reply spoken by Workers AI (MeloTTS), as base64 MP3; null if the voice isn't available. */
@@ -206,7 +232,7 @@ export default {
         named = await nameObject(env, body);
       } catch (e) {
         console.log('vision failed', String(e).slice(0, 300));
-        return json({ error: e.code === 'quota' ? 'quota' : 'ai' }, e.code === 'quota' ? 429 : 502, ok);
+        return json({ error: e.code === 'quota' || e.code === 'key' ? e.code : 'ai' }, e.code === 'quota' ? 429 : 502, ok);
       }
       const audio = named.found && named.word ? await speak(env, named.word, body.lang) : null;
       return json({ ...named, audio }, 200, ok);
@@ -219,7 +245,7 @@ export default {
       reply = await askGemini(env, body);
     } catch (e) {
       console.log('ai failed', String(e).slice(0, 300));
-      return json({ error: e.code === 'quota' ? 'quota' : 'ai' }, e.code === 'quota' ? 429 : 502, ok);
+      return json({ error: e.code === 'quota' || e.code === 'key' ? e.code : 'ai' }, e.code === 'quota' ? 429 : 502, ok);
     }
     const audio = body.voice ? await speak(env, reply.reply, body.lang) : null;
     // 'device': this language has no AI voice, so the phone reads it (no need to say it's resting).

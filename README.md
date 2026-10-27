@@ -120,7 +120,7 @@ npm run test:e2e -- ui lesson   # just some: mute brand ui lesson feedback liste
 
 ### AI conversation partner (Cloudflare Worker, free)
 
-`worker/` is a small Cloudflare Worker on the free Workers plan (no payment method on the account). It only accepts requests from `https://learnguage.net` and the old github.io address, counts replies in a KV namespace and stops at `DAILY_LIMIT` (300) a day so nobody can drain the free quotas, and keeps the Gemini key as a Worker secret, never in the repo.
+`worker/` is a small Cloudflare Worker on the free Workers plan (no payment method on the account). It only accepts requests from `https://learnguage.net`, `https://www.learnguage.net` and the old github.io address, counts replies in a KV namespace and stops at `DAILY_LIMIT` (300) a day so nobody can drain the free quotas, and keeps the Gemini key as a Worker secret, never in the repo.
 
 ```bash
 cd worker
@@ -131,7 +131,9 @@ npm run deploy                         # after changing src/index.js or wrangler
 npm run tail                           # watch it live
 ```
 
-The model is `GEMINI_MODEL` in `wrangler.jsonc`; the daily cap is `DAILY_LIMIT`.
+The model is `GEMINI_MODEL` in `wrangler.jsonc` (if Google retires it, the Worker falls back to `gemini-flash-latest`); the daily cap is `DAILY_LIMIT`.
+
+**The key:** at the `secret put` prompt paste only the key itself: one word, 39 characters, starting with `AIza` (copy it with the copy icon at https://aistudio.google.com/apikey). No quotes, no `GEMINI_API_KEY=`, no spaces. If the app says “Google rejected its Gemini key”, run `npm run tail`, send a message, and store the key again.
 
 ### Hosting (GitHub Pages, free)
 
