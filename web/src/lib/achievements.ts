@@ -1,6 +1,7 @@
 import { LANGS } from './content';
 import { getPath } from './course';
 import { dateKey, lessonDone, type Progress, streak } from './progress';
+import { thisWeek } from './weekly';
 
 // Big achievements, the ones that get the logo celebration: finishing a unit or a whole level,
 // 7/30/100-day streaks, a placement test result, and hitting the daily goal for the first time.
@@ -57,6 +58,11 @@ export function earned(p: Progress): Achievement[] {
     if (days >= n) {
       out.push({ key: `streak:${n}:${streakStart(p)}`, rank: n >= 100 ? 6 : 4, title: `${n}-day streak!`, detail: `You've practiced ${n} days in a row.` });
     }
+  }
+  // This week's challenge only: weeks won before are history, not news.
+  const week = thisWeek(p);
+  if (week.won && week.lastWeek > 0) {
+    out.push({ key: `week:${dateKey(week.start)}`, rank: 3, title: 'Weekly challenge won!', detail: `${week.xp} XP this week, beating last week's ${week.lastWeek}.` });
   }
   if (Object.values(p.days).some((xp) => xp >= p.goal)) {
     out.push({ key: 'goal:first', rank: 1, title: 'Daily goal reached!', detail: 'The first time you hit your daily goal. Keep it going!' });

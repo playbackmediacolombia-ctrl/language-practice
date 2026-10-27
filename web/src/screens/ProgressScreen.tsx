@@ -3,6 +3,7 @@ import { LANGS } from '../lib/content';
 import { getLessons } from '../lib/course';
 import { dateKey, lessonDone, type Progress, streak, todayXp, useProgress } from '../lib/progress';
 import { dailyMinutes, formatDuration, lastDays, practicedOn, type Scope, streakFor, totals, weeklyAccuracy } from '../lib/stats';
+import { pastWeeks, thisWeek, weekLabel } from '../lib/weekly';
 import { CountUp, Flame, Icon, LangIcon, ProgressBar, Screen } from '../ui';
 
 const WEEKDAY = new Intl.DateTimeFormat(undefined, { weekday: 'short' });
@@ -55,6 +56,8 @@ export function ProgressScreen() {
           <span className="tile-label">Words learned</span>
         </div>
       </div>
+
+      <WeeklyChallenge />
 
       <div className="section-title">XP this week</div>
       <div className="card">
@@ -416,6 +419,63 @@ function Calendar({ progress, scope }: { progress: Progress; scope: Scope }) {
         })}
       </div>
       <p className="muted small">Orange days had practice{scope === 'all' ? '' : ' in this language'}. Keep the chain going!</p>
+    </>
+  );
+}
+
+/** Weekly challenge: beat your own last week, with a history of past weeks. */
+function WeeklyChallenge() {
+  const progress = useProgress();
+  const w = thisWeek(progress);
+  const history = pastWeeks(progress, 8);
+  const [showAll, setShowAll] = useState(false);
+  const left = Math.max(0, w.goal - w.xp);
+  return (
+    <>
+      <div className="section-title">Weekly challenge</div>
+      <div className={w.won ? 'card weekly won' : 'card weekly'} data-testid="weekly">
+        <div className="row">
+          <span className="weekly-icon" aria-hidden="true">
+            <Icon name={w.won ? 'check' : 'target'} size={22} />
+          </span>
+          <div className="grow">
+            <div className="card-title">{w.won ? 'Challenge won!' : `Beat last week: ${w.goal} XP`}</div>
+            <p className="muted small">
+              {w.won
+                ? `You've beaten last week's ${w.lastWeek} XP. Everything more is a bonus.`
+                : w.lastWeek
+                  ? `Last week you earned ${w.lastWeek} XP. ${left} XP to go, ${w.daysLeft} day${w.daysLeft === 1 ? '' : 's'} left.`
+                  : `Earn ${w.goal} XP this week. ${w.daysLeft} day${w.daysLeft === 1 ? '' : 's'} left.`}
+            </p>
+          </div>
+          <span className="weekly-count">
+            {w.xp}/{w.goal}
+          </span>
+        </div>
+        <ProgressBar value={w.xp / w.goal} tone={w.won ? 'ok' : 'accent'} />
+        {history.length > 0 && (
+          <>
+            <ul className="weekly-history" data-testid="weekly-history">
+              {(showAll ? history : history.slice(0, 4)).map((h) => (
+                <li key={h.start.toISOString()} className={h.won ? 'won' : ''}>
+                  <span className="grow">Week of {weekLabel(h.start)}</span>
+                  <span className="muted small">
+                    {h.xp}/{h.goal} XP
+                  </span>
+                  <span className="weekly-mark" aria-label={h.won ? 'won' : 'not won'}>
+                    {h.won ? <Icon name="check" size={16} /> : '–'}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            {history.length > 4 && (
+              <button className="link-btn" onClick={() => setShowAll(!showAll)} style={{ alignSelf: 'flex-start' }}>
+                {showAll ? 'Show fewer weeks' : `Show all ${history.length} weeks`}
+              </button>
+            )}
+          </>
+        )}
+      </div>
     </>
   );
 }
