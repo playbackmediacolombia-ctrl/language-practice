@@ -1234,3 +1234,31 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 @keyframes arrow-bounce { 0%, 100% { translate: 0 0; } 50% { translate: 0 10px; } }
 @keyframes arrow-bounce-up { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
 @media (prefers-reduced-motion: reduce) { .install-arrow, .install-logo, .install-guide { animation: none !important; } }
+
+/* Pronunciation heatmap: green, yellow, red per word; tap a yellow or red one to practice it. */
+.heatmap { display: flex; flex-direction: column; gap: 8px; }
+.heatmap-words { display: flex; flex-wrap: wrap; gap: 6px; }
+.heat {
+  position: relative; font: inherit; font-size: 22px; font-weight: 700; line-height: 1.2; padding: 4px 10px; border-radius: 10px;
+  border: 2px solid transparent; cursor: pointer; color: var(--text);
+}
+.heatmap.small .heat { font-size: var(--text-base); padding: 2px 7px; border-radius: 8px; }
+.heat.ok { background: var(--ok-bg); color: var(--ok); cursor: default; }
+.heat.close { background: color-mix(in srgb, var(--sun) 28%, var(--card)); color: var(--close); border-color: color-mix(in srgb, var(--sun) 60%, transparent); }
+.heat.wrong { background: var(--wrong-bg); color: var(--wrong); border-color: color-mix(in srgb, var(--wrong) 40%, transparent); }
+.heat.picked { outline: 3px solid var(--accent); outline-offset: 1px; }
+.heat-tone { position: absolute; top: -10px; right: -6px; font-size: 11px; font-weight: 700; padding: 1px 5px; border-radius: 999px; background: var(--close); color: #fff; }
+.heatmap-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
+.heatmap-legend .dot { width: 9px; height: 9px; }
+.heatmap-legend .dot.ok { background: var(--ok-bright); }
+.heatmap-legend .dot.close { background: var(--sun); }
+.heatmap-legend .dot.wrong { background: var(--wrong-bright); }
+.word-practice { display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 16px; background: var(--card); border: 2px solid var(--border); color: var(--text); animation: pop 0.3s var(--spring); }
+.word-practice-word { font-size: var(--text-xl); font-weight: 800; letter-spacing: var(--tight); overflow-wrap: anywhere; }
+.word-practice-head { flex-wrap: wrap; }
+.word-practice-head > .grow { flex-basis: 100%; }
+.word-practice-result { margin: 0; font-weight: 700; }
+.word-practice-result.ok { color: var(--ok); }
+.word-practice-result.close { color: var(--close); }
+.word-practice-result.wrong { color: var(--wrong); }
+.banner .heatmap-legend { color: inherit; opacity: 0.8; }

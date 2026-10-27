@@ -9,6 +9,7 @@ import { haptic, sfx, tapFeedback } from '../lib/fx';
 import { type Contour, pitchTrack, toContour } from '../lib/pitch';
 import { ToneChart } from '../ToneChart';
 import { Icon, PhraseText, ProgressBar, Screen, Waveform } from '../ui';
+import { Heatmap } from '../Heatmap';
 
 type State =
   | { kind: 'idle' }
@@ -147,18 +148,8 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
             </div>
             <div style={{ fontSize: 24, fontWeight: 700 }}>{Math.round(state.result.score * 100)}%</div>
           </div>
-          <div className="tokens">
-            {state.result.tokens.map((t, i) => (
-              <span key={i} className={`token ${t.status}`}>
-                {t.text}
-              </span>
-            ))}
-          </div>
+          <Heatmap tokens={state.result.tokens} lang={lang} />
           <p className="muted">Whisper heard: “{state.heard || '(nothing)'}”</p>
-          <p className="muted small">
-            <span style={{ color: 'var(--ok)' }}>green</span> = right · <span style={{ color: 'var(--close)' }}>orange</span> =
-            almost · <span style={{ color: 'var(--wrong)' }}>red</span> = missed or wrong
-          </p>
         </div>
       )}
       {state.kind === 'error' && <p style={{ color: 'var(--wrong)', textAlign: 'center', margin: 0 }}>{state.message}</p>}

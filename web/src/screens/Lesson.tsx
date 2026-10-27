@@ -1,7 +1,7 @@
 import { pinyin } from 'pinyin-pro';
 import { Sticker, UnitArt } from '../art';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
-import { compare } from '../../../shared/compare';
+import { compare, type TokenResult } from '../../../shared/compare';
 import { cutFeedback, playClip, playClipAfterPhrase, playPhrase, type Recording, startRecording, stopAllVoices, unlockAudio } from '../lib/audio';
 import { type Lang, LANGS, shuffle } from '../lib/content';
 import { allItems, DAILY_MAX, dueItems, dueTomorrow, getLesson, getLessons, type Item, MISTAKES_MAX, mistakeItems, weakItems } from '../lib/course';
@@ -28,6 +28,7 @@ import { isModelReady, transcribe } from '../lib/whisper';
 import { GrammarSheet } from '../GrammarTip';
 import { ToneChart } from '../ToneChart';
 import { Burst, Confetti, CountUp, Flame, Icon, ProgressBar, Waveform } from '../ui';
+import { Heatmap } from '../Heatmap';
 
 const LESSON_XP = 10;
 const PERFECT_BONUS = 5;
@@ -45,6 +46,8 @@ type Result = {
   skipped?: boolean;
   /** Spoken answer that was close rather than spot on. */
   close?: boolean;
+  /** A spoken answer, word by word, for the pronunciation heatmap. */
+  tokens?: TokenResult[];
   /** Your pitch for a Mandarin "say it" (null if none was found), shown next to the native speaker's. */
   tones?: Contour | null;
   /** What the coach shows (and maybe says); filled in by the lesson. */
@@ -325,7 +328,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     >
       {result?.right && !result.skipped && <div key={index} className="flash ok" aria-hidden="true" />}
       <ExerciseView key={index} ex={ex} lang={lang} answered={result !== null} onSubmit={submit} />
-      {result && <ResultBanner ex={ex} result={result} onContinue={next} />}
+      {result && <ResultBanner ex={ex} result={result} lang={lang} onContinue={next} />}
       {tipSheet}
     </LessonFrame>
   );
@@ -804,10 +807,11 @@ function SpeakExercise({ ex, lang, answered, onSubmit }: ViewProps) {
       const tones = lang === 'zh' ? toContour(pitchTrack(audio)) : undefined;
       setState('checking');
       const text = await transcribe(audio, lang);
-      const score = compare(ex.item.text, text, lang, ex.item.alt).score;
+      const c = compare(ex.item.text, text, lang, ex.item.alt);
+      const score = c.score;
       setHeard(text);
       setState('idle');
-      onSubmit({ right: score >= 0.5, free: true, close: score >= 0.5 && score < 0.85, note: `Whisper heard: “${text || '(nothing)'}” · ${Math.round(score * 100)}%`, tones });
+      onSubmit({ right: score >= 0.5, free: true, close: score >= 0.5 && score < 0.85, note: `Whisper heard: “${text || '(nothing)'}” · ${Math.round(score * 100)}%`, tones, tokens: c.tokens });
     } catch (e) {
       recording.current = null;
       setAnalyser(null);
@@ -870,7 +874,7 @@ function SpeakExercise({ ex, lang, answered, onSubmit }: ViewProps) {
   );
 }
 
-function ResultBanner({ ex, result, onContinue }: { ex: Exercise; result: Result; onContinue: () => void }) {
+function ResultBanner({ ex, result, lang, onContinue }: { ex: Exercise; result: Result; lang: Lang; onContinue: () => void }) {
   const button = useRef<HTMLButtonElement>(null);
   useEffect(() => button.current?.focus({ preventScroll: true }), []);
   const item = ex.type === 'match' || ex.type === 'fact' ? null : ex.item;
@@ -916,6 +920,7 @@ function ResultBanner({ ex, result, onContinue }: { ex: Exercise; result: Result
           )}
         </div>
       )}
+      {result.tokens && result.tokens.length > 0 && <Heatmap tokens={result.tokens} lang={lang} />}
       {result.note && <div className="small">{result.note}</div>}
       {item && result.tones !== undefined && (
         <div className="banner-chart">

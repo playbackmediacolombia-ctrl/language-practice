@@ -1,7 +1,11 @@
 import { pinyin } from 'pinyin-pro';
 import type { Lang } from './lang';
 
-export type TokenResult = { text: string; status: 'ok' | 'close' | 'wrong' };
+/**
+ * One expected word (a character in Chinese): said right, nearly, or missed. For Chinese,
+ * `tone` is set when the syllable was right but the tone wasn't (numbered pinyin, e.g. "ma3").
+ */
+export type TokenResult = { text: string; status: 'ok' | 'close' | 'wrong'; tone?: { expected: string; heard: string } };
 export type Comparison = { tokens: TokenResult[]; score: number };
 
 // Whisper sometimes writes traditional characters. Map the common ones back to simplified so
@@ -143,6 +147,7 @@ export function compare(expected: string, heard: string, lang: Lang, alt: string
     const s = similarity(exp[i], got[j]);
     if (s && dp[i][j] === dp[i + 1][j + 1] + weight(s)) {
       tokens[i].status = s;
+      if (s === 'close' && exp[i].sound && got[j].sound && exp[i].sound !== got[j].sound) tokens[i].tone = { expected: exp[i].sound!, heard: got[j].sound! };
       i++;
       j++;
     } else if (dp[i + 1][j] >= dp[i][j + 1]) {

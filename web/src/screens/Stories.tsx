@@ -11,6 +11,7 @@ import { isModelReady, loadModel, transcribe } from '../lib/whisper';
 import { Icon, Screen, SpeedPicker, Waveform } from '../ui';
 import { AdultGate, AdultGateScreen } from './AdultGate';
 import { LangSwitcher } from './Path';
+import { Heatmap } from '../Heatmap';
 
 const STORY_XP = 10;
 const SHADOW_XP = 5;
@@ -426,7 +427,7 @@ function StoryLine(props: {
         </p>
         {line.pinyin && <p className="line-pinyin">{line.pinyin}</p>}
         {english && <p className="line-en">{line.en}</p>}
-        {result && <LineGrade result={result} />}
+        {result && <LineGrade result={result} lang={lang} />}
         <button className="line-play" aria-label={`Play line ${index + 1}`} onClick={onPlay}>
           <Icon name="speaker" size={18} />
         </button>
@@ -438,19 +439,13 @@ function StoryLine(props: {
 const gradeClass = (score: number) => (score >= 0.85 ? 'ok' : score >= 0.5 ? 'close' : 'wrong');
 
 /** Under a shadowed line: Whisper's score and the words marked right, almost or missed. */
-function LineGrade({ result }: { result: LineResult }) {
+function LineGrade({ result, lang }: { result: LineResult; lang: Lang }) {
   if (result.score === null) return <p className="line-grade muted small">Repeated (not graded)</p>;
   return (
     <div className="line-grade" title={result.heard ? `Whisper heard: ${result.heard}` : undefined}>
       <span className={`score-chip ${gradeClass(result.score)}`}>{Math.round(result.score * 100)}%</span>
       {result.tokens?.length ? (
-        <span className="tokens small">
-          {result.tokens.map((t, i) => (
-            <span key={i} className={`token ${t.status}`}>
-              {t.text}
-            </span>
-          ))}
-        </span>
+        <Heatmap tokens={result.tokens} lang={lang} small />
       ) : (
         <span className="muted small">{result.heard === '' ? "Didn't hear you" : ''}</span>
       )}

@@ -11,6 +11,7 @@ import { isModelReady, loadModel, transcribe } from '../lib/whisper';
 import { Icon, Screen, Waveform } from '../ui';
 import { AdultGate, AdultGateScreen } from './AdultGate';
 import { LangSwitcher } from './Path';
+import { Heatmap } from '../Heatmap';
 
 const ROLEPLAY_XP = 10;
 /** At or above this a turn counts as said and the conversation moves on. */
@@ -495,13 +496,7 @@ function TurnPanel(props: {
         {status}
       </div>
       {turn?.tokens && phase === 'graded' && (
-        <div className="tokens small" lang={lang}>
-          {turn.tokens.map((t, i) => (
-            <span key={i} className={`token ${t.status}`}>
-              {t.text}
-            </span>
-          ))}
-        </div>
+        <Heatmap tokens={turn.tokens} lang={lang} small />
       )}
       {error && <p style={{ color: 'var(--wrong)', margin: 0 }}>{error}</p>}
     </div>
