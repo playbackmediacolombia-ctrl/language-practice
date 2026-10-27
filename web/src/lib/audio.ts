@@ -45,9 +45,58 @@ const deviceClip = (url: string) => {
   return { lang, text: decodeURIComponent(rest.join(':')) };
 };
 
+// One voice at a time. Phrases (the <audio> player), spoken feedback (Web Audio clips) and the
+// phone's own voice all go through this: starting one stops the others, and after a feedback
+// line finishes the next clip waits a moment (QUIET_MS) so they never run together.
+const QUIET_MS = 650;
+let voiceClip: AudioBufferSourceNode | null = null; // a feedback line playing now
+let pendingClip = 0; // a feedback line waiting to start
+let pendingPhrase = 0; // a phrase waiting for the pause after a feedback line
+let quietUntil = 0; // performance.now() before which a new phrase waits
+const phraseWaiters = new Set<() => void>(); // feedback lines waiting for the phrase to end
+
+/** Cuts off spoken feedback (playing or waiting), e.g. when you tap Continue. */
+export function cutFeedback() {
+  clearTimeout(pendingClip);
+  pendingClip = 0;
+  phraseWaiters.forEach((go) => player.removeEventListener('ended', go));
+  phraseWaiters.clear();
+  if (voiceClip) {
+    try {
+      voiceClip.stop();
+    } catch {
+      // already ended
+    }
+    voiceClip = null;
+    quietUntil = performance.now() + 120; // a clean, short break before what comes next
+  }
+}
+
+/** Stops everything that talks: phrases, stories, feedback lines and the phone's voice. */
+export function stopAllVoices() {
+  sequence?.();
+  cutFeedback();
+  clearTimeout(pendingPhrase);
+  window.speechSynthesis?.cancel();
+  player.pause();
+}
+
 export function playPhrase(url: string, speed: PlaySpeed = false, fromSequence = false) {
   if (!fromSequence) sequence?.(); // a single clip interrupts a story being read
+  cutFeedback();
+  clearTimeout(pendingPhrase);
+  window.speechSynthesis?.cancel();
   player.pause();
+  const wait = quietUntil - performance.now();
+  if (wait > 0) {
+    pendingPhrase = window.setTimeout(() => startPhrase(url, speed), wait);
+    return;
+  }
+  startPhrase(url, speed);
+}
+
+function startPhrase(url: string, speed: PlaySpeed) {
+  pendingPhrase = 0;
   if (url.startsWith('tts:')) {
     const { lang, text } = deviceClip(url);
     void speakDevice(text, lang, speed);
@@ -66,6 +115,7 @@ let sequence: (() => void) | null = null;
 /** Stops whatever phrase (or story) is playing. */
 export function stopPhrase() {
   sequence?.();
+  clearTimeout(pendingPhrase);
   window.speechSynthesis?.cancel();
   player.pause();
 }
@@ -214,33 +264,48 @@ function loadClip(url: string): Promise<AudioBuffer> {
 }
 
 /** Plays a short clip through Web Audio. Needs unlockAudio() or a recording first (iOS). */
-export async function playClip(url: string, delay = 0) {
-  try {
-    const buffer = await loadClip(url);
-    const c = audioContext();
-    const source = c.createBufferSource();
-    source.buffer = buffer;
-    source.connect(c.destination);
-    source.start(c.currentTime + delay);
-  } catch {
-    // Spoken feedback is a bonus; the result is already on screen.
-  }
+/** Plays a spoken feedback line on the voice channel after `delay` seconds (cancelled by cutFeedback). */
+export function playClip(url: string, delay = 0) {
+  clearTimeout(pendingClip);
+  const go = async () => {
+    pendingClip = 0;
+    try {
+      const buffer = await loadClip(url);
+      // A phrase is talking (or about to): speak right after it instead of over it.
+      if ((!player.paused && !player.ended) || pendingPhrase) return void playClipAfterPhrase(url);
+      cutFeedback();
+      const c = audioContext();
+      const source = c.createBufferSource();
+      source.buffer = buffer;
+      source.connect(c.destination);
+      voiceClip = source;
+      quietUntil = Infinity; // while it talks, phrases wait (or cut it off, see playPhrase)
+      source.onended = () => {
+        if (voiceClip !== source) return;
+        voiceClip = null;
+        quietUntil = performance.now() + QUIET_MS;
+      };
+      source.start();
+    } catch {
+      // Spoken feedback is a bonus; the result is already on screen.
+    }
+  };
+  pendingClip = window.setTimeout(() => void go(), delay * 1000);
 }
 
 export const playFeedback = (name: Feedback, delay = 0) => playClip(feedbackUrl(name), delay);
 
 /** Plays a clip once the phrase audio (if any) has finished, so the two don't talk over each other. */
 export function playClipAfterPhrase(url: string) {
-  if (player.paused || player.ended) return void playClip(url, 0.35);
-  let done = false;
+  if ((player.paused || player.ended) && !pendingPhrase) return void playClip(url, 0.35);
   const go = () => {
-    if (done) return;
-    done = true;
+    if (!phraseWaiters.delete(go)) return;
     player.removeEventListener('ended', go);
-    void playClip(url, 0.2);
+    playClip(url, 0.3);
   };
+  phraseWaiters.add(go);
   player.addEventListener('ended', go);
-  setTimeout(go, 4000); // in case 'ended' never fires (e.g. the phrase was interrupted)
+  // If the phrase never ends (cut off by Continue), cutFeedback() removes this waiter.
 }
 
 export type Recording = {

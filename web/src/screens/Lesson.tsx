@@ -2,7 +2,7 @@ import { pinyin } from 'pinyin-pro';
 import { Sticker, UnitArt } from '../art';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { compare } from '../../../shared/compare';
-import { playClip, playClipAfterPhrase, playPhrase, type Recording, startRecording, unlockAudio } from '../lib/audio';
+import { cutFeedback, playClip, playClipAfterPhrase, playPhrase, type Recording, startRecording, stopAllVoices, unlockAudio } from '../lib/audio';
 import { type Lang, LANGS, shuffle } from '../lib/content';
 import { allItems, DAILY_MAX, dueItems, dueTomorrow, getLesson, getLessons, type Item, MISTAKES_MAX, mistakeItems, weakItems } from '../lib/course';
 import { allClips, Coach, type Line, type Reaction } from '../lib/feedback';
@@ -89,6 +89,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   }
   const [queue, setQueue] = useState<Exercise[]>(() => build(speakFirst));
   const total = useRef(queue.length); // exercises in the lesson, not counting repeats
+  useEffect(() => () => stopAllVoices(), []); // leaving the lesson silences it
   const [phase, setPhase] = useState<'start' | 'play' | 'done' | 'no-hearts'>('start');
   const [index, setIndex] = useState(0);
   const [result, setResult] = useState<Result | null>(null);
@@ -138,6 +139,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   };
 
   const next = () => {
+    cutFeedback(); // Continue cuts off spoken feedback cleanly; the next clip waits a beat
     setResult(null);
     if (!review && heartsNow(progress).hearts <= 0) return setPhase('no-hearts');
     if (index + 1 >= queue.length) return finish();

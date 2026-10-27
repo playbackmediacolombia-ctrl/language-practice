@@ -147,6 +147,10 @@ await run(async () => {
       types.push(ex.type);
       // The voice waits for the phrase audio to end, so wait for that, then for the voice to start.
       await page.waitForFunction(() => !window.__media || window.__media.paused || window.__media.ended, null, { timeout: 8000 });
+      // A spoken line (wrong answers, streak cheers) starts only once the phrase has finished and
+      // a short pause has passed, so wait for it to start rather than a fixed time.
+      const voiceExpected = !cls.includes('ok') || /in a row/.test(text);
+      if (voiceExpected) await page.waitForFunction(() => window.__sounds.length > 0, null, { timeout: 6000 }).catch(() => {});
       await page.waitForTimeout(900);
       const said = await spoken();
       log.push({ title, right: cls.includes('ok'), mistake: makeMistake, step, type: ex.type, cls, text, said, heartsBefore: beforeHearts, heartsAfter: await hearts().catch(() => NaN) });
@@ -170,6 +174,7 @@ await run(async () => {
     await page.locator('.lesson-node.current').click();
     const r = await playLesson(lang, { mistakeAt: new Set(mistakes), label });
     await page.getByText(/complete!/).waitFor();
+    if (label !== 'quiet') await page.waitForFunction(() => window.__sounds.length > 0, null, { timeout: 6000 }).catch(() => {});
     await page.waitForTimeout(600);
     const endSaid = await spoken();
     const cheer = await page.locator('.cheer').innerText();

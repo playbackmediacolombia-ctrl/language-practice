@@ -4,7 +4,7 @@ import { DAILY_MAX, dueItems, getLesson, getPath, isAdultLesson, type Item, less
 import { tapFeedback } from '../lib/fx';
 import { buildTrack, canPlayHandsFree, type Pause, segmentAt, type Track } from '../lib/handsfree';
 import { addPracticeTime, completeLesson, type Progress, type Speed, useProgress } from '../lib/progress';
-import { RATES } from '../lib/audio';
+import { RATES, stopAllVoices } from '../lib/audio';
 import { navigate } from '../lib/router';
 import { Icon, ProgressBar, Screen, Segmented, SpeedPicker } from '../ui';
 import { LangSwitcher } from './Path';
@@ -171,7 +171,10 @@ export function HandsFreePlayer({ lang, id }: { lang: Lang; id: string }) {
         const target = track.segments[Math.max(0, Math.min(track.segments.length - 1, index + delta))];
         el.currentTime = target.start;
       };
-      session.setActionHandler('play', () => void el.play());
+      session.setActionHandler('play', () => {
+        stopAllVoices();
+        void el.play();
+      });
       session.setActionHandler('pause', () => el.pause());
       session.setActionHandler('previoustrack', () => jump(-1));
       session.setActionHandler('nexttrack', () => jump(1));
@@ -211,6 +214,7 @@ export function HandsFreePlayer({ lang, id }: { lang: Lang; id: string }) {
         setFinished(false);
       }
       el.playbackRate = RATES[speed];
+      stopAllVoices(); // nothing else talks over the podcast
       void el.play();
     } else el.pause();
   };
