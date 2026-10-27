@@ -240,7 +240,7 @@ export function useActiveTab(): TabId | null {
   // A language's path is Learn; its phrasebook topics belong to Practice.
   if (['es', 'fr', 'zh'].includes(first)) {
     if (!second) return 'learn';
-    if (second === 'learn' || second === 'placement' || second === 'level' || second === 'talk' || third) return null; // lessons, tests and exercises are full screen
+    if (second === 'learn' || second === 'placement' || second === 'level' || second === 'talk' || second === 'camera' || third) return null; // lessons, tests and exercises are full screen
     return 'practice';
   }
   return null;

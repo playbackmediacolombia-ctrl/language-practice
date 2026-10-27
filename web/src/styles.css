@@ -1294,3 +1294,12 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .tone5 { color: var(--muted); }
 .kw.now .tone1, .kw.now .tone2, .kw.now .tone3, .kw.now .tone4, .kw.now .tone5 { color: #fff; }
 .tone-legend span { font-weight: 700; }
+
+/* Camera mode. */
+.camera-frame { position: relative; aspect-ratio: 3 / 4; max-height: 56dvh; width: 100%; border-radius: 22px; overflow: hidden; background: var(--card-2); border: 2px solid var(--border); }
+.camera-video { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; }
+.camera-video.on { opacity: 1; }
+.camera-empty, .camera-busy { position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: 10px; padding: 24px; text-align: center; }
+.camera-busy { background: rgba(7, 13, 26, 0.35); color: #fff; }
+.camera-thumb { width: 64px; height: 64px; object-fit: cover; border-radius: 14px; flex: none; }
+.camera-result { gap: 12px; animation: pop 0.35s var(--spring); }

@@ -56,6 +56,27 @@ export async function nextReply(req: { lang: Lang; level: string; scenario?: Tal
   return { ...data, correction, newWords: Array.isArray(data.newWords) ? data.newWords.filter((w) => w?.word && w?.meaning).slice(0, 3) : [] };
 }
 
+export type Named = { found: boolean; word: string; pinyin?: string; meaning: string; example: string; examplePinyin?: string; exampleTranslation: string; audio: string | null };
+
+/** Camera mode: the main object in a photo (a small JPEG, base64), named in `lang`. */
+export async function nameObject(lang: Lang, image: string): Promise<Named> {
+  if (!navigator.onLine) throw new TalkError('offline');
+  let res: Response;
+  try {
+    res = await fetch(ENDPOINT.replace(/\/chat$/, '/vision'), {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ lang, image }),
+      signal: AbortSignal.timeout(30000),
+    });
+  } catch {
+    throw new TalkError(navigator.onLine ? 'unavailable' : 'offline');
+  }
+  if (res.status === 429) throw new TalkError('quota');
+  if (!res.ok) throw new TalkError('unavailable');
+  return (await res.json()) as Named;
+}
+
 /** The reply's audio as a playable URL (revoke it when done). */
 export function audioUrl(base64: string): string {
   const bin = atob(base64);

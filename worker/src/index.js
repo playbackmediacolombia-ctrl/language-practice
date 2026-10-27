@@ -8,6 +8,10 @@
 // - The Gemini key is a Worker secret (GEMINI_API_KEY), never in this code or the repo.
 // - Only the app's own addresses may call it (ALLOWED_ORIGINS).
 // - A daily cap (DAILY_LIMIT, counted in the USAGE KV namespace) keeps the free quotas safe.
+//
+// POST /vision with { lang, image } (a small JPEG, base64) names the main thing in the photo
+// in that language, with its English, an example sentence and the word spoken. It has its own
+// daily cap (VISION_LIMIT).
 
 const LANGS = {
   es: { name: 'Spanish', variety: 'Colombian Spanish (as spoken in Bogotá and Medellín)', tts: 'es' },
@@ -82,11 +86,11 @@ const json = (body, status, origin) =>
 const cors = (origin) => (origin ? { 'access-control-allow-origin': origin, 'access-control-allow-methods': 'POST, OPTIONS', 'access-control-allow-headers': 'content-type', 'access-control-max-age': '86400', vary: 'origin' } : {});
 
 /** Counts today's requests; false once the daily cap is reached. (KV is eventually consistent, so the cap is approximate.) */
-async function underDailyLimit(env) {
+async function underDailyLimit(env, kind = 'count', limit = env.DAILY_LIMIT ?? 300) {
   if (!env.USAGE) return true;
-  const key = `count:${new Date().toISOString().slice(0, 10)}`;
+  const key = `${kind}:${new Date().toISOString().slice(0, 10)}`;
   const used = Number((await env.USAGE.get(key)) ?? 0);
-  if (used >= Number(env.DAILY_LIMIT ?? 300)) return false;
+  if (used >= Number(limit)) return false;
   await env.USAGE.put(key, String(used + 1), { expirationTtl: 3 * 86400 });
   return true;
 }
@@ -110,6 +114,37 @@ async function askGemini(env, body) {
   const out = JSON.parse(text);
   if (!out.reply) throw Object.assign(new Error('empty reply'), { code: 'ai' });
   return out;
+}
+
+const VISION_SCHEMA = {
+  type: 'object',
+  properties: {
+    found: { type: 'boolean', description: 'False if there is no clear object to name (too dark, blurry, or just a person or a screen).' },
+    word: { type: 'string', description: 'The everyday name of the main object, in the target language, singular. Spanish and French: include the definite article (la mesa, le livre). Mandarin: simplified characters.' },
+    pinyin: { type: 'string', description: 'Mandarin only: pinyin with tone marks for word. Empty otherwise.' },
+    meaning: { type: 'string', description: 'The English name.' },
+    example: { type: 'string', description: 'A short, natural example sentence using the word, in the target language, simple enough for a learner.' },
+    examplePinyin: { type: 'string', description: 'Mandarin only: pinyin for the example. Empty otherwise.' },
+    exampleTranslation: { type: 'string', description: 'The example in English.' },
+  },
+  required: ['found', 'word', 'meaning', 'example', 'exampleTranslation'],
+};
+
+async function nameObject(env, body) {
+  const L = LANGS[body.lang];
+  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${env.GEMINI_MODEL}:generateContent`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
+    body: JSON.stringify({
+      systemInstruction: { parts: [{ text: `You help someone learning ${L.variety}. Name the single main object in the photo the way a native speaker would in everyday life. Never describe or identify people, faces or personal details; if the photo is mainly a person, set found to false.` }] },
+      contents: [{ role: 'user', parts: [{ inline_data: { mime_type: 'image/jpeg', data: body.image } }, { text: `What is the main object? Answer in ${L.name}.` }] }],
+      generationConfig: { temperature: 0.2, maxOutputTokens: 300, responseMimeType: 'application/json', responseSchema: VISION_SCHEMA },
+    }),
+  });
+  if (res.status === 429) throw Object.assign(new Error('quota'), { code: 'quota' });
+  if (!res.ok) throw Object.assign(new Error(`gemini ${res.status}: ${(await res.text()).slice(0, 300)}`), { code: 'ai' });
+  const data = await res.json();
+  return JSON.parse(data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? '{}');
 }
 
 /** The reply spoken by Workers AI (MeloTTS), as base64 MP3; null if the voice isn't available. */
@@ -138,7 +173,7 @@ export default {
     const url = new URL(request.url);
 
     if (request.method === 'OPTIONS') return new Response(null, { status: ok ? 204 : 403, headers: cors(ok) });
-    if (url.pathname !== '/chat' || request.method !== 'POST') return json({ error: 'not_found' }, 404, ok);
+    if (!['/chat', '/vision'].includes(url.pathname) || request.method !== 'POST') return json({ error: 'not_found' }, 404, ok);
     if (!ok) return json({ error: 'forbidden' }, 403, null);
     if (!env.GEMINI_API_KEY) return json({ error: 'not_configured' }, 503, ok);
 
@@ -147,6 +182,20 @@ export default {
       body = await request.json();
     } catch {
       return json({ error: 'bad_request' }, 400, ok);
+    }
+    if (url.pathname === '/vision') {
+      // A photo is at most ~300 KB of base64 (the app sends ~512 px JPEGs).
+      if (!LANGS[body?.lang] || typeof body.image !== 'string' || body.image.length > 400_000) return json({ error: 'bad_request' }, 400, ok);
+      if (!(await underDailyLimit(env, 'vision', env.VISION_LIMIT ?? 100))) return json({ error: 'quota' }, 429, ok);
+      let named;
+      try {
+        named = await nameObject(env, body);
+      } catch (e) {
+        console.log('vision failed', String(e).slice(0, 300));
+        return json({ error: e.code === 'quota' ? 'quota' : 'ai' }, e.code === 'quota' ? 429 : 502, ok);
+      }
+      const audio = named.found && named.word ? await speak(env, named.word, body.lang) : null;
+      return json({ ...named, audio }, 200, ok);
     }
     if (!LANGS[body?.lang] || !Array.isArray(body.history) || body.history.length > 60) return json({ error: 'bad_request' }, 400, ok);
 

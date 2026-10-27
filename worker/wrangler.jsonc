@@ -14,6 +14,8 @@
     "ALLOWED_ORIGINS": "https://learnguage.net,https://playbackmediacolombia-ctrl.github.io",
     // Replies per day across everyone, well under the free Gemini quota.
     "DAILY_LIMIT": "300",
+    // Camera mode photos per day, across everyone.
+    "VISION_LIMIT": "100",
     "GEMINI_MODEL": "gemini-2.5-flash"
   }
 }

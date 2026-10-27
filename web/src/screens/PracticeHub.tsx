@@ -93,6 +93,19 @@ export function PracticeHub({ lang }: { lang: Lang }) {
         </div>
       </button>
 
+      <button className="card review-card" data-testid="camera-card" onClick={() => open(`/${lang}/camera`)}>
+        <div className="row">
+          <span className="card-sticker tint-blue">
+            <Sticker name="pin" size={40} />
+          </span>
+          <div className="grow">
+            <div className="card-title">Camera: name what you see</div>
+            <p className="muted small">Point your camera at something to learn its name, hear it and add it to your words. Needs the internet.</p>
+          </div>
+          <Icon name="chevron" style={{ color: 'var(--faint)' }} />
+        </div>
+      </button>
+
       <button className="card review-card" data-testid="music-card" onClick={() => open(`/${lang}/music`)}>
         <div className="row">
           <span className="card-sticker tint-orange">
