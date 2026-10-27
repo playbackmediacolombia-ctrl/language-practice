@@ -309,8 +309,8 @@ export function Path({ lang }: { lang: Lang }) {
                 );
               }
               const done = unit.lessons.filter((l) => lessonDone(progress, lang, l.id)).length;
-              const tone = unit.elective ? 'cream' : TONES[s % TONES.length];
-              const label = unit.elective ? 'Extra topic' : `Unit ${++unitNo}`;
+              const tone = unit.culture ? 'sky' : unit.elective ? 'cream' : TONES[s % TONES.length];
+              const label = unit.culture ? 'Culture' : unit.elective ? 'Extra topic' : `Unit ${++unitNo}`;
               return (
                 <section key={unit.id} className={`card unit tone-${tone}`}>
                   <div className="unit-banner">
@@ -328,7 +328,7 @@ export function Path({ lang }: { lang: Lang }) {
                       <UnitArt unitId={unit.id} size={56} />
                     </span>
                   </div>
-                  {unit.elective && <p className="muted small unit-note">An extra topic for when you want it. It never holds up your path.</p>}
+                  {unit.elective && <p className="muted small unit-note">{unit.culture ? 'A short culture lesson: tips, useful phrases and a quiz. It never holds up your path.' : 'An extra topic for when you want it. It never holds up your path.'}</p>}
                   {unit.adult && !progress.adult ? (
                     <AdultGate count={`${unit.lessons.length} lessons`} />
                   ) : (

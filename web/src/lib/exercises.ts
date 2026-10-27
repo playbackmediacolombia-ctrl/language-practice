@@ -1,5 +1,5 @@
 import { shuffle, type Lang } from './content';
-import type { Item } from './course';
+import type { Item, Quiz } from './course';
 
 export type Exercise =
   | { type: 'meaning'; item: Item; options: string[]; isNew: boolean } // hear + see it, pick the English
@@ -8,10 +8,11 @@ export type Exercise =
   | { type: 'tiles'; item: Item; bank: string[] } // build the sentence from word tiles
   | { type: 'match'; items: Item[] } // match target ↔ English pairs
   | { type: 'type'; item: Item } // type what you hear
-  | { type: 'speak'; item: Item; recall?: boolean }; // say it out loud, graded by Whisper (recall: from the English)
+  | { type: 'speak'; item: Item; recall?: boolean } // say it out loud, graded by Whisper (recall: from the English)
+  | { type: 'fact'; q: string; options: string[]; answer: string }; // a culture lesson's quiz question
 
 /** The item an exercise is about (match pairs have several). */
-export const itemsOf = (ex: Exercise): Item[] => (ex.type === 'match' ? ex.items : [ex.item]);
+export const itemsOf = (ex: Exercise): Item[] => (ex.type === 'match' ? ex.items : ex.type === 'fact' ? [] : [ex.item]);
 
 const pickSome = <T,>(items: T[], n: number) => shuffle(items).slice(0, n);
 
@@ -61,7 +62,7 @@ const matchable = (items: Item[]) => items.filter((i) => i.text.replace(/\p{Scri
  * then the other half and drills on everything), so a word is always seen before it's tested.
  * `earlier` is every item from finished lessons, for distractors and a little review.
  */
-export function lessonExercises(items: Item[], earlier: Item[], lang: Lang, speaking: boolean): Exercise[] {
+export function lessonExercises(items: Item[], earlier: Item[], lang: Lang, speaking: boolean, quiz: Quiz[] = []): Exercise[] {
   const pool = [...items, ...earlier];
   const words = items.filter((i) => i.kind !== 'sound');
   const drills: Exercise[] = [];
@@ -90,6 +91,8 @@ export function lessonExercises(items: Item[], earlier: Item[], lang: Lang, spea
   // One match-the-pairs round, using this lesson's words plus a review word or two.
   const pairs = matchable([...items, ...pickSome(matchable(earlier), 2)]);
   if (pairs.length >= 3) out.push({ type: 'match', items: pickSome(pairs, 5) });
+  // Culture lessons end with their quiz.
+  for (const f of quiz) out.push({ type: 'fact', q: f.q, options: shuffle([...f.options]), answer: f.options[f.answer] });
   return out;
 }
 
@@ -139,7 +142,7 @@ export function mistakeExercises(items: Item[], all: Item[], lang: Lang, speakin
 export function speakingFirst(list: Exercise[], lang: Lang): Exercise[] {
   return list.flatMap((ex): Exercise[] => {
     if (ex.type === 'match') return [];
-    if (ex.type === 'speak' || !speakable(ex.item, lang)) return [ex];
+    if (ex.type === 'fact' || ex.type === 'speak' || !speakable(ex.item, lang)) return [ex];
     return [{ type: 'speak', item: ex.item, recall: !(ex.type === 'meaning' && ex.isNew) }];
   });
 }

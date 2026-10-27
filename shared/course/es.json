@@ -1041,6 +1041,121 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u27",
+      "title": "Culture: greetings & gestures",
+      "lessons": [
+        {
+          "id": "es-27-1",
+          "title": "Greetings and gestures",
+          "items": [
+            { "id": "cu-buenas", "text": "¡Buenas!", "en": "Hi! (casual, any time of day)" },
+            { "id": "cu-que-mas", "text": "¿Qué más? ¿Bien o qué?", "en": "What's up? All good? (Colombia)" },
+            { "id": "cu-que-tal", "text": "¿Qué tal?", "en": "How's it going? (Spain and everywhere)" },
+            { "id": "cu-mucho-gusto", "text": "Mucho gusto.", "en": "Nice to meet you." },
+            { "id": "cu-un-beso", "text": "Un beso, nos vemos.", "en": "A kiss, see you. (a friendly goodbye)" },
+            { "id": "cu-con-permiso", "text": "Con permiso.", "en": "Excuse me (when you pass by or leave)." }
+          ],
+          "quiz": [
+            { "q": "How many kisses on the cheek are usual in Spain?", "options": ["Two", "One", "None, just a handshake"], "answer": 0 },
+            { "q": "You walk into a small shop in Bogotá. What do you say first?", "options": ["¡Buenos días!", "Nothing, just look around", "¿Cuánto cuesta?"], "answer": 0 },
+            { "q": "In Mexico, showing a person's height with your palm facing down…", "options": ["…is for animals: use your hand sideways", "…is the polite way", "…means \"very tall\""], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u28",
+      "title": "Culture: food & table manners",
+      "lessons": [
+        {
+          "id": "es-28-1",
+          "title": "Food and the table",
+          "items": [
+            { "id": "cu-buen-provecho", "text": "¡Buen provecho!", "en": "Enjoy your meal!" },
+            { "id": "cu-que-me-recomienda", "text": "¿Qué me recomienda?", "en": "What do you recommend?" },
+            { "id": "cu-me-trae-la-cuenta", "text": "¿Me trae la cuenta, por favor?", "en": "Could you bring me the check, please?" },
+            { "id": "cu-menu-del-dia", "text": "¿Tienen menú del día?", "en": "Do you have a set lunch menu?" },
+            { "id": "cu-todo-delicioso", "text": "Todo estaba delicioso.", "en": "Everything was delicious." },
+            { "id": "cu-para-llevar", "text": "¿Me lo empaca para llevar?", "en": "Could you pack it up to take away?" }
+          ],
+          "quiz": [
+            { "q": "When is dinner usually eaten in Spain?", "options": ["From about 9 p.m.", "Around 6 p.m.", "At noon"], "answer": 0 },
+            { "q": "A Colombian waiter asks \"¿Desea incluir el servicio?\" What is it?", "options": ["An optional tip of about 10%", "A fee for the table", "A question about dessert"], "answer": 0 },
+            { "q": "\"Juice\" in Latin America is…", "options": ["jugo", "zumo", "caldo"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u29",
+      "title": "Culture: holidays & celebrations",
+      "lessons": [
+        {
+          "id": "es-29-1",
+          "title": "Holidays and celebrations",
+          "items": [
+            { "id": "cu-feliz-navidad", "text": "¡Feliz Navidad y próspero año nuevo!", "en": "Merry Christmas and a happy New Year!" },
+            { "id": "cu-cuantos-cumples", "text": "¡Feliz cumpleaños! ¿Cuántos cumples?", "en": "Happy birthday! How old are you turning?" },
+            { "id": "cu-doce-uvas", "text": "A medianoche nos comemos las doce uvas.", "en": "At midnight we eat the twelve grapes." },
+            { "id": "cu-velitas", "text": "El siete de diciembre es la noche de las velitas.", "en": "December 7 is the night of the little candles." },
+            { "id": "cu-ofrenda", "text": "En el Día de Muertos ponemos una ofrenda.", "en": "On the Day of the Dead we set up an altar of offerings." },
+            { "id": "cu-puente", "text": "El lunes es festivo, ¡tenemos puente!", "en": "Monday is a holiday: we have a long weekend!" }
+          ],
+          "quiz": [
+            { "q": "What do people in Spain eat at midnight on New Year's Eve?", "options": ["Twelve grapes", "A whole cake", "Nothing until morning"], "answer": 0 },
+            { "q": "Colombia's \"noche de las velitas\" is…", "options": ["December 7, lighting candles to start Christmas", "A summer music festival", "A Halloween party"], "answer": 0 },
+            { "q": "Mexico's Día de Muertos is…", "options": ["A family celebration remembering the dead", "A scary costume party", "A day of silence"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u30",
+      "title": "Culture: etiquette & mistakes to avoid",
+      "lessons": [
+        {
+          "id": "es-30-1",
+          "title": "Etiquette and common mistakes",
+          "items": [
+            { "id": "cu-que-verguenza", "text": "Qué vergüenza, me equivoqué.", "en": "How embarrassing, I made a mistake." },
+            { "id": "cu-donde-queda-el-bano", "text": "Disculpe, ¿usted sabe dónde queda el baño?", "en": "Excuse me, do you know where the bathroom is?" },
+            { "id": "cu-ahorita-vengo", "text": "Ahorita vengo.", "en": "I'll be right back (sooner or later…)." },
+            { "id": "cu-tranquilo", "text": "Tranquilo, no pasa nada.", "en": "Relax, it's no big deal." },
+            { "id": "cu-a-la-orden", "text": "¡A la orden!", "en": "You're welcome! / At your service! (Colombia)" },
+            { "id": "cu-que-pena-con-usted", "text": "¡Qué pena con usted!", "en": "I'm so sorry! (a polite apology in Colombia)" }
+          ],
+          "quiz": [
+            { "q": "\"Estoy embarazada\" means…", "options": ["I'm pregnant", "I'm embarrassed", "I'm busy"], "answer": 0 },
+            { "q": "In Colombia, \"¡Qué pena con usted!\" is…", "options": ["A polite apology", "An insult", "Sympathy for a loss"], "answer": 0 },
+            { "q": "In Latin America, someone from the US is best called…", "options": ["estadounidense", "americano", "gringo"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u31",
+      "title": "Culture: slang around the world",
+      "lessons": [
+        {
+          "id": "es-31-1",
+          "title": "Slang around the Spanish-speaking world",
+          "items": [
+            { "id": "cu-que-chevere", "text": "¡Qué chévere!", "en": "How cool! (Colombia, Venezuela)" },
+            { "id": "cu-que-guay", "text": "¡Qué guay!", "en": "How cool! (Spain)" },
+            { "id": "cu-bien-padre", "text": "¡Está bien padre!", "en": "It's really cool! (Mexico)" },
+            { "id": "cu-que-copado", "text": "¡Qué copado, che!", "en": "That's great! (Argentina)" },
+            { "id": "cu-que-mas-parce", "text": "¿Qué más, parce?", "en": "What's up, buddy? (Colombia)" },
+            { "id": "cu-vale-quedamos", "text": "Vale, quedamos a las ocho.", "en": "OK, let's meet at eight. (Spain)" }
+          ],
+          "quiz": [
+            { "q": "\"¡Qué guay!\" sounds like someone from…", "options": ["Spain", "Mexico", "Argentina"], "answer": 0 },
+            { "q": "A Colombian friend says \"¿Qué más, parce?\" \"Parce\" means…", "options": ["buddy", "parcel", "later"], "answer": 0 },
+            { "q": "Which word for \"OK\" mostly marks someone from Spain?", "options": ["vale", "listo", "dale"], "answer": 0 }
+          ]
+        }
+      ]
     }
   ]
 }

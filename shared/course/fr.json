@@ -1043,6 +1043,121 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u27",
+      "title": "Culture: greetings & gestures",
+      "lessons": [
+        {
+          "id": "fr-27-1",
+          "title": "Greetings and gestures",
+          "items": [
+            { "id": "cu-bonjour-madame", "text": "Bonjour, madame.", "en": "Hello, ma'am." },
+            { "id": "cu-salut-ca-va", "text": "Salut, ça va ?", "en": "Hi, how's it going?" },
+            { "id": "cu-la-bise", "text": "On se fait la bise ?", "en": "Shall we kiss on the cheeks to say hello?" },
+            { "id": "cu-bonne-journee", "text": "Bonne journée !", "en": "Have a nice day!" },
+            { "id": "cu-allo", "text": "Allô ? Oui, c'est moi.", "en": "Hello? (on the phone) Yes, it's me." },
+            { "id": "cu-ca-va-bien-toi", "text": "Ça va bien, toi ?", "en": "I'm good, and you? (common in Québec)" }
+          ],
+          "quiz": [
+            { "q": "What should you say before asking a question in a French shop?", "options": ["Bonjour", "Just \"Excusez-moi\"", "Nothing"], "answer": 0 },
+            { "q": "How many kisses (la bise) are usual in Belgium?", "options": ["One", "Three", "Four"], "answer": 0 },
+            { "q": "Pulling down your lower eyelid with a finger (\"mon œil\") means…", "options": ["I don't believe you", "I'm tired", "Look at that"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u28",
+      "title": "Culture: food & table manners",
+      "lessons": [
+        {
+          "id": "fr-28-1",
+          "title": "Food and the table",
+          "items": [
+            { "id": "cu-bon-appetit", "text": "Bon appétit !", "en": "Enjoy your meal!" },
+            { "id": "cu-carafe-eau", "text": "Une carafe d'eau, s'il vous plaît.", "en": "A jug of tap water, please." },
+            { "id": "cu-addition", "text": "L'addition, s'il vous plaît.", "en": "The check, please." },
+            { "id": "cu-viande-a-point", "text": "Je voudrais la viande à point.", "en": "I'd like the meat medium." },
+            { "id": "cu-cetait-delicieux", "text": "C'était délicieux, merci !", "en": "It was delicious, thanks!" },
+            { "id": "cu-on-soupe", "text": "On soupe à six heures.", "en": "We have supper at six. (Québec)" }
+          ],
+          "quiz": [
+            { "q": "In Québec, \"le dîner\" is…", "options": ["lunch", "dinner", "breakfast"], "answer": 0 },
+            { "q": "In France, \"une carafe d'eau\" is…", "options": ["free tap water", "sparkling water", "a bottle of wine"], "answer": 0 },
+            { "q": "Tipping in a French restaurant is…", "options": ["optional: service is included", "20% expected", "not allowed"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u29",
+      "title": "Culture: holidays & celebrations",
+      "lessons": [
+        {
+          "id": "fr-29-1",
+          "title": "Holidays and celebrations",
+          "items": [
+            { "id": "cu-joyeux-noel", "text": "Joyeux Noël et bonne année !", "en": "Merry Christmas and a happy New Year!" },
+            { "id": "cu-qui-a-la-feve", "text": "Qui a eu la fève ? C'est toi le roi !", "en": "Who got the charm? You're the king!" },
+            { "id": "cu-quatorze-juillet", "text": "Le 14 juillet, on regarde le feu d'artifice.", "en": "On July 14, we watch the fireworks." },
+            { "id": "cu-poisson-avril", "text": "Poisson d'avril !", "en": "April fool!" },
+            { "id": "cu-fete-des-meres", "text": "Bonne fête des Mères !", "en": "Happy Mother's Day!" },
+            { "id": "cu-meilleurs-voeux", "text": "Meilleurs vœux pour la nouvelle année !", "en": "Best wishes for the new year!" }
+          ],
+          "quiz": [
+            { "q": "In the galette des rois, finding the fève makes you…", "options": ["the king or queen", "pay for the cake", "do the dishes"], "answer": 0 },
+            { "q": "France's national day is…", "options": ["July 14", "June 24", "January 6"], "answer": 0 },
+            { "q": "\"Poisson d'avril !\" is shouted when…", "options": ["playing an April Fools' prank", "eating fish on Friday", "it starts to rain"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u30",
+      "title": "Culture: etiquette & mistakes to avoid",
+      "lessons": [
+        {
+          "id": "fr-30-1",
+          "title": "Etiquette and common mistakes",
+          "items": [
+            { "id": "cu-se-tutoyer", "text": "On peut se tutoyer ?", "en": "Can we use tu with each other?" },
+            { "id": "cu-jai-hate", "text": "J'ai hâte de commencer !", "en": "I'm excited to start!" },
+            { "id": "cu-plus-faim", "text": "Je n'ai plus faim, merci.", "en": "I'm full, thank you." },
+            { "id": "cu-cinq-minutes-retard", "text": "Désolé, j'ai cinq minutes de retard.", "en": "Sorry, I'm five minutes late." },
+            { "id": "cu-renseignement", "text": "Je voudrais un renseignement, s'il vous plaît.", "en": "I'd like some information, please." },
+            { "id": "cu-bisous-a-plus", "text": "Bisous, à plus !", "en": "Kisses, see you! (to friends)" }
+          ],
+          "quiz": [
+            { "q": "To say you're excited to start, a French speaker says…", "options": ["J'ai hâte de commencer", "Je suis excité de commencer", "Je suis plein de commencer"], "answer": 0 },
+            { "q": "Chrysanthemums in France are for…", "options": ["funerals", "weddings", "birthdays"], "answer": 0 },
+            { "q": "A \"librairie\" is…", "options": ["a bookshop", "a library", "a bookcase"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u31",
+      "title": "Culture: slang around the world",
+      "lessons": [
+        {
+          "id": "fr-31-1",
+          "title": "Slang around the French-speaking world",
+          "items": [
+            { "id": "cu-trop-bien", "text": "C'est trop bien !", "en": "It's so good!" },
+            { "id": "cu-cest-ouf", "text": "C'est ouf !", "en": "That's crazy!" },
+            { "id": "cu-chelou", "text": "Ce mec est chelou.", "en": "That guy is weird." },
+            { "id": "cu-tiguidou", "text": "C'est tiguidou !", "en": "That's perfect! (Québec)" },
+            { "id": "cu-septante", "text": "Ça coûte septante euros.", "en": "It costs seventy euros. (Belgium, Switzerland)" },
+            { "id": "cu-on-y-go", "text": "Allez, on y go !", "en": "Come on, let's go!" }
+          ],
+          "quiz": [
+            { "q": "\"Ouf\" in \"c'est ouf\" comes from…", "options": ["fou, said backwards (verlan)", "a sigh of relief", "the English word \"off\""], "answer": 0 },
+            { "q": "In Belgium, 70 is…", "options": ["septante", "only soixante-dix", "huitante"], "answer": 0 },
+            { "q": "In Québec, \"c'est plate\" means…", "options": ["it's boring", "it's flat", "it's delicious"], "answer": 0 }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -85,7 +85,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     const earlier = getLessons(lang)
       .slice(0, index)
       .flatMap((l) => l.items);
-    return lessonExercises(lesson.items, earlier, lang, speaking);
+    return lessonExercises(lesson.items, earlier, lang, speaking, lesson.quiz);
   }
   const [queue, setQueue] = useState<Exercise[]>(() => build(speakFirst));
   const total = useRef(queue.length); // exercises in the lesson, not counting repeats
@@ -126,7 +126,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     sfx(r.right ? 'correct' : 'wrong');
     haptic(r.right ? 'success' : 'error');
     itemsOf(ex).forEach((item) => recordAnswer(lang, item.id, r.right, { soft: r.free, track: item.kind !== 'sound', drill }));
-    if (ex.type !== 'meaning' && ex.type !== 'match' && ex.type !== 'speak') playPhrase(ex.item.audio);
+    if (ex.type !== 'meaning' && ex.type !== 'match' && ex.type !== 'speak' && ex.type !== 'fact') playPhrase(ex.item.audio);
     if (progress.voice && reaction.speak) playClipAfterPhrase(reaction.line.url);
     if (!r.right && !r.free) {
       setMistakes((m) => m + 1);
@@ -210,7 +210,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
           )}
           {tip && (
             <button className="btn secondary tip-open" onClick={() => setShowTip(true)}>
-              <Icon name="book" size={20} /> <span className="grow">Grammar tip: {tip.title}</span>
+              <Icon name="book" size={20} /> <span className="grow">{tip.title.startsWith('Culture') ? tip.title.replace('Culture:', 'Culture note:') : `Grammar tip: ${tip.title}`}</span>
             </button>
           )}
           {blocked ? (
@@ -528,7 +528,42 @@ export function ExerciseView(props: ViewProps) {
       return <TypeExercise {...props} />;
     case 'speak':
       return <SpeakExercise {...props} />;
+    case 'fact':
+      return <FactExercise {...props} />;
   }
+}
+
+/** A culture lesson's quiz question: pick the answer. Free (no hearts), and shows the answer if missed. */
+function FactExercise({ ex, answered, onSubmit }: ViewProps) {
+  const [picked, setPicked] = useState<number | null>(null);
+  if (ex.type !== 'fact') return null;
+  const correct = ex.options.indexOf(ex.answer);
+  return (
+    <>
+      <p className="prompt">
+        <span className="chip-new culture">Culture quiz</span>
+      </p>
+      <div className="fact-q">{ex.q}</div>
+      <div className="options">
+        {ex.options.map((label, i) => (
+          <button
+            key={i}
+            className={!answered ? (i === picked ? 'btn secondary option selected' : 'btn secondary option') : i === correct ? 'btn secondary option picked-right' : i === picked ? 'btn secondary option picked-wrong' : 'btn secondary option faded'}
+            disabled={answered}
+            onClick={() => {
+              tapFeedback();
+              setPicked(i);
+            }}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+      {!answered && (
+        <CheckBar disabled={picked === null} onCheck={() => onSubmit({ right: picked === correct, free: true, note: picked === correct ? undefined : `Answer: ${ex.answer}` })} />
+      )}
+    </>
+  );
 }
 
 function ChoiceExercise({ ex, answered, onSubmit, onSkip }: ViewProps) {
@@ -836,7 +871,7 @@ function SpeakExercise({ ex, lang, answered, onSubmit }: ViewProps) {
 function ResultBanner({ ex, result, onContinue }: { ex: Exercise; result: Result; onContinue: () => void }) {
   const button = useRef<HTMLButtonElement>(null);
   useEffect(() => button.current?.focus({ preventScroll: true }), []);
-  const item = ex.type === 'match' ? null : ex.item;
+  const item = ex.type === 'match' || ex.type === 'fact' ? null : ex.item;
   const line = result.reaction?.line;
   const streak = result.reaction?.streak;
   const showAnswer = item && !result.skipped && (!result.right || ex.type === 'meaning' || result.note);

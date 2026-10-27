@@ -279,6 +279,58 @@
         "In texts, \"bonjour toi\" (morning, you) is a soft, affectionate opener."
       ],
       "examples": ["fl-ton-numero", "fl-je-respecte"]
+    },
+    {
+      "lesson": "fr-27-1",
+      "title": "Culture: greetings in the French-speaking world",
+      "body": [
+        "Always start with \"Bonjour\" (plus \"madame\" or \"monsieur\"): in a shop, to a bus driver, before asking anything. Skipping it is the classic mistake that makes people seem rude.",
+        "La bise: usually two kisses in most of France, three or even four in some regions, one in Belgium, three in Switzerland. In Québec people kiss less often, and hugs are common.",
+        "Gestures: pulling down your lower eyelid (\"mon œil !\") means \"I don't believe you\". A shrug with \"bof\" means \"meh\". When counting, the French start with the thumb.",
+        "In West Africa, greetings take time: ask about the family and the day before getting to business, and shake hands with your right hand."
+      ],
+      "examples": ["cu-bonjour-madame", "cu-salut-ca-va"]
+    },
+    {
+      "lesson": "fr-28-1",
+      "title": "Culture: at the table in French",
+      "body": [
+        "In France, lunch is around noon to 2 and dinner around 8. In Québec, Belgium and Switzerland the meals are \"déjeuner, dîner, souper\": breakfast, lunch, dinner. So \"dîner\" there is lunch!",
+        "Keep your hands on the table (wrists resting on the edge), not in your lap. Bread goes on the tablecloth next to your plate.",
+        "Tap water is free: ask for \"une carafe d'eau\". Service is included in French prices (\"service compris\"), so a tip is kind but optional. In Québec, tip about 15%."
+      ],
+      "examples": ["cu-bon-appetit", "cu-carafe-eau"]
+    },
+    {
+      "lesson": "fr-29-1",
+      "title": "Culture: holidays in French-speaking places",
+      "body": [
+        "In early January, the galette des rois is cut into slices: whoever finds the little charm (la fève) wears the paper crown. You can wish people \"bonne année\" all through January.",
+        "July 14 is France's national day, with parades and fireworks. On April 1, children stick paper fish on people's backs: \"Poisson d'avril !\"",
+        "Québec celebrates its Fête nationale on June 24 and goes to the cabane à sucre for maple syrup in spring. In Belgium, Saint Nicolas brings children presents on December 6. In Senegal, Tabaski is one of the biggest celebrations of the year."
+      ],
+      "examples": ["cu-joyeux-noel", "cu-qui-a-la-feve"]
+    },
+    {
+      "lesson": "fr-30-1",
+      "title": "Culture: mistakes foreigners make",
+      "body": [
+        "Use vous with strangers, shop staff, older people and at work, until someone suggests \"on peut se tutoyer ?\".",
+        "False friends: for \"I'm excited\" say \"j'ai hâte\", because \"je suis excité\" can sound awkward. For \"I'm full\" say \"je n'ai plus faim\", not \"je suis plein\". A \"librairie\" is a bookshop; a library is a \"bibliothèque\".",
+        "Invited to dinner? Arriving 10 to 15 minutes late is polite, but be on time for work. Bring flowers or wine, but never chrysanthemums: they're for funerals."
+      ],
+      "examples": ["cu-se-tutoyer", "cu-jai-hate"]
+    },
+    {
+      "lesson": "fr-31-1",
+      "title": "Culture: verlan, Québec and the Belgian numbers",
+      "body": [
+        "Verlan flips the syllables of a word: fou becomes \"ouf\" (crazy), louche becomes \"chelou\" (shady, weird), bizarre becomes \"zarbi\".",
+        "In Québec, \"c'est plate\" means it's boring, a car is \"un char\" and \"tiguidou\" means everything's perfect.",
+        "Belgium and Switzerland say \"septante\" (70) and \"nonante\" (90), and parts of Switzerland say \"huitante\" (80), instead of France's soixante-dix and quatre-vingt-dix.",
+        "Keep slang for friends: \"trop bien\", \"ouf\" and \"on y go\" are perfect with them, not in a job interview."
+      ],
+      "examples": ["cu-trop-bien", "cu-cest-ouf"]
     }
   ]
 }

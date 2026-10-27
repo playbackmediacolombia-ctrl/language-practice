@@ -303,6 +303,58 @@
         "A gracious exit like 是我误会了 (I misread things) or 跟你聊天很愉快 leaves a good impression."
       ],
       "examples": ["fl-jia-weixin", "fl-wuhui-le"]
+    },
+    {
+      "lesson": "zh-27-1",
+      "title": "Culture: greetings in mainland China and Taiwan",
+      "body": [
+        "Handshakes are light, and at formal events a small nod or bow is polite. Give and take business cards with both hands, and read the card before putting it away.",
+        "\"吃了吗？\" (have you eaten?) is a friendly hello, especially with older people. It isn't an invitation: just answer \"吃了，你呢？\".",
+        "In Taiwan you'll hear \"早安\" and a softer, very polite tone. People address others by surname and title: 王老师 (Teacher Wang), 李经理 (Manager Li).",
+        "Gestures: to call someone over, wave with your palm facing down. Numbers 6 to 10 have one-hand signs (6 is thumb and little finger). Don't point at people with one finger."
+      ],
+      "examples": ["cu-haojiu-bujian", "cu-chi-le-ma"]
+    },
+    {
+      "lesson": "zh-28-1",
+      "title": "Culture: eating together in China and Taiwan",
+      "body": [
+        "Dishes are shared in the middle of the table. If serving chopsticks (公筷) are offered, use them to take food. Never stand chopsticks upright in rice: it looks like incense at a funeral.",
+        "The host usually orders and pays, and friends happily argue over who gets the bill. When toasting an older person or your boss, hold your glass a little lower than theirs.",
+        "Tipping isn't expected in mainland China or Taiwan. In Taiwan you'll often hear 结帐 (jiézhàng) for the bill, and night markets are the place for street food."
+      ],
+      "examples": ["cu-chihao-hehao", "cu-ganbei"]
+    },
+    {
+      "lesson": "zh-29-1",
+      "title": "Culture: holidays in mainland China and Taiwan",
+      "body": [
+        "Spring Festival (the lunar New Year) is the biggest holiday: families reunite, sometimes travelling across the country, and children and young people get money in red envelopes (红包). In the north, families make dumplings together.",
+        "At the Mid-Autumn Festival people eat mooncakes and look at the full moon; in Taiwan it's also a time for barbecues. At the Dragon Boat Festival (端午节) there are boat races and zongzi, sticky rice wrapped in leaves.",
+        "Gifts: avoid clocks, because 送钟 (giving a clock) sounds like 送终 (attending someone's death). Avoid sets of four too: 四 (sì) sounds like 死 (sǐ, death)."
+      ],
+      "examples": ["cu-xinnian-kuaile", "cu-gongxi-facai"]
+    },
+    {
+      "lesson": "zh-30-1",
+      "title": "Culture: face, modesty and tones",
+      "body": [
+        "Face (面子) matters: avoid correcting or criticizing someone in front of others, and leave them a polite way out.",
+        "A direct \"no\" is rare. \"我考虑一下\" (let me think about it) or \"不太方便\" (not very convenient) often mean no. When praised, play it down: \"过奖了\" or \"哪里哪里\".",
+        "Questions about your age, salary or whether you're married are ordinary small talk in China, not rude. The number 4 is unlucky and 8 is lucky, in mainland China and Taiwan alike.",
+        "Tones change meaning: 买 (mǎi) is buy and 卖 (mài) is sell; 汤 (tāng) is soup and 糖 (táng) is sugar."
+      ],
+      "examples": ["cu-guojiang-le", "cu-daorao-yixia"]
+    },
+    {
+      "lesson": "zh-31-1",
+      "title": "Culture: internet slang and Taiwan's style",
+      "body": [
+        "Online slang spreads fast: 666 (from 溜, smooth) means you're skilled; 永远的神 (\"eternal god\", written YYDS) is the GOAT; 点赞 is to like a post; 躺平 (lying flat) is opting out of the rat race.",
+        "牛 means awesome: \"太牛了\" is fine anywhere, but avoid the longer, vulgar version you'll see online.",
+        "Taiwan uses 超 + adjective all the time (超好吃, super tasty), 讚 for great, and soft particles like 啦 and 喔. Northern mainland speech adds 儿 to many words. Taiwan writes traditional characters, like 讚."
+      ],
+      "examples": ["cu-tai-niu-le", "cu-liuliuliu"]
     }
   ]
 }

@@ -284,6 +284,60 @@
         "Good-morning messages like \"¿cómo amaneciste?\" are a sweet, common way to show interest by text."
       ],
       "examples": ["fl-pedir-numero", "fl-respeto-tu-respuesta"]
+    },
+    {
+      "lesson": "es-27-1",
+      "title": "Culture: greetings in Spain and Latin America",
+      "body": [
+        "Spain: two kisses on the cheek (right, then left) when women meet anyone; men usually shake hands with each other. Colombia, Mexico and most of Latin America: one kiss on the right cheek. In Argentina, men who are friends kiss on the cheek too.",
+        "Always greet when you walk into a small shop, a lift or a waiting room: \"¡Buenos días!\" or just \"¡Buenas!\". Asking for something without greeting first sounds cold.",
+        "In Colombia, usted is warm, not just formal: many people use it with friends and family. In Spain, tú comes quickly, even with strangers your age.",
+        "Gestures: Colombians often point with their lips. In Mexico and Colombia, show a person's height with your hand sideways; a flat palm facing down is for animals."
+      ],
+      "examples": ["cu-buenas", "cu-que-mas"]
+    },
+    {
+      "lesson": "es-28-1",
+      "title": "Culture: meals in Spain and Latin America",
+      "body": [
+        "Spain eats late: lunch around 2 to 4 p.m. and dinner from 9 p.m. In Colombia and Mexico lunch, around noon to 2, is the big meal (the \"menú del día\" or \"corrientazo\" is a cheap set lunch), and dinner is lighter, around 7.",
+        "The waiter won't bring the check until you ask for it: lingering is normal. Say \"¡Buen provecho!\" to people who are eating, even other diners as you walk out.",
+        "Tips: in Colombia the bill often asks \"¿Desea incluir el servicio?\", an optional 10%. In Mexico leave 10 to 15%; in Spain, rounding up is enough.",
+        "Food words change: juice is \"jugo\" in Latin America and \"zumo\" in Spain; potato is \"papa\" and \"patata\"."
+      ],
+      "examples": ["cu-buen-provecho", "cu-que-me-recomienda"]
+    },
+    {
+      "lesson": "es-29-1",
+      "title": "Culture: holidays around the Spanish-speaking world",
+      "body": [
+        "Spain: at midnight on New Year's Eve, people eat twelve grapes, one for each chime of the clock, for luck. Children get presents from the Three Kings (los Reyes Magos) on January 6.",
+        "Colombia: December 7 is the Día de las Velitas, when families light candles and paper lanterns to start Christmas. From December 16 to 24, people gather for the novena. Many holidays move to a Monday, giving a \"puente\" (long weekend).",
+        "Mexico: on the Día de Muertos (November 1 and 2), families build an ofrenda with photos, marigolds and pan de muerto to remember their loved ones. It's a warm celebration of memory, not Halloween."
+      ],
+      "examples": ["cu-feliz-navidad", "cu-cuantos-cumples"]
+    },
+    {
+      "lesson": "es-30-1",
+      "title": "Culture: mistakes foreigners make",
+      "body": [
+        "False friends: \"embarazada\" means pregnant, not embarrassed. Say \"qué vergüenza\", or in Colombia \"qué pena\". In Spain, \"estoy constipado\" means you have a cold.",
+        "\"Ahorita\" can mean now, soon or not today. Social plans often start late, but work meetings start on time.",
+        "In Latin America everyone from the Americas is \"americano\", so call someone from the US \"estadounidense\".",
+        "In Spain \"coger\" simply means to take or catch, but in much of Latin America it's vulgar: say \"tomar\" or \"agarrar\" (agarrar el bus)."
+      ],
+      "examples": ["cu-que-verguenza", "cu-donde-queda-el-bano"]
+    },
+    {
+      "lesson": "es-31-1",
+      "title": "Culture: one language, many slangs",
+      "body": [
+        "\"Cool\" is chévere in Colombia and Venezuela, guay in Spain, padre or chido in Mexico and copado in Argentina.",
+        "\"Buddy\" is parce or parcero in Colombia, tío or tía in Spain and güey in Mexico (very casual). In Argentina, \"che\" is how you call out to a friend.",
+        "\"Vale\" for OK marks you as someone who learned in Spain. Latin Americans say \"listo\" (Colombia), \"sale\" (Mexico) or \"dale\" (Argentina, Colombia).",
+        "Slang is for friends: keep it out of job interviews and emails to your boss."
+      ],
+      "examples": ["cu-que-chevere", "cu-que-guay"]
     }
   ]
 }

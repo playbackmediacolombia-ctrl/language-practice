@@ -260,6 +260,7 @@ const UNIT_ART: Record<string, keyof typeof STICKERS> = {
   u10: 'book', u11: 'phone', u12: 'briefcase', u13: 'health', u14: 'plane', u15: 'news', u16: 'debate', u17: 'bowtie',
   u18: 'bulb', u19: 'shades', u20: 'trophy', u21: 'hearts', u22: 'lovetext', u23: 'rings',
   u24: 'wink', u25: 'chat', u26: 'lovetext',
+  u27: 'chat', u28: 'cup', u29: 'sun', u30: 'bowtie', u31: 'shades',
 };
 
 export function UnitArt({ unitId, size = 64 }: { unitId: string; size?: number }) {

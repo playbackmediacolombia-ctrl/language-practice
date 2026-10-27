@@ -18,7 +18,7 @@ export function GrammarSheet({ tip, lang, onClose }: { tip: Tip; lang: Lang; onC
     <div className="sheet-backdrop" onClick={onClose}>
       <div className="sheet tip-sheet" role="dialog" aria-modal="true" aria-labelledby="tip-title" data-testid="grammar-tip" onClick={(e) => e.stopPropagation()}>
         <div className="tip-kicker">
-          <Icon name="book" size={18} /> Grammar tip
+          <Icon name="book" size={18} /> {tip.title.startsWith('Culture') ? 'Culture note' : 'Grammar tip'}
         </div>
         <h2 id="tip-title" className="tip-title">
           {tip.title}

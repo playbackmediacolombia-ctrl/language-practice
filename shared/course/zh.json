@@ -1040,6 +1040,121 @@
           ]
         }
       ]
+    },
+    {
+      "id": "u27",
+      "title": "Culture: greetings & gestures",
+      "lessons": [
+        {
+          "id": "zh-27-1",
+          "title": "Greetings and gestures",
+          "items": [
+            { "id": "cu-haojiu-bujian", "text": "您好，好久不见！", "pinyin": "Nín hǎo, hǎojiǔ bú jiàn!", "en": "Hello, long time no see!", "tiles": ["您好", "好久", "不见"] },
+            { "id": "cu-chi-le-ma", "text": "吃了吗？", "pinyin": "Chī le ma?", "en": "Have you eaten? (a casual hello)", "tiles": ["吃", "了", "吗"] },
+            { "id": "cu-mafan-ni-le", "text": "麻烦你了。", "pinyin": "Máfan nǐ le.", "en": "Sorry to trouble you / thanks for your help.", "tiles": ["麻烦", "你", "了"] },
+            { "id": "cu-bie-keqi", "text": "别客气。", "pinyin": "Bié kèqi.", "en": "Don't mention it.", "tiles": ["别", "客气"] },
+            { "id": "cu-xinghui", "text": "幸会幸会。", "pinyin": "Xìnghuì xìnghuì.", "en": "Very pleased to meet you. (formal)", "tiles": ["幸会", "幸会"] },
+            { "id": "cu-zao-an", "text": "早安！", "pinyin": "Zǎo'ān!", "en": "Good morning! (very common in Taiwan)" }
+          ],
+          "quiz": [
+            { "q": "Someone greets you with 你吃了吗？ A natural answer is…", "options": ["吃了，你呢？", "Asking where to eat", "Saying you're not hungry"], "answer": 0 },
+            { "q": "Business cards are given and received…", "options": ["with both hands", "with the left hand", "by sliding them across the table"], "answer": 0 },
+            { "q": "To call someone over in China, you wave with your palm facing…", "options": ["down", "up", "sideways"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u28",
+      "title": "Culture: food & table manners",
+      "lessons": [
+        {
+          "id": "zh-28-1",
+          "title": "Food and the table",
+          "items": [
+            { "id": "cu-chihao-hehao", "text": "吃好喝好！", "pinyin": "Chī hǎo hē hǎo!", "en": "Eat well, drink well! (a toast)", "tiles": ["吃", "好", "喝", "好"] },
+            { "id": "cu-ganbei", "text": "干杯！", "pinyin": "Gānbēi!", "en": "Cheers! (bottoms up)" },
+            { "id": "cu-wo-qingke", "text": "今天我请客。", "pinyin": "Jīntiān wǒ qǐngkè.", "en": "Today it's my treat.", "tiles": ["今天", "我", "请客"] },
+            { "id": "cu-maidan", "text": "服务员，买单！", "pinyin": "Fúwùyuán, mǎidān!", "en": "Waiter, the bill!", "tiles": ["服务员", "买单"] },
+            { "id": "cu-chi-bao-le", "text": "我吃饱了，谢谢。", "pinyin": "Wǒ chī bǎo le, xièxie.", "en": "I'm full, thank you.", "tiles": ["我", "吃", "饱", "了", "谢谢"] },
+            { "id": "cu-bu-tai-la", "text": "不要太辣。", "pinyin": "Bú yào tài là.", "en": "Not too spicy.", "tiles": ["不要", "太", "辣"] }
+          ],
+          "quiz": [
+            { "q": "Why shouldn't you stand chopsticks upright in a bowl of rice?", "options": ["It looks like incense at a funeral", "They might fall", "It means you want more"], "answer": 0 },
+            { "q": "Tipping in restaurants in mainland China and Taiwan is…", "options": ["not expected", "about 10%", "about 20%"], "answer": 0 },
+            { "q": "When toasting an older person, you hold your glass…", "options": ["a little lower than theirs", "higher than theirs", "on the table"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u29",
+      "title": "Culture: holidays & celebrations",
+      "lessons": [
+        {
+          "id": "zh-29-1",
+          "title": "Holidays and celebrations",
+          "items": [
+            { "id": "cu-xinnian-kuaile", "text": "新年快乐！", "pinyin": "Xīnnián kuàilè!", "en": "Happy New Year!", "tiles": ["新年", "快乐"] },
+            { "id": "cu-gongxi-facai", "text": "恭喜发财，红包拿来！", "pinyin": "Gōngxǐ fācái, hóngbāo ná lái!", "en": "Wishing you wealth, now hand over the red envelope! (a joke)", "tiles": ["恭喜", "发财", "红包", "拿来"] },
+            { "id": "cu-zhongqiu-yuebing", "text": "中秋节快乐！我们一起吃月饼吧。", "pinyin": "Zhōngqiūjié kuàilè! Wǒmen yìqǐ chī yuèbing ba.", "en": "Happy Mid-Autumn Festival! Let's eat mooncakes together.", "tiles": ["中秋节", "快乐", "我们", "一起", "吃", "月饼", "吧"] },
+            { "id": "cu-duanwu-zongzi", "text": "端午节我们吃粽子，看龙舟。", "pinyin": "Duānwǔjié wǒmen chī zòngzi, kàn lóngzhōu.", "en": "At the Dragon Boat Festival we eat zongzi and watch the boat races.", "tiles": ["端午节", "我们", "吃", "粽子", "看", "龙舟"] },
+            { "id": "cu-zhu-ni-shengri", "text": "祝你生日快乐！", "pinyin": "Zhù nǐ shēngrì kuàilè!", "en": "Happy birthday to you!", "tiles": ["祝", "你", "生日", "快乐"] },
+            { "id": "cu-hui-laojia", "text": "过年我要回老家。", "pinyin": "Guònián wǒ yào huí lǎojiā.", "en": "For New Year I'm going back to my hometown.", "tiles": ["过年", "我", "要", "回", "老家"] }
+          ],
+          "quiz": [
+            { "q": "Money in red envelopes (红包) is given…", "options": ["at Spring Festival and weddings", "only at funerals", "never to children"], "answer": 0 },
+            { "q": "Why is a clock a bad gift?", "options": ["送钟 sounds like 送终 (attending a death)", "Clocks are too expensive", "It means \"you're late\""], "answer": 0 },
+            { "q": "Mooncakes are eaten at…", "options": ["the Mid-Autumn Festival", "Spring Festival", "the Dragon Boat Festival"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u30",
+      "title": "Culture: etiquette & mistakes to avoid",
+      "lessons": [
+        {
+          "id": "zh-30-1",
+          "title": "Etiquette and common mistakes",
+          "items": [
+            { "id": "cu-guojiang-le", "text": "过奖了。", "pinyin": "Guòjiǎng le.", "en": "You flatter me. (accepting praise modestly)", "tiles": ["过奖", "了"] },
+            { "id": "cu-daorao-yixia", "text": "不好意思，打扰一下。", "pinyin": "Bù hǎoyìsi, dǎrǎo yíxià.", "en": "Sorry to bother you for a moment.", "tiles": ["不好意思", "打扰", "一下"] },
+            { "id": "cu-qing-man-yong", "text": "请慢用。", "pinyin": "Qǐng màn yòng.", "en": "Please enjoy your meal.", "tiles": ["请", "慢", "用"] },
+            { "id": "cu-kaolv-yixia", "text": "我考虑一下。", "pinyin": "Wǒ kǎolǜ yíxià.", "en": "Let me think about it. (often a polite no)", "tiles": ["我", "考虑", "一下"] },
+            { "id": "cu-hai-xing-ba", "text": "还行吧。", "pinyin": "Hái xíng ba.", "en": "It's OK, I guess.", "tiles": ["还行", "吧"] },
+            { "id": "cu-liu-mianzi", "text": "给他留点面子。", "pinyin": "Gěi tā liú diǎn miànzi.", "en": "Let him save face.", "tiles": ["给", "他", "留", "点", "面子"] }
+          ],
+          "quiz": [
+            { "q": "A colleague answers your plan with 我考虑一下. It often means…", "options": ["a polite no", "yes, definitely", "they didn't understand"], "answer": 0 },
+            { "q": "Which number is considered unlucky?", "options": ["4", "8", "6"], "answer": 0 },
+            { "q": "买 (mǎi) and 卖 (mài) differ only by tone. They mean…", "options": ["buy and sell", "eat and drink", "come and go"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u31",
+      "title": "Culture: slang around the world",
+      "lessons": [
+        {
+          "id": "zh-31-1",
+          "title": "Slang online and in Taiwan",
+          "items": [
+            { "id": "cu-tai-niu-le", "text": "太牛了！", "pinyin": "Tài niú le!", "en": "That's awesome!", "tiles": ["太", "牛", "了"] },
+            { "id": "cu-liuliuliu", "text": "六六六，你太厉害了！", "pinyin": "Liù liù liù, nǐ tài lìhai le!", "en": "Six six six, you're amazing! (online slang)", "tiles": ["六六六", "你", "太", "厉害", "了"] },
+            { "id": "cu-dian-zan", "text": "给你点个赞！", "pinyin": "Gěi nǐ diǎn ge zàn!", "en": "Here's a like for you! (well done)", "tiles": ["给", "你", "点", "个", "赞"] },
+            { "id": "cu-yongyuan-de-shen", "text": "这家火锅永远的神！", "pinyin": "Zhè jiā huǒguō yǒngyuǎn de shén!", "en": "This hotpot place is the GOAT!", "tiles": ["这", "家", "火锅", "永远", "的", "神"] },
+            { "id": "cu-tang-ping", "text": "周末我只想躺平。", "pinyin": "Zhōumò wǒ zhǐ xiǎng tǎngpíng.", "en": "At the weekend I just want to lie flat and do nothing.", "tiles": ["周末", "我", "只", "想", "躺平"] },
+            { "id": "cu-chao-zan", "text": "超讚的！", "pinyin": "Chāo zàn de!", "en": "Super awesome! (Taiwan)", "tiles": ["超", "讚", "的"] }
+          ],
+          "quiz": [
+            { "q": "躺平 (lying flat) means…", "options": ["doing the minimum instead of chasing success", "going to bed early", "a yoga pose"], "answer": 0 },
+            { "q": "Online, 666 means…", "options": ["you're skilled or amazing", "bad luck", "a phone number"], "answer": 0 },
+            { "q": "超讚的 sounds especially like someone from…", "options": ["Taiwan", "Beijing", "Hong Kong (Cantonese)"], "answer": 0 }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,12 +1,12 @@
 {
   "stages": [
     { "id": "sounds", "level": "Beginner", "title": "Sounds", "about": "Like a baby: hear and make the sounds of the language.", "units": ["u1"] },
-    { "id": "words", "level": "Beginner", "title": "First words", "about": "Like a toddler: the words a child says first.", "units": ["u2", "u3"] },
+    { "id": "words", "level": "Beginner", "title": "First words", "about": "Like a toddler: the words a child says first.", "units": ["u2", "u3"], "electives": ["u27"] },
     { "id": "sentences", "level": "Beginner", "title": "Short sentences", "about": "Like a young child: ask for things, say what you have and see.", "units": ["u4", "u5", "u6"] },
-    { "id": "conversation", "level": "Elementary", "title": "Conversation", "about": "Talk with people: meet, shop, describe your day.", "units": ["u7", "u8", "u9"] },
-    { "id": "reading", "level": "Intermediate", "title": "Reading & writing", "about": "Like school: tell stories, describe people, write messages and make plans.", "units": ["u10", "u11"] },
-    { "id": "upper", "level": "Upper-intermediate", "title": "Life as an adult", "about": "Work, money, the doctor, and sorting out problems when you travel.", "units": ["u12", "u13", "u14"], "electives": ["u21", "u24"] },
-    { "id": "advanced", "level": "Advanced", "title": "Ideas and arguments", "about": "Follow the news, give your opinion, debate, and switch between formal and casual speech.", "units": ["u15", "u16", "u17"], "electives": ["u22", "u25"] },
+    { "id": "conversation", "level": "Elementary", "title": "Conversation", "about": "Talk with people: meet, shop, describe your day.", "units": ["u7", "u8", "u9"], "electives": ["u28"] },
+    { "id": "reading", "level": "Intermediate", "title": "Reading & writing", "about": "Like school: tell stories, describe people, write messages and make plans.", "units": ["u10", "u11"], "electives": ["u29"] },
+    { "id": "upper", "level": "Upper-intermediate", "title": "Life as an adult", "about": "Work, money, the doctor, and sorting out problems when you travel.", "units": ["u12", "u13", "u14"], "electives": ["u21", "u24", "u30"] },
+    { "id": "advanced", "level": "Advanced", "title": "Ideas and arguments", "about": "Follow the news, give your opinion, debate, and switch between formal and casual speech.", "units": ["u15", "u16", "u17"], "electives": ["u22", "u25", "u31"] },
     { "id": "fluent", "level": "Fluent", "title": "Sounding native", "about": "Idioms, slang and the little words that make you sound like a local.", "units": ["u18", "u19", "u20"], "electives": ["u23", "u26"] }
   ],
   "units": {
@@ -35,7 +35,13 @@
     "u23": "Love, couples & family",
     "u24": "Flirting with charm",
     "u25": "Playful teasing & pick-up lines",
-    "u26": "Flirty texts & clear signals"
+    "u26": "Flirty texts & clear signals",
+    "u27": "Culture: greetings & gestures",
+    "u28": "Culture: food & table manners",
+    "u29": "Culture: holidays & celebrations",
+    "u30": "Culture: etiquette & mistakes to avoid",
+    "u31": "Culture: slang around the world"
   },
-  "adult": ["u24", "u25", "u26"]
+  "adult": ["u24", "u25", "u26"],
+  "culture": ["u27", "u28", "u29", "u30", "u31"]
 }

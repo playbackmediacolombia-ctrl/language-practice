@@ -16,7 +16,9 @@ const audioFiles = import.meta.glob<string>('../../../assets/audio/course/*/*.mp
 });
 
 type RawItem = { id: string; text: string; en: string; pinyin?: string; kind?: 'sound'; tiles?: string[]; alt?: string[]; say?: string };
-type RawCourse = { units: { id: string; title: string; lessons: { id: string; title: string; items: RawItem[] }[] }[] };
+/** A culture lesson's quiz question: options with the right one first (`answer: 0`), shuffled when shown. */
+export type Quiz = { q: string; options: string[]; answer: number };
+type RawCourse = { units: { id: string; title: string; lessons: { id: string; title: string; items: RawItem[]; quiz?: Quiz[] }[] }[] };
 
 export type Item = {
   id: string;
@@ -34,9 +36,9 @@ export type Item = {
   audio: string;
 };
 
-export type Lesson = { id: string; title: string; unitId: string; items: Item[] };
+export type Lesson = { id: string; title: string; unitId: string; items: Item[]; quiz?: Quiz[] };
 /** `elective`: an extra topic (like dating) that opens once you reach its level and never blocks the main path. */
-export type Unit = { id: string; title: string; lessons: Lesson[]; elective?: boolean; adult?: boolean };
+export type Unit = { id: string; title: string; lessons: Lesson[]; elective?: boolean; adult?: boolean; culture?: boolean };
 /** `level` is the CEFR-style band shown on the path: Beginner, Elementary, … Fluent. */
 export type Stage = { id: string; level: string; title: string; about: string; units: Unit[] };
 
@@ -66,6 +68,8 @@ function toItem(lang: Lang, raw: RawItem): Item {
 const cache = new Map<Lang, Stage[]>();
 /** Electives behind the one-tap "I'm 18+" check. */
 const ADULT = new Set((outline as { adult?: string[] }).adult ?? []);
+/** Culture lessons (electives with a quiz). */
+const CULTURE = new Set((outline as { culture?: string[] }).culture ?? []);
 
 /** The whole path for a language. Units not written yet have no lessons. */
 export function getPath(lang: Lang): Stage[] {
@@ -77,7 +81,7 @@ export function getPath(lang: Lang): Stage[] {
       return {
         id,
         title: unit?.title ?? outline.units[id as keyof typeof outline.units],
-        lessons: (unit?.lessons ?? []).map((l) => ({ id: l.id, title: l.title, unitId: id, items: l.items.map((i) => toItem(lang, i)) })),
+        lessons: (unit?.lessons ?? []).map((l) => ({ id: l.id, title: l.title, unitId: id, items: l.items.map((i) => toItem(lang, i)), quiz: l.quiz })),
       };
     };
     stages = outline.stages.map((s) => ({
@@ -87,7 +91,7 @@ export function getPath(lang: Lang): Stage[] {
       about: s.about,
       units: [
         ...s.units.map((id) => build(id)),
-        ...((s as { electives?: string[] }).electives ?? []).map((id) => ({ ...build(id), elective: true, adult: ADULT.has(id) || undefined })),
+        ...((s as { electives?: string[] }).electives ?? []).map((id) => ({ ...build(id), elective: true, adult: ADULT.has(id) || undefined, culture: CULTURE.has(id) || undefined })),
       ].filter((u) => !u.elective || u.lessons.length),
     }));
     cache.set(lang, stages);
