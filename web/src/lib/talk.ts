@@ -1,0 +1,64 @@
+import type { Lang } from './content';
+
+// The AI conversation partner. Your speech is turned into text on the phone (Whisper); only that
+// text goes to the app's free Cloudflare Worker, which asks Google Gemini for a reply and has
+// Workers AI speak it. See worker/ in the repo. Nothing else in the app needs the internet.
+
+const ENDPOINT = new URLSearchParams(location.search).get('talkapi') ?? 'https://learnguage-talk.learnguage-talk.workers.dev/chat';
+
+export type TalkMessage = { role: 'user' | 'model'; text: string };
+export type NewWord = { word: string; meaning: string; pinyin?: string };
+export type TalkReply = {
+  reply: string;
+  pinyin?: string;
+  translation: string;
+  correction?: { corrected: string; explanation: string } | null;
+  newWords: NewWord[];
+  done: boolean;
+  /** Base64 MP3 of the reply, when the voice service answered. */
+  audio: string | null;
+  voice: 'ok' | 'unavailable' | 'off';
+};
+export type TalkScenario = { setting: string; them: string; en: string };
+
+/** Why a reply didn't come: no signal, today's free quota used up, or the service is down. */
+export type TalkProblem = 'offline' | 'quota' | 'unavailable';
+export class TalkError extends Error {
+  constructor(readonly problem: TalkProblem) {
+    super(problem);
+  }
+}
+
+export const PROBLEM_TEXT: Record<TalkProblem, string> = {
+  offline: "You're offline. The AI partner needs the internet; everything else in the app still works.",
+  quota: "Today's free AI conversations are used up. They come back tomorrow, and the rest of the app works as usual.",
+  unavailable: "The AI partner isn't answering right now. Try again in a little while.",
+};
+
+export async function nextReply(req: { lang: Lang; level: string; scenario?: TalkScenario; history: TalkMessage[]; voice: boolean }): Promise<TalkReply> {
+  if (!navigator.onLine) throw new TalkError('offline');
+  let res: Response;
+  try {
+    res = await fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(req),
+      signal: AbortSignal.timeout(30000),
+    });
+  } catch {
+    throw new TalkError(navigator.onLine ? 'unavailable' : 'offline');
+  }
+  if (res.status === 429) throw new TalkError('quota');
+  if (!res.ok) throw new TalkError('unavailable');
+  const data = (await res.json()) as TalkReply;
+  if (!data?.reply) throw new TalkError('unavailable');
+  const correction = data.correction?.corrected?.trim() ? data.correction : null;
+  return { ...data, correction, newWords: Array.isArray(data.newWords) ? data.newWords.filter((w) => w?.word && w?.meaning).slice(0, 3) : [] };
+}
+
+/** The reply's audio as a playable URL (revoke it when done). */
+export function audioUrl(base64: string): string {
+  const bin = atob(base64);
+  const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
+  return URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' }));
+}

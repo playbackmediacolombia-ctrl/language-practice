@@ -3,7 +3,7 @@ import fr from '../../../shared/course/fr.json';
 import outline from '../../../shared/course/outline.json';
 import zh from '../../../shared/course/zh.json';
 import { getPhrases, getTopics, type Lang, type Phrase } from './content';
-import { getProgress, lessonDone, type Progress, weakness } from './progress';
+import { getProgress, lessonDone, type Progress, type TalkWord, weakness } from './progress';
 import { type Card, dayNumber, dueKeys, forecast } from './srs';
 
 // The lesson path. The outline (levels, stages and units, beginner to fluent) is shared by every
@@ -227,8 +227,30 @@ function phraseItem(lang: Lang, phrase: Phrase): Item {
 
 const lookup = new Map<Lang, Map<string, Item>>();
 
-/** Every course word and phrasebook phrase, by item id. */
+/** A word the AI partner taught you, as an item (spoken by the phone's own voice). */
+function talkItem(lang: Lang, id: string, w: TalkWord): Item {
+  const tiles = lang === 'zh' ? [w.text] : defaultTiles(w.text);
+  return { id, text: w.text, pinyin: w.pinyin, en: w.en, kind: tiles.length > 1 ? 'phrase' : 'word', tiles, alt: [], audio: `tts:${lang}:${encodeURIComponent(w.text)}` };
+}
+
+/** Every course word, phrasebook phrase and AI-taught word, by item id. */
 function itemsById(lang: Lang): Map<string, Item> {
+  const base = courseItemsById(lang);
+  const talk = Object.entries(getProgress().talkWords ?? {}).filter(([k]) => k.startsWith(`${lang}:ai:`));
+  if (!talk.length) return base;
+  const map = new Map(base);
+  for (const [k, w] of talk) map.set(k.slice(lang.length + 1), talkItem(lang, k.slice(lang.length + 1), w));
+  return map;
+}
+
+/** The course's own item for this text, if there is one (so an AI-taught word reuses its recording). */
+export function courseItemFor(lang: Lang, text: string): Item | undefined {
+  const norm = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
+  const want = norm(text);
+  return want ? [...courseItemsById(lang).values()].find((i) => i.kind !== 'sound' && norm(i.text) === want) : undefined;
+}
+
+function courseItemsById(lang: Lang): Map<string, Item> {
   let map = lookup.get(lang);
   if (!map) {
     map = new Map(allLessons(lang).flatMap((l) => l.items.map((i) => [i.id, i] as const)));

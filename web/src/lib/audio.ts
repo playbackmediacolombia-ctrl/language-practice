@@ -13,9 +13,46 @@ export const rateFor = (speed: PlaySpeed = false) => (speed === true ? SLOW_BUTT
 const player = new Audio();
 player.preload = 'auto';
 
+// "tts:<lang>:<text>" plays text with the phone's own voice (words the AI partner taught you
+// have no recording). Offline, free and private: iPhones have Spanish, French and Chinese voices.
+const VOICE_LANGS: Record<string, string[]> = { es: ['es-CO', 'es-MX', 'es-US', 'es-ES', 'es'], fr: ['fr-FR', 'fr-CA', 'fr'], zh: ['zh-CN', 'zh-TW', 'zh'] };
+
+/** Says `text` with the device's voice for `lang`; resolves when it's done (or can't speak). */
+export function speakDevice(text: string, lang: string, speed: PlaySpeed = false): Promise<boolean> {
+  return new Promise((resolve) => {
+    const synth = window.speechSynthesis;
+    if (!synth || !text) return resolve(false);
+    synth.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    const voices = synth.getVoices();
+    for (const tag of VOICE_LANGS[lang] ?? [lang]) {
+      const v = voices.find((x) => x.lang.replace('_', '-').startsWith(tag));
+      if (v) {
+        u.voice = v;
+        break;
+      }
+    }
+    u.lang = (VOICE_LANGS[lang] ?? [lang])[0];
+    u.rate = rateFor(speed) * 0.95;
+    u.onend = () => resolve(true);
+    u.onerror = () => resolve(false);
+    synth.speak(u);
+  });
+}
+
+const deviceClip = (url: string) => {
+  const [, lang, ...rest] = url.split(':');
+  return { lang, text: decodeURIComponent(rest.join(':')) };
+};
+
 export function playPhrase(url: string, speed: PlaySpeed = false, fromSequence = false) {
   if (!fromSequence) sequence?.(); // a single clip interrupts a story being read
   player.pause();
+  if (url.startsWith('tts:')) {
+    const { lang, text } = deviceClip(url);
+    void speakDevice(text, lang, speed);
+    return;
+  }
   if (!player.src.endsWith(url)) player.src = url;
   player.currentTime = 0;
   player.playbackRate = rateFor(speed);
@@ -29,6 +66,7 @@ let sequence: (() => void) | null = null;
 /** Stops whatever phrase (or story) is playing. */
 export function stopPhrase() {
   sequence?.();
+  window.speechSynthesis?.cancel();
   player.pause();
 }
 
@@ -37,6 +75,10 @@ export function stopPhrase() {
  * paused or replaced it (or it failed). Start it from a tap the first time (iOS).
  */
 export function playAndWait(url: string, speed: PlaySpeed = false): Promise<boolean> {
+  if (url.startsWith('tts:')) {
+    const { lang, text } = deviceClip(url);
+    return speakDevice(text, lang, speed);
+  }
   return new Promise((resolve) => {
     let started = false; // a 'pause' from stopping the previous clip arrives late; ignore it
     const settle = (ended: boolean) => {
@@ -58,6 +100,37 @@ export function playAndWait(url: string, speed: PlaySpeed = false): Promise<bool
     player.addEventListener('pause', onPause);
     player.addEventListener('error', onError);
   });
+}
+
+/**
+ * Call inside a tap before audio that arrives later (the AI partner's replies): iOS only lets the
+ * shared player, and the phone's own voice, start by themselves after they've played in a tap.
+ */
+export function primePlayer() {
+  const rate = 8000;
+  const samples = rate / 20; // 50 ms of silence, as a WAV
+  const buf = new DataView(new ArrayBuffer(44 + samples * 2));
+  const str = (o: number, t: string) => [...t].forEach((c, i) => buf.setUint8(o + i, c.charCodeAt(0)));
+  str(0, 'RIFF');
+  buf.setUint32(4, 36 + samples * 2, true);
+  str(8, 'WAVEfmt ');
+  buf.setUint32(16, 16, true);
+  buf.setUint16(20, 1, true);
+  buf.setUint16(22, 1, true);
+  buf.setUint32(24, rate, true);
+  buf.setUint32(28, rate * 2, true);
+  buf.setUint16(32, 2, true);
+  buf.setUint16(34, 16, true);
+  str(36, 'data');
+  buf.setUint32(40, samples * 2, true);
+  player.src = URL.createObjectURL(new Blob([buf], { type: 'audio/wav' }));
+  player.play().catch(() => {});
+  const synth = window.speechSynthesis;
+  if (synth) {
+    const u = new SpeechSynthesisUtterance(' ');
+    u.volume = 0;
+    synth.speak(u);
+  }
 }
 
 /** What the shared player is doing right now (for the role-play characters' lip sync). */

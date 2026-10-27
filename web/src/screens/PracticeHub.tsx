@@ -27,6 +27,19 @@ export function PracticeHub({ lang }: { lang: Lang }) {
     <Screen title="Practice" large>
       <LangSwitcher lang={lang} to={(l) => `/${l}/phrasebook`} />
 
+      <button className="card review-card talk-card" data-testid="talk-card" onClick={() => open(`/${lang}/talk`)}>
+        <div className="row">
+          <span className="card-sticker tint-sky">
+            <Sticker name="chat" size={40} />
+          </span>
+          <div className="grow">
+            <div className="card-title">Talk with AI</div>
+            <p className="muted small">A real back-and-forth: you speak, an AI partner answers out loud and gently corrects you. Needs the internet.</p>
+          </div>
+          <Icon name="chevron" style={{ color: 'var(--faint)' }} />
+        </div>
+      </button>
+
       <button className="card review-card daily-card" data-testid="daily-review" disabled={due === 0} onClick={() => open(`/${lang}/learn/daily`)}>
         <div className="row">
           <span className="row-icon due-count" aria-hidden="true">

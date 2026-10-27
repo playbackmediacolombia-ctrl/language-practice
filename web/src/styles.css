@@ -1198,3 +1198,12 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .guide-ring { animation: guide-pulse 1.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 @keyframes guide-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 @media (prefers-reduced-motion: reduce) { .guide-ring { animation: none; } }
+
+/* Talk with AI. */
+.talk-lines { padding-bottom: 8px; }
+.talk-fix { margin-top: 8px; padding: 8px 10px; border-radius: 12px; background: var(--close-bg); color: var(--text); font-size: var(--text-sm); }
+.talk-fix-label { font-weight: 700; color: var(--close); }
+.talk-problem { border-color: color-mix(in srgb, var(--flame) 45%, var(--border)); }
+.talk-note { margin: 0 4px; }
+.talk-words { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+.page:has(.talk-lines) { padding-bottom: calc(env(safe-area-inset-bottom) + 220px); }

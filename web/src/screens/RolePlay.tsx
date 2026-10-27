@@ -264,6 +264,11 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
             <Icon name="play" size={18} /> Start
           </button>
         )}
+        {!started && (
+          <button className="btn secondary" onClick={() => navigate(`/${lang}/talk/${scenario.id}`)} data-testid="roleplay-ai">
+            <Icon name="mic" size={18} /> Role-play it with the AI (free-form, online)
+          </button>
+        )}
         {started && (
           <label className="chip-toggle" style={{ alignSelf: 'flex-start' }}>
             <input type="checkbox" checked={english} onChange={(e) => setEnglish(e.target.checked)} /> English

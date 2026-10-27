@@ -60,7 +60,11 @@ export type Progress = {
   speakFirst: Partial<Record<Lang, boolean>>;
   /** Animated characters in role-plays. */
   characters: boolean;
+  /** Words the AI conversation partner taught you that aren't in the course, by `${lang}:ai:${slug}` (their review card is in `srs`). */
+  talkWords: Record<string, TalkWord>;
 };
+
+export type TalkWord = { text: string; en: string; pinyin?: string };
 
 export type Mistake = { left: number; at: number };
 /** Right answers in Mistakes sessions that clear a word; a new mistake starts it over. */
@@ -106,6 +110,7 @@ const EMPTY: Progress = {
   adult: false,
   speakFirst: { zh: true },
   characters: true,
+  talkWords: {},
 };
 
 function load(): Progress {
@@ -168,6 +173,27 @@ function logDay(p: Progress, lang: Lang, { right = 0, given = 0, seconds = 0 }):
   return { ...p, log: { ...p.log, [day]: { ...p.log[day], [lang]: next } } };
 }
 const tally = (p: Progress, lang: Lang, right: boolean) => logDay(p, lang, { right: right ? 1 : 0, given: 1 });
+
+/**
+ * After an AI conversation: its new words go into spaced repetition, first review tomorrow.
+ * `keys` are the review keys (a course word's own, or `${lang}:ai:…` for one saved in talkWords).
+ * Words already being reviewed keep their schedule. Returns how many were added.
+ */
+export function addTalkWords(entries: { key: string; word?: TalkWord }[]): number {
+  let added = 0;
+  update((p) => {
+    const srs = { ...p.srs };
+    const talkWords = { ...p.talkWords };
+    for (const { key, word } of entries) {
+      if (srs[key]) continue;
+      if (word) talkWords[key] = word;
+      srs[key] = grade(key, undefined, true, dayNumber());
+      added++;
+    }
+    return { ...p, srs, talkWords };
+  });
+  return added;
+}
 
 /** Time spent on a practice screen (see usePracticeTime). */
 export const addPracticeTime = (lang: Lang, seconds: number) => update((p) => logDay(p, lang, { seconds }));

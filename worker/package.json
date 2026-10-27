@@ -1,0 +1,12 @@
+{
+  "name": "learnguage-talk",
+  "private": true,
+  "description": "Free Cloudflare Worker for Learnguage's AI conversation partner: Gemini replies and Workers AI voice.",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "4.153.0"
+  }
+}

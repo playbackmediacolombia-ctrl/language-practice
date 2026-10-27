@@ -22,6 +22,7 @@ import { TabBar, useActiveTab } from './ui';
 
 const RolePlays = lazy(() => import('./screens/RolePlay').then((m) => ({ default: m.RolePlayList })));
 const RolePlayScreen = lazy(() => import('./screens/RolePlay').then((m) => ({ default: m.GatedRolePlay })));
+const Talk = lazy(() => import('./screens/Talk').then((m) => ({ default: m.Talk })));
 const Articles = lazy(() => import('./screens/Stories').then((m) => ({ default: m.ArticleList })));
 const Stories = lazy(() => import('./screens/Stories').then((m) => ({ default: m.StoryList })));
 const StoryScreen = lazy(() => import('./screens/Stories').then((m) => ({ default: m.GatedStory })));
@@ -70,6 +71,12 @@ function Routes() {
   if (!topic) return <Path lang={lang} />;
   // Flirting lessons, role-plays and dialogues need the one-tap 18+ check first.
   if (!adult && mode && isAdultRoute(lang, topic, mode)) return <AdultGateScreen back={topic === 'learn' ? `/${lang}` : `/${lang}/${topic}`} />;
+  if (topic === 'talk')
+    return (
+      <Suspense fallback={null}>
+        <Talk key={mode ?? 'free'} lang={lang} scenarioId={mode} />
+      </Suspense>
+    );
   if (topic === 'roleplay')
     return <Suspense fallback={null}>{mode ? <RolePlayScreen key={mode} lang={lang} id={mode} /> : <RolePlays lang={lang} />}</Suspense>;
   if (topic === 'reading')

@@ -2,8 +2,8 @@
 // success, on failure, on Ctrl-C, or when the time limit runs out.
 //
 // WebKit has no --mute-audio switch (that's Chromium), so audio is muted inside every page:
-// Web Audio is routed through a zero-volume node before the speakers, and <audio>/<video>
-// elements are forced muted. Tests can still see *what* plays (they hook start()/play()).
+// Web Audio is routed through a zero-volume node before the speakers, <audio>/<video>
+// elements are forced muted, and the device voice (speechSynthesis) never speaks. Tests can still see *what* plays (they hook start()/play()).
 import { execFileSync } from 'node:child_process';
 import { webkit } from 'playwright';
 
@@ -33,6 +33,24 @@ function muteAudio() {
     played.add(this);
     return play.apply(this, a);
   };
+  // The phone's own voice (speechSynthesis) never speaks in a test: it records what it would
+  // have said and reports the utterance finished.
+  // (WebKit's test browser has no voices at all, so a silent stand-in fills in there.)
+  window.__spoken = [];
+  if (!window.SpeechSynthesisUtterance) {
+    window.SpeechSynthesisUtterance = class {
+      constructor(text) {
+        this.text = text;
+      }
+    };
+  }
+  const silentSpeak = function (u) {
+    if (u.text.trim()) window.__spoken.push(u.text);
+    setTimeout(() => u.onend?.(new Event('end')), 30);
+  };
+  if (window.SpeechSynthesis) window.SpeechSynthesis.prototype.speak = silentSpeak; // WebKit keeps it on the prototype
+  if (window.speechSynthesis) window.speechSynthesis.speak = silentSpeak;
+  else Object.defineProperty(window, 'speechSynthesis', { value: { speak: silentSpeak, cancel() {}, getVoices: () => [] }, configurable: true });
   // For checks: every audio context that reached the speakers went through a muted node.
   const contexts = new Set();
   const Ctx = window.AudioContext;
@@ -47,6 +65,7 @@ function muteAudio() {
     allMuted: [...contexts].every((c) => !c.__mute || c.__mute.gain.value === 0),
     played: played.size,
     media: [...played, ...document.querySelectorAll('audio, video')].every((m) => m.muted && m.volume === 0),
+    voice: !window.speechSynthesis || /__spoken/.test(String(window.speechSynthesis.speak)),
   });
 }
 
