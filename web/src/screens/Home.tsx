@@ -1,10 +1,8 @@
 import { onOldAddress } from '../lib/move';
 import { navigate } from '../lib/router';
-import { Icon, Screen } from '../ui';
+import { InstallCard } from '../InstallCard';
+import { Screen } from '../ui';
 import { LangTiles } from './Path';
-
-const isStandalone =
-  window.matchMedia('(display-mode: standalone)').matches || (navigator as { standalone?: boolean }).standalone === true;
 
 /** First run: pick a language. Afterwards the Learn tab opens straight on its path. */
 export function Home() {
@@ -22,21 +20,7 @@ export function Home() {
           Used Learnguage before? Bring my progress
         </button>
       )}
-      {!isStandalone && (
-        <div className="card">
-          <div className="row">
-            <span className="row-icon">
-              <Icon name="download" />
-            </span>
-            <div className="grow">
-              <div style={{ fontWeight: 650 }}>Add to Home Screen</div>
-              <p className="muted small">
-                In Safari tap Share, then <b>Add to Home Screen</b>. It opens full screen like an app and works offline.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+      <InstallCard />
     </Screen>
   );
 }

@@ -10,6 +10,7 @@ import { navigate } from '../lib/router';
 import { isModelReady } from '../lib/whisper';
 import { wordOfDay } from '../lib/wordOfDay';
 import { CountUp, Flame, Icon, ProgressBar } from '../ui';
+import { InstallCard } from '../InstallCard';
 import { AdultGate } from './AdultGate';
 import { LevelTiles } from './Level';
 
@@ -233,6 +234,7 @@ export function Path({ lang }: { lang: Lang }) {
             </div>
           </button>
         )}
+        <InstallCard />
         <DailyGoal progress={progress} />
         <WordOfTheDay lang={lang} progress={progress} />
         <StreakWarning

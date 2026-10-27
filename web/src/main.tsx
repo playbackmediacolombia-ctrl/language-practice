@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { registerSW } from 'virtual:pwa-register';
 import { App } from './App';
+import './lib/install'; // listens for Chrome's install prompt from the start
 import { applyUpdateWhenIdle, requestPersistence, watchForUpdates } from './lib/offline';
 import { initTheme } from './lib/theme';
 import '@fontsource-variable/plus-jakarta-sans/wght.css'; // Plus Jakarta Sans (SIL Open Font License), bundled so it works offline

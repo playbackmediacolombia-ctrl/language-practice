@@ -1211,3 +1211,26 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 /* Culture quiz questions. */
 .chip-new.culture { background: var(--accent-fill); }
 .fact-q { font-size: var(--text-lg); font-weight: 700; line-height: 1.3; letter-spacing: var(--tight); }
+
+/* Add to Home Screen: the card, and the iPhone guide with its arrow at Safari's button. */
+.install-card { gap: 12px; }
+.install-icon { border-radius: 12px; flex: none; box-shadow: 0 2px 6px rgba(7, 19, 52, 0.15); }
+.install-close { color: var(--faint); margin: -6px -6px 0 0; }
+.install-backdrop {
+  position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 16px;
+  background: rgba(7, 13, 26, 0.55); animation: fade-in 0.2s ease-out;
+}
+.install-guide { width: min(380px, 100%); align-items: stretch; text-align: center; gap: 10px; animation: achievement-card 0.4s var(--spring) both; }
+.install-logo { align-self: center; width: 140px; height: auto; animation: logo-spin 0.9s var(--spring) both; }
+.install-dots { display: flex; justify-content: center; gap: 6px; }
+.install-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: background 0.2s, width 0.2s; }
+.install-dots span.on { width: 22px; border-radius: 4px; background: var(--accent-fill); }
+.install-step { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.install-art { width: 100%; height: auto; display: block; }
+.install-arrow { position: fixed; z-index: 61; pointer-events: none; animation: arrow-bounce 0.9s ease-in-out infinite; }
+.install-arrow.bottom { left: calc(50% - 20px); bottom: calc(env(safe-area-inset-bottom) + 6px); }
+.install-arrow.bottom-right { right: 22px; bottom: calc(env(safe-area-inset-bottom) + 6px); }
+.install-arrow.top { right: 80px; top: 6px; transform: rotate(180deg); animation-name: arrow-bounce-up; }
+@keyframes arrow-bounce { 0%, 100% { translate: 0 0; } 50% { translate: 0 10px; } }
+@keyframes arrow-bounce-up { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+@media (prefers-reduced-motion: reduce) { .install-arrow, .install-logo, .install-guide { animation: none !important; } }
