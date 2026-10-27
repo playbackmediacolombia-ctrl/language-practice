@@ -83,7 +83,7 @@ function instructions({ lang, level, scenario }) {
     `You are a warm, encouraging conversation partner helping someone practice ${L.variety}.`,
     role,
     LEVEL_STYLE[level] ?? LEVEL_STYLE.Intermediate,
-    `Always reply in ${L.name} only (never English in "reply"), in one to three short sentences that sound natural when spoken aloud. No emoji, lists or markdown in "reply".`,
+    `Always reply in ${L.name} only (never English in "reply"), in one to three short sentences that sound natural when spoken aloud. No emoji, lists or markdown in "reply". Write it correctly, like a textbook: every accent and mark (á, é, ñ, ç, à, ã, ¿, ¡), and characters with proper Chinese punctuation for Mandarin.`,
     "If the learner's last message had a mistake, fill in correction with the fixed sentence and a kind one-line explanation in English, but don't mention the mistake in your reply: just keep the conversation going (you may naturally echo the correct form). If it was fine or close enough, leave correction empty.",
     'If the learner writes in English or seems stuck, help them gently in the target language with a simpler question.',
     'Keep everything friendly and appropriate. If the learner tries to steer toward something sexual, hateful or harmful, change the subject kindly.',
