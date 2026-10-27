@@ -839,6 +839,18 @@ a.btn { text-decoration: none; }
 .chip-new { font-size: 12px; font-weight: 700; color: #fff; background: var(--flame-deep); border-radius: 7px; padding: 3px 7px; font-family: var(--font); }
 .options { display: flex; flex-direction: column; gap: 10px; }
 .option { text-align: left; justify-content: flex-start; font-weight: 650; font-family: var(--font); }
+/* Answer tiles: big, chunky and 3D; they press down into their edge and bounce when picked. */
+.btn.option { min-height: 66px; padding: 12px 18px; gap: 14px; border-radius: 18px; font-size: 19px; box-shadow: 0 5px 0 var(--border); }
+.btn.option.selected { animation: tile-pick 0.4s var(--spring); }
+.option-text { min-width: 0; }
+.option-speaker {
+  flex: none; width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center;
+  background: var(--accent-bg); color: var(--accent); box-shadow: 0 3px 0 color-mix(in srgb, var(--accent) 30%, var(--card));
+}
+.option.selected .option-speaker { background: var(--accent); color: #fff; box-shadow: 0 3px 0 var(--deep, #0142d8); }
+.option.picked-right .option-speaker { background: var(--ok-bright); color: #fff; box-shadow: none; }
+.option.picked-wrong .option-speaker { background: var(--wrong-bright); color: #fff; box-shadow: none; }
+@keyframes tile-pick { 0% { transform: scale(1); } 35% { transform: translateY(-3px) scale(1.035); } 65% { transform: translateY(1px) scale(0.99); } 100% { transform: none; } }
 .selected { border-color: var(--accent) !important; box-shadow: 0 4px 0 var(--accent) !important; background: var(--accent-bg) !important; color: var(--accent) !important; }
 .sound-row { display: flex; gap: 10px; }
 .sound-big { width: 96px; height: 96px; border-radius: 26px; padding: 0; }
@@ -851,9 +863,10 @@ a.btn { text-decoration: none; }
 }
 .bank { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .tile {
-  border: 2px solid var(--border); border-radius: 14px; background: var(--card); color: var(--text);
-  padding: 9px 15px; font-size: 18px; font-weight: 650; cursor: pointer; box-shadow: 0 4px 0 var(--border); margin-bottom: 4px;
+  border: 2px solid var(--border); border-radius: 16px; background: var(--card); color: var(--text); min-height: 54px;
+  padding: 11px 18px; font-size: 20px; font-weight: 650; cursor: pointer; box-shadow: 0 5px 0 var(--border); margin-bottom: 5px;
 }
+.tile:active:not(:disabled) { transform: translateY(5px); }
 .answer-line .tile { animation: tile-in 0.22s var(--spring); }
 @keyframes tile-in { from { transform: translateY(10px) scale(0.9); opacity: 0; } }
 .tile.used { visibility: hidden; }

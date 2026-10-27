@@ -108,6 +108,66 @@ await run(async () => {
   expect(inView, 'tapping it brings your lesson back on screen');
   expect((await jump.count()) === 0, 'and the button goes away');
 
+  // ---------- Answer tiles ----------
+  // Answer until a "How do you say…" question comes up: its answers each have a speaker and say themselves.
+  await page.goto(`${BASE}#/es/learn/es-2-4`);
+  await page.getByTestId('grammar-tip').getByRole('button', { name: 'Got it' }).click({ timeout: 3000 }).catch(() => {});
+  await page.getByRole('button', { name: 'Start', exact: true }).click();
+  let sawListen = false;
+  let ex = null;
+  for (let i = 0; i < 25; i++) {
+    await page.waitForFunction(() => window.__exercise && document.querySelector('.prompt'), null, { timeout: 5000 });
+    ex = await page.evaluate(() => window.__exercise);
+    if (ex.type === 'translate') break;
+    if (ex.type === 'listen') sawListen = sawListen || (await page.locator('.options .option-speaker').count()) === 0;
+    if (['meaning', 'listen'].includes(ex.type)) {
+      await page.locator('.options button').nth(ex.type === 'meaning' ? ex.options.indexOf(ex.item.en) : ex.options.findIndex((o) => o.id === ex.item.id)).click();
+      await page.getByRole('button', { name: 'Check' }).click();
+    } else if (ex.type === 'tiles') {
+      const used = new Set();
+      for (const w of ex.item.tiles) {
+        const j = ex.bank.findIndex((b, k) => b === w && !used.has(k));
+        used.add(j);
+        await page.locator('.bank button').nth(j).click();
+      }
+      await page.getByRole('button', { name: 'Check' }).click();
+    } else if (ex.type === 'match') {
+      for (const item of ex.items) {
+        await page.locator('.match-col').nth(0).getByRole('button', { name: item.text, exact: true }).first().click();
+        await page.locator('.match-col').nth(1).getByRole('button', { name: item.en, exact: true }).first().click();
+      }
+    } else {
+      const skip = page.getByRole('button', { name: /Can't (speak|listen) now|I don't know|Skip/ });
+      if (await skip.count()) await skip.first().click();
+      else break;
+    }
+    await page.getByRole('button', { name: /Continue/ }).click({ timeout: 8000 });
+  }
+  if (ex?.type === 'translate') {
+    const opts = page.locator('.options button');
+    expect((await page.locator('.options .option-speaker').count()) === ex.options.length, '"How do you say…": every answer tile has a speaker');
+    const h = await opts.first().evaluate((e) => e.getBoundingClientRect().height);
+    expect(h >= 64, `answer tiles are big (${Math.round(h)} px tall)`);
+    await page.evaluate(() => {
+      window.__srcs = [];
+      const play = HTMLMediaElement.prototype.play;
+      HTMLMediaElement.prototype.play = function (...a) {
+        window.__srcs.push(this.src);
+        return play.apply(this, a);
+      };
+    });
+    await opts.nth(1).click();
+    const anim = await opts.nth(1).evaluate((e) => getComputedStyle(e).animationName);
+    await page.waitForTimeout(250);
+    await page.screenshot({ path: 'LP-tiles.png' });
+    expect(anim === 'tile-pick', `a picked tile bounces (${anim})`);
+    await page.waitForTimeout(900);
+    const srcs = await page.evaluate(() => window.__srcs);
+    const want = ex.options[1].audio.split('/').pop();
+    expect(srcs.some((u) => u.endsWith(want)), `tapping it plays that answer (${srcs.map((u) => u.split('/').pop()).join(', ') || 'nothing'})`);
+  } else expect(false, `a "How do you say…" question came up (last: ${ex?.type})`);
+  if (sawListen) expect(true, '"What do you hear?": no speakers on the answers (that would give it away)');
+
   // ---------- Reduce Motion ----------
   const still = await browser.newContext({ ...devices['iPhone 15'], serviceWorkers: 'block', reducedMotion: 'reduce' });
   const p2 = await still.newPage();

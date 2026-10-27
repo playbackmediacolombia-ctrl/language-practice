@@ -596,19 +596,29 @@ function ChoiceExercise({ ex, answered, onSubmit, onSkip }: ViewProps) {
         </>
       )}
       <div className="options">
-        {labels.map((label, i) => (
-          <button
-            key={i}
-            className={optionClass(i)}
-            disabled={answered}
-            onClick={() => {
-              tapFeedback();
-              setPicked(i);
-            }}
-          >
-            {label}
-          </button>
-        ))}
+        {labels.map((label, i) => {
+          // "How do you say…": each answer says itself when tapped, so you hear what you picked.
+          const spoken = ex.type === 'translate' ? ex.options[i] : null;
+          return (
+            <button
+              key={i}
+              className={`${optionClass(i)}${spoken ? ' with-sound' : ''}`}
+              disabled={answered}
+              onClick={() => {
+                tapFeedback();
+                setPicked(i);
+                if (spoken) playPhrase(spoken.audio);
+              }}
+            >
+              {spoken && (
+                <span className="option-speaker" aria-hidden="true">
+                  <Icon name="speaker" size={20} />
+                </span>
+              )}
+              <span className="option-text">{label}</span>
+            </button>
+          );
+        })}
       </div>
       {!answered && (
         <CheckBar
