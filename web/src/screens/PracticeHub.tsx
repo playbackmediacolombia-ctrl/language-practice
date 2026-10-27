@@ -93,6 +93,19 @@ export function PracticeHub({ lang }: { lang: Lang }) {
         </div>
       </button>
 
+      <button className="card review-card" data-testid="music-card" onClick={() => open(`/${lang}/music`)}>
+        <div className="row">
+          <span className="card-sticker tint-orange">
+            <Sticker name="sounds" size={40} />
+          </span>
+          <div className="grow">
+            <div className="card-title">Music & chants</div>
+            <p className="muted small">Original chants and songs for every level, karaoke-style, then sing along on the beat{lang === 'zh' ? ', with tone chants' : ''}</p>
+          </div>
+          <Icon name="chevron" style={{ color: 'var(--faint)' }} />
+        </div>
+      </button>
+
       <button className="card review-card" data-testid="handsfree-card" onClick={() => open(`/${lang}/handsfree`)}>
         <div className="row">
           <span className="card-sticker tint-sky">

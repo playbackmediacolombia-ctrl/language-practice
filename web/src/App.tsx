@@ -22,6 +22,8 @@ import { TabBar, useActiveTab } from './ui';
 
 const RolePlays = lazy(() => import('./screens/RolePlay').then((m) => ({ default: m.RolePlayList })));
 const RolePlayScreen = lazy(() => import('./screens/RolePlay').then((m) => ({ default: m.GatedRolePlay })));
+const MusicList = lazy(() => import('./screens/Music').then((m) => ({ default: m.MusicList })));
+const MusicPlayer = lazy(() => import('./screens/Music').then((m) => ({ default: m.MusicPlayer })));
 const Talk = lazy(() => import('./screens/Talk').then((m) => ({ default: m.Talk })));
 const Articles = lazy(() => import('./screens/Stories').then((m) => ({ default: m.ArticleList })));
 const Stories = lazy(() => import('./screens/Stories').then((m) => ({ default: m.StoryList })));
@@ -71,6 +73,8 @@ function Routes() {
   if (!topic) return <Path lang={lang} />;
   // Flirting lessons, role-plays and dialogues need the one-tap 18+ check first.
   if (!adult && mode && isAdultRoute(lang, topic, mode)) return <AdultGateScreen back={topic === 'learn' ? `/${lang}` : `/${lang}/${topic}`} />;
+  if (topic === 'music')
+    return <Suspense fallback={null}>{mode ? <MusicPlayer key={mode} lang={lang} id={mode} /> : <MusicList lang={lang} />}</Suspense>;
   if (topic === 'talk')
     return (
       <Suspense fallback={null}>

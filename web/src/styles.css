@@ -1272,3 +1272,25 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .weekly-history li { display: flex; align-items: center; gap: 10px; padding: 8px 2px; border-top: 1px solid var(--hairline); font-size: var(--text-sm); }
 .weekly-mark { width: 22px; display: grid; place-items: center; color: var(--faint); }
 .weekly-history li.won .weekly-mark { color: var(--ok); }
+
+/* Music & chants: karaoke lines and tone colors. */
+.karaoke { display: flex; flex-direction: column; gap: 10px; }
+.karaoke-line { padding: 12px 14px; border-radius: 18px; background: var(--card); border: 2px solid var(--border); transition: border-color 0.2s, transform 0.25s var(--spring); }
+.karaoke-line.active { border-color: var(--accent); transform: scale(1.02); }
+.karaoke-line.you { border-color: var(--flame); background: color-mix(in srgb, var(--sun) 12%, var(--card)); }
+.karaoke-turn { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--flame-text); margin-bottom: 2px; }
+.karaoke-text { margin: 0; font-size: 21px; font-weight: 700; line-height: 1.6; }
+.kw { transition: color 0.12s, background-color 0.12s, box-shadow 0.12s; border-radius: 4px; }
+.kw.sung { color: var(--accent); }
+.kw.now { color: #fff; background: var(--accent-fill); box-shadow: 0 0 0 3px var(--accent-fill); }
+.karaoke-line.you .kw.now { background: var(--flame); box-shadow: 0 0 0 3px var(--flame); }
+.story-head .btn { white-space: nowrap; }
+.karaoke-text ruby { ruby-position: over; margin: 0 1px; }
+.karaoke-text rt { font-size: 12px; font-weight: 700; }
+.tone1 { color: #0164f9; }
+.tone2 { color: #0e8a4a; }
+.tone3 { color: #c4630a; }
+.tone4 { color: #d42430; }
+.tone5 { color: var(--muted); }
+.kw.now .tone1, .kw.now .tone2, .kw.now .tone3, .kw.now .tone4, .kw.now .tone5 { color: #fff; }
+.tone-legend span { font-weight: 700; }

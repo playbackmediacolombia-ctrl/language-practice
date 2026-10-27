@@ -47,6 +47,9 @@ SCENARIOS_DIR = ROOT / "shared" / "scenarios"
 # Reading practice: news-style articles, read aloud sentence by sentence like stories
 # (their clips go in the stories folder, since the app plays them the same way).
 READING_DIR = ROOT / "shared" / "reading"
+# Chants and songs (music mode): one clip per line plus each word's timing, for karaoke.
+CHANTS_DIR = ROOT / "shared" / "chants"
+CHANTS_AUDIO_DIR = AUDIO_DIR / "chants"
 SCENARIOS_AUDIO_DIR = AUDIO_DIR / "scenarios"
 SECOND_VOICES = {
     "es": "es-CO-GonzaloNeural",
@@ -86,6 +89,27 @@ async def synth(text: str, voice: str, out: Path) -> None:
             await edge_tts.Communicate(text, voice, rate=RATE).save(str(out))
             return
         except Exception as err:  # network hiccups and throttling happen; back off and retry
+            if attempt == 4:
+                raise
+            print(f"  retrying {out.name}: {err}")
+            await asyncio.sleep(3 * (attempt + 1))
+
+
+async def synth_words(text: str, voice: str, out: Path) -> list:
+    """Like synth, but also returns each word's [start ms, length ms, text] (edge-tts word boundaries)."""
+    for attempt in range(5):
+        try:
+            words, audio = [], bytearray()
+            async for chunk in edge_tts.Communicate(text, voice, rate=RATE, boundary="WordBoundary").stream():
+                if chunk["type"] == "audio":
+                    audio += chunk["data"]
+                elif chunk["type"] == "WordBoundary":
+                    words.append([round(chunk["offset"] / 10_000), round(chunk["duration"] / 10_000), chunk["text"]])
+            if not audio:
+                raise RuntimeError("no audio")
+            out.write_bytes(bytes(audio))
+            return words
+        except Exception as err:
             if attempt == 4:
                 raise
             print(f"  retrying {out.name}: {err}")
@@ -216,6 +240,29 @@ async def main() -> None:
                 texts.made(name, key)
                 made += 1
         texts.save()
+
+    for lang, voice in VOICES.items():
+        file = CHANTS_DIR / f"{lang}.json"
+        if not file.exists():
+            continue
+        folder = CHANTS_AUDIO_DIR / lang
+        folder.mkdir(parents=True, exist_ok=True)
+        texts = Texts(folder)
+        timings_file = folder / "timings.json"
+        timings = json.loads(timings_file.read_text(encoding="utf-8")) if timings_file.exists() else {}
+        for chant in json.loads(file.read_text(encoding="utf-8"))["chants"]:
+            for i, line in enumerate(chant["lines"]):
+                name = f"{chant['id']}-{i}"
+                key = f"{voice}|{line['text']}"
+                out = folder / f"{name}.mp3"
+                if not texts.stale(name, out, key) and name in timings:
+                    continue
+                print(f"chant {lang}  {name}: {line['text']}")
+                timings[name] = await synth_words(line["text"], voice, out)
+                texts.made(name, key)
+                made += 1
+        texts.save()
+        timings_file.write_text(json.dumps(timings, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
 
     meanings = {p["en"] for p in phrases}
     for lang in VOICES:

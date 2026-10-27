@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Sticker } from '../art';
 import { CharacterStage } from '../characters/Stage';
-import { playAndWait, primePlayer, type Recording, speakDevice, startRecording, stopPhrase } from '../lib/audio';
+import { playAndWait, primePlayer, type Recording, speakDevice, startRecording, stopPhrase, unlockAudio } from '../lib/audio';
 import { type Lang, LANGS } from '../lib/content';
 import { courseItemFor, currentLevel, hasStarted } from '../lib/course';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
@@ -178,6 +178,7 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
   function start() {
     tapFeedback();
     primePlayer(); // so the replies can play by themselves on iPhone
+    unlockAudio([]); // and so the mic can open by itself after each reply
     auto.current = true;
     over.current = false;
     void ask([]);
