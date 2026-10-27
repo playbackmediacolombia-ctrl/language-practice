@@ -3,6 +3,7 @@ import { CharacterStage } from '../characters/Stage';
 import { compare, type TokenResult } from '../../../shared/compare';
 import { pauseFor, playAndWait, playPhrase, type Recording, startRecording, stopPhrase, unlockAudio } from '../lib/audio';
 import type { Lang } from '../lib/content';
+import { reviewHinted } from '../lib/course';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
 import { recordRoleplay, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
@@ -12,18 +13,16 @@ import { Icon, Screen, Waveform } from '../ui';
 import { AdultGate, AdultGateScreen } from './AdultGate';
 import { LangSwitcher } from './Path';
 import { Heatmap } from '../Heatmap';
+import { HintBubble, type HintLevel, hintsFor, useHintTimer } from '../Hints';
 
 const ROLEPLAY_XP = 10;
 /** At or above this a turn counts as said and the conversation moves on. */
 const PASS = 0.5;
 
 const testHook = location.search.includes('test');
-/** A hint: the first two words of a line (two characters in Chinese), then "…". */
-function startOf(text: string, lang: Lang): string {
-  if (lang === 'zh') return [...text.replace(/[^\p{Script=Han}]/gu, '')].slice(0, 2).join('') + '…';
-  const words = text.split(/\s+/);
-  return words.length <= 2 ? `${words[0]}…` : `${words.slice(0, 2).join(' ')}…`;
-}
+
+/** A line said only with a hint costs 1 XP, never more than half. */
+const roleplayXp = (hinted: number) => ROLEPLAY_XP - Math.min(hinted, ROLEPLAY_XP / 2);
 
 const gradeClass = (score: number) => (score >= 0.85 ? 'ok' : score >= PASS ? 'close' : 'wrong');
 
@@ -100,9 +99,10 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
   const [turns, setTurns] = useState<Record<number, Turn>>({});
   const [phase, setPhase] = useState<TurnPhase>('ready');
   const [reveal, setReveal] = useState(false);
-  // Stuck? A hint (how the line starts) after one miss or on request, the whole line after two.
+  // Stuck? Timed hints (Settings › Hint wait) or the Hint button: the first letter, then how the
+  // line starts, then all of it, faint. One miss jumps to how it starts; two show the words.
   const [misses, setMisses] = useState(0);
-  const [hinted, setHinted] = useState(false);
+  const helped = useRef(new Set<number>()); // your lines said with a hint: a little less XP
   const [english, setEnglish] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
@@ -142,7 +142,6 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
     setPhase('ready');
     setReveal(promptMode(scenario!.level) === 'words');
     setMisses(0);
-    setHinted(false);
     setError(null);
     if (testHook) Object.assign(window, { __roleplayAudio: new URL(line.audio, location.href).href, __roleplayLines: lines.map((l) => new URL(l.audio, location.href).href) });
   }, [step]);
@@ -154,7 +153,7 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
       .map((t) => t.score)
       .filter((x): x is number => x !== null);
     const average = scores.length ? scores.reduce((a, b) => a + b, 0) / scores.length : null;
-    recordRoleplay(lang, id, average, ROLEPLAY_XP);
+    recordRoleplay(lang, id, average, roleplayXp(helped.current.size));
     setResult(average);
     sfx('complete');
   }, [finished]);
@@ -164,12 +163,18 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
     document.querySelector(`[data-line="${Math.min(step, lines.length - 1)}"]`)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }, [step, lines.length]);
 
+  // Hints wait while you talk, while it's checked, and once the line is said or shown.
+  const passed = phase === 'graded' && (turns[step]?.score ?? 0) >= PASS;
+  const hint = useHintTimer(step, { paused: !started || line?.who !== 'you' || reveal || phase === 'listening' || phase === 'heard' || phase === 'checking' || passed });
+  const hintLevel = Math.max(hint.level, misses > 0 ? 2 : 0) as HintLevel;
+
   if (!scenario) {
     navigate(`/${lang}/roleplay`, { replace: true });
     return null;
   }
 
   const next = () => setStep((s) => s + 1);
+  const mode = promptMode(scenario.level);
 
   /** Your turn: record, have Whisper grade it, and move on if it was close enough. */
   const speak = async () => {
@@ -219,9 +224,17 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
     haptic(ok ? 'success' : 'error');
     if (!ok) {
       setMisses((m) => m + 1);
-      if (misses + 1 >= 2) setReveal(true);
+      if (misses + 1 >= 2) {
+        if (!helped.current.has(step)) reviewHinted(lang, line.text, line.en, line.pinyin);
+        helped.current.add(step);
+        setReveal(true);
+      }
     }
     if (ok) {
+      if ((hintLevel > 0 || (reveal && mode !== 'words')) && !helped.current.has(step)) {
+        helped.current.add(step);
+        reviewHinted(lang, line.text, line.en, line.pinyin);
+      }
       setReveal(true);
       const here = step;
       setTimeout(() => alive.current && setStep((s) => (s === here ? s + 1 : s)), 1400);
@@ -235,13 +248,13 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
     if (lines[0]) playPhrase(lines[0].audio);
     setStarted(true);
     setStep(0);
+    helped.current = new Set();
     setTurns({});
     setResult(undefined);
   };
 
   const shown = started ? lines.slice(0, Math.min(step + 1, lines.length)) : [];
   const turn = line?.who === 'you' ? turns[step] : undefined;
-  const mode = promptMode(scenario.level);
   const themClips = lines.filter((l) => l.who === 'them').map((l) => l.audio);
 
   return (
@@ -343,7 +356,7 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
             {result === null ? 'Conversation done!' : `Conversation done: ${Math.round(result * 100)}% on average`}
           </div>
           <p style={{ margin: 0 }}>
-            +{ROLEPLAY_XP} XP.{' '}
+            +{roleplayXp(helped.current.size)} XP{helped.current.size ? ` (${helped.current.size} with a hint)` : ''}.{' '}
             {result === null
               ? 'Download the speech model in Settings to get your turns graded.'
               : result < 0.85
@@ -378,15 +391,17 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
             tapFeedback();
             setReveal(true);
           }}
-          hint={misses > 0 || hinted ? startOf(line.text, lang) : null}
-          onHint={() => {
-            tapFeedback();
-            setHinted(true);
-          }}
+          hintLevel={hintLevel}
+          onHint={hint.next}
           onSpeak={speak}
           onSkip={() => {
             tapFeedback();
             recording.current?.stop();
+            // Without the speech model, Next means you said it: with a hint, it counts as hinted.
+            if (!graded && line && (hintLevel > 0 || (reveal && mode !== 'words')) && !helped.current.has(step)) {
+              helped.current.add(step);
+              reviewHinted(lang, line.text, line.en, line.pinyin);
+            }
             next();
           }}
         />
@@ -408,12 +423,12 @@ function TurnPanel(props: {
   error: string | null;
   analyser: AnalyserNode | null;
   onReveal: () => void;
-  hint: string | null;
+  hintLevel: HintLevel;
   onHint: () => void;
   onSpeak: () => void;
   onSkip: () => void;
 }) {
-  const { lang, line, mode, reveal, phase, turn, graded, error, analyser, onReveal, hint, onHint, onSpeak, onSkip } = props;
+  const { lang, line, mode, reveal, phase, turn, graded, error, analyser, onReveal, hintLevel, onHint, onSpeak, onSkip } = props;
   const busy = phase === 'listening' || phase === 'heard';
   const failed = phase === 'graded' && turn?.score != null && turn.score < PASS;
   const status =
@@ -446,21 +461,10 @@ function TurnPanel(props: {
           </div>
         ) : (
           <>
-            {hint && (
-              <div className="turn-hint" lang={lang} data-testid="turn-hint">
-                Starts with <b>{hint}</b>
-              </div>
-            )}
-            <div className="row" style={{ gap: 16 }}>
-              {!hint && (
-                <button className="link-btn" onClick={onHint} data-testid="show-hint">
-                  Hint
-                </button>
-              )}
-              <button className="link-btn" onClick={onReveal} data-testid="show-words">
-                Show the words
-              </button>
-            </div>
+            <HintBubble hints={hintsFor(line.text, { lang, pinyin: line.pinyin })} level={hintLevel} onNext={onHint} compact />
+            <button className="link-btn" style={{ alignSelf: 'flex-start' }} onClick={onReveal} data-testid="show-words">
+              Show the words
+            </button>
           </>
         )}
       </div>

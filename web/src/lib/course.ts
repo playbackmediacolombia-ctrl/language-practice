@@ -3,7 +3,7 @@ import fr from '../../../shared/course/fr.json';
 import outline from '../../../shared/course/outline.json';
 import zh from '../../../shared/course/zh.json';
 import { getPhrases, getTopics, type Lang, type Phrase } from './content';
-import { getProgress, lessonDone, type Progress, type TalkWord, weakness } from './progress';
+import { addTalkWords, getProgress, lessonDone, type Progress, recordAnswer, type TalkWord, weakness } from './progress';
 import { type Card, dayNumber, dueKeys, forecast } from './srs';
 
 // The lesson path. The outline (levels, stages and units, beginner to fluent) is shared by every
@@ -245,6 +245,17 @@ function itemsById(lang: Lang): Map<string, Item> {
   const map = new Map(base);
   for (const [k, w] of talk) map.set(k.slice(lang.length + 1), talkItem(lang, k.slice(lang.length + 1), w));
   return map;
+}
+
+/**
+ * A line you said only with a hint (a role-play, the AI partner) goes on the Mistakes list: as the
+ * course's own word if it is one, otherwise as a review card of its own (said by the phone's voice).
+ */
+export function reviewHinted(lang: Lang, text: string, en: string, pinyin?: string) {
+  const item = courseItemFor(lang, text);
+  const id = item ? item.id : `ai:${text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '').slice(0, 40)}`;
+  if (!item) addTalkWords([{ key: `${lang}:${id}`, word: { text, en, pinyin } }]);
+  recordAnswer(lang, id, true, { hinted: true });
 }
 
 /** The course's own item for this text, if there is one (so an AI-taught word reuses its recording). */

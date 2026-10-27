@@ -228,7 +228,8 @@ await run(async () => {
   const wrongTitles = wrongs.map((l) => l.title);
   expect(new Set(wrongTitles).size >= Math.min(4, wrongTitles.length), `wrong-answer lines vary: ${[...new Set(wrongTitles)].join(' / ')}`);
   let repeats = 0;
-  for (let i = 1; i < all.length; i++) if (all[i].title === all[i - 1].title) repeats++;
+  // Within a lesson (a new lesson starts after the celebration screen, so its first line may match).
+  for (let i = 1; i < all.length; i++) if (!all[i].first && all[i].title === all[i - 1].title) repeats++, console.log('  same banner twice:', JSON.stringify(all[i - 1]).slice(0, 200), '→', JSON.stringify(all[i]).slice(0, 200));
   expect(repeats === 0, 'banner phrase never the same twice in a row');
   const saidSeq = all.flatMap((l) => l.said);
   const twice = saidSeq.findIndex((n, i) => i > 0 && n === saidSeq[i - 1]);

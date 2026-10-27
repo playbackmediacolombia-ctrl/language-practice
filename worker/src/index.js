@@ -57,8 +57,18 @@ const REPLY_SCHEMA = {
       },
     },
     done: { type: 'boolean', description: 'True only when a role-play scenario has naturally come to its end.' },
+    suggestion: {
+      type: 'object',
+      description: "A short, natural answer the learner could give next, at their level (used for hints if they get stuck).",
+      properties: {
+        text: { type: 'string', description: 'The answer, in the target language.' },
+        pinyin: { type: 'string', description: 'Mandarin only, with tone marks. Empty otherwise.' },
+        en: { type: 'string', description: 'The answer in English.' },
+      },
+      required: ['text', 'en'],
+    },
   },
-  required: ['reply', 'translation', 'newWords', 'done'],
+  required: ['reply', 'translation', 'newWords', 'done', 'suggestion'],
 };
 
 function instructions({ lang, level, scenario }) {

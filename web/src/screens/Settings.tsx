@@ -5,7 +5,7 @@ import { getPhrases, getTopics, LANGS } from '../lib/content';
 import { currentLevel, hasStarted } from '../lib/course';
 import { onOldAddress } from '../lib/move';
 import { BUILD, checkForUpdate, formatBytes, offlineStatus, type OfflineStatus, useOnline } from '../lib/offline';
-import { GOALS, resetProgress, setGoal, setPref, setSpeaking, setVoice, type Speed, type Theme, useProgress } from '../lib/progress';
+import { GOALS, HINT_WAITS, resetProgress, setGoal, setPref, setSpeaking, setVoice, type Speed, type Theme, useProgress } from '../lib/progress';
 import { chosenModel, deleteModel, isModelReady, loadModel, type ModelKey, MODELS, setChosenModel } from '../lib/whisper';
 import { tapFeedback } from '../lib/fx';
 import { navigate } from '../lib/router';
@@ -175,6 +175,30 @@ export function Settings() {
               { value: 'fast', label: 'Fast' },
             ]}
           />
+        </div>
+        <div className="list-block" data-testid="hint-setting">
+          <span className="row-title">Hint wait</span>
+          <span className="row-hint">
+            {prefs.hintWait ? `If you haven't answered after ${prefs.hintWait} seconds, the bird shows a hint, then a bigger one. The Hint button always works.` : 'No timed hints. The Hint button still gives one when you want it.'}
+          </span>
+          <input
+            type="range"
+            className="hint-slider"
+            min={0}
+            max={HINT_WAITS.length - 1}
+            step={1}
+            value={HINT_WAITS.indexOf(prefs.hintWait)}
+            onChange={(e) => setPref('hintWait', HINT_WAITS[Number(e.target.value)])}
+            aria-label="Hint wait"
+            aria-valuetext={prefs.hintWait ? `${prefs.hintWait} seconds` : 'Off'}
+          />
+          <div className="hint-slider-labels" aria-hidden="true">
+            {HINT_WAITS.map((w) => (
+              <span key={w} className={w === prefs.hintWait ? 'active' : ''}>
+                {w ? `${w}s` : 'Off'}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 

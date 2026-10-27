@@ -706,6 +706,43 @@ a.btn { text-decoration: none; }
 .jump-lesson.up .icon { transform: rotate(-90deg); }
 .jump-lesson:active { transform: translateY(4px); box-shadow: 0 0 0 var(--border); }
 
+/* Timed hints: the bird thinks of one, in a thought bubble. */
+.exercise { display: contents; }
+.hint-coach { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px 10px; margin-top: 4px; }
+.hint-bird { flex: none; }
+.hint-bird.thinking .bird-head { animation: bird-nod 2.4s ease-in-out infinite; }
+.hint-bubble {
+  position: relative; flex: 1 1 200px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin: 0 0 22px 4px;
+  padding: 12px 16px; border-radius: 22px; background: var(--card); border: 2px solid var(--border); box-shadow: 0 3px 0 var(--border);
+  animation: pop-in 0.3s var(--spring); transform-origin: 0 100%;
+}
+.hint-bubble::before, .hint-bubble::after {
+  content: ''; position: absolute; border-radius: 50%; background: var(--card); border: 2px solid var(--border);
+}
+.hint-bubble::before { width: 14px; height: 14px; left: -4px; bottom: -16px; }
+.hint-bubble::after { width: 8px; height: 8px; left: -14px; bottom: -24px; }
+.hint-line { font-size: 17px; font-weight: 650; color: var(--text); }
+.hint-1 b { font-size: 20px; color: var(--accent); }
+.hint-picture { font-size: 38px; line-height: 1; }
+.hint-2 {
+  display: flex; align-items: center; gap: 8px; border: 0; cursor: pointer; padding: 6px 12px; border-radius: 12px;
+  background: var(--accent-bg); color: var(--accent); box-shadow: 0 3px 0 color-mix(in srgb, var(--accent) 30%, var(--card));
+}
+.hint-2:active { transform: translateY(3px); box-shadow: none; }
+.hint-3 { display: flex; flex-direction: column; font-size: 21px; font-weight: 700; opacity: 0.42; }
+.hint-btn {
+  margin-left: auto; align-self: center; flex: none; display: flex; align-items: center; gap: 6px; cursor: pointer;
+  padding: 8px 14px; border-radius: 999px; border: 2px solid var(--border); background: var(--card); color: var(--accent);
+  font-weight: 700; font-size: 15px; box-shadow: 0 3px 0 var(--border);
+}
+.hint-btn:active { transform: translateY(3px); box-shadow: none; }
+.hint-coach.compact .hint-bubble { margin-bottom: 18px; padding: 8px 12px; }
+.hint-coach.compact .hint-line { font-size: 15px; }
+.hint-coach.compact .hint-3 { font-size: 17px; }
+.hint-slider { width: 100%; margin: 10px 0 2px; accent-color: var(--accent); }
+.hint-slider-labels { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: var(--muted); }
+.hint-slider-labels .active { color: var(--accent); }
+
 /* =========================================================================
    Lists & settings
    ========================================================================= */
@@ -1006,7 +1043,7 @@ button.card:disabled { opacity: 0.6; cursor: default; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  .mic.on::before, .mic.on::after, .flame.lit, .path-step.current .lesson-node, .node-cta, .coin-ring-fill, .path-buddy, .unit-sticker, .bird *, .path-chest, .chest-burst, .chest-rays, .lesson-pop, .path-sticky, .jump-lesson, .quick .unit-art, .start-sticker, .level-tile, .stat-pill .icon.heart { animation: none !important; }
+  .mic.on::before, .mic.on::after, .flame.lit, .path-step.current .lesson-node, .node-cta, .coin-ring-fill, .path-buddy, .unit-sticker, .bird *, .hint-bubble, .path-chest, .chest-burst, .chest-rays, .lesson-pop, .path-sticky, .jump-lesson, .quick .unit-art, .start-sticker, .level-tile, .stat-pill .icon.heart { animation: none !important; }
 }
 
 /* =========================================================================
@@ -1242,7 +1279,7 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 /* =========================================================================
    Role-plays: your turn panel
    ========================================================================= */
-.turn-panel { gap: 8px; }
+.turn-panel { gap: 8px; background: color-mix(in srgb, var(--bg) 97%, transparent); max-height: 72dvh; overflow-y: auto; }
 .turn-prompt { display: flex; flex-direction: column; gap: 2px; }
 .turn-en { font-size: 18px; font-weight: 700; font-family: var(--font-round); }
 .turn-hint { font-size: var(--text-base); color: var(--flame-text); font-weight: 600; }

@@ -86,6 +86,7 @@ const STROKE: Record<string, ReactNode> = {
   ),
   download: <path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14" />,
   chat: <path d="M4 5.5h16v10H9l-5 4Z" />,
+  bulb: <path d="M9.5 18h5M10.5 21h3M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.1v.1h5v-.1c0-.8.4-1.6 1.1-2.1A6 6 0 0 0 12 3Z" />,
   brush: <path d="M14.5 4.5 19.5 9.5 10 19H5v-5ZM12.5 6.5l5 5" />,
 };
 

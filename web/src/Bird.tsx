@@ -5,11 +5,13 @@ import { PALETTE as P } from './art';
 // Poses for the lesson path: it peeks over a ledge, hops, waves, reads, holds a globe or naps.
 // It plays its pose when it scrolls into view; with Reduce Motion it simply stands still.
 
-export type BirdPose = 'peek' | 'hop' | 'wave' | 'read' | 'globe' | 'nap';
+/** `think` (eyes up, for hints) isn't one of the path's poses. */
+export type BirdPose = 'peek' | 'hop' | 'wave' | 'read' | 'globe' | 'nap' | 'think';
 export const BIRD_POSES: BirdPose[] = ['peek', 'hop', 'wave', 'read', 'globe', 'nap'];
 
 function Head({ pose }: { pose: BirdPose }) {
   const down = pose === 'read';
+  const up = pose === 'think';
   return (
     <g className="bird-head">
       <path d="M50 24 Q46 9 56 13 Q58 3 66 12 Q72 7 70 20 Z" fill={P.skyLight} />
@@ -20,8 +22,8 @@ function Head({ pose }: { pose: BirdPose }) {
         <path d="M67 42 Q72 46 77 42" stroke={P.navy} strokeWidth="2.6" fill="none" strokeLinecap="round" />
       ) : (
         <g className="bird-eye">
-          <circle cx="72.5" cy={down ? 44 : 41} r="4.4" fill={P.navy} />
-          <circle cx="74" cy={down ? 42.6 : 39.5} r="1.5" fill={P.white} />
+          <circle cx={up ? 74 : 72.5} cy={down ? 44 : up ? 38.5 : 41} r="4.4" fill={P.navy} />
+          <circle cx={up ? 75.5 : 74} cy={down ? 42.6 : up ? 37 : 39.5} r="1.5" fill={P.white} />
         </g>
       )}
       <path d="M81 34 Q97 33 97 50 Q97 58 90 61 Q92 50 82 48 Z" fill={P.navy} />

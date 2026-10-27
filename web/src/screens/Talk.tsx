@@ -3,13 +3,14 @@ import { Sticker } from '../art';
 import { CharacterStage } from '../characters/Stage';
 import { playAndWait, primePlayer, type Recording, speakDevice, startRecording, stopPhrase, unlockAudio } from '../lib/audio';
 import { type Lang, LANGS } from '../lib/content';
-import { courseItemFor, currentLevel, hasStarted } from '../lib/course';
+import { courseItemFor, currentLevel, hasStarted, reviewHinted } from '../lib/course';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
 import { addTalkWords, completeLesson, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { getScenario } from '../lib/scenarios';
 import { audioUrl, nextReply, type NewWord, PROBLEM_TEXT, type TalkError, type TalkMessage, type TalkProblem, type TalkReply } from '../lib/talk';
 import { isModelReady, loadModel, transcribe } from '../lib/whisper';
+import { HintBubble, hintsFor, useHintTimer } from '../Hints';
 import { Icon, Screen, Waveform } from '../ui';
 import { AdultGateScreen } from './AdultGate';
 
@@ -19,6 +20,8 @@ import { AdultGateScreen } from './AdultGate';
 // gentle correction appears under anything you said that could be better. Needs the internet.
 
 const TALK_XP = 10;
+/** Each answer given with a hint costs 1 XP, never more than half. */
+const talkXp = (hinted: number) => TALK_XP - Math.min(hinted, TALK_XP / 2);
 const testHook = location.search.includes('test');
 
 type Msg = { role: 'model'; reply: TalkReply } | { role: 'user'; text: string; correction?: TalkReply['correction'] };
@@ -57,6 +60,15 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
   const msgsRef = useRef<Msg[]>([]);
   const endRef = useRef<HTMLDivElement>(null);
   const graded = isModelReady();
+  // Stuck for an answer? Timed hints from the answer the partner suggests: its first letter, how
+  // it starts (tap to hear), then all of it. Never while you're talking or it's thinking.
+  const lastMsg = msgs.at(-1);
+  const suggestion = lastMsg?.role === 'model' ? lastMsg.reply.suggestion : undefined;
+  const hint = useHintTimer(msgs.length, { paused: !suggestion?.text || !(phase === 'listening' || phase === 'paused') });
+  const hintLevel = useRef(0);
+  hintLevel.current = hint.level;
+  const helped = useRef(0);
+  const discard = useRef(false); // the mic closed to hear a hint: drop what it recorded
 
   useEffect(() => {
     alive.current = true;
@@ -146,6 +158,11 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
       setAnalyser(null);
     }
     if (!alive.current || over.current) return;
+    if (discard.current) {
+      discard.current = false;
+      setPhase('paused');
+      return;
+    }
     if (!audio.length) {
       setPhase('paused');
       setNote("I didn't hear anything. Tap the mic and answer, or type instead.");
@@ -170,6 +187,12 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
   }
 
   function send(text: string) {
+    const prev = msgsRef.current.at(-1);
+    const offered = prev?.role === 'model' ? prev.reply.suggestion : undefined;
+    if (hintLevel.current > 0 && offered?.text) {
+      helped.current++;
+      reviewHinted(lang, offered.text, offered.en, offered.pinyin || undefined);
+    }
     const next: Msg[] = [...msgsRef.current, { role: 'user', text }];
     setAll(next);
     void ask(next);
@@ -181,6 +204,7 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
     unlockAudio([]); // and so the mic can open by itself after each reply
     auto.current = true;
     over.current = false;
+    helped.current = 0;
     void ask([]);
   }
 
@@ -200,7 +224,7 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
         return item ? { key: `${lang}:${item.id}` } : { key: `${lang}:ai:${slug}`, word: { text: w.word, en: w.meaning, pinyin: w.pinyin || undefined } };
       }),
     );
-    if (list.some((m) => m.role === 'user')) completeLesson(lang, null, TALK_XP);
+    if (list.some((m) => m.role === 'user')) completeLesson(lang, null, talkXp(helped.current));
     setSummary({ words, mistakes, added });
     setPhase('ended');
   }
@@ -315,7 +339,7 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
             Conversation done!
           </div>
           <p style={{ margin: 0 }}>
-            {msgs.filter((m) => m.role === 'user').length} things said · +{msgs.some((m) => m.role === 'user') ? TALK_XP : 0} XP
+            {msgs.filter((m) => m.role === 'user').length} things said · +{msgs.some((m) => m.role === 'user') ? talkXp(helped.current) : 0} XP{helped.current ? ` (${helped.current} with a hint)` : ''}
           </p>
           {summary.words.length > 0 && (
             <>
@@ -379,6 +403,21 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
           </div>
           {busy && <Waveform analyser={analyser} />}
           {note && <p style={{ color: 'var(--wrong)', margin: 0 }}>{note}</p>}
+          {suggestion?.text && (phase === 'listening' || phase === 'paused') && (
+            <HintBubble
+              key={msgs.length}
+              hints={hintsFor(suggestion.text, { lang, pinyin: suggestion.pinyin || undefined })}
+              level={hint.level}
+              onNext={hint.next}
+              onHear={() => {
+                if (!recording.current) return;
+                discard.current = true;
+                auto.current = false;
+                recording.current.stop();
+              }}
+              compact
+            />
+          )}
           {typing || !graded ? (
             <form
               className="row"
@@ -389,7 +428,10 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
                 setTyped('');
               }}
             >
-              <input className="answer-input grow" value={typed} onChange={(e) => setTyped(e.target.value)} placeholder={`Type in ${name}…`} lang={lang} aria-label="Your answer" data-testid="talk-input" />
+              <input className="answer-input grow" value={typed} onChange={(e) => {
+                  setTyped(e.target.value);
+                  hint.poke();
+                }} placeholder={`Type in ${name}…`} lang={lang} aria-label="Your answer" data-testid="talk-input" />
               <button className="btn" type="submit" disabled={!typed.trim() || phase === 'thinking' || phase === 'speaking'} aria-label="Send" data-testid="talk-send">
                 <Icon name="chevron" size={22} />
               </button>

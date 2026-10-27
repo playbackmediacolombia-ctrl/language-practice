@@ -17,6 +17,7 @@ import { GrammarSheet } from '../GrammarTip';
 import { ToneChart } from '../ToneChart';
 import { Burst, Confetti, CountUp, Flame, Icon, ProgressBar, Waveform } from '../ui';
 import { Heatmap } from '../Heatmap';
+import { HintBubble, type HintSet, hintsFor, useHintTimer } from '../Hints';
 
 const REVIEW_XP = 5;
 const DAILY_XP = 10;
@@ -41,6 +42,29 @@ type Result = {
 };
 
 const testHook = location.search.includes('test');
+
+/** The hints for a question, if it has an answer to hint at (match-the-pairs doesn't; nor does repeating words you can see). */
+export function exerciseHints(ex: Exercise, lang: Lang): HintSet | null {
+  switch (ex.type) {
+    case 'meaning':
+      return hintsFor(ex.item.en, { lang: 'en', en: ex.item.en });
+    case 'listen':
+    case 'type':
+      return hintsFor(ex.item.text, { lang, pinyin: ex.item.pinyin, en: ex.item.en });
+    case 'translate':
+    case 'tiles':
+      return hintsFor(ex.item.text, { lang, pinyin: ex.item.pinyin }); // the meaning's on screen: no picture
+    case 'speak':
+      return ex.recall ? hintsFor(ex.item.text, { lang, pinyin: ex.item.pinyin }) : null;
+    case 'fact':
+      return hintsFor(ex.answer, { lang: 'en' });
+    default:
+      return null;
+  }
+}
+
+/** Each answer right only with a hint costs 1 XP, never more than half the lesson's. */
+const withHints = (xp: number, hinted: number) => xp - Math.min(hinted, Math.floor(xp / 2));
 
 export function autoPlay(ex: Exercise | undefined) {
   if (ex && (ex.type === 'meaning' || ex.type === 'listen' || ex.type === 'type')) playPhrase(ex.item.audio);
@@ -83,7 +107,9 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   const [index, setIndex] = useState(0);
   const [result, setResult] = useState<Result | null>(null);
   const [mistakes, setMistakes] = useState(0);
-  const [summary, setSummary] = useState<{ xp: number; xpBefore: number; streakUp: boolean; goalReached: boolean; line: Line } | null>(null);
+  const [hinted, setHinted] = useState(0); // answers right only with a hint
+  const [busy, setBusy] = useState(false); // you're speaking (or it's being checked): no hints then
+  const [summary, setSummary] = useState<{ xp: number; xpBefore: number; streakUp: boolean; goalReached: boolean; line: Line; hinted: number; hintCost: number } | null>(null);
   const coach = useRef(new Coach(lang));
   const started = useRef(Date.now());
   // A lesson that brings in a new grammar rule shows its tip once, before it starts.
@@ -102,6 +128,8 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
 
   const ex = queue[index];
   if (testHook) (window as { __exercise?: Exercise }).__exercise = ex;
+  const hints = ex ? exerciseHints(ex, lang) : null;
+  const hint = useHintTimer(index, { paused: phase !== 'play' || result !== null || busy || showTip || !hints, wait: progress.hintWait });
   const hearts = heartsNow(progress).hearts;
 
   if (!queue.length) {
@@ -112,10 +140,15 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   const submit = (r: Result) => {
     if (r.skipped) return setResult(r);
     const reaction = r.right ? coach.current.right() : coach.current.wrong();
+    const helped = r.right && hint.level > 0;
+    if (helped) {
+      setHinted((n) => n + 1);
+      r = { ...r, note: [r.note, 'With a hint: it comes back in your Mistakes review.'].filter(Boolean).join(' · ') };
+    }
     setResult({ ...r, reaction });
     sfx(r.right ? 'correct' : 'wrong');
     haptic(r.right ? 'success' : 'error');
-    itemsOf(ex).forEach((item) => recordAnswer(lang, item.id, r.right, { soft: r.free, track: item.kind !== 'sound', drill }));
+    itemsOf(ex).forEach((item) => recordAnswer(lang, item.id, r.right, { soft: r.free, track: item.kind !== 'sound', drill, hinted: helped }));
     if (ex.type !== 'meaning' && ex.type !== 'match' && ex.type !== 'speak' && ex.type !== 'fact') playPhrase(ex.item.audio);
     if (progress.voice && reaction.speak) playClipAfterPhrase(reaction.line.url);
     if (!r.right && !r.free) {
@@ -137,14 +170,15 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   };
 
   const finish = () => {
-    const xp = daily ? DAILY_XP : drill ? MISTAKES_XP : review ? REVIEW_XP : LESSON_XP + (mistakes === 0 ? PERFECT_BONUS : 0);
+    const full = daily ? DAILY_XP : drill ? MISTAKES_XP : review ? REVIEW_XP : LESSON_XP + (mistakes === 0 && hinted === 0 ? PERFECT_BONUS : 0);
+    const xp = withHints(full, hinted);
     const before = todayXp(progress);
     const streakUp = before === 0; // first lesson today extends (or starts) the streak
     const xpBefore = progress.xp;
     completeLesson(lang, review ? null : lessonId, xp);
     if (review) gainHeart();
     const line = coach.current.finished(mistakes === 0);
-    setSummary({ xp, xpBefore, streakUp, goalReached: before < progress.goal && before + xp >= progress.goal, line });
+    setSummary({ xp, xpBefore, streakUp, goalReached: before < progress.goal && before + xp >= progress.goal, line, hinted, hintCost: full - xp });
     setPhase('done');
     sfx('complete');
     haptic('success');
@@ -247,7 +281,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     const accuracy = Math.max(0, Math.round(((total.current - mistakes) / total.current) * 100));
     const minutes = Math.max(1, Math.round((Date.now() - started.current) / 60000));
     const today = todayXp(progress);
-    const perfect = mistakes === 0;
+    const perfect = mistakes === 0 && summary.hinted === 0;
     return (
       <main className="page fill celebrate">
         <Confetti pieces={perfect ? 90 : 60} />
@@ -287,6 +321,11 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
             </p>
           )}
           {perfect && !review && <p className="muted small">No mistakes: +{PERFECT_BONUS} bonus XP.</p>}
+          {summary.hinted > 0 && (
+            <p className="muted small" data-testid="hint-xp">
+              {summary.hinted} {summary.hinted === 1 ? 'answer' : 'answers'} with a hint: −{summary.hintCost} XP. {summary.hinted === 1 ? "It's" : "They're"} in your Mistakes review.
+            </p>
+          )}
           {review && <p className="muted small">+1 heart for practicing.</p>}
           {daily && <DailyNext lang={lang} />}
           {drill && <MistakesNext lang={lang} items={drilled.current} />}
@@ -313,7 +352,11 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
       action={tipButton}
     >
       {result?.right && !result.skipped && <div key={index} className="flash ok" aria-hidden="true" />}
-      <ExerciseView key={index} ex={ex} lang={lang} answered={result !== null} onSubmit={submit} />
+      {/* Typing, tapping or a key press starts the hint wait over. */}
+      <div className="exercise" onPointerDown={hint.poke} onKeyDown={hint.poke} onInput={hint.poke}>
+        <ExerciseView key={index} ex={ex} lang={lang} answered={result !== null} onSubmit={submit} onBusy={setBusy} />
+      </div>
+      {hints && !result && <HintBubble key={index} hints={hints} level={hint.level} onNext={hint.next} />}
       {result && <ResultBanner ex={ex} result={result} lang={lang} onContinue={next} />}
       {tipSheet}
     </LessonFrame>
@@ -503,6 +546,8 @@ type ViewProps = {
   onSubmit: (r: Result) => void;
   /** Adds an "I don't know" button (the placement test, where guessing would skew the result). */
   onSkip?: () => void;
+  /** Speaking: you're talking, or it's being checked (hints wait until you're done). */
+  onBusy?: (busy: boolean) => void;
 };
 
 export function ExerciseView(props: ViewProps) {
@@ -776,8 +821,12 @@ function TypeExercise({ ex, lang, answered, onSubmit }: ViewProps) {
   );
 }
 
-function SpeakExercise({ ex, lang, answered, onSubmit }: ViewProps) {
+function SpeakExercise({ ex, lang, answered, onSubmit, onBusy }: ViewProps) {
   const [state, setState] = useState<'idle' | 'listening' | 'heard' | 'checking'>('idle');
+  useEffect(() => {
+    onBusy?.(state !== 'idle');
+    return () => onBusy?.(false);
+  }, [state]);
   const [heard, setHeard] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const recording = useRef<Recording | null>(null);

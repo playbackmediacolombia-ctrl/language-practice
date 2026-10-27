@@ -60,6 +60,8 @@ export type Progress = {
   speakFirst: Partial<Record<Lang, boolean>>;
   /** Animated characters in role-plays. */
   characters: boolean;
+  /** Seconds of quiet before each timed hint (lessons, role-plays, the AI partner); 0 is off. */
+  hintWait: HintWait;
   /** Words the AI conversation partner taught you that aren't in the course, by `${lang}:ai:${slug}` (their review card is in `srs`). */
   talkWords: Record<string, TalkWord>;
   /** Reward chests opened on the lesson path, key `${lang}:${unitId}`, value when. Each gives its XP once. */
@@ -74,7 +76,9 @@ export const MISTAKE_RIGHTS = 3;
 
 export type Theme = 'auto' | 'light' | 'dark';
 export type Speed = 'slow' | 'normal' | 'fast';
-export type Prefs = Pick<Progress, 'goal' | 'speaking' | 'voice' | 'sfx' | 'haptics' | 'speed' | 'theme' | 'lang' | 'adult' | 'speakFirst' | 'characters'>;
+export type HintWait = 0 | 5 | 10 | 20;
+export const HINT_WAITS: HintWait[] = [5, 10, 20, 0];
+export type Prefs = Pick<Progress, 'goal' | 'speaking' | 'voice' | 'sfx' | 'haptics' | 'speed' | 'theme' | 'lang' | 'adult' | 'speakFirst' | 'characters' | 'hintWait'>;
 
 export const MAX_HEARTS = 5;
 export const HEART_REFILL_MS = 30 * 60 * 1000;
@@ -112,6 +116,7 @@ const EMPTY: Progress = {
   adult: false,
   speakFirst: { zh: true },
   characters: true,
+  hintWait: 10,
   talkWords: {},
   chests: {},
 };
@@ -334,13 +339,19 @@ export function completeLesson(lang: Lang, lessonId: string | null, xp: number) 
  * list. `soft` misses (a word seen for the first time, Whisper) don't push the review earlier or
  * count as mistakes; `track: false` (bare sounds) skips both; `drill` is a Mistakes session.
  */
-export function recordAnswer(lang: Lang, itemId: string, right: boolean, { soft = false, track = true, drill = false } = {}) {
+export function recordAnswer(lang: Lang, itemId: string, right: boolean, { soft = false, track = true, drill = false, hinted = false } = {}) {
   update((p) => {
     const k = `${lang}:${itemId}`;
     const cur = p.items[k] ?? { s: 0, t: 0, w: 0 };
-    const next = right ? { s: Math.min(5, cur.s + 1), t: Date.now(), w: cur.w } : { s: Math.max(0, cur.s - 2), t: Date.now(), w: cur.w + 1 };
+    // Right with a hint: not wrong, but not known yet either. It doesn't get stronger, comes back
+    // for review tomorrow (its ease untouched), and goes on the Mistakes list.
+    const next = right && hinted ? { ...cur, t: Date.now() } : right ? { s: Math.min(5, cur.s + 1), t: Date.now(), w: cur.w } : { s: Math.max(0, cur.s - 2), t: Date.now(), w: cur.w + 1 };
     const out = tally({ ...p, items: { ...p.items, [k]: next } }, lang, right);
     if (!track) return out;
+    if (right && hinted) {
+      const card = grade(k, out.srs[k], false, dayNumber(), true);
+      return noteMistake({ ...out, srs: { ...out.srs, [k]: { ...card, due: Math.min(card.due, dayNumber() + 1) } } }, k, false);
+    }
     return noteMistake(schedule(out, k, right, soft), k, right || soft, drill && !(soft && !right));
   });
 }
@@ -438,7 +449,7 @@ export function replaceProgress(saved: Partial<Progress>) {
 
 export function resetProgress() {
   update((p) => {
-    const prefs: Prefs = { goal: p.goal, speaking: p.speaking, voice: p.voice, sfx: p.sfx, haptics: p.haptics, speed: p.speed, theme: p.theme, lang: p.lang, adult: p.adult, speakFirst: p.speakFirst, characters: p.characters };
+    const prefs: Prefs = { goal: p.goal, speaking: p.speaking, voice: p.voice, sfx: p.sfx, haptics: p.haptics, speed: p.speed, theme: p.theme, lang: p.lang, adult: p.adult, speakFirst: p.speakFirst, characters: p.characters, hintWait: p.hintWait };
     return { ...EMPTY, ...prefs };
   });
 }

@@ -136,6 +136,9 @@ await run(async () => {
         await page.locator('.match-col').nth(0).getByRole('button', { name: item.text, exact: true }).first().click();
         await page.locator('.match-col').nth(1).getByRole('button', { name: item.en, exact: true }).first().click();
       }
+    } else if (ex.type === 'type') {
+      await page.locator('textarea').fill(ex.item.text);
+      await page.getByRole('button', { name: 'Check' }).click();
     } else {
       const skip = page.getByRole('button', { name: /Can't (speak|listen) now|I don't know|Skip/ });
       if (await skip.count()) await skip.first().click();

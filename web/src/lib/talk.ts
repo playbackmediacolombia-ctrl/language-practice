@@ -15,6 +15,8 @@ export type TalkReply = {
   correction?: { corrected: string; explanation: string } | null;
   newWords: NewWord[];
   done: boolean;
+  /** An answer you could give next, for the hints if you're stuck. */
+  suggestion?: { text: string; pinyin?: string; en: string };
   /** Base64 MP3 of the reply, when the voice service answered. */
   audio: string | null;
   voice: 'ok' | 'unavailable' | 'off';
