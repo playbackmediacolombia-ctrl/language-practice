@@ -1,0 +1,943 @@
+{
+  "tips": [
+    {
+      "lesson": "pt-2-4",
+      "title": "O and a: every noun is masculine or feminine",
+      "body": [
+        "Every Portuguese noun is masculine or feminine, and “the” changes to match: o for masculine, a for feminine.",
+        "Words ending in -o are usually masculine and words ending in -a usually feminine. “My” matches too: meu gato, minha casa."
+      ],
+      "table": [
+        [
+          "o gato",
+          "the cat"
+        ],
+        [
+          "o cachorro",
+          "the dog"
+        ],
+        [
+          "a casa",
+          "the house"
+        ],
+        [
+          "minha mãe",
+          "my mom"
+        ]
+      ],
+      "examples": [
+        "o-cachorro",
+        "o-gato",
+        "minha-casa"
+      ]
+    },
+    {
+      "lesson": "pt-3-1",
+      "title": "No need for “he”, “she” or “I”",
+      "body": [
+        "The verb's ending already says who it is, so Brazilians often drop eu (I) when it's clear: “Tenho uma irmã” is as natural as “Eu tenho uma irmã”.",
+        "É on its own means “he is”, “she is” or “it is”: “É meu irmão.”"
+      ],
+      "table": [
+        [
+          "(Eu) tenho",
+          "I have"
+        ],
+        [
+          "(Ele) é",
+          "he is"
+        ],
+        [
+          "(Ela) tem",
+          "she has"
+        ]
+      ],
+      "examples": [
+        "e-meu-irmao",
+        "eu-tenho-uma-irma"
+      ]
+    },
+    {
+      "lesson": "pt-3-2",
+      "title": "Adjectives go after the noun and match it",
+      "body": [
+        "Most describing words come after the noun: a casa pequena, “the small house”.",
+        "They change to match: pequeno for a masculine noun, pequena for a feminine one, and add -s for more than one."
+      ],
+      "table": [
+        [
+          "o quarto grande",
+          "the big bedroom"
+        ],
+        [
+          "a casa pequena",
+          "the small house"
+        ],
+        [
+          "as casas pequenas",
+          "the small houses"
+        ]
+      ],
+      "examples": [
+        "meu-quarto-e-grande",
+        "a-casa-e-pequena"
+      ]
+    },
+    {
+      "lesson": "pt-3-3",
+      "title": "Estou com fome: “I'm with hunger”",
+      "body": [
+        "To say you're hungry or sleepy, Brazilians use estar com (to be with): estou com fome, estou com sono.",
+        "The same works for cold (estou com frio), heat (estou com calor) and thirst (estou com sede)."
+      ],
+      "table": [
+        [
+          "Estou com fome.",
+          "I'm hungry."
+        ],
+        [
+          "Estou com sono.",
+          "I'm sleepy."
+        ],
+        [
+          "Estou com frio.",
+          "I'm cold."
+        ]
+      ],
+      "examples": [
+        "estou-com-fome",
+        "estou-com-sono"
+      ]
+    },
+    {
+      "lesson": "pt-4-1",
+      "title": "Quero + a verb: “I want to…”",
+      "body": [
+        "Put the verb straight after quero, with no extra word for “to”: quero brincar, “I want to play”.",
+        "For a polite question, Brazilians use você: “Você quer água?” To say no, put não in front: “Não quero.”"
+      ],
+      "table": [
+        [
+          "quero",
+          "I want"
+        ],
+        [
+          "você quer",
+          "you want"
+        ],
+        [
+          "não quero",
+          "I don't want"
+        ]
+      ],
+      "examples": [
+        "quero-brincar",
+        "voce-quer-agua",
+        "nao-quero"
+      ]
+    },
+    {
+      "lesson": "pt-4-3",
+      "title": "Gostar de: you like “of” something",
+      "body": [
+        "Gostar always takes de: “Eu gosto de chocolate.” De joins the next word: de + o = do, de + a = da.",
+        "“Gosto do Brasil” (I like Brazil), “gosto da praia” (I like the beach). Adorar (to love) needs no de."
+      ],
+      "table": [
+        [
+          "gosto de chocolate",
+          "I like chocolate"
+        ],
+        [
+          "gosto do mar",
+          "I like the sea"
+        ],
+        [
+          "gosto da praia",
+          "I like the beach"
+        ]
+      ],
+      "examples": [
+        "eu-gosto-de-chocolate",
+        "voce-gosta-de-cachorros",
+        "nao-gosto-de-leite"
+      ]
+    },
+    {
+      "lesson": "pt-5-3",
+      "title": "Asking questions",
+      "body": [
+        "Often a question is just a sentence said with a rising voice: “Você quer água?”",
+        "Question words: o que (what), quem (who), onde (where), por que (why), quanto (how much). In speech, “cadê?” is a casual “where is?”"
+      ],
+      "table": [
+        [
+          "O que é isso?",
+          "What is this?"
+        ],
+        [
+          "Quem é?",
+          "Who is it?"
+        ],
+        [
+          "Cadê a mamãe?",
+          "Where's mom?"
+        ]
+      ],
+      "examples": [
+        "o-que-e-isso",
+        "quem-e",
+        "cade-a-mamae"
+      ]
+    },
+    {
+      "lesson": "pt-6-1",
+      "title": "Estar for where things are",
+      "body": [
+        "Use estar for where something is right now: “O livro está na mesa.”",
+        "Em (in, on) joins o and a: em + o = no, em + a = na. Fixed places (a city, a building) often use ficar: “Onde fica o banheiro?”"
+      ],
+      "table": [
+        [
+          "na mesa",
+          "on the table"
+        ],
+        [
+          "no quarto",
+          "in the bedroom"
+        ],
+        [
+          "Onde fica?",
+          "Where is it? (a place)"
+        ]
+      ],
+      "examples": [
+        "o-livro-esta-na-mesa",
+        "o-gato-esta-embaixo-da-cama"
+      ]
+    },
+    {
+      "lesson": "pt-6-3",
+      "title": "Telling someone what to do",
+      "body": [
+        "For directions, Brazilians use the polite command form: vire (turn), siga (go on), pegue (take).",
+        "Between friends you'll also hear the everyday form: vira à esquerda, segue reto."
+      ],
+      "table": [
+        [
+          "Vire à esquerda.",
+          "Turn left."
+        ],
+        [
+          "Siga reto.",
+          "Go straight ahead."
+        ],
+        [
+          "Pegue a segunda rua.",
+          "Take the second street."
+        ]
+      ],
+      "examples": [
+        "vire-a-esquerda",
+        "siga-reto"
+      ]
+    },
+    {
+      "lesson": "pt-7-3",
+      "title": "Ser or estar?",
+      "body": [
+        "Portuguese has two verbs for “to be”. Ser is for what someone is: their job, where they're from, what they're like.",
+        "Estar is for how or where someone is right now: “Estou cansado” (I'm tired). Being married is usually ser casado."
+      ],
+      "table": [
+        [
+          "Sou professora.",
+          "I'm a teacher."
+        ],
+        [
+          "Estou bem.",
+          "I'm well."
+        ],
+        [
+          "Sou de São Paulo.",
+          "I'm from São Paulo."
+        ]
+      ],
+      "examples": [
+        "sou-professora",
+        "tudo-bem",
+        "sou-casado"
+      ]
+    },
+    {
+      "lesson": "pt-8-1",
+      "title": "Você and o senhor",
+      "body": [
+        "In Brazil, você is the everyday “you”, for friends and strangers alike. It uses the same verb form as ele and ela: “você tem”.",
+        "To be extra polite, especially with older people, say o senhor (to a man) or a senhora (to a woman)."
+      ],
+      "table": [
+        [
+          "você tem",
+          "you have"
+        ],
+        [
+          "o senhor tem",
+          "you have (formal, to a man)"
+        ],
+        [
+          "a senhora quer",
+          "you want (formal, to a woman)"
+        ]
+      ],
+      "examples": [
+        "tem-outro-tamanho",
+        "quanto-custa"
+      ]
+    },
+    {
+      "lesson": "pt-8-3",
+      "title": "Eu queria: a softer “I want”",
+      "body": [
+        "When ordering, “eu queria” (I would like, literally “I wanted”) sounds polite. “Quero” is fine but more direct.",
+        "“Para mim…” (for me…) is the easy way to order: “Para mim, o frango.”"
+      ],
+      "table": [
+        [
+          "Eu queria um café.",
+          "I'd like a coffee."
+        ],
+        [
+          "Para mim, a salada.",
+          "The salad for me."
+        ]
+      ],
+      "examples": [
+        "eu-queria-um-cafe",
+        "para-mim-o-frango"
+      ]
+    },
+    {
+      "lesson": "pt-9-1",
+      "title": "Me visto: verbs you do to yourself",
+      "body": [
+        "Some verbs come with me, te or se when you do them to yourself: eu me visto (I get dressed), ele se levanta (he gets up).",
+        "In Brazil the me goes before the verb in speech: “Eu me chamo Ana.”"
+      ],
+      "table": [
+        [
+          "eu me visto",
+          "I get dressed"
+        ],
+        [
+          "você se chama",
+          "you're called"
+        ],
+        [
+          "ela se levanta",
+          "she gets up"
+        ]
+      ],
+      "examples": [
+        "eu-me-visto",
+        "eu-acordo-as-sete"
+      ]
+    },
+    {
+      "lesson": "pt-9-3",
+      "title": "The past: what happened",
+      "body": [
+        "For things that happened and finished, use the simple past: fui (I went), fiz (I did), almocei (I had lunch).",
+        "Regular verbs: -ar verbs end in -ei (almocei), -er verbs in -i (comi), -ir verbs in -i (dormi)."
+      ],
+      "table": [
+        [
+          "Fui ao parque.",
+          "I went to the park."
+        ],
+        [
+          "Comi bem.",
+          "I ate well."
+        ],
+        [
+          "Você fez?",
+          "Did you do it?"
+        ]
+      ],
+      "examples": [
+        "fui-ao-parque",
+        "almocei-com-a-minha-familia",
+        "o-que-voce-fez-ontem"
+      ]
+    },
+    {
+      "lesson": "pt-10-1",
+      "title": "Two past tenses: the scene and the event",
+      "body": [
+        "The imperfect sets the scene or says what used to happen: ela morava (she lived), andava (she would walk).",
+        "The simple past tells what happened once: ela encontrou (she found). Stories mix the two."
+      ],
+      "table": [
+        [
+          "morava",
+          "used to live (scene)"
+        ],
+        [
+          "andava",
+          "used to walk (habit)"
+        ],
+        [
+          "encontrou",
+          "found (event)"
+        ]
+      ],
+      "examples": [
+        "ela-morava-numa-cidade-pequena",
+        "todos-os-dias-ela-andava-ate-o-rio",
+        "um-dia-ela-encontrou-uma-caixa"
+      ]
+    },
+    {
+      "lesson": "pt-10-3",
+      "title": "Had done: tinha + -ado / -ido",
+      "body": [
+        "To say something had already happened before another past moment, use tinha with the participle: tinha saído (had left).",
+        "Enquanto (while) with the imperfect sets the background: “Enquanto eu cozinhava, o telefone tocou.”"
+      ],
+      "table": [
+        [
+          "tinha saído",
+          "had left"
+        ],
+        [
+          "tinha comido",
+          "had eaten"
+        ],
+        [
+          "enquanto eu cozinhava",
+          "while I was cooking"
+        ]
+      ],
+      "examples": [
+        "quando-cheguei-ele-ja-tinha-saido",
+        "enquanto-eu-cozinhava-o-telefone-tocou"
+      ]
+    },
+    {
+      "lesson": "pt-11-3",
+      "title": "Plans: vou + verb, and a gente",
+      "body": [
+        "Vou + a verb is the easy future: vou reservar (I'm going to book).",
+        "Brazilians often say a gente for “we”, with the verb like ele: “a gente se encontra”, “a gente fica em casa”."
+      ],
+      "table": [
+        [
+          "vou reservar",
+          "I'm going to book"
+        ],
+        [
+          "a gente vai",
+          "we're going"
+        ],
+        [
+          "se chover",
+          "if it rains"
+        ]
+      ],
+      "examples": [
+        "vou-reservar-uma-mesa",
+        "se-chover-a-gente-fica-em-casa"
+      ]
+    },
+    {
+      "lesson": "pt-13-1",
+      "title": "Saying what hurts",
+      "body": [
+        "“Estou com dor de…” (I have a pain in…): estou com dor de cabeça, dor de garganta (sore throat).",
+        "Or point and say “Dói aqui” (it hurts here). Desde means “since”: “febre desde ontem”."
+      ],
+      "table": [
+        [
+          "dor de cabeça",
+          "headache"
+        ],
+        [
+          "dor de barriga",
+          "stomachache"
+        ],
+        [
+          "Dói aqui.",
+          "It hurts here."
+        ]
+      ],
+      "examples": [
+        "estou-com-dor-de-cabeca",
+        "estou-com-febre-desde-ontem"
+      ]
+    },
+    {
+      "lesson": "pt-13-3",
+      "title": "Giving advice: deveria, se eu fosse você, and the subjunctive",
+      "body": [
+        "“Você deveria…” (you should…) is gentle advice. “Se eu fosse você…” (if I were you…) uses a special past form.",
+        "After “recomendo que” or “é importante que”, the next verb changes to the subjunctive: durma, beba."
+      ],
+      "table": [
+        [
+          "você deveria",
+          "you should"
+        ],
+        [
+          "se eu fosse você",
+          "if I were you"
+        ],
+        [
+          "que você durma",
+          "that you sleep"
+        ]
+      ],
+      "examples": [
+        "voce-deveria-descansar",
+        "se-eu-fosse-voce-iria-ao-medico",
+        "recomendo-que-voce-durma-mais"
+      ]
+    },
+    {
+      "lesson": "pt-14-1",
+      "title": "Foi cancelado: the passive",
+      "body": [
+        "Ser + participle says what was done to something: “O voo foi cancelado” (the flight was cancelled).",
+        "The participle matches the noun: a mala foi perdida, os voos foram cancelados."
+      ],
+      "table": [
+        [
+          "foi cancelado",
+          "was cancelled"
+        ],
+        [
+          "foi perdida",
+          "was lost"
+        ],
+        [
+          "foram cancelados",
+          "were cancelled"
+        ]
+      ],
+      "examples": [
+        "meu-voo-foi-cancelado",
+        "o-voo-esta-atrasado-duas-horas"
+      ]
+    },
+    {
+      "lesson": "pt-15-3",
+      "title": "Acho que… / Não acho que…",
+      "body": [
+        "“Acho que” (I think that) takes a normal verb: “Acho que você tem razão.”",
+        "With “não acho que” (I don't think), the next verb goes into the subjunctive: “Não acho que seja justo.”"
+      ],
+      "table": [
+        [
+          "acho que é",
+          "I think it is"
+        ],
+        [
+          "não acho que seja",
+          "I don't think it is"
+        ]
+      ],
+      "examples": [
+        "acho-que-voce-tem-razao",
+        "nao-acho-que-seja-justo"
+      ]
+    },
+    {
+      "lesson": "pt-16-2",
+      "title": "Linking ideas",
+      "body": [
+        "Por um lado… por outro lado… (on the one hand… on the other…) lays out two sides.",
+        "“Mesmo que” (even if) takes the subjunctive: “Mesmo que seja difícil.” “No entanto” means “however”."
+      ],
+      "table": [
+        [
+          "por um lado",
+          "on the one hand"
+        ],
+        [
+          "por outro lado",
+          "on the other hand"
+        ],
+        [
+          "mesmo que seja",
+          "even if it is"
+        ]
+      ],
+      "examples": [
+        "mesmo-que-seja-dificil-vale-a-pena",
+        "por-um-lado-e-mais-barato",
+        "por-outro-lado-polui-mais"
+      ]
+    },
+    {
+      "lesson": "pt-17-1",
+      "title": "Você or o senhor?",
+      "body": [
+        "Brazilians switch to “você” quickly. With older people, customers or anyone you'd like to honor, start with o senhor / a senhora.",
+        "If they say “Pode me chamar de você”, you've been invited to be casual."
+      ],
+      "table": [
+        [
+          "o senhor",
+          "you (formal, to a man)"
+        ],
+        [
+          "a senhora",
+          "you (formal, to a woman)"
+        ],
+        [
+          "você",
+          "you (everyday)"
+        ]
+      ],
+      "examples": [
+        "como-o-senhor-esta",
+        "pode-me-chamar-de-voce"
+      ]
+    },
+    {
+      "lesson": "pt-17-2",
+      "title": "Extra-polite requests",
+      "body": [
+        "“Será que o senhor poderia…?” (would you possibly be able to…?) is very polite.",
+        "In shops and cafés, “Me vê um…, por favor?” (literally “see me a…”) is a friendly, natural way to ask."
+      ],
+      "table": [
+        [
+          "poderia",
+          "could you"
+        ],
+        [
+          "será que",
+          "I wonder if"
+        ],
+        [
+          "me vê",
+          "could I get"
+        ]
+      ],
+      "examples": [
+        "sera-que-o-senhor-poderia-me-ajudar",
+        "poderia-me-dizer-onde-fica-o-escritorio",
+        "me-ve-um-cafe-por-favor"
+      ]
+    },
+    {
+      "lesson": "pt-19-3",
+      "title": "How people really talk: tô, tá, pra",
+      "body": [
+        "In everyday speech, estou becomes tô, está becomes tá, and para becomes pra.",
+        "“Tô de boa”, “Tá bom”, “Pra quê?” You'll read them in messages and hear them everywhere."
+      ],
+      "table": [
+        [
+          "tô",
+          "estou (I am)"
+        ],
+        [
+          "tá",
+          "está (it is)"
+        ],
+        [
+          "pra",
+          "para (for, to)"
+        ]
+      ],
+      "examples": [
+        "pra-que",
+        "nao-to-a-fim",
+        "to-sem-grana"
+      ]
+    },
+    {
+      "lesson": "pt-21-1",
+      "title": "Culture: dating in Brazil",
+      "body": [
+        "Brazilians are warm and direct: compliments and long eye contact are normal and friendly.",
+        "A “ficar” is a casual fling; “namorar” means you're officially dating. It's fine to ask which one it is."
+      ],
+      "table": [
+        [
+          "ficar",
+          "to have a casual thing"
+        ],
+        [
+          "namorar",
+          "to date officially"
+        ],
+        [
+          "Que fofo!",
+          "How sweet!"
+        ]
+      ],
+      "examples": [
+        "dt-voce-tem-um-sorriso-lindo",
+        "dt-ah-obrigada-que-fofo"
+      ]
+    },
+    {
+      "lesson": "pt-22-1",
+      "title": "Culture: texting in Brazil",
+      "body": [
+        "“Kkkkk” or “rsrs” is laughter in Brazilian texts. Voice messages (áudios) are hugely popular on WhatsApp.",
+        "“Sumido!” (stranger!) is a playful way to say you haven't heard from someone in a while."
+      ],
+      "table": [
+        [
+          "kkkkk",
+          "hahaha"
+        ],
+        [
+          "vc",
+          "você"
+        ],
+        [
+          "bora",
+          "let's go"
+        ]
+      ],
+      "examples": [
+        "dt-oi-sumido-tudo-bem",
+        "dt-bora-marcar-na-quinta"
+      ]
+    },
+    {
+      "lesson": "pt-23-2",
+      "title": "Culture: meeting the family",
+      "body": [
+        "Family is central in Brazil, and Sunday lunch is a big event. Bring a small gift (uma lembrancinha), like dessert.",
+        "Call your partner's parents “seu” (Mr.) or “dona” (Mrs.) with their first name: dona Maria, seu João."
+      ],
+      "table": [
+        [
+          "dona Maria",
+          "Mrs. Maria"
+        ],
+        [
+          "seu João",
+          "Mr. João"
+        ],
+        [
+          "uma lembrancinha",
+          "a little gift"
+        ]
+      ],
+      "examples": [
+        "dt-muito-prazer-dona-maria-o-pedro-fala-muito-de-vo",
+        "dt-trouxe-uma-lembrancinha"
+      ]
+    },
+    {
+      "lesson": "pt-24-1",
+      "title": "Culture: paquera, Brazilian flirting",
+      "body": [
+        "Paquerar is to flirt. Compliments about someone's smile, laugh or style land well when they're specific and genuine.",
+        "Keep it light and fun. If the other person stops playing along, change the subject kindly."
+      ],
+      "table": [
+        [
+          "paquerar",
+          "to flirt"
+        ],
+        [
+          "estar a fim de",
+          "to be into someone"
+        ],
+        [
+          "um gato / uma gata",
+          "a hottie (lit. a cat)"
+        ]
+      ],
+      "examples": [
+        "fl-adoro-o-jeito-que-voce-ri",
+        "fl-que-bom-gosto-musical"
+      ]
+    },
+    {
+      "lesson": "pt-25-1",
+      "title": "Culture: zoeira, playful teasing",
+      "body": [
+        "Brazilians love zoeira: friendly teasing and jokes. Being able to laugh at yourself goes a long way.",
+        "“Que convencido!” (someone's full of himself!) is teasing, not an insult, when said with a smile."
+      ],
+      "table": [
+        [
+          "zoar",
+          "to tease"
+        ],
+        [
+          "zoeira",
+          "joking around"
+        ],
+        [
+          "convencido",
+          "full of himself"
+        ]
+      ],
+      "examples": [
+        "fl-ganhei-de-novo-admite",
+        "fl-essa-foi-pessima-mas-te-fiz-rir"
+      ]
+    },
+    {
+      "lesson": "pt-26-2",
+      "title": "Culture: clear and kind",
+      "body": [
+        "Ask clearly and accept a no gracefully. “Respeito a sua resposta” says you're a good sport.",
+        "“Sem problema, foi um prazer” lets everyone leave with a smile."
+      ],
+      "table": [
+        [
+          "Posso pegar o seu número?",
+          "Can I get your number?"
+        ],
+        [
+          "Respeito.",
+          "I respect that."
+        ]
+      ],
+      "examples": [
+        "fl-gostei-muito-de-voce-posso-pegar-o-seu-numero",
+        "fl-respeito-a-sua-resposta"
+      ]
+    },
+    {
+      "lesson": "pt-27-1",
+      "title": "Culture: greetings in Brazil",
+      "body": [
+        "Friends greet with a hug or a kiss on the cheek: one in São Paulo, two in Rio. Men often hug and pat each other's back.",
+        "“Tudo bem?” is a greeting, not a real question: answer “Tudo!” and ask back."
+      ],
+      "table": [
+        [
+          "Tudo bem?",
+          "How are you?"
+        ],
+        [
+          "Tudo!",
+          "All good!"
+        ],
+        [
+          "Com licença.",
+          "Excuse me."
+        ]
+      ],
+      "examples": [
+        "cu-oi-tudo-bem",
+        "cu-tudo-bom"
+      ]
+    },
+    {
+      "lesson": "pt-28-1",
+      "title": "Culture: at the table in Brazil",
+      "body": [
+        "Lunch is the main meal: rice, beans, meat and salad (o prato feito, the set plate) is a classic.",
+        "In restaurants you usually have to ask for the check: “Pode fechar a conta?” The 10% service is suggested, not required."
+      ],
+      "table": [
+        [
+          "o prato feito",
+          "the set plate"
+        ],
+        [
+          "arroz e feijão",
+          "rice and beans"
+        ],
+        [
+          "a conta",
+          "the check"
+        ]
+      ],
+      "examples": [
+        "cu-bom-apetite",
+        "cu-pode-fechar-a-conta"
+      ]
+    },
+    {
+      "lesson": "pt-29-1",
+      "title": "Culture: holidays in Brazil",
+      "body": [
+        "On New Year's Eve (Réveillon) people wear white for peace and jump seven waves for luck. Carnival takes over the country for four days before Lent.",
+        "In June, festas juninas bring bonfires, country dancing (quadrilha) and corn treats like pamonha."
+      ],
+      "table": [
+        [
+          "Réveillon",
+          "New Year's Eve"
+        ],
+        [
+          "Carnaval",
+          "Carnival"
+        ],
+        [
+          "festa junina",
+          "June festival"
+        ]
+      ],
+      "examples": [
+        "cu-feliz-natal-e-um-prospero-ano-novo",
+        "cu-parabens-quantos-anos-voce-esta-fazendo"
+      ]
+    },
+    {
+      "lesson": "pt-30-1",
+      "title": "Culture: mistakes foreigners make",
+      "body": [
+        "Avoid the 👌 hand sign: in Brazil it's rude. A thumbs up 👍 is the friendly “OK”.",
+        "Watch false friends: esquisito is “weird”, puxar is “to pull” (not push), and pretender is “to intend”."
+      ],
+      "table": [
+        [
+          "esquisito",
+          "weird"
+        ],
+        [
+          "puxar",
+          "to pull"
+        ],
+        [
+          "empurrar",
+          "to push"
+        ]
+      ],
+      "examples": [
+        "cu-desculpa-me-enganei",
+        "cu-com-licenca-sabe-onde-fica-o-banheiro"
+      ]
+    },
+    {
+      "lesson": "pt-31-1",
+      "title": "Culture: Brazil and Portugal",
+      "body": [
+        "Portugal and Brazil share a language but not all their words: ônibus / autocarro (bus), celular / telemóvel (phone), legal / fixe (cool).",
+        "Brazil's regions have their own flavor too: “bah, tchê” in the south, “trem” in Minas Gerais, “massa” in the northeast."
+      ],
+      "table": [
+        [
+          "ônibus",
+          "bus (Brazil)"
+        ],
+        [
+          "autocarro",
+          "bus (Portugal)"
+        ],
+        [
+          "fixe",
+          "cool (Portugal)"
+        ]
+      ],
+      "examples": [
+        "cu-que-legal",
+        "cu-que-fixe"
+      ]
+    }
+  ]
+}

@@ -19,7 +19,8 @@ export type TalkReply = {
   suggestion?: { text: string; pinyin?: string; en: string };
   /** Base64 MP3 of the reply, when the voice service answered. */
   audio: string | null;
-  voice: 'ok' | 'unavailable' | 'off';
+  /** 'device': no AI voice for this language, so the phone's own voice reads it. */
+  voice: 'ok' | 'unavailable' | 'off' | 'device';
 };
 export type TalkScenario = { setting: string; them: string; en: string };
 

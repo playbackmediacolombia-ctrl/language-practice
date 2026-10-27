@@ -1,0 +1,1268 @@
+{
+  "articles": [
+    {
+      "id": "it-read-park",
+      "level": 1,
+      "kind": "article",
+      "title": "Un parco nuovo",
+      "en": "A new park",
+      "place": "Milano",
+      "lines": [
+        {
+          "text": "C'è un parco nuovo nel quartiere.",
+          "en": "There is a new park in the neighborhood."
+        },
+        {
+          "text": "Il parco è grande e bello.",
+          "en": "The park is big and beautiful."
+        },
+        {
+          "text": "Ci sono alberi, fiori e un piccolo lago.",
+          "en": "There are trees, flowers and a small lake."
+        },
+        {
+          "text": "I bambini giocano e i cani corrono.",
+          "en": "The children play and the dogs run."
+        },
+        {
+          "text": "Il parco apre tutti i giorni alle sei.",
+          "en": "The park opens every day at six."
+        }
+      ],
+      "glossary": {
+        "c'è": "there is",
+        "un": "a",
+        "parco": "park",
+        "nuovo": "new",
+        "nel": "in the (in + il)",
+        "quartiere": "neighborhood",
+        "il": "the",
+        "è": "is",
+        "grande": "big",
+        "e": "and",
+        "bello": "beautiful",
+        "ci": "there (ci sono: there are)",
+        "sono": "are",
+        "alberi": "trees",
+        "fiori": "flowers",
+        "piccolo": "small",
+        "lago": "lake",
+        "i": "the",
+        "bambini": "children",
+        "giocano": "play",
+        "cani": "dogs",
+        "corrono": "run",
+        "apre": "opens",
+        "tutti": "all, every",
+        "giorni": "days",
+        "alle": "at (a + le)",
+        "sei": "six"
+      },
+      "questions": [
+        {
+          "q": "Cosa c'è nel quartiere?",
+          "qEn": "What is there in the neighborhood?",
+          "options": [
+            {
+              "text": "Un parco nuovo",
+              "en": "A new park"
+            },
+            {
+              "text": "Una scuola nuova",
+              "en": "A new school"
+            },
+            {
+              "text": "Un centro commerciale",
+              "en": "A mall"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Cosa c'è nel parco?",
+          "qEn": "What is there in the park?",
+          "options": [
+            {
+              "text": "Alberi, fiori e un lago",
+              "en": "Trees, flowers and a lake"
+            },
+            {
+              "text": "Una piscina",
+              "en": "A pool"
+            },
+            {
+              "text": "Un cinema",
+              "en": "A cinema"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "A che ora apre il parco?",
+          "qEn": "What time does the park open?",
+          "options": [
+            {
+              "text": "Alle sei",
+              "en": "At six"
+            },
+            {
+              "text": "Alle dieci",
+              "en": "At ten"
+            },
+            {
+              "text": "A mezzanotte",
+              "en": "At midnight"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-read-market",
+      "level": 2,
+      "kind": "article",
+      "title": "Il mercato della domenica",
+      "en": "The Sunday market",
+      "place": "Bologna",
+      "lines": [
+        {
+          "text": "Ogni domenica c'è il mercato in piazza.",
+          "en": "Every Sunday there's a market in the square."
+        },
+        {
+          "text": "I venditori arrivano alle sei di mattina.",
+          "en": "The sellers arrive at six in the morning."
+        },
+        {
+          "text": "Vendono frutta, verdura, formaggi e fiori.",
+          "en": "They sell fruit, vegetables, cheeses and flowers."
+        },
+        {
+          "text": "La piadina calda è la preferita di tutti.",
+          "en": "Hot piadina is everyone's favorite."
+        },
+        {
+          "text": "Molte famiglie vanno al mercato dopo la colazione.",
+          "en": "Many families go to the market after breakfast."
+        },
+        {
+          "text": "Il mercato chiude all'una.",
+          "en": "The market closes at one o'clock."
+        }
+      ],
+      "glossary": {
+        "ogni": "every",
+        "domenica": "Sunday",
+        "c'è": "there is",
+        "il": "the",
+        "mercato": "market",
+        "in": "in",
+        "piazza": "square",
+        "i": "the",
+        "venditori": "sellers",
+        "arrivano": "arrive",
+        "alle": "at (a + le)",
+        "sei": "six",
+        "di": "of, in (di mattina: in the morning)",
+        "mattina": "morning",
+        "vendono": "they sell",
+        "frutta": "fruit",
+        "verdura": "vegetables",
+        "formaggi": "cheeses",
+        "e": "and",
+        "fiori": "flowers",
+        "la": "the",
+        "piadina": "piadina (a flatbread sandwich)",
+        "calda": "hot",
+        "è": "is",
+        "preferita": "favorite",
+        "tutti": "everyone",
+        "molte": "many",
+        "famiglie": "families",
+        "vanno": "go",
+        "al": "to the (a + il)",
+        "dopo": "after",
+        "colazione": "breakfast",
+        "chiude": "closes",
+        "all'una": "at one o'clock"
+      },
+      "questions": [
+        {
+          "q": "Quando c'è il mercato?",
+          "qEn": "When is there a market?",
+          "options": [
+            {
+              "text": "Ogni domenica",
+              "en": "Every Sunday"
+            },
+            {
+              "text": "Ogni lunedì",
+              "en": "Every Monday"
+            },
+            {
+              "text": "Una volta al mese",
+              "en": "Once a month"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Qual è la preferita di tutti?",
+          "qEn": "What is everyone's favorite?",
+          "options": [
+            {
+              "text": "La piadina calda",
+              "en": "Hot piadina"
+            },
+            {
+              "text": "La pizza",
+              "en": "Pizza"
+            },
+            {
+              "text": "Il gelato",
+              "en": "Ice cream"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "A che ora chiude il mercato?",
+          "qEn": "When does the market close?",
+          "options": [
+            {
+              "text": "All'una",
+              "en": "At one o'clock"
+            },
+            {
+              "text": "Alle sei di mattina",
+              "en": "At six in the morning"
+            },
+            {
+              "text": "La sera",
+              "en": "In the evening"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-read-festival",
+      "level": 3,
+      "kind": "article",
+      "title": "Un weekend di musica in piazza",
+      "en": "A weekend of music in the square",
+      "place": "Lecce",
+      "lines": [
+        {
+          "text": "Lo scorso fine settimana, più di ventimila persone sono venute al festival della pizzica.",
+          "en": "Last weekend, more than twenty thousand people came to the pizzica festival."
+        },
+        {
+          "text": "Più di quindici gruppi hanno suonato su tre palchi diversi.",
+          "en": "More than fifteen bands played on three different stages."
+        },
+        {
+          "text": "Molti che non avevano mai ballato hanno imparato i primi passi.",
+          "en": "Many who had never danced learned the first steps."
+        },
+        {
+          "text": "Le bancarelle vendevano taralli, pasticciotti e vino locale.",
+          "en": "The stalls sold taralli, pasticciotti and local wine."
+        },
+        {
+          "text": "Nonostante la pioggia di sabato, il pubblico è rimasto fino alla fine.",
+          "en": "Despite Saturday's rain, the crowd stayed until the end."
+        },
+        {
+          "text": "Gli organizzatori hanno già annunciato la prossima edizione per agosto.",
+          "en": "The organizers have already announced the next edition for August."
+        }
+      ],
+      "glossary": {
+        "lo": "the",
+        "scorso": "last",
+        "fine": "end (fine settimana: weekend)",
+        "settimana": "week",
+        "più": "more",
+        "di": "than; of",
+        "ventimila": "twenty thousand",
+        "persone": "people",
+        "sono": "they (sono venute: they came)",
+        "venute": "come",
+        "al": "to the",
+        "festival": "festival",
+        "della": "of the",
+        "pizzica": "pizzica (a fast folk dance from Apulia)",
+        "quindici": "fifteen",
+        "gruppi": "bands, groups",
+        "hanno": "they have (hanno suonato: they played)",
+        "suonato": "played",
+        "su": "on",
+        "tre": "three",
+        "palchi": "stages",
+        "diversi": "different",
+        "molti": "many",
+        "che": "who",
+        "non": "not",
+        "avevano": "had",
+        "mai": "ever (non… mai: never)",
+        "ballato": "danced",
+        "imparato": "learned",
+        "i": "the",
+        "primi": "first",
+        "passi": "steps",
+        "le": "the",
+        "bancarelle": "stalls",
+        "vendevano": "were selling",
+        "taralli": "taralli (crunchy bread rings)",
+        "pasticciotti": "pasticciotti (custard pastries)",
+        "e": "and",
+        "vino": "wine",
+        "locale": "local",
+        "nonostante": "despite",
+        "la": "the",
+        "pioggia": "rain",
+        "sabato": "Saturday",
+        "il": "the",
+        "pubblico": "crowd, audience",
+        "è": "has (è rimasto: stayed)",
+        "rimasto": "stayed",
+        "fino": "until (fino a)",
+        "alla": "to the",
+        "gli": "the",
+        "organizzatori": "organizers",
+        "già": "already",
+        "annunciato": "announced",
+        "prossima": "next",
+        "edizione": "edition",
+        "per": "for",
+        "agosto": "August"
+      },
+      "questions": [
+        {
+          "q": "Quante persone sono venute al festival?",
+          "qEn": "How many people came to the festival?",
+          "options": [
+            {
+              "text": "Più di ventimila",
+              "en": "More than twenty thousand"
+            },
+            {
+              "text": "Duecento",
+              "en": "Two hundred"
+            },
+            {
+              "text": "Due milioni",
+              "en": "Two million"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Cosa hanno imparato molti?",
+          "qEn": "What did many people learn?",
+          "options": [
+            {
+              "text": "I primi passi di pizzica",
+              "en": "The first pizzica steps"
+            },
+            {
+              "text": "A fare la pizza",
+              "en": "To make pizza"
+            },
+            {
+              "text": "A suonare la chitarra",
+              "en": "To play guitar"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Cosa è successo sabato?",
+          "qEn": "What happened on Saturday?",
+          "options": [
+            {
+              "text": "È piovuto",
+              "en": "It rained"
+            },
+            {
+              "text": "Il festival è stato annullato",
+              "en": "The festival was cancelled"
+            },
+            {
+              "text": "È andata via la luce",
+              "en": "There was a power cut"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-read-remote",
+      "level": 4,
+      "kind": "article",
+      "title": "Lavorare da casa per sempre?",
+      "en": "Working from home forever?",
+      "place": "Torino",
+      "lines": [
+        {
+          "text": "Un'indagine su duemila aziende mostra che lo smart working è qui per restare.",
+          "en": "A survey of two thousand companies shows that remote working is here to stay."
+        },
+        {
+          "text": "Sette lavoratori su dieci preferiscono il modello ibrido, con due o tre giorni in ufficio.",
+          "en": "Seven in ten workers prefer the hybrid model, with two or three days in the office."
+        },
+        {
+          "text": "Dicono di risparmiare tempo e soldi sugli spostamenti.",
+          "en": "They say they save time and money on commuting."
+        },
+        {
+          "text": "D'altra parte, molti sentono la mancanza dei colleghi.",
+          "en": "On the other hand, many miss their coworkers."
+        },
+        {
+          "text": "Alcune aziende stanno trasformando gli uffici in spazi di incontro.",
+          "en": "Some companies are turning their offices into meeting spaces."
+        },
+        {
+          "text": "Secondo gli esperti, la sfida adesso è mantenere viva la cultura aziendale.",
+          "en": "According to experts, the challenge now is to keep company culture alive."
+        }
+      ],
+      "glossary": {
+        "un'indagine": "a survey",
+        "su": "of, out of",
+        "duemila": "two thousand",
+        "aziende": "companies",
+        "mostra": "shows",
+        "che": "that",
+        "lo": "the",
+        "smart": "smart (smart working: remote work)",
+        "working": "working (smart working: remote work)",
+        "è": "is",
+        "qui": "here",
+        "per": "to, for",
+        "restare": "to stay",
+        "sette": "seven",
+        "lavoratori": "workers",
+        "dieci": "ten",
+        "preferiscono": "prefer",
+        "il": "the",
+        "modello": "model",
+        "ibrido": "hybrid",
+        "con": "with",
+        "due": "two",
+        "o": "or",
+        "tre": "three",
+        "giorni": "days",
+        "in": "in",
+        "ufficio": "office",
+        "dicono": "they say",
+        "di": "to; of",
+        "risparmiare": "to save",
+        "tempo": "time",
+        "e": "and",
+        "soldi": "money",
+        "sugli": "on the (su + gli)",
+        "spostamenti": "commuting, travel",
+        "d'altra": "on the other (d'altra parte: on the other hand)",
+        "parte": "side",
+        "molti": "many",
+        "sentono": "feel (sentono la mancanza: they miss)",
+        "la": "the",
+        "mancanza": "lack (sentire la mancanza: to miss)",
+        "dei": "of the",
+        "colleghi": "coworkers",
+        "alcune": "some",
+        "stanno": "are (stanno trasformando: are turning)",
+        "trasformando": "turning",
+        "gli": "the",
+        "uffici": "offices",
+        "spazi": "spaces",
+        "incontro": "meeting",
+        "secondo": "according to",
+        "esperti": "experts",
+        "sfida": "challenge",
+        "adesso": "now",
+        "mantenere": "to keep",
+        "viva": "alive",
+        "cultura": "culture",
+        "aziendale": "company (adj.)"
+      },
+      "questions": [
+        {
+          "q": "Quanti lavoratori preferiscono il modello ibrido?",
+          "qEn": "How many workers prefer the hybrid model?",
+          "options": [
+            {
+              "text": "Sette su dieci",
+              "en": "Seven in ten"
+            },
+            {
+              "text": "Uno su dieci",
+              "en": "One in ten"
+            },
+            {
+              "text": "Tutti",
+              "en": "All of them"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Di cosa sentono la mancanza molti?",
+          "qEn": "What do many miss?",
+          "options": [
+            {
+              "text": "Dei colleghi",
+              "en": "Their coworkers"
+            },
+            {
+              "text": "Degli spostamenti",
+              "en": "Commuting"
+            },
+            {
+              "text": "Del capo",
+              "en": "The boss"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Qual è la sfida adesso?",
+          "qEn": "What is the challenge now?",
+          "options": [
+            {
+              "text": "Mantenere viva la cultura aziendale",
+              "en": "Keeping company culture alive"
+            },
+            {
+              "text": "Pagare meno",
+              "en": "Paying less"
+            },
+            {
+              "text": "Chiudere gli uffici",
+              "en": "Closing offices"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-news-bikes",
+      "level": 5,
+      "kind": "article",
+      "title": "Torino prova le bici elettriche gratuite",
+      "en": "Turin trials free electric bikes",
+      "place": "Torino",
+      "lines": [
+        {
+          "text": "Il Comune di Torino ha avviato un progetto pilota di bici elettriche gratuite in tre quartieri.",
+          "en": "Turin city council has launched a pilot project of free electric bikes in three neighborhoods."
+        },
+        {
+          "text": "Per sei mesi, chiunque abbia più di sedici anni potrà usarle fino a un'ora al giorno.",
+          "en": "For six months, anyone over sixteen will be able to use them for up to an hour a day."
+        },
+        {
+          "text": "Per sbloccare una bici basta registrarsi su un'app e scansionare un codice.",
+          "en": "To unlock a bike, you just sign up on an app and scan a code."
+        },
+        {
+          "text": "Secondo gli organizzatori, l'obiettivo è ridurre il traffico e l'inquinamento nelle ore di punta.",
+          "en": "According to the organizers, the goal is to cut traffic and pollution at rush hour."
+        },
+        {
+          "text": "Alcuni commercianti temono che le stazioni occupino i parcheggi davanti ai negozi.",
+          "en": "Some shop owners fear the stations will take up parking spaces in front of their shops."
+        },
+        {
+          "text": "Altri, invece, pensano che più ciclisti significhino più clienti a piedi nella zona.",
+          "en": "Others, however, think more cyclists mean more customers walking around the area."
+        },
+        {
+          "text": "Se i risultati saranno buoni, il servizio sarà esteso a tutta la città.",
+          "en": "If the results are good, the service will be extended to the whole city."
+        }
+      ],
+      "glossary": {
+        "il": "the",
+        "comune": "city council",
+        "di": "of",
+        "torino": "Turin",
+        "ha": "has (ha avviato: has launched)",
+        "avviato": "launched",
+        "un": "a",
+        "progetto": "project",
+        "pilota": "pilot",
+        "bici": "bike(s)",
+        "elettriche": "electric",
+        "gratuite": "free",
+        "in": "in",
+        "tre": "three",
+        "quartieri": "neighborhoods",
+        "per": "for; to",
+        "sei": "six",
+        "mesi": "months",
+        "chiunque": "anyone",
+        "abbia": "has (subjunctive)",
+        "più": "more",
+        "sedici": "sixteen",
+        "anni": "years",
+        "potrà": "will be able to",
+        "usarle": "use them",
+        "fino": "up to (fino a)",
+        "a": "to",
+        "un'ora": "an hour",
+        "al": "per (a + il)",
+        "giorno": "day",
+        "sbloccare": "to unlock",
+        "una": "a",
+        "basta": "it's enough, you just",
+        "registrarsi": "to register",
+        "su": "on",
+        "un'app": "an app",
+        "e": "and",
+        "scansionare": "to scan",
+        "codice": "code",
+        "secondo": "according to",
+        "gli": "the",
+        "organizzatori": "organizers",
+        "l'obiettivo": "the goal",
+        "è": "is",
+        "ridurre": "to reduce",
+        "traffico": "traffic",
+        "l'inquinamento": "the pollution",
+        "nelle": "in the",
+        "ore": "hours",
+        "punta": "peak (ore di punta: rush hour)",
+        "alcuni": "some",
+        "commercianti": "shop owners",
+        "temono": "fear",
+        "che": "that",
+        "le": "the",
+        "stazioni": "stations",
+        "occupino": "take up (subjunctive)",
+        "i": "the",
+        "parcheggi": "parking spaces",
+        "davanti": "in front (davanti a)",
+        "ai": "of the (a + i)",
+        "negozi": "shops",
+        "altri": "others",
+        "invece": "instead, however",
+        "pensano": "think",
+        "ciclisti": "cyclists",
+        "significhino": "mean (subjunctive)",
+        "clienti": "customers",
+        "piedi": "feet (a piedi: on foot)",
+        "nella": "in the",
+        "zona": "area",
+        "se": "if",
+        "risultati": "results",
+        "saranno": "will be",
+        "buoni": "good",
+        "servizio": "service",
+        "sarà": "will be",
+        "esteso": "extended",
+        "tutta": "all, whole",
+        "la": "the",
+        "città": "city"
+      },
+      "questions": [
+        {
+          "q": "Quanto dura il progetto pilota?",
+          "qEn": "How long does the pilot last?",
+          "options": [
+            {
+              "text": "Sei mesi",
+              "en": "Six months"
+            },
+            {
+              "text": "Un anno",
+              "en": "A year"
+            },
+            {
+              "text": "Una settimana",
+              "en": "A week"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Qual è l'obiettivo?",
+          "qEn": "What is the goal?",
+          "options": [
+            {
+              "text": "Ridurre traffico e inquinamento",
+              "en": "To cut traffic and pollution"
+            },
+            {
+              "text": "Vendere bici",
+              "en": "To sell bikes"
+            },
+            {
+              "text": "Chiudere le strade",
+              "en": "To close streets"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Cosa temono alcuni commercianti?",
+          "qEn": "What do some shop owners fear?",
+          "options": [
+            {
+              "text": "Di perdere i parcheggi",
+              "en": "Losing parking spaces"
+            },
+            {
+              "text": "Di perdere clienti online",
+              "en": "Losing customers online"
+            },
+            {
+              "text": "Più rumore",
+              "en": "More noise"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-news-workweek",
+      "level": 5,
+      "kind": "article",
+      "title": "Settimana corta: com'è andata in venti aziende",
+      "en": "A four-day week: how it went at twenty companies",
+      "place": "Milano",
+      "lines": [
+        {
+          "text": "Per sei mesi, venti aziende italiane hanno provato la settimana lavorativa di quattro giorni.",
+          "en": "For six months, twenty Italian companies tried out a four-day working week."
+        },
+        {
+          "text": "I dipendenti hanno lavorato trentadue ore a settimana, senza tagli allo stipendio.",
+          "en": "Employees worked thirty-two hours a week, with no cut in pay."
+        },
+        {
+          "text": "La maggior parte delle aziende dice che la produttività è rimasta uguale o è perfino aumentata.",
+          "en": "Most of the companies say productivity stayed the same or even rose."
+        },
+        {
+          "text": "Inoltre, le assenze per malattia sono quasi dimezzate.",
+          "en": "What's more, sick days have almost halved."
+        },
+        {
+          "text": "Non è stato tutto facile: alcuni team hanno faticato a seguire i clienti il venerdì.",
+          "en": "Not everything was easy: some teams struggled to look after customers on Fridays."
+        },
+        {
+          "text": "Eppure, diciassette aziende su venti hanno deciso di mantenere il modello.",
+          "en": "Even so, seventeen of the twenty companies decided to keep the model."
+        },
+        {
+          "text": "Ora i sindacati chiedono al governo di studiare una legge sul tema.",
+          "en": "Now the unions are asking the government to study a law on the issue."
+        }
+      ],
+      "glossary": {
+        "per": "for",
+        "sei": "six",
+        "mesi": "months",
+        "venti": "twenty",
+        "aziende": "companies",
+        "italiane": "Italian",
+        "hanno": "have (hanno provato: tried)",
+        "provato": "tried",
+        "la": "the",
+        "settimana": "week",
+        "lavorativa": "working",
+        "di": "of",
+        "quattro": "four",
+        "giorni": "days",
+        "i": "the",
+        "dipendenti": "employees",
+        "lavorato": "worked",
+        "trentadue": "thirty-two",
+        "ore": "hours",
+        "a": "a, per",
+        "senza": "without",
+        "tagli": "cuts",
+        "allo": "to the (a + lo)",
+        "stipendio": "salary",
+        "maggior": "greater (la maggior parte: most)",
+        "parte": "part",
+        "delle": "of the",
+        "dice": "says",
+        "che": "that",
+        "produttività": "productivity",
+        "è": "is; has (è rimasta)",
+        "rimasta": "stayed",
+        "uguale": "the same",
+        "o": "or",
+        "perfino": "even",
+        "aumentata": "increased",
+        "inoltre": "what's more",
+        "le": "the",
+        "assenze": "absences",
+        "malattia": "illness",
+        "sono": "have (sono dimezzate)",
+        "quasi": "almost",
+        "dimezzate": "halved",
+        "non": "not",
+        "stato": "been",
+        "tutto": "everything",
+        "facile": "easy",
+        "alcuni": "some",
+        "team": "teams",
+        "faticato": "struggled",
+        "seguire": "to look after",
+        "clienti": "customers",
+        "il": "the (il venerdì: on Fridays)",
+        "venerdì": "Friday",
+        "eppure": "and yet",
+        "diciassette": "seventeen",
+        "su": "out of",
+        "deciso": "decided",
+        "mantenere": "to keep",
+        "modello": "model",
+        "ora": "now",
+        "sindacati": "unions",
+        "chiedono": "ask",
+        "al": "to the",
+        "governo": "government",
+        "studiare": "to study",
+        "una": "a",
+        "legge": "law",
+        "sul": "on the",
+        "tema": "issue"
+      },
+      "questions": [
+        {
+          "q": "Quante ore hanno lavorato i dipendenti durante la prova?",
+          "qEn": "How many hours did employees work during the trial?",
+          "options": [
+            {
+              "text": "Trentadue a settimana",
+              "en": "Thirty-two a week"
+            },
+            {
+              "text": "Quaranta a settimana",
+              "en": "Forty a week"
+            },
+            {
+              "text": "Venti a settimana",
+              "en": "Twenty a week"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Cosa è successo alla produttività?",
+          "qEn": "What happened to productivity?",
+          "options": [
+            {
+              "text": "È rimasta uguale o è aumentata",
+              "en": "It stayed the same or rose"
+            },
+            {
+              "text": "È crollata",
+              "en": "It collapsed"
+            },
+            {
+              "text": "Nessuno l'ha misurata",
+              "en": "Nobody measured it"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Quante aziende manterranno il modello?",
+          "qEn": "How many companies will keep the model?",
+          "options": [
+            {
+              "text": "Diciassette",
+              "en": "Seventeen"
+            },
+            {
+              "text": "Tre",
+              "en": "Three"
+            },
+            {
+              "text": "Tutte",
+              "en": "All of them"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-news-ai-school",
+      "level": 6,
+      "kind": "article",
+      "title": "Opinione: l'intelligenza artificiale è entrata in classe. E adesso?",
+      "en": "Opinion: AI has entered the classroom. Now what?",
+      "place": "Firenze",
+      "lines": [
+        {
+          "text": "Vietare i chatbot a scuola non funziona più: gli studenti li usano sul telefono, a casa e in autobus.",
+          "en": "Banning chatbots at school no longer works: students use them on their phones, at home and on the bus."
+        },
+        {
+          "text": "La domanda non è più se l'intelligenza artificiale debba entrare in classe, ma come.",
+          "en": "The question is no longer whether AI should enter the classroom, but how."
+        },
+        {
+          "text": "Un tema ben scritto non dimostra più che lo studente abbia capito l'argomento.",
+          "en": "A well-written essay no longer proves that the student has understood the topic."
+        },
+        {
+          "text": "Per questo molti insegnanti stanno tornando alle interrogazioni orali e ai dibattiti di gruppo.",
+          "en": "That's why many teachers are going back to oral tests and group debates."
+        },
+        {
+          "text": "Altri chiedono agli studenti di mostrare le domande fatte alla macchina e di criticarne le risposte.",
+          "en": "Others ask students to show the questions they put to the machine and to critique its answers."
+        },
+        {
+          "text": "Il rischio, a mio avviso, è confondere la velocità con l'apprendimento.",
+          "en": "The risk, in my view, is confusing speed with learning."
+        },
+        {
+          "text": "La scuola deve insegnare a dubitare, anche di ciò che lo schermo afferma con tanta sicurezza.",
+          "en": "School must teach doubt, even about what the screen states so confidently."
+        }
+      ],
+      "glossary": {
+        "vietare": "to ban",
+        "i": "the",
+        "chatbot": "chatbots",
+        "a": "at, to",
+        "scuola": "school",
+        "non": "not",
+        "funziona": "works",
+        "più": "more (non… più: no longer)",
+        "gli": "the",
+        "studenti": "students",
+        "li": "them",
+        "usano": "use",
+        "sul": "on the",
+        "telefono": "phone",
+        "casa": "home",
+        "e": "and",
+        "in": "in, on",
+        "autobus": "bus",
+        "la": "the",
+        "domanda": "question",
+        "è": "is",
+        "se": "whether",
+        "l'intelligenza": "intelligence",
+        "artificiale": "artificial",
+        "debba": "should (subjunctive)",
+        "entrare": "to enter",
+        "classe": "class, classroom",
+        "ma": "but",
+        "come": "how",
+        "un": "a",
+        "tema": "essay",
+        "ben": "well",
+        "scritto": "written",
+        "dimostra": "proves",
+        "che": "that",
+        "lo": "the",
+        "studente": "student",
+        "abbia": "has (subjunctive)",
+        "capito": "understood",
+        "l'argomento": "the topic",
+        "per": "for (per questo: that's why)",
+        "questo": "this",
+        "molti": "many",
+        "insegnanti": "teachers",
+        "stanno": "are",
+        "tornando": "going back",
+        "alle": "to the",
+        "interrogazioni": "oral tests",
+        "orali": "oral",
+        "ai": "to the",
+        "dibattiti": "debates",
+        "di": "of; to",
+        "gruppo": "group",
+        "altri": "others",
+        "chiedono": "ask",
+        "agli": "to the",
+        "mostrare": "to show",
+        "le": "the",
+        "domande": "questions",
+        "fatte": "made, asked",
+        "alla": "to the",
+        "macchina": "machine",
+        "criticarne": "to critique its",
+        "risposte": "answers",
+        "il": "the",
+        "rischio": "risk",
+        "mio": "my",
+        "avviso": "view (a mio avviso: in my view)",
+        "confondere": "to confuse",
+        "velocità": "speed",
+        "con": "with",
+        "l'apprendimento": "learning",
+        "deve": "must",
+        "insegnare": "to teach",
+        "dubitare": "to doubt",
+        "anche": "even, also",
+        "ciò": "that, what",
+        "schermo": "screen",
+        "afferma": "states",
+        "tanta": "so much",
+        "sicurezza": "confidence"
+      },
+      "questions": [
+        {
+          "q": "Secondo l'autore, perché vietare i chatbot non funziona?",
+          "qEn": "According to the author, why doesn't banning chatbots work?",
+          "options": [
+            {
+              "text": "Gli studenti li usano ovunque",
+              "en": "Students use them everywhere"
+            },
+            {
+              "text": "Costano troppo",
+              "en": "They cost too much"
+            },
+            {
+              "text": "La legge non lo permette",
+              "en": "The law doesn't allow it"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Cosa stanno facendo molti insegnanti?",
+          "qEn": "What are many teachers doing?",
+          "options": [
+            {
+              "text": "Tornano alle interrogazioni orali e ai dibattiti",
+              "en": "Going back to oral tests and debates"
+            },
+            {
+              "text": "Vietano i telefoni",
+              "en": "Banning phones"
+            },
+            {
+              "text": "Smettono di dare voti",
+              "en": "Stopping grading"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Qual è il rischio per l'autore?",
+          "qEn": "What is the risk for the author?",
+          "options": [
+            {
+              "text": "Confondere velocità e apprendimento",
+              "en": "Confusing speed and learning"
+            },
+            {
+              "text": "Spendere troppo",
+              "en": "Spending too much"
+            },
+            {
+              "text": "Perdere il lavoro",
+              "en": "Losing jobs"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-news-housing",
+      "level": 6,
+      "kind": "article",
+      "title": "Lo smart working porta migliaia di famiglie nei borghi",
+      "en": "Remote work is bringing thousands of families to small villages",
+      "place": "Matera",
+      "lines": [
+        {
+          "text": "Negli ultimi tre anni, molti borghi di montagna e di collina hanno accolto migliaia di nuovi abitanti.",
+          "en": "In the last three years, many mountain and hill villages have welcomed thousands of new residents."
+        },
+        {
+          "text": "Molti sono professionisti che fuggono dagli affitti alti e dal traffico delle grandi città.",
+          "en": "Many are professionals fleeing high rents and the traffic of big cities."
+        },
+        {
+          "text": "Per i commercianti locali, il loro arrivo ha dato una spinta all'economia.",
+          "en": "For local shop owners, their arrival has given the economy a boost."
+        },
+        {
+          "text": "Ma non tutti festeggiano: in alcuni paesi il prezzo delle case è raddoppiato.",
+          "en": "But not everyone is celebrating: in some villages house prices have doubled."
+        },
+        {
+          "text": "Gli abitanti di sempre dicono di non riuscire più a permettersi di vivere dove sono nati.",
+          "en": "Long-time residents say they can no longer afford to live where they were born."
+        },
+        {
+          "text": "Anche internet è diventato un problema, perché le infrastrutture non sono cresciute allo stesso ritmo.",
+          "en": "The internet has also become a problem, because the infrastructure hasn't grown at the same pace."
+        },
+        {
+          "text": "Gli esperti chiedono regole per bilanciare turismo, lavoro da remoto e diritto alla casa.",
+          "en": "Experts are calling for rules to balance tourism, remote work and the right to housing."
+        }
+      ],
+      "glossary": {
+        "negli": "in the (in + gli)",
+        "ultimi": "last",
+        "tre": "three",
+        "anni": "years",
+        "molti": "many",
+        "borghi": "villages",
+        "di": "of",
+        "montagna": "mountain",
+        "e": "and",
+        "collina": "hill",
+        "hanno": "have",
+        "accolto": "welcomed",
+        "migliaia": "thousands",
+        "nuovi": "new",
+        "abitanti": "residents",
+        "sono": "are",
+        "professionisti": "professionals",
+        "che": "who",
+        "fuggono": "flee",
+        "dagli": "from the",
+        "affitti": "rents",
+        "alti": "high",
+        "dal": "from the",
+        "traffico": "traffic",
+        "delle": "of the",
+        "grandi": "big",
+        "città": "cities",
+        "per": "for; to",
+        "i": "the",
+        "commercianti": "shop owners",
+        "locali": "local",
+        "il": "the",
+        "loro": "their",
+        "arrivo": "arrival",
+        "ha": "has",
+        "dato": "given",
+        "una": "a",
+        "spinta": "push, boost",
+        "all'economia": "to the economy",
+        "ma": "but",
+        "non": "not",
+        "tutti": "everyone",
+        "festeggiano": "celebrate",
+        "in": "in",
+        "alcuni": "some",
+        "paesi": "villages, towns",
+        "prezzo": "price",
+        "case": "houses",
+        "è": "has (è raddoppiato)",
+        "raddoppiato": "doubled",
+        "gli": "the",
+        "sempre": "always (abitanti di sempre: long-time residents)",
+        "dicono": "say",
+        "riuscire": "to manage",
+        "più": "anymore",
+        "a": "to",
+        "permettersi": "to afford",
+        "vivere": "to live",
+        "dove": "where",
+        "nati": "born",
+        "anche": "also",
+        "internet": "internet",
+        "diventato": "become",
+        "un": "a",
+        "problema": "problem",
+        "perché": "because",
+        "le": "the",
+        "infrastrutture": "infrastructure",
+        "cresciute": "grown",
+        "allo": "at the",
+        "stesso": "same",
+        "ritmo": "pace",
+        "esperti": "experts",
+        "chiedono": "ask for",
+        "regole": "rules",
+        "bilanciare": "to balance",
+        "turismo": "tourism",
+        "lavoro": "work",
+        "da": "from (da remoto: remotely)",
+        "remoto": "remote",
+        "diritto": "right",
+        "alla": "to the",
+        "casa": "home, housing"
+      },
+      "questions": [
+        {
+          "q": "Perché molti professionisti si trasferiscono nei borghi?",
+          "qEn": "Why are many professionals moving to villages?",
+          "options": [
+            {
+              "text": "Fuggono dagli affitti alti e dal traffico",
+              "en": "They're fleeing high rents and traffic"
+            },
+            {
+              "text": "Per studiare",
+              "en": "To study"
+            },
+            {
+              "text": "Per andare in pensione",
+              "en": "To retire"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Cosa è successo al prezzo delle case in alcuni paesi?",
+          "qEn": "What happened to house prices in some villages?",
+          "options": [
+            {
+              "text": "È raddoppiato",
+              "en": "It doubled"
+            },
+            {
+              "text": "È sceso",
+              "en": "It fell"
+            },
+            {
+              "text": "È rimasto uguale",
+              "en": "It stayed the same"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Perché internet è diventato un problema?",
+          "qEn": "Why has the internet become a problem?",
+          "options": [
+            {
+              "text": "Le infrastrutture non sono cresciute abbastanza",
+              "en": "The infrastructure hasn't grown enough"
+            },
+            {
+              "text": "Costa troppo",
+              "en": "It costs too much"
+            },
+            {
+              "text": "È vietato",
+              "en": "It's banned"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ]
+}

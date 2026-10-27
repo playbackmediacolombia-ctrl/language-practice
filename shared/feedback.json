@@ -514,5 +514,301 @@
         "en": "Almost!"
       }
     ]
+  },
+  "pt": {
+    "praise": [
+      {
+        "text": "Muito bem!",
+        "en": "Very good!"
+      },
+      {
+        "text": "Excelente!",
+        "en": "Excellent!"
+      },
+      {
+        "text": "Perfeito!",
+        "en": "Perfect!"
+      },
+      {
+        "text": "Ótimo!",
+        "en": "Great!"
+      },
+      {
+        "text": "Isso mesmo!",
+        "en": "That's it!"
+      },
+      {
+        "text": "Mandou bem!",
+        "en": "Nailed it!"
+      },
+      {
+        "text": "Correto!",
+        "en": "Correct!"
+      },
+      {
+        "text": "Fantástico!",
+        "en": "Fantastic!"
+      },
+      {
+        "text": "Arrasou!",
+        "en": "You rocked it!"
+      },
+      {
+        "text": "Que legal!",
+        "en": "How cool!"
+      },
+      {
+        "text": "Boa!",
+        "en": "Nice one!"
+      },
+      {
+        "text": "Acertou!",
+        "en": "You got it!"
+      },
+      {
+        "text": "Maravilha!",
+        "en": "Wonderful!"
+      }
+    ],
+    "streak": [
+      {
+        "text": "Você está indo muito bem!",
+        "en": "You're doing really well!"
+      },
+      {
+        "text": "Ninguém te segura!",
+        "en": "Nobody can stop you!"
+      },
+      {
+        "text": "Que sequência!",
+        "en": "What a streak!"
+      },
+      {
+        "text": "Continua assim!",
+        "en": "Keep it up!"
+      },
+      {
+        "text": "Você é uma estrela!",
+        "en": "You're a star!"
+      }
+    ],
+    "complete": [
+      {
+        "text": "Lição concluída! Muito bem!",
+        "en": "Lesson finished! Very good!"
+      },
+      {
+        "text": "Você conseguiu!",
+        "en": "You did it!"
+      },
+      {
+        "text": "Que trabalho bom!",
+        "en": "Great work!"
+      },
+      {
+        "text": "Parabéns!",
+        "en": "Congratulations!"
+      },
+      {
+        "text": "Hoje você arrasou!",
+        "en": "You were amazing today!"
+      }
+    ],
+    "perfect": [
+      {
+        "text": "Perfeito, sem nenhum erro!",
+        "en": "Perfect, not a single mistake!"
+      },
+      {
+        "text": "Nem um errinho! Incrível!",
+        "en": "Not one little mistake! Amazing!"
+      },
+      {
+        "text": "Tudo certo! Você é fera!",
+        "en": "All correct! You're a pro!"
+      }
+    ],
+    "wrong": [
+      {
+        "text": "Quase.",
+        "en": "Almost."
+      },
+      {
+        "text": "Tudo bem.",
+        "en": "That's OK."
+      },
+      {
+        "text": "Tenta de novo.",
+        "en": "Try again."
+      },
+      {
+        "text": "Aos pouquinhos.",
+        "en": "Little by little."
+      },
+      {
+        "text": "Está quase.",
+        "en": "Nearly there."
+      },
+      {
+        "text": "De novo, você consegue.",
+        "en": "Again, you can do it."
+      },
+      {
+        "text": "É assim que se aprende.",
+        "en": "That's how you learn."
+      },
+      {
+        "text": "Não se preocupe.",
+        "en": "Don't worry."
+      }
+    ]
+  },
+  "it": {
+    "praise": [
+      {
+        "text": "Molto bene!",
+        "en": "Very good!"
+      },
+      {
+        "text": "Eccellente!",
+        "en": "Excellent!"
+      },
+      {
+        "text": "Perfetto!",
+        "en": "Perfect!"
+      },
+      {
+        "text": "Ottimo!",
+        "en": "Great!"
+      },
+      {
+        "text": "Esatto!",
+        "en": "Exactly!"
+      },
+      {
+        "text": "Benissimo!",
+        "en": "Very well!"
+      },
+      {
+        "text": "Giusto!",
+        "en": "Right!"
+      },
+      {
+        "text": "Fantastico!",
+        "en": "Fantastic!"
+      },
+      {
+        "text": "Così si fa!",
+        "en": "That's how it's done!"
+      },
+      {
+        "text": "Che bello!",
+        "en": "How lovely!"
+      },
+      {
+        "text": "Ben fatto!",
+        "en": "Well done!"
+      },
+      {
+        "text": "Ce l'hai fatta!",
+        "en": "You got it!"
+      },
+      {
+        "text": "Magnifico!",
+        "en": "Wonderful!"
+      }
+    ],
+    "streak": [
+      {
+        "text": "Stai andando alla grande!",
+        "en": "You're doing great!"
+      },
+      {
+        "text": "Inarrestabile!",
+        "en": "Unstoppable!"
+      },
+      {
+        "text": "Che serie!",
+        "en": "What a streak!"
+      },
+      {
+        "text": "Continua così!",
+        "en": "Keep it up!"
+      },
+      {
+        "text": "Sei una stella!",
+        "en": "You're a star!"
+      }
+    ],
+    "complete": [
+      {
+        "text": "Lezione finita! Molto bene!",
+        "en": "Lesson finished! Very good!"
+      },
+      {
+        "text": "Ce l'hai fatta!",
+        "en": "You did it!"
+      },
+      {
+        "text": "Che bel lavoro!",
+        "en": "Great work!"
+      },
+      {
+        "text": "Complimenti!",
+        "en": "Congratulations!"
+      },
+      {
+        "text": "Oggi hai fatto un lavoro fantastico!",
+        "en": "Fantastic work today!"
+      }
+    ],
+    "perfect": [
+      {
+        "text": "Perfetto, nessun errore!",
+        "en": "Perfect, no mistakes!"
+      },
+      {
+        "text": "Neanche un errore! Incredibile!",
+        "en": "Not a single mistake! Incredible!"
+      },
+      {
+        "text": "Tutto giusto! Sei un genio!",
+        "en": "All correct! You're a genius!"
+      }
+    ],
+    "wrong": [
+      {
+        "text": "Quasi.",
+        "en": "Almost."
+      },
+      {
+        "text": "Non fa niente.",
+        "en": "It doesn't matter."
+      },
+      {
+        "text": "Riprova.",
+        "en": "Try again."
+      },
+      {
+        "text": "Piano piano.",
+        "en": "Little by little."
+      },
+      {
+        "text": "Ci sei quasi.",
+        "en": "You're nearly there."
+      },
+      {
+        "text": "Ancora una volta, ce la fai.",
+        "en": "Once more, you can do it."
+      },
+      {
+        "text": "Così si impara.",
+        "en": "That's how you learn."
+      },
+      {
+        "text": "Non ti preoccupare.",
+        "en": "Don't worry."
+      }
+    ]
   }
 }

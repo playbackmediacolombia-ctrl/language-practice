@@ -1,0 +1,1000 @@
+{
+  "tips": [
+    {
+      "lesson": "it-1-3",
+      "title": "Double consonants change the word",
+      "body": [
+        "In Italian a double consonant is held a little longer, and it changes the meaning: nono (ninth), nonno (grandpa).",
+        "Listen for the tiny pause: sete (thirst) and sette (seven), pala (shovel) and palla (ball)."
+      ],
+      "table": [
+        [
+          "nono / nonno",
+          "ninth / grandpa"
+        ],
+        [
+          "sete / sette",
+          "thirst / seven"
+        ],
+        [
+          "pala / palla",
+          "shovel / ball"
+        ]
+      ],
+      "examples": [
+        "nonno",
+        "sette",
+        "palla"
+      ]
+    },
+    {
+      "lesson": "it-2-3",
+      "title": "Voglio il latte: Italian keeps “the”",
+      "body": [
+        "Where English says “I want milk”, Italian usually keeps the article: voglio il latte, voglio il pane.",
+        "Asking politely, Italians say vorrei (I'd like): “Vorrei un caffè.”"
+      ],
+      "table": [
+        [
+          "il latte",
+          "(the) milk"
+        ],
+        [
+          "il pane",
+          "(the) bread"
+        ],
+        [
+          "la mela",
+          "(the) apple"
+        ]
+      ],
+      "examples": [
+        "voglio-il-latte",
+        "voglio-il-pane"
+      ]
+    },
+    {
+      "lesson": "it-2-4",
+      "title": "Il and la: every noun is masculine or feminine",
+      "body": [
+        "Every Italian noun is masculine or feminine. “The” is il (masculine) or la (feminine); before a vowel both become l'.",
+        "Words in -o are usually masculine, in -a feminine, and in -e either: il cane (the dog), la notte (the night)."
+      ],
+      "table": [
+        [
+          "il gatto",
+          "the cat"
+        ],
+        [
+          "il cane",
+          "the dog"
+        ],
+        [
+          "la casa",
+          "the house"
+        ],
+        [
+          "l'acqua",
+          "the water"
+        ]
+      ],
+      "examples": [
+        "il-cane",
+        "il-gatto",
+        "la-mia-casa"
+      ]
+    },
+    {
+      "lesson": "it-3-1",
+      "title": "No need for “he”, “she” or “I”",
+      "body": [
+        "The verb ending says who is doing it, so io (I), lui (he) and lei (she) are usually left out: “Ho una sorella.”",
+        "È on its own means he is, she is or it is: “È mio fratello.” Family words drop the article: mio fratello, not il mio fratello."
+      ],
+      "table": [
+        [
+          "(io) ho",
+          "I have"
+        ],
+        [
+          "(lui) è",
+          "he is"
+        ],
+        [
+          "mio fratello",
+          "my brother"
+        ]
+      ],
+      "examples": [
+        "e-mio-fratello",
+        "ho-una-sorella"
+      ]
+    },
+    {
+      "lesson": "it-3-2",
+      "title": "Adjectives go after the noun and match it",
+      "body": [
+        "Most describing words come after the noun and change to match: piccolo / piccola, and for more than one piccoli / piccole.",
+        "A few common ones can go before: una bella casa, un buon caffè."
+      ],
+      "table": [
+        [
+          "la camera grande",
+          "the big bedroom"
+        ],
+        [
+          "la casa piccola",
+          "the small house"
+        ],
+        [
+          "le case piccole",
+          "the small houses"
+        ]
+      ],
+      "examples": [
+        "la-mia-camera-e-grande",
+        "la-casa-e-piccola"
+      ]
+    },
+    {
+      "lesson": "it-3-3",
+      "title": "Ho fame: Italian “has” hunger",
+      "body": [
+        "To say you're hungry or sleepy, use avere (to have): ho fame, ho sonno.",
+        "The same goes for thirst (ho sete), cold (ho freddo) and heat (ho caldo)."
+      ],
+      "table": [
+        [
+          "Ho fame.",
+          "I'm hungry."
+        ],
+        [
+          "Ho sonno.",
+          "I'm sleepy."
+        ],
+        [
+          "Ho freddo.",
+          "I'm cold."
+        ]
+      ],
+      "examples": [
+        "ho-fame",
+        "ho-sonno"
+      ]
+    },
+    {
+      "lesson": "it-4-1",
+      "title": "Voglio + a verb: “I want to…”",
+      "body": [
+        "Put the verb straight after voglio: voglio giocare, “I want to play”. Vuoi is “you want”.",
+        "Non goes in front to say no: “Non voglio.”"
+      ],
+      "table": [
+        [
+          "voglio",
+          "I want"
+        ],
+        [
+          "vuoi",
+          "you want"
+        ],
+        [
+          "non voglio",
+          "I don't want"
+        ]
+      ],
+      "examples": [
+        "voglio-giocare",
+        "vuoi-dell-acqua",
+        "non-voglio"
+      ]
+    },
+    {
+      "lesson": "it-4-3",
+      "title": "Mi piace works backwards",
+      "body": [
+        "Mi piace means “it pleases me”: the thing you like is the subject. “Mi piace il cioccolato.”",
+        "For more than one thing, use piacciono: “Ti piacciono i cani?” (Do you like dogs?)"
+      ],
+      "table": [
+        [
+          "mi piace",
+          "I like (one thing)"
+        ],
+        [
+          "mi piacciono",
+          "I like (several)"
+        ],
+        [
+          "ti piace",
+          "you like"
+        ]
+      ],
+      "examples": [
+        "mi-piace-il-cioccolato",
+        "ti-piacciono-i-cani",
+        "non-mi-piace-il-latte"
+      ]
+    },
+    {
+      "lesson": "it-5-3",
+      "title": "Asking questions",
+      "body": [
+        "A question is often the same sentence with a rising voice: “È vicino?” (Is it near?)",
+        "Question words: che cosa (what), chi (who), dove (where), perché (why), quanto (how much). Dove + è becomes dov'è."
+      ],
+      "table": [
+        [
+          "Che cos'è?",
+          "What is it?"
+        ],
+        [
+          "Chi è?",
+          "Who is it?"
+        ],
+        [
+          "Dov'è?",
+          "Where is it?"
+        ]
+      ],
+      "examples": [
+        "che-cos-e",
+        "chi-e",
+        "dov-e-la-mamma"
+      ]
+    },
+    {
+      "lesson": "it-6-1",
+      "title": "Su + il = sul: little words join up",
+      "body": [
+        "In, su (on), di (of) and a (to) merge with the article: su + il = sul, in + la = nella, a + il = al.",
+        "“Il libro è sul tavolo”, “vado al parco”. They sound natural quickly."
+      ],
+      "table": [
+        [
+          "sul tavolo",
+          "on the table"
+        ],
+        [
+          "nella camera",
+          "in the bedroom"
+        ],
+        [
+          "al parco",
+          "to the park"
+        ]
+      ],
+      "examples": [
+        "il-libro-e-sul-tavolo",
+        "il-gatto-e-sotto-il-letto"
+      ]
+    },
+    {
+      "lesson": "it-6-3",
+      "title": "Telling someone what to do",
+      "body": [
+        "For tu, the command is often the same as “he does”: gira (turn), vai (go), prendi (take).",
+        "To a stranger, use the polite Lei form: giri a sinistra, vada dritto."
+      ],
+      "table": [
+        [
+          "Gira a sinistra.",
+          "Turn left. (tu)"
+        ],
+        [
+          "Giri a sinistra.",
+          "Turn left. (Lei)"
+        ],
+        [
+          "Vai dritto.",
+          "Go straight. (tu)"
+        ]
+      ],
+      "examples": [
+        "gira-a-sinistra",
+        "vai-dritto"
+      ]
+    },
+    {
+      "lesson": "it-7-3",
+      "title": "Essere or stare?",
+      "body": [
+        "Essere is the main “to be”: sono insegnante, sono sposato.",
+        "Stare is for how you are: “Come stai?” “Sto bene.” It also means to stay: “Sto a casa.”"
+      ],
+      "table": [
+        [
+          "Sono insegnante.",
+          "I'm a teacher."
+        ],
+        [
+          "Sto bene.",
+          "I'm well."
+        ],
+        [
+          "Sto a casa.",
+          "I'm staying home."
+        ]
+      ],
+      "examples": [
+        "sono-insegnante",
+        "come-stai",
+        "sono-sposato"
+      ]
+    },
+    {
+      "lesson": "it-8-1",
+      "title": "Lei: the polite “you”",
+      "body": [
+        "With strangers, shop staff and older people, Italians use Lei, which takes the same verb as “she”: “Ha un'altra taglia?”",
+        "Tu is for friends, family and people your age who've said so."
+      ],
+      "table": [
+        [
+          "tu hai",
+          "you have (casual)"
+        ],
+        [
+          "Lei ha",
+          "you have (polite)"
+        ],
+        [
+          "Mi dica.",
+          "Tell me. (polite, how may I help?)"
+        ]
+      ],
+      "examples": [
+        "ha-un-altra-taglia",
+        "quanto-costa"
+      ]
+    },
+    {
+      "lesson": "it-8-3",
+      "title": "Vorrei: a softer “I want”",
+      "body": [
+        "Vorrei (I would like) is the polite way to order. “Voglio” can sound demanding.",
+        "“Per me…” (for me…) is the easy way to order: “Per me, il pollo.”"
+      ],
+      "table": [
+        [
+          "Vorrei un caffè.",
+          "I'd like a coffee."
+        ],
+        [
+          "Per me, una pizza.",
+          "A pizza for me."
+        ]
+      ],
+      "examples": [
+        "vorrei-un-caffe",
+        "per-me-il-pollo"
+      ]
+    },
+    {
+      "lesson": "it-9-1",
+      "title": "Mi alzo: verbs you do to yourself",
+      "body": [
+        "Some verbs come with mi, ti or si when you do them to yourself: mi alzo (I get up), mi vesto (I get dressed).",
+        "The mi goes right before the verb: “Mi chiamo Anna” (I call myself Anna)."
+      ],
+      "table": [
+        [
+          "mi alzo",
+          "I get up"
+        ],
+        [
+          "ti vesti",
+          "you get dressed"
+        ],
+        [
+          "si chiama",
+          "he/she is called"
+        ]
+      ],
+      "examples": [
+        "mi-alzo-alle-sette",
+        "mi-vesto"
+      ]
+    },
+    {
+      "lesson": "it-9-3",
+      "title": "The past: ho mangiato, sono andato",
+      "body": [
+        "The everyday past uses avere or essere + participle: ho mangiato (I ate), ho visto (I saw).",
+        "Verbs of movement and change take essere, and the ending matches: sono andato (a man), sono andata (a woman)."
+      ],
+      "table": [
+        [
+          "ho mangiato",
+          "I ate"
+        ],
+        [
+          "sono andato / andata",
+          "I went"
+        ],
+        [
+          "ho fatto",
+          "I did"
+        ]
+      ],
+      "examples": [
+        "sono-andato-al-parco",
+        "ho-mangiato-con-la-mia-famiglia",
+        "cosa-hai-fatto-ieri"
+      ]
+    },
+    {
+      "lesson": "it-10-1",
+      "title": "Two past tenses: the scene and the event",
+      "body": [
+        "The imperfect sets the scene or says what used to happen: abitava (she lived), andava (she would go).",
+        "Fairy tales tell the event with the passato remoto: trovò (she found). In speech you'd say “ha trovato”."
+      ],
+      "table": [
+        [
+          "abitava",
+          "used to live (scene)"
+        ],
+        [
+          "andava",
+          "used to go (habit)"
+        ],
+        [
+          "trovò",
+          "found (story event)"
+        ]
+      ],
+      "examples": [
+        "abitava-in-un-piccolo-paese",
+        "ogni-giorno-andava-al-fiume",
+        "un-giorno-trovo-una-scatola"
+      ]
+    },
+    {
+      "lesson": "it-10-3",
+      "title": "Had done: era / aveva + participle",
+      "body": [
+        "To say something had already happened, use the imperfect of avere or essere + participle: era andato via (had left), aveva mangiato (had eaten).",
+        "Mentre (while) + imperfect gives the background: “Mentre cucinavo, è squillato il telefono.”"
+      ],
+      "table": [
+        [
+          "era già andato via",
+          "had already left"
+        ],
+        [
+          "aveva mangiato",
+          "had eaten"
+        ],
+        [
+          "mentre cucinavo",
+          "while I was cooking"
+        ]
+      ],
+      "examples": [
+        "quando-sono-arrivato-era-gia-andato-via",
+        "mentre-cucinavo-e-squillato-il-telefono"
+      ]
+    },
+    {
+      "lesson": "it-11-3",
+      "title": "Plans: the present for the future",
+      "body": [
+        "Italians often use the present for plans: “Prenoto un tavolo” (I'll book a table), “Ci vediamo alle otto.”",
+        "“Se piove, restiamo a casa”: se (if) + present, then present."
+      ],
+      "table": [
+        [
+          "prenoto",
+          "I'll book"
+        ],
+        [
+          "ci vediamo",
+          "we'll see each other"
+        ],
+        [
+          "se piove",
+          "if it rains"
+        ]
+      ],
+      "examples": [
+        "prenoto-un-tavolo",
+        "se-piove-restiamo-a-casa"
+      ]
+    },
+    {
+      "lesson": "it-13-1",
+      "title": "Ho mal di… and mi fa male",
+      "body": [
+        "“Ho mal di testa” (I have a headache), “ho mal di gola” (sore throat), “ho mal di pancia” (stomachache).",
+        "Pointing: “Mi fa male qui” (it hurts me here). Da means “since”: “la febbre da ieri”."
+      ],
+      "table": [
+        [
+          "mal di testa",
+          "headache"
+        ],
+        [
+          "mal di pancia",
+          "stomachache"
+        ],
+        [
+          "Mi fa male qui.",
+          "It hurts here."
+        ]
+      ],
+      "examples": [
+        "ho-mal-di-testa",
+        "ho-la-febbre-da-ieri"
+      ]
+    },
+    {
+      "lesson": "it-13-3",
+      "title": "Giving advice: dovresti, se fossi in te, and the subjunctive",
+      "body": [
+        "“Dovresti…” (you should…) is gentle advice. “Se fossi in te…” (if I were you…) uses the imperfect subjunctive.",
+        "After “è importante che”, the verb goes into the subjunctive: “che tu beva”. “Ti consiglio di” takes a plain verb."
+      ],
+      "table": [
+        [
+          "dovresti",
+          "you should"
+        ],
+        [
+          "se fossi in te",
+          "if I were you"
+        ],
+        [
+          "che tu beva",
+          "that you drink"
+        ]
+      ],
+      "examples": [
+        "dovresti-riposarti",
+        "se-fossi-in-te-andrei-dal-medico",
+        "e-importante-che-tu-beva-molta-acqua"
+      ]
+    },
+    {
+      "lesson": "it-14-1",
+      "title": "È stato cancellato: the passive",
+      "body": [
+        "Essere + participle says what was done to something: “Il volo è stato cancellato.”",
+        "The participle matches: la valigia è stata persa, i voli sono stati cancellati."
+      ],
+      "table": [
+        [
+          "è stato cancellato",
+          "was cancelled"
+        ],
+        [
+          "è stata persa",
+          "was lost"
+        ],
+        [
+          "sono stati cancellati",
+          "were cancelled"
+        ]
+      ],
+      "examples": [
+        "il-mio-volo-e-stato-cancellato",
+        "la-mia-valigia-non-e-arrivata"
+      ]
+    },
+    {
+      "lesson": "it-15-3",
+      "title": "Penso che + subjunctive",
+      "body": [
+        "After penso che (I think that) and credo che, Italian uses the subjunctive: “Penso che tu abbia ragione.”",
+        "“Secondo me” (according to me) is the easy way to give an opinion with a normal verb: “Secondo me, è un errore.”"
+      ],
+      "table": [
+        [
+          "penso che sia",
+          "I think it is"
+        ],
+        [
+          "non credo che sia",
+          "I don't think it is"
+        ],
+        [
+          "secondo me",
+          "in my opinion"
+        ]
+      ],
+      "examples": [
+        "penso-che-tu-abbia-ragione",
+        "non-credo-che-sia-giusto"
+      ]
+    },
+    {
+      "lesson": "it-16-2",
+      "title": "Linking ideas",
+      "body": [
+        "Da un lato… dall'altro… (on the one hand… on the other…) lays out two sides.",
+        "“Anche se” (even if) takes a normal verb: “Anche se è difficile.” “Tuttavia” means “however”."
+      ],
+      "table": [
+        [
+          "da un lato",
+          "on the one hand"
+        ],
+        [
+          "dall'altro",
+          "on the other"
+        ],
+        [
+          "anche se",
+          "even if"
+        ]
+      ],
+      "examples": [
+        "anche-se-e-difficile-ne-vale-la-pena",
+        "da-un-lato-costa-meno",
+        "dall-altro-inquina-di-piu"
+      ]
+    },
+    {
+      "lesson": "it-17-1",
+      "title": "Tu or Lei?",
+      "body": [
+        "Start with Lei with strangers, older people and at work. Friends, family and young people use tu.",
+        "“Possiamo darci del tu?” (can we use tu?) is the polite way to switch."
+      ],
+      "table": [
+        [
+          "Come sta?",
+          "How are you? (Lei)"
+        ],
+        [
+          "Come stai?",
+          "How are you? (tu)"
+        ],
+        [
+          "darsi del tu",
+          "to use tu with each other"
+        ]
+      ],
+      "examples": [
+        "come-sta",
+        "possiamo-darci-del-tu"
+      ]
+    },
+    {
+      "lesson": "it-17-2",
+      "title": "Extra-polite requests",
+      "body": [
+        "The conditional softens a request: potrebbe (could you), sarebbe (would it be), saprebbe (would you know).",
+        "“Mi saprebbe dire…?” (could you tell me…?) is a favorite polite opener."
+      ],
+      "table": [
+        [
+          "potrebbe",
+          "could you"
+        ],
+        [
+          "sarebbe così gentile",
+          "would you be so kind"
+        ],
+        [
+          "mi saprebbe dire",
+          "could you tell me"
+        ]
+      ],
+      "examples": [
+        "sarebbe-cosi-gentile-da-aiutarmi",
+        "mi-saprebbe-dire-dov-e-l-ufficio",
+        "le-sarei-grato-se-mi-rispondesse-presto"
+      ]
+    },
+    {
+      "lesson": "it-19-3",
+      "title": "How people really talk",
+      "body": [
+        "In speech, Italians drop and shorten words: “bella!” (hey friend!), “raga” (guys), “ci si becca” (see you around).",
+        "“Non mi va” (I don't feel like it) and “sono al verde” (I'm broke) are everyday phrases you'll hear all the time."
+      ],
+      "table": [
+        [
+          "Non mi va.",
+          "I don't feel like it."
+        ],
+        [
+          "raga",
+          "guys"
+        ],
+        [
+          "Ci si becca!",
+          "Catch you later!"
+        ]
+      ],
+      "examples": [
+        "non-mi-va",
+        "sono-al-verde",
+        "ci-si-becca"
+      ]
+    },
+    {
+      "lesson": "it-21-1",
+      "title": "Culture: dating in Italy",
+      "body": [
+        "Italians tend to be expressive and complimentary. Going for an aperitivo (early-evening drinks with snacks) is the classic first date.",
+        "“Uscire con qualcuno” is to go out with someone; “stare insieme” means you're a couple."
+      ],
+      "table": [
+        [
+          "l'aperitivo",
+          "early-evening drinks"
+        ],
+        [
+          "uscire con",
+          "to go out with"
+        ],
+        [
+          "stare insieme",
+          "to be together"
+        ]
+      ],
+      "examples": [
+        "dt-hai-un-sorriso-bellissimo",
+        "dt-oh-grazie-che-carino"
+      ]
+    },
+    {
+      "lesson": "it-22-1",
+      "title": "Culture: texting in Italy",
+      "body": [
+        "Italians laugh in texts with “ahahah” or “ahah”. Voice notes on WhatsApp are everywhere.",
+        "Short forms: “cmq” (comunque, anyway), “nn” (non), “xké” (perché, why)."
+      ],
+      "table": [
+        [
+          "ahahah",
+          "hahaha"
+        ],
+        [
+          "cmq",
+          "anyway"
+        ],
+        [
+          "xké",
+          "why / because"
+        ]
+      ],
+      "examples": [
+        "dt-ehi-come-va",
+        "dt-ci-organizziamo-per-giovedi"
+      ]
+    },
+    {
+      "lesson": "it-23-2",
+      "title": "Culture: meeting the family",
+      "body": [
+        "Sunday lunch with the family can last hours. Bring a small gift (un pensierino), such as pastries from a pasticceria.",
+        "Use Lei with your partner's parents until they invite you to use tu, and compliment the cooking."
+      ],
+      "table": [
+        [
+          "un pensierino",
+          "a little gift"
+        ],
+        [
+          "il pranzo della domenica",
+          "Sunday lunch"
+        ],
+        [
+          "Che buono!",
+          "How tasty!"
+        ]
+      ],
+      "examples": [
+        "dt-piacere-signora-marco-mi-ha-parlato-tanto-di-voi",
+        "dt-vi-ho-portato-un-pensierino"
+      ]
+    },
+    {
+      "lesson": "it-24-1",
+      "title": "Culture: Italian charm",
+      "body": [
+        "Compliments are part of Italian charm: specific and sincere ones about style, a laugh or taste work best.",
+        "“Provarci” is to hit on someone. Keep it playful and respectful, and read the other person's reaction."
+      ],
+      "table": [
+        [
+          "provarci",
+          "to hit on someone"
+        ],
+        [
+          "fare un complimento",
+          "to pay a compliment"
+        ],
+        [
+          "ti sta benissimo",
+          "it looks great on you"
+        ]
+      ],
+      "examples": [
+        "fl-adoro-come-ridi",
+        "fl-che-bei-gusti-musicali"
+      ]
+    },
+    {
+      "lesson": "it-25-1",
+      "title": "Culture: teasing with style",
+      "body": [
+        "Italians love friendly teasing (prendere in giro). A good comeback with a smile shows confidence.",
+        "“Se la tira” means someone's showing off: playful, not mean, between friends."
+      ],
+      "table": [
+        [
+          "prendere in giro",
+          "to tease"
+        ],
+        [
+          "tirarsela",
+          "to show off"
+        ],
+        [
+          "Ammettilo!",
+          "Admit it!"
+        ]
+      ],
+      "examples": [
+        "fl-ho-vinto-di-nuovo-ammettilo",
+        "fl-questa-era-pessima-ma-ti-ho-fatto-ridere"
+      ]
+    },
+    {
+      "lesson": "it-26-2",
+      "title": "Culture: clear and respectful",
+      "body": [
+        "Ask clearly and take no for an answer. “Rispetto la tua risposta” shows respect.",
+        "“Nessun problema, è stato un piacere” ends things on a nice note."
+      ],
+      "table": [
+        [
+          "Posso chiederti il numero?",
+          "Can I ask for your number?"
+        ],
+        [
+          "Rispetto.",
+          "I respect that."
+        ]
+      ],
+      "examples": [
+        "fl-mi-stai-molto-simpatica-posso-chiederti-il-numer",
+        "fl-rispetto-la-tua-risposta"
+      ]
+    },
+    {
+      "lesson": "it-27-1",
+      "title": "Culture: greetings in Italy",
+      "body": [
+        "Friends greet with two kisses, starting on the left side. With strangers, a handshake and “Piacere”.",
+        "“Buongiorno” in the morning, “buonasera” from mid-afternoon. “Salve” is a safe, neutral hello."
+      ],
+      "table": [
+        [
+          "Buongiorno.",
+          "Good morning."
+        ],
+        [
+          "Buonasera.",
+          "Good afternoon / evening."
+        ],
+        [
+          "Salve.",
+          "Hello. (neutral)"
+        ]
+      ],
+      "examples": [
+        "cu-ciao-come-va",
+        "cu-buonasera"
+      ]
+    },
+    {
+      "lesson": "it-28-1",
+      "title": "Culture: at the table in Italy",
+      "body": [
+        "“Un caffè” is an espresso, drunk standing at the bar. Cappuccino is for the morning.",
+        "Pasta and meat come as separate courses (primo and secondo). The coperto, a small cover charge, is normal."
+      ],
+      "table": [
+        [
+          "il primo",
+          "first course (pasta, risotto)"
+        ],
+        [
+          "il secondo",
+          "main course"
+        ],
+        [
+          "il coperto",
+          "cover charge"
+        ]
+      ],
+      "examples": [
+        "cu-buon-appetito",
+        "cu-ci-porta-il-conto-per-favore"
+      ]
+    },
+    {
+      "lesson": "it-29-1",
+      "title": "Culture: holidays in Italy",
+      "body": [
+        "At New Year (Capodanno) people eat lentils for money in the year ahead. On January 6 the Befana brings sweets, or coal to naughty children.",
+        "Ferragosto (August 15) is peak summer holiday: many shops close and cities empty out."
+      ],
+      "table": [
+        [
+          "Capodanno",
+          "New Year's Day"
+        ],
+        [
+          "la Befana",
+          "the Epiphany witch"
+        ],
+        [
+          "Ferragosto",
+          "August 15 holiday"
+        ]
+      ],
+      "examples": [
+        "cu-buon-natale-e-felice-anno-nuovo",
+        "cu-tanti-auguri-quanti-anni-compi"
+      ]
+    },
+    {
+      "lesson": "it-30-1",
+      "title": "Culture: mistakes foreigners make",
+      "body": [
+        "False friends: parenti are relatives, camera is a room, morbido means soft, and “ho caldo” (not “sono caldo”) means you're hot.",
+        "Don't cut spaghetti with a knife, and think twice before asking for cheese on seafood pasta."
+      ],
+      "table": [
+        [
+          "i parenti",
+          "relatives"
+        ],
+        [
+          "la camera",
+          "the room"
+        ],
+        [
+          "Ho caldo.",
+          "I'm hot."
+        ]
+      ],
+      "examples": [
+        "cu-scusi-ho-sbagliato",
+        "cu-figurati"
+      ]
+    },
+    {
+      "lesson": "it-31-1",
+      "title": "Culture: dialects and regional slang",
+      "body": [
+        "Italy is full of dialects. In Rome you'll hear “daje!” and “ammazza!”, in Naples “uè” and “guaglió”, in Sicily “mizzica!”.",
+        "Young people all over say “raga” (guys), “figo” (cool) and “che figata!”"
+      ],
+      "table": [
+        [
+          "daje",
+          "come on! (Rome)"
+        ],
+        [
+          "guaglió",
+          "kid, buddy (Naples)"
+        ],
+        [
+          "figo",
+          "cool"
+        ]
+      ],
+      "examples": [
+        "cu-daje-roma",
+        "cu-che-figo-raga"
+      ]
+    }
+  ]
+}

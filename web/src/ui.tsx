@@ -1,6 +1,6 @@
 import { Flag, TabIcon } from './art';
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from 'react';
-import type { Lang, Phrase } from './lib/content';
+import { isLang, type Lang, type Phrase } from './lib/content';
 import { reducedMotion, tapFeedback } from './lib/fx';
 import type { Speed } from './lib/progress';
 import { navigate, useRoute } from './lib/router';
@@ -30,6 +30,12 @@ const STROKE: Record<string, ReactNode> = {
     <>
       <path d="M4 9.5v5h3.5L12 18V6L7.5 9.5Z" />
       <path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11" />
+    </>
+  ),
+  mute: (
+    <>
+      <path d="M4 9.5v5h3.5L12 18V6L7.5 9.5Z" />
+      <path d="M16 9.5l5 5M21 9.5l-5 5" />
     </>
   ),
   mic: (
@@ -239,7 +245,7 @@ export function useActiveTab(): TabId | null {
   if (!first) return 'learn';
   if (first === 'practice' || first === 'progress' || first === 'settings') return first;
   // A language's path is Learn; its phrasebook topics belong to Practice.
-  if (['es', 'fr', 'zh'].includes(first)) {
+  if (isLang(first)) {
     if (!second) return 'learn';
     if (second === 'learn' || second === 'placement' || second === 'level' || second === 'talk' || second === 'camera' || third) return null; // lessons, tests and exercises are full screen
     return 'practice';

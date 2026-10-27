@@ -1,0 +1,3187 @@
+{
+  "units": [
+    {
+      "id": "u1",
+      "title": "The sounds of Portuguese",
+      "lessons": [
+        {
+          "id": "pt-1-1",
+          "title": "Open and closed vowels",
+          "items": [
+            {
+              "id": "a",
+              "text": "a",
+              "en": "“ah”, as in father",
+              "kind": "sound"
+            },
+            {
+              "id": "e-open",
+              "text": "é",
+              "en": "open “eh”, as in bed",
+              "kind": "sound"
+            },
+            {
+              "id": "e-closed",
+              "text": "ê",
+              "en": "closed “ay”, as in they (short)",
+              "kind": "sound"
+            },
+            {
+              "id": "o-open",
+              "text": "ó",
+              "en": "open “aw”, as in law",
+              "kind": "sound"
+            },
+            {
+              "id": "o-closed",
+              "text": "ô",
+              "en": "closed “oh”, as in go (short)",
+              "kind": "sound"
+            }
+          ]
+        },
+        {
+          "id": "pt-1-2",
+          "title": "Nasal sounds",
+          "items": [
+            {
+              "id": "ao-nasal",
+              "text": "ão",
+              "en": "“owng”, through the nose",
+              "kind": "sound"
+            },
+            {
+              "id": "a-nasal",
+              "text": "ã",
+              "en": "“uhng”, through the nose",
+              "kind": "sound"
+            },
+            {
+              "id": "im-nasal",
+              "text": "im",
+              "en": "“eeng”, through the nose",
+              "kind": "sound"
+            },
+            {
+              "id": "mae",
+              "text": "mãe",
+              "en": "mom"
+            },
+            {
+              "id": "pao",
+              "text": "pão",
+              "en": "bread"
+            },
+            {
+              "id": "sim",
+              "text": "sim",
+              "en": "yes"
+            }
+          ]
+        },
+        {
+          "id": "pt-1-3",
+          "title": "Pa, ta and the stress",
+          "items": [
+            {
+              "id": "papai",
+              "text": "papai",
+              "en": "dad"
+            },
+            {
+              "id": "pato",
+              "text": "pato",
+              "en": "duck"
+            },
+            {
+              "id": "cha",
+              "text": "chá",
+              "en": "tea"
+            },
+            {
+              "id": "cafe",
+              "text": "café",
+              "en": "coffee"
+            },
+            {
+              "id": "tomate",
+              "text": "tomate",
+              "en": "tomato"
+            }
+          ]
+        },
+        {
+          "id": "pt-1-4",
+          "title": "Lh, nh and the R",
+          "items": [
+            {
+              "id": "filho",
+              "text": "filho",
+              "en": "son"
+            },
+            {
+              "id": "manha",
+              "text": "manhã",
+              "en": "morning"
+            },
+            {
+              "id": "vinho",
+              "text": "vinho",
+              "en": "wine"
+            },
+            {
+              "id": "carro",
+              "text": "carro",
+              "en": "car"
+            },
+            {
+              "id": "caro",
+              "text": "caro",
+              "en": "expensive"
+            },
+            {
+              "id": "rato",
+              "text": "rato",
+              "en": "mouse"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u2",
+      "title": "First words",
+      "lessons": [
+        {
+          "id": "pt-2-1",
+          "title": "Hello and goodbye",
+          "items": [
+            {
+              "id": "oi",
+              "text": "oi",
+              "en": "hi"
+            },
+            {
+              "id": "tchau",
+              "text": "tchau",
+              "en": "bye"
+            },
+            {
+              "id": "ola",
+              "text": "olá",
+              "en": "hello (a bit more formal)"
+            },
+            {
+              "id": "nao",
+              "text": "não",
+              "en": "no"
+            },
+            {
+              "id": "oi-mae",
+              "text": "Oi, mãe.",
+              "en": "Hi, mom."
+            },
+            {
+              "id": "tchau-papai",
+              "text": "Tchau, papai.",
+              "en": "Bye, dad."
+            }
+          ]
+        },
+        {
+          "id": "pt-2-2",
+          "title": "Please and thank you",
+          "items": [
+            {
+              "id": "obrigado",
+              "text": "obrigado",
+              "en": "thank you (said by a man)"
+            },
+            {
+              "id": "por-favor",
+              "text": "por favor",
+              "en": "please"
+            },
+            {
+              "id": "agua",
+              "text": "água",
+              "en": "water"
+            },
+            {
+              "id": "sim-obrigada",
+              "text": "Sim, obrigada.",
+              "en": "Yes, thank you. (said by a woman)"
+            },
+            {
+              "id": "nao-obrigado",
+              "text": "Não, obrigado.",
+              "en": "No, thank you. (said by a man)"
+            },
+            {
+              "id": "agua-por-favor",
+              "text": "Água, por favor.",
+              "en": "Water, please."
+            }
+          ]
+        },
+        {
+          "id": "pt-2-3",
+          "title": "Food and drink",
+          "items": [
+            {
+              "id": "leite",
+              "text": "leite",
+              "en": "milk"
+            },
+            {
+              "id": "suco",
+              "text": "suco",
+              "en": "juice"
+            },
+            {
+              "id": "maca",
+              "text": "maçã",
+              "en": "apple"
+            },
+            {
+              "id": "quero-leite",
+              "text": "Quero leite.",
+              "en": "I want milk."
+            },
+            {
+              "id": "quero-pao",
+              "text": "Quero pão.",
+              "en": "I want bread."
+            },
+            {
+              "id": "mais-agua",
+              "text": "Mais água.",
+              "en": "More water."
+            }
+          ]
+        },
+        {
+          "id": "pt-2-4",
+          "title": "Animals and home",
+          "items": [
+            {
+              "id": "gato",
+              "text": "gato",
+              "en": "cat"
+            },
+            {
+              "id": "casa",
+              "text": "casa",
+              "en": "house"
+            },
+            {
+              "id": "o-cachorro",
+              "text": "o cachorro",
+              "en": "the dog"
+            },
+            {
+              "id": "o-gato",
+              "text": "o gato",
+              "en": "the cat"
+            },
+            {
+              "id": "minha-casa",
+              "text": "minha casa",
+              "en": "my house"
+            },
+            {
+              "id": "minha-mae",
+              "text": "minha mãe",
+              "en": "my mom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u3",
+      "title": "Family and home",
+      "lessons": [
+        {
+          "id": "pt-3-1",
+          "title": "My family",
+          "items": [
+            {
+              "id": "irmao",
+              "text": "irmão",
+              "en": "brother"
+            },
+            {
+              "id": "irma",
+              "text": "irmã",
+              "en": "sister"
+            },
+            {
+              "id": "avo",
+              "text": "avó",
+              "en": "grandma"
+            },
+            {
+              "id": "avo-grandpa",
+              "text": "avô",
+              "en": "grandpa"
+            },
+            {
+              "id": "e-meu-irmao",
+              "text": "É meu irmão.",
+              "en": "He's my brother."
+            },
+            {
+              "id": "eu-tenho-uma-irma",
+              "text": "Eu tenho uma irmã.",
+              "en": "I have a sister."
+            }
+          ]
+        },
+        {
+          "id": "pt-3-2",
+          "title": "At home",
+          "items": [
+            {
+              "id": "cozinha",
+              "text": "cozinha",
+              "en": "kitchen"
+            },
+            {
+              "id": "quarto",
+              "text": "quarto",
+              "en": "bedroom"
+            },
+            {
+              "id": "cama",
+              "text": "cama",
+              "en": "bed"
+            },
+            {
+              "id": "porta",
+              "text": "porta",
+              "en": "door"
+            },
+            {
+              "id": "meu-quarto-e-grande",
+              "text": "Meu quarto é grande.",
+              "en": "My bedroom is big."
+            },
+            {
+              "id": "a-casa-e-pequena",
+              "text": "A casa é pequena.",
+              "en": "The house is small."
+            }
+          ]
+        },
+        {
+          "id": "pt-3-3",
+          "title": "Eat and sleep",
+          "items": [
+            {
+              "id": "comer",
+              "text": "comer",
+              "en": "to eat"
+            },
+            {
+              "id": "dormir",
+              "text": "dormir",
+              "en": "to sleep"
+            },
+            {
+              "id": "estou-com-fome",
+              "text": "Estou com fome.",
+              "en": "I'm hungry."
+            },
+            {
+              "id": "estou-com-sono",
+              "text": "Estou com sono.",
+              "en": "I'm sleepy."
+            },
+            {
+              "id": "boa-noite",
+              "text": "Boa noite.",
+              "en": "Good night."
+            },
+            {
+              "id": "vamos-comer",
+              "text": "Vamos comer.",
+              "en": "Let's eat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u4",
+      "title": "I want, I have, I like",
+      "lessons": [
+        {
+          "id": "pt-4-1",
+          "title": "I want to…",
+          "items": [
+            {
+              "id": "brincar",
+              "text": "brincar",
+              "en": "to play"
+            },
+            {
+              "id": "quero-brincar",
+              "text": "Quero brincar.",
+              "en": "I want to play."
+            },
+            {
+              "id": "quero-dormir",
+              "text": "Quero dormir.",
+              "en": "I want to sleep."
+            },
+            {
+              "id": "voce-quer-agua",
+              "text": "Você quer água?",
+              "en": "Do you want water?"
+            },
+            {
+              "id": "nao-quero",
+              "text": "Não quero.",
+              "en": "I don't want to."
+            },
+            {
+              "id": "quero-ir-para-casa",
+              "text": "Quero ir para casa.",
+              "en": "I want to go home."
+            }
+          ]
+        },
+        {
+          "id": "pt-4-2",
+          "title": "I have",
+          "items": [
+            {
+              "id": "bola",
+              "text": "bola",
+              "en": "ball"
+            },
+            {
+              "id": "livro",
+              "text": "livro",
+              "en": "book"
+            },
+            {
+              "id": "tenho-um-livro",
+              "text": "Tenho um livro.",
+              "en": "I have a book."
+            },
+            {
+              "id": "voce-tem-um-lapis",
+              "text": "Você tem um lápis?",
+              "en": "Do you have a pencil?"
+            },
+            {
+              "id": "nao-tenho-irmaos",
+              "text": "Não tenho irmãos.",
+              "en": "I don't have any brothers or sisters."
+            },
+            {
+              "id": "ela-tem-um-cachorro",
+              "text": "Ela tem um cachorro.",
+              "en": "She has a dog."
+            }
+          ]
+        },
+        {
+          "id": "pt-4-3",
+          "title": "I like",
+          "items": [
+            {
+              "id": "chocolate",
+              "text": "chocolate",
+              "en": "chocolate"
+            },
+            {
+              "id": "eu-gosto",
+              "text": "eu gosto",
+              "en": "I like"
+            },
+            {
+              "id": "eu-gosto-de-chocolate",
+              "text": "Eu gosto de chocolate.",
+              "en": "I like chocolate."
+            },
+            {
+              "id": "nao-gosto-de-leite",
+              "text": "Não gosto de leite.",
+              "en": "I don't like milk."
+            },
+            {
+              "id": "voce-gosta-de-cachorros",
+              "text": "Você gosta de cachorros?",
+              "en": "Do you like dogs?"
+            },
+            {
+              "id": "eu-adoro",
+              "text": "Eu adoro!",
+              "en": "I love it!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u5",
+      "title": "Colors, numbers and questions",
+      "lessons": [
+        {
+          "id": "pt-5-1",
+          "title": "Colors",
+          "items": [
+            {
+              "id": "azul",
+              "text": "azul",
+              "en": "blue"
+            },
+            {
+              "id": "verde",
+              "text": "verde",
+              "en": "green"
+            },
+            {
+              "id": "amarelo",
+              "text": "amarelo",
+              "en": "yellow"
+            },
+            {
+              "id": "branco",
+              "text": "branco",
+              "en": "white"
+            },
+            {
+              "id": "o-carro-e-azul",
+              "text": "O carro é azul.",
+              "en": "The car is blue."
+            },
+            {
+              "id": "a-casa-branca",
+              "text": "a casa branca",
+              "en": "the white house"
+            }
+          ]
+        },
+        {
+          "id": "pt-5-2",
+          "title": "How many?",
+          "items": [
+            {
+              "id": "dois-gatos",
+              "text": "dois gatos",
+              "en": "two cats"
+            },
+            {
+              "id": "tres-macas",
+              "text": "três maçãs",
+              "en": "three apples"
+            },
+            {
+              "id": "cinco-livros",
+              "text": "cinco livros",
+              "en": "five books"
+            },
+            {
+              "id": "dez-cachorros",
+              "text": "dez cachorros",
+              "en": "ten dogs"
+            },
+            {
+              "id": "quantos-anos-voce-tem",
+              "text": "Quantos anos você tem?",
+              "en": "How old are you?"
+            },
+            {
+              "id": "eu-tenho-sete-anos",
+              "text": "Eu tenho sete anos.",
+              "en": "I'm seven years old."
+            }
+          ]
+        },
+        {
+          "id": "pt-5-3",
+          "title": "What? Who? Where?",
+          "items": [
+            {
+              "id": "o-que-e-isso",
+              "text": "O que é isso?",
+              "en": "What is this?"
+            },
+            {
+              "id": "quem-e",
+              "text": "Quem é?",
+              "en": "Who is it?"
+            },
+            {
+              "id": "cade-a-mamae",
+              "text": "Cadê a mamãe?",
+              "en": "Where's mom?"
+            },
+            {
+              "id": "por-que",
+              "text": "Por quê?",
+              "en": "Why?"
+            },
+            {
+              "id": "e-um-gato",
+              "text": "É um gato.",
+              "en": "It's a cat."
+            },
+            {
+              "id": "como-voce-se-chama",
+              "text": "Como você se chama?",
+              "en": "What's your name?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u6",
+      "title": "Where things are",
+      "lessons": [
+        {
+          "id": "pt-6-1",
+          "title": "In, on, under",
+          "items": [
+            {
+              "id": "em",
+              "text": "em",
+              "en": "in / on"
+            },
+            {
+              "id": "embaixo-de",
+              "text": "embaixo de",
+              "en": "under"
+            },
+            {
+              "id": "em-cima-de",
+              "text": "em cima de",
+              "en": "on top of"
+            },
+            {
+              "id": "o-livro-esta-na-mesa",
+              "text": "O livro está na mesa.",
+              "en": "The book is on the table."
+            },
+            {
+              "id": "o-gato-esta-embaixo-da-cama",
+              "text": "O gato está embaixo da cama.",
+              "en": "The cat is under the bed."
+            },
+            {
+              "id": "o-leite-esta-na-cozinha",
+              "text": "O leite está na cozinha.",
+              "en": "The milk is in the kitchen."
+            }
+          ]
+        },
+        {
+          "id": "pt-6-2",
+          "title": "Here and there",
+          "items": [
+            {
+              "id": "aqui",
+              "text": "aqui",
+              "en": "here"
+            },
+            {
+              "id": "ali",
+              "text": "ali",
+              "en": "there"
+            },
+            {
+              "id": "perto",
+              "text": "perto",
+              "en": "near"
+            },
+            {
+              "id": "longe",
+              "text": "longe",
+              "en": "far"
+            },
+            {
+              "id": "o-banheiro-e-ali",
+              "text": "O banheiro é ali.",
+              "en": "The bathroom is over there."
+            },
+            {
+              "id": "fica-perto",
+              "text": "Fica perto?",
+              "en": "Is it near?"
+            }
+          ]
+        },
+        {
+          "id": "pt-6-3",
+          "title": "Left and right",
+          "items": [
+            {
+              "id": "esquerda",
+              "text": "esquerda",
+              "en": "left"
+            },
+            {
+              "id": "direita",
+              "text": "direita",
+              "en": "right"
+            },
+            {
+              "id": "reto",
+              "text": "reto",
+              "en": "straight ahead"
+            },
+            {
+              "id": "vire-a-esquerda",
+              "text": "Vire à esquerda.",
+              "en": "Turn left."
+            },
+            {
+              "id": "siga-reto",
+              "text": "Siga reto.",
+              "en": "Go straight ahead."
+            },
+            {
+              "id": "fica-a-direita",
+              "text": "Fica à direita.",
+              "en": "It's on the right."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u7",
+      "title": "Meeting people",
+      "lessons": [
+        {
+          "id": "pt-7-1",
+          "title": "Names",
+          "items": [
+            {
+              "id": "nome",
+              "text": "nome",
+              "en": "name"
+            },
+            {
+              "id": "qual-e-o-seu-nome",
+              "text": "Qual é o seu nome?",
+              "en": "What's your name?"
+            },
+            {
+              "id": "meu-nome-e-ana",
+              "text": "Meu nome é Ana.",
+              "en": "My name is Ana."
+            },
+            {
+              "id": "prazer",
+              "text": "Prazer.",
+              "en": "Nice to meet you."
+            },
+            {
+              "id": "o-prazer-e-meu",
+              "text": "O prazer é meu.",
+              "en": "The pleasure is mine."
+            },
+            {
+              "id": "este-e-o-meu-amigo",
+              "text": "Este é o meu amigo.",
+              "en": "This is my friend."
+            }
+          ]
+        },
+        {
+          "id": "pt-7-2",
+          "title": "Where are you from?",
+          "items": [
+            {
+              "id": "de-onde-voce-e",
+              "text": "De onde você é?",
+              "en": "Where are you from?"
+            },
+            {
+              "id": "sou-dos-estados-unidos",
+              "text": "Sou dos Estados Unidos.",
+              "en": "I'm from the United States."
+            },
+            {
+              "id": "onde-voce-mora",
+              "text": "Onde você mora?",
+              "en": "Where do you live?"
+            },
+            {
+              "id": "moro-em-sao-paulo",
+              "text": "Moro em São Paulo.",
+              "en": "I live in São Paulo."
+            },
+            {
+              "id": "voce-fala-ingles",
+              "text": "Você fala inglês?",
+              "en": "Do you speak English?"
+            },
+            {
+              "id": "falo-um-pouco-de-portugues",
+              "text": "Falo um pouco de português.",
+              "en": "I speak a little Portuguese."
+            }
+          ]
+        },
+        {
+          "id": "pt-7-3",
+          "title": "Getting to know you",
+          "items": [
+            {
+              "id": "tudo-bem",
+              "text": "Tudo bem?",
+              "en": "How are you? / All good?"
+            },
+            {
+              "id": "tudo-bem-e-voce",
+              "text": "Tudo bem, e você?",
+              "en": "All good, and you?"
+            },
+            {
+              "id": "o-que-voce-faz",
+              "text": "O que você faz?",
+              "en": "What do you do for a living?"
+            },
+            {
+              "id": "sou-professora",
+              "text": "Sou professora.",
+              "en": "I'm a teacher. (woman)"
+            },
+            {
+              "id": "tenho-trinta-anos",
+              "text": "Tenho trinta anos.",
+              "en": "I'm thirty years old."
+            },
+            {
+              "id": "sou-casado",
+              "text": "Sou casado.",
+              "en": "I'm married. (man)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u8",
+      "title": "Shopping and eating out",
+      "lessons": [
+        {
+          "id": "pt-8-1",
+          "title": "At the shop",
+          "items": [
+            {
+              "id": "quanto-custa",
+              "text": "Quanto custa?",
+              "en": "How much does it cost?"
+            },
+            {
+              "id": "e-muito-caro",
+              "text": "É muito caro.",
+              "en": "It's very expensive."
+            },
+            {
+              "id": "esta-barato",
+              "text": "Está barato.",
+              "en": "It's cheap."
+            },
+            {
+              "id": "vou-levar",
+              "text": "Vou levar.",
+              "en": "I'll take it."
+            },
+            {
+              "id": "tem-outro-tamanho",
+              "text": "Tem outro tamanho?",
+              "en": "Do you have another size?"
+            },
+            {
+              "id": "so-estou-olhando-obrigado",
+              "text": "Só estou olhando, obrigado.",
+              "en": "I'm just looking, thanks."
+            }
+          ]
+        },
+        {
+          "id": "pt-8-2",
+          "title": "At the restaurant",
+          "items": [
+            {
+              "id": "uma-mesa-para-dois-por-favor",
+              "text": "Uma mesa para dois, por favor.",
+              "en": "A table for two, please."
+            },
+            {
+              "id": "o-cardapio-por-favor",
+              "text": "O cardápio, por favor.",
+              "en": "The menu, please."
+            },
+            {
+              "id": "o-que-voce-recomenda",
+              "text": "O que você recomenda?",
+              "en": "What do you recommend?"
+            },
+            {
+              "id": "a-conta-por-favor",
+              "text": "A conta, por favor.",
+              "en": "The check, please."
+            },
+            {
+              "id": "posso-pagar-com-cartao",
+              "text": "Posso pagar com cartão?",
+              "en": "Can I pay by card?"
+            },
+            {
+              "id": "o-servico-esta-incluido",
+              "text": "O serviço está incluído?",
+              "en": "Is the service charge included?"
+            }
+          ]
+        },
+        {
+          "id": "pt-8-3",
+          "title": "Ordering food",
+          "items": [
+            {
+              "id": "eu-queria-um-cafe",
+              "text": "Eu queria um café.",
+              "en": "I'd like a coffee."
+            },
+            {
+              "id": "para-mim-o-frango",
+              "text": "Para mim, o frango.",
+              "en": "The chicken for me."
+            },
+            {
+              "id": "sem-cebola",
+              "text": "sem cebola",
+              "en": "without onion"
+            },
+            {
+              "id": "sou-vegetariano",
+              "text": "Sou vegetariano.",
+              "en": "I'm vegetarian. (man)"
+            },
+            {
+              "id": "esta-uma-delicia",
+              "text": "Está uma delícia!",
+              "en": "It's delicious!"
+            },
+            {
+              "id": "pode-me-trazer-um-copo-de-agua",
+              "text": "Pode me trazer um copo de água?",
+              "en": "Could you bring me a glass of water?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u9",
+      "title": "My day",
+      "lessons": [
+        {
+          "id": "pt-9-1",
+          "title": "Morning routine",
+          "items": [
+            {
+              "id": "eu-acordo-as-sete",
+              "text": "Eu acordo às sete.",
+              "en": "I wake up at seven."
+            },
+            {
+              "id": "eu-tomo-banho",
+              "text": "Eu tomo banho.",
+              "en": "I take a shower."
+            },
+            {
+              "id": "tomo-cafe-com-pao-de-queijo",
+              "text": "Tomo café com pão de queijo.",
+              "en": "I have coffee and cheese bread for breakfast."
+            },
+            {
+              "id": "eu-me-visto",
+              "text": "Eu me visto.",
+              "en": "I get dressed."
+            },
+            {
+              "id": "saio-de-casa-as-oito",
+              "text": "Saio de casa às oito.",
+              "en": "I leave home at eight."
+            },
+            {
+              "id": "vou-para-o-trabalho-de-onibus",
+              "text": "Vou para o trabalho de ônibus.",
+              "en": "I go to work by bus."
+            }
+          ]
+        },
+        {
+          "id": "pt-9-2",
+          "title": "Time and days",
+          "items": [
+            {
+              "id": "que-horas-sao",
+              "text": "Que horas são?",
+              "en": "What time is it?"
+            },
+            {
+              "id": "sao-tres-horas",
+              "text": "São três horas.",
+              "en": "It's three o'clock."
+            },
+            {
+              "id": "hoje",
+              "text": "hoje",
+              "en": "today"
+            },
+            {
+              "id": "amanha",
+              "text": "amanhã",
+              "en": "tomorrow"
+            },
+            {
+              "id": "ontem",
+              "text": "ontem",
+              "en": "yesterday"
+            },
+            {
+              "id": "na-segunda-eu-trabalho",
+              "text": "Na segunda eu trabalho.",
+              "en": "On Monday I work."
+            }
+          ]
+        },
+        {
+          "id": "pt-9-3",
+          "title": "What did you do?",
+          "items": [
+            {
+              "id": "o-que-voce-fez-ontem",
+              "text": "O que você fez ontem?",
+              "en": "What did you do yesterday?"
+            },
+            {
+              "id": "fui-ao-parque",
+              "text": "Fui ao parque.",
+              "en": "I went to the park."
+            },
+            {
+              "id": "almocei-com-a-minha-familia",
+              "text": "Almocei com a minha família.",
+              "en": "I had lunch with my family."
+            },
+            {
+              "id": "vi-um-filme",
+              "text": "Vi um filme.",
+              "en": "I watched a movie."
+            },
+            {
+              "id": "fiquei-em-casa-o-dia-todo",
+              "text": "Fiquei em casa o dia todo.",
+              "en": "I stayed home all day."
+            },
+            {
+              "id": "foi-muito-legal",
+              "text": "Foi muito legal.",
+              "en": "It was really fun."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u10",
+      "title": "Telling stories",
+      "lessons": [
+        {
+          "id": "pt-10-1",
+          "title": "Once upon a time",
+          "items": [
+            {
+              "id": "era-uma-vez-uma-menina",
+              "text": "Era uma vez uma menina.",
+              "en": "Once upon a time there was a girl."
+            },
+            {
+              "id": "ela-morava-numa-cidade-pequena",
+              "text": "Ela morava numa cidade pequena.",
+              "en": "She lived in a small town."
+            },
+            {
+              "id": "todos-os-dias-ela-andava-ate-o-rio",
+              "text": "Todos os dias ela andava até o rio.",
+              "en": "Every day she walked to the river."
+            },
+            {
+              "id": "um-dia-ela-encontrou-uma-caixa",
+              "text": "Um dia ela encontrou uma caixa.",
+              "en": "One day she found a box."
+            },
+            {
+              "id": "de-repente",
+              "text": "de repente",
+              "en": "suddenly"
+            },
+            {
+              "id": "e-viveram-felizes-para-sempre",
+              "text": "E viveram felizes para sempre.",
+              "en": "And they lived happily ever after."
+            }
+          ]
+        },
+        {
+          "id": "pt-10-2",
+          "title": "Describing people",
+          "items": [
+            {
+              "id": "ele-e-alto-e-magro",
+              "text": "Ele é alto e magro.",
+              "en": "He's tall and thin."
+            },
+            {
+              "id": "ela-tem-o-cabelo-comprido",
+              "text": "Ela tem o cabelo comprido.",
+              "en": "She has long hair."
+            },
+            {
+              "id": "ele-usa-oculos",
+              "text": "Ele usa óculos.",
+              "en": "He wears glasses."
+            },
+            {
+              "id": "ela-e-muito-simpatica",
+              "text": "Ela é muito simpática.",
+              "en": "She's very nice."
+            },
+            {
+              "id": "ele-e-um-pouco-timido",
+              "text": "Ele é um pouco tímido.",
+              "en": "He's a bit shy."
+            },
+            {
+              "id": "ela-e-parecida-com-a-mae",
+              "text": "Ela é parecida com a mãe.",
+              "en": "She looks like her mother."
+            }
+          ]
+        },
+        {
+          "id": "pt-10-3",
+          "title": "First, then, finally",
+          "items": [
+            {
+              "id": "primeiro",
+              "text": "primeiro",
+              "en": "first"
+            },
+            {
+              "id": "depois",
+              "text": "depois",
+              "en": "afterwards"
+            },
+            {
+              "id": "no-final",
+              "text": "no final",
+              "en": "in the end"
+            },
+            {
+              "id": "enquanto-eu-cozinhava-o-telefone-tocou",
+              "text": "Enquanto eu cozinhava, o telefone tocou.",
+              "en": "While I was cooking, the phone rang."
+            },
+            {
+              "id": "quando-cheguei-ele-ja-tinha-saido",
+              "text": "Quando cheguei, ele já tinha saído.",
+              "en": "When I arrived, he had already left."
+            },
+            {
+              "id": "por-isso-cheguei-atrasado",
+              "text": "Por isso cheguei atrasado.",
+              "en": "That's why I was late."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u11",
+      "title": "Messages and plans",
+      "lessons": [
+        {
+          "id": "pt-11-1",
+          "title": "Text messages",
+          "items": [
+            {
+              "id": "ate-mais-tarde",
+              "text": "Até mais tarde.",
+              "en": "See you later."
+            },
+            {
+              "id": "estou-um-pouco-atrasado",
+              "text": "Estou um pouco atrasado.",
+              "en": "I'm running a bit late."
+            },
+            {
+              "id": "ja-cheguei",
+              "text": "Já cheguei.",
+              "en": "I'm here. / I've arrived."
+            },
+            {
+              "id": "pode-me-ligar",
+              "text": "Pode me ligar?",
+              "en": "Can you call me?"
+            },
+            {
+              "id": "te-mando-mensagem-mais-tarde",
+              "text": "Te mando mensagem mais tarde.",
+              "en": "I'll text you later."
+            },
+            {
+              "id": "me-avisa-quando-chegar",
+              "text": "Me avisa quando chegar.",
+              "en": "Let me know when you get there."
+            }
+          ]
+        },
+        {
+          "id": "pt-11-2",
+          "title": "Invitations",
+          "items": [
+            {
+              "id": "quer-vir-na-minha-festa",
+              "text": "Quer vir na minha festa?",
+              "en": "Do you want to come to my party?"
+            },
+            {
+              "id": "claro-que-sim",
+              "text": "Claro que sim!",
+              "en": "Of course!"
+            },
+            {
+              "id": "obrigado-pelo-convite",
+              "text": "Obrigado pelo convite.",
+              "en": "Thanks for the invitation."
+            },
+            {
+              "id": "desculpa-nao-posso",
+              "text": "Desculpa, não posso.",
+              "en": "Sorry, I can't."
+            },
+            {
+              "id": "ja-tenho-outro-compromisso",
+              "text": "Já tenho outro compromisso.",
+              "en": "I already have another commitment."
+            },
+            {
+              "id": "fica-para-a-proxima",
+              "text": "Fica para a próxima!",
+              "en": "Next time, for sure!"
+            }
+          ]
+        },
+        {
+          "id": "pt-11-3",
+          "title": "Making plans",
+          "items": [
+            {
+              "id": "voce-esta-livre-no-sabado",
+              "text": "Você está livre no sábado?",
+              "en": "Are you free on Saturday?"
+            },
+            {
+              "id": "que-tal-a-gente-ir-ao-cinema",
+              "text": "Que tal a gente ir ao cinema?",
+              "en": "How about going to the movies?"
+            },
+            {
+              "id": "a-gente-se-encontra-as-oito-na-praca",
+              "text": "A gente se encontra às oito na praça.",
+              "en": "Let's meet at eight in the square."
+            },
+            {
+              "id": "vou-reservar-uma-mesa",
+              "text": "Vou reservar uma mesa.",
+              "en": "I'm going to book a table."
+            },
+            {
+              "id": "se-chover-a-gente-fica-em-casa",
+              "text": "Se chover, a gente fica em casa.",
+              "en": "If it rains, we'll stay home."
+            },
+            {
+              "id": "perfeito-para-mim",
+              "text": "Perfeito para mim.",
+              "en": "Sounds perfect to me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u12",
+      "title": "Work and money",
+      "lessons": [
+        {
+          "id": "pt-12-1",
+          "title": "At the office",
+          "items": [
+            {
+              "id": "a-reuniao",
+              "text": "a reunião",
+              "en": "the meeting"
+            },
+            {
+              "id": "a-chefe",
+              "text": "a chefe",
+              "en": "the boss (woman)"
+            },
+            {
+              "id": "colega-de-trabalho",
+              "text": "colega de trabalho",
+              "en": "coworker"
+            },
+            {
+              "id": "tenho-uma-reuniao-as-dez",
+              "text": "Tenho uma reunião às dez.",
+              "en": "I have a meeting at ten."
+            },
+            {
+              "id": "o-relatorio-tem-que-estar-pronto-ate-sexta",
+              "text": "O relatório tem que estar pronto até sexta.",
+              "en": "The report has to be ready by Friday."
+            },
+            {
+              "id": "estou-atolado-de-trabalho",
+              "text": "Estou atolado de trabalho.",
+              "en": "I'm swamped with work."
+            }
+          ]
+        },
+        {
+          "id": "pt-12-2",
+          "title": "The job interview",
+          "items": [
+            {
+              "id": "experiencia",
+              "text": "experiência",
+              "en": "experience"
+            },
+            {
+              "id": "tenho-cinco-anos-de-experiencia-em-vendas",
+              "text": "Tenho cinco anos de experiência em vendas.",
+              "en": "I have five years of experience in sales."
+            },
+            {
+              "id": "quais-sao-os-seus-pontos-fortes",
+              "text": "Quais são os seus pontos fortes?",
+              "en": "What are your strengths?"
+            },
+            {
+              "id": "trabalho-bem-em-equipe",
+              "text": "Trabalho bem em equipe.",
+              "en": "I work well in a team."
+            },
+            {
+              "id": "por-que-voce-quer-esta-vaga",
+              "text": "Por que você quer esta vaga?",
+              "en": "Why do you want this position?"
+            },
+            {
+              "id": "quando-voce-poderia-comecar",
+              "text": "Quando você poderia começar?",
+              "en": "When could you start?"
+            }
+          ]
+        },
+        {
+          "id": "pt-12-3",
+          "title": "Money",
+          "items": [
+            {
+              "id": "o-salario",
+              "text": "o salário",
+              "en": "the salary"
+            },
+            {
+              "id": "o-aluguel",
+              "text": "o aluguel",
+              "en": "the rent"
+            },
+            {
+              "id": "tenho-que-pagar-o-aluguel",
+              "text": "Tenho que pagar o aluguel.",
+              "en": "I have to pay the rent."
+            },
+            {
+              "id": "quero-abrir-uma-conta-poupanca",
+              "text": "Quero abrir uma conta poupança.",
+              "en": "I want to open a savings account."
+            },
+            {
+              "id": "estou-juntando-dinheiro-para-uma-viagem",
+              "text": "Estou juntando dinheiro para uma viagem.",
+              "en": "I'm saving up for a trip."
+            },
+            {
+              "id": "me-cobraram-a-mais",
+              "text": "Me cobraram a mais.",
+              "en": "They overcharged me."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u13",
+      "title": "Health and feelings",
+      "lessons": [
+        {
+          "id": "pt-13-1",
+          "title": "At the doctor",
+          "items": [
+            {
+              "id": "estou-com-dor-de-cabeca",
+              "text": "Estou com dor de cabeça.",
+              "en": "I have a headache."
+            },
+            {
+              "id": "doi-aqui",
+              "text": "Dói aqui.",
+              "en": "It hurts here."
+            },
+            {
+              "id": "estou-com-febre-desde-ontem",
+              "text": "Estou com febre desde ontem.",
+              "en": "I've had a fever since yesterday."
+            },
+            {
+              "id": "sou-alergico-a-penicilina",
+              "text": "Sou alérgico a penicilina.",
+              "en": "I'm allergic to penicillin. (man)"
+            },
+            {
+              "id": "tome-isto-duas-vezes-por-dia",
+              "text": "Tome isto duas vezes por dia.",
+              "en": "Take this twice a day."
+            },
+            {
+              "id": "preciso-marcar-uma-consulta",
+              "text": "Preciso marcar uma consulta.",
+              "en": "I need to make a doctor's appointment."
+            }
+          ]
+        },
+        {
+          "id": "pt-13-2",
+          "title": "How I feel",
+          "items": [
+            {
+              "id": "estou-preocupada-com-o-meu-irmao",
+              "text": "Estou preocupada com o meu irmão.",
+              "en": "I'm worried about my brother. (woman)"
+            },
+            {
+              "id": "ando-muito-estressado",
+              "text": "Ando muito estressado.",
+              "en": "I've been very stressed lately. (man)"
+            },
+            {
+              "id": "tenho-orgulho-de-voce",
+              "text": "Tenho orgulho de você.",
+              "en": "I'm proud of you."
+            },
+            {
+              "id": "estou-me-sentindo-bem-melhor",
+              "text": "Estou me sentindo bem melhor.",
+              "en": "I feel much better."
+            },
+            {
+              "id": "que-vergonha",
+              "text": "Que vergonha.",
+              "en": "How embarrassing."
+            },
+            {
+              "id": "nao-se-preocupe",
+              "text": "Não se preocupe.",
+              "en": "Don't worry."
+            }
+          ]
+        },
+        {
+          "id": "pt-13-3",
+          "title": "Giving advice",
+          "items": [
+            {
+              "id": "voce-deveria-descansar",
+              "text": "Você deveria descansar.",
+              "en": "You should rest."
+            },
+            {
+              "id": "se-eu-fosse-voce-iria-ao-medico",
+              "text": "Se eu fosse você, iria ao médico.",
+              "en": "If I were you, I'd go to the doctor."
+            },
+            {
+              "id": "no-seu-lugar-eu-nao-falaria-nada",
+              "text": "No seu lugar, eu não falaria nada.",
+              "en": "In your shoes, I wouldn't say anything."
+            },
+            {
+              "id": "recomendo-que-voce-durma-mais",
+              "text": "Recomendo que você durma mais.",
+              "en": "I recommend that you sleep more."
+            },
+            {
+              "id": "e-importante-que-voce-beba-muita-agua",
+              "text": "É importante que você beba muita água.",
+              "en": "It's important that you drink lots of water."
+            },
+            {
+              "id": "melhoras",
+              "text": "Melhoras!",
+              "en": "Get well soon!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u14",
+      "title": "Travel problems",
+      "lessons": [
+        {
+          "id": "pt-14-1",
+          "title": "At the airport",
+          "items": [
+            {
+              "id": "meu-voo-foi-cancelado",
+              "text": "Meu voo foi cancelado.",
+              "en": "My flight was cancelled."
+            },
+            {
+              "id": "perdi-o-meu-passaporte",
+              "text": "Perdi o meu passaporte.",
+              "en": "I lost my passport."
+            },
+            {
+              "id": "minha-mala-nao-chegou",
+              "text": "Minha mala não chegou.",
+              "en": "My suitcase didn't arrive."
+            },
+            {
+              "id": "o-voo-esta-atrasado-duas-horas",
+              "text": "O voo está atrasado duas horas.",
+              "en": "The flight is delayed two hours."
+            },
+            {
+              "id": "perdi-a-conexao",
+              "text": "Perdi a conexão.",
+              "en": "I missed my connection."
+            },
+            {
+              "id": "voces-podem-me-colocar-em-outro-voo",
+              "text": "Vocês podem me colocar em outro voo?",
+              "en": "Can you put me on another flight?"
+            }
+          ]
+        },
+        {
+          "id": "pt-14-2",
+          "title": "Hotel complaints",
+          "items": [
+            {
+              "id": "o-ar-condicionado-nao-funciona",
+              "text": "O ar-condicionado não funciona.",
+              "en": "The air conditioning doesn't work."
+            },
+            {
+              "id": "nao-tem-agua-quente",
+              "text": "Não tem água quente.",
+              "en": "There's no hot water."
+            },
+            {
+              "id": "tem-muito-barulho-no-quarto",
+              "text": "Tem muito barulho no quarto.",
+              "en": "It's very noisy in the room."
+            },
+            {
+              "id": "poderia-me-trocar-de-quarto",
+              "text": "Poderia me trocar de quarto?",
+              "en": "Could you move me to another room?"
+            },
+            {
+              "id": "eu-gostaria-de-falar-com-o-gerente",
+              "text": "Eu gostaria de falar com o gerente.",
+              "en": "I'd like to speak to the manager."
+            },
+            {
+              "id": "nao-foi-isso-que-eu-reservei",
+              "text": "Não foi isso que eu reservei.",
+              "en": "This isn't what I booked."
+            }
+          ]
+        },
+        {
+          "id": "pt-14-3",
+          "title": "Asking for help",
+          "items": [
+            {
+              "id": "poderia-me-ajudar-por-favor",
+              "text": "Poderia me ajudar, por favor?",
+              "en": "Could you help me, please?"
+            },
+            {
+              "id": "roubaram-a-minha-carteira",
+              "text": "Roubaram a minha carteira.",
+              "en": "My wallet was stolen."
+            },
+            {
+              "id": "quero-fazer-um-boletim-de-ocorrencia",
+              "text": "Quero fazer um boletim de ocorrência.",
+              "en": "I want to report it to the police."
+            },
+            {
+              "id": "onde-fica-a-embaixada",
+              "text": "Onde fica a embaixada?",
+              "en": "Where is the embassy?"
+            },
+            {
+              "id": "chame-uma-ambulancia",
+              "text": "Chame uma ambulância!",
+              "en": "Call an ambulance!"
+            },
+            {
+              "id": "estou-perdido",
+              "text": "Estou perdido.",
+              "en": "I'm lost. (man)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u15",
+      "title": "News and opinions",
+      "lessons": [
+        {
+          "id": "pt-15-1",
+          "title": "Headlines",
+          "items": [
+            {
+              "id": "o-governo",
+              "text": "o governo",
+              "en": "the government"
+            },
+            {
+              "id": "as-eleicoes",
+              "text": "as eleições",
+              "en": "the elections"
+            },
+            {
+              "id": "a-economia",
+              "text": "a economia",
+              "en": "the economy"
+            },
+            {
+              "id": "os-precos-subiram-de-novo",
+              "text": "Os preços subiram de novo.",
+              "en": "Prices have gone up again."
+            },
+            {
+              "id": "o-desemprego-caiu-pelo-terceiro-mes-seguido",
+              "text": "O desemprego caiu pelo terceiro mês seguido.",
+              "en": "Unemployment fell for the third month in a row."
+            },
+            {
+              "id": "milhares-de-pessoas-foram-as-ruas",
+              "text": "Milhares de pessoas foram às ruas.",
+              "en": "Thousands of people took to the streets."
+            }
+          ]
+        },
+        {
+          "id": "pt-15-2",
+          "title": "Talking about the news",
+          "items": [
+            {
+              "id": "voce-ficou-sabendo-que-o-ministro-renunciou",
+              "text": "Você ficou sabendo que o ministro renunciou?",
+              "en": "Did you hear that the minister resigned?"
+            },
+            {
+              "id": "segundo-os-especialistas-a-situacao-vai-piorar",
+              "text": "Segundo os especialistas, a situação vai piorar.",
+              "en": "According to experts, the situation is going to get worse."
+            },
+            {
+              "id": "vi-no-jornal-ontem-a-noite",
+              "text": "Vi no jornal ontem à noite.",
+              "en": "I saw it on the news last night."
+            },
+            {
+              "id": "dizem-que-vai-ter-greve-na-segunda",
+              "text": "Dizem que vai ter greve na segunda.",
+              "en": "They say there'll be a strike on Monday."
+            },
+            {
+              "id": "nao-acredito",
+              "text": "Não acredito!",
+              "en": "I can't believe it!"
+            },
+            {
+              "id": "tem-que-ver-de-onde-vem-a-noticia",
+              "text": "Tem que ver de onde vem a notícia.",
+              "en": "You have to check where the story comes from."
+            }
+          ]
+        },
+        {
+          "id": "pt-15-3",
+          "title": "Giving your opinion",
+          "items": [
+            {
+              "id": "na-minha-opiniao-e-um-erro",
+              "text": "Na minha opinião, é um erro.",
+              "en": "In my opinion, it's a mistake."
+            },
+            {
+              "id": "acho-que-voce-tem-razao",
+              "text": "Acho que você tem razão.",
+              "en": "I think you're right."
+            },
+            {
+              "id": "nao-acho-que-seja-justo",
+              "text": "Não acho que seja justo.",
+              "en": "I don't think it's fair."
+            },
+            {
+              "id": "me-parece-que-estao-exagerando",
+              "text": "Me parece que estão exagerando.",
+              "en": "It seems to me they're exaggerating."
+            },
+            {
+              "id": "do-meu-ponto-de-vista-ha-outras-prioridades",
+              "text": "Do meu ponto de vista, há outras prioridades.",
+              "en": "The way I see it, there are other priorities."
+            },
+            {
+              "id": "depende-do-ponto-de-vista",
+              "text": "Depende do ponto de vista.",
+              "en": "It depends on how you look at it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u16",
+      "title": "Debate",
+      "lessons": [
+        {
+          "id": "pt-16-1",
+          "title": "Agreeing and disagreeing",
+          "items": [
+            {
+              "id": "concordo-totalmente",
+              "text": "Concordo totalmente.",
+              "en": "I completely agree."
+            },
+            {
+              "id": "nao-concordo-de-jeito-nenhum",
+              "text": "Não concordo de jeito nenhum.",
+              "en": "I don't agree at all."
+            },
+            {
+              "id": "entendo-o-seu-ponto-mas-nao-vejo-assim",
+              "text": "Entendo o seu ponto, mas não vejo assim.",
+              "en": "I see your point, but I don't see it that way."
+            },
+            {
+              "id": "nisso-voce-tem-razao",
+              "text": "Nisso você tem razão.",
+              "en": "You're right about that."
+            },
+            {
+              "id": "ate-certo-ponto-sim",
+              "text": "Até certo ponto, sim.",
+              "en": "Up to a point, yes."
+            },
+            {
+              "id": "nem-pensar",
+              "text": "Nem pensar!",
+              "en": "No way!"
+            }
+          ]
+        },
+        {
+          "id": "pt-16-2",
+          "title": "Making your case",
+          "items": [
+            {
+              "id": "por-um-lado-e-mais-barato",
+              "text": "Por um lado, é mais barato.",
+              "en": "On the one hand, it's cheaper."
+            },
+            {
+              "id": "por-outro-lado-polui-mais",
+              "text": "Por outro lado, polui mais.",
+              "en": "On the other hand, it pollutes more."
+            },
+            {
+              "id": "isso-nao-e-bem-verdade",
+              "text": "Isso não é bem verdade.",
+              "en": "That's not entirely true."
+            },
+            {
+              "id": "temos-que-levar-em-conta-o-custo",
+              "text": "Temos que levar em conta o custo.",
+              "en": "We have to take the cost into account."
+            },
+            {
+              "id": "mesmo-que-seja-dificil-vale-a-pena",
+              "text": "Mesmo que seja difícil, vale a pena.",
+              "en": "Even if it's hard, it's worth it."
+            },
+            {
+              "id": "no-entanto",
+              "text": "no entanto",
+              "en": "however"
+            }
+          ]
+        },
+        {
+          "id": "pt-16-3",
+          "title": "Persuading and concluding",
+          "items": [
+            {
+              "id": "os-dados-mostram-o-contrario",
+              "text": "Os dados mostram o contrário.",
+              "en": "The data show the opposite."
+            },
+            {
+              "id": "imagina-se-fosse-com-voce",
+              "text": "Imagina se fosse com você.",
+              "en": "Imagine if it happened to you."
+            },
+            {
+              "id": "nao-se-trata-de-dinheiro-e-sim-de-principios",
+              "text": "Não se trata de dinheiro, e sim de princípios.",
+              "en": "It's not about money, it's about principles."
+            },
+            {
+              "id": "resumindo-precisamos-de-uma-mudanca",
+              "text": "Resumindo, precisamos de uma mudança.",
+              "en": "In short, we need a change."
+            },
+            {
+              "id": "para-concluir-quero-agradecer-a-todos",
+              "text": "Para concluir, quero agradecer a todos.",
+              "en": "To conclude, I'd like to thank everyone."
+            },
+            {
+              "id": "vamos-concordar-em-discordar",
+              "text": "Vamos concordar em discordar.",
+              "en": "Let's agree to disagree."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u17",
+      "title": "Formal and casual",
+      "lessons": [
+        {
+          "id": "pt-17-1",
+          "title": "Você or o senhor?",
+          "items": [
+            {
+              "id": "como-o-senhor-esta",
+              "text": "Como o senhor está?",
+              "en": "How are you? (formal, to a man)"
+            },
+            {
+              "id": "e-ai-beleza",
+              "text": "E aí, beleza?",
+              "en": "What's up? (casual)"
+            },
+            {
+              "id": "pode-me-chamar-de-voce",
+              "text": "Pode me chamar de você.",
+              "en": "You can call me “você”."
+            },
+            {
+              "id": "bom-dia-senhora",
+              "text": "Bom dia, senhora.",
+              "en": "Good morning, ma'am."
+            },
+            {
+              "id": "pode-entrar-fique-a-vontade",
+              "text": "Pode entrar, fique à vontade.",
+              "en": "Come in, make yourself at home."
+            },
+            {
+              "id": "imagina",
+              "text": "Imagina!",
+              "en": "Not at all! / You're welcome."
+            }
+          ]
+        },
+        {
+          "id": "pt-17-2",
+          "title": "Polite requests",
+          "items": [
+            {
+              "id": "sera-que-o-senhor-poderia-me-ajudar",
+              "text": "Será que o senhor poderia me ajudar?",
+              "en": "Would you be able to help me, sir?"
+            },
+            {
+              "id": "eu-agradeceria-se-me-respondesse-logo",
+              "text": "Eu agradeceria se me respondesse logo.",
+              "en": "I would be grateful if you replied soon."
+            },
+            {
+              "id": "poderia-me-dizer-onde-fica-o-escritorio",
+              "text": "Poderia me dizer onde fica o escritório?",
+              "en": "Could you tell me where the office is?"
+            },
+            {
+              "id": "desculpe-incomodar",
+              "text": "Desculpe incomodar.",
+              "en": "Sorry to bother you."
+            },
+            {
+              "id": "me-passa-o-sal",
+              "text": "Me passa o sal?",
+              "en": "Pass me the salt? (casual)"
+            },
+            {
+              "id": "me-ve-um-cafe-por-favor",
+              "text": "Me vê um café, por favor?",
+              "en": "Can I get a coffee, please?"
+            }
+          ]
+        },
+        {
+          "id": "pt-17-3",
+          "title": "Formal writing",
+          "items": [
+            {
+              "id": "prezado-sr-silva",
+              "text": "Prezado Sr. Silva,",
+              "en": "Dear Mr. Silva,"
+            },
+            {
+              "id": "venho-por-meio-desta-solicitar-informacoes",
+              "text": "Venho por meio desta solicitar informações.",
+              "en": "I am writing to request information."
+            },
+            {
+              "id": "segue-em-anexo-o-meu-curriculo",
+              "text": "Segue em anexo o meu currículo.",
+              "en": "Please find my résumé attached."
+            },
+            {
+              "id": "fico-no-aguardo-da-sua-resposta",
+              "text": "Fico no aguardo da sua resposta.",
+              "en": "I look forward to your reply."
+            },
+            {
+              "id": "atenciosamente",
+              "text": "Atenciosamente,",
+              "en": "Sincerely,"
+            },
+            {
+              "id": "abracos",
+              "text": "Abraços,",
+              "en": "Hugs, (to a friend)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u18",
+      "title": "Idioms",
+      "lessons": [
+        {
+          "id": "pt-18-1",
+          "title": "Everyday idioms",
+          "items": [
+            {
+              "id": "voce-esta-no-mundo-da-lua",
+              "text": "Você está no mundo da lua.",
+              "en": "You're daydreaming. (lit. on the moon)"
+            },
+            {
+              "id": "custou-os-olhos-da-cara",
+              "text": "Custou os olhos da cara.",
+              "en": "It cost an arm and a leg."
+            },
+            {
+              "id": "ela-nao-tem-papas-na-lingua",
+              "text": "Ela não tem papas na língua.",
+              "en": "She doesn't mince her words."
+            },
+            {
+              "id": "pisei-na-bola",
+              "text": "Pisei na bola.",
+              "en": "I messed up. (lit. I stepped on the ball)"
+            },
+            {
+              "id": "voce-esta-me-zoando",
+              "text": "Você está me zoando.",
+              "en": "You're pulling my leg."
+            },
+            {
+              "id": "e-moleza",
+              "text": "É moleza.",
+              "en": "It's a piece of cake."
+            }
+          ]
+        },
+        {
+          "id": "pt-18-2",
+          "title": "More idioms",
+          "items": [
+            {
+              "id": "voce-acertou-na-mosca",
+              "text": "Você acertou na mosca.",
+              "en": "You hit the nail on the head."
+            },
+            {
+              "id": "estou-morto-de-cansaco",
+              "text": "Estou morto de cansaço.",
+              "en": "I'm exhausted. (man)"
+            },
+            {
+              "id": "se-liga",
+              "text": "Se liga!",
+              "en": "Get your act together! / Pay attention!"
+            },
+            {
+              "id": "nao-preguei-o-olho-a-noite-toda",
+              "text": "Não preguei o olho a noite toda.",
+              "en": "I didn't sleep a wink all night."
+            },
+            {
+              "id": "estou-entre-a-cruz-e-a-espada",
+              "text": "Estou entre a cruz e a espada.",
+              "en": "I'm between a rock and a hard place."
+            },
+            {
+              "id": "ele-fala-pelos-cotovelos",
+              "text": "Ele fala pelos cotovelos.",
+              "en": "He talks nonstop."
+            }
+          ]
+        },
+        {
+          "id": "pt-18-3",
+          "title": "Sayings",
+          "items": [
+            {
+              "id": "antes-tarde-do-que-nunca",
+              "text": "Antes tarde do que nunca.",
+              "en": "Better late than never."
+            },
+            {
+              "id": "em-boca-fechada-nao-entra-mosca",
+              "text": "Em boca fechada não entra mosca.",
+              "en": "Silence is golden. (lit. no flies get into a closed mouth)"
+            },
+            {
+              "id": "quem-nao-arrisca-nao-petisca",
+              "text": "Quem não arrisca não petisca.",
+              "en": "Nothing ventured, nothing gained."
+            },
+            {
+              "id": "falar-e-facil-fazer-e-que-e-dificil",
+              "text": "Falar é fácil, fazer é que é difícil.",
+              "en": "Easier said than done."
+            },
+            {
+              "id": "ha-males-que-vem-para-bem",
+              "text": "Há males que vêm para bem.",
+              "en": "Every cloud has a silver lining."
+            },
+            {
+              "id": "diga-me-com-quem-andas-e-eu-te-direi-quem-es",
+              "text": "Diga-me com quem andas e eu te direi quem és.",
+              "en": "You are the company you keep."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u19",
+      "title": "Slang",
+      "lessons": [
+        {
+          "id": "pt-19-1",
+          "title": "Brazilian slang",
+          "items": [
+            {
+              "id": "que-legal",
+              "text": "Que legal!",
+              "en": "How cool!"
+            },
+            {
+              "id": "cara",
+              "text": "cara",
+              "en": "dude, guy"
+            },
+            {
+              "id": "beleza",
+              "text": "Beleza!",
+              "en": "OK! / Cool!"
+            },
+            {
+              "id": "valeu",
+              "text": "Valeu!",
+              "en": "Thanks! / Cheers!"
+            },
+            {
+              "id": "to-de-boa",
+              "text": "Tô de boa.",
+              "en": "I'm chilling. / I'm fine."
+            },
+            {
+              "id": "que-massa",
+              "text": "Que massa!",
+              "en": "Awesome! (northeast Brazil)"
+            }
+          ]
+        },
+        {
+          "id": "pt-19-2",
+          "title": "Fillers and reactions",
+          "items": [
+            {
+              "id": "tipo",
+              "text": "tipo",
+              "en": "like"
+            },
+            {
+              "id": "entao",
+              "text": "Então…",
+              "en": "So… / Well…"
+            },
+            {
+              "id": "serio",
+              "text": "Sério?",
+              "en": "Seriously?"
+            },
+            {
+              "id": "que-mico",
+              "text": "Que mico!",
+              "en": "How embarrassing!"
+            },
+            {
+              "id": "fazer-o-que",
+              "text": "Fazer o quê?",
+              "en": "Oh well, what can you do?"
+            },
+            {
+              "id": "nossa",
+              "text": "Nossa!",
+              "en": "Wow! / Oh my!"
+            }
+          ]
+        },
+        {
+          "id": "pt-19-3",
+          "title": "Talking casually",
+          "items": [
+            {
+              "id": "pra-que",
+              "text": "Pra quê?",
+              "en": "What for? (casual)"
+            },
+            {
+              "id": "nao-to-a-fim",
+              "text": "Não tô a fim.",
+              "en": "I'm not in the mood."
+            },
+            {
+              "id": "to-sem-grana",
+              "text": "Tô sem grana.",
+              "en": "I'm broke."
+            },
+            {
+              "id": "e-ai-mano-suave",
+              "text": "E aí, mano? Suave?",
+              "en": "What's up, bro? All chill?"
+            },
+            {
+              "id": "tranquilo-sem-problema",
+              "text": "Tranquilo, sem problema.",
+              "en": "All good, no worries."
+            },
+            {
+              "id": "falou-ate-mais",
+              "text": "Falou, até mais!",
+              "en": "Later, see you!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u20",
+      "title": "Fluent conversation",
+      "lessons": [
+        {
+          "id": "pt-20-1",
+          "title": "Small talk with nuance",
+          "items": [
+            {
+              "id": "quanto-tempo",
+              "text": "Quanto tempo!",
+              "en": "Long time no see!"
+            },
+            {
+              "id": "o-que-voce-tem-feito-da-vida",
+              "text": "O que você tem feito da vida?",
+              "en": "What have you been up to?"
+            },
+            {
+              "id": "vou-levando",
+              "text": "Vou levando.",
+              "en": "Getting by."
+            },
+            {
+              "id": "nem-me-fale",
+              "text": "Nem me fale.",
+              "en": "Don't even get me started."
+            },
+            {
+              "id": "que-bom-que-esta-dando-tudo-certo",
+              "text": "Que bom que está dando tudo certo.",
+              "en": "I'm glad things are going well."
+            },
+            {
+              "id": "vamos-marcar-alguma-coisa-qualquer-dia",
+              "text": "Vamos marcar alguma coisa qualquer dia.",
+              "en": "Let's get together one of these days."
+            }
+          ]
+        },
+        {
+          "id": "pt-20-2",
+          "title": "Telling a story well",
+          "items": [
+            {
+              "id": "voce-nao-vai-acreditar-no-que-aconteceu",
+              "text": "Você não vai acreditar no que aconteceu.",
+              "en": "You're not going to believe what happened."
+            },
+            {
+              "id": "acontece-que-ele-tinha-esquecido",
+              "text": "Acontece que ele tinha esquecido.",
+              "en": "It turns out he had forgotten."
+            },
+            {
+              "id": "resumo-da-opera-perdemos-o-trem",
+              "text": "Resumo da ópera: perdemos o trem.",
+              "en": "Long story short, we missed the train."
+            },
+            {
+              "id": "e-pra-completar-comecou-a-chover",
+              "text": "E pra completar, começou a chover.",
+              "en": "And to top it all off, it started to rain."
+            },
+            {
+              "id": "eu-morri-de-rir",
+              "text": "Eu morri de rir.",
+              "en": "I died laughing."
+            },
+            {
+              "id": "no-fim-das-contas-deu-tudo-certo",
+              "text": "No fim das contas, deu tudo certo.",
+              "en": "In the end, everything turned out fine."
+            }
+          ]
+        },
+        {
+          "id": "pt-20-3",
+          "title": "Clearing things up",
+          "items": [
+            {
+              "id": "o-que-eu-quis-dizer-e-que",
+              "text": "O que eu quis dizer é que…",
+              "en": "What I meant was that…"
+            },
+            {
+              "id": "em-outras-palavras",
+              "text": "Em outras palavras…",
+              "en": "In other words…"
+            },
+            {
+              "id": "como-assim",
+              "text": "Como assim?",
+              "en": "What do you mean?"
+            },
+            {
+              "id": "nao-me-leve-a-mal",
+              "text": "Não me leve a mal.",
+              "en": "Don't get me wrong."
+            },
+            {
+              "id": "deu-para-entender",
+              "text": "Deu para entender?",
+              "en": "Do you see what I mean?"
+            },
+            {
+              "id": "ah-agora-entendi",
+              "text": "Ah, agora entendi!",
+              "en": "Oh, now I get it!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u21",
+      "title": "Dating & relationships",
+      "lessons": [
+        {
+          "id": "pt-21-1",
+          "title": "Meeting someone",
+          "items": [
+            {
+              "id": "dt-voce-se-importa-se-eu-sentar-aqui",
+              "text": "Você se importa se eu sentar aqui?",
+              "en": "Do you mind if I sit here?"
+            },
+            {
+              "id": "dt-e-voce-conhece-a-laura-de-onde",
+              "text": "E você, conhece a Laura de onde?",
+              "en": "And how do you know Laura?"
+            },
+            {
+              "id": "dt-que-musica-boa-aqui",
+              "text": "Que música boa aqui!",
+              "en": "They play great music here!"
+            },
+            {
+              "id": "dt-adorei-o-seu-estilo",
+              "text": "Adorei o seu estilo.",
+              "en": "I love your style."
+            },
+            {
+              "id": "dt-voce-tem-um-sorriso-lindo",
+              "text": "Você tem um sorriso lindo.",
+              "en": "You have a lovely smile."
+            },
+            {
+              "id": "dt-ah-obrigada-que-fofo",
+              "text": "Ah, obrigada! Que fofo.",
+              "en": "Oh, thank you! That's sweet."
+            }
+          ]
+        },
+        {
+          "id": "pt-21-2",
+          "title": "Asking someone out",
+          "items": [
+            {
+              "id": "dt-quer-tomar-alguma-coisa-qualquer-dia",
+              "text": "Quer tomar alguma coisa qualquer dia?",
+              "en": "Would you like to get a drink sometime?"
+            },
+            {
+              "id": "dt-que-tal-um-cinema-no-sabado",
+              "text": "Que tal um cinema no sábado?",
+              "en": "How about the movies on Saturday?"
+            },
+            {
+              "id": "dt-eu-adoraria",
+              "text": "Eu adoraria!",
+              "en": "I'd love to!"
+            },
+            {
+              "id": "dt-esse-fim-de-semana-nao-da-mas-e-no-proximo",
+              "text": "Esse fim de semana não dá, mas e no próximo?",
+              "en": "I can't this weekend, but how about the next one?"
+            },
+            {
+              "id": "dt-obrigada-mas-estou-saindo-com-alguem",
+              "text": "Obrigada, mas estou saindo com alguém.",
+              "en": "Thanks, but I'm seeing someone."
+            },
+            {
+              "id": "dt-agradeco-mas-prefiro-que-a-gente-seja-so-amigo",
+              "text": "Agradeço, mas prefiro que a gente seja só amigo.",
+              "en": "I appreciate it, but I'd rather we just be friends."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u22",
+      "title": "Texting & dating apps",
+      "lessons": [
+        {
+          "id": "pt-22-1",
+          "title": "Texting",
+          "items": [
+            {
+              "id": "dt-oi-sumido-tudo-bem",
+              "text": "Oi, sumido! Tudo bem?",
+              "en": "Hey stranger! How's it going?"
+            },
+            {
+              "id": "dt-kkkkk-voce-me-fez-rir",
+              "text": "Kkkkk, você me fez rir 😂",
+              "en": "Hahaha, you made me laugh 😂",
+              "say": "Você me fez rir."
+            },
+            {
+              "id": "dt-bora-marcar-na-quinta",
+              "text": "Bora marcar na quinta?",
+              "en": "Shall we make plans for Thursday?"
+            },
+            {
+              "id": "dt-cheguei-bem-em-casa-obrigada-pela-noite",
+              "text": "Cheguei bem em casa. Obrigada pela noite ❤️",
+              "en": "Got home safe. Thanks for tonight ❤️",
+              "say": "Cheguei bem em casa. Obrigada pela noite."
+            },
+            {
+              "id": "dt-desculpa-esqueci-de-responder",
+              "text": "Desculpa, esqueci de responder 🙈",
+              "en": "Sorry, I forgot to reply 🙈",
+              "say": "Desculpa, esqueci de responder."
+            },
+            {
+              "id": "dt-voce-me-deixou-no-vacuo",
+              "text": "Você me deixou no vácuo!",
+              "en": "You left me on read!"
+            }
+          ]
+        },
+        {
+          "id": "pt-22-2",
+          "title": "Dating apps",
+          "items": [
+            {
+              "id": "dt-deu-match",
+              "text": "Deu match!",
+              "en": "We matched!"
+            },
+            {
+              "id": "dt-ri-muito-da-sua-foto-com-o-cachorro",
+              "text": "Ri muito da sua foto com o cachorro 🐶",
+              "en": "Your photo with the dog made me laugh 🐶",
+              "say": "Ri muito da sua foto com o cachorro."
+            },
+            {
+              "id": "dt-qual-foi-a-coisa-mais-espontanea-que-voce-ja-fez",
+              "text": "Qual foi a coisa mais espontânea que você já fez?",
+              "en": "What's the most spontaneous thing you've ever done?"
+            },
+            {
+              "id": "dt-que-tal-um-cafe-pra-gente-se-conhecer",
+              "text": "Que tal um café pra gente se conhecer?",
+              "en": "How about a coffee to get to know each other?"
+            },
+            {
+              "id": "dt-por-enquanto-nao-procuro-nada-serio",
+              "text": "Por enquanto não procuro nada sério.",
+              "en": "I'm not looking for anything serious right now."
+            },
+            {
+              "id": "dt-voce-e-muito-legal-mas-nao-rolou-quimica",
+              "text": "Você é muito legal, mas não rolou química.",
+              "en": "You're really great, but there wasn't any chemistry."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u23",
+      "title": "Love, couples & family",
+      "lessons": [
+        {
+          "id": "pt-23-1",
+          "title": "Talking about feelings",
+          "items": [
+            {
+              "id": "dt-eu-me-sinto-muito-a-vontade-com-voce",
+              "text": "Eu me sinto muito à vontade com você.",
+              "en": "I feel really comfortable with you."
+            },
+            {
+              "id": "dt-acho-que-estou-me-apaixonando-por-voce",
+              "text": "Acho que estou me apaixonando por você.",
+              "en": "I think I'm falling for you."
+            },
+            {
+              "id": "dt-queria-saber-o-que-a-gente-e",
+              "text": "Queria saber o que a gente é.",
+              "en": "I'd like to know where we stand."
+            },
+            {
+              "id": "dt-para-mim-e-importante-a-gente-conversar",
+              "text": "Para mim é importante a gente conversar.",
+              "en": "It matters to me that we talk."
+            },
+            {
+              "id": "dt-preciso-de-um-pouco-de-espaco-mas-te-amo",
+              "text": "Preciso de um pouco de espaço, mas te amo.",
+              "en": "I need a little space, but I love you."
+            },
+            {
+              "id": "dt-estamos-juntos-ha-dois-anos-e-pensando-em-morar",
+              "text": "Estamos juntos há dois anos e pensando em morar juntos.",
+              "en": "We've been together two years and we're thinking of moving in together."
+            }
+          ]
+        },
+        {
+          "id": "pt-23-2",
+          "title": "Meeting the family",
+          "items": [
+            {
+              "id": "dt-muito-prazer-dona-maria-o-pedro-fala-muito-de-vo",
+              "text": "Muito prazer, dona Maria. O Pedro fala muito de vocês.",
+              "en": "Nice to meet you, Mrs. Maria. Pedro talks about you all a lot."
+            },
+            {
+              "id": "dt-trouxe-uma-lembrancinha",
+              "text": "Trouxe uma lembrancinha.",
+              "en": "I brought you a little something."
+            },
+            {
+              "id": "dt-que-delicia-foi-a-senhora-que-fez",
+              "text": "Que delícia! Foi a senhora que fez?",
+              "en": "This is delicious! Did you make it?"
+            },
+            {
+              "id": "dt-deixa-que-eu-ajudo-a-tirar-a-mesa",
+              "text": "Deixa que eu ajudo a tirar a mesa.",
+              "en": "Let me help clear the table."
+            },
+            {
+              "id": "dt-minha-sogra-e-um-amor",
+              "text": "Minha sogra é um amor.",
+              "en": "My mother-in-law is a sweetheart."
+            },
+            {
+              "id": "dt-a-gente-se-ve-no-almoco-de-domingo",
+              "text": "A gente se vê no almoço de domingo.",
+              "en": "See you at Sunday lunch."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u24",
+      "title": "Flirting with charm",
+      "lessons": [
+        {
+          "id": "pt-24-1",
+          "title": "Compliments",
+          "items": [
+            {
+              "id": "fl-adoro-o-jeito-que-voce-ri",
+              "text": "Adoro o jeito que você ri.",
+              "en": "I love the way you laugh."
+            },
+            {
+              "id": "fl-voce-tem-uma-voz-muito-bonita",
+              "text": "Você tem uma voz muito bonita.",
+              "en": "You have a really nice voice."
+            },
+            {
+              "id": "fl-essa-cor-fica-incrivel-em-voce",
+              "text": "Essa cor fica incrível em você.",
+              "en": "That color looks amazing on you."
+            },
+            {
+              "id": "fl-eu-dou-muita-risada-com-voce",
+              "text": "Eu dou muita risada com você.",
+              "en": "I laugh so much with you."
+            },
+            {
+              "id": "fl-voce-tem-olhos-lindos",
+              "text": "Você tem olhos lindos.",
+              "en": "You have beautiful eyes."
+            },
+            {
+              "id": "fl-que-bom-gosto-musical",
+              "text": "Que bom gosto musical!",
+              "en": "You have such good taste in music!"
+            }
+          ]
+        },
+        {
+          "id": "pt-24-2",
+          "title": "Reading the signals",
+          "items": [
+            {
+              "id": "fl-voce-esta-me-paquerando",
+              "text": "Você está me paquerando?",
+              "en": "Are you flirting with me?"
+            },
+            {
+              "id": "fl-acho-que-voce-esta-a-fim-dele",
+              "text": "Acho que você está a fim dele.",
+              "en": "I think you're into him."
+            },
+            {
+              "id": "fl-ela-nao-para-de-olhar-para-voce",
+              "text": "Ela não para de olhar para você.",
+              "en": "She can't stop looking at you."
+            },
+            {
+              "id": "fl-ele-da-sinais-mas-nao-sei-se-e-so-simpatia",
+              "text": "Ele dá sinais, mas não sei se é só simpatia.",
+              "en": "He gives signals, but I don't know if he's just being friendly."
+            },
+            {
+              "id": "fl-se-ela-continua-a-conversa-e-bom-sinal",
+              "text": "Se ela continua a conversa, é bom sinal.",
+              "en": "If she keeps the conversation going, it's a good sign."
+            },
+            {
+              "id": "fl-eu-adoraria-te-conhecer-melhor",
+              "text": "Eu adoraria te conhecer melhor.",
+              "en": "I'd love to get to know you better."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u25",
+      "title": "Playful teasing & pick-up lines",
+      "lessons": [
+        {
+          "id": "pt-25-1",
+          "title": "Teasing and comebacks",
+          "items": [
+            {
+              "id": "fl-voce-e-sempre-assim-ou-e-so-comigo",
+              "text": "Você é sempre assim ou é só comigo?",
+              "en": "Are you always like this, or is it just with me?"
+            },
+            {
+              "id": "fl-nossa-que-convencido",
+              "text": "Nossa, que convencido 😏",
+              "en": "Wow, someone's full of himself 😏",
+              "say": "Nossa, que convencido."
+            },
+            {
+              "id": "fl-ganhei-de-novo-admite",
+              "text": "Ganhei de novo. Admite.",
+              "en": "I won again. Admit it."
+            },
+            {
+              "id": "fl-nao-disfarca-eu-vi-voce-sorrir",
+              "text": "Não disfarça, eu vi você sorrir.",
+              "en": "Don't play innocent, I saw you smile."
+            },
+            {
+              "id": "fl-voce-me-deve-um-cafe-por-essa",
+              "text": "Você me deve um café por essa.",
+              "en": "You owe me a coffee for that one."
+            },
+            {
+              "id": "fl-ta-bom-voce-ganhou-dessa-vez",
+              "text": "Tá bom, você ganhou… dessa vez.",
+              "en": "Fine, you win… this time."
+            }
+          ]
+        },
+        {
+          "id": "pt-25-2",
+          "title": "Pick-up lines, smooth and cheesy",
+          "items": [
+            {
+              "id": "fl-me-recomenda-algo-do-cardapio-voce-tem-cara-de-q",
+              "text": "Me recomenda algo do cardápio? Você tem cara de quem sabe.",
+              "en": "Can you recommend something on the menu? You look like you'd know."
+            },
+            {
+              "id": "fl-voce-acredita-em-amor-a-primeira-vista-ou-eu-pas",
+              "text": "Você acredita em amor à primeira vista, ou eu passo de novo?",
+              "en": "Do you believe in love at first sight, or should I walk by again?"
+            },
+            {
+              "id": "fl-voce-tem-um-mapa-me-perdi-nos-seus-olhos",
+              "text": "Você tem um mapa? Me perdi nos seus olhos.",
+              "en": "Do you have a map? I got lost in your eyes."
+            },
+            {
+              "id": "fl-doeu-quando-voce-caiu-do-ceu",
+              "text": "Doeu quando você caiu do céu?",
+              "en": "Did it hurt when you fell from heaven?"
+            },
+            {
+              "id": "fl-essa-foi-pessima-mas-te-fiz-rir",
+              "text": "Essa foi péssima, mas te fiz rir.",
+              "en": "That one was terrible, but I made you laugh."
+            },
+            {
+              "id": "fl-posso-te-pagar-uma-bebida",
+              "text": "Posso te pagar uma bebida?",
+              "en": "Can I buy you a drink?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u26",
+      "title": "Flirty texts & clear signals",
+      "lessons": [
+        {
+          "id": "pt-26-1",
+          "title": "Flirty texts and app openers",
+          "items": [
+            {
+              "id": "fl-duas-verdades-e-uma-mentira-voce-comeca",
+              "text": "Duas verdades e uma mentira: você começa 😉",
+              "en": "Two truths and a lie: you go first 😉",
+              "say": "Duas verdades e uma mentira: você começa."
+            },
+            {
+              "id": "fl-sua-foto-na-montanha-me-deixou-curioso-onde-foi",
+              "text": "Sua foto na montanha me deixou curioso. Onde foi?",
+              "en": "Your mountain photo got me curious. Where was it?"
+            },
+            {
+              "id": "fl-nao-paro-de-pensar-na-nossa-conversa-de-ontem",
+              "text": "Não paro de pensar na nossa conversa de ontem 🙈",
+              "en": "I can't stop thinking about our conversation last night 🙈",
+              "say": "Não paro de pensar na nossa conversa de ontem."
+            },
+            {
+              "id": "fl-bom-dia-dormiu-bem",
+              "text": "Bom dia, dormiu bem? ☀️",
+              "en": "Good morning, did you sleep well? ☀️",
+              "say": "Bom dia, dormiu bem?"
+            },
+            {
+              "id": "fl-voce-me-deve-a-revanche-na-sinuca",
+              "text": "Você me deve a revanche na sinuca 😏",
+              "en": "You owe me a rematch at pool 😏",
+              "say": "Você me deve a revanche na sinuca."
+            },
+            {
+              "id": "fl-quando-quiser-a-gente-repete",
+              "text": "Quando quiser, a gente repete 😘",
+              "en": "Let's do it again whenever you want 😘",
+              "say": "Quando quiser, a gente repete."
+            }
+          ]
+        },
+        {
+          "id": "pt-26-2",
+          "title": "Smooth moves and graceful exits",
+          "items": [
+            {
+              "id": "fl-gostei-muito-de-voce-posso-pegar-o-seu-numero",
+              "text": "Gostei muito de você. Posso pegar o seu número?",
+              "en": "I really like you. Can I get your number?"
+            },
+            {
+              "id": "fl-que-tal-a-gente-continuar-a-conversa-em-outro-lu",
+              "text": "Que tal a gente continuar a conversa em outro lugar?",
+              "en": "How about we continue this conversation somewhere else?"
+            },
+            {
+              "id": "fl-adorei-te-conhecer-espero-te-ver-de-novo",
+              "text": "Adorei te conhecer. Espero te ver de novo.",
+              "en": "I loved meeting you. I hope I see you again."
+            },
+            {
+              "id": "fl-acho-que-eu-entendi-errado-desculpa",
+              "text": "Acho que eu entendi errado. Desculpa.",
+              "en": "I think I misread things. Sorry."
+            },
+            {
+              "id": "fl-sem-problema-foi-um-prazer-conversar-com-voce",
+              "text": "Sem problema, foi um prazer conversar com você.",
+              "en": "No worries, it was lovely chatting with you."
+            },
+            {
+              "id": "fl-respeito-a-sua-resposta",
+              "text": "Respeito a sua resposta.",
+              "en": "I respect your answer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u27",
+      "title": "Culture: greetings & gestures",
+      "lessons": [
+        {
+          "id": "pt-27-1",
+          "title": "Greetings and gestures",
+          "items": [
+            {
+              "id": "cu-oi-tudo-bem",
+              "text": "Oi, tudo bem?",
+              "en": "Hi, how are you?"
+            },
+            {
+              "id": "cu-tudo-bom",
+              "text": "Tudo bom!",
+              "en": "All good!"
+            },
+            {
+              "id": "cu-e-ai",
+              "text": "E aí?",
+              "en": "What's up?"
+            },
+            {
+              "id": "cu-prazer",
+              "text": "Prazer!",
+              "en": "Nice to meet you!"
+            },
+            {
+              "id": "cu-um-beijo-tchau",
+              "text": "Um beijo, tchau!",
+              "en": "A kiss, bye! (a friendly goodbye)"
+            },
+            {
+              "id": "cu-com-licenca",
+              "text": "Com licença.",
+              "en": "Excuse me (when you pass by or leave)."
+            }
+          ],
+          "quiz": [
+            {
+              "q": "How many kisses on the cheek are usual in São Paulo?",
+              "options": [
+                "One",
+                "Three",
+                "None, just a handshake"
+              ],
+              "answer": 0
+            },
+            {
+              "q": "In Brazil, the 👌 “OK” sign made with your fingers…",
+              "options": [
+                "…is rude: use a thumbs up 👍 instead",
+                "…means “perfect”",
+                "…means “money”"
+              ],
+              "answer": 0
+            },
+            {
+              "q": "A Brazilian friend says “Tudo bem?” What do you answer?",
+              "options": [
+                "“Tudo!” or “Tudo bem, e você?”",
+                "A long list of your problems",
+                "“Prazer”"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u28",
+      "title": "Culture: food & table manners",
+      "lessons": [
+        {
+          "id": "pt-28-1",
+          "title": "Food and the table",
+          "items": [
+            {
+              "id": "cu-bom-apetite",
+              "text": "Bom apetite!",
+              "en": "Enjoy your meal!"
+            },
+            {
+              "id": "cu-o-que-voce-recomenda",
+              "text": "O que você recomenda?",
+              "en": "What do you recommend?"
+            },
+            {
+              "id": "cu-pode-fechar-a-conta",
+              "text": "Pode fechar a conta?",
+              "en": "Can you bring the check?"
+            },
+            {
+              "id": "cu-qual-e-o-prato-do-dia",
+              "text": "Qual é o prato do dia?",
+              "en": "What's the dish of the day?"
+            },
+            {
+              "id": "cu-estava-tudo-uma-delicia",
+              "text": "Estava tudo uma delícia.",
+              "en": "Everything was delicious."
+            },
+            {
+              "id": "cu-da-para-embrulhar-para-viagem",
+              "text": "Dá para embrulhar para viagem?",
+              "en": "Could you pack it up to take away?"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is the biggest meal of the day for most Brazilians?",
+              "options": [
+                "Lunch (almoço)",
+                "Breakfast",
+                "A late snack"
+              ],
+              "answer": 0
+            },
+            {
+              "q": "At a “restaurante por quilo”, you pay…",
+              "options": [
+                "By the weight of your plate",
+                "A fixed price per person",
+                "Only for drinks"
+              ],
+              "answer": 0
+            },
+            {
+              "q": "The 10% “serviço” on a Brazilian bill is…",
+              "options": [
+                "A tip you may decline",
+                "A tax you must pay",
+                "A fee for bread"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u29",
+      "title": "Culture: holidays & celebrations",
+      "lessons": [
+        {
+          "id": "pt-29-1",
+          "title": "Holidays and celebrations",
+          "items": [
+            {
+              "id": "cu-feliz-natal-e-um-prospero-ano-novo",
+              "text": "Feliz Natal e um próspero Ano Novo!",
+              "en": "Merry Christmas and a happy New Year!"
+            },
+            {
+              "id": "cu-parabens-quantos-anos-voce-esta-fazendo",
+              "text": "Parabéns! Quantos anos você está fazendo?",
+              "en": "Happy birthday! How old are you turning?"
+            },
+            {
+              "id": "cu-no-reveillon-a-gente-pula-sete-ondas",
+              "text": "No Réveillon a gente pula sete ondas.",
+              "en": "On New Year's Eve we jump seven waves."
+            },
+            {
+              "id": "cu-na-festa-junina-tem-quadrilha-e-pamonha",
+              "text": "Na festa junina tem quadrilha e pamonha.",
+              "en": "At the June festival there's square dancing and corn cakes."
+            },
+            {
+              "id": "cu-o-carnaval-dura-quatro-dias",
+              "text": "O Carnaval dura quatro dias.",
+              "en": "Carnival lasts four days."
+            },
+            {
+              "id": "cu-segunda-e-feriado-vai-ter-feriadao",
+              "text": "Segunda é feriado, vai ter feriadão!",
+              "en": "Monday is a holiday: it's a long weekend!"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What color do many Brazilians wear on New Year's Eve?",
+              "options": [
+                "White",
+                "Black",
+                "Green"
+              ],
+              "answer": 0
+            },
+            {
+              "q": "Festa junina celebrates…",
+              "options": [
+                "June saints and country life, with bonfires and corn food",
+                "The start of Carnival",
+                "Independence Day"
+              ],
+              "answer": 0
+            },
+            {
+              "q": "At a Brazilian birthday, everyone sings…",
+              "options": [
+                "“Parabéns pra você”",
+                "“Feliz cumpleaños”",
+                "Nothing: they just clap"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u30",
+      "title": "Culture: etiquette & mistakes to avoid",
+      "lessons": [
+        {
+          "id": "pt-30-1",
+          "title": "Etiquette and common mistakes",
+          "items": [
+            {
+              "id": "cu-desculpa-me-enganei",
+              "text": "Desculpa, me enganei.",
+              "en": "Sorry, I made a mistake."
+            },
+            {
+              "id": "cu-com-licenca-sabe-onde-fica-o-banheiro",
+              "text": "Com licença, sabe onde fica o banheiro?",
+              "en": "Excuse me, do you know where the bathroom is?"
+            },
+            {
+              "id": "cu-ja-volto",
+              "text": "Já volto.",
+              "en": "I'll be right back."
+            },
+            {
+              "id": "cu-relaxa-nao-tem-problema",
+              "text": "Relaxa, não tem problema.",
+              "en": "Relax, it's no problem."
+            },
+            {
+              "id": "cu-de-nada",
+              "text": "De nada!",
+              "en": "You're welcome!"
+            },
+            {
+              "id": "cu-imagina-nao-foi-nada",
+              "text": "Imagina, não foi nada.",
+              "en": "Don't mention it, it was nothing."
+            }
+          ],
+          "quiz": [
+            {
+              "q": "“Esquisito” means…",
+              "options": [
+                "Weird, strange",
+                "Exquisite",
+                "Expensive"
+              ],
+              "answer": 0
+            },
+            {
+              "q": "A Brazilian says “Passa lá em casa!” (Drop by my place!). Usually it's…",
+              "options": [
+                "A friendly way to say goodbye, not a fixed plan",
+                "A firm invitation for tonight",
+                "Rude"
+              ],
+              "answer": 0
+            },
+            {
+              "q": "Which is true about being on time in Brazil?",
+              "options": [
+                "Parties start late; work meetings should be on time",
+                "Arriving early to a party is polite",
+                "Nobody is ever on time for anything"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u31",
+      "title": "Culture: Brazil and Portugal",
+      "lessons": [
+        {
+          "id": "pt-31-1",
+          "title": "Brazil and Portugal",
+          "items": [
+            {
+              "id": "cu-que-legal",
+              "text": "Que legal!",
+              "en": "How cool! (Brazil)"
+            },
+            {
+              "id": "cu-que-fixe",
+              "text": "Que fixe!",
+              "en": "How cool! (Portugal)"
+            },
+            {
+              "id": "cu-vou-pegar-o-onibus",
+              "text": "Vou pegar o ônibus.",
+              "en": "I'm taking the bus. (Brazil)"
+            },
+            {
+              "id": "cu-vou-apanhar-o-autocarro",
+              "text": "Vou apanhar o autocarro.",
+              "en": "I'm taking the bus. (Portugal)"
+            },
+            {
+              "id": "cu-bah-tche",
+              "text": "Bah, tchê!",
+              "en": "Wow, buddy! (southern Brazil)"
+            },
+            {
+              "id": "cu-que-trem-bom",
+              "text": "Que trem bom!",
+              "en": "What a great thing! (Minas Gerais)"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "“Fixe” for “cool” sounds like someone from…",
+              "options": [
+                "Portugal",
+                "Rio de Janeiro",
+                "Bahia"
+              ],
+              "answer": 0
+            },
+            {
+              "q": "A mobile phone in Brazil is a…",
+              "options": [
+                "celular",
+                "telemóvel",
+                "móvil"
+              ],
+              "answer": 0
+            },
+            {
+              "q": "In Minas Gerais, “trem” can mean…",
+              "options": [
+                "Almost any thing or stuff",
+                "Only a train",
+                "A train ticket"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

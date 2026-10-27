@@ -1,0 +1,1627 @@
+{
+  "stories": [
+    {
+      "id": "it-cat",
+      "level": 1,
+      "kind": "story",
+      "title": "Il mio gatto",
+      "en": "My cat",
+      "lines": [
+        {
+          "text": "Ho un gatto.",
+          "en": "I have a cat."
+        },
+        {
+          "text": "Si chiama Tito.",
+          "en": "His name is Tito."
+        },
+        {
+          "text": "Tito è nero e piccolo.",
+          "en": "Tito is black and small."
+        },
+        {
+          "text": "Gli piace dormire sul divano.",
+          "en": "He likes to sleep on the sofa."
+        },
+        {
+          "text": "La mattina, Tito mangia il pesce.",
+          "en": "In the morning, Tito eats fish."
+        },
+        {
+          "text": "Tito è il mio amico!",
+          "en": "Tito is my friend!"
+        }
+      ],
+      "glossary": {
+        "ho": "I have",
+        "un": "a",
+        "gatto": "cat",
+        "si": "himself (si chiama: is called)",
+        "chiama": "calls (si chiama: his name is)",
+        "tito": "Tito (a name)",
+        "è": "is",
+        "nero": "black",
+        "e": "and",
+        "piccolo": "small",
+        "gli": "to him (gli piace: he likes)",
+        "piace": "pleases (gli piace: he likes)",
+        "dormire": "to sleep",
+        "sul": "on the (su + il)",
+        "divano": "sofa",
+        "la": "the",
+        "mattina": "morning",
+        "mangia": "eats",
+        "il": "the",
+        "pesce": "fish",
+        "mio": "my",
+        "amico": "friend"
+      },
+      "questions": [
+        {
+          "q": "What is the cat's name?",
+          "options": [
+            "Tito",
+            "Tom",
+            "Leo"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Where does Tito like to sleep?",
+          "options": [
+            "On the sofa",
+            "On the bed",
+            "In the kitchen"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "What does Tito eat in the morning?",
+          "options": [
+            "Fish",
+            "Bread",
+            "Milk"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-cafe",
+      "level": 1,
+      "kind": "dialogue",
+      "title": "Al bar",
+      "en": "At the café",
+      "speakers": {
+        "marco": {
+          "name": "Marco",
+          "voice": "b"
+        },
+        "anna": {
+          "name": "Anna",
+          "voice": "a"
+        }
+      },
+      "lines": [
+        {
+          "speaker": "marco",
+          "text": "Buongiorno! Cosa prende?",
+          "en": "Good morning! What will you have?"
+        },
+        {
+          "speaker": "anna",
+          "text": "Un cappuccino, per favore.",
+          "en": "A cappuccino, please."
+        },
+        {
+          "speaker": "marco",
+          "text": "Altro?",
+          "en": "Anything else?"
+        },
+        {
+          "speaker": "anna",
+          "text": "Sì, un cornetto alla crema.",
+          "en": "Yes, a custard croissant."
+        },
+        {
+          "speaker": "marco",
+          "text": "Con zucchero?",
+          "en": "With sugar?"
+        },
+        {
+          "speaker": "anna",
+          "text": "No, senza zucchero. Quanto fa?",
+          "en": "No, without sugar. How much is it?"
+        },
+        {
+          "speaker": "marco",
+          "text": "Sono due euro e cinquanta.",
+          "en": "That's two euros fifty."
+        }
+      ],
+      "glossary": {
+        "buongiorno": "good morning",
+        "cosa": "what",
+        "prende": "(you) take, will have",
+        "un": "a",
+        "cappuccino": "cappuccino",
+        "per": "for (per favore: please)",
+        "favore": "favor (per favore: please)",
+        "altro": "else, other",
+        "sì": "yes",
+        "cornetto": "croissant",
+        "alla": "with (a + la)",
+        "crema": "custard cream",
+        "con": "with",
+        "zucchero": "sugar",
+        "no": "no",
+        "senza": "without",
+        "quanto": "how much",
+        "fa": "makes (quanto fa: how much is it)",
+        "sono": "(they) are; that's",
+        "due": "two",
+        "euro": "euros",
+        "e": "and",
+        "cinquanta": "fifty"
+      },
+      "questions": [
+        {
+          "q": "What does Anna order to drink?",
+          "options": [
+            "A cappuccino",
+            "A tea",
+            "A juice"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "What does she order to eat?",
+          "options": [
+            "A custard croissant",
+            "A pizza",
+            "Nothing"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "How much is it?",
+          "options": [
+            "€2.50",
+            "€25",
+            "€5"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-saturday",
+      "level": 2,
+      "kind": "story",
+      "title": "Il sabato di Luca",
+      "en": "Luca's Saturday",
+      "lines": [
+        {
+          "text": "Il sabato, Luca si sveglia tardi.",
+          "en": "On Saturdays, Luca wakes up late."
+        },
+        {
+          "text": "Fa colazione con sua sorella.",
+          "en": "He has breakfast with his sister."
+        },
+        {
+          "text": "Poi vanno al mercato.",
+          "en": "Then they go to the market."
+        },
+        {
+          "text": "Comprano frutta, formaggio e pane fresco.",
+          "en": "They buy fruit, cheese and fresh bread."
+        },
+        {
+          "text": "Il pomeriggio, Luca gioca a calcio con gli amici.",
+          "en": "In the afternoon, Luca plays football with his friends."
+        },
+        {
+          "text": "La sera è molto stanco e va a letto presto.",
+          "en": "In the evening he's very tired and goes to bed early."
+        }
+      ],
+      "glossary": {
+        "il": "the",
+        "sabato": "Saturday (il sabato: on Saturdays)",
+        "luca": "Luca (a name)",
+        "si": "himself (si sveglia: wakes up)",
+        "sveglia": "wakes",
+        "tardi": "late",
+        "fa": "does, makes (fa colazione: has breakfast)",
+        "colazione": "breakfast",
+        "con": "with",
+        "sua": "his, her",
+        "sorella": "sister",
+        "poi": "then",
+        "vanno": "they go",
+        "al": "to the (a + il)",
+        "mercato": "market",
+        "comprano": "they buy",
+        "frutta": "fruit",
+        "formaggio": "cheese",
+        "e": "and",
+        "pane": "bread",
+        "fresco": "fresh",
+        "pomeriggio": "afternoon",
+        "gioca": "plays",
+        "a": "at (gioca a calcio: plays football)",
+        "calcio": "football, soccer",
+        "gli": "the",
+        "amici": "friends",
+        "la": "the",
+        "sera": "evening",
+        "è": "is",
+        "molto": "very",
+        "stanco": "tired",
+        "va": "goes",
+        "letto": "bed",
+        "presto": "early"
+      },
+      "questions": [
+        {
+          "q": "When does Luca wake up?",
+          "options": [
+            "Late",
+            "Very early",
+            "At noon exactly"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Where do Luca and his sister go?",
+          "options": [
+            "To the market",
+            "To the beach",
+            "To the cinema"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "What does Luca do in the afternoon?",
+          "options": [
+            "He plays football",
+            "He works",
+            "He sleeps"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-directions",
+      "level": 2,
+      "kind": "dialogue",
+      "title": "Dov'è la stazione?",
+      "en": "Where is the station?",
+      "speakers": {
+        "turista": {
+          "name": "Turista",
+          "voice": "a"
+        },
+        "signore": {
+          "name": "Signor Bruno",
+          "voice": "b"
+        }
+      },
+      "lines": [
+        {
+          "speaker": "turista",
+          "text": "Scusi, dov'è la stazione della metro?",
+          "en": "Excuse me, where is the metro station?"
+        },
+        {
+          "speaker": "signore",
+          "text": "È vicina. Vada dritto per due isolati.",
+          "en": "It's close. Go straight for two blocks."
+        },
+        {
+          "speaker": "turista",
+          "text": "E poi?",
+          "en": "And then?"
+        },
+        {
+          "speaker": "signore",
+          "text": "Poi giri a destra alla farmacia.",
+          "en": "Then turn right at the pharmacy."
+        },
+        {
+          "speaker": "turista",
+          "text": "È lontano?",
+          "en": "Is it far?"
+        },
+        {
+          "speaker": "signore",
+          "text": "No, sono cinque minuti a piedi.",
+          "en": "No, it's five minutes on foot."
+        },
+        {
+          "speaker": "turista",
+          "text": "Grazie mille!",
+          "en": "Thanks a lot!"
+        },
+        {
+          "speaker": "signore",
+          "text": "Prego. Buon viaggio!",
+          "en": "You're welcome. Have a good trip!"
+        }
+      ],
+      "glossary": {
+        "scusi": "excuse me (polite)",
+        "dov'è": "where is",
+        "la": "the",
+        "stazione": "station",
+        "della": "of the (di + la)",
+        "metro": "metro, subway",
+        "è": "it is",
+        "vicina": "near",
+        "vada": "go (polite)",
+        "dritto": "straight",
+        "per": "for",
+        "due": "two",
+        "isolati": "blocks",
+        "e": "and",
+        "poi": "then",
+        "giri": "turn (polite)",
+        "a": "to; on (a piedi)",
+        "destra": "right",
+        "alla": "at the (a + la)",
+        "farmacia": "pharmacy",
+        "lontano": "far",
+        "no": "no",
+        "sono": "(they) are; it's",
+        "cinque": "five",
+        "minuti": "minutes",
+        "piedi": "feet (a piedi: on foot)",
+        "grazie": "thanks",
+        "mille": "a thousand (grazie mille: thanks a lot)",
+        "prego": "you're welcome",
+        "buon": "good",
+        "viaggio": "trip"
+      },
+      "questions": [
+        {
+          "q": "Where does the tourist want to go?",
+          "options": [
+            "The metro station",
+            "The beach",
+            "The hotel"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Where should she turn right?",
+          "options": [
+            "At the pharmacy",
+            "At the bank",
+            "At the church"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "How far is it?",
+          "options": [
+            "Five minutes on foot",
+            "An hour by bus",
+            "Two kilometers"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-napoli",
+      "level": 3,
+      "kind": "story",
+      "title": "Un viaggio a Napoli",
+      "en": "A trip to Naples",
+      "lines": [
+        {
+          "text": "L'anno scorso sono andata a Napoli con la mia migliore amica.",
+          "en": "Last year I went to Naples with my best friend."
+        },
+        {
+          "text": "Abbiamo dormito in un piccolo albergo vicino al mare.",
+          "en": "We slept in a small hotel near the sea."
+        },
+        {
+          "text": "Ogni mattina prendevamo un caffè al bar sotto casa.",
+          "en": "Every morning we had a coffee at the café downstairs."
+        },
+        {
+          "text": "Un giorno abbiamo visitato Pompei e abbiamo camminato per ore.",
+          "en": "One day we visited Pompeii and walked for hours."
+        },
+        {
+          "text": "La sera mangiavamo la pizza più buona del mondo.",
+          "en": "In the evenings we ate the best pizza in the world."
+        },
+        {
+          "text": "È stato il viaggio più bello della mia vita.",
+          "en": "It was the most beautiful trip of my life."
+        }
+      ],
+      "glossary": {
+        "l'anno": "the year",
+        "scorso": "last",
+        "sono": "I (sono andata: I went)",
+        "andata": "gone (woman)",
+        "a": "to",
+        "napoli": "Naples",
+        "con": "with",
+        "la": "the",
+        "mia": "my",
+        "migliore": "best",
+        "amica": "friend (woman)",
+        "abbiamo": "we have (abbiamo dormito: we slept)",
+        "dormito": "slept",
+        "in": "in",
+        "un": "a, one",
+        "piccolo": "small",
+        "albergo": "hotel",
+        "vicino": "near",
+        "al": "to the (a + il)",
+        "mare": "sea",
+        "ogni": "every",
+        "mattina": "morning",
+        "prendevamo": "we would have",
+        "caffè": "coffee",
+        "bar": "café, bar",
+        "sotto": "under (sotto casa: downstairs)",
+        "casa": "home",
+        "giorno": "day",
+        "visitato": "visited",
+        "pompei": "Pompeii",
+        "e": "and",
+        "camminato": "walked",
+        "per": "for",
+        "ore": "hours",
+        "sera": "evening",
+        "mangiavamo": "we would eat",
+        "pizza": "pizza",
+        "più": "most",
+        "buona": "good",
+        "del": "of the (di + il)",
+        "mondo": "world",
+        "è": "it is (è stato: it was)",
+        "stato": "been",
+        "il": "the",
+        "viaggio": "trip",
+        "bello": "beautiful",
+        "della": "of the (di + la)",
+        "vita": "life"
+      },
+      "questions": [
+        {
+          "q": "Who did the narrator travel with?",
+          "options": [
+            "Her best friend",
+            "Her parents",
+            "Nobody"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which place did they visit one day?",
+          "options": [
+            "Pompeii",
+            "Venice",
+            "Milan"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "What did they eat in the evenings?",
+          "options": [
+            "Pizza",
+            "Sushi",
+            "Burgers"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-doctor",
+      "level": 3,
+      "kind": "dialogue",
+      "title": "Dal medico",
+      "en": "At the doctor's",
+      "speakers": {
+        "dottoressa": {
+          "name": "Dottoressa Ferri",
+          "voice": "a"
+        },
+        "paziente": {
+          "name": "Paolo",
+          "voice": "b"
+        }
+      },
+      "lines": [
+        {
+          "speaker": "dottoressa",
+          "text": "Buongiorno, Paolo. Cosa si sente?",
+          "en": "Good morning, Paolo. How are you feeling?"
+        },
+        {
+          "speaker": "paziente",
+          "text": "Ho mal di gola e un po' di febbre.",
+          "en": "I have a sore throat and a bit of a fever."
+        },
+        {
+          "speaker": "dottoressa",
+          "text": "Da quando?",
+          "en": "Since when?"
+        },
+        {
+          "speaker": "paziente",
+          "text": "Da l'altro ieri. Ieri non sono riuscito a lavorare.",
+          "en": "Since the day before yesterday. Yesterday I couldn't work."
+        },
+        {
+          "speaker": "dottoressa",
+          "text": "Le prescrivo uno sciroppo. Lo prenda tre volte al giorno.",
+          "en": "I'll prescribe you a syrup. Take it three times a day."
+        },
+        {
+          "speaker": "paziente",
+          "text": "Posso prenderlo a stomaco vuoto?",
+          "en": "Can I take it on an empty stomach?"
+        },
+        {
+          "speaker": "dottoressa",
+          "text": "Meglio dopo i pasti. E beva molta acqua!",
+          "en": "Better after meals. And drink lots of water!"
+        }
+      ],
+      "glossary": {
+        "buongiorno": "good morning",
+        "paolo": "Paolo (a name)",
+        "cosa": "what",
+        "si": "yourself (si sente: you feel)",
+        "sente": "feel",
+        "ho": "I have",
+        "mal": "ache (mal di gola: sore throat)",
+        "di": "of",
+        "gola": "throat",
+        "e": "and",
+        "un": "a",
+        "po": "bit (un po' di: a bit of)",
+        "febbre": "fever",
+        "da": "since",
+        "quando": "when",
+        "l'altro": "the other (l'altro ieri: the day before yesterday)",
+        "ieri": "yesterday",
+        "non": "not",
+        "sono": "I (sono riuscito: I managed)",
+        "riuscito": "managed",
+        "a": "to; on (a stomaco vuoto)",
+        "lavorare": "to work",
+        "le": "to you (polite)",
+        "prescrivo": "I prescribe",
+        "uno": "a",
+        "sciroppo": "syrup",
+        "lo": "it",
+        "prenda": "take (polite)",
+        "tre": "three",
+        "volte": "times",
+        "al": "per (a + il)",
+        "giorno": "day",
+        "posso": "can I",
+        "prenderlo": "take it",
+        "stomaco": "stomach",
+        "vuoto": "empty",
+        "meglio": "better",
+        "dopo": "after",
+        "i": "the",
+        "pasti": "meals",
+        "beva": "drink (polite)",
+        "molta": "a lot of",
+        "acqua": "water"
+      },
+      "questions": [
+        {
+          "q": "What is wrong with Paolo?",
+          "options": [
+            "A sore throat and a fever",
+            "A broken arm",
+            "A stomachache"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "How often should he take the syrup?",
+          "options": [
+            "Three times a day",
+            "Once a week",
+            "Only at night"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "When should he take it?",
+          "options": [
+            "After meals",
+            "On an empty stomach",
+            "Before sleeping"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-dt-first-date",
+      "level": 4,
+      "kind": "dialogue",
+      "topic": "dating",
+      "title": "Il primo appuntamento",
+      "en": "A first date",
+      "speakers": {
+        "giulia": {
+          "name": "Giulia",
+          "voice": "a"
+        },
+        "matteo": {
+          "name": "Matteo",
+          "voice": "b"
+        }
+      },
+      "lines": [
+        {
+          "speaker": "giulia",
+          "text": "Scusa il ritardo! C'era un traffico pazzesco.",
+          "en": "Sorry I'm late! The traffic was crazy."
+        },
+        {
+          "speaker": "matteo",
+          "text": "Figurati, sono appena arrivato. Ho scelto questo posto perché mi avevi detto che ti piacciono i locali tranquilli.",
+          "en": "Don't worry, I just got here. I chose this place because you told me you like quiet places."
+        },
+        {
+          "speaker": "giulia",
+          "text": "Che carino che te lo sei ricordato! Allora, com'è andata la settimana?",
+          "en": "How sweet that you remembered! So, how did your week go?"
+        },
+        {
+          "speaker": "matteo",
+          "text": "Intensa, ma bella. E tu, come va con l'università?",
+          "en": "Busy, but good. And you, how's university going?"
+        },
+        {
+          "speaker": "giulia",
+          "text": "Faticosa, ma la adoro. Sto progettando una biblioteca.",
+          "en": "Tiring, but I love it. I'm designing a library."
+        },
+        {
+          "speaker": "matteo",
+          "text": "Che bello. Me la fai vedere un giorno?",
+          "en": "How lovely. Will you show it to me one day?"
+        }
+      ],
+      "glossary": {
+        "scusa": "sorry",
+        "il": "the",
+        "ritardo": "lateness, delay",
+        "c'era": "there was",
+        "un": "a",
+        "traffico": "traffic",
+        "pazzesco": "crazy",
+        "figurati": "don't worry, not at all",
+        "sono": "I (sono arrivato: I arrived)",
+        "appena": "just",
+        "arrivato": "arrived",
+        "ho": "I have (ho scelto: I chose)",
+        "scelto": "chosen",
+        "questo": "this",
+        "posto": "place",
+        "perché": "because",
+        "mi": "me, to me",
+        "avevi": "you had",
+        "detto": "said",
+        "che": "that; how (che carino)",
+        "ti": "you, to you",
+        "piacciono": "please (ti piacciono: you like)",
+        "i": "the",
+        "locali": "places, bars",
+        "tranquilli": "quiet",
+        "carino": "sweet, cute",
+        "te": "yourself",
+        "lo": "it",
+        "sei": "you are",
+        "ricordato": "remembered",
+        "allora": "so",
+        "com'è": "how is (com'è andata: how did it go)",
+        "andata": "gone",
+        "la": "the; it",
+        "settimana": "week",
+        "intensa": "busy, intense",
+        "ma": "but",
+        "bella": "good, beautiful",
+        "e": "and",
+        "tu": "you",
+        "come": "how",
+        "va": "goes",
+        "con": "with",
+        "l'università": "university",
+        "faticosa": "tiring",
+        "adoro": "I love",
+        "sto": "I'm (sto progettando: I'm designing)",
+        "progettando": "designing",
+        "una": "a",
+        "biblioteca": "library",
+        "bello": "lovely",
+        "me": "to me",
+        "fai": "you make (me la fai vedere: will you show me)",
+        "vedere": "to see",
+        "giorno": "day"
+      },
+      "questions": [
+        {
+          "q": "Perché Giulia è arrivata in ritardo?",
+          "qEn": "Why was Giulia late?",
+          "options": [
+            {
+              "text": "Per il traffico",
+              "en": "Because of the traffic"
+            },
+            {
+              "text": "Perché si è svegliata tardi",
+              "en": "Because she woke up late"
+            },
+            {
+              "text": "Perché si è persa",
+              "en": "Because she got lost"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Perché Matteo ha scelto quel posto?",
+          "qEn": "Why did Matteo choose that place?",
+          "options": [
+            {
+              "text": "Perché a Giulia piacciono i locali tranquilli",
+              "en": "Because Giulia likes quiet places"
+            },
+            {
+              "text": "Perché costa poco",
+              "en": "Because it's cheap"
+            },
+            {
+              "text": "Perché è vicino a casa sua",
+              "en": "Because it's near his home"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Cosa progetta Giulia?",
+          "qEn": "What is Giulia designing?",
+          "options": [
+            {
+              "text": "Una biblioteca",
+              "en": "A library"
+            },
+            {
+              "text": "Un ospedale",
+              "en": "A hospital"
+            },
+            {
+              "text": "Una casa",
+              "en": "A house"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-dt-left-on-read",
+      "level": 5,
+      "kind": "dialogue",
+      "topic": "dating",
+      "title": "Mi ha lasciato in visualizzato?",
+      "en": "Did he leave me on read?",
+      "speakers": {
+        "chiara": {
+          "name": "Chiara",
+          "voice": "a"
+        },
+        "davide": {
+          "name": "Davide",
+          "voice": "b"
+        }
+      },
+      "lines": [
+        {
+          "speaker": "chiara",
+          "text": "Davide, ha visualizzato il mio messaggio ieri e ancora niente.",
+          "en": "Davide, he saw my message yesterday and still nothing."
+        },
+        {
+          "speaker": "davide",
+          "text": "Calma. Magari è solo pieno di lavoro.",
+          "en": "Relax. Maybe he's just busy with work."
+        },
+        {
+          "speaker": "chiara",
+          "text": "Ma ha pubblicato una storia su Instagram un'ora fa!",
+          "en": "But he posted a story on Instagram an hour ago!"
+        },
+        {
+          "speaker": "davide",
+          "text": "Ok, questo è sospetto. Però per ora non scrivergli più.",
+          "en": "OK, that's suspicious. But don't write to him again for now."
+        },
+        {
+          "speaker": "chiara",
+          "text": "E se pensa che non mi interessa?",
+          "en": "And what if he thinks I'm not interested?"
+        },
+        {
+          "speaker": "davide",
+          "text": "Se gli piaci, risponde. Fidati.",
+          "en": "If he likes you, he'll reply. Trust me."
+        }
+      ],
+      "glossary": {
+        "davide": "Davide (a name)",
+        "ha": "he has (ha visualizzato: he saw)",
+        "visualizzato": "seen, read (a message)",
+        "il": "the",
+        "mio": "my",
+        "messaggio": "message",
+        "ieri": "yesterday",
+        "e": "and",
+        "ancora": "still",
+        "niente": "nothing",
+        "calma": "calm down",
+        "magari": "maybe",
+        "è": "is",
+        "solo": "only, just",
+        "pieno": "full (pieno di lavoro: busy with work)",
+        "di": "of",
+        "lavoro": "work",
+        "ma": "but",
+        "pubblicato": "posted",
+        "una": "a",
+        "storia": "story",
+        "su": "on",
+        "instagram": "Instagram",
+        "un'ora": "an hour",
+        "fa": "ago",
+        "ok": "OK",
+        "questo": "this",
+        "sospetto": "suspicious",
+        "però": "but",
+        "per": "for (per ora: for now)",
+        "ora": "now",
+        "non": "not, don't",
+        "scrivergli": "write to him",
+        "più": "anymore, again",
+        "se": "if",
+        "pensa": "he thinks",
+        "che": "that",
+        "mi": "to me",
+        "interessa": "interests (mi interessa: I'm interested)",
+        "gli": "to him",
+        "piaci": "you please (gli piaci: he likes you)",
+        "risponde": "he replies",
+        "fidati": "trust me"
+      },
+      "questions": [
+        {
+          "q": "Perché Chiara è preoccupata?",
+          "qEn": "Why is Chiara worried?",
+          "options": [
+            {
+              "text": "Lui ha letto il messaggio e non ha risposto",
+              "en": "He read her message and didn't reply"
+            },
+            {
+              "text": "Lui ha annullato l'appuntamento",
+              "en": "He cancelled the date"
+            },
+            {
+              "text": "Lei ha perso il telefono",
+              "en": "She lost her phone"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Cosa sembra sospetto?",
+          "qEn": "What seems suspicious?",
+          "options": [
+            {
+              "text": "Ha pubblicato una storia un'ora fa",
+              "en": "He posted a story an hour ago"
+            },
+            {
+              "text": "Ha cambiato numero",
+              "en": "He changed his number"
+            },
+            {
+              "text": "È in viaggio",
+              "en": "He's traveling"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Qual è il consiglio di Davide?",
+          "qEn": "What's Davide's advice?",
+          "options": [
+            {
+              "text": "Non scrivergli più per ora",
+              "en": "Don't write to him again for now"
+            },
+            {
+              "text": "Chiamarlo subito",
+              "en": "Call him right now"
+            },
+            {
+              "text": "Bloccarlo",
+              "en": "Block him"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-dt-move-in",
+      "level": 6,
+      "kind": "dialogue",
+      "topic": "dating",
+      "title": "Andare a convivere?",
+      "en": "Moving in together?",
+      "speakers": {
+        "sara": {
+          "name": "Sara",
+          "voice": "a"
+        },
+        "lorenzo": {
+          "name": "Lorenzo",
+          "voice": "b"
+        }
+      },
+      "lines": [
+        {
+          "speaker": "sara",
+          "text": "Amore, ormai dormiamo insieme quasi tutte le sere. Perché non andiamo a convivere?",
+          "en": "Love, we sleep together almost every night by now. Why don't we move in together?"
+        },
+        {
+          "speaker": "lorenzo",
+          "text": "Ci ho pensato anch'io, ma ti confesso che sono un po' insicuro.",
+          "en": "I've thought about it too, but I'll admit I'm a bit unsure."
+        },
+        {
+          "speaker": "sara",
+          "text": "Insicuro su cosa? Dimmelo senza giri di parole.",
+          "en": "Unsure about what? Tell me straight out."
+        },
+        {
+          "speaker": "lorenzo",
+          "text": "Sui soldi, sai? E sul mio spazio. A volte ho bisogno di stare da solo.",
+          "en": "About money, you know? And about my space. Sometimes I need to be alone."
+        },
+        {
+          "speaker": "sara",
+          "text": "Ha perfettamente senso. Possiamo dividere le spese in modo giusto e creare un angolo tutto tuo.",
+          "en": "That makes perfect sense. We can split the costs fairly and make a corner all your own."
+        },
+        {
+          "speaker": "lorenzo",
+          "text": "Così è molto più facile. Cominciamo a cercare un appartamento?",
+          "en": "That makes it much easier. Shall we start looking for a flat?"
+        }
+      ],
+      "glossary": {
+        "amore": "love, honey",
+        "ormai": "by now",
+        "dormiamo": "we sleep",
+        "insieme": "together",
+        "quasi": "almost",
+        "tutte": "all",
+        "le": "the",
+        "sere": "evenings, nights",
+        "perché": "why",
+        "non": "not",
+        "andiamo": "we go",
+        "a": "to",
+        "convivere": "to live together",
+        "ci": "about it",
+        "ho": "I have",
+        "pensato": "thought",
+        "anch'io": "me too",
+        "ma": "but",
+        "ti": "to you",
+        "confesso": "I confess",
+        "che": "that",
+        "sono": "I am",
+        "un": "a",
+        "po": "bit",
+        "insicuro": "unsure",
+        "su": "about",
+        "cosa": "what",
+        "dimmelo": "tell me",
+        "senza": "without",
+        "giri": "turns (giri di parole: beating around the bush)",
+        "di": "of",
+        "parole": "words",
+        "sui": "about the (su + i)",
+        "soldi": "money",
+        "sai": "you know",
+        "e": "and",
+        "sul": "about the (su + il)",
+        "mio": "my",
+        "spazio": "space",
+        "volte": "times (a volte: sometimes)",
+        "bisogno": "need (ho bisogno di: I need)",
+        "stare": "to be, to stay",
+        "da": "(da solo: alone)",
+        "solo": "alone",
+        "ha": "it has",
+        "perfettamente": "perfectly",
+        "senso": "sense",
+        "possiamo": "we can",
+        "dividere": "to split",
+        "spese": "costs, expenses",
+        "in": "in",
+        "modo": "way",
+        "giusto": "fair",
+        "creare": "to create",
+        "angolo": "corner",
+        "tutto": "all",
+        "tuo": "yours",
+        "così": "that way",
+        "è": "it is",
+        "molto": "much",
+        "più": "more",
+        "facile": "easy",
+        "cominciamo": "shall we start",
+        "cercare": "to look for",
+        "appartamento": "flat, apartment"
+      },
+      "questions": [
+        {
+          "q": "Cosa propone Sara?",
+          "qEn": "What does Sara suggest?",
+          "options": [
+            {
+              "text": "Andare a convivere",
+              "en": "Moving in together"
+            },
+            {
+              "text": "Fare un viaggio",
+              "en": "Taking a trip"
+            },
+            {
+              "text": "Prendersi una pausa",
+              "en": "Taking a break"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Di cosa si preoccupa Lorenzo?",
+          "qEn": "What is Lorenzo worried about?",
+          "options": [
+            {
+              "text": "Dei soldi e del suo spazio",
+              "en": "Money and his own space"
+            },
+            {
+              "text": "Della famiglia di lei",
+              "en": "Her family"
+            },
+            {
+              "text": "Del lavoro",
+              "en": "Work"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Come risolvono?",
+          "qEn": "How do they solve it?",
+          "options": [
+            {
+              "text": "Dividono le spese e lui avrà un angolo suo",
+              "en": "They split costs and he gets his own corner"
+            },
+            {
+              "text": "Lui resta a casa sua",
+              "en": "He stays at his place"
+            },
+            {
+              "text": "Ci rinunciano",
+              "en": "They give up"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-fl-signals",
+      "level": 4,
+      "kind": "dialogue",
+      "topic": "flirting",
+      "title": "Ci prova o è gentile?",
+      "en": "Flirting, or just being nice?",
+      "speakers": {
+        "elena": {
+          "name": "Elena",
+          "voice": "a"
+        },
+        "nico": {
+          "name": "Nico",
+          "voice": "b"
+        }
+      },
+      "lines": [
+        {
+          "speaker": "elena",
+          "text": "Nico, quel ragazzo al bancone non smette di guardarmi.",
+          "en": "Nico, that guy at the bar won't stop looking at me."
+        },
+        {
+          "speaker": "nico",
+          "text": "L'ho visto. E ha sorriso quando hai riso.",
+          "en": "I saw. And he smiled when you laughed."
+        },
+        {
+          "speaker": "elena",
+          "text": "Secondo te ci sta provando o è solo gentile?",
+          "en": "Do you think he's hitting on me or just being nice?"
+        },
+        {
+          "speaker": "nico",
+          "text": "C'è un solo modo per saperlo: vai lì e attacca bottone.",
+          "en": "There's only one way to find out: go over and strike up a conversation."
+        },
+        {
+          "speaker": "elena",
+          "text": "E se è solo educato?",
+          "en": "And what if he's just being polite?"
+        },
+        {
+          "speaker": "nico",
+          "text": "Allora fai una bella chiacchierata. Non hai niente da perdere!",
+          "en": "Then you have a nice chat. You've got nothing to lose!"
+        }
+      ],
+      "glossary": {
+        "nico": "Nico (a name)",
+        "quel": "that",
+        "ragazzo": "guy, boy",
+        "al": "at the (a + il)",
+        "bancone": "bar counter",
+        "non": "not",
+        "smette": "stops",
+        "di": "of",
+        "guardarmi": "looking at me",
+        "l'ho": "I have it (l'ho visto: I saw it)",
+        "visto": "seen",
+        "e": "and",
+        "ha": "he has (ha sorriso: he smiled)",
+        "sorriso": "smiled",
+        "quando": "when",
+        "hai": "you have",
+        "riso": "laughed",
+        "secondo": "according to (secondo te: do you think)",
+        "te": "you",
+        "ci": "(ci sta provando: he's hitting on)",
+        "sta": "is (sta provando: is trying)",
+        "provando": "trying",
+        "o": "or",
+        "è": "is",
+        "solo": "only, just",
+        "gentile": "kind, nice",
+        "c'è": "there is",
+        "un": "one, a",
+        "modo": "way",
+        "per": "to, for",
+        "saperlo": "to know it",
+        "vai": "go",
+        "lì": "there",
+        "attacca": "strike up (attaccare bottone)",
+        "bottone": "button (attaccare bottone: strike up a conversation)",
+        "se": "if",
+        "educato": "polite",
+        "allora": "then",
+        "fai": "you do, you have",
+        "una": "a",
+        "bella": "nice",
+        "chiacchierata": "chat",
+        "niente": "nothing",
+        "da": "to",
+        "perdere": "lose"
+      },
+      "questions": [
+        {
+          "q": "Cosa fa il ragazzo al bancone?",
+          "qEn": "What is the guy at the bar doing?",
+          "options": [
+            {
+              "text": "Non smette di guardare Elena",
+              "en": "He keeps looking at Elena"
+            },
+            {
+              "text": "Se ne va",
+              "en": "He leaves"
+            },
+            {
+              "text": "Canta",
+              "en": "He sings"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Qual è il consiglio di Nico?",
+          "qEn": "What's Nico's advice?",
+          "options": [
+            {
+              "text": "Andare lì e attaccare bottone",
+              "en": "Go over and strike up a conversation"
+            },
+            {
+              "text": "Aspettare",
+              "en": "Wait"
+            },
+            {
+              "text": "Ignorarlo",
+              "en": "Ignore him"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Se è solo educato, cosa succede?",
+          "qEn": "If he's just being polite, what happens?",
+          "options": [
+            {
+              "text": "Fa una bella chiacchierata",
+              "en": "She has a nice chat"
+            },
+            {
+              "text": "Lei paga da bere",
+              "en": "She buys drinks"
+            },
+            {
+              "text": "Niente",
+              "en": "Nothing"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-fl-worst-line",
+      "level": 5,
+      "kind": "dialogue",
+      "topic": "flirting",
+      "title": "La frase peggiore",
+      "en": "The worst pick-up line",
+      "speakers": {
+        "fede": {
+          "name": "Fede",
+          "voice": "b"
+        },
+        "martina": {
+          "name": "Martina",
+          "voice": "a"
+        }
+      },
+      "lines": [
+        {
+          "speaker": "fede",
+          "text": "Ciao. Hai una mappa? Perché mi sono perso nei tuoi occhi.",
+          "en": "Hi. Do you have a map? Because I got lost in your eyes."
+        },
+        {
+          "speaker": "martina",
+          "text": "Oddio… è la frase più brutta che abbia mai sentito.",
+          "en": "Oh my god… that's the worst line I've ever heard."
+        },
+        {
+          "speaker": "fede",
+          "text": "Lo so, ma ti ho fatto ridere. Missione compiuta.",
+          "en": "I know, but I made you laugh. Mission accomplished."
+        },
+        {
+          "speaker": "martina",
+          "text": "Va bene, ammetto che è stato divertente. Lo fai sempre?",
+          "en": "OK, I admit it was funny. Do you always do it?"
+        },
+        {
+          "speaker": "fede",
+          "text": "Solo quando sono nervoso. Piacere, sono Fede.",
+          "en": "Only when I'm nervous. Nice to meet you, I'm Fede."
+        },
+        {
+          "speaker": "martina",
+          "text": "Piacere, Fede. Io sono Martina. Siediti pure.",
+          "en": "Nice to meet you, Fede. I'm Martina. Go ahead and sit down."
+        }
+      ],
+      "glossary": {
+        "ciao": "hi",
+        "hai": "you have",
+        "una": "a",
+        "mappa": "map",
+        "perché": "because",
+        "mi": "myself (mi sono perso: I got lost)",
+        "sono": "I am; I (sono perso)",
+        "perso": "lost",
+        "nei": "in the (in + i)",
+        "tuoi": "your",
+        "occhi": "eyes",
+        "oddio": "oh my god",
+        "è": "it is",
+        "la": "the",
+        "frase": "line, sentence",
+        "più": "most",
+        "brutta": "ugly, bad",
+        "che": "that",
+        "abbia": "I have (subjunctive)",
+        "mai": "ever",
+        "sentito": "heard",
+        "lo": "it",
+        "so": "I know",
+        "ma": "but",
+        "ti": "you",
+        "ho": "I have (ho fatto: I made)",
+        "fatto": "made",
+        "ridere": "laugh",
+        "missione": "mission",
+        "compiuta": "accomplished",
+        "va": "goes (va bene: OK)",
+        "bene": "well (va bene: OK)",
+        "ammetto": "I admit",
+        "stato": "been (è stato: it was)",
+        "divertente": "funny",
+        "fai": "you do",
+        "sempre": "always",
+        "solo": "only",
+        "quando": "when",
+        "nervoso": "nervous",
+        "piacere": "nice to meet you",
+        "fede": "Fede (a name)",
+        "io": "I",
+        "martina": "Martina (a name)",
+        "siediti": "sit down",
+        "pure": "go ahead"
+      },
+      "questions": [
+        {
+          "q": "Cosa pensa Martina della frase?",
+          "qEn": "What does Martina think of the line?",
+          "options": [
+            {
+              "text": "È la peggiore che abbia mai sentito",
+              "en": "It's the worst she's ever heard"
+            },
+            {
+              "text": "È molto romantica",
+              "en": "It's very romantic"
+            },
+            {
+              "text": "Non la capisce",
+              "en": "She doesn't get it"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Quando lo fa Fede?",
+          "qEn": "When does Fede do it?",
+          "options": [
+            {
+              "text": "Quando è nervoso",
+              "en": "When he's nervous"
+            },
+            {
+              "text": "Ogni giorno",
+              "en": "Every day"
+            },
+            {
+              "text": "Mai",
+              "en": "Never"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Come finisce?",
+          "qEn": "How does it end?",
+          "options": [
+            {
+              "text": "Lei lo invita a sedersi",
+              "en": "She invites him to sit down"
+            },
+            {
+              "text": "Lei se ne va",
+              "en": "She leaves"
+            },
+            {
+              "text": "Lui se ne va",
+              "en": "He leaves"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "it-fl-graceful-no",
+      "level": 6,
+      "kind": "dialogue",
+      "topic": "flirting",
+      "title": "Un “no” con stile",
+      "en": "A friendly no",
+      "speakers": {
+        "simone": {
+          "name": "Simone",
+          "voice": "b"
+        },
+        "alice": {
+          "name": "Alice",
+          "voice": "a"
+        }
+      },
+      "lines": [
+        {
+          "speaker": "simone",
+          "text": "Alice, mi è piaciuta un sacco questa serata. Posso chiederti il numero?",
+          "en": "Alice, I really enjoyed this evening. Can I ask for your number?"
+        },
+        {
+          "speaker": "alice",
+          "text": "Che gentile, Simone. Anch'io mi sono divertita, ma sinceramente non sento la chimica.",
+          "en": "That's kind, Simone. I had fun too, but honestly I don't feel the chemistry."
+        },
+        {
+          "speaker": "simone",
+          "text": "Capisco benissimo. Grazie per essere stata sincera.",
+          "en": "I completely understand. Thanks for being honest."
+        },
+        {
+          "speaker": "alice",
+          "text": "Grazie a te per averla presa così bene. Non tutti reagiscono così.",
+          "en": "Thank you for taking it so well. Not everyone reacts like that."
+        },
+        {
+          "speaker": "simone",
+          "text": "Rispetto la tua risposta. È stato un piacere chiacchierare con te.",
+          "en": "I respect your answer. It was a pleasure chatting with you."
+        },
+        {
+          "speaker": "alice",
+          "text": "Anche per me. Stammi bene!",
+          "en": "For me too. Take care!"
+        }
+      ],
+      "glossary": {
+        "alice": "Alice (a name)",
+        "mi": "to me",
+        "è": "is (è piaciuta: was enjoyed)",
+        "piaciuta": "pleased (mi è piaciuta: I enjoyed)",
+        "un": "a",
+        "sacco": "sack (un sacco: a lot)",
+        "questa": "this",
+        "serata": "evening",
+        "posso": "can I",
+        "chiederti": "ask you",
+        "il": "the",
+        "numero": "number",
+        "che": "how; that",
+        "gentile": "kind",
+        "simone": "Simone (a man's name)",
+        "anch'io": "me too",
+        "sono": "I (mi sono divertita: I had fun)",
+        "divertita": "amused (woman)",
+        "ma": "but",
+        "sinceramente": "honestly",
+        "non": "not",
+        "sento": "I feel",
+        "la": "the",
+        "chimica": "chemistry",
+        "capisco": "I understand",
+        "benissimo": "very well",
+        "grazie": "thanks",
+        "per": "for",
+        "essere": "being",
+        "stata": "been (woman)",
+        "sincera": "honest (woman)",
+        "a": "to",
+        "te": "you",
+        "averla": "having it",
+        "presa": "taken",
+        "così": "so, like that",
+        "bene": "well",
+        "tutti": "everyone",
+        "reagiscono": "react",
+        "rispetto": "I respect",
+        "tua": "your",
+        "risposta": "answer",
+        "stato": "been (è stato: it was)",
+        "piacere": "pleasure",
+        "chiacchierare": "to chat",
+        "con": "with",
+        "anche": "also",
+        "me": "me",
+        "stammi": "stay (stammi bene: take care)"
+      },
+      "questions": [
+        {
+          "q": "Cosa chiede Simone?",
+          "qEn": "What does Simone ask for?",
+          "options": [
+            {
+              "text": "Il numero di Alice",
+              "en": "Alice's number"
+            },
+            {
+              "text": "Un bacio",
+              "en": "A kiss"
+            },
+            {
+              "text": "Un passaggio",
+              "en": "A ride"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Perché Alice dice di no?",
+          "qEn": "Why does Alice say no?",
+          "options": [
+            {
+              "text": "Non sente la chimica",
+              "en": "She doesn't feel the chemistry"
+            },
+            {
+              "text": "Ha il ragazzo",
+              "en": "She has a boyfriend"
+            },
+            {
+              "text": "Si trasferisce",
+              "en": "She's moving away"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Come reagisce Simone?",
+          "qEn": "How does Simone react?",
+          "options": [
+            {
+              "text": "Con rispetto",
+              "en": "With respect"
+            },
+            {
+              "text": "Si arrabbia",
+              "en": "He gets angry"
+            },
+            {
+              "text": "Insiste",
+              "en": "He insists"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ]
+}

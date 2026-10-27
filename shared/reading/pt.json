@@ -1,0 +1,1268 @@
+{
+  "articles": [
+    {
+      "id": "pt-read-park",
+      "level": 1,
+      "kind": "article",
+      "title": "Um parque novo",
+      "en": "A new park",
+      "place": "São Paulo",
+      "lines": [
+        {
+          "text": "Tem um parque novo no bairro.",
+          "en": "There is a new park in the neighborhood."
+        },
+        {
+          "text": "O parque é grande e bonito.",
+          "en": "The park is big and pretty."
+        },
+        {
+          "text": "Tem árvores, flores e um lago pequeno.",
+          "en": "It has trees, flowers and a small lake."
+        },
+        {
+          "text": "As crianças brincam e os cachorros correm.",
+          "en": "The children play and the dogs run."
+        },
+        {
+          "text": "O parque abre todos os dias às seis.",
+          "en": "The park opens every day at six."
+        }
+      ],
+      "glossary": {
+        "tem": "there is; it has",
+        "um": "a",
+        "parque": "park",
+        "novo": "new",
+        "no": "in the (em + o)",
+        "bairro": "neighborhood",
+        "o": "the",
+        "é": "is",
+        "grande": "big",
+        "e": "and",
+        "bonito": "pretty",
+        "árvores": "trees",
+        "flores": "flowers",
+        "lago": "lake",
+        "pequeno": "small",
+        "as": "the",
+        "crianças": "children",
+        "brincam": "play",
+        "os": "the",
+        "cachorros": "dogs",
+        "correm": "run",
+        "abre": "opens",
+        "todos": "all, every",
+        "dias": "days",
+        "às": "at",
+        "seis": "six"
+      },
+      "questions": [
+        {
+          "q": "O que tem no bairro?",
+          "qEn": "What is there in the neighborhood?",
+          "options": [
+            {
+              "text": "Um parque novo",
+              "en": "A new park"
+            },
+            {
+              "text": "Uma escola nova",
+              "en": "A new school"
+            },
+            {
+              "text": "Um shopping",
+              "en": "A mall"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "O que tem no parque?",
+          "qEn": "What does the park have?",
+          "options": [
+            {
+              "text": "Árvores, flores e um lago",
+              "en": "Trees, flowers and a lake"
+            },
+            {
+              "text": "Uma piscina",
+              "en": "A pool"
+            },
+            {
+              "text": "Um cinema",
+              "en": "A cinema"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "A que horas abre o parque?",
+          "qEn": "What time does the park open?",
+          "options": [
+            {
+              "text": "Às seis",
+              "en": "At six"
+            },
+            {
+              "text": "Às dez",
+              "en": "At ten"
+            },
+            {
+              "text": "À meia-noite",
+              "en": "At midnight"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "pt-read-market",
+      "level": 2,
+      "kind": "article",
+      "title": "A feira de domingo",
+      "en": "The Sunday street market",
+      "place": "Belo Horizonte",
+      "lines": [
+        {
+          "text": "Todo domingo tem feira na rua principal.",
+          "en": "Every Sunday there's a street market on the main street."
+        },
+        {
+          "text": "Os vendedores chegam às cinco da manhã.",
+          "en": "The sellers arrive at five in the morning."
+        },
+        {
+          "text": "Eles vendem frutas, verduras, queijo e flores.",
+          "en": "They sell fruit, vegetables, cheese and flowers."
+        },
+        {
+          "text": "O pastel com caldo de cana é o favorito de todo mundo.",
+          "en": "Pastel with sugarcane juice is everyone's favorite."
+        },
+        {
+          "text": "Muitas famílias vão à feira depois do café da manhã.",
+          "en": "Many families go to the market after breakfast."
+        },
+        {
+          "text": "A feira fecha à uma da tarde.",
+          "en": "The market closes at one in the afternoon."
+        }
+      ],
+      "glossary": {
+        "a": "the",
+        "todo": "every",
+        "domingo": "Sunday",
+        "tem": "there is",
+        "feira": "street market",
+        "na": "on the (em + a)",
+        "rua": "street",
+        "principal": "main",
+        "os": "the",
+        "vendedores": "sellers",
+        "chegam": "arrive",
+        "às": "at",
+        "cinco": "five",
+        "da": "of the (de + a)",
+        "manhã": "morning",
+        "eles": "they",
+        "vendem": "sell",
+        "frutas": "fruit",
+        "verduras": "vegetables",
+        "queijo": "cheese",
+        "e": "and",
+        "flores": "flowers",
+        "o": "the",
+        "pastel": "pastel (fried pastry)",
+        "com": "with",
+        "caldo": "juice",
+        "de": "of",
+        "cana": "sugarcane",
+        "é": "is",
+        "favorito": "favorite",
+        "mundo": "world (todo mundo: everyone)",
+        "muitas": "many",
+        "famílias": "families",
+        "vão": "go",
+        "à": "to the; at (à uma)",
+        "depois": "after",
+        "do": "of the (de + o)",
+        "café": "coffee (café da manhã: breakfast)",
+        "fecha": "closes",
+        "uma": "one",
+        "tarde": "afternoon"
+      },
+      "questions": [
+        {
+          "q": "Quando tem feira?",
+          "qEn": "When is there a market?",
+          "options": [
+            {
+              "text": "Todo domingo",
+              "en": "Every Sunday"
+            },
+            {
+              "text": "Toda segunda",
+              "en": "Every Monday"
+            },
+            {
+              "text": "Uma vez por mês",
+              "en": "Once a month"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "O que é o favorito de todo mundo?",
+          "qEn": "What is everyone's favorite?",
+          "options": [
+            {
+              "text": "Pastel com caldo de cana",
+              "en": "Pastel with sugarcane juice"
+            },
+            {
+              "text": "Pão de queijo",
+              "en": "Cheese bread"
+            },
+            {
+              "text": "Açaí",
+              "en": "Açaí"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "A que horas fecha a feira?",
+          "qEn": "When does the market close?",
+          "options": [
+            {
+              "text": "À uma da tarde",
+              "en": "At one in the afternoon"
+            },
+            {
+              "text": "Às cinco da manhã",
+              "en": "At five in the morning"
+            },
+            {
+              "text": "À noite",
+              "en": "At night"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "pt-read-festival",
+      "level": 3,
+      "kind": "article",
+      "title": "Um fim de semana de forró",
+      "en": "A weekend of forró",
+      "place": "Recife",
+      "lines": [
+        {
+          "text": "No último fim de semana, mais de vinte mil pessoas foram ao festival de forró.",
+          "en": "Last weekend, more than twenty thousand people went to the forró festival."
+        },
+        {
+          "text": "Mais de quinze bandas tocaram em três palcos diferentes.",
+          "en": "More than fifteen bands played on three different stages."
+        },
+        {
+          "text": "Muita gente que nunca tinha dançado aprendeu os primeiros passos.",
+          "en": "Lots of people who had never danced learned the first steps."
+        },
+        {
+          "text": "As barracas venderam tapioca, cuscuz e milho cozido.",
+          "en": "The stalls sold tapioca, couscous and boiled corn."
+        },
+        {
+          "text": "Apesar da chuva no sábado, o público ficou até o fim.",
+          "en": "Despite the rain on Saturday, the crowd stayed until the end."
+        },
+        {
+          "text": "Os organizadores já anunciaram a próxima edição para junho.",
+          "en": "The organizers have already announced the next edition for June."
+        }
+      ],
+      "glossary": {
+        "no": "on the",
+        "último": "last",
+        "fim": "end (fim de semana: weekend)",
+        "de": "of",
+        "semana": "week",
+        "mais": "more",
+        "vinte": "twenty",
+        "mil": "thousand",
+        "pessoas": "people",
+        "foram": "went",
+        "ao": "to the (a + o)",
+        "festival": "festival",
+        "forró": "forró (dance music from northeast Brazil)",
+        "quinze": "fifteen",
+        "bandas": "bands",
+        "tocaram": "played",
+        "em": "on, in",
+        "três": "three",
+        "palcos": "stages",
+        "diferentes": "different",
+        "muita": "a lot of",
+        "gente": "people",
+        "que": "who",
+        "nunca": "never",
+        "tinha": "had",
+        "dançado": "danced",
+        "aprendeu": "learned",
+        "os": "the",
+        "primeiros": "first",
+        "passos": "steps",
+        "as": "the",
+        "barracas": "stalls",
+        "venderam": "sold",
+        "tapioca": "tapioca (a cassava crepe)",
+        "cuscuz": "couscous (corn couscous)",
+        "e": "and",
+        "milho": "corn",
+        "cozido": "boiled",
+        "apesar": "despite (apesar de)",
+        "da": "of the",
+        "chuva": "rain",
+        "sábado": "Saturday",
+        "o": "the",
+        "público": "audience, crowd",
+        "ficou": "stayed",
+        "até": "until",
+        "organizadores": "organizers",
+        "já": "already",
+        "anunciaram": "announced",
+        "a": "the",
+        "próxima": "next",
+        "edição": "edition",
+        "para": "for",
+        "junho": "June"
+      },
+      "questions": [
+        {
+          "q": "Quantas pessoas foram ao festival?",
+          "qEn": "How many people went to the festival?",
+          "options": [
+            {
+              "text": "Mais de vinte mil",
+              "en": "More than twenty thousand"
+            },
+            {
+              "text": "Duzentas",
+              "en": "Two hundred"
+            },
+            {
+              "text": "Dois milhões",
+              "en": "Two million"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "O que muita gente aprendeu?",
+          "qEn": "What did lots of people learn?",
+          "options": [
+            {
+              "text": "Os primeiros passos de forró",
+              "en": "The first forró steps"
+            },
+            {
+              "text": "A cozinhar tapioca",
+              "en": "To cook tapioca"
+            },
+            {
+              "text": "A tocar violão",
+              "en": "To play guitar"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "O que aconteceu no sábado?",
+          "qEn": "What happened on Saturday?",
+          "options": [
+            {
+              "text": "Choveu",
+              "en": "It rained"
+            },
+            {
+              "text": "O festival foi cancelado",
+              "en": "The festival was cancelled"
+            },
+            {
+              "text": "Faltou luz",
+              "en": "There was a power cut"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "pt-read-remote",
+      "level": 4,
+      "kind": "article",
+      "title": "Trabalhar de casa para sempre?",
+      "en": "Working from home forever?",
+      "place": "Rio de Janeiro",
+      "lines": [
+        {
+          "text": "Uma pesquisa com duas mil empresas mostra que o trabalho remoto veio para ficar.",
+          "en": "A survey of two thousand companies shows that remote work is here to stay."
+        },
+        {
+          "text": "Sete em cada dez funcionários preferem o modelo híbrido, com dois ou três dias no escritório.",
+          "en": "Seven in ten employees prefer the hybrid model, with two or three days in the office."
+        },
+        {
+          "text": "Eles dizem que economizam tempo e dinheiro com o transporte.",
+          "en": "They say they save time and money on transport."
+        },
+        {
+          "text": "Por outro lado, muitos sentem falta do contato com os colegas.",
+          "en": "On the other hand, many miss contact with their coworkers."
+        },
+        {
+          "text": "Algumas empresas estão transformando os escritórios em espaços de encontro.",
+          "en": "Some companies are turning their offices into meeting spaces."
+        },
+        {
+          "text": "Segundo os especialistas, o desafio agora é manter a cultura da empresa.",
+          "en": "According to experts, the challenge now is to keep the company culture alive."
+        }
+      ],
+      "glossary": {
+        "uma": "a",
+        "pesquisa": "survey",
+        "com": "with; of",
+        "duas": "two",
+        "mil": "thousand",
+        "empresas": "companies",
+        "mostra": "shows",
+        "que": "that",
+        "o": "the",
+        "trabalho": "work",
+        "remoto": "remote",
+        "veio": "came (veio para ficar: is here to stay)",
+        "para": "to, for",
+        "ficar": "to stay",
+        "sete": "seven",
+        "em": "in",
+        "cada": "each, every",
+        "dez": "ten",
+        "funcionários": "employees",
+        "preferem": "prefer",
+        "modelo": "model",
+        "híbrido": "hybrid",
+        "dois": "two",
+        "ou": "or",
+        "três": "three",
+        "dias": "days",
+        "no": "in the",
+        "escritório": "office",
+        "eles": "they",
+        "dizem": "say",
+        "economizam": "save",
+        "tempo": "time",
+        "e": "and",
+        "dinheiro": "money",
+        "transporte": "transport",
+        "por": "on (por outro lado)",
+        "outro": "other",
+        "lado": "side",
+        "muitos": "many",
+        "sentem": "feel (sentem falta: miss)",
+        "falta": "lack (sentir falta: to miss)",
+        "do": "of the",
+        "contato": "contact",
+        "os": "the",
+        "colegas": "coworkers",
+        "algumas": "some",
+        "estão": "are",
+        "transformando": "turning",
+        "escritórios": "offices",
+        "espaços": "spaces",
+        "de": "of",
+        "encontro": "meeting",
+        "segundo": "according to",
+        "especialistas": "experts",
+        "desafio": "challenge",
+        "agora": "now",
+        "é": "is",
+        "manter": "to keep",
+        "a": "the",
+        "cultura": "culture",
+        "da": "of the",
+        "empresa": "company"
+      },
+      "questions": [
+        {
+          "q": "Quantos funcionários preferem o modelo híbrido?",
+          "qEn": "How many employees prefer the hybrid model?",
+          "options": [
+            {
+              "text": "Sete em cada dez",
+              "en": "Seven in ten"
+            },
+            {
+              "text": "Um em cada dez",
+              "en": "One in ten"
+            },
+            {
+              "text": "Todos",
+              "en": "All of them"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Do que muitos sentem falta?",
+          "qEn": "What do many miss?",
+          "options": [
+            {
+              "text": "Do contato com os colegas",
+              "en": "Contact with their coworkers"
+            },
+            {
+              "text": "Do transporte",
+              "en": "The commute"
+            },
+            {
+              "text": "Do chefe",
+              "en": "The boss"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Qual é o desafio agora?",
+          "qEn": "What is the challenge now?",
+          "options": [
+            {
+              "text": "Manter a cultura da empresa",
+              "en": "Keeping the company culture"
+            },
+            {
+              "text": "Pagar menos",
+              "en": "Paying less"
+            },
+            {
+              "text": "Fechar escritórios",
+              "en": "Closing offices"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "pt-news-bikes",
+      "level": 5,
+      "kind": "article",
+      "title": "Curitiba testa bicicletas elétricas gratuitas",
+      "en": "Curitiba trials free electric bikes",
+      "place": "Curitiba",
+      "lines": [
+        {
+          "text": "A prefeitura de Curitiba lançou um projeto-piloto de bicicletas elétricas gratuitas em três bairros.",
+          "en": "Curitiba's city hall has launched a pilot project of free electric bikes in three neighborhoods."
+        },
+        {
+          "text": "Durante seis meses, qualquer pessoa com mais de dezesseis anos poderá usá-las por até uma hora por dia.",
+          "en": "For six months, anyone over sixteen will be able to use them for up to an hour a day."
+        },
+        {
+          "text": "Para desbloquear uma bicicleta, basta se cadastrar num aplicativo e escanear um código.",
+          "en": "To unlock a bike, you just sign up in an app and scan a code."
+        },
+        {
+          "text": "Segundo os organizadores, o objetivo é reduzir os engarrafamentos e a poluição no horário de pico.",
+          "en": "According to the organizers, the goal is to cut traffic jams and pollution at rush hour."
+        },
+        {
+          "text": "Alguns comerciantes temem que as estações ocupem vagas de estacionamento em frente às lojas.",
+          "en": "Some shop owners fear the stations will take up parking spaces in front of their shops."
+        },
+        {
+          "text": "Outros, ao contrário, acreditam que mais ciclistas significam mais clientes passando pela região.",
+          "en": "Others, on the contrary, believe more cyclists mean more customers passing through the area."
+        },
+        {
+          "text": "Se os resultados forem bons, o programa será ampliado para toda a cidade.",
+          "en": "If the results are good, the program will be extended to the whole city."
+        }
+      ],
+      "glossary": {
+        "a": "the",
+        "prefeitura": "city hall",
+        "de": "of",
+        "curitiba": "Curitiba (a city in southern Brazil)",
+        "lançou": "launched",
+        "um": "a",
+        "projeto-piloto": "pilot project",
+        "bicicletas": "bikes",
+        "elétricas": "electric",
+        "gratuitas": "free",
+        "em": "in",
+        "três": "three",
+        "bairros": "neighborhoods",
+        "durante": "for, during",
+        "seis": "six",
+        "meses": "months",
+        "qualquer": "any",
+        "pessoa": "person",
+        "com": "with",
+        "mais": "more",
+        "dezesseis": "sixteen",
+        "anos": "years",
+        "poderá": "will be able to",
+        "usá-las": "use them",
+        "por": "for; per",
+        "até": "up to",
+        "uma": "one, a",
+        "hora": "hour",
+        "dia": "day",
+        "para": "to, in order to",
+        "desbloquear": "to unlock",
+        "bicicleta": "bike",
+        "basta": "it's enough, you just",
+        "se": "yourself",
+        "cadastrar": "to register",
+        "num": "in an (em + um)",
+        "aplicativo": "app",
+        "e": "and",
+        "escanear": "to scan",
+        "código": "code",
+        "segundo": "according to",
+        "os": "the",
+        "organizadores": "organizers",
+        "o": "the",
+        "objetivo": "goal",
+        "é": "is",
+        "reduzir": "to reduce",
+        "engarrafamentos": "traffic jams",
+        "poluição": "pollution",
+        "no": "at the",
+        "horário": "time (horário de pico: rush hour)",
+        "pico": "peak",
+        "alguns": "some",
+        "comerciantes": "shop owners",
+        "temem": "fear",
+        "que": "that",
+        "as": "the",
+        "estações": "stations",
+        "ocupem": "take up (subjunctive)",
+        "vagas": "spaces",
+        "estacionamento": "parking",
+        "frente": "front (em frente a: in front of)",
+        "às": "to the (a + as)",
+        "lojas": "shops",
+        "outros": "others",
+        "ao": "on the (ao contrário: on the contrary)",
+        "contrário": "contrary",
+        "acreditam": "believe",
+        "ciclistas": "cyclists",
+        "significam": "mean",
+        "clientes": "customers",
+        "passando": "passing",
+        "pela": "through the",
+        "região": "area, region",
+        "resultados": "results",
+        "forem": "are (future subjunctive)",
+        "bons": "good",
+        "programa": "program",
+        "será": "will be",
+        "ampliado": "extended",
+        "toda": "all, whole",
+        "cidade": "city"
+      },
+      "questions": [
+        {
+          "q": "Quanto tempo dura o projeto-piloto?",
+          "qEn": "How long does the pilot last?",
+          "options": [
+            {
+              "text": "Seis meses",
+              "en": "Six months"
+            },
+            {
+              "text": "Um ano",
+              "en": "A year"
+            },
+            {
+              "text": "Uma semana",
+              "en": "A week"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Qual é o objetivo do projeto?",
+          "qEn": "What's the goal of the project?",
+          "options": [
+            {
+              "text": "Reduzir engarrafamentos e poluição",
+              "en": "To cut traffic jams and pollution"
+            },
+            {
+              "text": "Vender bicicletas",
+              "en": "To sell bikes"
+            },
+            {
+              "text": "Fechar ruas",
+              "en": "To close streets"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "O que alguns comerciantes temem?",
+          "qEn": "What do some shop owners fear?",
+          "options": [
+            {
+              "text": "Perder vagas de estacionamento",
+              "en": "Losing parking spaces"
+            },
+            {
+              "text": "Perder clientes para a internet",
+              "en": "Losing customers to the internet"
+            },
+            {
+              "text": "Mais barulho",
+              "en": "More noise"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "pt-news-workweek",
+      "level": 5,
+      "kind": "article",
+      "title": "Semana de quatro dias: o resultado em vinte empresas",
+      "en": "A four-day week: the results at twenty companies",
+      "place": "São Paulo",
+      "lines": [
+        {
+          "text": "Durante seis meses, vinte empresas brasileiras testaram a semana de trabalho de quatro dias.",
+          "en": "For six months, twenty Brazilian companies tried out a four-day working week."
+        },
+        {
+          "text": "Os funcionários trabalharam trinta e duas horas por semana, sem redução de salário.",
+          "en": "Employees worked thirty-two hours a week with no cut in pay."
+        },
+        {
+          "text": "A maioria das empresas disse que a produtividade se manteve ou até aumentou.",
+          "en": "Most of the companies said productivity held steady or even rose."
+        },
+        {
+          "text": "Além disso, os pedidos de licença médica caíram quase pela metade.",
+          "en": "What's more, sick-leave requests fell by almost half."
+        },
+        {
+          "text": "Nem tudo foi fácil: algumas equipes tiveram dificuldade para atender clientes na sexta-feira.",
+          "en": "Not everything was easy: some teams struggled to serve customers on Fridays."
+        },
+        {
+          "text": "Mesmo assim, dezessete das vinte empresas decidiram manter o modelo.",
+          "en": "Even so, seventeen of the twenty companies decided to keep the model."
+        },
+        {
+          "text": "Os sindicatos pedem agora que o governo estude uma lei sobre o tema.",
+          "en": "Unions are now asking the government to study a law on the issue."
+        }
+      ],
+      "glossary": {
+        "durante": "for, during",
+        "seis": "six",
+        "meses": "months",
+        "vinte": "twenty",
+        "empresas": "companies",
+        "brasileiras": "Brazilian",
+        "testaram": "tested",
+        "a": "the",
+        "semana": "week",
+        "de": "of",
+        "trabalho": "work",
+        "quatro": "four",
+        "dias": "days",
+        "os": "the",
+        "funcionários": "employees",
+        "trabalharam": "worked",
+        "trinta": "thirty",
+        "e": "and",
+        "duas": "two",
+        "horas": "hours",
+        "por": "per; by",
+        "sem": "without",
+        "redução": "reduction",
+        "salário": "salary",
+        "maioria": "majority, most",
+        "das": "of the",
+        "disse": "said",
+        "que": "that",
+        "produtividade": "productivity",
+        "se": "itself",
+        "manteve": "held steady",
+        "ou": "or",
+        "até": "even",
+        "aumentou": "increased",
+        "além": "besides (além disso: what's more)",
+        "disso": "of that",
+        "pedidos": "requests",
+        "licença": "leave",
+        "médica": "medical",
+        "caíram": "fell",
+        "quase": "almost",
+        "pela": "by the",
+        "metade": "half",
+        "nem": "not",
+        "tudo": "everything",
+        "foi": "was",
+        "fácil": "easy",
+        "algumas": "some",
+        "equipes": "teams",
+        "tiveram": "had",
+        "dificuldade": "difficulty",
+        "para": "to",
+        "atender": "to serve",
+        "clientes": "customers",
+        "na": "on the",
+        "sexta-feira": "Friday",
+        "mesmo": "even (mesmo assim: even so)",
+        "assim": "so",
+        "dezessete": "seventeen",
+        "decidiram": "decided",
+        "manter": "to keep",
+        "o": "the",
+        "modelo": "model",
+        "sindicatos": "unions",
+        "pedem": "ask",
+        "agora": "now",
+        "governo": "government",
+        "estude": "study (subjunctive)",
+        "uma": "a",
+        "lei": "law",
+        "sobre": "on, about",
+        "tema": "issue, topic"
+      },
+      "questions": [
+        {
+          "q": "Quantas horas os funcionários trabalharam durante o teste?",
+          "qEn": "How many hours did employees work during the trial?",
+          "options": [
+            {
+              "text": "Trinta e duas por semana",
+              "en": "Thirty-two a week"
+            },
+            {
+              "text": "Quarenta por semana",
+              "en": "Forty a week"
+            },
+            {
+              "text": "Vinte por semana",
+              "en": "Twenty a week"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "O que aconteceu com a produtividade?",
+          "qEn": "What happened to productivity?",
+          "options": [
+            {
+              "text": "Se manteve ou aumentou",
+              "en": "It held steady or rose"
+            },
+            {
+              "text": "Caiu muito",
+              "en": "It fell a lot"
+            },
+            {
+              "text": "Ninguém mediu",
+              "en": "Nobody measured it"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Quantas empresas vão manter o modelo?",
+          "qEn": "How many companies will keep the model?",
+          "options": [
+            {
+              "text": "Dezessete",
+              "en": "Seventeen"
+            },
+            {
+              "text": "Três",
+              "en": "Three"
+            },
+            {
+              "text": "Todas",
+              "en": "All of them"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "pt-news-ai-school",
+      "level": 6,
+      "kind": "article",
+      "title": "Opinião: a inteligência artificial chegou à sala de aula. E agora?",
+      "en": "Opinion: AI has reached the classroom. Now what?",
+      "place": "Porto Alegre",
+      "lines": [
+        {
+          "text": "Proibir os chatbots nas escolas já não funciona: os alunos os usam no celular, em casa e no ônibus.",
+          "en": "Banning chatbots in schools no longer works: students use them on their phones, at home and on the bus."
+        },
+        {
+          "text": "A pergunta não é mais se a inteligência artificial deve entrar na sala de aula, mas como.",
+          "en": "The question is no longer whether AI should enter the classroom, but how."
+        },
+        {
+          "text": "Um texto bem escrito já não prova que o aluno entendeu o assunto.",
+          "en": "A well-written essay no longer proves that the student understood the subject."
+        },
+        {
+          "text": "Por isso, muitos professores estão voltando às provas orais e aos debates em grupo.",
+          "en": "That's why many teachers are going back to oral exams and group debates."
+        },
+        {
+          "text": "Outros pedem que os alunos mostrem as perguntas que fizeram à máquina e critiquem as respostas.",
+          "en": "Others ask students to show the questions they put to the machine and critique the answers."
+        },
+        {
+          "text": "O risco, a meu ver, é confundir rapidez com aprendizado.",
+          "en": "The risk, as I see it, is confusing speed with learning."
+        },
+        {
+          "text": "A escola precisa ensinar a duvidar, inclusive daquilo que a tela afirma com tanta segurança.",
+          "en": "School needs to teach doubt, including about what the screen states so confidently."
+        }
+      ],
+      "glossary": {
+        "proibir": "to ban",
+        "os": "the; them",
+        "chatbots": "chatbots",
+        "nas": "in the (em + as)",
+        "escolas": "schools",
+        "já": "already (já não: no longer)",
+        "não": "not",
+        "funciona": "works",
+        "alunos": "students",
+        "usam": "use",
+        "no": "on the, in the",
+        "celular": "mobile phone",
+        "em": "at, in",
+        "casa": "home",
+        "e": "and",
+        "ônibus": "bus",
+        "a": "the; to",
+        "pergunta": "question",
+        "é": "is",
+        "mais": "more (não é mais: is no longer)",
+        "se": "whether, if",
+        "inteligência": "intelligence",
+        "artificial": "artificial",
+        "deve": "should",
+        "entrar": "to enter",
+        "na": "in the",
+        "sala": "room (sala de aula: classroom)",
+        "de": "of",
+        "aula": "class",
+        "mas": "but",
+        "como": "how",
+        "um": "a",
+        "texto": "text, essay",
+        "bem": "well",
+        "escrito": "written",
+        "prova": "proves; exam",
+        "que": "that",
+        "o": "the",
+        "aluno": "student",
+        "entendeu": "understood",
+        "assunto": "subject",
+        "por": "for (por isso: that's why)",
+        "isso": "that",
+        "muitos": "many",
+        "professores": "teachers",
+        "estão": "are",
+        "voltando": "going back",
+        "às": "to the (a + as)",
+        "provas": "exams",
+        "orais": "oral",
+        "aos": "to the (a + os)",
+        "debates": "debates",
+        "grupo": "group",
+        "outros": "others",
+        "pedem": "ask",
+        "mostrem": "show (subjunctive)",
+        "as": "the",
+        "perguntas": "questions",
+        "fizeram": "made, asked",
+        "à": "to the",
+        "máquina": "machine",
+        "critiquem": "critique (subjunctive)",
+        "respostas": "answers",
+        "risco": "risk",
+        "meu": "my (a meu ver: as I see it)",
+        "ver": "to see",
+        "confundir": "to confuse",
+        "rapidez": "speed",
+        "com": "with",
+        "aprendizado": "learning",
+        "escola": "school",
+        "precisa": "needs",
+        "ensinar": "to teach",
+        "duvidar": "to doubt",
+        "inclusive": "including",
+        "daquilo": "of that which",
+        "tela": "screen",
+        "afirma": "states",
+        "tanta": "so much",
+        "segurança": "confidence, certainty"
+      },
+      "questions": [
+        {
+          "q": "Segundo o autor, por que proibir os chatbots não funciona?",
+          "qEn": "According to the author, why doesn't banning chatbots work?",
+          "options": [
+            {
+              "text": "Os alunos os usam em todo lugar",
+              "en": "Students use them everywhere"
+            },
+            {
+              "text": "Eles são caros",
+              "en": "They're expensive"
+            },
+            {
+              "text": "A lei não permite",
+              "en": "The law doesn't allow it"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "O que muitos professores estão fazendo?",
+          "qEn": "What are many teachers doing?",
+          "options": [
+            {
+              "text": "Voltando às provas orais e debates",
+              "en": "Going back to oral exams and debates"
+            },
+            {
+              "text": "Proibindo celulares",
+              "en": "Banning phones"
+            },
+            {
+              "text": "Deixando de dar notas",
+              "en": "Stopping grading"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Qual é o risco, para o autor?",
+          "qEn": "What is the risk, for the author?",
+          "options": [
+            {
+              "text": "Confundir rapidez com aprendizado",
+              "en": "Confusing speed with learning"
+            },
+            {
+              "text": "Gastar demais",
+              "en": "Spending too much"
+            },
+            {
+              "text": "Perder empregos",
+              "en": "Losing jobs"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "pt-news-housing",
+      "level": 6,
+      "kind": "article",
+      "title": "O trabalho remoto leva milhares de famílias para cidades pequenas",
+      "en": "Remote work is pushing thousands of families to small towns",
+      "place": "Paraty",
+      "lines": [
+        {
+          "text": "Nos últimos três anos, cidades pequenas do litoral e da serra ganharam milhares de novos moradores.",
+          "en": "Over the last three years, small towns on the coast and in the hills have gained thousands of new residents."
+        },
+        {
+          "text": "Muitos são profissionais que fogem dos aluguéis altos e do trânsito das capitais.",
+          "en": "Many are professionals fleeing high rents and the traffic of the big cities."
+        },
+        {
+          "text": "Para os comerciantes locais, a chegada desse público movimentou a economia.",
+          "en": "For local shop owners, the arrival of these newcomers has boosted the economy."
+        },
+        {
+          "text": "Mas nem todos comemoram: em algumas cidades, o preço dos imóveis dobrou.",
+          "en": "But not everyone is celebrating: in some towns, property prices have doubled."
+        },
+        {
+          "text": "Moradores antigos dizem que já não conseguem pagar para viver onde nasceram.",
+          "en": "Long-time residents say they can no longer afford to live where they were born."
+        },
+        {
+          "text": "A internet também virou um problema, porque a infraestrutura não acompanhou o crescimento.",
+          "en": "The internet has also become a problem, because the infrastructure hasn't kept up with the growth."
+        },
+        {
+          "text": "Especialistas defendem regras para equilibrar o turismo, o trabalho remoto e o direito à moradia.",
+          "en": "Experts are calling for rules to balance tourism, remote work and the right to housing."
+        }
+      ],
+      "glossary": {
+        "nos": "in the (em + os)",
+        "últimos": "last",
+        "três": "three",
+        "anos": "years",
+        "cidades": "towns, cities",
+        "pequenas": "small",
+        "do": "of the",
+        "litoral": "coast",
+        "e": "and",
+        "da": "of the",
+        "serra": "hills, mountains",
+        "ganharam": "gained",
+        "milhares": "thousands",
+        "de": "of",
+        "novos": "new",
+        "moradores": "residents",
+        "muitos": "many",
+        "são": "are",
+        "profissionais": "professionals",
+        "que": "who, that",
+        "fogem": "flee",
+        "dos": "from the",
+        "aluguéis": "rents",
+        "altos": "high",
+        "trânsito": "traffic",
+        "das": "of the",
+        "capitais": "state capitals, big cities",
+        "para": "for; to",
+        "os": "the",
+        "comerciantes": "shop owners",
+        "locais": "local",
+        "a": "the",
+        "chegada": "arrival",
+        "desse": "of this",
+        "público": "public, people",
+        "movimentou": "boosted, stirred up",
+        "economia": "economy",
+        "mas": "but",
+        "nem": "not",
+        "todos": "everyone",
+        "comemoram": "celebrate",
+        "em": "in",
+        "algumas": "some",
+        "o": "the",
+        "preço": "price",
+        "imóveis": "properties",
+        "dobrou": "doubled",
+        "antigos": "long-time, old",
+        "dizem": "say",
+        "já": "already (já não: no longer)",
+        "não": "not",
+        "conseguem": "manage, can",
+        "pagar": "to pay",
+        "viver": "to live",
+        "onde": "where",
+        "nasceram": "were born",
+        "internet": "internet",
+        "também": "also",
+        "virou": "became",
+        "um": "a",
+        "problema": "problem",
+        "porque": "because",
+        "infraestrutura": "infrastructure",
+        "acompanhou": "kept up with",
+        "crescimento": "growth",
+        "especialistas": "experts",
+        "defendem": "call for, argue for",
+        "regras": "rules",
+        "equilibrar": "to balance",
+        "turismo": "tourism",
+        "trabalho": "work",
+        "remoto": "remote",
+        "direito": "right",
+        "à": "to the",
+        "moradia": "housing"
+      },
+      "questions": [
+        {
+          "q": "Por que muitos profissionais se mudam para cidades pequenas?",
+          "qEn": "Why are many professionals moving to small towns?",
+          "options": [
+            {
+              "text": "Fogem dos aluguéis altos e do trânsito",
+              "en": "They're fleeing high rents and traffic"
+            },
+            {
+              "text": "Para estudar",
+              "en": "To study"
+            },
+            {
+              "text": "Para se aposentar",
+              "en": "To retire"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "O que aconteceu com o preço dos imóveis em algumas cidades?",
+          "qEn": "What happened to property prices in some towns?",
+          "options": [
+            {
+              "text": "Dobrou",
+              "en": "It doubled"
+            },
+            {
+              "text": "Caiu",
+              "en": "It fell"
+            },
+            {
+              "text": "Ficou igual",
+              "en": "It stayed the same"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Que problema a internet trouxe?",
+          "qEn": "What problem has the internet caused?",
+          "options": [
+            {
+              "text": "A infraestrutura não acompanhou",
+              "en": "The infrastructure hasn't kept up"
+            },
+            {
+              "text": "É cara demais",
+              "en": "It's too expensive"
+            },
+            {
+              "text": "Foi proibida",
+              "en": "It was banned"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ]
+}

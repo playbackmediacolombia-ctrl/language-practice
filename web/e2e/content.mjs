@@ -72,11 +72,14 @@ await run(async () => {
   // ---------- Role-play hints ----------
   await page.goto(`${BASE}#/es/roleplay/es-food-3`);
   await page.getByTestId('roleplay-start').click();
-  await page.getByTestId('show-hint').waitFor({ timeout: 20000 });
-  await page.getByTestId('show-hint').click();
-  const hint = await page.getByTestId('turn-hint').innerText();
+  await page.getByTestId('hint-btn').waitFor({ timeout: 20000 });
+  await page.getByTestId('hint-btn').click();
   const first = json('scenarios/es').scenarios.find((s) => s.id === 'es-food-3').lines.find((l) => l.who === 'you').text;
-  expect(hint.startsWith('Starts with') && first.startsWith(hint.replace('Starts with ', '').replace('…', '')), `hint: how your line starts (${hint})`);
+  const letter = await page.getByTestId('hint-1').innerText();
+  expect(letter.startsWith('Starts with') && letter.endsWith(first[0]), `hint 1: the first letter (${letter})`);
+  await page.getByTestId('hint-btn').click();
+  const hint = (await page.getByTestId('hint-2').innerText()).replace('…', '').trim();
+  expect(first.startsWith(hint), `hint 2: how your line starts (${hint}…)`);
   await page.screenshot({ path: 'C-hint.png' });
 
   console.log(failures ? `${failures} FAILED` : 'ALL PASS');

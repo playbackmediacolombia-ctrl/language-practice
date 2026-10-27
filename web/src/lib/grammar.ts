@@ -1,5 +1,7 @@
 import es from '../../../shared/grammar/es.json';
 import fr from '../../../shared/grammar/fr.json';
+import it from '../../../shared/grammar/it.json';
+import pt from '../../../shared/grammar/pt.json';
 import zh from '../../../shared/grammar/zh.json';
 import type { Lang } from './content';
 import { getItem, type Item } from './course';
@@ -10,7 +12,7 @@ import { getItem, type Item } from './course';
 type RawTip = { lesson: string; title: string; body: string[]; table?: string[][]; examples?: string[] };
 export type Tip = { lesson: string; title: string; body: string[]; table: [string, string][]; examples: Item[] };
 
-const TIPS = { es, fr, zh } as Record<Lang, { tips: RawTip[] }>;
+const TIPS = { es, fr, zh, pt, it } as Record<Lang, { tips: RawTip[] }>;
 
 export function getTip(lang: Lang, lessonId: string): Tip | undefined {
   const raw = TIPS[lang].tips.find((t) => t.lesson === lessonId);

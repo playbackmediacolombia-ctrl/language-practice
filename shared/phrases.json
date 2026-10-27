@@ -13,7 +13,9 @@
           "zh": {
             "hanzi": "你好",
             "pinyin": "nǐ hǎo"
-          }
+          },
+          "pt": "Olá",
+          "it": "Ciao"
         },
         {
           "id": "greet-goodbye",
@@ -23,7 +25,9 @@
           "zh": {
             "hanzi": "再见",
             "pinyin": "zàijiàn"
-          }
+          },
+          "pt": "Tchau",
+          "it": "Arrivederci"
         },
         {
           "id": "greet-thanks",
@@ -33,7 +37,9 @@
           "zh": {
             "hanzi": "谢谢",
             "pinyin": "xièxie"
-          }
+          },
+          "pt": "Obrigado",
+          "it": "Grazie"
         },
         {
           "id": "greet-how-are-you",
@@ -43,7 +49,9 @@
           "zh": {
             "hanzi": "最近好吗？",
             "pinyin": "zuìjìn hǎo ma?"
-          }
+          },
+          "pt": "Como vai você?",
+          "it": "Come stai?"
         },
         {
           "id": "greet-fine",
@@ -53,7 +61,9 @@
           "zh": {
             "hanzi": "我很好，谢谢。",
             "pinyin": "wǒ hěn hǎo, xièxie."
-          }
+          },
+          "pt": "Estou bem, obrigado.",
+          "it": "Sto bene, grazie."
         },
         {
           "id": "greet-name-q",
@@ -63,7 +73,9 @@
           "zh": {
             "hanzi": "你叫什么名字？",
             "pinyin": "nǐ jiào shénme míngzi?"
-          }
+          },
+          "pt": "Como você se chama?",
+          "it": "Come ti chiami?"
         },
         {
           "id": "greet-name-a",
@@ -73,7 +85,9 @@
           "zh": {
             "hanzi": "我叫安娜。",
             "pinyin": "wǒ jiào Ānnà."
-          }
+          },
+          "pt": "Meu nome é Ana.",
+          "it": "Mi chiamo Anna."
         },
         {
           "id": "greet-nice",
@@ -83,7 +97,9 @@
           "zh": {
             "hanzi": "很高兴认识你。",
             "pinyin": "hěn gāoxìng rènshi nǐ."
-          }
+          },
+          "pt": "Prazer em conhecer.",
+          "it": "Piacere."
         }
       ]
     },
@@ -100,7 +116,9 @@
           "zh": {
             "hanzi": "我饿了。",
             "pinyin": "wǒ è le."
-          }
+          },
+          "pt": "Estou com fome.",
+          "it": "Ho fame."
         },
         {
           "id": "food-water",
@@ -110,7 +128,9 @@
           "zh": {
             "hanzi": "请给我一杯水。",
             "pinyin": "qǐng gěi wǒ yì bēi shuǐ."
-          }
+          },
+          "pt": "Água, por favor.",
+          "it": "Acqua, per favore."
         },
         {
           "id": "food-menu",
@@ -120,7 +140,9 @@
           "zh": {
             "hanzi": "请给我菜单。",
             "pinyin": "qǐng gěi wǒ càidān."
-          }
+          },
+          "pt": "O cardápio, por favor.",
+          "it": "Il menù, per favore."
         },
         {
           "id": "food-coffee",
@@ -130,7 +152,9 @@
           "zh": {
             "hanzi": "我想要一杯咖啡。",
             "pinyin": "wǒ xiǎng yào yì bēi kāfēi."
-          }
+          },
+          "pt": "Eu queria um café.",
+          "it": "Vorrei un caffè."
         },
         {
           "id": "food-delicious",
@@ -140,7 +164,9 @@
           "zh": {
             "hanzi": "很好吃！",
             "pinyin": "hěn hǎochī!"
-          }
+          },
+          "pt": "Está uma delícia!",
+          "it": "È buonissimo!"
         },
         {
           "id": "food-no-meat",
@@ -150,7 +176,9 @@
           "zh": {
             "hanzi": "我不吃肉。",
             "pinyin": "wǒ bù chī ròu."
-          }
+          },
+          "pt": "Eu não como carne.",
+          "it": "Non mangio carne."
         },
         {
           "id": "food-check",
@@ -160,7 +188,9 @@
           "zh": {
             "hanzi": "请结账。",
             "pinyin": "qǐng jiézhàng."
-          }
+          },
+          "pt": "A conta, por favor.",
+          "it": "Il conto, per favore."
         },
         {
           "id": "food-cheers",
@@ -170,7 +200,9 @@
           "zh": {
             "hanzi": "干杯！",
             "pinyin": "gānbēi!"
-          }
+          },
+          "pt": "Saúde!",
+          "it": "Salute!"
         }
       ]
     },
@@ -187,7 +219,9 @@
           "zh": {
             "hanzi": "机场在哪里？",
             "pinyin": "jīchǎng zài nǎlǐ?"
-          }
+          },
+          "pt": "Onde fica o aeroporto?",
+          "it": "Dov'è l'aeroporto?"
         },
         {
           "id": "travel-hotel",
@@ -197,7 +231,9 @@
           "zh": {
             "hanzi": "酒店在哪里？",
             "pinyin": "jiǔdiàn zài nǎlǐ?"
-          }
+          },
+          "pt": "Onde fica o hotel?",
+          "it": "Dov'è l'albergo?"
         },
         {
           "id": "travel-reservation",
@@ -207,7 +243,9 @@
           "zh": {
             "hanzi": "我有预订。",
             "pinyin": "wǒ yǒu yùdìng."
-          }
+          },
+          "pt": "Eu tenho uma reserva.",
+          "it": "Ho una prenotazione."
         },
         {
           "id": "travel-ticket",
@@ -217,7 +255,9 @@
           "zh": {
             "hanzi": "请给我一张票。",
             "pinyin": "qǐng gěi wǒ yì zhāng piào."
-          }
+          },
+          "pt": "Uma passagem, por favor.",
+          "it": "Un biglietto, per favore."
         },
         {
           "id": "travel-cost",
@@ -227,7 +267,9 @@
           "zh": {
             "hanzi": "多少钱？",
             "pinyin": "duōshao qián?"
-          }
+          },
+          "pt": "Quanto custa?",
+          "it": "Quanto costa?"
         },
         {
           "id": "travel-taxi",
@@ -237,7 +279,9 @@
           "zh": {
             "hanzi": "我要打车。",
             "pinyin": "wǒ yào dǎchē."
-          }
+          },
+          "pt": "Preciso de um táxi.",
+          "it": "Ho bisogno di un taxi."
         },
         {
           "id": "travel-train",
@@ -247,7 +291,9 @@
           "zh": {
             "hanzi": "火车几点出发？",
             "pinyin": "huǒchē jǐ diǎn chūfā?"
-          }
+          },
+          "pt": "A que horas sai o trem?",
+          "it": "A che ora parte il treno?"
         },
         {
           "id": "travel-understand",
@@ -257,7 +303,9 @@
           "zh": {
             "hanzi": "我听不懂。",
             "pinyin": "wǒ tīng bù dǒng."
-          }
+          },
+          "pt": "Não entendo.",
+          "it": "Non capisco."
         }
       ]
     },
@@ -277,7 +325,9 @@
           },
           "alt": [
             "123"
-          ]
+          ],
+          "pt": "Um, dois, três.",
+          "it": "Uno, due, tre."
         },
         {
           "id": "num-456",
@@ -290,7 +340,9 @@
           },
           "alt": [
             "456"
-          ]
+          ],
+          "pt": "Quatro, cinco, seis.",
+          "it": "Quattro, cinque, sei."
         },
         {
           "id": "num-7-10",
@@ -303,7 +355,9 @@
           },
           "alt": [
             "78910"
-          ]
+          ],
+          "pt": "Sete, oito, nove, dez.",
+          "it": "Sette, otto, nove, dieci."
         },
         {
           "id": "num-children",
@@ -313,7 +367,9 @@
           "zh": {
             "hanzi": "我有两个孩子。",
             "pinyin": "wǒ yǒu liǎng ge háizi."
-          }
+          },
+          "pt": "Eu tenho dois filhos.",
+          "it": "Ho due figli."
         },
         {
           "id": "num-age-30",
@@ -323,7 +379,9 @@
           "zh": {
             "hanzi": "我三十岁。",
             "pinyin": "wǒ sānshí suì."
-          }
+          },
+          "pt": "Eu tenho trinta anos.",
+          "it": "Ho trent'anni."
         },
         {
           "id": "num-age",
@@ -333,7 +391,9 @@
           "zh": {
             "hanzi": "你几岁？",
             "pinyin": "nǐ jǐ suì?"
-          }
+          },
+          "pt": "Quantos anos você tem?",
+          "it": "Quanti anni hai?"
         },
         {
           "id": "num-time",
@@ -343,7 +403,9 @@
           "zh": {
             "hanzi": "现在几点？",
             "pinyin": "xiànzài jǐ diǎn?"
-          }
+          },
+          "pt": "Que horas são?",
+          "it": "Che ore sono?"
         },
         {
           "id": "num-price",
@@ -353,7 +415,9 @@
           "zh": {
             "hanzi": "一共二十欧元。",
             "pinyin": "yígòng èrshí ōuyuán."
-          }
+          },
+          "pt": "São vinte reais.",
+          "it": "Sono venti euro."
         }
       ]
     },
@@ -370,7 +434,9 @@
           "zh": {
             "hanzi": "洗手间在哪里？",
             "pinyin": "xǐshǒujiān zài nǎlǐ?"
-          }
+          },
+          "pt": "Onde fica o banheiro?",
+          "it": "Dov'è il bagno?"
         },
         {
           "id": "dir-left",
@@ -380,7 +446,9 @@
           "zh": {
             "hanzi": "向左转。",
             "pinyin": "xiàng zuǒ zhuǎn."
-          }
+          },
+          "pt": "Vire à esquerda.",
+          "it": "Giri a sinistra."
         },
         {
           "id": "dir-right",
@@ -390,7 +458,9 @@
           "zh": {
             "hanzi": "向右转。",
             "pinyin": "xiàng yòu zhuǎn."
-          }
+          },
+          "pt": "Vire à direita.",
+          "it": "Giri a destra."
         },
         {
           "id": "dir-straight",
@@ -400,7 +470,9 @@
           "zh": {
             "hanzi": "一直走。",
             "pinyin": "yìzhí zǒu."
-          }
+          },
+          "pt": "Siga reto.",
+          "it": "Vada dritto."
         },
         {
           "id": "dir-far",
@@ -410,7 +482,9 @@
           "zh": {
             "hanzi": "远吗？",
             "pinyin": "yuǎn ma?"
-          }
+          },
+          "pt": "É longe?",
+          "it": "È lontano?"
         },
         {
           "id": "dir-near",
@@ -420,7 +494,9 @@
           "zh": {
             "hanzi": "就在附近。",
             "pinyin": "jiù zài fùjìn."
-          }
+          },
+          "pt": "É perto daqui.",
+          "it": "È qui vicino."
         },
         {
           "id": "dir-metro",
@@ -430,7 +506,9 @@
           "zh": {
             "hanzi": "地铁站在哪里？",
             "pinyin": "dìtiězhàn zài nǎlǐ?"
-          }
+          },
+          "pt": "Onde fica a estação de metrô?",
+          "it": "Dov'è la stazione della metro?"
         },
         {
           "id": "dir-help",
@@ -440,7 +518,9 @@
           "zh": {
             "hanzi": "你能帮我吗？",
             "pinyin": "nǐ néng bāng wǒ ma?"
-          }
+          },
+          "pt": "Pode me ajudar?",
+          "it": "Mi può aiutare?"
         }
       ]
     }

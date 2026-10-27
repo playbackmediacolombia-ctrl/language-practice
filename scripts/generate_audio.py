@@ -36,6 +36,8 @@ VOICES = {
     "es": "es-CO-SalomeNeural",
     "fr": "fr-FR-DeniseNeural",
     "zh": "zh-CN-XiaoxiaoNeural",
+    "pt": "pt-BR-FranciscaNeural",
+    "it": "it-IT-ElsaNeural",
 }
 # Stories and dialogues: assets/audio/stories/<lang>/<story id>-<line>.mp3. Narration and dialogue
 # speakers with "voice": "a" use VOICES; speakers with "voice": "b" use this second (male) voice.
@@ -55,6 +57,8 @@ SECOND_VOICES = {
     "es": "es-CO-GonzaloNeural",
     "fr": "fr-FR-HenriNeural",
     "zh": "zh-CN-YunxiNeural",
+    "pt": "pt-BR-AntonioNeural",
+    "it": "it-IT-DiegoNeural",
 }
 # Slightly slower than normal speech, easier for a learner to follow.
 RATE = "-10%"
@@ -137,6 +141,23 @@ class Texts:
         self.file.write_text(json.dumps(self.data, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
+# Clips are made a few at a time: each one is a round trip to the voice service.
+PARALLEL = 6
+
+
+async def run_jobs(jobs: list) -> int:
+    """Runs (label, make) jobs, PARALLEL at a time; `make` is an async function doing one clip."""
+    limit = asyncio.Semaphore(PARALLEL)
+
+    async def one(label, make):
+        async with limit:
+            print(label, flush=True)
+            await make()
+
+    await asyncio.gather(*(one(label, make) for label, make in jobs))
+    return len(jobs)
+
+
 async def main() -> None:
     data = json.loads(PHRASES.read_text(encoding="utf-8"))
     phrases = [p for topic in data["topics"] for p in topic["phrases"]]
@@ -145,21 +166,26 @@ async def main() -> None:
     for lang, voice in VOICES.items():
         (AUDIO_DIR / lang).mkdir(parents=True, exist_ok=True)
         texts = Texts(AUDIO_DIR / lang)
+        jobs = []
         for phrase in phrases:
             out = AUDIO_DIR / lang / f"{phrase['id']}.mp3"
             text = text_for(phrase, lang)
             if not texts.stale(phrase["id"], out, text):
                 continue
-            print(f"{lang}  {phrase['id']}: {text}")
-            await synth(text, voice, out)
-            texts.made(phrase["id"], text)
-            made += 1
+
+            async def make(text=text, out=out, name=phrase["id"], voice=voice, texts=texts):
+                await synth(text, voice, out)
+                texts.made(name, text)
+
+            jobs.append((f"{lang}  {phrase['id']}: {text}", make))
+        made += await run_jobs(jobs)
         texts.save()
 
     for lang, voice in VOICES.items():
         course = json.loads((COURSE_DIR / f"{lang}.json").read_text(encoding="utf-8"))
         (COURSE_AUDIO_DIR / lang).mkdir(parents=True, exist_ok=True)
         texts = Texts(COURSE_AUDIO_DIR / lang)
+        jobs = []
         for unit in course["units"]:
             for lesson in unit["lessons"]:
                 for item in lesson["items"]:
@@ -167,10 +193,13 @@ async def main() -> None:
                     text = item.get("say", item["text"])
                     if not texts.stale(item["id"], out, text):
                         continue
-                    print(f"course {lang}  {item['id']}: {text}")
-                    await synth(text, voice, out)
-                    texts.made(item["id"], text)
-                    made += 1
+
+                    async def make(text=text, out=out, name=item["id"], voice=voice, texts=texts):
+                        await synth(text, voice, out)
+                        texts.made(name, text)
+
+                    jobs.append((f"course {lang}  {item['id']}: {text}", make))
+        made += await run_jobs(jobs)
         texts.save()
 
     # Clips are named by position, so remember each one's text and remake it if that changes.
@@ -180,16 +209,20 @@ async def main() -> None:
         folder.mkdir(parents=True, exist_ok=True)
         texts_file = folder / "texts.json"
         texts = json.loads(texts_file.read_text(encoding="utf-8")) if texts_file.exists() else {}
+        jobs = []
         for category, lines in coach[lang].items():
             for i, line in enumerate(lines):
                 name = f"{category}-{i}"
                 out = folder / f"{name}.mp3"
                 if out.exists() and out.stat().st_size > 0 and texts.get(name) == line["text"]:
                     continue
-                print(f"feedback {lang}  {name}: {line['text']}")
-                await synth(line["text"], voice, out)
-                texts[name] = line["text"]
-                made += 1
+
+                async def make(text=line["text"], out=out, name=name, voice=voice, texts=texts):
+                    await synth(text, voice, out)
+                    texts[name] = text
+
+                jobs.append((f"feedback {lang}  {name}: {line['text']}", make))
+        made += await run_jobs(jobs)
         texts_file.write_text(json.dumps(texts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     for lang, voice in VOICES.items():
@@ -204,6 +237,7 @@ async def main() -> None:
         reading = READING_DIR / f"{lang}.json"
         if reading.exists():
             stories += json.loads(reading.read_text(encoding="utf-8"))["articles"]
+        jobs = []
         for story in stories:
             speakers = story.get("speakers", {})
             for i, line in enumerate(story["lines"]):
@@ -214,10 +248,13 @@ async def main() -> None:
                 out = folder / f"{name}.mp3"
                 if out.exists() and out.stat().st_size > 0 and texts.get(name) == key:
                     continue
-                print(f"story {lang}  {name}: {line['text']}")
-                await synth(line["text"], line_voice, out)
-                texts[name] = key
-                made += 1
+
+                async def make(text=line["text"], out=out, name=name, voice=line_voice, key=key, texts=texts):
+                    await synth(text, voice, out)
+                    texts[name] = key
+
+                jobs.append((f"story {lang}  {name}: {line['text']}", make))
+        made += await run_jobs(jobs)
         texts_file.write_text(json.dumps(texts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     for lang, voice in VOICES.items():
@@ -227,6 +264,7 @@ async def main() -> None:
         folder = SCENARIOS_AUDIO_DIR / lang
         folder.mkdir(parents=True, exist_ok=True)
         texts = Texts(folder)
+        jobs = []
         for scenario in json.loads(file.read_text(encoding="utf-8"))["scenarios"]:
             for i, line in enumerate(scenario["lines"]):
                 name = f"{scenario['id']}-{i}"
@@ -235,10 +273,13 @@ async def main() -> None:
                 out = folder / f"{name}.mp3"
                 if not texts.stale(name, out, key):
                     continue
-                print(f"role-play {lang}  {name}: {line['text']}")
-                await synth(line["text"], line_voice, out)
-                texts.made(name, key)
-                made += 1
+
+                async def make(text=line["text"], out=out, name=name, voice=line_voice, key=key, texts=texts):
+                    await synth(text, voice, out)
+                    texts.made(name, key)
+
+                jobs.append((f"role-play {lang}  {name}: {line['text']}", make))
+        made += await run_jobs(jobs)
         texts.save()
 
     for lang, voice in VOICES.items():
@@ -250,6 +291,7 @@ async def main() -> None:
         texts = Texts(folder)
         timings_file = folder / "timings.json"
         timings = json.loads(timings_file.read_text(encoding="utf-8")) if timings_file.exists() else {}
+        jobs = []
         for chant in json.loads(file.read_text(encoding="utf-8"))["chants"]:
             for i, line in enumerate(chant["lines"]):
                 name = f"{chant['id']}-{i}"
@@ -257,10 +299,13 @@ async def main() -> None:
                 out = folder / f"{name}.mp3"
                 if not texts.stale(name, out, key) and name in timings:
                     continue
-                print(f"chant {lang}  {name}: {line['text']}")
-                timings[name] = await synth_words(line["text"], voice, out)
-                texts.made(name, key)
-                made += 1
+
+                async def make(text=line["text"], out=out, name=name, voice=voice, key=key, texts=texts, timings=timings):
+                    timings[name] = await synth_words(text, voice, out)
+                    texts.made(name, key)
+
+                jobs.append((f"chant {lang}  {name}: {line['text']}", make))
+        made += await run_jobs(jobs)
         texts.save()
         timings_file.write_text(json.dumps(timings, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
 

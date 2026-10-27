@@ -11,7 +11,7 @@ const expect = (ok, msg) => {
 };
 
 // Data: five culture lessons per language, each with six phrases (with audio) and three questions.
-for (const l of ['es', 'fr', 'zh']) {
+for (const l of ['es', 'fr', 'zh', 'pt', 'it']) {
   const units = course(l).units.filter((u) => ['u27', 'u28', 'u29', 'u30', 'u31'].includes(u.id));
   const ok = units.length === 5 && units.every((u) => u.lessons[0].items.length === 6 && u.lessons[0].quiz.length === 3);
   expect(ok, `${l}: five culture lessons, six phrases and a three-question quiz each`);

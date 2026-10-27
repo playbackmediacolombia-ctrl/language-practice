@@ -11,7 +11,7 @@ const expect = (ok, msg) => {
 };
 
 // Data: emoji are only decoration, never a word tile; each unit has two lessons of six.
-for (const lang of ['es', 'fr', 'zh']) {
+for (const lang of ['es', 'fr', 'zh', 'pt', 'it']) {
   const units = json(`course/${lang}`).units.filter((u) => ['u21', 'u22', 'u23'].includes(u.id));
   const items = units.flatMap((u) => u.lessons.flatMap((l) => l.items));
   expect(units.length === 3 && items.length === 36, `${lang}: three dating units, 36 phrases`);

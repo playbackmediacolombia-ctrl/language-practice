@@ -1,8 +1,12 @@
 import es from '../../../shared/stories/es.json';
 import fr from '../../../shared/stories/fr.json';
+import it from '../../../shared/stories/it.json';
+import pt from '../../../shared/stories/pt.json';
 import zh from '../../../shared/stories/zh.json';
 import esReading from '../../../shared/reading/es.json';
 import frReading from '../../../shared/reading/fr.json';
+import itReading from '../../../shared/reading/it.json';
+import ptReading from '../../../shared/reading/pt.json';
 import zhReading from '../../../shared/reading/zh.json';
 import type { Lang } from './content';
 
@@ -48,8 +52,8 @@ export const LEVELS = [
 export const STORY_TOPICS = { dating: 'Dating', flirting: 'Flirting (18+)' };
 
 type RawStory = Omit<Story, 'lines'> & { lines: Omit<Line, 'audio'>[] };
-const RAW = { es, fr, zh } as unknown as Record<Lang, { stories: RawStory[] }>;
-const READING = { es: esReading, fr: frReading, zh: zhReading } as unknown as Record<Lang, { articles: RawStory[] }>;
+const RAW = { es, fr, zh, pt, it } as unknown as Record<Lang, { stories: RawStory[] }>;
+const READING = { es: esReading, fr: frReading, zh: zhReading, pt: ptReading, it: itReading } as unknown as Record<Lang, { articles: RawStory[] }>;
 const cache = new Map<string, Story[]>();
 
 const withAudio = (lang: Lang, s: RawStory): Story => ({

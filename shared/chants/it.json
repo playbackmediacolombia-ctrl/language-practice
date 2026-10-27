@@ -1,0 +1,160 @@
+{
+  "chants": [
+    {
+      "id": "it-chant-ciao",
+      "level": 1,
+      "kind": "chant",
+      "title": "Ciao, ciao",
+      "en": "Hi, hi",
+      "bpm": 96,
+      "lines": [
+        {
+          "text": "Ciao, ciao, come stai?",
+          "en": "Hi, hi, how are you?"
+        },
+        {
+          "text": "Bene, bene, e tu come vai?",
+          "en": "Fine, fine, and how are you doing?"
+        },
+        {
+          "text": "Buongiorno, buonasera, buonanotte.",
+          "en": "Good morning, good evening, good night."
+        },
+        {
+          "text": "A domani, ci vediamo, ciao a tutte!",
+          "en": "See you tomorrow, see you soon, bye everyone!"
+        }
+      ]
+    },
+    {
+      "id": "it-chant-settimana",
+      "level": 2,
+      "kind": "chant",
+      "title": "I giorni della settimana",
+      "en": "The days of the week",
+      "bpm": 100,
+      "lines": [
+        {
+          "text": "Lunedì, martedì, mercoledì, tre.",
+          "en": "Monday, Tuesday, Wednesday: three."
+        },
+        {
+          "text": "Giovedì, venerdì, son cinque per me.",
+          "en": "Thursday, Friday, that's five for me."
+        },
+        {
+          "text": "Sabato e domenica, mi riposo un po'.",
+          "en": "Saturday and Sunday, I rest a bit."
+        },
+        {
+          "text": "E lunedì di nuovo ricomincerò!",
+          "en": "And on Monday I'll start all over again!"
+        }
+      ]
+    },
+    {
+      "id": "it-chant-mercato",
+      "level": 3,
+      "kind": "song",
+      "title": "Ieri al mercato",
+      "en": "Yesterday at the market",
+      "bpm": 92,
+      "lines": [
+        {
+          "text": "Ieri sono andata al mercato a comprar.",
+          "en": "Yesterday I went to the market to shop."
+        },
+        {
+          "text": "Ho preso pesche, pane e un po' di formaggio da portar.",
+          "en": "I got peaches, bread and a bit of cheese to take home."
+        },
+        {
+          "text": "Ho parlato con la signora del caffè,",
+          "en": "I talked with the coffee lady,"
+        },
+        {
+          "text": "e sono tornata a casa cantando per te!",
+          "en": "and I came home singing for you!"
+        }
+      ]
+    },
+    {
+      "id": "it-chant-se-avessi",
+      "level": 4,
+      "kind": "song",
+      "title": "Se avessi tempo",
+      "en": "If I had time",
+      "bpm": 88,
+      "lines": [
+        {
+          "text": "Se avessi tempo, andrei al mare.",
+          "en": "If I had time, I'd go to the sea."
+        },
+        {
+          "text": "Se avessi le ali, potrei volare.",
+          "en": "If I had wings, I could fly."
+        },
+        {
+          "text": "Ma oggi studio, passo dopo passo,",
+          "en": "But today I study, step after step,"
+        },
+        {
+          "text": "e ogni parola mi porta più in alto!",
+          "en": "and every word takes me higher!"
+        }
+      ]
+    },
+    {
+      "id": "it-chant-speriamo",
+      "level": 5,
+      "kind": "song",
+      "title": "Speriamo",
+      "en": "Let's hope",
+      "bpm": 84,
+      "lines": [
+        {
+          "text": "Speriamo che domani ci sia il sole.",
+          "en": "Let's hope the sun is out tomorrow."
+        },
+        {
+          "text": "Speriamo che tu mi scriva con parole d'amore.",
+          "en": "Let's hope you write to me with words of love."
+        },
+        {
+          "text": "Spero che tu continui, che non ti arrenda,",
+          "en": "I hope you keep going, that you don't give up,"
+        },
+        {
+          "text": "che ogni parola una porta ti apra e ti sorprenda!",
+          "en": "that every word opens a door and surprises you!"
+        }
+      ]
+    },
+    {
+      "id": "it-chant-daje",
+      "level": 6,
+      "kind": "chant",
+      "title": "Daje, raga!",
+      "en": "Come on, guys!",
+      "bpm": 104,
+      "lines": [
+        {
+          "text": "Daje, raga! Tutto a posto, tutto bene.",
+          "en": "Come on, guys! All good, all fine."
+        },
+        {
+          "text": "Parlo italiano e mi scorre nelle vene.",
+          "en": "I speak Italian and it runs through my veins."
+        },
+        {
+          "text": "Non mi vergogno, ci provo e via,",
+          "en": "I'm not shy, I give it a go and off I go,"
+        },
+        {
+          "text": "e se sbaglio, rido, e continuo in compagnia!",
+          "en": "and if I get it wrong, I laugh and keep going with friends!"
+        }
+      ]
+    }
+  ]
+}

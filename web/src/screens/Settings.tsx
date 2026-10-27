@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { playPhrase } from '../lib/audio';
+import { downloadPack, megabytes, type PackId, refreshPack, removePack, usePack } from '../lib/audioPacks';
 import { type BackupSummary, currentSummary, readBackup, saveBackup } from '../lib/backup';
 import { getPhrases, getTopics, LANGS } from '../lib/content';
 import { currentLevel, hasStarted } from '../lib/course';
@@ -350,12 +351,19 @@ export function Settings() {
             <span className={online ? 'dot ok' : 'dot off'} aria-hidden="true" />
             {online ? 'Online' : "You're offline. Everything below still works."}
           </p>
-          <OfflineRow ok={!!offline?.app} label="App, lessons, stories and all audio" detail={offline?.app ? `Saved on this phone (${offline.files} files)` : offline ? 'Saving… keep the app open while online' : 'Checking…'} />
+          <OfflineRow ok={!!offline?.app} label="App, lessons and stories" detail={offline?.app ? `Saved on this phone (${offline.files} files)` : offline ? 'Saving… keep the app open while online' : 'Checking…'} />
           <OfflineRow
             ok={ready}
             label={`Speech model (${info.label.toLowerCase()})`}
             detail={ready ? 'Saved on this phone' : 'Needed to check your speaking offline: download it above'}
           />
+          <p className="muted small" style={{ margin: '4px 0 0' }}>
+            Recordings download for the languages you learn, so the others take no space.
+          </p>
+          {LANGS.map((l) => (
+            <AudioPackRow key={l.id} pack={l.id} label={`${l.name} audio`} learning={l.id === prefs.lang || hasStarted(prefs, l.id)} />
+          ))}
+          <AudioPackRow pack="en" label="Hands-free English voice" learning={false} />
           {offline?.usage != null && (
             <p className="muted small" style={{ margin: 0 }}>
               Using {formatBytes(offline.usage)} on this phone.{' '}
@@ -418,6 +426,47 @@ function AppVersion() {
         </div>
       </div>
     </>
+  );
+}
+
+/** A language's recordings: how much is on the phone, with Download or Remove. */
+function AudioPackRow({ pack, label, learning }: { pack: PackId; label: string; learning: boolean }) {
+  const state = usePack(pack);
+  useEffect(() => {
+    void refreshPack(pack);
+  }, [pack]);
+  const ready = state.total > 0 && state.done >= state.total;
+  const size = state.bytes ? megabytes(state.bytes) : '';
+  const detail = !state.total
+    ? 'Checking…'
+    : ready
+      ? `Saved on this phone (${size})`
+      : state.downloading
+        ? `Downloading… ${Math.floor((state.done / state.total) * 100)}% of ${size}`
+        : state.done
+          ? `Partly saved (${Math.floor((state.done / state.total) * 100)}% of ${size})${state.error ? ": it finishes when you're back online" : ''}`
+          : `Not downloaded (${size})`;
+  return (
+    <div className="row offline-row" data-testid={`pack-${pack}`} data-ready={ready ? 'yes' : 'no'}>
+      <span className={ready ? 'offline-icon ok' : 'offline-icon'}>
+        <Icon name={ready ? 'check' : 'download'} size={18} />
+      </span>
+      <span className="grow">
+        <span className="row-title">{label}</span>
+        <span className="row-hint">{detail}</span>
+        {state.downloading && <ProgressBar value={state.total ? state.done / state.total : 0} />}
+      </span>
+      {!ready && !state.downloading && state.total > 0 && (
+        <button className="btn secondary sound-sm pack-btn" onClick={() => void downloadPack(pack)} aria-label={`Download ${label}`}>
+          <Icon name="download" size={18} />
+        </button>
+      )}
+      {state.done > 0 && !state.downloading && !learning && (
+        <button className="btn secondary sound-sm pack-btn" onClick={() => confirm(`Remove ${label} from this phone? It downloads again if you need it. Your progress stays.`) && void removePack(pack)} aria-label={`Remove ${label}`}>
+          <Icon name="close" size={18} />
+        </button>
+      )}
+    </div>
   );
 }
 

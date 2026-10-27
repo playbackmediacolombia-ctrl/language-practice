@@ -24,6 +24,8 @@ const TO_SIMPLIFIED: Record<string, string> = {
 const NUMBER_WORDS: Partial<Record<Lang, Record<string, string>>> = {
   es: { 1: 'uno', 2: 'dos', 3: 'tres', 4: 'cuatro', 5: 'cinco', 6: 'seis', 7: 'siete', 8: 'ocho', 9: 'nueve', 10: 'diez', 20: 'veinte', 30: 'treinta', 100: 'cien' },
   fr: { 1: 'un', 2: 'deux', 3: 'trois', 4: 'quatre', 5: 'cinq', 6: 'six', 7: 'sept', 8: 'huit', 9: 'neuf', 10: 'dix', 20: 'vingt', 30: 'trente', 100: 'cent' },
+  pt: { 1: 'um', 2: 'dois', 3: 'três', 4: 'quatro', 5: 'cinco', 6: 'seis', 7: 'sete', 8: 'oito', 9: 'nove', 10: 'dez', 12: 'doze', 20: 'vinte', 30: 'trinta', 100: 'cem' },
+  it: { 1: 'uno', 2: 'due', 3: 'tre', 4: 'quattro', 5: 'cinque', 6: 'sei', 7: 'sette', 8: 'otto', 9: 'nove', 10: 'dieci', 12: 'dodici', 20: 'venti', 30: 'trenta', 100: 'cento' },
 };
 
 const ZH_DIGITS = '零一二三四五六七八九';

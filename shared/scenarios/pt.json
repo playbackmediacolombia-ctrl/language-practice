@@ -1,0 +1,1315 @@
+{
+  "scenarios": [
+    {
+      "id": "pt-food-1",
+      "topic": "food",
+      "level": 1,
+      "title": "Na lanchonete",
+      "en": "At the snack bar",
+      "setting": "You're at a snack bar in São Paulo. The waiter comes over.",
+      "them": "Waiter",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Bom dia! O que vai querer?",
+          "en": "Good morning! What would you like?"
+        },
+        {
+          "who": "you",
+          "text": "Um café com leite, por favor.",
+          "en": "A coffee with milk, please."
+        },
+        {
+          "who": "them",
+          "text": "Vai comer alguma coisa?",
+          "en": "Anything to eat?"
+        },
+        {
+          "who": "you",
+          "text": "Sim, um pão de queijo.",
+          "en": "Yes, a cheese bread."
+        },
+        {
+          "who": "them",
+          "text": "Certo. São doze reais.",
+          "en": "OK. That's twelve reais."
+        },
+        {
+          "who": "you",
+          "text": "Aqui está. Obrigado.",
+          "en": "Here you go. Thanks."
+        },
+        {
+          "who": "them",
+          "text": "Obrigado! Bom dia para você.",
+          "en": "Thank you! Have a good day."
+        }
+      ]
+    },
+    {
+      "id": "pt-directions-1",
+      "topic": "directions",
+      "level": 1,
+      "title": "Onde fica o banco?",
+      "en": "Where's the bank?",
+      "setting": "You're downtown and need a bank.",
+      "them": "Passer-by",
+      "lines": [
+        {
+          "who": "you",
+          "text": "Com licença, onde fica o banco?",
+          "en": "Excuse me, where's the bank?"
+        },
+        {
+          "who": "them",
+          "text": "Fica ali, na esquina.",
+          "en": "It's over there, on the corner."
+        },
+        {
+          "who": "you",
+          "text": "É perto?",
+          "en": "Is it close?"
+        },
+        {
+          "who": "them",
+          "text": "Sim, muito perto. Dois minutos.",
+          "en": "Yes, very close. Two minutes."
+        },
+        {
+          "who": "you",
+          "text": "Muito obrigado!",
+          "en": "Thank you very much!"
+        },
+        {
+          "who": "them",
+          "text": "De nada!",
+          "en": "You're welcome!"
+        }
+      ]
+    },
+    {
+      "id": "pt-shopping-1",
+      "topic": "shopping",
+      "level": 1,
+      "title": "Na feira",
+      "en": "At the street market",
+      "setting": "You're buying fruit at a market stall.",
+      "them": "Stallholder",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Bom dia, freguesa! O que vai ser?",
+          "en": "Good morning! What will it be?"
+        },
+        {
+          "who": "you",
+          "text": "Quanto custa a manga?",
+          "en": "How much are the mangoes?"
+        },
+        {
+          "who": "them",
+          "text": "Três por dez reais.",
+          "en": "Three for ten reais."
+        },
+        {
+          "who": "you",
+          "text": "Vou levar três, por favor.",
+          "en": "I'll take three, please."
+        },
+        {
+          "who": "them",
+          "text": "Mais alguma coisa?",
+          "en": "Anything else?"
+        },
+        {
+          "who": "you",
+          "text": "Não, só isso. Obrigada.",
+          "en": "No, that's all. Thanks."
+        }
+      ]
+    },
+    {
+      "id": "pt-smalltalk-2",
+      "topic": "smalltalk",
+      "level": 2,
+      "title": "Conhecendo alguém",
+      "en": "Meeting someone new",
+      "setting": "At a friend's party, someone comes up to say hi.",
+      "them": "Rodrigo",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Oi! Tudo bem? Eu sou o Rodrigo.",
+          "en": "Hi! How's it going? I'm Rodrigo."
+        },
+        {
+          "who": "you",
+          "text": "Oi, Rodrigo! Tudo bem. Eu sou a Emma.",
+          "en": "Hi, Rodrigo! All good. I'm Emma.",
+          "alt": [
+            "Oi, tudo bem. Eu sou a Emma."
+          ]
+        },
+        {
+          "who": "them",
+          "text": "Prazer, Emma! De onde você é?",
+          "en": "Nice to meet you, Emma! Where are you from?"
+        },
+        {
+          "who": "you",
+          "text": "Sou do Canadá.",
+          "en": "I'm from Canada."
+        },
+        {
+          "who": "them",
+          "text": "Que legal! Você mora aqui no Rio?",
+          "en": "How cool! Do you live here in Rio?"
+        },
+        {
+          "who": "you",
+          "text": "Sim, moro aqui há seis meses.",
+          "en": "Yes, I've lived here for six months."
+        },
+        {
+          "who": "them",
+          "text": "Bem-vinda! Se precisar de alguma coisa, é só falar.",
+          "en": "Welcome! If you need anything, just say so."
+        }
+      ]
+    },
+    {
+      "id": "pt-doctor-2",
+      "topic": "doctor",
+      "level": 2,
+      "title": "No consultório",
+      "en": "At the doctor's",
+      "setting": "You're not feeling well and see a doctor.",
+      "them": "Doctor",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Boa tarde. O que você está sentindo?",
+          "en": "Good afternoon. How are you feeling?"
+        },
+        {
+          "who": "you",
+          "text": "Estou com dor de cabeça e febre.",
+          "en": "I have a headache and a fever."
+        },
+        {
+          "who": "them",
+          "text": "Desde quando?",
+          "en": "Since when?"
+        },
+        {
+          "who": "you",
+          "text": "Desde ontem.",
+          "en": "Since yesterday."
+        },
+        {
+          "who": "them",
+          "text": "Tome este remédio e descanse bastante.",
+          "en": "Take this medicine and get plenty of rest."
+        },
+        {
+          "who": "you",
+          "text": "Obrigada, doutora.",
+          "en": "Thank you, doctor."
+        }
+      ]
+    },
+    {
+      "id": "pt-airport-2",
+      "topic": "airport",
+      "level": 2,
+      "title": "No check-in",
+      "en": "At the check-in desk",
+      "setting": "You're checking in for your flight.",
+      "them": "Agent",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Bom dia. Seu passaporte, por favor.",
+          "en": "Good morning. Your passport, please."
+        },
+        {
+          "who": "you",
+          "text": "Aqui está.",
+          "en": "Here it is."
+        },
+        {
+          "who": "them",
+          "text": "Vai despachar alguma mala?",
+          "en": "Are you checking any bags?"
+        },
+        {
+          "who": "you",
+          "text": "Sim, uma mala.",
+          "en": "Yes, one suitcase."
+        },
+        {
+          "who": "them",
+          "text": "Prefere janela ou corredor?",
+          "en": "Window or aisle?"
+        },
+        {
+          "who": "you",
+          "text": "Janela, por favor.",
+          "en": "Window, please."
+        },
+        {
+          "who": "them",
+          "text": "Pronto. O embarque é às dez, no portão cinco.",
+          "en": "All set. Boarding is at ten, at gate five."
+        }
+      ]
+    },
+    {
+      "id": "pt-food-3",
+      "topic": "food",
+      "level": 3,
+      "title": "Um erro no pedido",
+      "en": "The wrong dish",
+      "setting": "The waiter brought you the wrong dish.",
+      "them": "Waiter",
+      "lines": [
+        {
+          "who": "you",
+          "text": "Com licença, eu pedi o peixe, mas veio frango.",
+          "en": "Excuse me, I ordered the fish, but I got chicken.",
+          "alt": [
+            "Com licença, pedi o peixe, mas veio frango."
+          ]
+        },
+        {
+          "who": "them",
+          "text": "Nossa, desculpa! Vou trocar agora mesmo.",
+          "en": "Oh, sorry! I'll change it right away."
+        },
+        {
+          "who": "you",
+          "text": "Obrigado. Demora muito?",
+          "en": "Thanks. Will it take long?"
+        },
+        {
+          "who": "them",
+          "text": "Uns dez minutos. Quer uma bebida enquanto isso?",
+          "en": "About ten minutes. Would you like a drink meanwhile?"
+        },
+        {
+          "who": "you",
+          "text": "Sim, um suco de laranja, por favor.",
+          "en": "Yes, an orange juice, please."
+        },
+        {
+          "who": "them",
+          "text": "O suco é por conta da casa.",
+          "en": "The juice is on the house."
+        }
+      ]
+    },
+    {
+      "id": "pt-shopping-3",
+      "topic": "shopping",
+      "level": 3,
+      "title": "Trocar uma camisa",
+      "en": "Exchanging a shirt",
+      "setting": "You bought a shirt that's too small.",
+      "them": "Shop assistant",
+      "lines": [
+        {
+          "who": "you",
+          "text": "Oi, comprei esta camisa ontem, mas ficou pequena.",
+          "en": "Hi, I bought this shirt yesterday, but it's too small."
+        },
+        {
+          "who": "them",
+          "text": "Sem problema. Você está com a nota fiscal?",
+          "en": "No problem. Do you have the receipt?"
+        },
+        {
+          "who": "you",
+          "text": "Estou, aqui está.",
+          "en": "Yes, here it is."
+        },
+        {
+          "who": "them",
+          "text": "Quer trocar por um tamanho maior?",
+          "en": "Would you like to exchange it for a bigger size?"
+        },
+        {
+          "who": "you",
+          "text": "Quero, um tamanho M, por favor.",
+          "en": "Yes, a medium, please."
+        },
+        {
+          "who": "them",
+          "text": "Aqui está. Quer experimentar?",
+          "en": "Here you go. Would you like to try it on?"
+        }
+      ]
+    },
+    {
+      "id": "pt-directions-3",
+      "topic": "directions",
+      "level": 3,
+      "title": "Como chego ao museu?",
+      "en": "Getting to the museum",
+      "setting": "You want to visit the Museum of Tomorrow by public transport.",
+      "them": "Local",
+      "lines": [
+        {
+          "who": "you",
+          "text": "Com licença, como eu chego ao Museu do Amanhã?",
+          "en": "Excuse me, how do I get to the Museum of Tomorrow?"
+        },
+        {
+          "who": "them",
+          "text": "Você pode pegar o VLT aqui na esquina.",
+          "en": "You can take the tram here on the corner."
+        },
+        {
+          "who": "you",
+          "text": "Em qual parada eu desço?",
+          "en": "Which stop do I get off at?"
+        },
+        {
+          "who": "them",
+          "text": "Na Praça Mauá. São umas quatro paradas.",
+          "en": "At Praça Mauá. It's about four stops."
+        },
+        {
+          "who": "you",
+          "text": "E preciso de bilhete?",
+          "en": "And do I need a ticket?"
+        },
+        {
+          "who": "them",
+          "text": "Não, é só passar o cartão do transporte.",
+          "en": "No, you just tap your transport card."
+        }
+      ]
+    },
+    {
+      "id": "pt-doctor-4",
+      "topic": "doctor",
+      "level": 4,
+      "title": "Explicando os sintomas",
+      "en": "Explaining your symptoms",
+      "setting": "You've had stomach trouble for a few days.",
+      "them": "Doctor",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Então, me conta o que está acontecendo.",
+          "en": "So, tell me what's going on."
+        },
+        {
+          "who": "you",
+          "text": "Faz três dias que estou com dor de barriga.",
+          "en": "I've had a stomachache for three days."
+        },
+        {
+          "who": "them",
+          "text": "Você comeu alguma coisa diferente?",
+          "en": "Did you eat anything unusual?"
+        },
+        {
+          "who": "you",
+          "text": "Comi frutos do mar numa barraca de praia.",
+          "en": "I ate seafood at a beach stall."
+        },
+        {
+          "who": "them",
+          "text": "Tem febre ou enjoo?",
+          "en": "Any fever or nausea?"
+        },
+        {
+          "who": "you",
+          "text": "Um pouco de enjoo de manhã, mas sem febre.",
+          "en": "A bit of nausea in the morning, but no fever."
+        },
+        {
+          "who": "them",
+          "text": "Vou pedir um exame de sangue, por precaução.",
+          "en": "I'll order a blood test, as a precaution."
+        }
+      ]
+    },
+    {
+      "id": "pt-airport-4",
+      "topic": "airport",
+      "level": 4,
+      "title": "Bagagem extraviada",
+      "en": "Lost luggage",
+      "setting": "Your suitcase didn't come out at baggage claim.",
+      "them": "Airline agent",
+      "lines": [
+        {
+          "who": "you",
+          "text": "Boa noite. Minha mala não apareceu na esteira.",
+          "en": "Good evening. My suitcase didn't come out on the belt."
+        },
+        {
+          "who": "them",
+          "text": "Sinto muito. Pode me mostrar o comprovante da bagagem?",
+          "en": "I'm sorry. Can you show me the baggage tag?"
+        },
+        {
+          "who": "you",
+          "text": "Claro. É uma mala azul, grande, com rodinhas.",
+          "en": "Sure. It's a big blue suitcase with wheels."
+        },
+        {
+          "who": "them",
+          "text": "Ela ficou em Lisboa. Chega amanhã no primeiro voo.",
+          "en": "It stayed in Lisbon. It'll arrive tomorrow on the first flight."
+        },
+        {
+          "who": "you",
+          "text": "Vocês podem entregar no meu hotel?",
+          "en": "Can you deliver it to my hotel?"
+        },
+        {
+          "who": "them",
+          "text": "Podemos sim. Só preciso do endereço e de um telefone.",
+          "en": "Yes, we can. I just need the address and a phone number."
+        }
+      ]
+    },
+    {
+      "id": "pt-smalltalk-4",
+      "topic": "smalltalk",
+      "level": 4,
+      "title": "E o fim de semana?",
+      "en": "How was your weekend?",
+      "setting": "Monday morning, a coworker asks about your weekend.",
+      "them": "Coworker",
+      "lines": [
+        {
+          "who": "them",
+          "text": "E aí, como foi o fim de semana?",
+          "en": "So, how was your weekend?"
+        },
+        {
+          "who": "you",
+          "text": "Foi ótimo! Fui para a praia com uns amigos.",
+          "en": "It was great! I went to the beach with some friends."
+        },
+        {
+          "who": "them",
+          "text": "Que inveja! Qual praia?",
+          "en": "I'm jealous! Which beach?"
+        },
+        {
+          "who": "you",
+          "text": "Ubatuba. A água estava uma delícia.",
+          "en": "Ubatuba. The water was lovely."
+        },
+        {
+          "who": "them",
+          "text": "Eu fiquei em casa maratonando uma série.",
+          "en": "I stayed home binge-watching a series."
+        },
+        {
+          "who": "you",
+          "text": "Também é um bom programa. Qual série?",
+          "en": "That's a good plan too. Which series?"
+        }
+      ]
+    },
+    {
+      "id": "pt-food-5",
+      "topic": "food",
+      "level": 5,
+      "title": "Reserva para um grupo",
+      "en": "Booking for a group",
+      "setting": "You're organizing a work dinner for twelve.",
+      "them": "Restaurant manager",
+      "lines": [
+        {
+          "who": "you",
+          "text": "Boa tarde, eu queria reservar uma mesa para doze pessoas na sexta.",
+          "en": "Good afternoon, I'd like to book a table for twelve on Friday."
+        },
+        {
+          "who": "them",
+          "text": "Para que horas?",
+          "en": "For what time?"
+        },
+        {
+          "who": "you",
+          "text": "Às oito, se possível. Vocês têm um espaço mais reservado?",
+          "en": "At eight, if possible. Do you have a more private area?"
+        },
+        {
+          "who": "them",
+          "text": "Temos uma sala no andar de cima. Para grupos, trabalhamos com menu fechado.",
+          "en": "We have a room upstairs. For groups, we have a set menu."
+        },
+        {
+          "who": "you",
+          "text": "Perfeito. Tem opção vegetariana?",
+          "en": "Perfect. Is there a vegetarian option?"
+        },
+        {
+          "who": "them",
+          "text": "Tem sim. Vou te mandar o cardápio por e-mail.",
+          "en": "Yes, there is. I'll email you the menu."
+        }
+      ]
+    },
+    {
+      "id": "pt-shopping-5",
+      "topic": "shopping",
+      "level": 5,
+      "title": "Acionar a garantia",
+      "en": "A warranty claim",
+      "setting": "Your two-month-old laptop has stopped charging.",
+      "them": "Store clerk",
+      "lines": [
+        {
+          "who": "you",
+          "text": "Comprei este notebook há dois meses e ele parou de carregar.",
+          "en": "I bought this laptop two months ago and it's stopped charging."
+        },
+        {
+          "who": "them",
+          "text": "Você já testou com outro carregador?",
+          "en": "Have you tried another charger?"
+        },
+        {
+          "who": "you",
+          "text": "Já, e o problema continua. Ainda está na garantia, né?",
+          "en": "Yes, and it's still not working. It's still under warranty, right?"
+        },
+        {
+          "who": "them",
+          "text": "Está, sim. Vamos mandar para a assistência técnica.",
+          "en": "Yes, it is. We'll send it to technical support."
+        },
+        {
+          "who": "you",
+          "text": "Quanto tempo demora? Eu preciso dele para trabalhar.",
+          "en": "How long will it take? I need it for work."
+        },
+        {
+          "who": "them",
+          "text": "Até quinze dias úteis. Se não tiver conserto, a gente troca.",
+          "en": "Up to fifteen working days. If it can't be fixed, we'll replace it."
+        }
+      ]
+    },
+    {
+      "id": "pt-directions-5",
+      "topic": "directions",
+      "level": 5,
+      "title": "Dia de greve",
+      "en": "A transport strike",
+      "setting": "A visitor asks you how to get to the airport during a strike.",
+      "them": "Visitor",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Com licença, o metrô está fechado? Preciso ir para o aeroporto.",
+          "en": "Excuse me, is the subway closed? I need to get to the airport."
+        },
+        {
+          "who": "you",
+          "text": "Hoje tem greve. O metrô não está funcionando.",
+          "en": "There's a strike today. The subway isn't running."
+        },
+        {
+          "who": "them",
+          "text": "Nossa! E agora, como eu faço?",
+          "en": "Oh no! So what do I do now?"
+        },
+        {
+          "who": "you",
+          "text": "O melhor é pedir um carro por aplicativo, mas saia com antecedência.",
+          "en": "Best to get a ride-hailing car, but leave early."
+        },
+        {
+          "who": "them",
+          "text": "O trânsito deve estar horrível.",
+          "en": "The traffic must be terrible."
+        },
+        {
+          "who": "you",
+          "text": "Deve, sim. Calcule pelo menos uma hora e meia.",
+          "en": "It must be. Allow at least an hour and a half."
+        }
+      ]
+    },
+    {
+      "id": "pt-smalltalk-6",
+      "topic": "smalltalk",
+      "level": 6,
+      "title": "Num evento de trabalho",
+      "en": "Networking at an event",
+      "setting": "At an industry event, someone has heard about your work.",
+      "them": "Guest",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Você é quem fez aquele projeto de energia solar? Ouvi falar muito bem.",
+          "en": "Are you the one behind that solar energy project? I've heard great things."
+        },
+        {
+          "who": "you",
+          "text": "Sou eu, sim. Fico feliz que tenha chegado até você.",
+          "en": "That's me. I'm glad it reached you."
+        },
+        {
+          "who": "them",
+          "text": "Qual foi o maior desafio?",
+          "en": "What was the biggest challenge?"
+        },
+        {
+          "who": "you",
+          "text": "Convencer os investidores de que valia a pena no longo prazo.",
+          "en": "Convincing investors it was worth it in the long run."
+        },
+        {
+          "who": "them",
+          "text": "Estamos buscando parceiros para algo parecido no Nordeste.",
+          "en": "We're looking for partners for something similar in the northeast."
+        },
+        {
+          "who": "you",
+          "text": "Adoraria conversar com calma. Vamos trocar contatos?",
+          "en": "I'd love to talk properly. Shall we swap contacts?"
+        }
+      ]
+    },
+    {
+      "id": "pt-doctor-6",
+      "topic": "doctor",
+      "level": 6,
+      "title": "Uma segunda opinião",
+      "en": "A second opinion",
+      "setting": "Another doctor recommended surgery; you want a second opinion.",
+      "them": "Doctor",
+      "lines": [
+        {
+          "who": "you",
+          "text": "Outro médico me recomendou cirurgia no joelho, mas eu queria uma segunda opinião.",
+          "en": "Another doctor recommended knee surgery, but I'd like a second opinion."
+        },
+        {
+          "who": "them",
+          "text": "Fez muito bem. Trouxe os exames?",
+          "en": "Very wise. Did you bring your test results?"
+        },
+        {
+          "who": "you",
+          "text": "Trouxe. Queria saber se existe alguma alternativa à cirurgia.",
+          "en": "I did. I'd like to know if there's any alternative to surgery."
+        },
+        {
+          "who": "them",
+          "text": "Pela ressonância, a lesão é pequena. Podemos tentar fisioterapia primeiro.",
+          "en": "Judging by the MRI, the injury is small. We could try physical therapy first."
+        },
+        {
+          "who": "you",
+          "text": "E se não melhorar?",
+          "en": "And if it doesn't get better?"
+        },
+        {
+          "who": "them",
+          "text": "Aí reavaliamos em três meses. A cirurgia continua sendo uma opção.",
+          "en": "Then we reassess in three months. Surgery is still an option."
+        }
+      ]
+    },
+    {
+      "id": "pt-airport-6",
+      "topic": "airport",
+      "level": 6,
+      "title": "Perdi a conexão",
+      "en": "A missed connection",
+      "setting": "Your first flight was three hours late and you missed your connection.",
+      "them": "Airline agent",
+      "lines": [
+        {
+          "who": "you",
+          "text": "Meu primeiro voo atrasou três horas e eu perdi a conexão para Manaus.",
+          "en": "My first flight was three hours late and I missed my connection to Manaus."
+        },
+        {
+          "who": "them",
+          "text": "Sinto muito. O próximo voo com assento disponível sai amanhã às sete.",
+          "en": "I'm sorry. The next flight with a seat leaves tomorrow at seven."
+        },
+        {
+          "who": "you",
+          "text": "Como o atraso foi da companhia, vocês cobrem o hotel?",
+          "en": "Since the delay was the airline's fault, do you cover the hotel?"
+        },
+        {
+          "who": "them",
+          "text": "Cobrimos, sim: hotel, transporte e jantar.",
+          "en": "Yes, we do: hotel, transport and dinner."
+        },
+        {
+          "who": "you",
+          "text": "E a minha mala, vai direto para Manaus?",
+          "en": "And my suitcase, will it go straight to Manaus?"
+        },
+        {
+          "who": "them",
+          "text": "Vai, sim. Ela segue no mesmo voo que você.",
+          "en": "Yes. It goes on the same flight as you."
+        }
+      ]
+    },
+    {
+      "id": "pt-dating-4",
+      "topic": "dating",
+      "level": 4,
+      "title": "Depois da aula de forró",
+      "en": "Asking someone out after class",
+      "setting": "After forró class, the person you danced with comes over.",
+      "them": "Classmate",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Você dança muito bem! Já fazia aula antes?",
+          "en": "You dance really well! Had you taken classes before?"
+        },
+        {
+          "who": "you",
+          "text": "Que nada, é a minha terceira aula. Você que conduziu bem.",
+          "en": "Not at all, it's my third class. You led well."
+        },
+        {
+          "who": "them",
+          "text": "Obrigado! A gente podia praticar mais qualquer dia.",
+          "en": "Thanks! We could practice more some day."
+        },
+        {
+          "who": "you",
+          "text": "Adoraria. Tem um bar com forró ao vivo no sábado.",
+          "en": "I'd love to. There's a bar with live forró on Saturday."
+        },
+        {
+          "who": "them",
+          "text": "Combinado! Me passa o seu número?",
+          "en": "Deal! Will you give me your number?"
+        },
+        {
+          "who": "you",
+          "text": "Claro. Me manda uma mensagem que eu salvo o seu.",
+          "en": "Sure. Send me a message and I'll save yours."
+        },
+        {
+          "who": "them",
+          "text": "Fechado. Até sábado, então!",
+          "en": "Done. See you Saturday, then!"
+        }
+      ]
+    },
+    {
+      "id": "pt-dating-5",
+      "topic": "dating",
+      "level": 5,
+      "title": "Deu match",
+      "en": "Chatting after a match",
+      "setting": "You matched on a dating app and start chatting.",
+      "them": "Your match",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Oi! Vi que você também curte trilha. Qual foi a melhor que você já fez?",
+          "en": "Hi! I saw you're into hiking too. What's the best trail you've done?"
+        },
+        {
+          "who": "you",
+          "text": "A Pedra da Gávea, no Rio. A vista lá de cima é surreal.",
+          "en": "Pedra da Gávea, in Rio. The view from the top is unreal."
+        },
+        {
+          "who": "them",
+          "text": "Dizem que é bem puxada! Você sentiu medo?",
+          "en": "They say it's pretty tough! Were you scared?"
+        },
+        {
+          "who": "you",
+          "text": "Um pouco na parte da escalada, mas valeu cada passo.",
+          "en": "A bit on the climbing part, but it was worth every step."
+        },
+        {
+          "who": "them",
+          "text": "Que corajosa! Eu ainda não tive coragem.",
+          "en": "How brave! I still haven't had the courage."
+        },
+        {
+          "who": "you",
+          "text": "Se quiser, a gente faz uma trilha mais tranquila primeiro.",
+          "en": "If you like, we can do an easier trail first."
+        },
+        {
+          "who": "them",
+          "text": "Topo! Que tal domingo de manhã?",
+          "en": "I'm in! How about Sunday morning?"
+        }
+      ]
+    },
+    {
+      "id": "pt-dating-6",
+      "topic": "dating",
+      "level": 6,
+      "title": "Almoço com a família",
+      "en": "Lunch with your partner's family",
+      "setting": "Your partner Pedro has brought you to Sunday lunch with his family.",
+      "them": "Pedro's mom",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Seja bem-vinda! O Pedro fala tanto de você.",
+          "en": "Welcome! Pedro talks about you so much."
+        },
+        {
+          "who": "you",
+          "text": "Muito obrigada, dona Lúcia. Trouxe um pudim para a sobremesa.",
+          "en": "Thank you so much, Mrs. Lúcia. I brought a flan for dessert."
+        },
+        {
+          "who": "them",
+          "text": "Que gentileza! Fica à vontade. Você gosta de feijoada?",
+          "en": "How kind! Make yourself at home. Do you like feijoada?"
+        },
+        {
+          "who": "you",
+          "text": "Adoro! E o cheiro está maravilhoso.",
+          "en": "I love it! And it smells wonderful."
+        },
+        {
+          "who": "them",
+          "text": "É receita da minha mãe. Coma bastante, viu?",
+          "en": "It's my mother's recipe. Eat plenty, OK?"
+        },
+        {
+          "who": "you",
+          "text": "Pode deixar. Está uma delícia, a senhora cozinha muito bem.",
+          "en": "Don't worry, I will. It's delicious, you're a great cook."
+        },
+        {
+          "who": "them",
+          "text": "Ah, que bom que gostou! Agora você já é de casa.",
+          "en": "Oh, I'm so glad you like it! Now you're one of the family."
+        }
+      ]
+    },
+    {
+      "id": "pt-hotel-2",
+      "topic": "hotel",
+      "level": 2,
+      "title": "Na recepção",
+      "en": "Checking in at the hotel",
+      "setting": "You arrive at your hotel in Salvador.",
+      "them": "Receptionist",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Boa tarde! Bem-vindo ao hotel. Tem reserva?",
+          "en": "Good afternoon! Welcome to the hotel. Do you have a reservation?"
+        },
+        {
+          "who": "you",
+          "text": "Tenho, sim. Em nome de Smith.",
+          "en": "Yes, I do. Under the name Smith."
+        },
+        {
+          "who": "them",
+          "text": "Encontrei. São três noites, certo?",
+          "en": "Found it. Three nights, right?"
+        },
+        {
+          "who": "you",
+          "text": "Isso. O café da manhã está incluído?",
+          "en": "That's right. Is breakfast included?"
+        },
+        {
+          "who": "them",
+          "text": "Está, sim. É servido das seis às dez.",
+          "en": "Yes, it is. It's served from six to ten."
+        },
+        {
+          "who": "you",
+          "text": "Ótimo. E qual é a senha do wi-fi?",
+          "en": "Great. And what's the wi-fi password?"
+        },
+        {
+          "who": "them",
+          "text": "Está aqui no cartão. Seu quarto é o 304.",
+          "en": "It's here on the card. Your room is 304."
+        }
+      ]
+    },
+    {
+      "id": "pt-hotel-3",
+      "topic": "hotel",
+      "level": 3,
+      "title": "Um problema no quarto",
+      "en": "A problem with the room",
+      "setting": "The air conditioning in your room isn't working, so you call the front desk.",
+      "them": "Receptionist",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Recepção, boa noite.",
+          "en": "Front desk, good evening."
+        },
+        {
+          "who": "you",
+          "text": "Boa noite. O ar-condicionado do quarto 304 não está funcionando.",
+          "en": "Good evening. The air conditioning in room 304 isn't working."
+        },
+        {
+          "who": "them",
+          "text": "Sinto muito. Já tentou ligar pelo controle?",
+          "en": "I'm sorry. Have you tried turning it on with the remote?"
+        },
+        {
+          "who": "you",
+          "text": "Já, mas ele não liga.",
+          "en": "Yes, but it won't turn on."
+        },
+        {
+          "who": "them",
+          "text": "Vou mandar alguém da manutenção agora.",
+          "en": "I'll send someone from maintenance right away."
+        },
+        {
+          "who": "you",
+          "text": "Obrigado. Se não der para consertar, posso trocar de quarto?",
+          "en": "Thanks. If it can't be fixed, can I change rooms?"
+        },
+        {
+          "who": "them",
+          "text": "Claro, sem problema nenhum.",
+          "en": "Of course, no problem at all."
+        }
+      ]
+    },
+    {
+      "id": "pt-hotel-4",
+      "topic": "hotel",
+      "level": 4,
+      "title": "Ficar mais uns dias",
+      "en": "Extending your stay",
+      "setting": "You'd like two more nights and a late checkout.",
+      "them": "Receptionist",
+      "lines": [
+        {
+          "who": "you",
+          "text": "Bom dia. Eu queria ficar mais duas noites. Tem disponibilidade?",
+          "en": "Good morning. I'd like to stay two more nights. Is there availability?"
+        },
+        {
+          "who": "them",
+          "text": "Deixa eu ver… Temos, mas no mesmo quarto só até amanhã.",
+          "en": "Let me see… We do, but in the same room only until tomorrow."
+        },
+        {
+          "who": "you",
+          "text": "Não tem problema mudar de quarto. O preço é o mesmo?",
+          "en": "Changing rooms is fine. Is the price the same?"
+        },
+        {
+          "who": "them",
+          "text": "Na sexta é um pouco mais caro, por causa do fim de semana.",
+          "en": "Friday is a little more expensive, because of the weekend."
+        },
+        {
+          "who": "you",
+          "text": "Tudo bem. E seria possível fazer o checkout mais tarde no último dia?",
+          "en": "That's fine. And would it be possible to check out later on the last day?"
+        },
+        {
+          "who": "them",
+          "text": "Até as duas da tarde, sem custo extra.",
+          "en": "Until two in the afternoon, at no extra cost."
+        },
+        {
+          "who": "you",
+          "text": "Perfeito, muito obrigado.",
+          "en": "Perfect, thank you very much."
+        }
+      ]
+    },
+    {
+      "id": "pt-job-4",
+      "topic": "job",
+      "level": 4,
+      "title": "Entrevista de emprego",
+      "en": "A job interview",
+      "setting": "You're interviewing for a job as a sales assistant at a bookshop.",
+      "them": "Interviewer",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Obrigada por vir. Me fala um pouco sobre você.",
+          "en": "Thanks for coming. Tell me a bit about yourself."
+        },
+        {
+          "who": "you",
+          "text": "Eu sou formado em Letras e adoro livros desde criança.",
+          "en": "I have a degree in literature and I've loved books since I was a kid."
+        },
+        {
+          "who": "them",
+          "text": "Já trabalhou com vendas?",
+          "en": "Have you worked in sales before?"
+        },
+        {
+          "who": "you",
+          "text": "Trabalhei dois anos numa loja de roupas, atendendo clientes.",
+          "en": "I worked for two years in a clothes shop, serving customers."
+        },
+        {
+          "who": "them",
+          "text": "Como você lida com um cliente difícil?",
+          "en": "How do you deal with a difficult customer?"
+        },
+        {
+          "who": "you",
+          "text": "Eu escuto com calma e procuro uma solução junto com ele.",
+          "en": "I listen calmly and look for a solution together with them."
+        },
+        {
+          "who": "them",
+          "text": "Ótimo. Você tem disponibilidade aos sábados?",
+          "en": "Great. Are you available on Saturdays?"
+        }
+      ]
+    },
+    {
+      "id": "pt-job-5",
+      "topic": "job",
+      "level": 5,
+      "title": "Seus pontos fortes",
+      "en": "Your strengths",
+      "setting": "A second interview for a marketing job.",
+      "them": "Hiring manager",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Quais você diria que são os seus pontos fortes?",
+          "en": "What would you say your strengths are?"
+        },
+        {
+          "who": "you",
+          "text": "Sou criativo e muito organizado com prazos.",
+          "en": "I'm creative and very organized with deadlines."
+        },
+        {
+          "who": "them",
+          "text": "E um ponto que você quer melhorar?",
+          "en": "And something you'd like to improve?"
+        },
+        {
+          "who": "you",
+          "text": "Às vezes tenho dificuldade em delegar, mas estou trabalhando nisso.",
+          "en": "Sometimes I find it hard to delegate, but I'm working on it."
+        },
+        {
+          "who": "them",
+          "text": "Me dá um exemplo de uma campanha que deu certo.",
+          "en": "Give me an example of a campaign that worked."
+        },
+        {
+          "who": "you",
+          "text": "Lancei uma campanha nas redes que dobrou as vendas em três meses.",
+          "en": "I launched a social media campaign that doubled sales in three months."
+        },
+        {
+          "who": "them",
+          "text": "Impressionante. Por que você quer sair da empresa atual?",
+          "en": "Impressive. Why do you want to leave your current company?"
+        }
+      ]
+    },
+    {
+      "id": "pt-job-6",
+      "topic": "job",
+      "level": 6,
+      "title": "Negociando o salário",
+      "en": "Negotiating your salary",
+      "setting": "You've been offered the job; now you talk about pay.",
+      "them": "Hiring manager",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Queremos você na equipe. A proposta é de oito mil por mês.",
+          "en": "We want you on the team. The offer is eight thousand a month."
+        },
+        {
+          "who": "you",
+          "text": "Fico muito feliz com a proposta. Mas, pela minha experiência, eu esperava algo em torno de dez mil.",
+          "en": "I'm very happy with the offer. But given my experience, I was expecting something around ten thousand."
+        },
+        {
+          "who": "them",
+          "text": "Dez mil está acima do nosso orçamento para o cargo.",
+          "en": "Ten thousand is above our budget for the role."
+        },
+        {
+          "who": "you",
+          "text": "Entendo. Seria possível chegar a nove mil, com revisão em seis meses?",
+          "en": "I understand. Would it be possible to reach nine thousand, with a review in six months?"
+        },
+        {
+          "who": "them",
+          "text": "Posso levar essa proposta para a diretoria.",
+          "en": "I can take that proposal to the board."
+        },
+        {
+          "who": "you",
+          "text": "E o trabalho remoto, como funciona?",
+          "en": "And how does remote work work?"
+        },
+        {
+          "who": "them",
+          "text": "Dois dias de casa por semana, com horário flexível.",
+          "en": "Two days a week from home, with flexible hours."
+        }
+      ]
+    },
+    {
+      "id": "pt-flirting-4",
+      "topic": "flirting",
+      "level": 4,
+      "title": "Na livraria",
+      "en": "A compliment in a bookshop",
+      "setting": "In a bookshop, someone is browsing the same shelf as you.",
+      "them": "Stranger",
+      "lines": [
+        {
+          "who": "you",
+          "text": "Desculpa, você já leu esse? Estou em dúvida.",
+          "en": "Sorry, have you read that one? I can't decide."
+        },
+        {
+          "who": "them",
+          "text": "Li, sim! É incrível, mas o final te deixa sem chão.",
+          "en": "I have! It's amazing, but the ending leaves you speechless."
+        },
+        {
+          "who": "you",
+          "text": "Então vou levar. Você tem bom gosto, dá para ver.",
+          "en": "Then I'll take it. You have good taste, I can tell."
+        },
+        {
+          "who": "them",
+          "text": "Ha! Obrigada. E você, o que costuma ler?",
+          "en": "Ha! Thanks. And what do you usually read?"
+        },
+        {
+          "who": "you",
+          "text": "Muita ficção científica. Me recomenda mais algum?",
+          "en": "Lots of sci-fi. Can you recommend another?"
+        },
+        {
+          "who": "them",
+          "text": "Recomendo, mas só se você me contar o que achou deste depois.",
+          "en": "I can, but only if you tell me what you thought of this one afterwards."
+        }
+      ]
+    },
+    {
+      "id": "pt-flirting-5",
+      "topic": "flirting",
+      "level": 5,
+      "title": "Noite de quiz",
+      "en": "Teasing after trivia night",
+      "setting": "Your team just lost trivia night to the team at the next table, by one point.",
+      "them": "Rival player",
+      "lines": [
+        {
+          "who": "them",
+          "text": "Por um ponto! Quase, hein?",
+          "en": "By one point! So close, huh?"
+        },
+        {
+          "who": "you",
+          "text": "Foi sorte de vocês, admite.",
+          "en": "You just got lucky, admit it."
+        },
+        {
+          "who": "them",
+          "text": "Sorte? A gente acertou a pergunta de geografia que vocês erraram.",
+          "en": "Luck? We got the geography question you missed."
+        },
+        {
+          "who": "you",
+          "text": "Tá bom, essa foi boa. Mas na semana que vem tem revanche.",
+          "en": "OK, that was a good one. But next week there's a rematch."
+        },
+        {
+          "who": "them",
+          "text": "Combinado. E quem perder paga a rodada.",
+          "en": "Deal. And whoever loses buys the round."
+        },
+        {
+          "who": "you",
+          "text": "Fechado. Já pode ir separando o dinheiro.",
+          "en": "You're on. You might as well start setting the money aside."
+        },
+        {
+          "who": "them",
+          "text": "Convencido, hein? Gostei.",
+          "en": "Pretty sure of yourself, huh? I like that."
+        }
+      ]
+    },
+    {
+      "id": "pt-flirting-6",
+      "topic": "flirting",
+      "level": 6,
+      "title": "Um bom começo no app",
+      "en": "From opener to plan",
+      "setting": "You matched on an app. You open the conversation.",
+      "them": "Your match",
+      "lines": [
+        {
+          "who": "you",
+          "text": "Oi! Preciso saber: aquela foto na Chapada Diamantina foi antes ou depois de subir o morro?",
+          "en": "Hi! I need to know: was that Chapada Diamantina photo before or after the climb?"
+        },
+        {
+          "who": "them",
+          "text": "Haha, depois! Por isso a cara de cansaço.",
+          "en": "Haha, after! That's why I look so tired."
+        },
+        {
+          "who": "you",
+          "text": "Cansada, mas com a melhor vista do Brasil. Valeu a pena?",
+          "en": "Tired, but with the best view in Brazil. Was it worth it?"
+        },
+        {
+          "who": "them",
+          "text": "Cada gota de suor. E você, curte viajar?",
+          "en": "Every drop of sweat. And you, do you like traveling?"
+        },
+        {
+          "who": "you",
+          "text": "Muito. Estou planejando ir para o Jalapão no ano que vem.",
+          "en": "A lot. I'm planning to go to Jalapão next year."
+        },
+        {
+          "who": "them",
+          "text": "Sonho em conhecer! Me conta mais num café?",
+          "en": "I dream of going there! Tell me more over coffee?"
+        },
+        {
+          "who": "you",
+          "text": "Fechado. Quinta, depois do trabalho, está bom para você?",
+          "en": "Deal. Is Thursday after work good for you?"
+        }
+      ]
+    }
+  ]
+}

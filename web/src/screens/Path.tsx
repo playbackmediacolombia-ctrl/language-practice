@@ -2,6 +2,7 @@ import { type CSSProperties, Fragment, useEffect, useRef, useState } from 'react
 import { Flag, Sticker, UnitArt } from '../art';
 import { Bird, BIRD_POSES } from '../Bird';
 import { playPhrase } from '../lib/audio';
+import { ensureAudio } from '../lib/audioPacks';
 import { type Lang, LANGS } from '../lib/content';
 import { currentLevel, getLessons, getLevels, getPath, hasStarted, type Lesson, lessonStates, weakItems } from '../lib/course';
 import { haptic, reducedMotion, sfx, tapFeedback } from '../lib/fx';
@@ -95,7 +96,7 @@ function WordOfTheDay({ lang, progress }: { lang: Lang; progress: Progress }) {
   );
 }
 
-/** The three languages as big, bright tiles with their flags. */
+/** The languages as big, bright tiles with their flags. */
 export function LangTiles({ current, onPick }: { current?: Lang; onPick: (l: Lang) => void }) {
   return (
     <div className="lang-tiles">
@@ -374,6 +375,7 @@ function StreakWarning({ progress, onPractice, onRemind }: { progress: Progress;
 
 export function Path({ lang }: { lang: Lang }) {
   const progress = useProgress();
+  useEffect(() => ensureAudio(lang), [lang]); // this language's recordings, for offline
   useEffect(() => {
     if (!scrollToCurrent) return;
     scrollToCurrent = false;

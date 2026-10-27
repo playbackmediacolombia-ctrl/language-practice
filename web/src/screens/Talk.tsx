@@ -126,8 +126,8 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
       setSpeakingUrl(null);
       URL.revokeObjectURL(url);
     } else {
-      // The voice service didn't answer: the phone's own voice reads it, and the text is there.
-      setVoiceNote(true);
+      // The voice service didn't answer (or has no voice for this language): the phone's own voice reads it.
+      if (reply.voice !== 'device') setVoiceNote(true);
       await speakDevice(reply.reply, lang);
     }
     if (!alive.current || over.current) return;

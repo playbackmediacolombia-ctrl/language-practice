@@ -1,0 +1,160 @@
+{
+  "chants": [
+    {
+      "id": "pt-chant-oi",
+      "level": 1,
+      "kind": "chant",
+      "title": "Oi, oi",
+      "en": "Hi, hi",
+      "bpm": 96,
+      "lines": [
+        {
+          "text": "Oi, oi, tudo bem?",
+          "en": "Hi, hi, how are you?"
+        },
+        {
+          "text": "Tudo bem, tudo bom, e você também?",
+          "en": "All good, all fine, and you too?"
+        },
+        {
+          "text": "Bom dia, boa tarde, boa noite.",
+          "en": "Good morning, good afternoon, good night."
+        },
+        {
+          "text": "Até amanhã, um beijo e tchau!",
+          "en": "See you tomorrow, a kiss and bye!"
+        }
+      ]
+    },
+    {
+      "id": "pt-chant-semana",
+      "level": 2,
+      "kind": "chant",
+      "title": "Os dias da semana",
+      "en": "The days of the week",
+      "bpm": 100,
+      "lines": [
+        {
+          "text": "Segunda, terça, quarta, três.",
+          "en": "Monday, Tuesday, Wednesday: three."
+        },
+        {
+          "text": "Quinta, sexta, já são cinco de uma vez.",
+          "en": "Thursday, Friday, that's five at once."
+        },
+        {
+          "text": "Sábado e domingo, vou descansar.",
+          "en": "Saturday and Sunday, I'll rest."
+        },
+        {
+          "text": "E na segunda tudo volta a começar!",
+          "en": "And on Monday it all starts again!"
+        }
+      ]
+    },
+    {
+      "id": "pt-chant-feira",
+      "level": 3,
+      "kind": "song",
+      "title": "Ontem na feira",
+      "en": "Yesterday at the market",
+      "bpm": 92,
+      "lines": [
+        {
+          "text": "Ontem eu fui à feira comprar.",
+          "en": "Yesterday I went to the market to shop."
+        },
+        {
+          "text": "Comprei manga, abacaxi e pão para o jantar.",
+          "en": "I bought mango, pineapple and bread for dinner."
+        },
+        {
+          "text": "Conversei com a moça do pastel,",
+          "en": "I chatted with the pastel lady,"
+        },
+        {
+          "text": "e voltei para casa cantando ao céu!",
+          "en": "and came home singing to the sky!"
+        }
+      ]
+    },
+    {
+      "id": "pt-chant-se-eu-tivesse",
+      "level": 4,
+      "kind": "song",
+      "title": "Se eu tivesse tempo",
+      "en": "If I had time",
+      "bpm": 88,
+      "lines": [
+        {
+          "text": "Se eu tivesse tempo, eu iria ao mar.",
+          "en": "If I had time, I'd go to the sea."
+        },
+        {
+          "text": "Se eu tivesse asas, eu ia voar.",
+          "en": "If I had wings, I'd fly."
+        },
+        {
+          "text": "Mas hoje eu estudo, passo a passo vou,",
+          "en": "But today I study, step by step I go,"
+        },
+        {
+          "text": "e cada palavra me mostra quem sou!",
+          "en": "and every word shows me who I am!"
+        }
+      ]
+    },
+    {
+      "id": "pt-chant-tomara",
+      "level": 5,
+      "kind": "song",
+      "title": "Tomara",
+      "en": "I hope",
+      "bpm": 84,
+      "lines": [
+        {
+          "text": "Tomara que amanhã faça sol.",
+          "en": "I hope it's sunny tomorrow."
+        },
+        {
+          "text": "Tomara que você me escreva com amor.",
+          "en": "I hope you write to me with love."
+        },
+        {
+          "text": "Espero que você siga, que não desista,",
+          "en": "I hope you keep going, that you don't give up,"
+        },
+        {
+          "text": "que as palavras abram portas à vista!",
+          "en": "that words open doors in sight!"
+        }
+      ]
+    },
+    {
+      "id": "pt-chant-beleza",
+      "level": 6,
+      "kind": "chant",
+      "title": "E aí, beleza?",
+      "en": "Hey, all good?",
+      "bpm": 104,
+      "lines": [
+        {
+          "text": "E aí, beleza? Tudo certo, tudo em paz.",
+          "en": "Hey, all good? Everything's fine, all at peace."
+        },
+        {
+          "text": "Falo português e quero sempre mais.",
+          "en": "I speak Portuguese and always want more."
+        },
+        {
+          "text": "Não tenho vergonha, eu mando ver,",
+          "en": "I'm not shy, I go for it,"
+        },
+        {
+          "text": "e se eu errar, dou risada e vou aprender!",
+          "en": "and if I get it wrong, I laugh and I'll learn!"
+        }
+      ]
+    }
+  ]
+}

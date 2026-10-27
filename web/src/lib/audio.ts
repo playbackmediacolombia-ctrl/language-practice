@@ -15,7 +15,7 @@ player.preload = 'auto';
 
 // "tts:<lang>:<text>" plays text with the phone's own voice (words the AI partner taught you
 // have no recording). Offline, free and private: iPhones have Spanish, French and Chinese voices.
-const VOICE_LANGS: Record<string, string[]> = { es: ['es-CO', 'es-MX', 'es-US', 'es-ES', 'es'], fr: ['fr-FR', 'fr-CA', 'fr'], zh: ['zh-CN', 'zh-TW', 'zh'], en: ['en-US', 'en-GB', 'en'] };
+const VOICE_LANGS: Record<string, string[]> = { es: ['es-CO', 'es-MX', 'es-US', 'es-ES', 'es'], fr: ['fr-FR', 'fr-CA', 'fr'], zh: ['zh-CN', 'zh-TW', 'zh'], pt: ['pt-BR', 'pt-PT', 'pt'], it: ['it-IT', 'it'], en: ['en-US', 'en-GB', 'en'] };
 
 /** Says `text` with the device's voice for `lang`; resolves when it's done (or can't speak). */
 export function speakDevice(text: string, lang: string, speed: PlaySpeed = false): Promise<boolean> {

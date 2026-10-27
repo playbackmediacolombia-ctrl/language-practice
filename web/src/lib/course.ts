@@ -1,6 +1,8 @@
 import es from '../../../shared/course/es.json';
 import fr from '../../../shared/course/fr.json';
 import outline from '../../../shared/course/outline.json';
+import it from '../../../shared/course/it.json';
+import pt from '../../../shared/course/pt.json';
 import zh from '../../../shared/course/zh.json';
 import { getPhrases, getTopics, type Lang, type Phrase } from './content';
 import { addTalkWords, getProgress, lessonDone, type Progress, recordAnswer, type TalkWord, weakness } from './progress';
@@ -42,7 +44,7 @@ export type Unit = { id: string; title: string; lessons: Lesson[]; elective?: bo
 /** `level` is the CEFR-style band shown on the path: Beginner, Elementary, … Fluent. */
 export type Stage = { id: string; level: string; title: string; about: string; units: Unit[] };
 
-const COURSES: Record<Lang, RawCourse> = { es, fr, zh } as Record<Lang, RawCourse>;
+const COURSES: Record<Lang, RawCourse> = { es, fr, zh, pt, it } as Record<Lang, RawCourse>;
 
 function defaultTiles(text: string): string[] {
   return text

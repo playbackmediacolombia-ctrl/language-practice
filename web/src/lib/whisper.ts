@@ -14,7 +14,7 @@ const CHOICE_KEY = 'whisper-model';
 const READY_KEY = 'whisper-ready'; // model key that finished downloading at least once
 const CACHE_NAME = 'transformers-cache';
 
-const LANGUAGE: Record<Lang, string> = { es: 'spanish', fr: 'french', zh: 'chinese' };
+const LANGUAGE: Record<Lang, string> = { es: 'spanish', fr: 'french', zh: 'chinese', pt: 'portuguese', it: 'italian' };
 
 function read(key: string) {
   try {

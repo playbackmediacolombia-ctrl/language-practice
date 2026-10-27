@@ -17,6 +17,9 @@ const LANGS = {
   es: { name: 'Spanish', variety: 'Colombian Spanish (as spoken in Bogotá and Medellín)', tts: 'es' },
   fr: { name: 'French', variety: 'standard French (as spoken in France)', tts: 'fr' },
   zh: { name: 'Mandarin Chinese', variety: 'Mandarin in simplified characters (as spoken in mainland China)', tts: 'zh' },
+  // MeloTTS has no Portuguese or Italian voice: the app reads these replies with the phone's voice.
+  pt: { name: 'Portuguese', variety: 'Brazilian Portuguese (as spoken in São Paulo and Rio de Janeiro)', tts: null },
+  it: { name: 'Italian', variety: 'standard Italian (as spoken in Rome and Milan)', tts: null },
 };
 
 const LEVEL_STYLE = {
@@ -130,7 +133,7 @@ const VISION_SCHEMA = {
   type: 'object',
   properties: {
     found: { type: 'boolean', description: 'False if there is no clear object to name (too dark, blurry, or just a person or a screen).' },
-    word: { type: 'string', description: 'The everyday name of the main object, in the target language, singular. Spanish and French: include the definite article (la mesa, le livre). Mandarin: simplified characters.' },
+    word: { type: 'string', description: 'The everyday name of the main object, in the target language, singular. Spanish, French, Portuguese and Italian: include the definite article (la mesa, le livre, a mesa, il tavolo). Mandarin: simplified characters.' },
     pinyin: { type: 'string', description: 'Mandarin only: pinyin with tone marks for word. Empty otherwise.' },
     meaning: { type: 'string', description: 'The English name.' },
     example: { type: 'string', description: 'A short, natural example sentence using the word, in the target language, simple enough for a learner.' },
@@ -159,6 +162,7 @@ async function nameObject(env, body) {
 
 /** The reply spoken by Workers AI (MeloTTS), as base64 MP3; null if the voice isn't available. */
 async function speak(env, text, lang) {
+  if (!LANGS[lang].tts) return null;
   try {
     const out = await env.AI.run('@cf/myshell-ai/melotts', { prompt: text, lang: LANGS[lang].tts });
     if (out?.audio) return out.audio;
@@ -218,6 +222,7 @@ export default {
       return json({ error: e.code === 'quota' ? 'quota' : 'ai' }, e.code === 'quota' ? 429 : 502, ok);
     }
     const audio = body.voice ? await speak(env, reply.reply, body.lang) : null;
-    return json({ ...reply, audio, voice: audio ? 'ok' : body.voice ? 'unavailable' : 'off' }, 200, ok);
+    // 'device': this language has no AI voice, so the phone reads it (no need to say it's resting).
+    return json({ ...reply, audio, voice: audio ? 'ok' : !LANGS[body.lang].tts ? 'device' : body.voice ? 'unavailable' : 'off' }, 200, ok);
   },
 };

@@ -53,7 +53,7 @@ export function requestPersistence() {
  * on a tab screen rather than in a lesson, story or exercise, so an update never interrupts you.
  */
 export function applyUpdateWhenIdle(apply: () => void) {
-  const busy = () => /^#\/(es|fr|zh)\/[^/]+/.test(location.hash);
+  const busy = () => /^#\/(es|fr|zh|pt|it)\/[^/]+/.test(location.hash);
   const tryNow = () => {
     if (busy()) return;
     window.removeEventListener('hashchange', tryNow);

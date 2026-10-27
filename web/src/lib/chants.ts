@@ -1,9 +1,8 @@
 import es from '../../../shared/chants/es.json';
 import fr from '../../../shared/chants/fr.json';
+import it from '../../../shared/chants/it.json';
+import pt from '../../../shared/chants/pt.json';
 import zh from '../../../shared/chants/zh.json';
-import esTimes from '../../../assets/audio/chants/es/timings.json';
-import frTimes from '../../../assets/audio/chants/fr/timings.json';
-import zhTimes from '../../../assets/audio/chants/zh/timings.json';
 import type { Lang } from './content';
 
 // Music mode: short original chants and song-style verses per level (no copyrighted songs),
@@ -11,14 +10,16 @@ import type { Lang } from './content';
 // the words light up karaoke-style. Mandarin also has tone chants.
 
 const audioFiles = import.meta.glob<string>('../../../assets/audio/chants/*/*.mp3', { eager: true, query: '?url', import: 'default' });
+// Each language's word timings (made with its clips).
+const timings = import.meta.glob<Record<string, [number, number, string][]>>('../../../assets/audio/chants/*/timings.json', { eager: true, import: 'default' });
 
 export type ChantWord = { start: number; end: number; text: string };
 export type ChantLine = { text: string; en: string; pinyin?: string; audio: string; words: ChantWord[] };
 export type Chant = { id: string; level: number; kind: 'chant' | 'song' | 'tones'; title: string; en: string; bpm: number; lines: ChantLine[] };
 
 type Raw = { chants: (Omit<Chant, 'lines'> & { lines: Omit<ChantLine, 'audio' | 'words'>[] })[] };
-const RAW = { es, fr, zh } as unknown as Record<Lang, Raw>;
-const TIMES = { es: esTimes, fr: frTimes, zh: zhTimes } as unknown as Record<Lang, Record<string, [number, number, string][]>>;
+const RAW = { es, fr, zh, pt, it } as unknown as Record<Lang, Raw>;
+const TIMES = (lang: Lang) => timings[`../../../assets/audio/chants/${lang}/timings.json`] ?? {};
 const cache = new Map<Lang, Chant[]>();
 
 export function getChants(lang: Lang): Chant[] {
@@ -29,7 +30,7 @@ export function getChants(lang: Lang): Chant[] {
       lines: c.lines.map((l, i) => ({
         ...l,
         audio: audioFiles[`../../../assets/audio/chants/${lang}/${c.id}-${i}.mp3`],
-        words: (TIMES[lang][`${c.id}-${i}`] ?? []).map(([start, dur, text]) => ({ start, end: start + dur, text })),
+        words: (TIMES(lang)[`${c.id}-${i}`] ?? []).map(([start, dur, text]) => ({ start, end: start + dur, text })),
       })),
     }));
     cache.set(lang, list);

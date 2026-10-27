@@ -8,6 +8,8 @@ export const LANGS: { id: Lang; name: string; native: string; flag: string }[] =
   { id: 'es', name: 'Spanish', native: 'Español', flag: '🇨🇴' },
   { id: 'fr', name: 'French', native: 'Français', flag: '🇫🇷' },
   { id: 'zh', name: 'Mandarin', native: '中文', flag: '🇨🇳' },
+  { id: 'pt', name: 'Portuguese', native: 'Português', flag: '🇧🇷' },
+  { id: 'it', name: 'Italian', native: 'Italiano', flag: '🇮🇹' },
 ];
 
 type RawPhrase = {
@@ -16,6 +18,8 @@ type RawPhrase = {
   es: string;
   fr: string;
   zh: { hanzi: string; pinyin: string };
+  pt: string;
+  it: string;
   alt?: string[];
 };
 

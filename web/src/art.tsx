@@ -32,7 +32,7 @@ function star(x: number, y: number, r: number, turn = 0) {
   return <polygon points={pts.join(' ')} fill="#FFDE00" />;
 }
 
-/** The flag of the country whose accent each course teaches (Colombian Spanish, French, Mandarin). */
+/** The flag of the country whose accent each course teaches (Colombian Spanish, French, Mandarin, Brazilian Portuguese, Italian). */
 export function Flag({ lang, size = 32 }: { lang: Lang; size?: number }) {
   const id = useId();
   const art: Record<Lang, ReactNode> = {
@@ -58,6 +58,21 @@ export function Flag({ lang, size = 32 }: { lang: Lang; size?: number }) {
         {star(22, 9.5, 2, 45)}
         {star(22, 15, 2, 0)}
         {star(18.5, 19, 2, 20)}
+      </>
+    ),
+    pt: (
+      <>
+        <rect width="36" height="36" fill="#009C3B" />
+        <polygon points="18,5 33,18 18,31 3,18" fill="#FFDF00" />
+        <circle cx="18" cy="18" r="7.2" fill="#002776" />
+        <path d="M11.2 16.4 Q18 14.6 24.8 19.4" stroke="#FFFFFF" strokeWidth="1.5" fill="none" />
+      </>
+    ),
+    it: (
+      <>
+        <rect width="12" height="36" fill="#009246" />
+        <rect x="12" width="12" height="36" fill="#FFFFFF" />
+        <rect x="24" width="12" height="36" fill="#CE2B37" />
       </>
     ),
   };

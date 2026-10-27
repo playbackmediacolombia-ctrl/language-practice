@@ -1,5 +1,7 @@
 import es from '../../../shared/scenarios/es.json';
 import fr from '../../../shared/scenarios/fr.json';
+import it from '../../../shared/scenarios/it.json';
+import pt from '../../../shared/scenarios/pt.json';
 import zh from '../../../shared/scenarios/zh.json';
 import type { Lang } from './content';
 
@@ -51,7 +53,7 @@ export const TOPICS: Record<Topic, { label: string; emoji: string }> = {
 export const promptMode = (level: number): 'words' | 'hint' | 'meaning' => (level <= 2 ? 'words' : level <= 4 ? 'hint' : 'meaning');
 
 type Raw = { scenarios: (Omit<Scenario, 'lines'> & { lines: Omit<ScenarioLine, 'audio'>[] })[] };
-const RAW = { es, fr, zh } as unknown as Record<Lang, Raw>;
+const RAW = { es, fr, zh, pt, it } as unknown as Record<Lang, Raw>;
 const cache = new Map<Lang, Scenario[]>();
 
 export function getScenarios(lang: Lang): Scenario[] {

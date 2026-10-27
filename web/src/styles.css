@@ -412,6 +412,8 @@ a.btn { text-decoration: none; }
 .lang-tile-es { background: linear-gradient(135deg, #ffd84a, var(--sun) 40%, var(--flame)); color: var(--navy); box-shadow: 0 6px 0 var(--flame-deep); }
 .lang-tile-fr { background: linear-gradient(135deg, var(--sky-light), var(--accent-fill) 70%); color: #fff; box-shadow: 0 6px 0 var(--accent-press); }
 .lang-tile-zh { background: linear-gradient(135deg, #ff5a63, var(--wrong-bright) 55%, #c81e2a); color: #fff; box-shadow: 0 6px 0 #8f121b; }
+.lang-tile-pt { background: linear-gradient(135deg, #3fd27a, #17a34a 55%, #0d7f39); color: #fff; box-shadow: 0 6px 0 #0a5c2a; }
+.lang-tile-it { background: linear-gradient(135deg, #2bc4a0, #12957a 55%, #0b6f5b); color: #fff; box-shadow: 0 6px 0 #084e40; }
 .lang-tile.active { outline: 3px solid var(--text); outline-offset: 3px; }
 .lang-tiles .lang-tile { animation: tile-pop 0.5s var(--spring) both; }
 .lang-tiles .lang-tile:nth-child(2) { animation-delay: 0.07s; }
@@ -1229,6 +1231,7 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .dot.off { background: var(--flame); }
 .offline-row { align-items: flex-start; }
 .offline-row .grow { display: flex; flex-direction: column; gap: 2px; }
+.offline-row .pack-btn { width: 40px; height: 40px; border-radius: 12px; flex: none; }
 .offline-icon { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; flex: none; background: var(--card-2); color: var(--muted); }
 .offline-icon.ok { background: var(--ok-bg); color: var(--ok); }
 

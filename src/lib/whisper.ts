@@ -68,6 +68,8 @@ const PROMPTS: Record<Lang, string> = {
   es: 'Hola, ¿cómo estás?',
   fr: 'Bonjour, comment ça va ?',
   zh: '以下是普通话的句子。',
+  pt: 'Olá, tudo bem?',
+  it: 'Ciao, come stai?',
 };
 
 export async function transcribe(wavUri: string, lang: Lang): Promise<string> {

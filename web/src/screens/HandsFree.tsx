@@ -5,6 +5,7 @@ import { tapFeedback } from '../lib/fx';
 import { buildTrack, canPlayHandsFree, type Pause, segmentAt, type Track } from '../lib/handsfree';
 import { addPracticeTime, completeLesson, type Progress, type Speed, useProgress } from '../lib/progress';
 import { RATES, stopAllVoices } from '../lib/audio';
+import { ensureAudio } from '../lib/audioPacks';
 import { navigate } from '../lib/router';
 import { Icon, ProgressBar, Screen, Segmented, SpeedPicker } from '../ui';
 import { LangSwitcher } from './Path';
@@ -114,6 +115,8 @@ export function HandsFreePlayer({ lang, id }: { lang: Lang; id: string }) {
   const langName = LANGS.find((l) => l.id === lang)!.name;
   // The whole track plays faster or slower, pauses included (pitch stays the same).
   const [speed, setSpeed] = useState<Speed>(progress.speed);
+
+  useEffect(() => ensureAudio(lang, { handsFree: true }), [lang]); // offline next time
 
   // Build (or rebuild, when the pause length changes) the track.
   useEffect(() => {
