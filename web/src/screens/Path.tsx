@@ -1,5 +1,5 @@
 import { type CSSProperties, useEffect, useState } from 'react';
-import { Flag, Sticker, TONES, UnitArt } from '../art';
+import { Flag, Sticker, UnitArt } from '../art';
 import { playPhrase } from '../lib/audio';
 import { type Lang, LANGS } from '../lib/content';
 import { currentLevel, getLessons, getLevels, getPath, hasStarted, lessonStates, weakItems } from '../lib/course';
@@ -148,6 +148,42 @@ export function LangSwitcher({ lang, to }: { lang: Lang; to: (l: Lang) => string
 
 /** How far each lesson node sits from the middle, so the path winds back and forth. */
 const WIND = [0, 46, 74, 46, 0, -46, -74, -46];
+
+/** Unit colors, from the logo, in turn. */
+const UNIT_TONES = ['blue', 'orange', 'sky', 'sun', 'navy', 'red'];
+
+type CoinKind = 'star' | 'character' | 'speak' | 'story' | 'review' | 'locked';
+
+/** The kind of lesson a coin shows: sounds are speaking, Mandarin's early units are characters, story and news units are stories. */
+function lessonKind(lang: Lang, stageId: string, unitId: string, title: string): CoinKind {
+  if (stageId === 'sounds') return 'speak';
+  if (unitId === 'u10' || unitId === 'u15' || /stor|news|read/i.test(title)) return 'story';
+  if (lang === 'zh' && (stageId === 'words' || stageId === 'sentences')) return 'character';
+  return 'star';
+}
+
+function CoinIcon({ kind }: { kind: CoinKind }) {
+  if (kind === 'character')
+    return (
+      <span className="coin-glyph" aria-hidden="true">
+        字
+      </span>
+    );
+  const icon = { star: 'star', speak: 'mic', story: 'book', review: 'review', locked: 'lock' } as const;
+  return <Icon name={icon[kind]} size={kind === 'locked' ? 26 : 32} />;
+}
+
+/** The ring around your current lesson: how much of its unit is done. */
+function ProgressRing({ done, total }: { done: number; total: number }) {
+  const r = 50;
+  const c = 2 * Math.PI * r;
+  return (
+    <svg className="coin-ring" viewBox="0 0 112 112" aria-hidden="true">
+      <circle cx="56" cy="56" r={r} className="coin-ring-track" />
+      <circle cx="56" cy="56" r={r} className="coin-ring-fill" strokeDasharray={`${(c * done) / Math.max(1, total)} ${c}`} transform="rotate(-90 56 56)" />
+    </svg>
+  );
+}
 
 let scrollToCurrent = false;
 /** The next time the path opens, scroll to the current lesson (after a placement test moved it far down). */
@@ -310,8 +346,9 @@ export function Path({ lang }: { lang: Lang }) {
                 );
               }
               const done = unit.lessons.filter((l) => lessonDone(progress, lang, l.id)).length;
-              const tone = unit.culture ? 'sky' : unit.elective ? 'cream' : TONES[s % TONES.length];
               const label = unit.culture ? 'Culture' : unit.elective ? 'Extra topic' : `Unit ${++unitNo}`;
+              // Each unit its own color from the logo, matching its banner and its lesson coins.
+              const tone = unit.culture ? 'sky' : unit.elective ? 'cream' : UNIT_TONES[(unitNo - 1) % UNIT_TONES.length];
               return (
                 <section key={unit.id} className={`card unit tone-${tone}`}>
                   <div className="unit-banner">
@@ -340,15 +377,22 @@ export function Path({ lang }: { lang: Lang }) {
                       return (
                         <li key={lesson.id} className={`path-step ${state}`} style={{ '--x': `${x}px` } as CSSProperties}>
                           {state === 'current' && <span className="node-cta">Start</span>}
+                          {state === 'current' && <ProgressRing done={done} total={unit.lessons.length} />}
                           <button
                             className={`lesson-node ${state}`}
                             data-lesson={lesson.id}
+                            data-kind={lessonKind(lang, stage.id, unit.id, lesson.title)}
                             disabled={state === 'locked'}
                             onClick={() => open(`/${lang}/learn/${lesson.id}`)}
                           >
                             <span className="node-dot">
-                              <Icon name={state === 'done' ? 'check' : state === 'locked' ? 'lock' : 'star'} size={state === 'locked' ? 26 : 32} />
+                              {state === 'locked' ? <Icon name="lock" size={26} /> : <CoinIcon kind={lessonKind(lang, stage.id, unit.id, lesson.title)} />}
                             </span>
+                            {state === 'done' && (
+                              <span className="coin-check" aria-hidden="true">
+                                <Icon name="check" size={14} />
+                              </span>
+                            )}
                             <span className="sr-only">
                               {lesson.title}
                               {state === 'done' ? ', done: practice again' : state === 'open' ? ', unlocked' : state === 'locked' ? ', locked' : ''}
@@ -361,6 +405,22 @@ export function Path({ lang }: { lang: Lang }) {
                         </li>
                       );
                     })}
+                    <li className="path-step review-step" style={{ '--x': `${WIND[nodeNo++ % WIND.length]}px` } as CSSProperties}>
+                      <button
+                        className={`path-coin review ${done > 0 ? 'open' : 'locked'}`}
+                        disabled={done === 0 || learned.length < 4}
+                        onClick={() => open(`/${lang}/learn/review`)}
+                        aria-label={`Review ${unit.title}`}
+                        data-testid="review-coin"
+                      >
+                        <span className="node-dot">
+                          <CoinIcon kind={done > 0 ? 'review' : 'locked'} />
+                        </span>
+                      </button>
+                      <span className="node-label" aria-hidden="true">
+                        Review
+                      </span>
+                    </li>
                   </ol>
                   )}
                 </section>

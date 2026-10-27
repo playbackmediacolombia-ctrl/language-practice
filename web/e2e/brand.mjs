@@ -78,7 +78,8 @@ await run(async () => {
         text: getComputedStyle(document.body).color,
         card: cs('.card', 'backgroundColor'),
         muted: cs('.muted', 'color'),
-        btn: cs('.lesson-node.current', 'backgroundColor'),
+        // The coin is a glossy gradient over its unit color (--tone).
+        btn: (() => { const v = getComputedStyle(document.querySelector('.lesson-node.current')).getPropertyValue('--tone').trim(); const d = document.createElement('div'); d.style.color = v; document.body.append(d); const c = getComputedStyle(d).color; d.remove(); return c; })(),
         btnText: cs('.lesson-node.current', 'color'),
         btnEdge: cs('.lesson-node.current', 'boxShadow'),
       };

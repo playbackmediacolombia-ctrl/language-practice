@@ -531,21 +531,49 @@ a.btn { text-decoration: none; }
 .lessons.path { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 10px 0 8px; }
 .path-step { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; transform: translateX(var(--x, 0)); width: 150px; }
 .path-step.current { margin-top: 34px; }
-.lesson-node {
+/* Lesson coins: glossy, raised 3D buttons in the unit's color. A solid top, a thick darker edge
+   below, a soft shine across the upper part; they sink onto the edge when tapped and spring back. */
+.lesson-node, .path-coin {
+  --edge: 7px;
   position: relative; width: 78px; height: 72px; border-radius: 50%; border: 0; padding: 0; cursor: pointer;
-  display: grid; place-items: center; background: var(--tone); color: var(--tone-ink); box-shadow: 0 7px 0 var(--tone-deep);
+  display: grid; place-items: center; color: #fff;
+  background:
+    radial-gradient(ellipse 62% 40% at 50% 26%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.12) 60%, transparent 72%),
+    linear-gradient(180deg, color-mix(in srgb, var(--tone) 88%, #fff), var(--tone) 55%);
+  box-shadow: 0 var(--edge) 0 var(--tone-deep), inset 0 -3px 0 rgba(7, 19, 52, 0.12);
+  transition: transform 0.35s var(--spring), box-shadow 0.35s var(--spring), filter 0.2s;
 }
-.lesson-node .node-dot { display: grid; place-items: center; }
-.lesson-node .node-dot .icon { filter: drop-shadow(0 2px 0 rgba(7, 19, 52, 0.18)); }
-.lesson-node.done { background: var(--sun); color: var(--navy); box-shadow: 0 7px 0 var(--sun-deep); }
-.lesson-node.open { opacity: 0.8; }
-.lesson-node.locked, .lesson-node:disabled { background: var(--locked); color: var(--locked-ink); box-shadow: 0 7px 0 var(--locked-deep); cursor: default; }
-.lesson-node.current::before {
-  content: ''; position: absolute; inset: -10px; border-radius: 50%;
-  border: 5px solid color-mix(in srgb, var(--tone) 35%, transparent);
+.lesson-node:active:not(:disabled), .path-coin:active:not(:disabled) {
+  transform: translateY(var(--edge)); box-shadow: 0 0 0 var(--tone-deep), inset 0 -3px 0 rgba(7, 19, 52, 0.12);
+  transition-duration: 0.08s;
 }
-.path-step.current .lesson-node { animation: node-bounce 1.8s var(--spring) infinite; }
-@keyframes node-bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-7px); } }
+.lesson-node .node-dot, .path-coin .node-dot { display: grid; place-items: center; }
+.lesson-node .icon, .path-coin .icon, .coin-glyph { filter: drop-shadow(0 2px 0 rgba(7, 19, 52, 0.28)); }
+.coin-glyph { font-size: 30px; font-weight: 800; line-height: 1; }
+/* Sun and cream coins are light, so their icons are navy. */
+.tone-sun .lesson-node, .tone-cream .lesson-node, .tone-sun .path-coin, .tone-cream .path-coin, .tone-sky .lesson-node, .tone-sky .path-coin { color: var(--navy); }
+.tone-sun .lesson-node .icon, .tone-cream .lesson-node .icon, .tone-sky .lesson-node .icon { filter: drop-shadow(0 2px 0 rgba(255, 255, 255, 0.5)); }
+.lesson-node.open { filter: saturate(0.75) brightness(1.05); }
+.lesson-node.locked, .lesson-node:disabled, .path-coin.locked, .path-coin:disabled {
+  --tone: #e1e8f3; --tone-deep: #c7d2e3; color: #9aa9c2; cursor: default;
+}
+:root[data-theme='dark'] .lesson-node:disabled, :root[data-theme='dark'] .path-coin:disabled { --tone: #26375c; --tone-deep: #172442; color: #6d80a8; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .lesson-node:disabled, :root:not([data-theme='light']) .path-coin:disabled { --tone: #26375c; --tone-deep: #172442; color: #6d80a8; }
+}
+.coin-check {
+  position: absolute; right: -2px; bottom: -4px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--sun); color: var(--navy); box-shadow: 0 2px 0 var(--sun-deep), 0 0 0 3px var(--bg);
+}
+.coin-ring { position: absolute; top: -20px; left: 50%; width: 112px; height: 112px; margin-left: -56px; pointer-events: none; }
+.path-step.current .coin-ring { top: -20px; }
+.coin-ring-track { fill: none; stroke: color-mix(in srgb, var(--tone) 22%, var(--card)); stroke-width: 8; }
+.coin-ring-fill { fill: none; stroke: var(--tone); stroke-width: 8; stroke-linecap: round; transition: stroke-dasharray 0.8s var(--ease-out); }
+.path-step.current .lesson-node { animation: node-bounce 2s var(--spring) infinite; }
+.path-step.current .node-label { margin-top: 14px; }
+@keyframes node-bounce { 0%, 55%, 100% { transform: translateY(0); } 25% { transform: translateY(-6px); } 40% { transform: translateY(1px); } }
+.path-coin.review { width: 62px; height: 58px; --edge: 6px; }
+.review-step .node-label { font-size: 12px; }
 .node-label { font-size: 13px; font-weight: 700; color: var(--muted); text-align: center; line-height: 1.2; }
 .path-step.locked .node-label { color: var(--faint); }
 .path-step.current .node-label { color: var(--text); font-weight: 700; }
@@ -856,7 +884,7 @@ button.card:disabled { opacity: 0.6; cursor: default; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  .mic.on::before, .mic.on::after, .flame.lit, .path-step.current .lesson-node, .node-cta, .path-buddy, .unit-sticker, .quick .unit-art, .start-sticker, .level-tile, .stat-pill .icon.heart { animation: none !important; }
+  .mic.on::before, .mic.on::after, .flame.lit, .path-step.current .lesson-node, .node-cta, .coin-ring-fill, .path-buddy, .unit-sticker, .quick .unit-art, .start-sticker, .level-tile, .stat-pill .icon.heart { animation: none !important; }
 }
 
 /* =========================================================================
