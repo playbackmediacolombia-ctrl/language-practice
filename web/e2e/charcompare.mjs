@@ -5,7 +5,7 @@ import { devices, editProgress, launch, run } from './harness.mjs';
 
 const DIR = new URL('./out/compare/', import.meta.url).pathname;
 mkdirSync(DIR, { recursive: true });
-const SITES = { before: 'https://learnguage.net/', after: 'http://localhost:4173/?test' };
+const SITES = { before: process.env.BEFORE ?? 'https://learnguage.net/', after: 'http://localhost:4173/?test' };
 
 await run(async () => {
   const browser = await launch();
