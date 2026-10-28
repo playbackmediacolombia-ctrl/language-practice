@@ -1,0 +1,1972 @@
+{
+ "join": " ",
+ "adventures": [
+  {
+   "id": "market",
+   "band": 1,
+   "kind": "trip",
+   "guide": "friend",
+   "title": "Un día en el mercado",
+   "en": "A day at the market",
+   "start": "s1",
+   "scenes": {
+    "s1": {
+     "text": "Estás en un mercado de Bogotá. Hay mucha gente y tienes hambre.",
+     "en": "You're at a market in Bogotá. There are lots of people and you're hungry.",
+     "choices": [
+      {
+       "text": "Quiero comer una arepa.",
+       "en": "I want to eat an arepa.",
+       "to": "s2"
+      },
+      {
+       "text": "Quiero tomar un jugo.",
+       "en": "I want to drink a juice.",
+       "to": "s3"
+      }
+     ]
+    },
+    "s2": {
+     "text": "Una señora vende arepas. Son tres mil pesos.",
+     "en": "A lady sells arepas. They're three thousand pesos.",
+     "choices": [
+      {
+       "text": "Una arepa con queso, por favor.",
+       "en": "An arepa with cheese, please.",
+       "to": "s4"
+      },
+      {
+       "text": "¿Tiene arepas sin queso?",
+       "en": "Do you have arepas without cheese?",
+       "to": "s4b"
+      }
+     ]
+    },
+    "s3": {
+     "text": "Hay jugo de mango y jugo de mora.",
+     "en": "There's mango juice and blackberry juice.",
+     "choices": [
+      {
+       "text": "Un jugo de mango, por favor.",
+       "en": "A mango juice, please.",
+       "to": "s5"
+      },
+      {
+       "text": "Un jugo de mora, por favor.",
+       "en": "A blackberry juice, please.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s4": {
+     "text": "¡Qué rica! Ahora quieres ir al museo. ¿Cómo vas?",
+     "en": "Delicious! Now you want to go to the museum. How do you go?",
+     "choices": [
+      {
+       "text": "Voy a pie.",
+       "en": "I'll walk.",
+       "to": "end_walk"
+      },
+      {
+       "text": "Voy en taxi.",
+       "en": "I'll take a taxi.",
+       "to": "end_taxi"
+      }
+     ]
+    },
+    "s4b": {
+     "text": "Sí, hay arepas sin queso. ¡Y son deliciosas! Ahora quieres ir al museo.",
+     "en": "Yes, there are arepas without cheese. And they're delicious! Now you want to go to the museum.",
+     "choices": [
+      {
+       "text": "Voy a pie.",
+       "en": "I'll walk.",
+       "to": "end_walk"
+      },
+      {
+       "text": "Voy en taxi.",
+       "en": "I'll take a taxi.",
+       "to": "end_taxi"
+      }
+     ]
+    },
+    "s5": {
+     "text": "El jugo está muy frío. ¡Perfecto! Un niño te pregunta: «¿De dónde eres?»",
+     "en": "The juice is very cold. Perfect! A boy asks you: “Where are you from?”",
+     "choices": [
+      {
+       "text": "Soy de Estados Unidos.",
+       "en": "I'm from the United States.",
+       "to": "s6"
+      },
+      {
+       "text": "Soy de Canadá.",
+       "en": "I'm from Canada.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s6": {
+     "text": "El niño sonríe: «¡Bienvenido a Colombia!» Ahora quieres ir al museo.",
+     "en": "The boy smiles: “Welcome to Colombia!” Now you want to go to the museum.",
+     "choices": [
+      {
+       "text": "Voy a pie.",
+       "en": "I'll walk.",
+       "to": "end_walk"
+      },
+      {
+       "text": "Voy en taxi.",
+       "en": "I'll take a taxi.",
+       "to": "end_taxi"
+      }
+     ]
+    },
+    "end_walk": {
+     "text": "Caminas por la ciudad y ves muchas cosas bonitas. ¡Un día perfecto!",
+     "en": "You walk through the city and see lots of beautiful things. A perfect day!",
+     "end": "great"
+    },
+    "end_taxi": {
+     "text": "El taxi es rápido, pero hay mucho tráfico. Llegas tarde, ¡pero feliz!",
+     "en": "The taxi is fast, but there's a lot of traffic. You arrive late, but happy!",
+     "end": "good"
+    }
+   }
+  },
+  {
+   "id": "cat",
+   "band": 2,
+   "kind": "mystery",
+   "guide": "parent",
+   "title": "El misterio del gato perdido",
+   "en": "The mystery of the missing cat",
+   "start": "s1",
+   "scenes": {
+    "s1": {
+     "text": "Tu vecina, doña Marta, toca la puerta. Está muy preocupada: su gato, Lucas, desapareció anoche.",
+     "en": "Your neighbor, Doña Marta, knocks on the door. She's very worried: her cat, Lucas, disappeared last night.",
+     "choices": [
+      {
+       "text": "¿Cuándo lo vio por última vez?",
+       "en": "When did you last see him?",
+       "to": "s2"
+      },
+      {
+       "text": "¿Ya buscó en el parque?",
+       "en": "Have you already looked in the park?",
+       "to": "s3"
+      }
+     ]
+    },
+    "s2": {
+     "text": "Dice que lo vio a las diez, en el balcón. Esta mañana encontró la ventana abierta.",
+     "en": "She says she saw him at ten, on the balcony. This morning she found the window open.",
+     "choices": [
+      {
+       "text": "Vamos a revisar el balcón.",
+       "en": "Let's check the balcony.",
+       "to": "s4"
+      },
+      {
+       "text": "Preguntemos al portero.",
+       "en": "Let's ask the doorman.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s3": {
+     "text": "Dice que no, que le da miedo ir sola. Caminan juntos al parque, pero solo ven palomas.",
+     "en": "She says no, she's scared to go alone. You walk to the park together, but you only see pigeons.",
+     "choices": [
+      {
+       "text": "Preguntemos al portero.",
+       "en": "Let's ask the doorman.",
+       "to": "s5"
+      },
+      {
+       "text": "Volvamos a revisar el balcón.",
+       "en": "Let's go back and check the balcony.",
+       "to": "s4"
+      }
+     ]
+    },
+    "s4": {
+     "text": "En el balcón hay huellas pequeñas que llegan hasta el techo del vecino.",
+     "en": "On the balcony there are little paw prints leading to the neighbor's roof.",
+     "choices": [
+      {
+       "text": "Sigamos las huellas.",
+       "en": "Let's follow the paw prints.",
+       "to": "s6"
+      },
+      {
+       "text": "Llamemos al vecino de al lado.",
+       "en": "Let's call the next-door neighbor.",
+       "to": "s7"
+      }
+     ]
+    },
+    "s5": {
+     "text": "El portero se ríe: «Anoche vi un gato gris en la panadería de la esquina».",
+     "en": "The doorman laughs: “Last night I saw a grey cat at the bakery on the corner.”",
+     "choices": [
+      {
+       "text": "¡Vamos a la panadería!",
+       "en": "Let's go to the bakery!",
+       "to": "s8"
+      },
+      {
+       "text": "¿Está seguro de que era gris?",
+       "en": "Are you sure it was grey?",
+       "to": "s9"
+      }
+     ]
+    },
+    "s6": {
+     "text": "Las huellas terminan en una caja vieja. Adentro, algo se mueve…",
+     "en": "The paw prints end at an old box. Inside, something is moving…",
+     "choices": [
+      {
+       "text": "Abro la caja con cuidado.",
+       "en": "I open the box carefully.",
+       "to": "end_box"
+      },
+      {
+       "text": "Llamo a doña Marta para que la abra ella.",
+       "en": "I call Doña Marta so she can open it.",
+       "to": "end_kittens"
+      }
+     ]
+    },
+    "s7": {
+     "text": "El vecino dice que oyó maullidos en la madrugada, cerca de la panadería.",
+     "en": "The neighbor says he heard meowing in the early morning, near the bakery.",
+     "choices": [
+      {
+       "text": "¡Vamos a la panadería!",
+       "en": "Let's go to the bakery!",
+       "to": "s8"
+      },
+      {
+       "text": "Volvamos al balcón.",
+       "en": "Let's go back to the balcony.",
+       "to": "s4"
+      }
+     ]
+    },
+    "s8": {
+     "text": "En la panadería, Lucas está dormido junto al horno, muy cómodo y calientito.",
+     "en": "In the bakery, Lucas is asleep next to the oven, very comfy and warm.",
+     "choices": [
+      {
+       "text": "¡Lo encontramos, doña Marta!",
+       "en": "We found him, Doña Marta!",
+       "to": "end_bakery"
+      },
+      {
+       "text": "Le compro un pan a doña Marta para celebrar.",
+       "en": "I buy Doña Marta some bread to celebrate.",
+       "to": "end_bread"
+      }
+     ]
+    },
+    "s9": {
+     "text": "«Bueno, gris o blanco, no sé… estaba oscuro», dice el portero.",
+     "en": "“Well, grey or white, I don't know… it was dark,” says the doorman.",
+     "choices": [
+      {
+       "text": "Igual vamos a la panadería.",
+       "en": "Let's go to the bakery anyway.",
+       "to": "s8"
+      },
+      {
+       "text": "Mejor revisamos el balcón.",
+       "en": "We'd better check the balcony.",
+       "to": "s4"
+      }
+     ]
+    },
+    "end_box": {
+     "text": "¡Es Lucas! Estaba atrapado en la caja. Doña Marta llora de felicidad.",
+     "en": "It's Lucas! He was stuck in the box. Doña Marta cries with happiness.",
+     "end": "great"
+    },
+    "end_kittens": {
+     "text": "Doña Marta abre la caja: ¡hay tres gatitos! Resulta que Lucas es… Lucía, ¡y ahora es mamá!",
+     "en": "Doña Marta opens the box: there are three kittens! It turns out Lucas is… Lucía, and now she's a mum!",
+     "end": "great"
+    },
+    "end_bakery": {
+     "text": "Doña Marta abraza a Lucas. El panadero dice que puede volver cuando quiera.",
+     "en": "Doña Marta hugs Lucas. The baker says he can come back whenever he likes.",
+     "end": "great"
+    },
+    "end_bread": {
+     "text": "Doña Marta, Lucas y tú desayunan pan recién hecho. ¡Caso resuelto!",
+     "en": "Doña Marta, Lucas and you have freshly baked bread for breakfast. Case solved!",
+     "end": "good"
+    }
+   }
+  },
+  {
+   "id": "train",
+   "band": 3,
+   "kind": "mystery",
+   "guide": "interviewer",
+   "title": "El tren nocturno",
+   "en": "The night train",
+   "start": "s1",
+   "scenes": {
+    "s1": {
+     "text": "Viajas en un tren nocturno de Santa Marta a Bogotá. A medianoche, una pasajera grita: alguien le robó el collar de su abuela.",
+     "en": "You're on a night train from Santa Marta to Bogotá. At midnight, a passenger screams: someone has stolen her grandmother's necklace.",
+     "choices": [
+      {
+       "text": "Le pido que me cuente exactamente qué pasó.",
+       "en": "I ask her to tell me exactly what happened.",
+       "to": "s2"
+      },
+      {
+       "text": "Busco al revisor para que nadie baje del tren.",
+       "en": "I look for the conductor so that nobody gets off the train.",
+       "to": "s3"
+      }
+     ]
+    },
+    "s2": {
+     "text": "Ella explica que se quedó dormida y que, al despertarse, el estuche estaba abierto. Solo dos personas pasaron por el pasillo: un músico y un señor de traje.",
+     "en": "She explains that she fell asleep and that, when she woke up, the case was open. Only two people walked down the aisle: a musician and a man in a suit.",
+     "choices": [
+      {
+       "text": "Hablo con el músico.",
+       "en": "I talk to the musician.",
+       "to": "s4"
+      },
+      {
+       "text": "Hablo con el señor de traje.",
+       "en": "I talk to the man in the suit.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s3": {
+     "text": "El revisor cierra las puertas y te pide ayuda, ya que eres el único despierto en el vagón. El tren parará en una hora.",
+     "en": "The conductor locks the doors and asks for your help, since you're the only one awake in the carriage. The train will stop in an hour.",
+     "choices": [
+      {
+       "text": "Interrogo al músico.",
+       "en": "I question the musician.",
+       "to": "s4"
+      },
+      {
+       "text": "Reviso el pasillo por si hay pistas.",
+       "en": "I search the aisle in case there are clues.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s4": {
+     "text": "El músico, nervioso, jura que solo fue al baño. Su guitarra está guardada, pero el estuche pesa demasiado para estar vacío.",
+     "en": "The musician, nervous, swears he only went to the bathroom. His guitar is packed away, but the case is too heavy to be empty.",
+     "choices": [
+      {
+       "text": "Le pido que abra el estuche.",
+       "en": "I ask him to open the case.",
+       "to": "s7"
+      },
+      {
+       "text": "Sería mejor no acusarlo sin pruebas.",
+       "en": "It would be better not to accuse him without proof.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s5": {
+     "text": "El señor de traje dice que es joyero y que, si quisiera robar algo, no sería un collar tan barato. Parece ofendido.",
+     "en": "The man in the suit says he's a jeweller and that, if he wanted to steal something, it wouldn't be such a cheap necklace. He seems offended.",
+     "choices": [
+      {
+       "text": "Le pregunto cómo sabe que es barato.",
+       "en": "I ask him how he knows it's cheap.",
+       "to": "s8"
+      },
+      {
+       "text": "Le pido disculpas y sigo investigando.",
+       "en": "I apologise and keep investigating.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s6": {
+     "text": "Debajo de un asiento encuentras la tarjeta de una joyería de Bogotá, con una dirección escrita a mano.",
+     "en": "Under a seat you find a card from a jeweller's in Bogotá, with an address written by hand.",
+     "choices": [
+      {
+       "text": "Se la muestro al señor de traje.",
+       "en": "I show it to the man in the suit.",
+       "to": "s8"
+      },
+      {
+       "text": "Se la muestro al revisor.",
+       "en": "I show it to the conductor.",
+       "to": "s9"
+      }
+     ]
+    },
+    "s7": {
+     "text": "Dentro del estuche hay… ¡una segunda guitarra, más pequeña! El músico confiesa que es un regalo para su hija. Te sientes un poco avergonzado.",
+     "en": "Inside the case there's… a second, smaller guitar! The musician confesses it's a present for his daughter. You feel a little embarrassed.",
+     "choices": [
+      {
+       "text": "Le pido disculpas y hablo con el señor de traje.",
+       "en": "I apologise and talk to the man in the suit.",
+       "to": "s5"
+      },
+      {
+       "text": "Vuelvo a revisar el pasillo.",
+       "en": "I go back and search the aisle.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s8": {
+     "text": "El señor de traje se pone pálido: nadie había dicho que el collar fuera barato. Si no lo hubiera visto de cerca, no lo sabría.",
+     "en": "The man in the suit turns pale: nobody had said the necklace was cheap. If he hadn't seen it up close, he wouldn't know.",
+     "choices": [
+      {
+       "text": "Le pido que devuelva el collar antes de que llegue la policía.",
+       "en": "I ask him to give back the necklace before the police arrive.",
+       "to": "end_confess"
+      },
+      {
+       "text": "Llamo al revisor sin decir nada más.",
+       "en": "I call the conductor without saying anything else.",
+       "to": "end_police"
+      }
+     ]
+    },
+    "s9": {
+     "text": "El revisor reconoce el nombre de la joyería: el dueño viaja en el vagón de al lado. Es el señor de traje.",
+     "en": "The conductor recognises the jeweller's name: the owner is travelling in the next carriage. It's the man in the suit.",
+     "choices": [
+      {
+       "text": "Vamos a hablar con él juntos.",
+       "en": "Let's go and talk to him together.",
+       "to": "s8"
+      },
+      {
+       "text": "Esperemos a la policía en la próxima estación.",
+       "en": "Let's wait for the police at the next station.",
+       "to": "end_police"
+      }
+     ]
+    },
+    "end_confess": {
+     "text": "Avergonzado, saca el collar del bolsillo. La pasajera lo recupera y te invita a un café al amanecer. ¡Caso resuelto con elegancia!",
+     "en": "Ashamed, he takes the necklace out of his pocket. The passenger gets it back and buys you a coffee at dawn. Case solved with style!",
+     "end": "great"
+    },
+    "end_police": {
+     "text": "En la estación, la policía encuentra el collar en su maleta. Caso resuelto, aunque el tren llega dos horas tarde.",
+     "en": "At the station, the police find the necklace in his suitcase. Case solved, although the train arrives two hours late.",
+     "end": "good"
+    }
+   }
+  }
+ ],
+ "calls": [
+  {
+   "id": "taxi",
+   "band": 1,
+   "incoming": false,
+   "title": "Pedir un taxi",
+   "en": "Calling a taxi",
+   "them": "Taxi dispatcher",
+   "number": "Taxis Express",
+   "setting": "You need a taxi to the airport. You call the taxi company.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "Taxis Express, buenas tardes. ¿En qué le puedo ayudar?",
+     "en": "Taxis Express, good afternoon. How can I help you?"
+    },
+    {
+     "who": "you",
+     "text": "Buenas tardes. Necesito un taxi, por favor.",
+     "en": "Good afternoon. I need a taxi, please."
+    },
+    {
+     "who": "them",
+     "text": "Claro. ¿Cuál es la dirección?",
+     "en": "Of course. What's the address?"
+    },
+    {
+     "who": "you",
+     "text": "Calle diez, número cinco.",
+     "en": "Number five, Tenth Street."
+    },
+    {
+     "who": "them",
+     "text": "¿Y a dónde va?",
+     "en": "And where are you going?"
+    },
+    {
+     "who": "you",
+     "text": "Al aeropuerto.",
+     "en": "To the airport."
+    },
+    {
+     "who": "them",
+     "text": "Perfecto. El taxi llega en diez minutos.",
+     "en": "Perfect. The taxi will be there in ten minutes."
+    },
+    {
+     "who": "you",
+     "text": "Muchas gracias.",
+     "en": "Thank you very much."
+    },
+    {
+     "who": "them",
+     "text": "Con gusto. ¡Buen viaje!",
+     "en": "My pleasure. Have a good trip!"
+    }
+   ]
+  },
+  {
+   "id": "table",
+   "band": 1,
+   "incoming": false,
+   "title": "Reservar una mesa",
+   "en": "Booking a table",
+   "them": "Restaurant host",
+   "number": "Restaurante La Fonda",
+   "setting": "You call a restaurant to book a table for Saturday.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "Restaurante La Fonda, buenas noches.",
+     "en": "La Fonda restaurant, good evening."
+    },
+    {
+     "who": "you",
+     "text": "Buenas noches. Quiero reservar una mesa.",
+     "en": "Good evening. I'd like to book a table."
+    },
+    {
+     "who": "them",
+     "text": "¿Para cuántas personas?",
+     "en": "For how many people?"
+    },
+    {
+     "who": "you",
+     "text": "Para cuatro personas.",
+     "en": "For four people."
+    },
+    {
+     "who": "them",
+     "text": "¿Para qué día y a qué hora?",
+     "en": "For what day and what time?"
+    },
+    {
+     "who": "you",
+     "text": "Para el sábado a las ocho.",
+     "en": "For Saturday at eight."
+    },
+    {
+     "who": "them",
+     "text": "¿A nombre de quién?",
+     "en": "Under what name?"
+    },
+    {
+     "who": "you",
+     "text": "A nombre de Sam.",
+     "en": "Under the name Sam."
+    },
+    {
+     "who": "them",
+     "text": "Listo, Sam. Lo esperamos el sábado.",
+     "en": "All set, Sam. We'll see you on Saturday."
+    },
+    {
+     "who": "you",
+     "text": "Gracias, hasta el sábado.",
+     "en": "Thanks, see you on Saturday."
+    }
+   ]
+  },
+  {
+   "id": "clinic",
+   "band": 2,
+   "incoming": true,
+   "title": "La clínica te llama",
+   "en": "The clinic calls you",
+   "them": "Clinic receptionist",
+   "number": "Clínica del Norte",
+   "setting": "The clinic calls to confirm your appointment, but Thursday doesn't work for you.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "Buenos días, le hablo de la Clínica del Norte. ¿Hablo con Sam?",
+     "en": "Good morning, this is Clínica del Norte. Am I speaking with Sam?"
+    },
+    {
+     "who": "you",
+     "text": "Sí, soy yo. Buenos días.",
+     "en": "Yes, speaking. Good morning."
+    },
+    {
+     "who": "them",
+     "text": "Lo llamo para confirmar su cita del jueves a las nueve.",
+     "en": "I'm calling to confirm your appointment on Thursday at nine."
+    },
+    {
+     "who": "you",
+     "text": "Ay, el jueves no puedo. ¿Se puede cambiar?",
+     "en": "Oh, I can't on Thursday. Can it be changed?"
+    },
+    {
+     "who": "them",
+     "text": "Claro. Tenemos el viernes a las once o el lunes a las tres.",
+     "en": "Of course. We have Friday at eleven or Monday at three."
+    },
+    {
+     "who": "you",
+     "text": "El viernes a las once me queda perfecto.",
+     "en": "Friday at eleven suits me perfectly."
+    },
+    {
+     "who": "them",
+     "text": "Listo, queda para el viernes. Recuerde traer su documento.",
+     "en": "Done, it's booked for Friday. Remember to bring your ID."
+    },
+    {
+     "who": "you",
+     "text": "Perfecto, muchas gracias.",
+     "en": "Perfect, thank you very much."
+    },
+    {
+     "who": "them",
+     "text": "A usted. Que tenga buen día.",
+     "en": "Thank you. Have a good day."
+    }
+   ]
+  },
+  {
+   "id": "delivery",
+   "band": 3,
+   "incoming": true,
+   "title": "El repartidor perdido",
+   "en": "The lost delivery driver",
+   "them": "Delivery driver",
+   "number": "Repartidor",
+   "setting": "The delivery driver calls: he can't find your building, and part of your order is missing.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "¿Aló? Hola, le habla Andrés, el repartidor. Tengo su pedido, pero no encuentro el edificio.",
+     "en": "Hello? Hi, this is Andrés, the delivery driver. I have your order, but I can't find the building."
+    },
+    {
+     "who": "you",
+     "text": "Hola, Andrés. ¿Dónde está ahora mismo?",
+     "en": "Hi, Andrés. Where are you right now?"
+    },
+    {
+     "who": "them",
+     "text": "Estoy frente a una farmacia grande, al lado de un banco.",
+     "en": "I'm in front of a big pharmacy, next to a bank."
+    },
+    {
+     "who": "you",
+     "text": "Ah, ya sé. Siga derecho una cuadra y gire a la izquierda en el semáforo.",
+     "en": "Ah, I know. Go straight one block and turn left at the traffic light."
+    },
+    {
+     "who": "them",
+     "text": "Listo, ya giré. ¿Es un edificio blanco con una puerta azul?",
+     "en": "OK, I've turned. Is it a white building with a blue door?"
+    },
+    {
+     "who": "you",
+     "text": "Exacto. Toque el timbre del apartamento 302 y le abro.",
+     "en": "Exactly. Ring the bell for apartment 302 and I'll let you in."
+    },
+    {
+     "who": "them",
+     "text": "Perfecto. Ah, una cosa: la bebida que pidió se acabó. ¿Le traigo otra o le devuelven el dinero?",
+     "en": "Perfect. Oh, one thing: the drink you ordered ran out. Shall I bring another one, or do you want a refund?"
+    },
+    {
+     "who": "you",
+     "text": "Preferiría que me devolvieran el dinero, gracias.",
+     "en": "I'd rather have a refund, thanks."
+    },
+    {
+     "who": "them",
+     "text": "Entendido, ya mismo lo gestiono. Llego en dos minutos.",
+     "en": "Understood, I'll sort it out right now. I'll be there in two minutes."
+    },
+    {
+     "who": "you",
+     "text": "Perfecto, lo espero abajo.",
+     "en": "Perfect, I'll wait for you downstairs."
+    }
+   ]
+  }
+ ],
+ "chats": [
+  {
+   "id": "plans",
+   "band": 1,
+   "title": "Planes para hoy",
+   "en": "Plans for tonight",
+   "them": "Vale",
+   "avatar": "date",
+   "slang": [
+    {
+     "term": "q más",
+     "means": "what's up (Colombia)"
+    },
+    {
+     "term": "de una",
+     "means": "sure, let's do it"
+    },
+    {
+     "term": "xfa",
+     "means": "por favor, please"
+    },
+    {
+     "term": "jaja",
+     "means": "haha"
+    },
+    {
+     "term": "tranqui",
+     "means": "relax, don't worry"
+    },
+    {
+     "term": "bacano",
+     "means": "cool, great (Colombia)"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "Holaa 👋 q más?",
+     "en": "Hiii 👋 what's up?"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Bien, ¿y tú? 😊",
+       "en": "Good, and you? 😊",
+       "why": null
+      },
+      {
+       "text": "Buenos días, señora.",
+       "en": "Good morning, madam.",
+       "why": "Way too formal for texting a friend."
+      },
+      {
+       "text": "Tengo veinte gatos.",
+       "en": "I have twenty cats.",
+       "why": "That doesn't answer her question."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Todo bien!! Vamos a cine esta noche? 🍿",
+     "en": "All good!! Shall we go to the cinema tonight? 🍿"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "¡Sí, de una! ¿A qué hora?",
+       "en": "Yes, sure! What time?",
+       "why": null
+      },
+      {
+       "text": "No, gracias. Adiós para siempre.",
+       "en": "No, thanks. Goodbye forever.",
+       "why": "A bit dramatic for a movie invite!"
+      },
+      {
+       "text": "Me llamo Sam.",
+       "en": "My name is Sam.",
+       "why": "She already knows your name."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "A las 8 😎 xfa no llegues tarde jaja",
+     "en": "At 8 😎 please don't be late haha"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Jaja tranqui, llego a tiempo 👍",
+       "en": "Haha relax, I'll be on time 👍",
+       "why": null
+      },
+      {
+       "text": "¿Qué es un cine?",
+       "en": "What's a cinema?",
+       "why": "You know what a cinema is!"
+      },
+      {
+       "text": "Llego mañana.",
+       "en": "I'll arrive tomorrow.",
+       "why": "The movie is tonight."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Bacano!! Nos vemos 💙",
+     "en": "Cool!! See you 💙"
+    }
+   ]
+  },
+  {
+   "id": "late",
+   "band": 2,
+   "title": "Voy tarde",
+   "en": "Running late",
+   "them": "Diego",
+   "avatar": "friend",
+   "slang": [
+    {
+     "term": "parce",
+     "means": "buddy, mate (Colombia)"
+    },
+    {
+     "term": "porfa",
+     "means": "por favor, please"
+    },
+    {
+     "term": "ojo",
+     "means": "watch out, heads up"
+    },
+    {
+     "term": "el dato",
+     "means": "the tip, the info"
+    },
+    {
+     "term": "coger un taxi",
+     "means": "to take a taxi (fine in Colombia and Spain)"
+    },
+    {
+     "term": "dale",
+     "means": "OK, go ahead"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "Parce, dónde estás? Ya llegamos todos 😅",
+     "en": "Mate, where are you? We're all here already 😅"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Uy, perdón, voy tarde. Llego en 10 min 🙏",
+       "en": "Oops, sorry, I'm running late. Be there in 10 min 🙏",
+       "why": null
+      },
+      {
+       "text": "Estoy bien, gracias por preguntar.",
+       "en": "I'm fine, thanks for asking.",
+       "why": "He's asking where you are, not how you are."
+      },
+      {
+       "text": "Ya llegué hace una hora.",
+       "en": "I got there an hour ago.",
+       "why": "Then they'd see you!"
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Tranqui jaja. Te pedimos algo de tomar?",
+     "en": "No worries haha. Shall we order you something to drink?"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Sí, porfa, una limonada 🍋",
+       "en": "Yes please, a lemonade 🍋",
+       "why": null
+      },
+      {
+       "text": "No tengo boca.",
+       "en": "I don't have a mouth.",
+       "why": "That's just strange."
+      },
+      {
+       "text": "Sí, pídeme el restaurante.",
+       "en": "Yes, order me the restaurant.",
+       "why": "You can't order a whole restaurant."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Listo 👌 ojo q el bus de la 7 está lleno, mejor coge taxi",
+     "en": "OK 👌 heads up, the bus on Seventh is packed, better take a taxi"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Ok, gracias por el dato, cojo taxi 🚕",
+       "en": "OK, thanks for the tip, I'll take a taxi 🚕",
+       "why": null
+      },
+      {
+       "text": "¿Qué ojo? Yo tengo dos.",
+       "en": "What eye? I've got two.",
+       "why": "Here “ojo” means “watch out”, not “eye”."
+      },
+      {
+       "text": "Voy a caminar al aeropuerto.",
+       "en": "I'm going to walk to the airport.",
+       "why": "You're going to meet friends, not to the airport."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Jajaja dale, te esperamos 🙌",
+     "en": "Hahaha OK, we'll wait for you 🙌"
+    }
+   ]
+  },
+  {
+   "id": "birthday",
+   "band": 2,
+   "title": "Cumpleaños sorpresa",
+   "en": "A surprise birthday",
+   "them": "Lau",
+   "avatar": "receptionist",
+   "slang": [
+    {
+     "term": "cumple",
+     "means": "cumpleaños, birthday"
+    },
+    {
+     "term": "torta",
+     "means": "cake (Colombia; “pastel” or “tarta” elsewhere)"
+    },
+    {
+     "term": "eres lo máximo",
+     "means": "you're the best"
+    },
+    {
+     "term": "que no se entere",
+     "means": "so she doesn't find out"
+    },
+    {
+     "term": "tqm",
+     "means": "te quiero mucho, love you lots"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "Chicos!! El sábado es el cumple de Juli 🎂 le hacemos fiesta sorpresa?",
+     "en": "Guys!! Saturday is Juli's birthday 🎂 shall we throw her a surprise party?"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "¡Me encanta la idea! ¿Dónde la hacemos? 🎉",
+       "en": "Love the idea! Where shall we have it? 🎉",
+       "why": null
+      },
+      {
+       "text": "No sé quién es Juli.",
+       "en": "I don't know who Juli is.",
+       "why": "Juli is your friend!"
+      },
+      {
+       "text": "Feliz cumpleaños, Lau.",
+       "en": "Happy birthday, Lau.",
+       "why": "It's Juli's birthday, not Lau's."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "En mi casa! Tú traes la torta? 🙏",
+     "en": "At my place! Will you bring the cake? 🙏"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Listo, yo me encargo de la torta 🍰",
+       "en": "Sure, I'll take care of the cake 🍰",
+       "why": null
+      },
+      {
+       "text": "No, las tortas son feas.",
+       "en": "No, cakes are ugly.",
+       "why": "Rude! And not true."
+      },
+      {
+       "text": "Sí, traigo a mi perro.",
+       "en": "Yes, I'll bring my dog.",
+       "why": "She asked about the cake."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Eres lo máximo!! Pero shhh 🤫 q Juli no se entere",
+     "en": "You're the best!! But shhh 🤫 don't let Juli find out"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Jaja tranqui, no digo nada 🤐",
+       "en": "Haha don't worry, I won't say a thing 🤐",
+       "why": null
+      },
+      {
+       "text": "Ya le conté todo a Juli.",
+       "en": "I already told Juli everything.",
+       "why": "That ruins the surprise!"
+      },
+      {
+       "text": "¿Quién es lo máximo?",
+       "en": "Who is the best?",
+       "why": "“Eres lo máximo” means you're the best: a compliment."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Jajaja tqm ❤️",
+     "en": "Hahaha love you lots ❤️"
+    }
+   ]
+  },
+  {
+   "id": "gossip",
+   "band": 3,
+   "title": "El chisme",
+   "en": "The gossip",
+   "them": "Caro",
+   "avatar": "date",
+   "slang": [
+    {
+     "term": "chisme",
+     "means": "gossip"
+    },
+    {
+     "term": "qué oso",
+     "means": "how embarrassing (Colombia, Mexico)"
+    },
+    {
+     "term": "obvio",
+     "means": "obviously, of course"
+    },
+    {
+     "term": "soy una tumba",
+     "means": "my lips are sealed"
+    },
+    {
+     "term": "ahorita",
+     "means": "in a bit, soon (Colombia, Mexico)"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "Ayyy no sabes el chisme 👀👀",
+     "en": "Ohhh you won't believe the gossip 👀👀"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "¿Qué pasó? Cuéntame todo ya 😱",
+       "en": "What happened? Tell me everything right now 😱",
+       "why": null
+      },
+      {
+       "text": "No me gusta hablar con amigos.",
+       "en": "I don't like talking with friends.",
+       "why": "An odd thing to text a friend."
+      },
+      {
+       "text": "¿El chisme es un animal?",
+       "en": "Is “chisme” an animal?",
+       "why": "“Chisme” means gossip."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Andrés y Sofi ya no son novios 💔 y ella ya está saliendo con otro 🙊",
+     "en": "Andrés and Sofi aren't together anymore 💔 and she's already seeing someone else 🙊"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "¿En serio? Qué oso… ¿y cómo se lo tomó Andrés?",
+       "en": "Seriously? How awkward… and how did Andrés take it?",
+       "why": null
+      },
+      {
+       "text": "¡Felicidades por la boda!",
+       "en": "Congratulations on the wedding!",
+       "why": "They broke up: there's no wedding."
+      },
+      {
+       "text": "Me alegra que sufra.",
+       "en": "I'm glad he's suffering.",
+       "why": "That's mean!"
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Pues está tranqui, dice q mejor así jaja. Igual no digas q yo te conté 🤫",
+     "en": "Well he's fine, he says it's better this way haha. Anyway, don't say I told you 🤫"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Obvio, soy una tumba 🤐😂",
+       "en": "Of course, my lips are sealed 🤐😂",
+       "why": null
+      },
+      {
+       "text": "Ya lo publiqué en Instagram.",
+       "en": "I already posted it on Instagram.",
+       "why": "She asked you to keep it secret!"
+      },
+      {
+       "text": "¿Quién eres tú?",
+       "en": "Who are you?",
+       "why": "You know Caro: you're chatting with her."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Jajaja por eso te quiero 😂 hablamos ahorita",
+     "en": "Hahaha that's why I love you 😂 talk in a bit"
+    }
+   ]
+  }
+ ],
+ "teach": {
+  "lines": {
+   "intro": {
+    "text": "¡Ay, no! Se me olvidó qué es «{w}». ¿Me lo explicas?",
+    "en": "Oh no! I forgot what “{w}” is. Can you explain it to me?"
+   },
+   "yes": {
+    "text": "¡Ahhh, claro! ¡Ya me acordé! ¡Gracias!",
+    "en": "Ahhh, of course! Now I remember! Thanks!"
+   },
+   "no": {
+    "text": "Mmm… todavía no lo entiendo. ¿Me das otra pista?",
+    "en": "Hmm… I still don't get it. Can you give me another clue?"
+   }
+  },
+  "words": [
+   {
+    "id": "key",
+    "band": 1,
+    "word": "la llave",
+    "en": "the key",
+    "explain": "Es una cosa pequeña de metal. La usas para abrir la puerta de tu casa.",
+    "explainEn": "It's a small metal thing. You use it to open the door of your house.",
+    "keywords": [
+     "abrir",
+     "puerta",
+     "casa",
+     "metal",
+     "cerrar",
+     "carro",
+     "coche"
+    ]
+   },
+   {
+    "id": "umbrella",
+    "band": 1,
+    "word": "el paraguas",
+    "en": "the umbrella",
+    "explain": "Lo usas cuando llueve, para no mojarte.",
+    "explainEn": "You use it when it rains, so you don't get wet.",
+    "keywords": [
+     "lluvia",
+     "llueve",
+     "llover",
+     "agua",
+     "mojar",
+     "mojarte",
+     "mojarse"
+    ]
+   },
+   {
+    "id": "fridge",
+    "band": 1,
+    "word": "la nevera",
+    "en": "the fridge",
+    "explain": "Es un aparato frío de la cocina. Ahí guardas la leche y la comida.",
+    "explainEn": "It's a cold appliance in the kitchen. You keep milk and food in it.",
+    "keywords": [
+     "frío",
+     "fría",
+     "comida",
+     "leche",
+     "cocina",
+     "guardar",
+     "guardas"
+    ]
+   },
+   {
+    "id": "toothbrush",
+    "band": 1,
+    "word": "el cepillo de dientes",
+    "en": "the toothbrush",
+    "explain": "Lo usas para lavarte los dientes por la mañana y por la noche.",
+    "explainEn": "You use it to brush your teeth in the morning and at night.",
+    "keywords": [
+     "dientes",
+     "diente",
+     "boca",
+     "lavar",
+     "lavarte",
+     "limpiar"
+    ]
+   },
+   {
+    "id": "alarm-clock",
+    "band": 2,
+    "word": "el despertador",
+    "en": "the alarm clock",
+    "explain": "Es un reloj que suena por la mañana para despertarte.",
+    "explainEn": "It's a clock that rings in the morning to wake you up.",
+    "keywords": [
+     "despertar",
+     "despertarte",
+     "mañana",
+     "suena",
+     "sonar",
+     "dormir",
+     "reloj",
+     "hora"
+    ]
+   },
+   {
+    "id": "wallet",
+    "band": 2,
+    "word": "la billetera",
+    "en": "the wallet",
+    "explain": "Es donde guardas el dinero y las tarjetas. Normalmente va en el bolsillo.",
+    "explainEn": "It's where you keep your money and cards. It usually goes in your pocket.",
+    "keywords": [
+     "dinero",
+     "plata",
+     "tarjeta",
+     "tarjetas",
+     "guardar",
+     "bolsillo"
+    ]
+   },
+   {
+    "id": "lift",
+    "band": 2,
+    "word": "el ascensor",
+    "en": "the lift / elevator",
+    "explain": "Es una máquina que te sube y te baja en un edificio, para no usar las escaleras.",
+    "explainEn": "It's a machine that takes you up and down in a building, so you don't use the stairs.",
+    "keywords": [
+     "subir",
+     "sube",
+     "bajar",
+     "baja",
+     "piso",
+     "edificio",
+     "escaleras"
+    ]
+   },
+   {
+    "id": "scarf",
+    "band": 2,
+    "word": "la bufanda",
+    "en": "the scarf",
+    "explain": "Es una prenda larga que te pones en el cuello cuando hace frío.",
+    "explainEn": "It's a long piece of clothing you wear around your neck when it's cold.",
+    "keywords": [
+     "cuello",
+     "frío",
+     "ropa",
+     "prenda",
+     "invierno",
+     "poner",
+     "pones"
+    ]
+   },
+   {
+    "id": "nostalgia",
+    "band": 3,
+    "word": "la nostalgia",
+    "en": "nostalgia",
+    "explain": "Es esa tristeza suave que sientes cuando extrañas el pasado o un lugar que querías.",
+    "explainEn": "It's that gentle sadness you feel when you miss the past or a place you loved.",
+    "keywords": [
+     "extrañar",
+     "extrañas",
+     "pasado",
+     "recordar",
+     "recuerdos",
+     "triste",
+     "tristeza",
+     "lejos"
+    ]
+   },
+   {
+    "id": "a-very-early-start",
+    "band": 3,
+    "word": "el madrugón",
+    "en": "a very early start",
+    "explain": "Es cuando te levantas muy, muy temprano, casi siempre antes de que salga el sol.",
+    "explainEn": "It's when you get up very, very early, almost always before the sun comes up.",
+    "keywords": [
+     "temprano",
+     "levantarse",
+     "levantas",
+     "madrugada",
+     "madrugar",
+     "sol",
+     "mañana"
+    ]
+   },
+   {
+    "id": "a-get-together-to-chat",
+    "band": 3,
+    "word": "la tertulia",
+    "en": "a get-together to chat",
+    "explain": "Es una reunión informal de amigos para conversar de muchos temas, a veces con café.",
+    "explainEn": "It's an informal gathering of friends to talk about lots of topics, sometimes over coffee.",
+    "keywords": [
+     "reunión",
+     "amigos",
+     "hablar",
+     "conversar",
+     "charlar",
+     "temas",
+     "café"
+    ]
+   },
+   {
+    "id": "savings",
+    "band": 3,
+    "word": "el ahorro",
+    "en": "savings",
+    "explain": "Es el dinero que no gastas y guardas para usarlo en el futuro.",
+    "explainEn": "It's the money you don't spend and keep to use in the future.",
+    "keywords": [
+     "dinero",
+     "plata",
+     "guardar",
+     "guardas",
+     "gastar",
+     "futuro",
+     "banco"
+    ]
+   }
+  ]
+ },
+ "spot": [
+  {
+   "id": "s1",
+   "band": 1,
+   "words": [
+    "Yo",
+    "es",
+    "estudiante."
+   ],
+   "bad": 1,
+   "fix": "soy",
+   "options": [
+    "soy",
+    "eres",
+    "está"
+   ],
+   "en": "I am a student.",
+   "why": "With “yo” the verb ser is “soy”."
+  },
+  {
+   "id": "s2",
+   "band": 1,
+   "words": [
+    "Ella",
+    "tiene",
+    "veinte",
+    "año."
+   ],
+   "bad": 3,
+   "fix": "años.",
+   "options": [
+    "años.",
+    "añas.",
+    "anos."
+   ],
+   "en": "She is twenty years old.",
+   "why": "More than one year: “años” (and careful: “anos” without ñ means something very different!)."
+  },
+  {
+   "id": "s3",
+   "band": 1,
+   "words": [
+    "La",
+    "libro",
+    "es",
+    "rojo."
+   ],
+   "bad": 0,
+   "fix": "El",
+   "options": [
+    "El",
+    "Los",
+    "Las"
+   ],
+   "en": "The book is red.",
+   "why": "“Libro” is masculine: el libro."
+  },
+  {
+   "id": "s4",
+   "band": 1,
+   "words": [
+    "Nosotros",
+    "vive",
+    "en",
+    "Bogotá."
+   ],
+   "bad": 1,
+   "fix": "vivimos",
+   "options": [
+    "vivimos",
+    "viven",
+    "vivo"
+   ],
+   "en": "We live in Bogotá.",
+   "why": "With “nosotros” the verb ends in -imos: vivimos."
+  },
+  {
+   "id": "s5",
+   "band": 1,
+   "words": [
+    "Me",
+    "gusta",
+    "los",
+    "perros."
+   ],
+   "bad": 1,
+   "fix": "gustan",
+   "options": [
+    "gustan",
+    "gusto",
+    "gustamos"
+   ],
+   "en": "I like dogs.",
+   "why": "When what you like is plural, use “gustan”: me gustan los perros."
+  },
+  {
+   "id": "s6",
+   "band": 2,
+   "words": [
+    "Ayer",
+    "voy",
+    "al",
+    "cine",
+    "con",
+    "mi",
+    "hermana."
+   ],
+   "bad": 1,
+   "fix": "fui",
+   "options": [
+    "fui",
+    "iba",
+    "iré"
+   ],
+   "en": "Yesterday I went to the cinema with my sister.",
+   "why": "“Ayer” is a finished moment in the past: fui."
+  },
+  {
+   "id": "s7",
+   "band": 2,
+   "words": [
+    "Hoy",
+    "soy",
+    "muy",
+    "cansado."
+   ],
+   "bad": 1,
+   "fix": "estoy",
+   "options": [
+    "estoy",
+    "eres",
+    "es"
+   ],
+   "en": "Today I'm very tired.",
+   "why": "How you feel right now uses estar: estoy cansado."
+  },
+  {
+   "id": "s8",
+   "band": 2,
+   "words": [
+    "Cuando",
+    "era",
+    "niño,",
+    "juego",
+    "fútbol",
+    "todos",
+    "los",
+    "días."
+   ],
+   "bad": 3,
+   "fix": "jugaba",
+   "options": [
+    "jugaba",
+    "jugué",
+    "jugaré"
+   ],
+   "en": "When I was a child, I played football every day.",
+   "why": "Habits in the past use the imperfect: jugaba."
+  },
+  {
+   "id": "s9",
+   "band": 2,
+   "words": [
+    "Hay",
+    "mucho",
+    "gente",
+    "en",
+    "la",
+    "calle."
+   ],
+   "bad": 1,
+   "fix": "mucha",
+   "options": [
+    "mucha",
+    "muchos",
+    "muchas"
+   ],
+   "en": "There are a lot of people in the street.",
+   "why": "“Gente” is feminine and singular: mucha gente."
+  },
+  {
+   "id": "s10",
+   "band": 2,
+   "words": [
+    "Necesito",
+    "que",
+    "tú",
+    "vienes",
+    "temprano."
+   ],
+   "bad": 3,
+   "fix": "vengas",
+   "options": [
+    "vengas",
+    "venir",
+    "viniste"
+   ],
+   "en": "I need you to come early.",
+   "why": "After “necesito que”, use the subjunctive: vengas."
+  },
+  {
+   "id": "s11",
+   "band": 3,
+   "words": [
+    "Si",
+    "tendría",
+    "dinero,",
+    "viajaría",
+    "por",
+    "el",
+    "mundo."
+   ],
+   "bad": 1,
+   "fix": "tuviera",
+   "options": [
+    "tuviera",
+    "tengo",
+    "tendré"
+   ],
+   "en": "If I had money, I would travel the world.",
+   "why": "In an unreal “si” clause, use the imperfect subjunctive: si tuviera."
+  },
+  {
+   "id": "s12",
+   "band": 3,
+   "words": [
+    "Me",
+    "alegra",
+    "que",
+    "vienes",
+    "a",
+    "la",
+    "fiesta."
+   ],
+   "bad": 3,
+   "fix": "vengas",
+   "options": [
+    "vengas",
+    "vendrás",
+    "viniste"
+   ],
+   "en": "I'm glad you're coming to the party.",
+   "why": "Feelings + que take the subjunctive: me alegra que vengas."
+  },
+  {
+   "id": "s13",
+   "band": 3,
+   "words": [
+    "Ojalá",
+    "que",
+    "mañana",
+    "hace",
+    "buen",
+    "tiempo."
+   ],
+   "bad": 3,
+   "fix": "haga",
+   "options": [
+    "haga",
+    "hizo",
+    "hará"
+   ],
+   "en": "I hope the weather is nice tomorrow.",
+   "why": "“Ojalá” always takes the subjunctive: haga."
+  },
+  {
+   "id": "s14",
+   "band": 3,
+   "words": [
+    "Cuando",
+    "llegarás",
+    "a",
+    "casa,",
+    "llámame."
+   ],
+   "bad": 1,
+   "fix": "llegues",
+   "options": [
+    "llegues",
+    "llegas",
+    "llegaste"
+   ],
+   "en": "When you get home, call me.",
+   "why": "“Cuando” about the future takes the subjunctive: cuando llegues."
+  },
+  {
+   "id": "s15",
+   "band": 3,
+   "words": [
+    "No",
+    "creo",
+    "que",
+    "él",
+    "tiene",
+    "razón."
+   ],
+   "bad": 4,
+   "fix": "tenga",
+   "options": [
+    "tenga",
+    "tuvo",
+    "tendrá"
+   ],
+   "en": "I don't think he's right.",
+   "why": "“No creo que” takes the subjunctive: tenga."
+  }
+ ],
+ "missions": [
+  {
+   "id": "coffee",
+   "band": 1,
+   "title": "Pide un café",
+   "en": "Order a coffee",
+   "task": "Order a coffee in Spanish at a café, or practise with a friend playing the waiter.",
+   "phrases": [
+    {
+     "text": "Un café, por favor.",
+     "en": "A coffee, please."
+    },
+    {
+     "text": "¿Cuánto es?",
+     "en": "How much is it?"
+    },
+    {
+     "text": "Gracias, muy amable.",
+     "en": "Thanks, that's very kind."
+    }
+   ]
+  },
+  {
+   "id": "greet",
+   "band": 1,
+   "title": "Saluda a alguien",
+   "en": "Greet someone",
+   "task": "Say good morning and ask how someone is, in Spanish: a neighbour, a coworker or a shop assistant.",
+   "phrases": [
+    {
+     "text": "¡Buenos días! ¿Cómo está?",
+     "en": "Good morning! How are you?"
+    },
+    {
+     "text": "Muy bien, gracias. ¿Y usted?",
+     "en": "Very well, thanks. And you?"
+    },
+    {
+     "text": "¡Que tenga un buen día!",
+     "en": "Have a good day!"
+    }
+   ]
+  },
+  {
+   "id": "count",
+   "band": 1,
+   "title": "Cuenta en español",
+   "en": "Count in Spanish",
+   "task": "Count your change, your steps or your groceries out loud in Spanish today, up to twenty.",
+   "phrases": [
+    {
+     "text": "Uno, dos, tres, cuatro, cinco.",
+     "en": "One, two, three, four, five."
+    },
+    {
+     "text": "Diez, once, doce, trece.",
+     "en": "Ten, eleven, twelve, thirteen."
+    },
+    {
+     "text": "Dieciocho, diecinueve, veinte.",
+     "en": "Eighteen, nineteen, twenty."
+    }
+   ]
+  },
+  {
+   "id": "directions",
+   "band": 2,
+   "title": "Pide direcciones",
+   "en": "Ask for directions",
+   "task": "Ask someone for directions in Spanish, or ask your map app in Spanish and repeat the answer.",
+   "phrases": [
+    {
+     "text": "Disculpe, ¿dónde queda la estación?",
+     "en": "Excuse me, where's the station?"
+    },
+    {
+     "text": "¿Está lejos de aquí?",
+     "en": "Is it far from here?"
+    },
+    {
+     "text": "¿Me lo puede repetir, por favor?",
+     "en": "Could you repeat that, please?"
+    }
+   ]
+  },
+  {
+   "id": "phone",
+   "band": 2,
+   "title": "Tu teléfono en español",
+   "en": "Your phone in Spanish",
+   "task": "Switch your phone, or one app you use a lot, to Spanish for a whole day.",
+   "phrases": [
+    {
+     "text": "Ajustes",
+     "en": "Settings"
+    },
+    {
+     "text": "Notificaciones",
+     "en": "Notifications"
+    },
+    {
+     "text": "Tienes mensajes nuevos.",
+     "en": "You have new messages."
+    }
+   ]
+  },
+  {
+   "id": "voicenote",
+   "band": 2,
+   "title": "Manda un audio",
+   "en": "Send a voice message",
+   "task": "Send a 30-second voice message in Spanish, to a friend or to yourself, about your day.",
+   "phrases": [
+    {
+     "text": "Hoy fue un día muy ocupado.",
+     "en": "Today was a very busy day."
+    },
+    {
+     "text": "Por la mañana trabajé y por la tarde descansé.",
+     "en": "In the morning I worked and in the afternoon I rested."
+    },
+    {
+     "text": "¿Y tú qué tal?",
+     "en": "And how about you?"
+    }
+   ]
+  },
+  {
+   "id": "recipe",
+   "band": 3,
+   "title": "Cocina en español",
+   "en": "Cook in Spanish",
+   "task": "Cook something by following a recipe or a video in Spanish.",
+   "phrases": [
+    {
+     "text": "Primero, corta la cebolla en trocitos.",
+     "en": "First, chop the onion into small pieces."
+    },
+    {
+     "text": "Después, añade una pizca de sal.",
+     "en": "Then add a pinch of salt."
+    },
+    {
+     "text": "Deja que hierva unos diez minutos.",
+     "en": "Let it boil for about ten minutes."
+    }
+   ]
+  },
+  {
+   "id": "review",
+   "band": 3,
+   "title": "Opina en español",
+   "en": "Give your opinion in Spanish",
+   "task": "Write a comment or review in Spanish: a restaurant, a video or a book you liked.",
+   "phrases": [
+    {
+     "text": "Me encantó el ambiente.",
+     "en": "I loved the atmosphere."
+    },
+    {
+     "text": "Lo recomiendo muchísimo.",
+     "en": "I highly recommend it."
+    },
+    {
+     "text": "Lo único que mejoraría es el servicio.",
+     "en": "The only thing I'd improve is the service."
+    }
+   ]
+  },
+  {
+   "id": "realcall",
+   "band": 3,
+   "title": "Una llamada de verdad",
+   "en": "A real phone call",
+   "task": "Make a real phone call in Spanish: ask a shop or restaurant what time they open and close.",
+   "phrases": [
+    {
+     "text": "Buenas tardes, ¿a qué hora abren mañana?",
+     "en": "Good afternoon, what time do you open tomorrow?"
+    },
+    {
+     "text": "¿Y hasta qué hora atienden?",
+     "en": "And until what time are you open?"
+    },
+    {
+     "text": "Perfecto, muchas gracias por la información.",
+     "en": "Perfect, thank you very much for the information."
+    }
+   ]
+  }
+ ],
+ "debate": {
+  "topics": [
+   {
+    "id": "hotdog",
+    "en": "Is a hot dog a sandwich?",
+    "title": "¿Un perro caliente es un sándwich?"
+   },
+   {
+    "id": "cats",
+    "en": "Cats are better than dogs.",
+    "title": "Los gatos son mejores que los perros."
+   },
+   {
+    "id": "breakfast",
+    "en": "Breakfast is the best meal of the day.",
+    "title": "El desayuno es la mejor comida del día."
+   },
+   {
+    "id": "cooking",
+    "en": "Everyone should learn to cook.",
+    "title": "Todo el mundo debería aprender a cocinar."
+   },
+   {
+    "id": "summer",
+    "en": "Summer is better than winter.",
+    "title": "El verano es mejor que el invierno."
+   },
+   {
+    "id": "social",
+    "en": "Social media does more harm than good.",
+    "title": "Las redes sociales hacen más daño que bien."
+   }
+  ],
+  "phrases": [
+   {
+    "text": "Desde mi punto de vista…",
+    "en": "From my point of view…"
+   },
+   {
+    "text": "Estoy de acuerdo en parte, pero…",
+    "en": "I partly agree, but…"
+   },
+   {
+    "text": "No estoy para nada de acuerdo.",
+    "en": "I don't agree at all."
+   },
+   {
+    "text": "Por un lado…, y por otro lado…",
+    "en": "On the one hand…, and on the other hand…"
+   },
+   {
+    "text": "Lo que quiero decir es que…",
+    "en": "What I mean is that…"
+   },
+   {
+    "text": "Eso no tiene sentido, porque…",
+    "en": "That doesn't make sense, because…"
+   },
+   {
+    "text": "Un buen ejemplo de esto es…",
+    "en": "A good example of this is…"
+   },
+   {
+    "text": "Admito que tienes razón en eso.",
+    "en": "I admit you're right about that."
+   },
+   {
+    "text": "Aun así, sigo pensando que…",
+    "en": "Even so, I still think that…"
+   },
+   {
+    "text": "En conclusión…",
+    "en": "In conclusion…"
+   }
+  ]
+ }
+}

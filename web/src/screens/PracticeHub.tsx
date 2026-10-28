@@ -43,6 +43,19 @@ export function PracticeHub({ lang }: { lang: Lang }) {
         </div>
       </button>
 
+      <button className="card review-card play-card" data-testid="play-card" onClick={() => open(`/${lang}/play`)}>
+        <div className="row">
+          <span className="card-sticker tint-orange">
+            <Sticker name="trophy" size={40} />
+          </span>
+          <div className="grow">
+            <div className="card-title">Play &amp; real life</div>
+            <p className="muted small">Adventures you steer out loud, phone calls, text chats, teach the bird, spot the mistake, missions and debates.</p>
+          </div>
+          <Icon name="chevron" style={{ color: 'var(--faint)' }} />
+        </div>
+      </button>
+
       <button className="card review-card daily-card" data-testid="daily-review" disabled={due === 0} onClick={() => open(`/${lang}/learn/daily`)}>
         <div className="row">
           <span className="row-icon due-count" aria-hidden="true">

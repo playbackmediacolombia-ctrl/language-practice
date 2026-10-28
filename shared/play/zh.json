@@ -1,0 +1,1980 @@
+{
+ "join": "",
+ "adventures": [
+  {
+   "id": "market",
+   "band": 1,
+   "kind": "trip",
+   "guide": "friend",
+   "title": "逛市场",
+   "en": "A day at the market",
+   "start": "s1",
+   "scenes": {
+    "s1": {
+     "text": "你在北京的一个市场。人很多，你饿了。",
+     "en": "You're at a market in Beijing. There are lots of people, and you're hungry.",
+     "choices": [
+      {
+       "text": "我想吃煎饼。",
+       "en": "I want to eat a jianbing.",
+       "to": "s2"
+      },
+      {
+       "text": "我想喝果汁。",
+       "en": "I want to drink juice.",
+       "to": "s3"
+      }
+     ]
+    },
+    "s2": {
+     "text": "一位阿姨在卖煎饼，一个八块钱。",
+     "en": "An auntie is selling jianbing, eight yuan each.",
+     "choices": [
+      {
+       "text": "我要一个，加鸡蛋。",
+       "en": "I'll have one, with an egg.",
+       "to": "s4"
+      },
+      {
+       "text": "有不辣的吗？",
+       "en": "Do you have one that isn't spicy?",
+       "to": "s4b"
+      }
+     ]
+    },
+    "s3": {
+     "text": "有橙汁，也有西瓜汁。",
+     "en": "There's orange juice, and watermelon juice too.",
+     "choices": [
+      {
+       "text": "我要一杯橙汁。",
+       "en": "I'll have an orange juice.",
+       "to": "s5"
+      },
+      {
+       "text": "我要一杯西瓜汁。",
+       "en": "I'll have a watermelon juice.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s4": {
+     "text": "真好吃！现在你想去博物馆。你怎么去？",
+     "en": "Delicious! Now you want to go to the museum. How do you go?",
+     "choices": [
+      {
+       "text": "我走路去。",
+       "en": "I'll walk.",
+       "to": "end_walk"
+      },
+      {
+       "text": "我坐地铁去。",
+       "en": "I'll take the subway.",
+       "to": "end_metro"
+      }
+     ]
+    },
+    "s4b": {
+     "text": "有，不辣的也很好吃！现在你想去博物馆。",
+     "en": "Yes, the mild one is delicious too! Now you want to go to the museum.",
+     "choices": [
+      {
+       "text": "我走路去。",
+       "en": "I'll walk.",
+       "to": "end_walk"
+      },
+      {
+       "text": "我坐地铁去。",
+       "en": "I'll take the subway.",
+       "to": "end_metro"
+      }
+     ]
+    },
+    "s5": {
+     "text": "果汁很凉。太好了！一个小朋友问你：“你是哪国人？”",
+     "en": "The juice is nice and cold. Great! A child asks you: “What country are you from?”",
+     "choices": [
+      {
+       "text": "我是美国人。",
+       "en": "I'm American.",
+       "to": "s6"
+      },
+      {
+       "text": "我是加拿大人。",
+       "en": "I'm Canadian.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s6": {
+     "text": "小朋友笑了：“欢迎来中国！”现在你想去博物馆。",
+     "en": "The child smiles: “Welcome to China!” Now you want to go to the museum.",
+     "choices": [
+      {
+       "text": "我走路去。",
+       "en": "I'll walk.",
+       "to": "end_walk"
+      },
+      {
+       "text": "我坐地铁去。",
+       "en": "I'll take the subway.",
+       "to": "end_metro"
+      }
+     ]
+    },
+    "end_walk": {
+     "text": "你一边走一边看，看到了很多漂亮的胡同。完美的一天！",
+     "en": "You look around as you walk and see lots of pretty hutongs. A perfect day!",
+     "end": "great"
+    },
+    "end_metro": {
+     "text": "地铁很快，可是你坐错了方向。你到得晚了，但是很开心！",
+     "en": "The subway is fast, but you went the wrong direction. You arrive late, but happy!",
+     "end": "good"
+    }
+   }
+  },
+  {
+   "id": "cat",
+   "band": 2,
+   "kind": "mystery",
+   "guide": "parent",
+   "title": "小猫去哪儿了？",
+   "en": "The mystery of the missing cat",
+   "start": "s1",
+   "scenes": {
+    "s1": {
+     "text": "你的邻居王阿姨来敲门。她很着急：她的猫“咪咪”昨天晚上不见了。",
+     "en": "Your neighbour, Auntie Wang, knocks on the door. She's very worried: her cat, Mimi, went missing last night.",
+     "choices": [
+      {
+       "text": "您最后一次看到它是什么时候？",
+       "en": "When did you last see it?",
+       "to": "s2"
+      },
+      {
+       "text": "您去公园找过了吗？",
+       "en": "Have you looked in the park?",
+       "to": "s3"
+      }
+     ]
+    },
+    "s2": {
+     "text": "她说十点的时候还在阳台上看到它。今天早上，她发现窗户开着。",
+     "en": "She says she still saw it on the balcony at ten. This morning she found the window open.",
+     "choices": [
+      {
+       "text": "我们去阳台看看吧。",
+       "en": "Let's go and look at the balcony.",
+       "to": "s4"
+      },
+      {
+       "text": "我们问问保安吧。",
+       "en": "Let's ask the security guard.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s3": {
+     "text": "她说没有，她一个人不敢去。你们一起去了公园，可是只看到了鸽子。",
+     "en": "She says no, she was scared to go alone. You go to the park together, but you only see pigeons.",
+     "choices": [
+      {
+       "text": "我们问问保安吧。",
+       "en": "Let's ask the security guard.",
+       "to": "s5"
+      },
+      {
+       "text": "我们回去看看阳台吧。",
+       "en": "Let's go back and look at the balcony.",
+       "to": "s4"
+      }
+     ]
+    },
+    "s4": {
+     "text": "阳台上有一些小小的脚印，一直通到邻居家的屋顶。",
+     "en": "On the balcony there are some little paw prints, leading all the way to the neighbour's roof.",
+     "choices": [
+      {
+       "text": "我们跟着脚印走。",
+       "en": "Let's follow the paw prints.",
+       "to": "s6"
+      },
+      {
+       "text": "我们去问隔壁的邻居。",
+       "en": "Let's ask the next-door neighbour.",
+       "to": "s7"
+      }
+     ]
+    },
+    "s5": {
+     "text": "保安笑着说：“昨天晚上，我在街角的面包店看到一只灰色的猫。”",
+     "en": "The guard laughs: “Last night I saw a grey cat at the bakery on the corner.”",
+     "choices": [
+      {
+       "text": "我们去面包店吧！",
+       "en": "Let's go to the bakery!",
+       "to": "s8"
+      },
+      {
+       "text": "您确定是灰色的吗？",
+       "en": "Are you sure it was grey?",
+       "to": "s9"
+      }
+     ]
+    },
+    "s6": {
+     "text": "脚印在一个旧纸箱前面停了。纸箱里面好像有东西在动……",
+     "en": "The paw prints stop in front of an old cardboard box. Something seems to be moving inside…",
+     "choices": [
+      {
+       "text": "我轻轻地打开纸箱。",
+       "en": "I gently open the box.",
+       "to": "end_box"
+      },
+      {
+       "text": "我叫王阿姨来打开。",
+       "en": "I call Auntie Wang to open it.",
+       "to": "end_kittens"
+      }
+     ]
+    },
+    "s7": {
+     "text": "邻居说，凌晨的时候他听到了猫叫，就在面包店附近。",
+     "en": "The neighbour says that in the early hours he heard meowing, right near the bakery.",
+     "choices": [
+      {
+       "text": "我们去面包店吧！",
+       "en": "Let's go to the bakery!",
+       "to": "s8"
+      },
+      {
+       "text": "我们回阳台吧。",
+       "en": "Let's go back to the balcony.",
+       "to": "s4"
+      }
+     ]
+    },
+    "s8": {
+     "text": "在面包店里，咪咪正睡在烤箱旁边，又舒服又暖和。",
+     "en": "In the bakery, Mimi is sleeping next to the oven, comfy and warm.",
+     "choices": [
+      {
+       "text": "王阿姨，我们找到它了！",
+       "en": "Auntie Wang, we found it!",
+       "to": "end_bakery"
+      },
+      {
+       "text": "我给王阿姨买个面包庆祝一下。",
+       "en": "I buy Auntie Wang some bread to celebrate.",
+       "to": "end_bread"
+      }
+     ]
+    },
+    "s9": {
+     "text": "“嗯……灰色还是白色，我也不太确定，天太黑了。”保安说。",
+     "en": "“Hmm… grey or white, I'm not really sure, it was too dark,” says the guard.",
+     "choices": [
+      {
+       "text": "我们还是去面包店看看吧。",
+       "en": "Let's go and check the bakery anyway.",
+       "to": "s8"
+      },
+      {
+       "text": "我们还是先看看阳台吧。",
+       "en": "Let's check the balcony first.",
+       "to": "s4"
+      }
+     ]
+    },
+    "end_box": {
+     "text": "是咪咪！它被困在纸箱里了。王阿姨高兴得哭了。",
+     "en": "It's Mimi! It was stuck in the box. Auntie Wang cries with happiness.",
+     "end": "great"
+    },
+    "end_kittens": {
+     "text": "王阿姨打开纸箱：里面有三只小猫！原来咪咪当妈妈了！",
+     "en": "Auntie Wang opens the box: there are three kittens inside! Mimi has become a mum!",
+     "end": "great"
+    },
+    "end_bakery": {
+     "text": "王阿姨抱住了咪咪。面包店老板说，它随时可以再来。",
+     "en": "Auntie Wang hugs Mimi. The baker says it can come back any time.",
+     "end": "great"
+    },
+    "end_bread": {
+     "text": "王阿姨、咪咪和你一起吃刚出炉的面包当早饭。案子破了！",
+     "en": "Auntie Wang, Mimi and you have fresh bread for breakfast. Case solved!",
+     "end": "good"
+    }
+   }
+  },
+  {
+   "id": "train",
+   "band": 3,
+   "kind": "mystery",
+   "guide": "interviewer",
+   "title": "夜车疑案",
+   "en": "The night train",
+   "start": "s1",
+   "scenes": {
+    "s1": {
+     "text": "你坐在从上海开往北京的夜车上。半夜，一位乘客大叫：她奶奶留给她的项链被人偷了。",
+     "en": "You're on the night train from Shanghai to Beijing. At midnight a passenger cries out: the necklace her grandmother left her has been stolen.",
+     "choices": [
+      {
+       "text": "我请她把经过详细地告诉我。",
+       "en": "I ask her to tell me exactly what happened.",
+       "to": "s2"
+      },
+      {
+       "text": "我去找列车员，不让任何人下车。",
+       "en": "I go and find the train attendant, so nobody gets off.",
+       "to": "s3"
+      }
+     ]
+    },
+    "s2": {
+     "text": "她说她睡着了，醒来的时候首饰盒已经开了。只有两个人走过车厢：一位音乐家和一位穿西装的先生。",
+     "en": "She says she fell asleep, and when she woke up the jewellery box was already open. Only two people walked through the carriage: a musician and a man in a suit.",
+     "choices": [
+      {
+       "text": "我去跟音乐家谈谈。",
+       "en": "I go and talk to the musician.",
+       "to": "s4"
+      },
+      {
+       "text": "我去跟穿西装的先生谈谈。",
+       "en": "I go and talk to the man in the suit.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s3": {
+     "text": "列车员锁上了车门，请你帮忙，因为车厢里只有你醒着。火车一个小时以后才会停。",
+     "en": "The attendant locks the doors and asks for your help, since you're the only one awake in the carriage. The train won't stop for another hour.",
+     "choices": [
+      {
+       "text": "我去问问音乐家。",
+       "en": "I go and question the musician.",
+       "to": "s4"
+      },
+      {
+       "text": "我在过道里找找有没有线索。",
+       "en": "I search the aisle for clues.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s4": {
+     "text": "音乐家很紧张，说他只是去了一趟洗手间。他的吉他装在琴盒里，可是琴盒重得不像是空的。",
+     "en": "The musician is nervous and says he only went to the toilet. His guitar is in its case, but the case is too heavy to be empty.",
+     "choices": [
+      {
+       "text": "我请他打开琴盒。",
+       "en": "I ask him to open the case.",
+       "to": "s7"
+      },
+      {
+       "text": "没有证据，最好不要随便怀疑别人。",
+       "en": "Without proof, it's better not to suspect people.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s5": {
+     "text": "穿西装的先生说他是珠宝商，如果他要偷，也不会偷这么便宜的项链。他看起来很不高兴。",
+     "en": "The man in the suit says he's a jeweller, and if he were going to steal, he wouldn't steal such a cheap necklace. He looks upset.",
+     "choices": [
+      {
+       "text": "我问他怎么知道项链很便宜。",
+       "en": "I ask him how he knows the necklace is cheap.",
+       "to": "s8"
+      },
+      {
+       "text": "我向他道歉，然后继续调查。",
+       "en": "I apologise to him and keep investigating.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s6": {
+     "text": "在一个座位下面，你找到了一张北京珠宝店的名片，上面有手写的地址。",
+     "en": "Under a seat you find a business card from a jeweller's in Beijing, with a handwritten address on it.",
+     "choices": [
+      {
+       "text": "我把名片给穿西装的先生看。",
+       "en": "I show the card to the man in the suit.",
+       "to": "s8"
+      },
+      {
+       "text": "我把名片给列车员看。",
+       "en": "I show the card to the attendant.",
+       "to": "s9"
+      }
+     ]
+    },
+    "s7": {
+     "text": "琴盒里面是……另一把小吉他！音乐家说那是送给女儿的礼物。你觉得有点不好意思。",
+     "en": "Inside the case is… another, smaller guitar! The musician says it's a present for his daughter. You feel a bit embarrassed.",
+     "choices": [
+      {
+       "text": "我向他道歉，然后去找穿西装的先生。",
+       "en": "I apologise and go to find the man in the suit.",
+       "to": "s5"
+      },
+      {
+       "text": "我回去再找找过道。",
+       "en": "I go back and search the aisle again.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s8": {
+     "text": "穿西装的先生脸色一下子变白了：谁也没说过项链很便宜。要是他没有近距离看过，他不可能知道。",
+     "en": "The man in the suit suddenly goes pale: nobody had said the necklace was cheap. If he hadn't looked at it up close, he couldn't have known.",
+     "choices": [
+      {
+       "text": "我请他在警察来之前把项链还回去。",
+       "en": "I ask him to give the necklace back before the police come.",
+       "to": "end_confess"
+      },
+      {
+       "text": "我什么也不说，直接叫列车员。",
+       "en": "I say nothing and call the attendant straight away.",
+       "to": "end_police"
+      }
+     ]
+    },
+    "s9": {
+     "text": "列车员认出了珠宝店的名字：老板就在隔壁车厢，正是那位穿西装的先生。",
+     "en": "The attendant recognises the jeweller's name: the owner is in the next carriage. It's the man in the suit.",
+     "choices": [
+      {
+       "text": "我们一起去跟他谈谈吧。",
+       "en": "Let's go and talk to him together.",
+       "to": "s8"
+      },
+      {
+       "text": "我们在下一站等警察吧。",
+       "en": "Let's wait for the police at the next station.",
+       "to": "end_police"
+      }
+     ]
+    },
+    "end_confess": {
+     "text": "他很惭愧，从口袋里拿出了项链。乘客拿回了项链，天亮的时候还请你喝了一杯咖啡。案子漂亮地破了！",
+     "en": "Ashamed, he takes the necklace out of his pocket. The passenger gets it back and buys you a coffee at dawn. Case solved in style!",
+     "end": "great"
+    },
+    "end_police": {
+     "text": "到站以后，警察在他的行李箱里找到了项链。案子破了，可是火车晚到了两个小时。",
+     "en": "At the station, the police find the necklace in his suitcase. Case solved, but the train arrives two hours late.",
+     "end": "good"
+    }
+   }
+  }
+ ],
+ "calls": [
+  {
+   "id": "taxi",
+   "band": 1,
+   "incoming": false,
+   "title": "叫出租车",
+   "en": "Calling a taxi",
+   "them": "Taxi dispatcher",
+   "number": "出租车公司",
+   "setting": "You need a taxi to the airport. You call the taxi company.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "您好，这里是出租车公司。请问有什么可以帮您？",
+     "en": "Hello, this is the taxi company. How can I help you?"
+    },
+    {
+     "who": "you",
+     "text": "您好，我要叫一辆出租车。",
+     "en": "Hello, I'd like to call a taxi."
+    },
+    {
+     "who": "them",
+     "text": "好的。请问您在哪儿？",
+     "en": "Sure. Where are you?"
+    },
+    {
+     "who": "you",
+     "text": "我在人民路五号。",
+     "en": "I'm at number five, Renmin Road."
+    },
+    {
+     "who": "them",
+     "text": "您要去哪儿？",
+     "en": "Where would you like to go?"
+    },
+    {
+     "who": "you",
+     "text": "我去机场。",
+     "en": "I'm going to the airport."
+    },
+    {
+     "who": "them",
+     "text": "好的，车十分钟以后到。",
+     "en": "OK, the car will be there in ten minutes."
+    },
+    {
+     "who": "you",
+     "text": "谢谢您。",
+     "en": "Thank you."
+    },
+    {
+     "who": "them",
+     "text": "不客气，祝您一路顺风！",
+     "en": "You're welcome. Have a safe trip!"
+    }
+   ]
+  },
+  {
+   "id": "table",
+   "band": 1,
+   "incoming": false,
+   "title": "订位子",
+   "en": "Booking a table",
+   "them": "Restaurant host",
+   "number": "老北京饭馆",
+   "setting": "You call a restaurant to book a table for Saturday.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "您好，老北京饭馆。",
+     "en": "Hello, Old Beijing Restaurant."
+    },
+    {
+     "who": "you",
+     "text": "您好，我想订一张桌子。",
+     "en": "Hello, I'd like to book a table."
+    },
+    {
+     "who": "them",
+     "text": "请问几位？",
+     "en": "For how many people?"
+    },
+    {
+     "who": "you",
+     "text": "四个人。",
+     "en": "Four people."
+    },
+    {
+     "who": "them",
+     "text": "哪天？几点？",
+     "en": "Which day? What time?"
+    },
+    {
+     "who": "you",
+     "text": "星期六晚上七点。",
+     "en": "Saturday at seven in the evening."
+    },
+    {
+     "who": "them",
+     "text": "请问您贵姓？",
+     "en": "May I have your surname?"
+    },
+    {
+     "who": "you",
+     "text": "我姓李。",
+     "en": "My surname is Li."
+    },
+    {
+     "who": "them",
+     "text": "好的，李先生，星期六见！",
+     "en": "All right, Mr Li, see you on Saturday!"
+    },
+    {
+     "who": "you",
+     "text": "谢谢，星期六见。",
+     "en": "Thanks, see you on Saturday."
+    }
+   ]
+  },
+  {
+   "id": "clinic",
+   "band": 2,
+   "incoming": true,
+   "title": "诊所来电",
+   "en": "The clinic calls you",
+   "them": "Clinic receptionist",
+   "number": "社区诊所",
+   "setting": "The clinic calls to confirm your appointment, but Thursday doesn't work for you.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "您好，这里是社区诊所。请问是李先生吗？",
+     "en": "Hello, this is the community clinic. Is that Mr Li?"
+    },
+    {
+     "who": "you",
+     "text": "是我，您好。",
+     "en": "Speaking, hello."
+    },
+    {
+     "who": "them",
+     "text": "我打电话来确认一下，您星期四上午九点的预约。",
+     "en": "I'm calling to confirm your appointment on Thursday at nine a.m."
+    },
+    {
+     "who": "you",
+     "text": "不好意思，星期四我去不了。可以改时间吗？",
+     "en": "Sorry, I can't make Thursday. Can I change the time?"
+    },
+    {
+     "who": "them",
+     "text": "可以。星期五上午十一点，或者星期一下午三点，都有空。",
+     "en": "Yes. Friday at eleven a.m. or Monday at three p.m. are both free."
+    },
+    {
+     "who": "you",
+     "text": "星期五上午十一点吧，没问题。",
+     "en": "Friday at eleven a.m., then. That's fine."
+    },
+    {
+     "who": "them",
+     "text": "好的，改到星期五了。请记得带身份证。",
+     "en": "OK, it's moved to Friday. Please remember to bring your ID."
+    },
+    {
+     "who": "you",
+     "text": "好的，谢谢您。",
+     "en": "All right, thank you."
+    },
+    {
+     "who": "them",
+     "text": "不客气，再见！",
+     "en": "You're welcome, goodbye!"
+    }
+   ]
+  },
+  {
+   "id": "delivery",
+   "band": 3,
+   "incoming": true,
+   "title": "找不到路的外卖小哥",
+   "en": "The lost delivery driver",
+   "them": "Delivery driver",
+   "number": "外卖骑手",
+   "setting": "The delivery driver calls: he can't find your building, and part of your order is missing.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "喂，您好，我是送外卖的。您的餐到了，可是我找不到您的楼。",
+     "en": "Hello, I'm your delivery driver. Your food is here, but I can't find your building."
+    },
+    {
+     "who": "you",
+     "text": "您好，您现在在哪儿？",
+     "en": "Hello, where are you now?"
+    },
+    {
+     "who": "them",
+     "text": "我在一个大药店门口，旁边是一家银行。",
+     "en": "I'm outside a big pharmacy, next to a bank."
+    },
+    {
+     "who": "you",
+     "text": "我知道了。您一直往前走，到红绿灯往左拐。",
+     "en": "I know where you are. Go straight ahead and turn left at the traffic lights."
+    },
+    {
+     "who": "them",
+     "text": "好，拐过来了。是不是一栋白色的楼，门是蓝色的？",
+     "en": "OK, I've turned. Is it a white building with a blue door?"
+    },
+    {
+     "who": "you",
+     "text": "对，就是那栋。您按三零二的门铃，我给您开门。",
+     "en": "Yes, that's the one. Ring the bell for 302 and I'll let you in."
+    },
+    {
+     "who": "them",
+     "text": "好的。还有一件事：您点的饮料卖完了。您要换一个，还是退钱？",
+     "en": "OK. One more thing: the drink you ordered is sold out. Would you like a different one, or a refund?"
+    },
+    {
+     "who": "you",
+     "text": "那就退钱吧，谢谢。",
+     "en": "A refund then, thanks."
+    },
+    {
+     "who": "them",
+     "text": "没问题，我马上帮您处理。两分钟就到。",
+     "en": "No problem, I'll sort it out right away. I'll be there in two minutes."
+    },
+    {
+     "who": "you",
+     "text": "好的，我在楼下等您。",
+     "en": "OK, I'll wait for you downstairs."
+    }
+   ]
+  }
+ ],
+ "chats": [
+  {
+   "id": "plans",
+   "band": 1,
+   "title": "今晚干什么？",
+   "en": "Plans for tonight",
+   "them": "小雨",
+   "avatar": "date",
+   "slang": [
+    {
+     "term": "在吗",
+     "means": "are you there? (a common way to start a chat)"
+    },
+    {
+     "term": "哈哈",
+     "means": "haha"
+    },
+    {
+     "term": "好呀",
+     "means": "sure, OK (friendly)"
+    },
+    {
+     "term": "走起",
+     "means": "let's go!"
+    },
+    {
+     "term": "别迟到",
+     "means": "don't be late"
+    },
+    {
+     "term": "拜拜",
+     "means": "bye-bye"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "在吗？👋",
+     "en": "You there? 👋"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "在呀，怎么了？😊",
+       "en": "Yep, what's up? 😊",
+       "why": null
+      },
+      {
+       "text": "您好，老师。",
+       "en": "Hello, teacher.",
+       "why": "Way too formal for texting a friend."
+      },
+      {
+       "text": "我有二十只猫。",
+       "en": "I have twenty cats.",
+       "why": "That doesn't answer her."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "今晚一起去看电影吧？🍿",
+     "en": "Shall we go and see a film tonight? 🍿"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "好呀！几点？",
+       "en": "Sure! What time?",
+       "why": null
+      },
+      {
+       "text": "不了，永别了。",
+       "en": "No, farewell forever.",
+       "why": "A bit dramatic for a movie invite!"
+      },
+      {
+       "text": "我叫小明。",
+       "en": "My name is Xiaoming.",
+       "why": "She already knows your name."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "八点 😎 别迟到哈哈",
+     "en": "Eight o'clock 😎 don't be late haha"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "哈哈放心，我准时到 👍",
+       "en": "Haha don't worry, I'll be on time 👍",
+       "why": null
+      },
+      {
+       "text": "电影是什么？",
+       "en": "What's a film?",
+       "why": "You know what a film is!"
+      },
+      {
+       "text": "我明天到。",
+       "en": "I'll arrive tomorrow.",
+       "why": "The film is tonight."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "好嘞！走起 💙 拜拜",
+     "en": "Great! Let's go 💙 bye-bye"
+    }
+   ]
+  },
+  {
+   "id": "late",
+   "band": 2,
+   "title": "我迟到了",
+   "en": "Running late",
+   "them": "阿杰",
+   "avatar": "friend",
+   "slang": [
+    {
+     "term": "人呢",
+     "means": "where are you? (literally “where's the person?”)"
+    },
+    {
+     "term": "马上到",
+     "means": "be there right away"
+    },
+    {
+     "term": "没事",
+     "means": "no worries"
+    },
+    {
+     "term": "堵死了",
+     "means": "totally jammed (traffic)"
+    },
+    {
+     "term": "打车",
+     "means": "take a taxi"
+    },
+    {
+     "term": "等你",
+     "means": "waiting for you"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "人呢？我们都到了 😅",
+     "en": "Where are you? We're all here 😅"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "不好意思，我迟到了，马上到 🙏",
+       "en": "Sorry, I'm late, be there right away 🙏",
+       "why": null
+      },
+      {
+       "text": "我很好，谢谢你问我。",
+       "en": "I'm fine, thanks for asking.",
+       "why": "He's asking where you are, not how you are."
+      },
+      {
+       "text": "我一个小时以前就到了。",
+       "en": "I got there an hour ago.",
+       "why": "Then they'd see you!"
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "没事哈哈。给你点个喝的？",
+     "en": "No worries haha. Shall we order you a drink?"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "好呀，来杯柠檬水 🍋",
+       "en": "Sure, a lemonade please 🍋",
+       "why": null
+      },
+      {
+       "text": "我没有嘴。",
+       "en": "I don't have a mouth.",
+       "why": "That's just strange."
+      },
+      {
+       "text": "好，给我点一个饭馆。",
+       "en": "OK, order me a restaurant.",
+       "why": "You can't order a whole restaurant."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "好 👌 对了，三环堵死了，你打车吧",
+     "en": "OK 👌 by the way, the Third Ring Road is jammed, take a taxi"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "好，谢谢提醒，我打车过去 🚕",
+       "en": "OK, thanks for the heads-up, I'll take a taxi 🚕",
+       "why": null
+      },
+      {
+       "text": "堵死了？谁死了？",
+       "en": "Jammed to death? Who died?",
+       "why": "堵死了 just means the traffic is completely jammed."
+      },
+      {
+       "text": "我走路去机场。",
+       "en": "I'm walking to the airport.",
+       "why": "You're meeting friends, not going to the airport."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "哈哈好，等你 🙌",
+     "en": "Haha OK, waiting for you 🙌"
+    }
+   ]
+  },
+  {
+   "id": "birthday",
+   "band": 2,
+   "title": "生日惊喜",
+   "en": "A surprise birthday",
+   "them": "小美",
+   "avatar": "receptionist",
+   "slang": [
+    {
+     "term": "宝子们",
+     "means": "guys, besties (cute internet word)"
+    },
+    {
+     "term": "生日惊喜",
+     "means": "surprise birthday"
+    },
+    {
+     "term": "你太棒了",
+     "means": "you're the best"
+    },
+    {
+     "term": "别让她知道",
+     "means": "don't let her find out"
+    },
+    {
+     "term": "么么哒",
+     "means": "mwah, kisses"
+    },
+    {
+     "term": "包在我身上",
+     "means": "leave it to me"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "宝子们！星期六是佳佳的生日 🎂 我们给她办个生日惊喜吧？",
+     "en": "Guys! Saturday is Jiajia's birthday 🎂 shall we throw her a surprise party?"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "好主意！在哪儿办？🎉",
+       "en": "Great idea! Where shall we have it? 🎉",
+       "why": null
+      },
+      {
+       "text": "佳佳是谁？",
+       "en": "Who's Jiajia?",
+       "why": "Jiajia is your friend!"
+      },
+      {
+       "text": "小美，生日快乐！",
+       "en": "Happy birthday, Xiaomei!",
+       "why": "It's Jiajia's birthday, not Xiaomei's."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "在我家！你买蛋糕好不好？🙏",
+     "en": "At my place! Could you buy the cake? 🙏"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "没问题，蛋糕包在我身上 🍰",
+       "en": "No problem, leave the cake to me 🍰",
+       "why": null
+      },
+      {
+       "text": "不要，蛋糕很难看。",
+       "en": "No, cakes are ugly.",
+       "why": "Rude! And not true."
+      },
+      {
+       "text": "好，我带我的狗去。",
+       "en": "OK, I'll bring my dog.",
+       "why": "She asked about the cake."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "你太棒了！！嘘 🤫 别让佳佳知道",
+     "en": "You're the best!! Shh 🤫 don't let Jiajia find out"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "哈哈放心，我不说 🤐",
+       "en": "Haha don't worry, I won't tell 🤐",
+       "why": null
+      },
+      {
+       "text": "我已经告诉佳佳了。",
+       "en": "I already told Jiajia.",
+       "why": "That ruins the surprise!"
+      },
+      {
+       "text": "谁太棒了？",
+       "en": "Who's the best?",
+       "why": "你太棒了 is a compliment: you're the best."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "哈哈哈么么哒 ❤️",
+     "en": "Hahaha mwah ❤️"
+    }
+   ]
+  },
+  {
+   "id": "gossip",
+   "band": 3,
+   "title": "八卦",
+   "en": "The gossip",
+   "them": "婷婷",
+   "avatar": "date",
+   "slang": [
+    {
+     "term": "八卦",
+     "means": "gossip"
+    },
+    {
+     "term": "吃瓜",
+     "means": "enjoy the gossip from the sidelines (“eat melon”)"
+    },
+    {
+     "term": "分手",
+     "means": "break up"
+    },
+    {
+     "term": "好尴尬",
+     "means": "so awkward"
+    },
+    {
+     "term": "嘴严",
+     "means": "tight-lipped, keeps secrets"
+    },
+    {
+     "term": "回头聊",
+     "means": "talk later"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "天哪，我有个大八卦 👀👀",
+     "en": "Oh my god, I've got some big gossip 👀👀"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "快说快说，我来吃瓜 😱",
+       "en": "Quick, tell me, I'm here for the gossip 😱",
+       "why": null
+      },
+      {
+       "text": "我不喜欢跟朋友聊天。",
+       "en": "I don't like chatting with friends.",
+       "why": "An odd thing to text a friend."
+      },
+      {
+       "text": "八卦是一种动物吗？",
+       "en": "Is 八卦 an animal?",
+       "why": "八卦 means gossip."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "大伟和小丽分手了 💔 而且她已经有新男朋友了 🙊",
+     "en": "Dawei and Xiaoli broke up 💔 and she already has a new boyfriend 🙊"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "真的假的？好尴尬啊……大伟还好吗？",
+       "en": "Seriously? How awkward… is Dawei OK?",
+       "why": null
+      },
+      {
+       "text": "恭喜他们结婚！",
+       "en": "Congratulations on their wedding!",
+       "why": "They broke up: there's no wedding."
+      },
+      {
+       "text": "他难过我很高兴。",
+       "en": "I'm glad he's sad.",
+       "why": "That's mean!"
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "他还行，说这样也好哈哈。不过别说是我告诉你的 🤫",
+     "en": "He's alright, says it's for the best haha. But don't say I told you 🤫"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "放心，我嘴最严了 🤐😂",
+       "en": "Don't worry, my lips are sealed 🤐😂",
+       "why": null
+      },
+      {
+       "text": "我已经发到朋友圈了。",
+       "en": "I already posted it on Moments.",
+       "why": "She asked you to keep it secret!"
+      },
+      {
+       "text": "你是谁？",
+       "en": "Who are you?",
+       "why": "You know Tingting: you're chatting with her."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "哈哈哈所以我最喜欢你了 😂 回头聊",
+     "en": "Hahaha that's why you're my favourite 😂 talk later"
+    }
+   ]
+  }
+ ],
+ "teach": {
+  "lines": {
+   "intro": {
+    "text": "哎呀！我忘了“{w}”是什么了。你能给我解释一下吗？",
+    "en": "Oh no! I forgot what “{w}” is. Can you explain it to me?"
+   },
+   "yes": {
+    "text": "啊，对对对！我想起来了！谢谢你！",
+    "en": "Ah, yes yes yes! I remember now! Thank you!"
+   },
+   "no": {
+    "text": "嗯……我还是不明白。能再给我一点提示吗？",
+    "en": "Hmm… I still don't get it. Can you give me another hint?"
+   }
+  },
+  "words": [
+   {
+    "id": "key",
+    "band": 1,
+    "word": "钥匙",
+    "en": "the key",
+    "explain": "这是一个小小的金属东西，用来开门。",
+    "explainEn": "It's a small metal thing you use to open the door.",
+    "keywords": [
+     "开门",
+     "门",
+     "开",
+     "家",
+     "金属",
+     "锁"
+    ]
+   },
+   {
+    "id": "umbrella",
+    "band": 1,
+    "word": "雨伞",
+    "en": "the umbrella",
+    "explain": "下雨的时候用它，这样你就不会淋湿。",
+    "explainEn": "You use it when it rains, so you don't get wet.",
+    "keywords": [
+     "雨",
+     "下雨",
+     "湿",
+     "淋",
+     "水"
+    ]
+   },
+   {
+    "id": "fridge",
+    "band": 1,
+    "word": "冰箱",
+    "en": "the fridge",
+    "explain": "这是厨房里很冷的电器，用来放牛奶和吃的东西。",
+    "explainEn": "It's a cold appliance in the kitchen for keeping milk and food.",
+    "keywords": [
+     "冷",
+     "厨房",
+     "牛奶",
+     "食物",
+     "吃",
+     "放"
+    ]
+   },
+   {
+    "id": "toothbrush",
+    "band": 1,
+    "word": "牙刷",
+    "en": "the toothbrush",
+    "explain": "早上和晚上用它刷牙。",
+    "explainEn": "You use it to brush your teeth in the morning and at night.",
+    "keywords": [
+     "牙",
+     "刷",
+     "嘴",
+     "干净",
+     "洗"
+    ]
+   },
+   {
+    "id": "alarm-clock",
+    "band": 2,
+    "word": "闹钟",
+    "en": "the alarm clock",
+    "explain": "这是早上会响的钟，叫你起床。",
+    "explainEn": "It's a clock that rings in the morning to get you up.",
+    "keywords": [
+     "起床",
+     "早上",
+     "响",
+     "睡觉",
+     "时间",
+     "叫醒"
+    ]
+   },
+   {
+    "id": "wallet",
+    "band": 2,
+    "word": "钱包",
+    "en": "the wallet",
+    "explain": "这是放钱和银行卡的东西，一般放在口袋里。",
+    "explainEn": "It's what you keep your money and bank cards in, usually in your pocket.",
+    "keywords": [
+     "钱",
+     "卡",
+     "口袋",
+     "放",
+     "银行"
+    ]
+   },
+   {
+    "id": "lift",
+    "band": 2,
+    "word": "电梯",
+    "en": "the lift / elevator",
+    "explain": "这是在大楼里带你上楼、下楼的机器，不用走楼梯。",
+    "explainEn": "It's a machine that takes you up and down in a building, so you don't take the stairs.",
+    "keywords": [
+     "上楼",
+     "下楼",
+     "楼",
+     "楼梯",
+     "楼层",
+     "上去",
+     "下来"
+    ]
+   },
+   {
+    "id": "scarf",
+    "band": 2,
+    "word": "围巾",
+    "en": "the scarf",
+    "explain": "天冷的时候，围在脖子上的长长的东西。",
+    "explainEn": "A long thing you wrap around your neck when it's cold.",
+    "keywords": [
+     "脖子",
+     "冷",
+     "冬天",
+     "衣服",
+     "围"
+    ]
+   },
+   {
+    "id": "nostalgia",
+    "band": 3,
+    "word": "怀旧",
+    "en": "nostalgia",
+    "explain": "想念过去的时候，心里那种淡淡的感觉。",
+    "explainEn": "That faint feeling in your heart when you miss the past.",
+    "keywords": [
+     "过去",
+     "想念",
+     "回忆",
+     "以前",
+     "难过",
+     "怀念"
+    ]
+   },
+   {
+    "id": "staying-up-late",
+    "band": 3,
+    "word": "熬夜",
+    "en": "staying up late",
+    "explain": "很晚还不睡觉，一直到半夜，甚至到天亮。",
+    "explainEn": "Not going to sleep until very late, until midnight or even dawn.",
+    "keywords": [
+     "晚",
+     "睡觉",
+     "不睡",
+     "半夜",
+     "晚上",
+     "夜"
+    ]
+   },
+   {
+    "id": "a-late-night-snack",
+    "band": 3,
+    "word": "夜宵",
+    "en": "a late-night snack",
+    "explain": "吃完晚饭以后，很晚的时候再吃的东西。",
+    "explainEn": "Food you eat very late, after you've had dinner.",
+    "keywords": [
+     "晚",
+     "吃",
+     "晚上",
+     "夜",
+     "饿",
+     "东西"
+    ]
+   },
+   {
+    "id": "savings",
+    "band": 3,
+    "word": "存款",
+    "en": "savings",
+    "explain": "存在银行里、没有花掉的钱。",
+    "explainEn": "Money you've put in the bank and haven't spent.",
+    "keywords": [
+     "钱",
+     "银行",
+     "存",
+     "花",
+     "以后"
+    ]
+   }
+  ]
+ },
+ "spot": [
+  {
+   "id": "s1",
+   "band": 1,
+   "words": [
+    "我",
+    "是",
+    "二十",
+    "岁。"
+   ],
+   "bad": 1,
+   "fix": "今年",
+   "options": [
+    "今年",
+    "有",
+    "在"
+   ],
+   "en": "I'm twenty this year.",
+   "why": "Age doesn't take 是: 我今年二十岁 (or just 我二十岁)."
+  },
+  {
+   "id": "s2",
+   "band": 1,
+   "words": [
+    "他",
+    "有",
+    "两",
+    "个",
+    "猫。"
+   ],
+   "bad": 3,
+   "fix": "只",
+   "options": [
+    "只",
+    "本",
+    "张"
+   ],
+   "en": "He has two cats.",
+   "why": "Animals like cats take the measure word 只: 两只猫."
+  },
+  {
+   "id": "s3",
+   "band": 1,
+   "words": [
+    "我",
+    "买",
+    "了",
+    "三",
+    "个",
+    "书。"
+   ],
+   "bad": 4,
+   "fix": "本",
+   "options": [
+    "本",
+    "只",
+    "条"
+   ],
+   "en": "I bought three books.",
+   "why": "Books take the measure word 本: 三本书."
+  },
+  {
+   "id": "s4",
+   "band": 1,
+   "words": [
+    "我",
+    "有",
+    "二",
+    "个",
+    "哥哥。"
+   ],
+   "bad": 2,
+   "fix": "两",
+   "options": [
+    "两",
+    "俩",
+    "第二"
+   ],
+   "en": "I have two older brothers.",
+   "why": "Before a measure word, “two” is 两, not 二: 两个."
+  },
+  {
+   "id": "s5",
+   "band": 1,
+   "words": [
+    "昨天",
+    "我",
+    "不",
+    "去",
+    "上班。"
+   ],
+   "bad": 2,
+   "fix": "没",
+   "options": [
+    "没",
+    "别",
+    "无"
+   ],
+   "en": "Yesterday I didn't go to work.",
+   "why": "For something that didn't happen in the past, use 没, not 不."
+  },
+  {
+   "id": "s6",
+   "band": 2,
+   "words": [
+    "我",
+    "比",
+    "他",
+    "很",
+    "高。"
+   ],
+   "bad": 3,
+   "fix": "更",
+   "options": [
+    "更",
+    "非常",
+    "太"
+   ],
+   "en": "I'm (even) taller than him.",
+   "why": "With 比 you can't use 很: 我比他高, or 我比他更高."
+  },
+  {
+   "id": "s7",
+   "band": 2,
+   "words": [
+    "她",
+    "唱",
+    "的",
+    "很",
+    "好听。"
+   ],
+   "bad": 2,
+   "fix": "得",
+   "options": [
+    "得",
+    "地",
+    "了"
+   ],
+   "en": "She sings beautifully.",
+   "why": "How something is done takes 得: 唱得很好听."
+  },
+  {
+   "id": "s8",
+   "band": 2,
+   "words": [
+    "请",
+    "你",
+    "在",
+    "说",
+    "一",
+    "遍。"
+   ],
+   "bad": 2,
+   "fix": "再",
+   "options": [
+    "再",
+    "又",
+    "还"
+   ],
+   "en": "Please say it again.",
+   "why": "“Again” in the future is 再; 在 means “at” or “-ing”."
+  },
+  {
+   "id": "s9",
+   "band": 2,
+   "words": [
+    "他",
+    "昨天",
+    "来",
+    "了，",
+    "今天",
+    "再",
+    "来",
+    "了。"
+   ],
+   "bad": 5,
+   "fix": "又",
+   "options": [
+    "又",
+    "在",
+    "还"
+   ],
+   "en": "He came yesterday, and he came again today.",
+   "why": "“Again” for something that already happened is 又."
+  },
+  {
+   "id": "s10",
+   "band": 2,
+   "words": [
+    "我",
+    "跟",
+    "这",
+    "个",
+    "问题",
+    "不",
+    "太",
+    "清楚。"
+   ],
+   "bad": 1,
+   "fix": "对",
+   "options": [
+    "对",
+    "给",
+    "和"
+   ],
+   "en": "I'm not very clear about this question.",
+   "why": "“Clear about something” is 对…清楚."
+  },
+  {
+   "id": "s11",
+   "band": 3,
+   "words": [
+    "虽然",
+    "他",
+    "很",
+    "忙，",
+    "可是",
+    "他",
+    "也",
+    "来",
+    "了。"
+   ],
+   "bad": 6,
+   "fix": "还是",
+   "options": [
+    "还是",
+    "就",
+    "都"
+   ],
+   "en": "Although he was very busy, he still came.",
+   "why": "虽然… pairs with 还是 (still): 他还是来了."
+  },
+  {
+   "id": "s12",
+   "band": 3,
+   "words": [
+    "他",
+    "不但",
+    "会",
+    "说",
+    "英语，",
+    "但是",
+    "会",
+    "说",
+    "法语。"
+   ],
+   "bad": 5,
+   "fix": "而且",
+   "options": [
+    "而且",
+    "可是",
+    "所以"
+   ],
+   "en": "He can speak not only English but also French.",
+   "why": "不但… pairs with 而且 (and also)."
+  },
+  {
+   "id": "s13",
+   "band": 3,
+   "words": [
+    "只要",
+    "你",
+    "努力，",
+    "你",
+    "才",
+    "能",
+    "成功。"
+   ],
+   "bad": 4,
+   "fix": "就",
+   "options": [
+    "就",
+    "也",
+    "还"
+   ],
+   "en": "As long as you work hard, you can succeed.",
+   "why": "只要… pairs with 就; it's 只有… that pairs with 才."
+  },
+  {
+   "id": "s14",
+   "band": 3,
+   "words": [
+    "因为",
+    "下雨，",
+    "但是",
+    "我们",
+    "没",
+    "去",
+    "公园。"
+   ],
+   "bad": 2,
+   "fix": "所以",
+   "options": [
+    "所以",
+    "而且",
+    "可是"
+   ],
+   "en": "Because it rained, we didn't go to the park.",
+   "why": "因为… pairs with 所以 (so), not 但是."
+  },
+  {
+   "id": "s15",
+   "band": 3,
+   "words": [
+    "即使",
+    "明天",
+    "下雪，",
+    "我",
+    "就",
+    "要",
+    "去。"
+   ],
+   "bad": 4,
+   "fix": "也",
+   "options": [
+    "也",
+    "才",
+    "都"
+   ],
+   "en": "Even if it snows tomorrow, I'll still go.",
+   "why": "即使… pairs with 也 (even so)."
+  }
+ ],
+ "missions": [
+  {
+   "id": "coffee",
+   "band": 1,
+   "title": "点一杯咖啡",
+   "en": "Order a coffee",
+   "task": "Order a coffee or a tea in Mandarin at a café, or practise with a friend playing the server.",
+   "phrases": [
+    {
+     "text": "我要一杯咖啡。",
+     "en": "I'd like a coffee."
+    },
+    {
+     "text": "多少钱？",
+     "en": "How much is it?"
+    },
+    {
+     "text": "谢谢！",
+     "en": "Thank you!"
+    }
+   ]
+  },
+  {
+   "id": "greet",
+   "band": 1,
+   "title": "跟人打招呼",
+   "en": "Greet someone",
+   "task": "Say hello and ask how someone is, in Mandarin: a neighbour, a coworker or a shop assistant.",
+   "phrases": [
+    {
+     "text": "你好！最近怎么样？",
+     "en": "Hello! How have you been?"
+    },
+    {
+     "text": "挺好的，谢谢。你呢？",
+     "en": "Pretty good, thanks. And you?"
+    },
+    {
+     "text": "祝你今天愉快！",
+     "en": "Have a nice day!"
+    }
+   ]
+  },
+  {
+   "id": "count",
+   "band": 1,
+   "title": "用中文数数",
+   "en": "Count in Mandarin",
+   "task": "Count your change, your steps or your shopping out loud in Mandarin today, up to twenty.",
+   "phrases": [
+    {
+     "text": "一、二、三、四、五。",
+     "en": "One, two, three, four, five."
+    },
+    {
+     "text": "十、十一、十二、十三。",
+     "en": "Ten, eleven, twelve, thirteen."
+    },
+    {
+     "text": "十八、十九、二十。",
+     "en": "Eighteen, nineteen, twenty."
+    }
+   ]
+  },
+  {
+   "id": "directions",
+   "band": 2,
+   "title": "问路",
+   "en": "Ask for directions",
+   "task": "Ask someone for directions in Mandarin, or ask your map app in Mandarin and repeat the answer.",
+   "phrases": [
+    {
+     "text": "请问，地铁站在哪儿？",
+     "en": "Excuse me, where's the subway station?"
+    },
+    {
+     "text": "离这儿远吗？",
+     "en": "Is it far from here?"
+    },
+    {
+     "text": "您能再说一遍吗？",
+     "en": "Could you say that again?"
+    }
+   ]
+  },
+  {
+   "id": "phone",
+   "band": 2,
+   "title": "手机换成中文",
+   "en": "Your phone in Mandarin",
+   "task": "Switch your phone, or one app you use a lot, to Chinese for a whole day.",
+   "phrases": [
+    {
+     "text": "设置",
+     "en": "Settings"
+    },
+    {
+     "text": "通知",
+     "en": "Notifications"
+    },
+    {
+     "text": "你有新消息。",
+     "en": "You have new messages."
+    }
+   ]
+  },
+  {
+   "id": "voicenote",
+   "band": 2,
+   "title": "发一条语音",
+   "en": "Send a voice message",
+   "task": "Send a 30-second voice message in Mandarin, to a friend or to yourself, about your day.",
+   "phrases": [
+    {
+     "text": "今天特别忙。",
+     "en": "Today was really busy."
+    },
+    {
+     "text": "上午我工作了，下午休息了一下。",
+     "en": "In the morning I worked, and in the afternoon I had a rest."
+    },
+    {
+     "text": "你今天怎么样？",
+     "en": "How was your day?"
+    }
+   ]
+  },
+  {
+   "id": "recipe",
+   "band": 3,
+   "title": "跟着中文菜谱做饭",
+   "en": "Cook in Mandarin",
+   "task": "Cook something by following a recipe or a video in Mandarin.",
+   "phrases": [
+    {
+     "text": "先把洋葱切成小块。",
+     "en": "First, chop the onion into small pieces."
+    },
+    {
+     "text": "然后加一点儿盐。",
+     "en": "Then add a little salt."
+    },
+    {
+     "text": "煮十分钟左右。",
+     "en": "Boil for about ten minutes."
+    }
+   ]
+  },
+  {
+   "id": "review",
+   "band": 3,
+   "title": "用中文写评价",
+   "en": "Give your opinion in Mandarin",
+   "task": "Write a comment or review in Mandarin: a restaurant, a video or a book you liked.",
+   "phrases": [
+    {
+     "text": "我很喜欢这里的气氛。",
+     "en": "I really like the atmosphere here."
+    },
+    {
+     "text": "强烈推荐！",
+     "en": "Highly recommended!"
+    },
+    {
+     "text": "唯一要改进的是服务。",
+     "en": "The only thing to improve is the service."
+    }
+   ]
+  },
+  {
+   "id": "realcall",
+   "band": 3,
+   "title": "打一个真的电话",
+   "en": "A real phone call",
+   "task": "Make a real phone call in Mandarin: ask a shop or restaurant what time they open and close.",
+   "phrases": [
+    {
+     "text": "您好，请问你们明天几点开门？",
+     "en": "Hello, what time do you open tomorrow?"
+    },
+    {
+     "text": "晚上几点关门？",
+     "en": "What time do you close in the evening?"
+    },
+    {
+     "text": "好的，谢谢您！",
+     "en": "Great, thank you!"
+    }
+   ]
+  }
+ ],
+ "debate": {
+  "topics": [
+   {
+    "id": "hotdog",
+    "en": "Is a hot dog a sandwich?",
+    "title": "热狗算不算三明治？"
+   },
+   {
+    "id": "cats",
+    "en": "Cats are better than dogs.",
+    "title": "猫比狗好。"
+   },
+   {
+    "id": "breakfast",
+    "en": "Breakfast is the best meal of the day.",
+    "title": "早饭是一天中最好的一顿饭。"
+   },
+   {
+    "id": "cooking",
+    "en": "Everyone should learn to cook.",
+    "title": "每个人都应该学做饭。"
+   },
+   {
+    "id": "summer",
+    "en": "Summer is better than winter.",
+    "title": "夏天比冬天好。"
+   },
+   {
+    "id": "social",
+    "en": "Social media does more harm than good.",
+    "title": "社交媒体弊大于利。"
+   }
+  ],
+  "phrases": [
+   {
+    "text": "在我看来……",
+    "en": "In my view…"
+   },
+   {
+    "text": "我部分同意，但是……",
+    "en": "I partly agree, but…"
+   },
+   {
+    "text": "我完全不同意。",
+    "en": "I completely disagree."
+   },
+   {
+    "text": "一方面……，另一方面……",
+    "en": "On the one hand…, on the other hand…"
+   },
+   {
+    "text": "我的意思是……",
+    "en": "What I mean is…"
+   },
+   {
+    "text": "这说不通，因为……",
+    "en": "That doesn't add up, because…"
+   },
+   {
+    "text": "举个例子……",
+    "en": "For example…"
+   },
+   {
+    "text": "我承认你这一点说得对。",
+    "en": "I admit you're right on that point."
+   },
+   {
+    "text": "尽管如此，我还是觉得……",
+    "en": "Even so, I still think…"
+   },
+   {
+    "text": "总的来说……",
+    "en": "All in all…"
+   }
+  ]
+ }
+}

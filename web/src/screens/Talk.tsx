@@ -5,7 +5,7 @@ import { playAndWait, primePlayer, type Recording, speakDevice, startRecording, 
 import { type Lang, LANGS } from '../lib/content';
 import { courseItemFor, currentLevel, hasStarted, reviewHinted } from '../lib/course';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
-import { addTalkWords, completeLesson, useProgress } from '../lib/progress';
+import { addTalkWords, completeLesson, recordPlay, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { getScenario } from '../lib/scenarios';
 import { audioUrl, nextReply, type NewWord, PROBLEM_TEXT, type TalkError, type TalkMessage, type TalkMode, type TalkProblem, type TalkReply } from '../lib/talk';
@@ -46,6 +46,8 @@ export type LiveSession = {
   xp?: number;
   /** Start at once (a call you just answered: the tap already unlocked the audio). */
   autoStart?: boolean;
+  /** Where it counts in Practice › Play (instead of as a plain AI chat). */
+  play?: { kind: string; id: string };
 };
 
 export function Talk({ lang, scenarioId }: { lang: Lang; scenarioId?: string }) {
@@ -257,7 +259,11 @@ function TalkScreen({ lang, scenario, session }: { lang: Lang; scenario?: Return
         return item ? { key: `${lang}:${item.id}` } : { key: `${lang}:ai:${slug}`, word: { text: w.word, en: w.meaning, pinyin: w.pinyin || undefined } };
       }),
     );
-    if (list.some((m) => m.role === 'user')) completeLesson(lang, null, (session?.xp ?? TALK_XP) - Math.min(helped.current, (session?.xp ?? TALK_XP) / 2));
+    const xp = (session?.xp ?? TALK_XP) - Math.min(helped.current, (session?.xp ?? TALK_XP) / 2);
+    if (list.some((m) => m.role === 'user')) {
+      if (session?.play) recordPlay(lang, session.play.kind, session.play.id, 1, xp);
+      else completeLesson(lang, null, xp);
+    }
     setSummary({ words, mistakes, added });
     setPhase('ended');
   }
@@ -274,7 +280,7 @@ function TalkScreen({ lang, scenario, session }: { lang: Lang; scenario?: Return
     paused: graded ? 'Tap the mic to answer' : 'Type your answer',
     ended: '',
   }[phase];
-  const mood = phase === 'thinking' ? 'thinking' : phase === 'speaking' ? 'idle' : msgs.at(-2)?.role === 'user' ? ((msgs.at(-2) as { correction?: unknown }).correction ? 'confused' : 'happy') : 'idle';
+  const mood = phase === 'thinking' || phase === 'checking' || hint.level > 0 ? 'thinking' : phase === 'speaking' ? 'idle' : msgs.at(-2)?.role === 'user' ? ((msgs.at(-2) as { correction?: unknown }).correction ? 'confused' : 'happy') : 'idle';
 
   return (
     <Screen

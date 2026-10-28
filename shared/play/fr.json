@@ -1,0 +1,1993 @@
+{
+ "join": " ",
+ "adventures": [
+  {
+   "id": "market",
+   "band": 1,
+   "kind": "trip",
+   "guide": "friend",
+   "title": "Une journée au marché",
+   "en": "A day at the market",
+   "start": "s1",
+   "scenes": {
+    "s1": {
+     "text": "Tu es dans un marché à Paris. Il y a beaucoup de monde et tu as faim.",
+     "en": "You're at a market in Paris. There are lots of people and you're hungry.",
+     "choices": [
+      {
+       "text": "Je veux manger une crêpe.",
+       "en": "I want to eat a crêpe.",
+       "to": "s2"
+      },
+      {
+       "text": "Je veux boire un jus.",
+       "en": "I want to drink a juice.",
+       "to": "s3"
+      }
+     ]
+    },
+    "s2": {
+     "text": "Une dame vend des crêpes. Elles coûtent quatre euros.",
+     "en": "A lady sells crêpes. They cost four euros.",
+     "choices": [
+      {
+       "text": "Une crêpe au fromage, s'il vous plaît.",
+       "en": "A cheese crêpe, please.",
+       "to": "s4"
+      },
+      {
+       "text": "Vous avez des crêpes au chocolat ?",
+       "en": "Do you have chocolate crêpes?",
+       "to": "s4b"
+      }
+     ]
+    },
+    "s3": {
+     "text": "Il y a du jus d'orange et du jus de pomme.",
+     "en": "There's orange juice and apple juice.",
+     "choices": [
+      {
+       "text": "Un jus d'orange, s'il vous plaît.",
+       "en": "An orange juice, please.",
+       "to": "s5"
+      },
+      {
+       "text": "Un jus de pomme, s'il vous plaît.",
+       "en": "An apple juice, please.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s4": {
+     "text": "C'est délicieux ! Maintenant, tu veux aller au musée. Comment tu y vas ?",
+     "en": "It's delicious! Now you want to go to the museum. How do you get there?",
+     "choices": [
+      {
+       "text": "J'y vais à pied.",
+       "en": "I'll walk.",
+       "to": "end_walk"
+      },
+      {
+       "text": "Je prends le métro.",
+       "en": "I'll take the metro.",
+       "to": "end_metro"
+      }
+     ]
+    },
+    "s4b": {
+     "text": "Oui, il y a des crêpes au chocolat. Miam ! Maintenant, tu veux aller au musée.",
+     "en": "Yes, there are chocolate crêpes. Yum! Now you want to go to the museum.",
+     "choices": [
+      {
+       "text": "J'y vais à pied.",
+       "en": "I'll walk.",
+       "to": "end_walk"
+      },
+      {
+       "text": "Je prends le métro.",
+       "en": "I'll take the metro.",
+       "to": "end_metro"
+      }
+     ]
+    },
+    "s5": {
+     "text": "Le jus est très frais. Parfait ! Un enfant te demande : « Tu viens d'où ? »",
+     "en": "The juice is very cold. Perfect! A child asks you: “Where are you from?”",
+     "choices": [
+      {
+       "text": "Je viens des États-Unis.",
+       "en": "I'm from the United States.",
+       "to": "s6"
+      },
+      {
+       "text": "Je viens du Canada.",
+       "en": "I'm from Canada.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s6": {
+     "text": "L'enfant sourit : « Bienvenue en France ! » Maintenant, tu veux aller au musée.",
+     "en": "The child smiles: “Welcome to France!” Now you want to go to the museum.",
+     "choices": [
+      {
+       "text": "J'y vais à pied.",
+       "en": "I'll walk.",
+       "to": "end_walk"
+      },
+      {
+       "text": "Je prends le métro.",
+       "en": "I'll take the metro.",
+       "to": "end_metro"
+      }
+     ]
+    },
+    "end_walk": {
+     "text": "Tu marches le long de la Seine et tu vois plein de belles choses. Une journée parfaite !",
+     "en": "You walk along the Seine and see lots of beautiful things. A perfect day!",
+     "end": "great"
+    },
+    "end_metro": {
+     "text": "Le métro est rapide, mais tu te trompes de ligne. Tu arrives en retard, mais content !",
+     "en": "The metro is fast, but you take the wrong line. You arrive late, but happy!",
+     "end": "good"
+    }
+   }
+  },
+  {
+   "id": "cat",
+   "band": 2,
+   "kind": "mystery",
+   "guide": "parent",
+   "title": "Le mystère du chat disparu",
+   "en": "The mystery of the missing cat",
+   "start": "s1",
+   "scenes": {
+    "s1": {
+     "text": "Ta voisine, Madame Martin, frappe à ta porte. Elle est très inquiète : son chat, Pacha, a disparu cette nuit.",
+     "en": "Your neighbour, Madame Martin, knocks on your door. She's very worried: her cat, Pacha, disappeared last night.",
+     "choices": [
+      {
+       "text": "Quand est-ce que vous l'avez vu pour la dernière fois ?",
+       "en": "When did you last see him?",
+       "to": "s2"
+      },
+      {
+       "text": "Vous avez déjà cherché dans le parc ?",
+       "en": "Have you already looked in the park?",
+       "to": "s3"
+      }
+     ]
+    },
+    "s2": {
+     "text": "Elle dit qu'elle l'a vu à dix heures, sur le balcon. Ce matin, elle a trouvé la fenêtre ouverte.",
+     "en": "She says she saw him at ten, on the balcony. This morning she found the window open.",
+     "choices": [
+      {
+       "text": "Allons vérifier le balcon.",
+       "en": "Let's check the balcony.",
+       "to": "s4"
+      },
+      {
+       "text": "Demandons au gardien.",
+       "en": "Let's ask the caretaker.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s3": {
+     "text": "Elle dit que non, qu'elle a peur d'y aller seule. Vous allez au parc ensemble, mais vous ne voyez que des pigeons.",
+     "en": "She says no, she's scared to go alone. You go to the park together, but you only see pigeons.",
+     "choices": [
+      {
+       "text": "Demandons au gardien.",
+       "en": "Let's ask the caretaker.",
+       "to": "s5"
+      },
+      {
+       "text": "Retournons vérifier le balcon.",
+       "en": "Let's go back and check the balcony.",
+       "to": "s4"
+      }
+     ]
+    },
+    "s4": {
+     "text": "Sur le balcon, il y a de petites traces de pattes qui mènent jusqu'au toit du voisin.",
+     "en": "On the balcony there are little paw prints leading to the neighbour's roof.",
+     "choices": [
+      {
+       "text": "Suivons les traces.",
+       "en": "Let's follow the paw prints.",
+       "to": "s6"
+      },
+      {
+       "text": "Appelons le voisin d'à côté.",
+       "en": "Let's call the next-door neighbour.",
+       "to": "s7"
+      }
+     ]
+    },
+    "s5": {
+     "text": "Le gardien rigole : « Cette nuit, j'ai vu un chat gris à la boulangerie du coin. »",
+     "en": "The caretaker laughs: “Last night I saw a grey cat at the bakery on the corner.”",
+     "choices": [
+      {
+       "text": "Allons à la boulangerie !",
+       "en": "Let's go to the bakery!",
+       "to": "s8"
+      },
+      {
+       "text": "Vous êtes sûr qu'il était gris ?",
+       "en": "Are you sure it was grey?",
+       "to": "s9"
+      }
+     ]
+    },
+    "s6": {
+     "text": "Les traces s'arrêtent devant un vieux carton. Dedans, quelque chose bouge…",
+     "en": "The paw prints stop in front of an old cardboard box. Inside, something is moving…",
+     "choices": [
+      {
+       "text": "J'ouvre le carton doucement.",
+       "en": "I open the box gently.",
+       "to": "end_box"
+      },
+      {
+       "text": "J'appelle Madame Martin pour qu'elle l'ouvre.",
+       "en": "I call Madame Martin so she can open it.",
+       "to": "end_kittens"
+      }
+     ]
+    },
+    "s7": {
+     "text": "Le voisin dit qu'il a entendu des miaulements vers cinq heures du matin, près de la boulangerie.",
+     "en": "The neighbour says he heard meowing around five in the morning, near the bakery.",
+     "choices": [
+      {
+       "text": "Allons à la boulangerie !",
+       "en": "Let's go to the bakery!",
+       "to": "s8"
+      },
+      {
+       "text": "Retournons sur le balcon.",
+       "en": "Let's go back to the balcony.",
+       "to": "s4"
+      }
+     ]
+    },
+    "s8": {
+     "text": "À la boulangerie, Pacha dort à côté du four, bien au chaud.",
+     "en": "At the bakery, Pacha is sleeping next to the oven, nice and warm.",
+     "choices": [
+      {
+       "text": "On l'a trouvé, Madame Martin !",
+       "en": "We found him, Madame Martin!",
+       "to": "end_bakery"
+      },
+      {
+       "text": "J'achète des croissants pour fêter ça.",
+       "en": "I buy some croissants to celebrate.",
+       "to": "end_bread"
+      }
+     ]
+    },
+    "s9": {
+     "text": "« Bon, gris ou blanc, je ne sais plus… il faisait nuit », dit le gardien.",
+     "en": "“Well, grey or white, I'm not sure anymore… it was dark,” says the caretaker.",
+     "choices": [
+      {
+       "text": "Allons quand même à la boulangerie.",
+       "en": "Let's go to the bakery anyway.",
+       "to": "s8"
+      },
+      {
+       "text": "Vérifions plutôt le balcon.",
+       "en": "Let's check the balcony instead.",
+       "to": "s4"
+      }
+     ]
+    },
+    "end_box": {
+     "text": "C'est Pacha ! Il était coincé dans le carton. Madame Martin pleure de joie.",
+     "en": "It's Pacha! He was stuck in the box. Madame Martin cries with joy.",
+     "end": "great"
+    },
+    "end_kittens": {
+     "text": "Madame Martin ouvre le carton : il y a trois chatons ! En fait, Pacha est… une chatte, et maintenant elle est maman !",
+     "en": "Madame Martin opens the box: there are three kittens! It turns out Pacha is… a girl, and now she's a mum!",
+     "end": "great"
+    },
+    "end_bakery": {
+     "text": "Madame Martin serre Pacha dans ses bras. Le boulanger dit qu'il peut revenir quand il veut.",
+     "en": "Madame Martin hugs Pacha. The baker says he can come back whenever he likes.",
+     "end": "great"
+    },
+    "end_bread": {
+     "text": "Madame Martin, Pacha et toi prenez le petit-déjeuner avec des croissants tout chauds. Affaire résolue !",
+     "en": "Madame Martin, Pacha and you have breakfast with warm croissants. Case solved!",
+     "end": "good"
+    }
+   }
+  },
+  {
+   "id": "train",
+   "band": 3,
+   "kind": "mystery",
+   "guide": "interviewer",
+   "title": "Le train de nuit",
+   "en": "The night train",
+   "start": "s1",
+   "scenes": {
+    "s1": {
+     "text": "Tu voyages dans un train de nuit entre Paris et Nice. À minuit, une passagère crie : quelqu'un lui a volé le collier de sa grand-mère.",
+     "en": "You're on a night train between Paris and Nice. At midnight, a passenger screams: someone has stolen her grandmother's necklace.",
+     "choices": [
+      {
+       "text": "Je lui demande de me raconter exactement ce qui s'est passé.",
+       "en": "I ask her to tell me exactly what happened.",
+       "to": "s2"
+      },
+      {
+       "text": "Je cherche le contrôleur pour que personne ne descende du train.",
+       "en": "I look for the conductor so that nobody gets off the train.",
+       "to": "s3"
+      }
+     ]
+    },
+    "s2": {
+     "text": "Elle explique qu'elle s'est endormie et qu'à son réveil, l'écrin était ouvert. Seules deux personnes sont passées dans le couloir : un musicien et un homme en costume.",
+     "en": "She explains that she fell asleep and that, when she woke up, the case was open. Only two people walked down the corridor: a musician and a man in a suit.",
+     "choices": [
+      {
+       "text": "Je parle au musicien.",
+       "en": "I talk to the musician.",
+       "to": "s4"
+      },
+      {
+       "text": "Je parle à l'homme en costume.",
+       "en": "I talk to the man in the suit.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s3": {
+     "text": "Le contrôleur verrouille les portes et te demande de l'aide, puisque tu es le seul réveillé dans la voiture. Le train s'arrêtera dans une heure.",
+     "en": "The conductor locks the doors and asks for your help, since you're the only one awake in the carriage. The train will stop in an hour.",
+     "choices": [
+      {
+       "text": "J'interroge le musicien.",
+       "en": "I question the musician.",
+       "to": "s4"
+      },
+      {
+       "text": "Je fouille le couloir au cas où il y aurait des indices.",
+       "en": "I search the corridor in case there are clues.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s4": {
+     "text": "Le musicien, nerveux, jure qu'il est seulement allé aux toilettes. Sa guitare est rangée, mais l'étui est trop lourd pour être vide.",
+     "en": "The musician, nervous, swears he only went to the toilet. His guitar is packed away, but the case is too heavy to be empty.",
+     "choices": [
+      {
+       "text": "Je lui demande d'ouvrir l'étui.",
+       "en": "I ask him to open the case.",
+       "to": "s7"
+      },
+      {
+       "text": "Il vaudrait mieux ne pas l'accuser sans preuves.",
+       "en": "It would be better not to accuse him without proof.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s5": {
+     "text": "L'homme en costume dit qu'il est bijoutier et que, s'il voulait voler quelque chose, ce ne serait pas un collier aussi bon marché. Il a l'air vexé.",
+     "en": "The man in the suit says he's a jeweller and that, if he wanted to steal something, it wouldn't be such a cheap necklace. He seems offended.",
+     "choices": [
+      {
+       "text": "Je lui demande comment il sait qu'il est bon marché.",
+       "en": "I ask him how he knows it's cheap.",
+       "to": "s8"
+      },
+      {
+       "text": "Je m'excuse et je continue l'enquête.",
+       "en": "I apologise and continue the investigation.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s6": {
+     "text": "Sous un siège, tu trouves la carte d'une bijouterie de Nice, avec une adresse écrite à la main.",
+     "en": "Under a seat you find a card from a jeweller's in Nice, with an address written by hand.",
+     "choices": [
+      {
+       "text": "Je la montre à l'homme en costume.",
+       "en": "I show it to the man in the suit.",
+       "to": "s8"
+      },
+      {
+       "text": "Je la montre au contrôleur.",
+       "en": "I show it to the conductor.",
+       "to": "s9"
+      }
+     ]
+    },
+    "s7": {
+     "text": "Dans l'étui, il y a… une deuxième guitare, plus petite ! Le musicien avoue que c'est un cadeau pour sa fille. Tu te sens un peu gêné.",
+     "en": "In the case there's… a second, smaller guitar! The musician admits it's a present for his daughter. You feel a little embarrassed.",
+     "choices": [
+      {
+       "text": "Je m'excuse et je vais parler à l'homme en costume.",
+       "en": "I apologise and go and talk to the man in the suit.",
+       "to": "s5"
+      },
+      {
+       "text": "Je retourne fouiller le couloir.",
+       "en": "I go back and search the corridor.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s8": {
+     "text": "L'homme en costume pâlit : personne n'avait dit que le collier était bon marché. S'il ne l'avait pas vu de près, il ne le saurait pas.",
+     "en": "The man in the suit turns pale: nobody had said the necklace was cheap. If he hadn't seen it up close, he wouldn't know.",
+     "choices": [
+      {
+       "text": "Je lui demande de rendre le collier avant que la police n'arrive.",
+       "en": "I ask him to give back the necklace before the police arrive.",
+       "to": "end_confess"
+      },
+      {
+       "text": "J'appelle le contrôleur sans rien dire de plus.",
+       "en": "I call the conductor without saying anything else.",
+       "to": "end_police"
+      }
+     ]
+    },
+    "s9": {
+     "text": "Le contrôleur reconnaît le nom de la bijouterie : son propriétaire voyage dans la voiture d'à côté. C'est l'homme en costume.",
+     "en": "The conductor recognises the jeweller's name: its owner is travelling in the next carriage. It's the man in the suit.",
+     "choices": [
+      {
+       "text": "Allons lui parler ensemble.",
+       "en": "Let's go and talk to him together.",
+       "to": "s8"
+      },
+      {
+       "text": "Attendons la police à la prochaine gare.",
+       "en": "Let's wait for the police at the next station.",
+       "to": "end_police"
+      }
+     ]
+    },
+    "end_confess": {
+     "text": "Honteux, il sort le collier de sa poche. La passagère le récupère et t'offre un café au lever du soleil. Affaire résolue avec élégance !",
+     "en": "Ashamed, he takes the necklace out of his pocket. The passenger gets it back and buys you a coffee at sunrise. Case solved with style!",
+     "end": "great"
+    },
+    "end_police": {
+     "text": "À la gare, la police trouve le collier dans sa valise. Affaire résolue, même si le train arrive avec deux heures de retard.",
+     "en": "At the station, the police find the necklace in his suitcase. Case solved, even though the train arrives two hours late.",
+     "end": "good"
+    }
+   }
+  }
+ ],
+ "calls": [
+  {
+   "id": "taxi",
+   "band": 1,
+   "incoming": false,
+   "title": "Appeler un taxi",
+   "en": "Calling a taxi",
+   "them": "Taxi dispatcher",
+   "number": "Taxis Parisiens",
+   "setting": "You need a taxi to the airport. You call the taxi company.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "Taxis Parisiens, bonjour. Je peux vous aider ?",
+     "en": "Taxis Parisiens, hello. Can I help you?"
+    },
+    {
+     "who": "you",
+     "text": "Bonjour. J'ai besoin d'un taxi, s'il vous plaît.",
+     "en": "Hello. I need a taxi, please."
+    },
+    {
+     "who": "them",
+     "text": "Bien sûr. C'est à quelle adresse ?",
+     "en": "Of course. What's the address?"
+    },
+    {
+     "who": "you",
+     "text": "Au cinq, rue de la Paix.",
+     "en": "Number five, rue de la Paix."
+    },
+    {
+     "who": "them",
+     "text": "Et vous allez où ?",
+     "en": "And where are you going?"
+    },
+    {
+     "who": "you",
+     "text": "À l'aéroport.",
+     "en": "To the airport."
+    },
+    {
+     "who": "them",
+     "text": "Parfait. Le taxi arrive dans dix minutes.",
+     "en": "Perfect. The taxi will be there in ten minutes."
+    },
+    {
+     "who": "you",
+     "text": "Merci beaucoup.",
+     "en": "Thank you very much."
+    },
+    {
+     "who": "them",
+     "text": "Avec plaisir. Bon voyage !",
+     "en": "My pleasure. Have a good trip!"
+    }
+   ]
+  },
+  {
+   "id": "table",
+   "band": 1,
+   "incoming": false,
+   "title": "Réserver une table",
+   "en": "Booking a table",
+   "them": "Restaurant host",
+   "number": "Restaurant Le Bistrot",
+   "setting": "You call a restaurant to book a table for Saturday.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "Le Bistrot, bonsoir.",
+     "en": "Le Bistrot, good evening."
+    },
+    {
+     "who": "you",
+     "text": "Bonsoir. Je voudrais réserver une table.",
+     "en": "Good evening. I'd like to book a table."
+    },
+    {
+     "who": "them",
+     "text": "Pour combien de personnes ?",
+     "en": "For how many people?"
+    },
+    {
+     "who": "you",
+     "text": "Pour quatre personnes.",
+     "en": "For four people."
+    },
+    {
+     "who": "them",
+     "text": "Pour quel jour et à quelle heure ?",
+     "en": "For what day and what time?"
+    },
+    {
+     "who": "you",
+     "text": "Pour samedi, à vingt heures.",
+     "en": "For Saturday, at eight p.m."
+    },
+    {
+     "who": "them",
+     "text": "C'est à quel nom ?",
+     "en": "Under what name?"
+    },
+    {
+     "who": "you",
+     "text": "Au nom de Sam.",
+     "en": "Under the name Sam."
+    },
+    {
+     "who": "them",
+     "text": "C'est noté, Sam. À samedi !",
+     "en": "That's noted, Sam. See you Saturday!"
+    },
+    {
+     "who": "you",
+     "text": "Merci, à samedi.",
+     "en": "Thanks, see you Saturday."
+    }
+   ]
+  },
+  {
+   "id": "clinic",
+   "band": 2,
+   "incoming": true,
+   "title": "Le cabinet médical vous appelle",
+   "en": "The doctor's office calls you",
+   "them": "Clinic receptionist",
+   "number": "Cabinet médical",
+   "setting": "The doctor's office calls to confirm your appointment, but Thursday doesn't work for you.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "Bonjour, ici le cabinet du docteur Lefèvre. Je suis bien avec Sam ?",
+     "en": "Hello, this is Dr Lefèvre's office. Am I speaking with Sam?"
+    },
+    {
+     "who": "you",
+     "text": "Oui, c'est moi. Bonjour.",
+     "en": "Yes, speaking. Hello."
+    },
+    {
+     "who": "them",
+     "text": "Je vous appelle pour confirmer votre rendez-vous de jeudi, à neuf heures.",
+     "en": "I'm calling to confirm your appointment on Thursday, at nine."
+    },
+    {
+     "who": "you",
+     "text": "Ah, jeudi, je ne peux pas. Est-ce qu'on peut le changer ?",
+     "en": "Oh, I can't on Thursday. Can we change it?"
+    },
+    {
+     "who": "them",
+     "text": "Bien sûr. J'ai vendredi à onze heures ou lundi à quinze heures.",
+     "en": "Of course. I have Friday at eleven or Monday at three p.m."
+    },
+    {
+     "who": "you",
+     "text": "Vendredi à onze heures, ça me va très bien.",
+     "en": "Friday at eleven suits me very well."
+    },
+    {
+     "who": "them",
+     "text": "C'est noté pour vendredi. N'oubliez pas votre carte Vitale.",
+     "en": "Noted for Friday. Don't forget your health insurance card."
+    },
+    {
+     "who": "you",
+     "text": "Parfait, merci beaucoup.",
+     "en": "Perfect, thank you very much."
+    },
+    {
+     "who": "them",
+     "text": "Je vous en prie. Bonne journée !",
+     "en": "You're welcome. Have a good day!"
+    }
+   ]
+  },
+  {
+   "id": "delivery",
+   "band": 3,
+   "incoming": true,
+   "title": "Le livreur perdu",
+   "en": "The lost delivery driver",
+   "them": "Delivery driver",
+   "number": "Livreur",
+   "setting": "The delivery driver calls: he can't find your building, and part of your order is missing.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "Allô ? Bonjour, c'est Karim, le livreur. J'ai votre commande, mais je ne trouve pas l'immeuble.",
+     "en": "Hello? Hi, it's Karim, the delivery driver. I have your order, but I can't find the building."
+    },
+    {
+     "who": "you",
+     "text": "Bonjour, Karim. Vous êtes où, exactement ?",
+     "en": "Hi, Karim. Where are you exactly?"
+    },
+    {
+     "who": "them",
+     "text": "Je suis devant une grande pharmacie, à côté d'une banque.",
+     "en": "I'm in front of a big pharmacy, next to a bank."
+    },
+    {
+     "who": "you",
+     "text": "Ah, je vois. Continuez tout droit et tournez à gauche au feu.",
+     "en": "Ah, I see. Keep going straight and turn left at the traffic lights."
+    },
+    {
+     "who": "them",
+     "text": "D'accord, c'est fait. C'est un immeuble blanc avec une porte bleue ?",
+     "en": "OK, done. Is it a white building with a blue door?"
+    },
+    {
+     "who": "you",
+     "text": "Exactement. Sonnez à l'interphone, appartement 32, et je vous ouvre.",
+     "en": "Exactly. Ring the intercom, flat 32, and I'll let you in."
+    },
+    {
+     "who": "them",
+     "text": "Parfait. Ah, autre chose : la boisson que vous avez commandée n'est plus disponible. Je vous en apporte une autre, ou vous préférez être remboursé ?",
+     "en": "Perfect. Oh, one more thing: the drink you ordered isn't available anymore. Shall I bring another one, or would you rather have a refund?"
+    },
+    {
+     "who": "you",
+     "text": "Je préférerais être remboursé, merci.",
+     "en": "I'd rather have a refund, thanks."
+    },
+    {
+     "who": "them",
+     "text": "Entendu, je m'en occupe tout de suite. J'arrive dans deux minutes.",
+     "en": "Understood, I'll sort it out right away. I'll be there in two minutes."
+    },
+    {
+     "who": "you",
+     "text": "Parfait, je vous attends en bas.",
+     "en": "Perfect, I'll wait for you downstairs."
+    }
+   ]
+  }
+ ],
+ "chats": [
+  {
+   "id": "plans",
+   "band": 1,
+   "title": "Des plans pour ce soir",
+   "en": "Plans for tonight",
+   "them": "Léa",
+   "avatar": "date",
+   "slang": [
+    {
+     "term": "slt",
+     "means": "salut, hi"
+    },
+    {
+     "term": "cv",
+     "means": "ça va, how are you"
+    },
+    {
+     "term": "ce soir",
+     "means": "tonight"
+    },
+    {
+     "term": "stp",
+     "means": "s'il te plaît, please"
+    },
+    {
+     "term": "mdr",
+     "means": "mort de rire, LOL"
+    },
+    {
+     "term": "tkt",
+     "means": "t'inquiète, don't worry"
+    },
+    {
+     "term": "à toute",
+     "means": "see you later"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "Slt 👋 cv ?",
+     "en": "Hi 👋 how are you?"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Ça va et toi ? 😊",
+       "en": "Good, and you? 😊",
+       "why": null
+      },
+      {
+       "text": "Bonjour, madame.",
+       "en": "Good morning, madam.",
+       "why": "Way too formal for texting a friend."
+      },
+      {
+       "text": "J'ai vingt chats.",
+       "en": "I have twenty cats.",
+       "why": "That doesn't answer her question."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Trop bien !! On va au ciné ce soir ? 🍿",
+     "en": "Great!! Shall we go to the cinema tonight? 🍿"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Oui, carrément ! À quelle heure ?",
+       "en": "Yes, totally! What time?",
+       "why": null
+      },
+      {
+       "text": "Non merci. Adieu pour toujours.",
+       "en": "No thanks. Farewell forever.",
+       "why": "A bit dramatic for a movie invite!"
+      },
+      {
+       "text": "Je m'appelle Sam.",
+       "en": "My name is Sam.",
+       "why": "She already knows your name."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "À 20h 😎 sois pas en retard stp mdr",
+     "en": "At 8 😎 don't be late please lol"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Mdr tkt, je serai à l'heure 👍",
+       "en": "Lol don't worry, I'll be on time 👍",
+       "why": null
+      },
+      {
+       "text": "C'est quoi, un ciné ?",
+       "en": "What's a cinema?",
+       "why": "You know what a cinema is!"
+      },
+      {
+       "text": "J'arrive demain.",
+       "en": "I'll arrive tomorrow.",
+       "why": "The movie is tonight."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Top !! À toute 💙",
+     "en": "Great!! See you later 💙"
+    }
+   ]
+  },
+  {
+   "id": "late",
+   "band": 2,
+   "title": "En retard",
+   "en": "Running late",
+   "them": "Hugo",
+   "avatar": "friend",
+   "slang": [
+    {
+     "term": "t'es où",
+     "means": "tu es où, where are you"
+    },
+    {
+     "term": "grave",
+     "means": "totally, really"
+    },
+    {
+     "term": "chui",
+     "means": "je suis, I am"
+    },
+    {
+     "term": "tkt",
+     "means": "t'inquiète, don't worry"
+    },
+    {
+     "term": "vas-y",
+     "means": "go ahead, OK"
+    },
+    {
+     "term": "le bus",
+     "means": "the bus"
+    },
+    {
+     "term": "t'inquiète",
+     "means": "don't worry"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "T'es où ?? On est tous arrivés 😅",
+     "en": "Where are you?? We've all arrived 😅"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Oups, désolé, chui en retard. J'arrive dans 10 min 🙏",
+       "en": "Oops, sorry, I'm late. Be there in 10 min 🙏",
+       "why": null
+      },
+      {
+       "text": "Ça va bien, merci de demander.",
+       "en": "I'm fine, thanks for asking.",
+       "why": "He's asking where you are, not how you are."
+      },
+      {
+       "text": "Je suis arrivé il y a une heure.",
+       "en": "I got there an hour ago.",
+       "why": "Then they'd see you!"
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Tkt mdr. On te commande un truc à boire ?",
+     "en": "No worries lol. Shall we order you something to drink?"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Oui stp, une limonade 🍋",
+       "en": "Yes please, a lemonade 🍋",
+       "why": null
+      },
+      {
+       "text": "Je n'ai pas de bouche.",
+       "en": "I don't have a mouth.",
+       "why": "That's just strange."
+      },
+      {
+       "text": "Oui, commande-moi le restaurant.",
+       "en": "Yes, order me the restaurant.",
+       "why": "You can't order a whole restaurant."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Ok 👌 attention le bus 38 est grave bondé, prends plutôt un taxi",
+     "en": "OK 👌 careful, the 38 bus is really packed, better take a taxi"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Ok merci pour l'info, je prends un taxi 🚕",
+       "en": "OK thanks for the info, I'll take a taxi 🚕",
+       "why": null
+      },
+      {
+       "text": "Grave ? C'est grave, docteur ?",
+       "en": "Serious? Is it serious, doctor?",
+       "why": "Here “grave” means “really”, not “serious”."
+      },
+      {
+       "text": "Je vais à l'aéroport à pied.",
+       "en": "I'm walking to the airport.",
+       "why": "You're meeting friends, not going to the airport."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Mdr vas-y, on t'attend 🙌",
+     "en": "Lol go on, we're waiting for you 🙌"
+    }
+   ]
+  },
+  {
+   "id": "birthday",
+   "band": 2,
+   "title": "Anniversaire surprise",
+   "en": "A surprise birthday",
+   "them": "Chloé",
+   "avatar": "receptionist",
+   "slang": [
+    {
+     "term": "anniv",
+     "means": "anniversaire, birthday"
+    },
+    {
+     "term": "le gâteau",
+     "means": "the cake"
+    },
+    {
+     "term": "t'es trop fort",
+     "means": "you're the best"
+    },
+    {
+     "term": "qu'elle le sache pas",
+     "means": "so she doesn't find out"
+    },
+    {
+     "term": "bisous",
+     "means": "kisses (a friendly goodbye)"
+    },
+    {
+     "term": "chez moi",
+     "means": "at my place"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "Les gens !! Samedi c'est l'anniv de Julie 🎂 on lui fait une fête surprise ?",
+     "en": "Guys!! Saturday is Julie's birthday 🎂 shall we throw her a surprise party?"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "J'adore l'idée ! On la fait où ? 🎉",
+       "en": "Love the idea! Where shall we do it? 🎉",
+       "why": null
+      },
+      {
+       "text": "Je ne sais pas qui est Julie.",
+       "en": "I don't know who Julie is.",
+       "why": "Julie is your friend!"
+      },
+      {
+       "text": "Joyeux anniversaire, Chloé.",
+       "en": "Happy birthday, Chloé.",
+       "why": "It's Julie's birthday, not Chloé's."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Chez moi ! Tu ramènes le gâteau ? 🙏",
+     "en": "At my place! Will you bring the cake? 🙏"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Ok, je m'occupe du gâteau 🍰",
+       "en": "OK, I'll take care of the cake 🍰",
+       "why": null
+      },
+      {
+       "text": "Non, les gâteaux sont moches.",
+       "en": "No, cakes are ugly.",
+       "why": "Rude! And not true."
+      },
+      {
+       "text": "Oui, je ramène mon chien.",
+       "en": "Yes, I'll bring my dog.",
+       "why": "She asked about the cake."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "T'es trop fort !! Mais chut 🤫 faut qu'elle le sache pas",
+     "en": "You're the best!! But shh 🤫 she mustn't find out"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Mdr tkt, je dis rien 🤐",
+       "en": "Lol don't worry, I won't say a thing 🤐",
+       "why": null
+      },
+      {
+       "text": "J'ai déjà tout dit à Julie.",
+       "en": "I already told Julie everything.",
+       "why": "That ruins the surprise!"
+      },
+      {
+       "text": "Qui est trop fort ?",
+       "en": "Who is the best?",
+       "why": "“T'es trop fort” is a compliment: you're the best."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Mdrr bisous ❤️",
+     "en": "Lol kisses ❤️"
+    }
+   ]
+  },
+  {
+   "id": "gossip",
+   "band": 3,
+   "title": "Les potins",
+   "en": "The gossip",
+   "them": "Inès",
+   "avatar": "date",
+   "slang": [
+    {
+     "term": "les potins",
+     "means": "gossip"
+    },
+    {
+     "term": "la honte",
+     "means": "how embarrassing"
+    },
+    {
+     "term": "ils sont plus ensemble",
+     "means": "they're not together anymore"
+    },
+    {
+     "term": "évidemment",
+     "means": "obviously"
+    },
+    {
+     "term": "motus et bouche cousue",
+     "means": "my lips are sealed"
+    },
+    {
+     "term": "on se capte",
+     "means": "talk later, catch you later"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "Ohlala tu connais pas les potins 👀👀",
+     "en": "Oh my, you won't believe the gossip 👀👀"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Quoi ?! Raconte-moi tout 😱",
+       "en": "What?! Tell me everything 😱",
+       "why": null
+      },
+      {
+       "text": "Je n'aime pas parler avec mes amis.",
+       "en": "I don't like talking with my friends.",
+       "why": "An odd thing to text a friend."
+      },
+      {
+       "text": "Les potins, c'est un animal ?",
+       "en": "Is “potins” an animal?",
+       "why": "“Les potins” means gossip."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Thomas et Sarah, ils sont plus ensemble 💔 et elle sort déjà avec quelqu'un d'autre 🙊",
+     "en": "Thomas and Sarah aren't together anymore 💔 and she's already seeing someone else 🙊"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Sérieux ? La honte… et Thomas, il l'a pris comment ?",
+       "en": "Seriously? How awkward… and how did Thomas take it?",
+       "why": null
+      },
+      {
+       "text": "Félicitations pour le mariage !",
+       "en": "Congratulations on the wedding!",
+       "why": "They broke up: there's no wedding."
+      },
+      {
+       "text": "Je suis content qu'il souffre.",
+       "en": "I'm glad he's suffering.",
+       "why": "That's mean!"
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Bah il est tranquille, il dit que c'est mieux comme ça mdr. Par contre, dis pas que c'est moi qui t'ai dit 🤫",
+     "en": "Well he's fine, he says it's better this way lol. But don't say I told you 🤫"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Évidemment, motus et bouche cousue 🤐😂",
+       "en": "Obviously, my lips are sealed 🤐😂",
+       "why": null
+      },
+      {
+       "text": "Je l'ai déjà posté sur Instagram.",
+       "en": "I already posted it on Instagram.",
+       "why": "She asked you to keep it secret!"
+      },
+      {
+       "text": "Tu es qui ?",
+       "en": "Who are you?",
+       "why": "You know Inès: you're chatting with her."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Mdrrr c'est pour ça que je t'adore 😂 on se capte",
+     "en": "Lol that's why I love you 😂 talk later"
+    }
+   ]
+  }
+ ],
+ "teach": {
+  "lines": {
+   "intro": {
+    "text": "Oh non ! J'ai oublié ce que c'est, « {w} ». Tu peux me l'expliquer ?",
+    "en": "Oh no! I forgot what “{w}” is. Can you explain it to me?"
+   },
+   "yes": {
+    "text": "Ahhh, mais oui ! Ça me revient ! Merci !",
+    "en": "Ahhh, of course! It's coming back to me! Thanks!"
+   },
+   "no": {
+    "text": "Hmm… je ne comprends toujours pas. Tu me donnes un autre indice ?",
+    "en": "Hmm… I still don't get it. Can you give me another clue?"
+   }
+  },
+  "words": [
+   {
+    "id": "key",
+    "band": 1,
+    "word": "la clé",
+    "en": "the key",
+    "explain": "C'est un petit objet en métal. On l'utilise pour ouvrir la porte de la maison.",
+    "explainEn": "It's a small metal object. You use it to open the door of the house.",
+    "keywords": [
+     "ouvrir",
+     "porte",
+     "maison",
+     "métal",
+     "fermer",
+     "voiture"
+    ]
+   },
+   {
+    "id": "umbrella",
+    "band": 1,
+    "word": "le parapluie",
+    "en": "the umbrella",
+    "explain": "On l'utilise quand il pleut, pour ne pas être mouillé.",
+    "explainEn": "You use it when it rains, so you don't get wet.",
+    "keywords": [
+     "pluie",
+     "pleut",
+     "pleuvoir",
+     "eau",
+     "mouillé",
+     "mouiller"
+    ]
+   },
+   {
+    "id": "fridge",
+    "band": 1,
+    "word": "le frigo",
+    "en": "the fridge",
+    "explain": "C'est un appareil froid dans la cuisine. On y met le lait et la nourriture.",
+    "explainEn": "It's a cold appliance in the kitchen. You put milk and food in it.",
+    "keywords": [
+     "froid",
+     "froide",
+     "nourriture",
+     "lait",
+     "cuisine",
+     "garder",
+     "manger"
+    ]
+   },
+   {
+    "id": "toothbrush",
+    "band": 1,
+    "word": "la brosse à dents",
+    "en": "the toothbrush",
+    "explain": "On l'utilise pour se laver les dents le matin et le soir.",
+    "explainEn": "You use it to brush your teeth in the morning and at night.",
+    "keywords": [
+     "dents",
+     "dent",
+     "bouche",
+     "laver",
+     "brosser",
+     "nettoyer"
+    ]
+   },
+   {
+    "id": "alarm-clock",
+    "band": 2,
+    "word": "le réveil",
+    "en": "the alarm clock",
+    "explain": "C'est une horloge qui sonne le matin pour te réveiller.",
+    "explainEn": "It's a clock that rings in the morning to wake you up.",
+    "keywords": [
+     "réveiller",
+     "matin",
+     "sonne",
+     "sonner",
+     "dormir",
+     "heure",
+     "horloge"
+    ]
+   },
+   {
+    "id": "wallet",
+    "band": 2,
+    "word": "le portefeuille",
+    "en": "the wallet",
+    "explain": "C'est là où on range son argent et ses cartes. On le met souvent dans la poche.",
+    "explainEn": "It's where you keep your money and cards. You often put it in your pocket.",
+    "keywords": [
+     "argent",
+     "carte",
+     "cartes",
+     "ranger",
+     "poche",
+     "billets"
+    ]
+   },
+   {
+    "id": "lift",
+    "band": 2,
+    "word": "l'ascenseur",
+    "en": "the lift / elevator",
+    "explain": "C'est une machine qui te fait monter et descendre dans un immeuble, sans prendre l'escalier.",
+    "explainEn": "It's a machine that takes you up and down in a building, without taking the stairs.",
+    "keywords": [
+     "monter",
+     "descendre",
+     "étage",
+     "immeuble",
+     "escalier",
+     "escaliers"
+    ]
+   },
+   {
+    "id": "scarf",
+    "band": 2,
+    "word": "l'écharpe",
+    "en": "the scarf",
+    "explain": "C'est un long vêtement qu'on met autour du cou quand il fait froid.",
+    "explainEn": "It's a long piece of clothing you put around your neck when it's cold.",
+    "keywords": [
+     "cou",
+     "froid",
+     "vêtement",
+     "hiver",
+     "mettre",
+     "porter"
+    ]
+   },
+   {
+    "id": "nostalgia",
+    "band": 3,
+    "word": "la nostalgie",
+    "en": "nostalgia",
+    "explain": "C'est cette douce tristesse qu'on ressent quand le passé ou un lieu qu'on aimait nous manque.",
+    "explainEn": "It's that gentle sadness you feel when you miss the past or a place you loved.",
+    "keywords": [
+     "manque",
+     "manquer",
+     "passé",
+     "souvenir",
+     "souvenirs",
+     "triste",
+     "tristesse"
+    ]
+   },
+   {
+    "id": "a-lie-in",
+    "band": 3,
+    "word": "la grasse matinée",
+    "en": "a lie-in",
+    "explain": "C'est quand on reste au lit très tard le matin, surtout le week-end.",
+    "explainEn": "It's when you stay in bed very late in the morning, especially at the weekend.",
+    "keywords": [
+     "lit",
+     "tard",
+     "dormir",
+     "matin",
+     "week-end",
+     "rester",
+     "lever"
+    ]
+   },
+   {
+    "id": "pre-dinner-drinks",
+    "band": 3,
+    "word": "l'apéro",
+    "en": "pre-dinner drinks",
+    "explain": "C'est le moment où on se retrouve entre amis pour boire un verre et grignoter avant le dîner.",
+    "explainEn": "It's when you get together with friends for a drink and a nibble before dinner.",
+    "keywords": [
+     "amis",
+     "boire",
+     "verre",
+     "dîner",
+     "grignoter",
+     "soir",
+     "manger"
+    ]
+   },
+   {
+    "id": "savings",
+    "band": 3,
+    "word": "les économies",
+    "en": "savings",
+    "explain": "C'est l'argent qu'on ne dépense pas et qu'on garde pour plus tard.",
+    "explainEn": "It's the money you don't spend and keep for later.",
+    "keywords": [
+     "argent",
+     "garder",
+     "dépenser",
+     "plus tard",
+     "futur",
+     "banque"
+    ]
+   }
+  ]
+ },
+ "spot": [
+  {
+   "id": "s1",
+   "band": 1,
+   "words": [
+    "Il",
+    "est",
+    "vingt",
+    "ans."
+   ],
+   "bad": 1,
+   "fix": "a",
+   "options": [
+    "a",
+    "as",
+    "ai"
+   ],
+   "en": "He's twenty years old.",
+   "why": "In French you “have” your age: il a vingt ans."
+  },
+  {
+   "id": "s2",
+   "band": 1,
+   "words": [
+    "Elle",
+    "a",
+    "deux",
+    "chat."
+   ],
+   "bad": 3,
+   "fix": "chats.",
+   "options": [
+    "chats.",
+    "chate.",
+    "chatte."
+   ],
+   "en": "She has two cats.",
+   "why": "Two of them: plural, chats."
+  },
+  {
+   "id": "s3",
+   "band": 1,
+   "words": [
+    "Le",
+    "maison",
+    "est",
+    "grande."
+   ],
+   "bad": 0,
+   "fix": "La",
+   "options": [
+    "La",
+    "Les",
+    "Un"
+   ],
+   "en": "The house is big.",
+   "why": "“Maison” is feminine: la maison."
+  },
+  {
+   "id": "s4",
+   "band": 1,
+   "words": [
+    "Nous",
+    "habite",
+    "à",
+    "Paris."
+   ],
+   "bad": 1,
+   "fix": "habitons",
+   "options": [
+    "habitons",
+    "habitez",
+    "habitent"
+   ],
+   "en": "We live in Paris.",
+   "why": "With “nous” the verb ends in -ons: habitons."
+  },
+  {
+   "id": "s5",
+   "band": 1,
+   "words": [
+    "J'aime",
+    "le",
+    "chiens."
+   ],
+   "bad": 1,
+   "fix": "les",
+   "options": [
+    "les",
+    "la",
+    "un"
+   ],
+   "en": "I like dogs.",
+   "why": "Chiens is plural: les chiens."
+  },
+  {
+   "id": "s6",
+   "band": 2,
+   "words": [
+    "Hier,",
+    "je",
+    "vais",
+    "au",
+    "cinéma",
+    "avec",
+    "ma",
+    "sœur."
+   ],
+   "bad": 2,
+   "fix": "suis allé",
+   "options": [
+    "suis allé",
+    "irai",
+    "allais"
+   ],
+   "en": "Yesterday I went to the cinema with my sister.",
+   "why": "“Hier” is a finished moment in the past: je suis allé (passé composé, with être)."
+  },
+  {
+   "id": "s7",
+   "band": 2,
+   "words": [
+    "Elle",
+    "est",
+    "plus",
+    "grand",
+    "que",
+    "moi."
+   ],
+   "bad": 3,
+   "fix": "grande",
+   "options": [
+    "grande",
+    "grands",
+    "grandes"
+   ],
+   "en": "She is taller than me.",
+   "why": "Adjectives agree with who they describe: elle est grande."
+  },
+  {
+   "id": "s8",
+   "band": 2,
+   "words": [
+    "Quand",
+    "j'étais",
+    "petit,",
+    "je",
+    "joue",
+    "au",
+    "foot",
+    "tous",
+    "les",
+    "jours."
+   ],
+   "bad": 4,
+   "fix": "jouais",
+   "options": [
+    "jouais",
+    "jouerai",
+    "joué"
+   ],
+   "en": "When I was little, I played football every day.",
+   "why": "Habits in the past use the imparfait: je jouais."
+  },
+  {
+   "id": "s9",
+   "band": 2,
+   "words": [
+    "Il",
+    "y",
+    "a",
+    "beaucoup",
+    "des",
+    "gens",
+    "dans",
+    "la",
+    "rue."
+   ],
+   "bad": 4,
+   "fix": "de",
+   "options": [
+    "de",
+    "du",
+    "les"
+   ],
+   "en": "There are a lot of people in the street.",
+   "why": "After beaucoup, just “de”: beaucoup de gens."
+  },
+  {
+   "id": "s10",
+   "band": 2,
+   "words": [
+    "Il",
+    "faut",
+    "que",
+    "tu",
+    "viens",
+    "tôt."
+   ],
+   "bad": 4,
+   "fix": "viennes",
+   "options": [
+    "viennes",
+    "venir",
+    "viendras"
+   ],
+   "en": "You need to come early.",
+   "why": "After “il faut que”, use the subjunctive: que tu viennes."
+  },
+  {
+   "id": "s11",
+   "band": 3,
+   "words": [
+    "Si",
+    "j'aurais",
+    "de",
+    "l'argent,",
+    "je",
+    "voyagerais",
+    "partout."
+   ],
+   "bad": 1,
+   "fix": "j'avais",
+   "options": [
+    "j'avais",
+    "j'ai",
+    "j'aurai"
+   ],
+   "en": "If I had money, I would travel everywhere.",
+   "why": "Never “si” + conditional: si j'avais… je voyagerais."
+  },
+  {
+   "id": "s12",
+   "band": 3,
+   "words": [
+    "Je",
+    "suis",
+    "content",
+    "que",
+    "tu",
+    "viens",
+    "à",
+    "la",
+    "fête."
+   ],
+   "bad": 5,
+   "fix": "viennes",
+   "options": [
+    "viennes",
+    "viendras",
+    "venais"
+   ],
+   "en": "I'm glad you're coming to the party.",
+   "why": "Feelings + que take the subjunctive: que tu viennes."
+  },
+  {
+   "id": "s13",
+   "band": 3,
+   "words": [
+    "Bien",
+    "qu'il",
+    "est",
+    "fatigué,",
+    "il",
+    "continue."
+   ],
+   "bad": 2,
+   "fix": "soit",
+   "options": [
+    "soit",
+    "était",
+    "sera"
+   ],
+   "en": "Although he's tired, he keeps going.",
+   "why": "“Bien que” always takes the subjunctive: bien qu'il soit."
+  },
+  {
+   "id": "s14",
+   "band": 3,
+   "words": [
+    "Quand",
+    "tu",
+    "arrives",
+    "demain,",
+    "appelle-moi."
+   ],
+   "bad": 2,
+   "fix": "arriveras",
+   "options": [
+    "arriveras",
+    "arrivais",
+    "arrivé"
+   ],
+   "en": "When you arrive tomorrow, call me.",
+   "why": "“Quand” about the future takes the future in French: quand tu arriveras."
+  },
+  {
+   "id": "s15",
+   "band": 3,
+   "words": [
+    "Je",
+    "ne",
+    "pense",
+    "pas",
+    "qu'il",
+    "a",
+    "raison."
+   ],
+   "bad": 5,
+   "fix": "ait",
+   "options": [
+    "ait",
+    "avait",
+    "aura"
+   ],
+   "en": "I don't think he's right.",
+   "why": "“Je ne pense pas que” takes the subjunctive: qu'il ait raison."
+  }
+ ],
+ "missions": [
+  {
+   "id": "coffee",
+   "band": 1,
+   "title": "Commande un café",
+   "en": "Order a coffee",
+   "task": "Order a coffee in French at a café, or practise with a friend playing the waiter.",
+   "phrases": [
+    {
+     "text": "Un café, s'il vous plaît.",
+     "en": "A coffee, please."
+    },
+    {
+     "text": "C'est combien ?",
+     "en": "How much is it?"
+    },
+    {
+     "text": "Merci, c'est très gentil.",
+     "en": "Thanks, that's very kind."
+    }
+   ]
+  },
+  {
+   "id": "greet",
+   "band": 1,
+   "title": "Salue quelqu'un",
+   "en": "Greet someone",
+   "task": "Say hello and ask how someone is, in French: a neighbour, a coworker or a shop assistant.",
+   "phrases": [
+    {
+     "text": "Bonjour ! Comment allez-vous ?",
+     "en": "Hello! How are you?"
+    },
+    {
+     "text": "Très bien, merci. Et vous ?",
+     "en": "Very well, thanks. And you?"
+    },
+    {
+     "text": "Bonne journée !",
+     "en": "Have a good day!"
+    }
+   ]
+  },
+  {
+   "id": "count",
+   "band": 1,
+   "title": "Compte en français",
+   "en": "Count in French",
+   "task": "Count your change, your steps or your shopping out loud in French today, up to twenty.",
+   "phrases": [
+    {
+     "text": "Un, deux, trois, quatre, cinq.",
+     "en": "One, two, three, four, five."
+    },
+    {
+     "text": "Dix, onze, douze, treize.",
+     "en": "Ten, eleven, twelve, thirteen."
+    },
+    {
+     "text": "Dix-huit, dix-neuf, vingt.",
+     "en": "Eighteen, nineteen, twenty."
+    }
+   ]
+  },
+  {
+   "id": "directions",
+   "band": 2,
+   "title": "Demande ton chemin",
+   "en": "Ask for directions",
+   "task": "Ask someone for directions in French, or ask your map app in French and repeat the answer.",
+   "phrases": [
+    {
+     "text": "Excusez-moi, où est la gare ?",
+     "en": "Excuse me, where's the station?"
+    },
+    {
+     "text": "C'est loin d'ici ?",
+     "en": "Is it far from here?"
+    },
+    {
+     "text": "Vous pouvez répéter, s'il vous plaît ?",
+     "en": "Could you repeat that, please?"
+    }
+   ]
+  },
+  {
+   "id": "phone",
+   "band": 2,
+   "title": "Ton téléphone en français",
+   "en": "Your phone in French",
+   "task": "Switch your phone, or one app you use a lot, to French for a whole day.",
+   "phrases": [
+    {
+     "text": "Réglages",
+     "en": "Settings"
+    },
+    {
+     "text": "Notifications",
+     "en": "Notifications"
+    },
+    {
+     "text": "Vous avez de nouveaux messages.",
+     "en": "You have new messages."
+    }
+   ]
+  },
+  {
+   "id": "voicenote",
+   "band": 2,
+   "title": "Envoie un vocal",
+   "en": "Send a voice message",
+   "task": "Send a 30-second voice message in French, to a friend or to yourself, about your day.",
+   "phrases": [
+    {
+     "text": "Aujourd'hui, j'ai eu une journée très chargée.",
+     "en": "Today I had a very busy day."
+    },
+    {
+     "text": "Le matin, j'ai travaillé, et l'après-midi, je me suis reposé.",
+     "en": "In the morning I worked, and in the afternoon I rested."
+    },
+    {
+     "text": "Et toi, ça va ?",
+     "en": "And how about you?"
+    }
+   ]
+  },
+  {
+   "id": "recipe",
+   "band": 3,
+   "title": "Cuisine en français",
+   "en": "Cook in French",
+   "task": "Cook something by following a recipe or a video in French.",
+   "phrases": [
+    {
+     "text": "D'abord, coupez l'oignon en petits morceaux.",
+     "en": "First, chop the onion into small pieces."
+    },
+    {
+     "text": "Ensuite, ajoutez une pincée de sel.",
+     "en": "Then add a pinch of salt."
+    },
+    {
+     "text": "Laissez bouillir une dizaine de minutes.",
+     "en": "Let it boil for about ten minutes."
+    }
+   ]
+  },
+  {
+   "id": "review",
+   "band": 3,
+   "title": "Donne ton avis en français",
+   "en": "Give your opinion in French",
+   "task": "Write a comment or review in French: a restaurant, a video or a book you liked.",
+   "phrases": [
+    {
+     "text": "J'ai adoré l'ambiance.",
+     "en": "I loved the atmosphere."
+    },
+    {
+     "text": "Je le recommande vivement.",
+     "en": "I highly recommend it."
+    },
+    {
+     "text": "La seule chose que j'améliorerais, c'est le service.",
+     "en": "The only thing I'd improve is the service."
+    }
+   ]
+  },
+  {
+   "id": "realcall",
+   "band": 3,
+   "title": "Un vrai coup de fil",
+   "en": "A real phone call",
+   "task": "Make a real phone call in French: ask a shop or restaurant what time they open and close.",
+   "phrases": [
+    {
+     "text": "Bonjour, vous ouvrez à quelle heure demain ?",
+     "en": "Hello, what time do you open tomorrow?"
+    },
+    {
+     "text": "Et vous fermez à quelle heure ?",
+     "en": "And what time do you close?"
+    },
+    {
+     "text": "Parfait, merci beaucoup pour l'information.",
+     "en": "Perfect, thank you very much for the information."
+    }
+   ]
+  }
+ ],
+ "debate": {
+  "topics": [
+   {
+    "id": "hotdog",
+    "en": "Is a hot dog a sandwich?",
+    "title": "Un hot-dog, est-ce un sandwich ?"
+   },
+   {
+    "id": "cats",
+    "en": "Cats are better than dogs.",
+    "title": "Les chats sont mieux que les chiens."
+   },
+   {
+    "id": "breakfast",
+    "en": "Breakfast is the best meal of the day.",
+    "title": "Le petit-déjeuner est le meilleur repas de la journée."
+   },
+   {
+    "id": "cooking",
+    "en": "Everyone should learn to cook.",
+    "title": "Tout le monde devrait apprendre à cuisiner."
+   },
+   {
+    "id": "summer",
+    "en": "Summer is better than winter.",
+    "title": "L'été est mieux que l'hiver."
+   },
+   {
+    "id": "social",
+    "en": "Social media does more harm than good.",
+    "title": "Les réseaux sociaux font plus de mal que de bien."
+   }
+  ],
+  "phrases": [
+   {
+    "text": "À mon avis…",
+    "en": "In my opinion…"
+   },
+   {
+    "text": "Je suis en partie d'accord, mais…",
+    "en": "I partly agree, but…"
+   },
+   {
+    "text": "Je ne suis pas du tout d'accord.",
+    "en": "I don't agree at all."
+   },
+   {
+    "text": "D'un côté…, et de l'autre…",
+    "en": "On the one hand…, and on the other…"
+   },
+   {
+    "text": "Ce que je veux dire, c'est que…",
+    "en": "What I mean is that…"
+   },
+   {
+    "text": "Ça n'a pas de sens, parce que…",
+    "en": "That doesn't make sense, because…"
+   },
+   {
+    "text": "Un bon exemple, c'est…",
+    "en": "A good example is…"
+   },
+   {
+    "text": "J'avoue que tu as raison sur ce point.",
+    "en": "I admit you're right on that point."
+   },
+   {
+    "text": "Malgré tout, je pense toujours que…",
+    "en": "Even so, I still think that…"
+   },
+   {
+    "text": "Pour conclure…",
+    "en": "To conclude…"
+   }
+  ]
+ }
+}

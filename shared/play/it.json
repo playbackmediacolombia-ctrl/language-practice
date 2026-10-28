@@ -1,0 +1,1984 @@
+{
+ "join": " ",
+ "adventures": [
+  {
+   "id": "market",
+   "band": 1,
+   "kind": "trip",
+   "guide": "friend",
+   "title": "Una giornata al mercato",
+   "en": "A day at the market",
+   "start": "s1",
+   "scenes": {
+    "s1": {
+     "text": "Sei in un mercato di Roma. C'è tanta gente e hai fame.",
+     "en": "You're at a market in Rome. There are lots of people and you're hungry.",
+     "choices": [
+      {
+       "text": "Voglio mangiare un supplì.",
+       "en": "I want to eat a supplì.",
+       "to": "s2"
+      },
+      {
+       "text": "Voglio bere una spremuta.",
+       "en": "I want to drink a fresh juice.",
+       "to": "s3"
+      }
+     ]
+    },
+    "s2": {
+     "text": "Un signore vende supplì. Costano due euro.",
+     "en": "A man sells supplì. They cost two euros.",
+     "choices": [
+      {
+       "text": "Un supplì, per favore.",
+       "en": "A supplì, please.",
+       "to": "s4"
+      },
+      {
+       "text": "Ne avete senza carne?",
+       "en": "Do you have any without meat?",
+       "to": "s4b"
+      }
+     ]
+    },
+    "s3": {
+     "text": "C'è la spremuta d'arancia e quella di pompelmo.",
+     "en": "There's fresh orange juice and grapefruit juice.",
+     "choices": [
+      {
+       "text": "Una spremuta d'arancia, per favore.",
+       "en": "An orange juice, please.",
+       "to": "s5"
+      },
+      {
+       "text": "Una spremuta di pompelmo, per favore.",
+       "en": "A grapefruit juice, please.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s4": {
+     "text": "Che buono! Adesso vuoi andare al museo. Come ci vai?",
+     "en": "Delicious! Now you want to go to the museum. How do you get there?",
+     "choices": [
+      {
+       "text": "Ci vado a piedi.",
+       "en": "I'll walk.",
+       "to": "end_walk"
+      },
+      {
+       "text": "Prendo la metro.",
+       "en": "I'll take the metro.",
+       "to": "end_metro"
+      }
+     ]
+    },
+    "s4b": {
+     "text": "Sì, ci sono anche senza carne. Buonissimi! Adesso vuoi andare al museo.",
+     "en": "Yes, there are some without meat too. Delicious! Now you want to go to the museum.",
+     "choices": [
+      {
+       "text": "Ci vado a piedi.",
+       "en": "I'll walk.",
+       "to": "end_walk"
+      },
+      {
+       "text": "Prendo la metro.",
+       "en": "I'll take the metro.",
+       "to": "end_metro"
+      }
+     ]
+    },
+    "s5": {
+     "text": "La spremuta è freschissima. Perfetto! Un bambino ti chiede: «Di dove sei?»",
+     "en": "The juice is really fresh. Perfect! A child asks you: “Where are you from?”",
+     "choices": [
+      {
+       "text": "Sono degli Stati Uniti.",
+       "en": "I'm from the United States.",
+       "to": "s6"
+      },
+      {
+       "text": "Sono del Canada.",
+       "en": "I'm from Canada.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s6": {
+     "text": "Il bambino sorride: «Benvenuto in Italia!» Adesso vuoi andare al museo.",
+     "en": "The child smiles: “Welcome to Italy!” Now you want to go to the museum.",
+     "choices": [
+      {
+       "text": "Ci vado a piedi.",
+       "en": "I'll walk.",
+       "to": "end_walk"
+      },
+      {
+       "text": "Prendo la metro.",
+       "en": "I'll take the metro.",
+       "to": "end_metro"
+      }
+     ]
+    },
+    "end_walk": {
+     "text": "Cammini per il centro e vedi tantissime cose belle. Una giornata perfetta!",
+     "en": "You walk through the centre and see so many beautiful things. A perfect day!",
+     "end": "great"
+    },
+    "end_metro": {
+     "text": "La metro è veloce, ma sbagli direzione. Arrivi in ritardo, ma felice!",
+     "en": "The metro is fast, but you go the wrong way. You arrive late, but happy!",
+     "end": "good"
+    }
+   }
+  },
+  {
+   "id": "cat",
+   "band": 2,
+   "kind": "mystery",
+   "guide": "parent",
+   "title": "Il mistero del gatto scomparso",
+   "en": "The mystery of the missing cat",
+   "start": "s1",
+   "scenes": {
+    "s1": {
+     "text": "La tua vicina, la signora Rossi, bussa alla porta. È molto preoccupata: il suo gatto, Briciola, è sparito ieri sera.",
+     "en": "Your neighbour, Signora Rossi, knocks on the door. She's very worried: her cat, Briciola, disappeared last night.",
+     "choices": [
+      {
+       "text": "Quando l'ha visto l'ultima volta?",
+       "en": "When did you last see him?",
+       "to": "s2"
+      },
+      {
+       "text": "Ha già cercato nel parco?",
+       "en": "Have you already looked in the park?",
+       "to": "s3"
+      }
+     ]
+    },
+    "s2": {
+     "text": "Dice che l'ha visto alle dieci, sul balcone. Stamattina ha trovato la finestra aperta.",
+     "en": "She says she saw him at ten, on the balcony. This morning she found the window open.",
+     "choices": [
+      {
+       "text": "Andiamo a controllare il balcone.",
+       "en": "Let's go and check the balcony.",
+       "to": "s4"
+      },
+      {
+       "text": "Chiediamo al portiere.",
+       "en": "Let's ask the doorman.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s3": {
+     "text": "Dice di no, che ha paura di andarci da sola. Andate insieme al parco, ma vedete solo piccioni.",
+     "en": "She says no, she's scared to go alone. You go to the park together, but you only see pigeons.",
+     "choices": [
+      {
+       "text": "Chiediamo al portiere.",
+       "en": "Let's ask the doorman.",
+       "to": "s5"
+      },
+      {
+       "text": "Torniamo a controllare il balcone.",
+       "en": "Let's go back and check the balcony.",
+       "to": "s4"
+      }
+     ]
+    },
+    "s4": {
+     "text": "Sul balcone ci sono piccole impronte che arrivano fino al tetto del vicino.",
+     "en": "On the balcony there are little paw prints going all the way to the neighbour's roof.",
+     "choices": [
+      {
+       "text": "Seguiamo le impronte.",
+       "en": "Let's follow the paw prints.",
+       "to": "s6"
+      },
+      {
+       "text": "Chiamiamo il vicino di casa.",
+       "en": "Let's call the next-door neighbour.",
+       "to": "s7"
+      }
+     ]
+    },
+    "s5": {
+     "text": "Il portiere ride: «Ieri sera ho visto un gatto grigio al forno all'angolo.»",
+     "en": "The doorman laughs: “Last night I saw a grey cat at the bakery on the corner.”",
+     "choices": [
+      {
+       "text": "Andiamo al forno!",
+       "en": "Let's go to the bakery!",
+       "to": "s8"
+      },
+      {
+       "text": "È sicuro che fosse grigio?",
+       "en": "Are you sure it was grey?",
+       "to": "s9"
+      }
+     ]
+    },
+    "s6": {
+     "text": "Le impronte finiscono davanti a una vecchia scatola. Dentro, qualcosa si muove…",
+     "en": "The paw prints end in front of an old box. Inside, something is moving…",
+     "choices": [
+      {
+       "text": "Apro la scatola con attenzione.",
+       "en": "I open the box carefully.",
+       "to": "end_box"
+      },
+      {
+       "text": "Chiamo la signora Rossi perché la apra lei.",
+       "en": "I call Signora Rossi so she can open it.",
+       "to": "end_kittens"
+      }
+     ]
+    },
+    "s7": {
+     "text": "Il vicino dice che all'alba ha sentito miagolare, vicino al forno.",
+     "en": "The neighbour says he heard meowing at dawn, near the bakery.",
+     "choices": [
+      {
+       "text": "Andiamo al forno!",
+       "en": "Let's go to the bakery!",
+       "to": "s8"
+      },
+      {
+       "text": "Torniamo al balcone.",
+       "en": "Let's go back to the balcony.",
+       "to": "s4"
+      }
+     ]
+    },
+    "s8": {
+     "text": "Al forno, Briciola dorme accanto al forno a legna, al calduccio.",
+     "en": "At the bakery, Briciola is asleep next to the wood oven, nice and toasty.",
+     "choices": [
+      {
+       "text": "L'abbiamo trovato, signora Rossi!",
+       "en": "We found him, Signora Rossi!",
+       "to": "end_bakery"
+      },
+      {
+       "text": "Compro dei cornetti per festeggiare.",
+       "en": "I buy some cornetti to celebrate.",
+       "to": "end_bread"
+      }
+     ]
+    },
+    "s9": {
+     "text": "«Beh, grigio o bianco, non lo so… era buio», dice il portiere.",
+     "en": "“Well, grey or white, I don't know… it was dark,” says the doorman.",
+     "choices": [
+      {
+       "text": "Andiamo lo stesso al forno.",
+       "en": "Let's go to the bakery anyway.",
+       "to": "s8"
+      },
+      {
+       "text": "Meglio controllare il balcone.",
+       "en": "We'd better check the balcony.",
+       "to": "s4"
+      }
+     ]
+    },
+    "end_box": {
+     "text": "È Briciola! Era rimasto chiuso nella scatola. La signora Rossi piange di gioia.",
+     "en": "It's Briciola! He'd got shut in the box. Signora Rossi cries with joy.",
+     "end": "great"
+    },
+    "end_kittens": {
+     "text": "La signora Rossi apre la scatola: ci sono tre gattini! In realtà Briciola è… una gatta, e adesso è mamma!",
+     "en": "Signora Rossi opens the box: there are three kittens! It turns out Briciola is… a girl, and now she's a mum!",
+     "end": "great"
+    },
+    "end_bakery": {
+     "text": "La signora Rossi abbraccia Briciola. Il fornaio dice che può tornare quando vuole.",
+     "en": "Signora Rossi hugs Briciola. The baker says he can come back whenever he likes.",
+     "end": "great"
+    },
+    "end_bread": {
+     "text": "La signora Rossi, Briciola e tu fate colazione con cornetti caldi. Caso risolto!",
+     "en": "Signora Rossi, Briciola and you have breakfast with warm cornetti. Case solved!",
+     "end": "good"
+    }
+   }
+  },
+  {
+   "id": "train",
+   "band": 3,
+   "kind": "mystery",
+   "guide": "interviewer",
+   "title": "Il treno notte",
+   "en": "The night train",
+   "start": "s1",
+   "scenes": {
+    "s1": {
+     "text": "Viaggi su un treno notte da Roma a Palermo. A mezzanotte, una passeggera grida: qualcuno le ha rubato la collana della nonna.",
+     "en": "You're on a night train from Rome to Palermo. At midnight, a passenger screams: someone has stolen her grandmother's necklace.",
+     "choices": [
+      {
+       "text": "Le chiedo di raccontarmi esattamente cos'è successo.",
+       "en": "I ask her to tell me exactly what happened.",
+       "to": "s2"
+      },
+      {
+       "text": "Cerco il capotreno perché nessuno scenda dal treno.",
+       "en": "I look for the conductor so that nobody gets off the train.",
+       "to": "s3"
+      }
+     ]
+    },
+    "s2": {
+     "text": "Spiega che si è addormentata e che, al risveglio, l'astuccio era aperto. Solo due persone sono passate nel corridoio: un musicista e un signore in giacca e cravatta.",
+     "en": "She explains that she fell asleep and that, when she woke up, the case was open. Only two people walked down the corridor: a musician and a man in a suit and tie.",
+     "choices": [
+      {
+       "text": "Parlo con il musicista.",
+       "en": "I talk to the musician.",
+       "to": "s4"
+      },
+      {
+       "text": "Parlo con il signore in giacca e cravatta.",
+       "en": "I talk to the man in the suit.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s3": {
+     "text": "Il capotreno chiude le porte e ti chiede aiuto, visto che sei l'unico sveglio nella carrozza. Il treno si fermerà tra un'ora.",
+     "en": "The conductor locks the doors and asks for your help, since you're the only one awake in the carriage. The train will stop in an hour.",
+     "choices": [
+      {
+       "text": "Interrogo il musicista.",
+       "en": "I question the musician.",
+       "to": "s4"
+      },
+      {
+       "text": "Controllo il corridoio in cerca di indizi.",
+       "en": "I search the corridor for clues.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s4": {
+     "text": "Il musicista, nervoso, giura di essere andato solo in bagno. La sua chitarra è nella custodia, ma la custodia è troppo pesante per essere vuota.",
+     "en": "The musician, nervous, swears he only went to the toilet. His guitar is in its case, but the case is too heavy to be empty.",
+     "choices": [
+      {
+       "text": "Gli chiedo di aprire la custodia.",
+       "en": "I ask him to open the case.",
+       "to": "s7"
+      },
+      {
+       "text": "Sarebbe meglio non accusarlo senza prove.",
+       "en": "It would be better not to accuse him without proof.",
+       "to": "s5"
+      }
+     ]
+    },
+    "s5": {
+     "text": "Il signore dice di essere un gioielliere e che, se volesse rubare qualcosa, non sarebbe una collana così economica. Sembra offeso.",
+     "en": "The man says he's a jeweller and that, if he wanted to steal something, it wouldn't be such a cheap necklace. He seems offended.",
+     "choices": [
+      {
+       "text": "Gli chiedo come fa a sapere che è economica.",
+       "en": "I ask him how he knows it's cheap.",
+       "to": "s8"
+      },
+      {
+       "text": "Mi scuso e continuo a indagare.",
+       "en": "I apologise and keep investigating.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s6": {
+     "text": "Sotto un sedile trovi il biglietto da visita di una gioielleria di Palermo, con un indirizzo scritto a mano.",
+     "en": "Under a seat you find a business card from a jeweller's in Palermo, with an address written by hand.",
+     "choices": [
+      {
+       "text": "Lo mostro al signore in giacca e cravatta.",
+       "en": "I show it to the man in the suit.",
+       "to": "s8"
+      },
+      {
+       "text": "Lo mostro al capotreno.",
+       "en": "I show it to the conductor.",
+       "to": "s9"
+      }
+     ]
+    },
+    "s7": {
+     "text": "Nella custodia c'è… una seconda chitarra, più piccola! Il musicista confessa che è un regalo per sua figlia. Ti senti un po' in imbarazzo.",
+     "en": "In the case there's… a second, smaller guitar! The musician confesses it's a present for his daughter. You feel a little embarrassed.",
+     "choices": [
+      {
+       "text": "Mi scuso e vado a parlare con il signore in giacca e cravatta.",
+       "en": "I apologise and go and talk to the man in the suit.",
+       "to": "s5"
+      },
+      {
+       "text": "Torno a controllare il corridoio.",
+       "en": "I go back and search the corridor.",
+       "to": "s6"
+      }
+     ]
+    },
+    "s8": {
+     "text": "Il signore impallidisce: nessuno aveva detto che la collana fosse economica. Se non l'avesse vista da vicino, non lo saprebbe.",
+     "en": "The man turns pale: nobody had said the necklace was cheap. If he hadn't seen it up close, he wouldn't know.",
+     "choices": [
+      {
+       "text": "Gli chiedo di restituire la collana prima che arrivi la polizia.",
+       "en": "I ask him to give the necklace back before the police arrive.",
+       "to": "end_confess"
+      },
+      {
+       "text": "Chiamo il capotreno senza dire altro.",
+       "en": "I call the conductor without saying anything else.",
+       "to": "end_police"
+      }
+     ]
+    },
+    "s9": {
+     "text": "Il capotreno riconosce il nome della gioielleria: il proprietario viaggia nella carrozza accanto. È il signore in giacca e cravatta.",
+     "en": "The conductor recognises the jeweller's name: the owner is travelling in the next carriage. It's the man in the suit.",
+     "choices": [
+      {
+       "text": "Andiamo a parlargli insieme.",
+       "en": "Let's go and talk to him together.",
+       "to": "s8"
+      },
+      {
+       "text": "Aspettiamo la polizia alla prossima stazione.",
+       "en": "Let's wait for the police at the next station.",
+       "to": "end_police"
+      }
+     ]
+    },
+    "end_confess": {
+     "text": "Pieno di vergogna, tira fuori la collana dalla tasca. La passeggera la recupera e all'alba ti offre un caffè. Caso risolto con eleganza!",
+     "en": "Full of shame, he takes the necklace out of his pocket. The passenger gets it back and buys you a coffee at dawn. Case solved with style!",
+     "end": "great"
+    },
+    "end_police": {
+     "text": "In stazione, la polizia trova la collana nella sua valigia. Caso risolto, anche se il treno arriva con due ore di ritardo.",
+     "en": "At the station, the police find the necklace in his suitcase. Case solved, even though the train arrives two hours late.",
+     "end": "good"
+    }
+   }
+  }
+ ],
+ "calls": [
+  {
+   "id": "taxi",
+   "band": 1,
+   "incoming": false,
+   "title": "Chiamare un taxi",
+   "en": "Calling a taxi",
+   "them": "Taxi dispatcher",
+   "number": "Radio Taxi Roma",
+   "setting": "You need a taxi to the airport. You call the taxi company.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "Radio Taxi, buongiorno. Come posso aiutarla?",
+     "en": "Radio Taxi, good morning. How can I help you?"
+    },
+    {
+     "who": "you",
+     "text": "Buongiorno. Ho bisogno di un taxi, per favore.",
+     "en": "Good morning. I need a taxi, please."
+    },
+    {
+     "who": "them",
+     "text": "Certo. Qual è l'indirizzo?",
+     "en": "Of course. What's the address?"
+    },
+    {
+     "who": "you",
+     "text": "Via Roma, numero cinque.",
+     "en": "Number five, Via Roma."
+    },
+    {
+     "who": "them",
+     "text": "E dove deve andare?",
+     "en": "And where do you need to go?"
+    },
+    {
+     "who": "you",
+     "text": "All'aeroporto.",
+     "en": "To the airport."
+    },
+    {
+     "who": "them",
+     "text": "Perfetto. Il taxi arriva tra dieci minuti.",
+     "en": "Perfect. The taxi will be there in ten minutes."
+    },
+    {
+     "who": "you",
+     "text": "Grazie mille.",
+     "en": "Thanks a lot."
+    },
+    {
+     "who": "them",
+     "text": "Prego. Buon viaggio!",
+     "en": "You're welcome. Have a good trip!"
+    }
+   ]
+  },
+  {
+   "id": "table",
+   "band": 1,
+   "incoming": false,
+   "title": "Prenotare un tavolo",
+   "en": "Booking a table",
+   "them": "Restaurant host",
+   "number": "Trattoria da Mario",
+   "setting": "You call a restaurant to book a table for Saturday.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "Trattoria da Mario, buonasera.",
+     "en": "Trattoria da Mario, good evening."
+    },
+    {
+     "who": "you",
+     "text": "Buonasera. Vorrei prenotare un tavolo.",
+     "en": "Good evening. I'd like to book a table."
+    },
+    {
+     "who": "them",
+     "text": "Per quante persone?",
+     "en": "For how many people?"
+    },
+    {
+     "who": "you",
+     "text": "Per quattro persone.",
+     "en": "For four people."
+    },
+    {
+     "who": "them",
+     "text": "Per che giorno e a che ora?",
+     "en": "For what day and what time?"
+    },
+    {
+     "who": "you",
+     "text": "Per sabato, alle otto.",
+     "en": "For Saturday, at eight."
+    },
+    {
+     "who": "them",
+     "text": "A che nome?",
+     "en": "Under what name?"
+    },
+    {
+     "who": "you",
+     "text": "A nome di Sam.",
+     "en": "Under the name Sam."
+    },
+    {
+     "who": "them",
+     "text": "Perfetto, Sam. A sabato!",
+     "en": "Perfect, Sam. See you Saturday!"
+    },
+    {
+     "who": "you",
+     "text": "Grazie, a sabato.",
+     "en": "Thanks, see you Saturday."
+    }
+   ]
+  },
+  {
+   "id": "clinic",
+   "band": 2,
+   "incoming": true,
+   "title": "Lo studio medico ti chiama",
+   "en": "The doctor's office calls you",
+   "them": "Clinic receptionist",
+   "number": "Studio medico",
+   "setting": "The doctor's office calls to confirm your appointment, but Thursday doesn't work for you.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "Buongiorno, la chiamo dallo studio del dottor Bianchi. Parlo con Sam?",
+     "en": "Good morning, I'm calling from Dr Bianchi's office. Am I speaking with Sam?"
+    },
+    {
+     "who": "you",
+     "text": "Sì, sono io. Buongiorno.",
+     "en": "Yes, speaking. Good morning."
+    },
+    {
+     "who": "them",
+     "text": "La chiamo per confermare l'appuntamento di giovedì alle nove.",
+     "en": "I'm calling to confirm your appointment on Thursday at nine."
+    },
+    {
+     "who": "you",
+     "text": "Ah, giovedì non posso. Si può spostare?",
+     "en": "Oh, I can't on Thursday. Can it be moved?"
+    },
+    {
+     "who": "them",
+     "text": "Certo. Ho venerdì alle undici o lunedì alle quindici.",
+     "en": "Of course. I have Friday at eleven or Monday at three p.m."
+    },
+    {
+     "who": "you",
+     "text": "Venerdì alle undici mi va benissimo.",
+     "en": "Friday at eleven suits me perfectly."
+    },
+    {
+     "who": "them",
+     "text": "Bene, allora venerdì. Si ricordi di portare la tessera sanitaria.",
+     "en": "Good, Friday then. Remember to bring your health card."
+    },
+    {
+     "who": "you",
+     "text": "Perfetto, grazie mille.",
+     "en": "Perfect, thanks a lot."
+    },
+    {
+     "who": "them",
+     "text": "Si figuri. Buona giornata!",
+     "en": "Not at all. Have a good day!"
+    }
+   ]
+  },
+  {
+   "id": "delivery",
+   "band": 3,
+   "incoming": true,
+   "title": "Il rider che si è perso",
+   "en": "The lost delivery driver",
+   "them": "Delivery driver",
+   "number": "Rider",
+   "setting": "The delivery driver calls: he can't find your building, and part of your order is missing.",
+   "lines": [
+    {
+     "who": "them",
+     "text": "Pronto? Salve, sono Marco, il rider. Ho il suo ordine, ma non trovo il palazzo.",
+     "en": "Hello? Hi, it's Marco, the delivery rider. I've got your order, but I can't find the building."
+    },
+    {
+     "who": "you",
+     "text": "Salve, Marco. Dove si trova adesso?",
+     "en": "Hi, Marco. Where are you right now?"
+    },
+    {
+     "who": "them",
+     "text": "Sono davanti a una farmacia grande, accanto a una banca.",
+     "en": "I'm in front of a big pharmacy, next to a bank."
+    },
+    {
+     "who": "you",
+     "text": "Ah, ho capito. Vada dritto per un isolato e giri a sinistra al semaforo.",
+     "en": "Ah, I see. Go straight for one block and turn left at the traffic lights."
+    },
+    {
+     "who": "them",
+     "text": "Va bene, ho girato. È un palazzo bianco con il portone blu?",
+     "en": "OK, I've turned. Is it a white building with a blue front door?"
+    },
+    {
+     "who": "you",
+     "text": "Esatto. Suoni al citofono, interno 32, e le apro.",
+     "en": "Exactly. Ring the intercom, flat 32, and I'll let you in."
+    },
+    {
+     "who": "them",
+     "text": "Perfetto. Ah, un'altra cosa: la bibita che ha ordinato è finita. Gliene porto un'altra o preferisce il rimborso?",
+     "en": "Perfect. Oh, one more thing: the drink you ordered has run out. Shall I bring you another, or would you prefer a refund?"
+    },
+    {
+     "who": "you",
+     "text": "Preferirei il rimborso, grazie.",
+     "en": "I'd prefer a refund, thanks."
+    },
+    {
+     "who": "them",
+     "text": "D'accordo, me ne occupo subito. Arrivo tra due minuti.",
+     "en": "All right, I'll take care of it right away. I'll be there in two minutes."
+    },
+    {
+     "who": "you",
+     "text": "Perfetto, la aspetto giù.",
+     "en": "Perfect, I'll wait for you downstairs."
+    }
+   ]
+  }
+ ],
+ "chats": [
+  {
+   "id": "plans",
+   "band": 1,
+   "title": "Programmi per stasera",
+   "en": "Plans for tonight",
+   "them": "Giulia",
+   "avatar": "date",
+   "slang": [
+    {
+     "term": "ciaooo",
+     "means": "hiii"
+    },
+    {
+     "term": "come va",
+     "means": "how's it going"
+    },
+    {
+     "term": "stasera",
+     "means": "tonight"
+    },
+    {
+     "term": "dai",
+     "means": "come on, sure!"
+    },
+    {
+     "term": "ahah",
+     "means": "haha"
+    },
+    {
+     "term": "x favore",
+     "means": "per favore, please"
+    },
+    {
+     "term": "a dopo",
+     "means": "see you later"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "Ciaooo 👋 come va?",
+     "en": "Hiii 👋 how's it going?"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Bene, e tu? 😊",
+       "en": "Good, and you? 😊",
+       "why": null
+      },
+      {
+       "text": "Buongiorno, signora.",
+       "en": "Good morning, madam.",
+       "why": "Way too formal for texting a friend."
+      },
+      {
+       "text": "Ho venti gatti.",
+       "en": "I have twenty cats.",
+       "why": "That doesn't answer her question."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Tutto bene!! Andiamo al cinema stasera? 🍿",
+     "en": "All good!! Shall we go to the cinema tonight? 🍿"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Sì, dai! A che ora?",
+       "en": "Yes, sure! What time?",
+       "why": null
+      },
+      {
+       "text": "No, grazie. Addio per sempre.",
+       "en": "No, thanks. Farewell forever.",
+       "why": "A bit dramatic for a movie invite!"
+      },
+      {
+       "text": "Mi chiamo Sam.",
+       "en": "My name is Sam.",
+       "why": "She already knows your name."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Alle 8 😎 nn fare tardi x favore ahah",
+     "en": "At 8 😎 don't be late please haha"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Ahah tranquilla, arrivo puntuale 👍",
+       "en": "Haha don't worry, I'll be on time 👍",
+       "why": null
+      },
+      {
+       "text": "Cos'è un cinema?",
+       "en": "What's a cinema?",
+       "why": "You know what a cinema is!"
+      },
+      {
+       "text": "Arrivo domani.",
+       "en": "I'll arrive tomorrow.",
+       "why": "The movie is tonight."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Che bello!! A dopo 💙",
+     "en": "Great!! See you later 💙"
+    }
+   ]
+  },
+  {
+   "id": "late",
+   "band": 2,
+   "title": "Sono in ritardo",
+   "en": "Running late",
+   "them": "Luca",
+   "avatar": "friend",
+   "slang": [
+    {
+     "term": "ma dove sei",
+     "means": "where on earth are you?"
+    },
+    {
+     "term": "sto arrivando",
+     "means": "I'm on my way"
+    },
+    {
+     "term": "tranqui",
+     "means": "relax, no worries"
+    },
+    {
+     "term": "cmq",
+     "means": "comunque, anyway"
+    },
+    {
+     "term": "pienissimo",
+     "means": "packed, full"
+    },
+    {
+     "term": "xké",
+     "means": "perché, why / because"
+    },
+    {
+     "term": "ti aspettiamo",
+     "means": "we're waiting for you"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "Ma dove sei?? Siamo già tutti qui 😅",
+     "en": "Where are you?? We're all here already 😅"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Scusa, sono in ritardo. Sto arrivando, 10 minuti 🙏",
+       "en": "Sorry, I'm late. On my way, 10 minutes 🙏",
+       "why": null
+      },
+      {
+       "text": "Sto bene, grazie per averlo chiesto.",
+       "en": "I'm fine, thanks for asking.",
+       "why": "He's asking where you are, not how you are."
+      },
+      {
+       "text": "Sono arrivato un'ora fa.",
+       "en": "I got there an hour ago.",
+       "why": "Then they'd see you!"
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Tranqui ahah. Ti ordiniamo qualcosa da bere?",
+     "en": "No worries haha. Shall we order you something to drink?"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Sì, grazie, uno spritz 🍹",
+       "en": "Yes thanks, a spritz 🍹",
+       "why": null
+      },
+      {
+       "text": "Non ho la bocca.",
+       "en": "I don't have a mouth.",
+       "why": "That's just strange."
+      },
+      {
+       "text": "Sì, ordinami il ristorante.",
+       "en": "Yes, order me the restaurant.",
+       "why": "You can't order a whole restaurant."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Ok 👌 cmq la metro è pienissima, prendi un taxi",
+     "en": "OK 👌 anyway the metro is packed, take a taxi"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Ok, grazie della dritta, prendo un taxi 🚕",
+       "en": "OK, thanks for the tip, I'll take a taxi 🚕",
+       "why": null
+      },
+      {
+       "text": "Xké la metro è piena di gatti?",
+       "en": "Why is the metro full of cats?",
+       "why": "Pienissima just means packed with people."
+      },
+      {
+       "text": "Vado a piedi all'aeroporto.",
+       "en": "I'm walking to the airport.",
+       "why": "You're meeting friends, not going to the airport."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Ahah ok, ti aspettiamo 🙌",
+     "en": "Haha OK, we're waiting for you 🙌"
+    }
+   ]
+  },
+  {
+   "id": "birthday",
+   "band": 2,
+   "title": "Compleanno a sorpresa",
+   "en": "A surprise birthday",
+   "them": "Sara",
+   "avatar": "receptionist",
+   "slang": [
+    {
+     "term": "ragazzi",
+     "means": "guys"
+    },
+    {
+     "term": "il compleanno",
+     "means": "the birthday"
+    },
+    {
+     "term": "sei un mito",
+     "means": "you're a legend, the best"
+    },
+    {
+     "term": "che non lo scopra",
+     "means": "so she doesn't find out"
+    },
+    {
+     "term": "tvb",
+     "means": "ti voglio bene, love you"
+    },
+    {
+     "term": "ci penso io",
+     "means": "I'll take care of it"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "Ragazzi!! Sabato è il compleanno di Marti 🎂 le facciamo una festa a sorpresa?",
+     "en": "Guys!! Saturday is Marti's birthday 🎂 shall we throw her a surprise party?"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Che bella idea! Dove la facciamo? 🎉",
+       "en": "What a great idea! Where shall we have it? 🎉",
+       "why": null
+      },
+      {
+       "text": "Non so chi sia Marti.",
+       "en": "I don't know who Marti is.",
+       "why": "Marti is your friend!"
+      },
+      {
+       "text": "Buon compleanno, Sara.",
+       "en": "Happy birthday, Sara.",
+       "why": "It's Marti's birthday, not Sara's."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Da me! Porti tu la torta? 🙏",
+     "en": "At my place! Will you bring the cake? 🙏"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Ok, alla torta ci penso io 🍰",
+       "en": "OK, I'll take care of the cake 🍰",
+       "why": null
+      },
+      {
+       "text": "No, le torte sono brutte.",
+       "en": "No, cakes are ugly.",
+       "why": "Rude! And not true."
+      },
+      {
+       "text": "Sì, porto il mio cane.",
+       "en": "Yes, I'll bring my dog.",
+       "why": "She asked about the cake."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Sei un mito!! Ma shhh 🤫 che non lo scopra",
+     "en": "You're a legend!! But shh 🤫 she mustn't find out"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Ahah tranquilla, non dico niente 🤐",
+       "en": "Haha don't worry, I won't say a thing 🤐",
+       "why": null
+      },
+      {
+       "text": "Ho già detto tutto a Marti.",
+       "en": "I already told Marti everything.",
+       "why": "That ruins the surprise!"
+      },
+      {
+       "text": "Chi è un mito?",
+       "en": "Who's a legend?",
+       "why": "“Sei un mito” is a compliment: you're the best."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Ahahah tvb ❤️",
+     "en": "Hahaha love you ❤️"
+    }
+   ]
+  },
+  {
+   "id": "gossip",
+   "band": 3,
+   "title": "Il pettegolezzo",
+   "en": "The gossip",
+   "them": "Chiara",
+   "avatar": "date",
+   "slang": [
+    {
+     "term": "il pettegolezzo",
+     "means": "gossip"
+    },
+    {
+     "term": "che figuraccia",
+     "means": "how embarrassing"
+    },
+    {
+     "term": "si sono lasciati",
+     "means": "they broke up"
+    },
+    {
+     "term": "ovvio",
+     "means": "obviously"
+    },
+    {
+     "term": "sono una tomba",
+     "means": "my lips are sealed"
+    },
+    {
+     "term": "ci sentiamo",
+     "means": "talk soon"
+    }
+   ],
+   "messages": [
+    {
+     "from": "them",
+     "text": "Oddio non sai il pettegolezzo 👀👀",
+     "en": "Oh my god, you won't believe the gossip 👀👀"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Cosa?! Dimmi tutto subito 😱",
+       "en": "What?! Tell me everything right now 😱",
+       "why": null
+      },
+      {
+       "text": "Non mi piace parlare con gli amici.",
+       "en": "I don't like talking with friends.",
+       "why": "An odd thing to text a friend."
+      },
+      {
+       "text": "Il pettegolezzo è un animale?",
+       "en": "Is “pettegolezzo” an animal?",
+       "why": "“Il pettegolezzo” means gossip."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Andrea e Fede si sono lasciati 💔 e lei esce già con un altro 🙊",
+     "en": "Andrea and Fede broke up 💔 and she's already going out with someone else 🙊"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Ma dai? Che figuraccia… e Andrea come l'ha presa?",
+       "en": "No way? How embarrassing… and how did Andrea take it?",
+       "why": null
+      },
+      {
+       "text": "Auguri per il matrimonio!",
+       "en": "Congratulations on the wedding!",
+       "why": "They broke up: there's no wedding."
+      },
+      {
+       "text": "Sono contento che soffra.",
+       "en": "I'm glad he's suffering.",
+       "why": "That's mean!"
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Boh, è tranquillo, dice che è meglio così ahah. Cmq non dire che te l'ho detto io 🤫",
+     "en": "Dunno, he's fine, says it's better this way haha. Anyway don't say I told you 🤫"
+    },
+    {
+     "from": "you",
+     "options": [
+      {
+       "text": "Ovvio, sono una tomba 🤐😂",
+       "en": "Obviously, my lips are sealed 🤐😂",
+       "why": null
+      },
+      {
+       "text": "L'ho già messo su Instagram.",
+       "en": "I already put it on Instagram.",
+       "why": "She asked you to keep it secret!"
+      },
+      {
+       "text": "Ma tu chi sei?",
+       "en": "Who are you?",
+       "why": "You know Chiara: you're chatting with her."
+      }
+     ]
+    },
+    {
+     "from": "them",
+     "text": "Ahahah ecco xké ti adoro 😂 ci sentiamo",
+     "en": "Hahaha that's why I adore you 😂 talk soon"
+    }
+   ]
+  }
+ ],
+ "teach": {
+  "lines": {
+   "intro": {
+    "text": "Oh no! Ho dimenticato cos'è «{w}». Me lo spieghi?",
+    "en": "Oh no! I forgot what “{w}” is. Can you explain it to me?"
+   },
+   "yes": {
+    "text": "Ahhh, ma certo! Adesso mi ricordo! Grazie!",
+    "en": "Ahhh, of course! Now I remember! Thanks!"
+   },
+   "no": {
+    "text": "Mmm… ancora non ho capito. Mi dai un altro indizio?",
+    "en": "Hmm… I still don't get it. Can you give me another clue?"
+   }
+  },
+  "words": [
+   {
+    "id": "key",
+    "band": 1,
+    "word": "la chiave",
+    "en": "the key",
+    "explain": "È una piccola cosa di metallo. La usi per aprire la porta di casa.",
+    "explainEn": "It's a small metal thing. You use it to open the door of your home.",
+    "keywords": [
+     "aprire",
+     "porta",
+     "casa",
+     "metallo",
+     "chiudere",
+     "macchina"
+    ]
+   },
+   {
+    "id": "umbrella",
+    "band": 1,
+    "word": "l'ombrello",
+    "en": "the umbrella",
+    "explain": "Lo usi quando piove, per non bagnarti.",
+    "explainEn": "You use it when it rains, so you don't get wet.",
+    "keywords": [
+     "pioggia",
+     "piove",
+     "piovere",
+     "acqua",
+     "bagnare",
+     "bagnarti",
+     "bagnato"
+    ]
+   },
+   {
+    "id": "fridge",
+    "band": 1,
+    "word": "il frigorifero",
+    "en": "the fridge",
+    "explain": "È un elettrodomestico freddo della cucina. Lì metti il latte e il cibo.",
+    "explainEn": "It's a cold kitchen appliance. You put milk and food in it.",
+    "keywords": [
+     "freddo",
+     "fredda",
+     "cibo",
+     "latte",
+     "cucina",
+     "mettere",
+     "metti"
+    ]
+   },
+   {
+    "id": "toothbrush",
+    "band": 1,
+    "word": "lo spazzolino",
+    "en": "the toothbrush",
+    "explain": "Lo usi per lavarti i denti la mattina e la sera.",
+    "explainEn": "You use it to brush your teeth in the morning and at night.",
+    "keywords": [
+     "denti",
+     "dente",
+     "bocca",
+     "lavare",
+     "lavarti",
+     "pulire"
+    ]
+   },
+   {
+    "id": "alarm-clock",
+    "band": 2,
+    "word": "la sveglia",
+    "en": "the alarm clock",
+    "explain": "È un orologio che suona la mattina per svegliarti.",
+    "explainEn": "It's a clock that rings in the morning to wake you up.",
+    "keywords": [
+     "svegliare",
+     "svegliarti",
+     "mattina",
+     "suona",
+     "suonare",
+     "dormire",
+     "orologio",
+     "ora"
+    ]
+   },
+   {
+    "id": "wallet",
+    "band": 2,
+    "word": "il portafoglio",
+    "en": "the wallet",
+    "explain": "È dove tieni i soldi e le carte. Di solito sta in tasca.",
+    "explainEn": "It's where you keep your money and cards. It usually goes in your pocket.",
+    "keywords": [
+     "soldi",
+     "carta",
+     "carte",
+     "tenere",
+     "tieni",
+     "tasca"
+    ]
+   },
+   {
+    "id": "lift",
+    "band": 2,
+    "word": "l'ascensore",
+    "en": "the lift / elevator",
+    "explain": "È una macchina che ti porta su e giù in un palazzo, senza fare le scale.",
+    "explainEn": "It's a machine that takes you up and down in a building, without taking the stairs.",
+    "keywords": [
+     "salire",
+     "scendere",
+     "piano",
+     "palazzo",
+     "scale",
+     "giù"
+    ]
+   },
+   {
+    "id": "scarf",
+    "band": 2,
+    "word": "la sciarpa",
+    "en": "the scarf",
+    "explain": "È un capo lungo che ti metti intorno al collo quando fa freddo.",
+    "explainEn": "It's a long piece of clothing you put around your neck when it's cold.",
+    "keywords": [
+     "collo",
+     "freddo",
+     "vestito",
+     "inverno",
+     "mettere",
+     "metti"
+    ]
+   },
+   {
+    "id": "after-lunch-drowsiness",
+    "band": 3,
+    "word": "l'abbiocco",
+    "en": "after-lunch drowsiness",
+    "explain": "È quella sonnolenza che ti viene dopo un pranzo abbondante.",
+    "explainEn": "It's that sleepiness you get after a big lunch.",
+    "keywords": [
+     "sonno",
+     "dormire",
+     "pranzo",
+     "mangiato",
+     "mangiare",
+     "stanco",
+     "sonnolenza"
+    ]
+   },
+   {
+    "id": "a-stroll",
+    "band": 3,
+    "word": "la passeggiata",
+    "en": "a stroll",
+    "explain": "È quando cammini con calma, per piacere, magari la sera in centro.",
+    "explainEn": "It's when you walk slowly, for pleasure, maybe in the evening in town.",
+    "keywords": [
+     "camminare",
+     "cammini",
+     "piedi",
+     "piacere",
+     "sera",
+     "centro",
+     "calma"
+    ]
+   },
+   {
+    "id": "pre-dinner-drinks",
+    "band": 3,
+    "word": "l'aperitivo",
+    "en": "pre-dinner drinks",
+    "explain": "È quando ti trovi con gli amici per bere qualcosa e mangiare stuzzichini prima di cena.",
+    "explainEn": "It's when you meet friends for a drink and some nibbles before dinner.",
+    "keywords": [
+     "amici",
+     "bere",
+     "cena",
+     "stuzzichini",
+     "sera",
+     "bicchiere"
+    ]
+   },
+   {
+    "id": "savings",
+    "band": 3,
+    "word": "i risparmi",
+    "en": "savings",
+    "explain": "Sono i soldi che non spendi e metti da parte per il futuro.",
+    "explainEn": "It's the money you don't spend and put aside for the future.",
+    "keywords": [
+     "soldi",
+     "spendere",
+     "spendi",
+     "futuro",
+     "banca",
+     "parte"
+    ]
+   }
+  ]
+ },
+ "spot": [
+  {
+   "id": "s1",
+   "band": 1,
+   "words": [
+    "Io",
+    "è",
+    "studente."
+   ],
+   "bad": 1,
+   "fix": "sono",
+   "options": [
+    "sono",
+    "sei",
+    "sta"
+   ],
+   "en": "I am a student.",
+   "why": "With “io” the verb essere is “sono”."
+  },
+  {
+   "id": "s2",
+   "band": 1,
+   "words": [
+    "Lei",
+    "ha",
+    "venti",
+    "anno."
+   ],
+   "bad": 3,
+   "fix": "anni.",
+   "options": [
+    "anni.",
+    "anne.",
+    "anna."
+   ],
+   "en": "She is twenty years old.",
+   "why": "More than one year: plural, anni."
+  },
+  {
+   "id": "s3",
+   "band": 1,
+   "words": [
+    "Il",
+    "casa",
+    "è",
+    "grande."
+   ],
+   "bad": 0,
+   "fix": "La",
+   "options": [
+    "La",
+    "Le",
+    "Lo"
+   ],
+   "en": "The house is big.",
+   "why": "“Casa” is feminine: la casa."
+  },
+  {
+   "id": "s4",
+   "band": 1,
+   "words": [
+    "Noi",
+    "abita",
+    "a",
+    "Roma."
+   ],
+   "bad": 1,
+   "fix": "abitiamo",
+   "options": [
+    "abitiamo",
+    "abitate",
+    "abitano"
+   ],
+   "en": "We live in Rome.",
+   "why": "With “noi” the verb ends in -iamo: abitiamo."
+  },
+  {
+   "id": "s5",
+   "band": 1,
+   "words": [
+    "Mi",
+    "piace",
+    "i",
+    "cani."
+   ],
+   "bad": 1,
+   "fix": "piacciono",
+   "options": [
+    "piacciono",
+    "piaccio",
+    "piacete"
+   ],
+   "en": "I like dogs.",
+   "why": "When what you like is plural, use “piacciono”: mi piacciono i cani."
+  },
+  {
+   "id": "s6",
+   "band": 2,
+   "words": [
+    "Ieri",
+    "vado",
+    "al",
+    "cinema",
+    "con",
+    "mia",
+    "sorella."
+   ],
+   "bad": 1,
+   "fix": "sono andato",
+   "options": [
+    "sono andato",
+    "andavo",
+    "andrò"
+   ],
+   "en": "Yesterday I went to the cinema with my sister.",
+   "why": "“Ieri” is a finished moment in the past: sono andato (passato prossimo with essere)."
+  },
+  {
+   "id": "s7",
+   "band": 2,
+   "words": [
+    "Ieri",
+    "ho",
+    "andato",
+    "al",
+    "mare."
+   ],
+   "bad": 1,
+   "fix": "sono",
+   "options": [
+    "sono",
+    "hai",
+    "abbiamo"
+   ],
+   "en": "Yesterday I went to the seaside.",
+   "why": "“Andare” takes essere, not avere: sono andato."
+  },
+  {
+   "id": "s8",
+   "band": 2,
+   "words": [
+    "Quando",
+    "ero",
+    "bambino,",
+    "gioco",
+    "a",
+    "calcio",
+    "ogni",
+    "giorno."
+   ],
+   "bad": 3,
+   "fix": "giocavo",
+   "options": [
+    "giocavo",
+    "giocai",
+    "giocherò"
+   ],
+   "en": "When I was a child, I played football every day.",
+   "why": "Habits in the past use the imperfetto: giocavo."
+  },
+  {
+   "id": "s9",
+   "band": 2,
+   "words": [
+    "Ci",
+    "sono",
+    "molto",
+    "persone",
+    "in",
+    "strada."
+   ],
+   "bad": 2,
+   "fix": "molte",
+   "options": [
+    "molte",
+    "molti",
+    "molta"
+   ],
+   "en": "There are a lot of people in the street.",
+   "why": "“Molto” agrees with persone (feminine plural): molte persone."
+  },
+  {
+   "id": "s10",
+   "band": 2,
+   "words": [
+    "Penso",
+    "che",
+    "lui",
+    "è",
+    "simpatico."
+   ],
+   "bad": 3,
+   "fix": "sia",
+   "options": [
+    "sia",
+    "era",
+    "sarà"
+   ],
+   "en": "I think he's nice.",
+   "why": "After “penso che”, use the subjunctive: sia."
+  },
+  {
+   "id": "s11",
+   "band": 3,
+   "words": [
+    "Se",
+    "avrei",
+    "soldi,",
+    "viaggerei",
+    "per",
+    "il",
+    "mondo."
+   ],
+   "bad": 1,
+   "fix": "avessi",
+   "options": [
+    "avessi",
+    "ho",
+    "avrò"
+   ],
+   "en": "If I had money, I would travel the world.",
+   "why": "Never “se” + conditional: se avessi… viaggerei."
+  },
+  {
+   "id": "s12",
+   "band": 3,
+   "words": [
+    "Sono",
+    "contento",
+    "che",
+    "tu",
+    "vieni",
+    "alla",
+    "festa."
+   ],
+   "bad": 4,
+   "fix": "venga",
+   "options": [
+    "venga",
+    "verrai",
+    "venivi"
+   ],
+   "en": "I'm glad you're coming to the party.",
+   "why": "Feelings + che take the subjunctive: che tu venga."
+  },
+  {
+   "id": "s13",
+   "band": 3,
+   "words": [
+    "Spero",
+    "che",
+    "domani",
+    "fa",
+    "bel",
+    "tempo."
+   ],
+   "bad": 3,
+   "fix": "faccia",
+   "options": [
+    "faccia",
+    "fece",
+    "farà"
+   ],
+   "en": "I hope the weather is nice tomorrow.",
+   "why": "“Spero che” takes the subjunctive: faccia."
+  },
+  {
+   "id": "s14",
+   "band": 3,
+   "words": [
+    "Benché",
+    "è",
+    "stanco,",
+    "continua",
+    "a",
+    "lavorare."
+   ],
+   "bad": 1,
+   "fix": "sia",
+   "options": [
+    "sia",
+    "era",
+    "sarà"
+   ],
+   "en": "Although he's tired, he keeps working.",
+   "why": "“Benché” always takes the subjunctive: benché sia."
+  },
+  {
+   "id": "s15",
+   "band": 3,
+   "words": [
+    "Non",
+    "credo",
+    "che",
+    "lui",
+    "ha",
+    "ragione."
+   ],
+   "bad": 4,
+   "fix": "abbia",
+   "options": [
+    "abbia",
+    "aveva",
+    "avrà"
+   ],
+   "en": "I don't think he's right.",
+   "why": "“Non credo che” takes the subjunctive: abbia."
+  }
+ ],
+ "missions": [
+  {
+   "id": "coffee",
+   "band": 1,
+   "title": "Ordina un caffè",
+   "en": "Order a coffee",
+   "task": "Order a coffee in Italian at a bar, or practise with a friend playing the barista.",
+   "phrases": [
+    {
+     "text": "Un caffè, per favore.",
+     "en": "A coffee, please."
+    },
+    {
+     "text": "Quanto costa?",
+     "en": "How much is it?"
+    },
+    {
+     "text": "Grazie, molto gentile.",
+     "en": "Thanks, that's very kind."
+    }
+   ]
+  },
+  {
+   "id": "greet",
+   "band": 1,
+   "title": "Saluta qualcuno",
+   "en": "Greet someone",
+   "task": "Say good morning and ask how someone is, in Italian: a neighbour, a coworker or a shop assistant.",
+   "phrases": [
+    {
+     "text": "Buongiorno! Come sta?",
+     "en": "Good morning! How are you?"
+    },
+    {
+     "text": "Molto bene, grazie. E lei?",
+     "en": "Very well, thanks. And you?"
+    },
+    {
+     "text": "Buona giornata!",
+     "en": "Have a good day!"
+    }
+   ]
+  },
+  {
+   "id": "count",
+   "band": 1,
+   "title": "Conta in italiano",
+   "en": "Count in Italian",
+   "task": "Count your change, your steps or your shopping out loud in Italian today, up to twenty.",
+   "phrases": [
+    {
+     "text": "Uno, due, tre, quattro, cinque.",
+     "en": "One, two, three, four, five."
+    },
+    {
+     "text": "Dieci, undici, dodici, tredici.",
+     "en": "Ten, eleven, twelve, thirteen."
+    },
+    {
+     "text": "Diciotto, diciannove, venti.",
+     "en": "Eighteen, nineteen, twenty."
+    }
+   ]
+  },
+  {
+   "id": "directions",
+   "band": 2,
+   "title": "Chiedi indicazioni",
+   "en": "Ask for directions",
+   "task": "Ask someone for directions in Italian, or ask your map app in Italian and repeat the answer.",
+   "phrases": [
+    {
+     "text": "Scusi, dov'è la stazione?",
+     "en": "Excuse me, where's the station?"
+    },
+    {
+     "text": "È lontano da qui?",
+     "en": "Is it far from here?"
+    },
+    {
+     "text": "Può ripetere, per favore?",
+     "en": "Could you repeat that, please?"
+    }
+   ]
+  },
+  {
+   "id": "phone",
+   "band": 2,
+   "title": "Il telefono in italiano",
+   "en": "Your phone in Italian",
+   "task": "Switch your phone, or one app you use a lot, to Italian for a whole day.",
+   "phrases": [
+    {
+     "text": "Impostazioni",
+     "en": "Settings"
+    },
+    {
+     "text": "Notifiche",
+     "en": "Notifications"
+    },
+    {
+     "text": "Hai nuovi messaggi.",
+     "en": "You have new messages."
+    }
+   ]
+  },
+  {
+   "id": "voicenote",
+   "band": 2,
+   "title": "Manda un vocale",
+   "en": "Send a voice message",
+   "task": "Send a 30-second voice message in Italian, to a friend or to yourself, about your day.",
+   "phrases": [
+    {
+     "text": "Oggi è stata una giornata pienissima.",
+     "en": "Today was a really full day."
+    },
+    {
+     "text": "La mattina ho lavorato e il pomeriggio mi sono riposato.",
+     "en": "In the morning I worked and in the afternoon I rested."
+    },
+    {
+     "text": "E la tua giornata com'è andata?",
+     "en": "And how did your day go?"
+    }
+   ]
+  },
+  {
+   "id": "recipe",
+   "band": 3,
+   "title": "Cucina in italiano",
+   "en": "Cook in Italian",
+   "task": "Cook something by following a recipe or a video in Italian.",
+   "phrases": [
+    {
+     "text": "Prima, taglia la cipolla a pezzetti.",
+     "en": "First, chop the onion into small pieces."
+    },
+    {
+     "text": "Poi aggiungi un pizzico di sale.",
+     "en": "Then add a pinch of salt."
+    },
+    {
+     "text": "Lascia bollire per una decina di minuti.",
+     "en": "Let it boil for about ten minutes."
+    }
+   ]
+  },
+  {
+   "id": "review",
+   "band": 3,
+   "title": "Dai la tua opinione in italiano",
+   "en": "Give your opinion in Italian",
+   "task": "Write a comment or review in Italian: a restaurant, a video or a book you liked.",
+   "phrases": [
+    {
+     "text": "Mi è piaciuta tantissimo l'atmosfera.",
+     "en": "I really loved the atmosphere."
+    },
+    {
+     "text": "Lo consiglio vivamente.",
+     "en": "I highly recommend it."
+    },
+    {
+     "text": "L'unica cosa che migliorerei è il servizio.",
+     "en": "The only thing I'd improve is the service."
+    }
+   ]
+  },
+  {
+   "id": "realcall",
+   "band": 3,
+   "title": "Una telefonata vera",
+   "en": "A real phone call",
+   "task": "Make a real phone call in Italian: ask a shop or restaurant what time they open and close.",
+   "phrases": [
+    {
+     "text": "Buongiorno, a che ora aprite domani?",
+     "en": "Good morning, what time do you open tomorrow?"
+    },
+    {
+     "text": "E fino a che ora siete aperti?",
+     "en": "And until what time are you open?"
+    },
+    {
+     "text": "Perfetto, grazie mille per l'informazione.",
+     "en": "Perfect, thanks a lot for the information."
+    }
+   ]
+  }
+ ],
+ "debate": {
+  "topics": [
+   {
+    "id": "hotdog",
+    "en": "Is a hot dog a sandwich?",
+    "title": "Un hot dog è un panino?"
+   },
+   {
+    "id": "cats",
+    "en": "Cats are better than dogs.",
+    "title": "I gatti sono meglio dei cani."
+   },
+   {
+    "id": "breakfast",
+    "en": "Breakfast is the best meal of the day.",
+    "title": "La colazione è il pasto migliore della giornata."
+   },
+   {
+    "id": "cooking",
+    "en": "Everyone should learn to cook.",
+    "title": "Tutti dovrebbero imparare a cucinare."
+   },
+   {
+    "id": "summer",
+    "en": "Summer is better than winter.",
+    "title": "L'estate è meglio dell'inverno."
+   },
+   {
+    "id": "social",
+    "en": "Social media does more harm than good.",
+    "title": "I social fanno più male che bene."
+   }
+  ],
+  "phrases": [
+   {
+    "text": "Secondo me…",
+    "en": "In my opinion…"
+   },
+   {
+    "text": "Sono d'accordo in parte, ma…",
+    "en": "I partly agree, but…"
+   },
+   {
+    "text": "Non sono per niente d'accordo.",
+    "en": "I don't agree at all."
+   },
+   {
+    "text": "Da un lato…, e dall'altro…",
+    "en": "On the one hand…, and on the other…"
+   },
+   {
+    "text": "Quello che voglio dire è che…",
+    "en": "What I mean is that…"
+   },
+   {
+    "text": "Non ha senso, perché…",
+    "en": "That doesn't make sense, because…"
+   },
+   {
+    "text": "Un buon esempio è…",
+    "en": "A good example is…"
+   },
+   {
+    "text": "Ammetto che su questo hai ragione.",
+    "en": "I admit you're right about this."
+   },
+   {
+    "text": "Comunque, continuo a pensare che…",
+    "en": "Even so, I still think that…"
+   },
+   {
+    "text": "Per concludere…",
+    "en": "To conclude…"
+   }
+  ]
+ }
+}

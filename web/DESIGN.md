@@ -60,6 +60,10 @@ Headings 700–800 with `--tight` letter spacing. Settings › Text size scales 
 - **Stickers** (`Sticker`, `UnitArt` in `src/art.tsx`): drawn icons for units and topics. Use
   them instead of emoji for anything that is an icon; emoji stay only inside phrases.
 - **Icons** (`Icon` in `src/ui.tsx`): 24×24 line icons in `currentColor`.
+- **Play** (`src/screens/play/`): `AnswerBar` (say it with Whisper, or type), `BirdSays` (the bird
+  with a speech bubble, English a tap away, replay), `DoneCard` (the bird dances, +XP), the phone
+  screen (`.phone-screen`, ringing avatar, green/red buttons, `CallBar` with timer and hang-up), the
+  chat (`.chat-phone`: our colours, not WhatsApp's; dotted slang to tap) and choice cards.
 - **Loading**: `.shimmer` placeholders (the AI partner thinking) or a spinner inside the button
   that started it; never a blank screen.
 

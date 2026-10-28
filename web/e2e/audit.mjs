@@ -50,7 +50,7 @@ await run(async () => {
 
   // ---------- VoiceOver: everything has a name ----------
   await editProgress(page, (p) => ({ ...p, lang: 'es', speaking: false, levelStart: { es: 'words' }, lessons: { 'es:es-2-1': 1 }, hearts: 5, heartsAt: Date.now(), celebrated: null }));
-  const screens = ['#/es', '#/practice', '#/progress', '#/settings', '#/es/stories', '#/es/roleplay', '#/es/music', '#/es/greetings', '#/es/talk'];
+  const screens = ['#/es', '#/practice', '#/progress', '#/settings', '#/es/stories', '#/es/roleplay', '#/es/music', '#/es/greetings', '#/es/talk', '#/es/play', '#/es/play/adventure', '#/es/play/chat/plans', '#/es/play/mission/coffee', '#/es/play/debate', '#/es/play/call/taxi'];
   for (const hash of screens) {
     await page.goto(`${BASE}${hash}`);
     await page.waitForTimeout(600);

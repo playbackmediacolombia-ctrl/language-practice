@@ -37,6 +37,7 @@ const Practice = lazy(() => import('./screens/Practice'));
 const Lesson = lazy(() => import('./screens/Lesson'));
 const Placement = lazy(() => import('./screens/Placement'));
 const Gallery = lazy(() => import('./characters/Gallery'));
+const Play = lazy(() => import('./screens/play'));
 const HandsFreeList = lazy(() => import('./screens/HandsFree').then((m) => ({ default: m.HandsFreeList })));
 const HandsFreePlayer = lazy(() => import('./screens/HandsFree').then((m) => ({ default: m.HandsFreePlayer })));
 
@@ -85,6 +86,12 @@ function Routes() {
     return (
       <Suspense fallback={null}>
         <Camera lang={lang} />
+      </Suspense>
+    );
+  if (topic === 'play')
+    return (
+      <Suspense fallback={null}>
+        <Play key={lang} lang={lang} />
       </Suspense>
     );
   if (topic === 'music')

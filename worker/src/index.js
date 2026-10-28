@@ -9,6 +9,11 @@
 // - Only the app's own addresses may call it (ALLOWED_ORIGINS).
 // - A daily cap (DAILY_LIMIT, counted in the USAGE KV namespace) keeps the free quotas safe.
 //
+// The same /chat also plays phone calls (mode 'call'), texts like a friend on WhatsApp (mode
+// 'text') and debates a fun topic (mode 'debate', with topic and side). POST /judge decides
+// whether the bird understood your explanation of a word (kind 'teach') or which story choice
+// you meant (kind 'choose'). Both count toward DAILY_LIMIT.
+//
 // POST /vision with { lang, image } (a small JPEG, base64) names the main thing in the photo
 // in that language, with its English, an example sentence and the word spoken. It has its own
 // daily cap (VISION_LIMIT).
@@ -74,20 +79,80 @@ const REPLY_SCHEMA = {
   required: ['reply', 'translation', 'newWords', 'done', 'suggestion'],
 };
 
-function instructions({ lang, level, scenario }) {
-  const L = LANGS[lang];
-  const role = scenario
-    ? `This is a role-play. Setting: ${scenario.setting} You play: ${scenario.them}. The learner plays themselves. Stay in character, keep the scene realistic and help it move toward a natural end (${scenario.en}). When it has ended, say goodbye in character and set done to true.`
-    : 'This is free conversation, like chatting with a friendly local. Ask about their day, interests and plans, share a little about yourself, and keep it going with one question at a time.';
+const clip = (v, n = 200) => String(v ?? '').slice(0, n);
+
+/** What the partner is doing: free talk, a role-play, a phone call, texting, or a debate. */
+function roleFor({ mode, scenario, topic, side, name }, L) {
+  if (mode === 'call' && scenario)
+    return `This is a phone call, so there is nothing to see: only voices. Setting: ${clip(scenario.setting)} You are: ${clip(scenario.them, 60)}. The learner plays themselves. Speak like on the phone (greet as the business or person would, confirm details, spell out times and numbers clearly) and keep each turn short. Help the call move toward its goal (${clip(scenario.en)}). When it's done, say goodbye as people do on the phone and set done to true.`;
+  if (mode === 'text')
+    return `You are ${clip(name, 30) || 'a friend'}, the learner's friend, texting on WhatsApp. Write exactly like a young native speaker of ${L.variety} texts a friend: short messages, casual, everyday slang and the usual texting abbreviations, and one to three emojis. In this mode emojis are welcome in "reply" and spelling may be as casual as real texts, but keep the grammar right.`;
+  if (mode === 'debate')
+    return `This is a friendly debate for practice. The motion: "${clip(topic, 120)}". You argue ${side === 'against' ? 'AGAINST' : 'FOR'} it, the learner argues the other side. Each turn: briefly react to their point, give one clear counter-argument or example, and challenge them with a question. Be playful and fair, never rude. After about six exchanges, wrap up: say who made the stronger case and why in one or two sentences, and set done to true.`;
+  if (scenario)
+    return `This is a role-play. Setting: ${clip(scenario.setting)} You play: ${clip(scenario.them, 60)}. The learner plays themselves. Stay in character, keep the scene realistic and help it move toward a natural end (${clip(scenario.en)}). When it has ended, say goodbye in character and set done to true.`;
+  return 'This is free conversation, like chatting with a friendly local. Ask about their day, interests and plans, share a little about yourself, and keep it going with one question at a time.';
+}
+
+function instructions(body) {
+  const L = LANGS[body.lang];
+  const texting = body.mode === 'text';
   return [
     `You are a warm, encouraging conversation partner helping someone practice ${L.variety}.`,
-    role,
-    LEVEL_STYLE[level] ?? LEVEL_STYLE.Intermediate,
-    `Always reply in ${L.name} only (never English in "reply"), in one to three short sentences that sound natural when spoken aloud. No emoji, lists or markdown in "reply". Write it correctly, like a textbook: every accent and mark (á, é, ñ, ç, à, ã, ¿, ¡), and characters with proper Chinese punctuation for Mandarin.`,
-    "If the learner's last message had a mistake, fill in correction with the fixed sentence and a kind one-line explanation in English, but don't mention the mistake in your reply: just keep the conversation going (you may naturally echo the correct form). If it was fine or close enough, leave correction empty.",
+    roleFor(body, L),
+    LEVEL_STYLE[body.level] ?? LEVEL_STYLE.Intermediate,
+    texting
+      ? `Always reply in ${L.name} only (never English in "reply"), in one or two short text messages' worth.`
+      : `Always reply in ${L.name} only (never English in "reply"), in one to three short sentences that sound natural when spoken aloud. No emoji, lists or markdown in "reply". Write it correctly, like a textbook: every accent and mark (á, é, ñ, ç, à, ã, ¿, ¡), and characters with proper Chinese punctuation for Mandarin.`,
+    "If the learner's last message had a mistake, fill in correction with the fixed sentence and a kind one-line explanation in English, but don't mention the mistake in your reply: just keep the conversation going (you may naturally echo the correct form). If it was fine or close enough, leave correction empty." +
+      (texting ? ' In texting, abbreviations, slang, missing accents, missing capitals and missing punctuation are never mistakes: only correct real grammar or wrong words.' : ''),
     'If the learner writes in English or seems stuck, help them gently in the target language with a simpler question.',
     'Keep everything friendly and appropriate. If the learner tries to steer toward something sexual, hateful or harmful, change the subject kindly.',
   ].join('\n\n');
+}
+
+const TEACH_SCHEMA = {
+  type: 'object',
+  properties: {
+    understood: { type: 'boolean', description: 'True if a native listener would understand which word or idea the learner is describing, even with small mistakes.' },
+    reply: { type: 'string', description: "The bird's reaction, in the target language, one or two short sentences: delighted if understood (say the word back), otherwise ask for one more clue." },
+    pinyin: { type: 'string', description: 'Mandarin only: pinyin for reply. Empty otherwise.' },
+    translation: { type: 'string', description: 'The reply in English.' },
+    correction: { type: 'string', description: "The learner's explanation with any mistakes fixed, in the target language. Empty if it was fine." },
+    why: { type: 'string', description: 'If corrected: one short, kind sentence in English about what changed. Empty otherwise.' },
+  },
+  required: ['understood', 'reply', 'translation', 'correction', 'why'],
+};
+const CHOOSE_SCHEMA = {
+  type: 'object',
+  properties: { choice: { type: 'integer', description: 'The number of the option the learner meant, or -1 if it matches none.' } },
+  required: ['choice'],
+};
+
+/** /judge: did the bird understand your explanation (teach), or which story choice did you mean (choose)? */
+async function judge(env, body) {
+  const L = LANGS[body.lang];
+  if (body.kind === 'teach') {
+    const text = await gemini(env, {
+      systemInstruction: {
+        parts: [
+          {
+            text: `You are a friendly, forgetful cartoon macaw who has forgotten a word in ${L.variety}. The learner is explaining it to you in ${L.name} (level: ${clip(body.level, 30)}). The word is "${clip(body.word, 60)}" (English: ${clip(body.en, 60)}). Decide whether their explanation would let a native speaker work out the word. Be generous with learners: small grammar mistakes are fine. Never accept just the word itself, a translation into English, or something unrelated. Keep everything friendly and appropriate. Write the reply in short, simple, everyday ${L.name}, spelled correctly${body.lang === 'zh' ? ' with only common simplified characters' : ''}.`,
+          },
+        ],
+      },
+      contents: [{ role: 'user', parts: [{ text: clip(body.said, 400) }] }],
+      generationConfig: { temperature: 0.2, maxOutputTokens: 400, responseMimeType: 'application/json', responseSchema: TEACH_SCHEMA },
+    });
+    return JSON.parse(text);
+  }
+  const options = (Array.isArray(body.options) ? body.options : []).slice(0, 4).map((o, i) => `${i}: ${clip(o, 160)}`).join('\n');
+  const text = await gemini(env, {
+    systemInstruction: { parts: [{ text: `A learner of ${L.name} is playing a choose-your-own-adventure story and said what they want to do. Pick the option whose meaning best matches what they said (in any words, even with mistakes). If it matches none of them, answer -1.\n\nOptions:\n${options}` }] },
+    contents: [{ role: 'user', parts: [{ text: clip(body.said, 300) }] }],
+    generationConfig: { temperature: 0, maxOutputTokens: 50, responseMimeType: 'application/json', responseSchema: CHOOSE_SCHEMA },
+  });
+  return JSON.parse(text);
 }
 
 const json = (body, status, origin) =>
@@ -232,7 +297,7 @@ export default {
     const url = new URL(request.url);
 
     if (request.method === 'OPTIONS') return new Response(null, { status: ok ? 204 : 403, headers: cors(ok) });
-    if (!['/chat', '/vision'].includes(url.pathname) || request.method !== 'POST') return json({ error: 'not_found' }, 404, ok);
+    if (!['/chat', '/vision', '/judge'].includes(url.pathname) || request.method !== 'POST') return json({ error: 'not_found' }, 404, ok);
     if (!ok) return json({ error: 'forbidden' }, 403, null);
     if (!env.GEMINI_API_KEY) return json({ error: 'not_configured' }, 503, ok);
 
@@ -255,6 +320,16 @@ export default {
       }
       const audio = named.found && named.word ? await speak(env, named.word, body.lang) : null;
       return json({ ...named, audio }, 200, ok);
+    }
+    if (url.pathname === '/judge') {
+      if (!LANGS[body?.lang] || !['teach', 'choose'].includes(body.kind) || typeof body.said !== 'string') return json({ error: 'bad_request' }, 400, ok);
+      if (!(await underDailyLimit(env))) return json({ error: 'quota' }, 429, ok);
+      try {
+        return json(await judge(env, body), 200, ok);
+      } catch (e) {
+        console.log('judge failed', String(e).slice(0, 300));
+        return json({ error: ['busy', 'key'].includes(e.code) ? e.code : 'ai' }, e.code === 'busy' ? 503 : 502, ok);
+      }
     }
     if (!LANGS[body?.lang] || !Array.isArray(body.history) || body.history.length > 60) return json({ error: 'bad_request' }, 400, ok);
 
