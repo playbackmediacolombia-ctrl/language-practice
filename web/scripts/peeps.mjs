@@ -15,6 +15,7 @@ const load = async (file) => {
 const { head } = await load('components/head.js');
 const { face } = await load('components/face.js');
 const { accessories } = await load('components/accessories.js');
+const { facialHair } = await load('components/facialHair.js');
 const index = readFileSync(new URL('index.js', LIB), 'utf8');
 
 const SENTINELS = { skin: 'PEEPSKIN', clothing: 'PEEPCLOTH', headContrast: 'PEEPHAIR' };
@@ -30,8 +31,9 @@ const recolor = (svg) =>
 // The bust (shoulders and neck): the first group of the avatar's body.
 const body = recolor(index.match(/body: `(<g fill-rule[\s\S]*?<\/g>)<g transform="matrix/)[1].replace(/\$\{escape\.xml\(`\$\{colors\.(\w+)\}`\)\}/g, (_, c) => SENTINELS[c]));
 
-const HEADS = ['pomp', 'bun', 'mediumBangs', 'grayShort', 'hijab', 'afro', 'grayBun', 'hatBeanie', 'longCurly', 'short2', 'twists2', 'bangs'];
+const HEADS = ['pomp', 'bun', 'mediumBangs', 'grayShort', 'hijab', 'afro', 'grayBun', 'hatBeanie', 'longCurly', 'short2', 'twists2', 'bangs', 'flatTop', 'bantuKnots', 'turban', 'mediumStraight', 'buns', 'shaved2', 'noHair2', 'hatHip', 'short4', 'dreads1', 'cornrows', 'longBangs'];
 const heads = Object.fromEntries(HEADS.map((h) => [h, recolor(head[h]({}, SENTINELS))]));
+const beards = { full: recolor(facialHair.full2({}, SENTINELS)), moustache: recolor(facialHair.moustache1({}, SENTINELS)), goatee: recolor(facialHair.goatee1({}, SENTINELS)) };
 const glasses = { round: recolor(accessories.glasses2({}, SENTINELS)), square: recolor(accessories.glasses5({}, SENTINELS)) };
 
 /** One shape of a face, plus any white or colored details (teeth, tongue) drawn inside it. */
@@ -77,6 +79,8 @@ export const HEADS = ${JSON.stringify(heads, null, 2)} as const;
 export type HeadStyle = keyof typeof HEADS;
 /** Glasses, placed at translate(203 303). */
 export const GLASSES = ${JSON.stringify(glasses, null, 2)} as const;
+/** Beards and moustaches, placed at translate(279 400). */
+export const BEARDS = ${JSON.stringify(beards, null, 2)} as const;
 /** Face parts, placed at translate(315 248); box is [x0, y0, x1, y1] in that space. */
 export const FACE = ${JSON.stringify(FACE, null, 2)} as const;
 `;

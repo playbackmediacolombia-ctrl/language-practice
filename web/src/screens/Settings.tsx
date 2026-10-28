@@ -408,7 +408,7 @@ function AppVersion() {
   const built = new Date(BUILD.built).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
   return (
     <>
-      <div className="section-title">App version</div>
+      <div className="section-title">About</div>
       <div className="list">
         <div className="list-block" data-testid="app-version">
           <p className="row" style={{ margin: 0 }}>
@@ -437,6 +437,35 @@ function AppVersion() {
                   : "Couldn't check: you're offline."}
             </p>
           )}
+        </div>
+        <div className="list-block credits" data-testid="credits">
+          <div className="row-title">Credits</div>
+          <ul className="muted small credits-list">
+            <li>
+              Characters:{' '}
+              <a href="https://www.openpeeps.com/" target="_blank" rel="noreferrer">
+                Open Peeps
+              </a>{' '}
+              by{' '}
+              <a href="https://twitter.com/pablostanley" target="_blank" rel="noreferrer">
+                Pablo Stanley
+              </a>{' '}
+              (
+              <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">
+                CC0
+              </a>
+              ), via{' '}
+              <a href="https://www.dicebear.com/styles/open-peeps/" target="_blank" rel="noreferrer">
+                DiceBear
+              </a>
+              . The animation is our own.
+            </li>
+            <li>The macaw, stickers and icons: drawn for Learnguage.</li>
+            <li>Typeface: Plus Jakarta Sans (SIL Open Font License).</li>
+            <li>Speech checking: OpenAI Whisper, on your phone (MIT), via Transformers.js (Apache 2.0).</li>
+            <li>Chinese stroke order: Hanzi Writer (MIT) and Make Me a Hanzi data (Arphic Public License).</li>
+            <li>AI partner: Google Gemini (free tier), on Cloudflare Workers.</li>
+          </ul>
         </div>
       </div>
     </>

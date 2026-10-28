@@ -5,9 +5,12 @@ Every asset is bundled with the app, so it works offline.
 
 ## Characters and animation
 
+**Characters: [Open Peeps](https://www.openpeeps.com/) by [Pablo Stanley](https://twitter.com/pablostanley) ([CC0](https://creativecommons.org/publicdomain/zero/1.0/)), via [DiceBear](https://www.dicebear.com/styles/open-peeps/).**
+Shown in the app under Settings › About › Credits, with the same links.
+
 | Asset | Where it's used | Source | License | Checked |
 | --- | --- | --- | --- | --- |
-| **Open Peeps** by Pablo Stanley: the bust, 12 hairstyles, 2 glasses, and parts of 6 faces (smile, calm, smileLOL, concerned, cheeky, tired) | Role-play and phone-call characters, the AI partner (`web/src/characters/`) | [openpeeps.com](https://www.openpeeps.com/), taken from the [`@dicebear/open-peeps`](https://www.npmjs.com/package/@dicebear/open-peeps) 9.4.2 package by `web/scripts/peeps.mjs` | Drawings: **CC0 1.0** (public domain, commercial use allowed, no attribution required). Package code: MIT, © 2024 Florian Körner | Read in the package's `LICENSE` file ("Design … Source: Open Peeps … Designer: Pablo Stanley … License: CC0 1.0") |
+| **Open Peeps** by Pablo Stanley: the bust, 24 hairstyles, 3 beards and moustaches, 2 glasses, and parts of 6 faces (smile, calm, smileLOL, concerned, cheeky, tired) | Role-play and phone-call characters, the AI partner (`web/src/characters/`) | [openpeeps.com](https://www.openpeeps.com/), taken from DiceBear's [`@dicebear/open-peeps`](https://www.npmjs.com/package/@dicebear/open-peeps) 9.4.2 package ([dicebear.com](https://www.dicebear.com/)) by `web/scripts/peeps.mjs` and bundled in the app; the DiceBear API is never called | Drawings: **CC0 1.0** (public domain, commercial use allowed, no attribution required). Package code: MIT, © 2024 Florian Körner | Read in the package's `LICENSE` file ("Design … Source: Open Peeps … Designer: Pablo Stanley … License: CC0 1.0") |
 | Our own additions to the Open Peeps characters: the rig (breathing, blinks, glances, head motion), the talking mouth, the waving hand, outfit details (bow tie, coat, tie, badge, apron, lanyard and so on), cheeks, "?", thought dots and sparkles | `web/src/characters/Character.tsx`, `characters.css` | Original, drawn in code for this app | Ours | — |
 | Lip sync | `web/src/characters/lipsync.ts` | Original: reads each recording's loudness and brightness; the phone's voice follows the text | Ours | — |
 | **The macaw** (all poses and animations) | Logo bird, lesson path, lessons, celebrations (`web/src/Bird.tsx`) | Original drawing in the logo's colors | Ours | — |

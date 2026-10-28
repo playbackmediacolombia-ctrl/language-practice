@@ -1,5 +1,5 @@
 import { type CSSProperties, type ReactNode, useEffect, useId, useState } from 'react';
-import { BODY, FACE, GLASSES, HEADS, type HeadStyle } from './peeps.gen';
+import { BEARDS, BODY, FACE, GLASSES, HEADS, type HeadStyle } from './peeps.gen';
 import './characters.css';
 
 // The people you talk to in role-plays, phone calls and the AI partner: Open Peeps by Pablo
@@ -10,7 +10,27 @@ import './characters.css';
 
 /** How they react. `talking` comes from the voice, not from here. */
 export type Mood = 'idle' | 'happy' | 'confused' | 'thinking' | 'wave' | 'celebrate';
-export type Role = 'waiter' | 'doctor' | 'receptionist' | 'interviewer' | 'agent' | 'shopkeeper' | 'parent' | 'friend' | 'date' | 'driver' | 'caller';
+export type Role =
+  | 'waiter'
+  | 'doctor'
+  | 'receptionist'
+  | 'interviewer'
+  | 'agent'
+  | 'shopkeeper'
+  | 'clerk'
+  | 'parent'
+  | 'friend'
+  | 'date'
+  | 'driver'
+  | 'caller'
+  | 'teacher'
+  | 'coworker'
+  | 'classmate'
+  | 'local'
+  | 'guest'
+  | 'rival'
+  | 'manager'
+  | 'barista';
 
 type Look = {
   head: HeadStyle;
@@ -18,106 +38,63 @@ type Look = {
   hair: string;
   cloth: string;
   glasses?: keyof typeof GLASSES;
+  beard?: keyof typeof BEARDS;
   outfit?: Outfit;
 };
 type Outfit = 'bowtie' | 'coat' | 'tie' | 'badge' | 'apron' | 'lanyard' | 'hoodie' | 'necklace' | 'cardigan' | 'vest';
 
+// Skin tones from light to deep, hair from blond to black; clothes only in the app's palette
+// (blue, sky, navy, sun, orange, red, white, cream).
 const LOOKS: Record<Role, Look> = {
-  waiter: {
-    head: 'pomp',
-    skin: '#f2c9a5',
-    hair: '#3b2a20',
-    cloth: '#ffffff',
-    outfit: 'vest',
-  },
-  doctor: {
-    head: 'bun',
-    skin: '#c98e66',
-    hair: '#1d1d22',
-    cloth: '#ffffff',
-    glasses: 'round',
-    outfit: 'coat',
-  },
-  receptionist: {
-    head: 'mediumBangs',
-    skin: '#e8b58e',
-    hair: '#6b3b1f',
-    cloth: '#19b6fc',
-    outfit: 'lanyard',
-  },
-  interviewer: {
-    head: 'grayShort',
-    skin: '#f4d0b3',
-    hair: '#8a8f99',
-    cloth: '#233c86',
-    glasses: 'square',
-    outfit: 'tie',
-  },
-  agent: {
-    head: 'hijab',
-    skin: '#a86f4c',
-    hair: '#0164f9',
-    cloth: '#233c86',
-    outfit: 'badge',
-  },
-  shopkeeper: {
-    head: 'afro',
-    skin: '#8d5a3b',
-    hair: '#1d1d22',
-    cloth: '#f8820c',
-    outfit: 'apron',
-  },
-  parent: {
-    head: 'grayBun',
-    skin: '#efc3a0',
-    hair: '#b9b9c4',
-    cloth: '#d42430',
-    glasses: 'round',
-    outfit: 'cardigan',
-  },
-  friend: {
-    head: 'hatBeanie',
-    skin: '#b97a55',
-    hair: '#1d1d22',
-    cloth: '#fcc50e',
-    outfit: 'hoodie',
-  },
-  date: {
-    head: 'longCurly',
-    skin: '#f0c4a2',
-    hair: '#2b1b12',
-    cloth: '#f8820c',
-    outfit: 'necklace',
-  },
-  driver: {
-    head: 'short2',
-    skin: '#d9a07a',
-    hair: '#2b1b12',
-    cloth: '#0164f9',
-    outfit: 'badge',
-  },
-  caller: {
-    head: 'twists2',
-    skin: '#9b6646',
-    hair: '#1d1d22',
-    cloth: '#19b6fc',
-  },
+  waiter: { head: 'pomp', skin: '#f2c9a5', hair: '#3b2a20', cloth: '#ffffff', outfit: 'vest', beard: 'moustache' },
+  doctor: { head: 'bun', skin: '#c98e66', hair: '#1d1d22', cloth: '#ffffff', glasses: 'round', outfit: 'coat' },
+  receptionist: { head: 'mediumBangs', skin: '#e8b58e', hair: '#6b3b1f', cloth: '#19b6fc', outfit: 'lanyard' },
+  interviewer: { head: 'grayShort', skin: '#f4d0b3', hair: '#8a8f99', cloth: '#233c86', glasses: 'square', outfit: 'tie' },
+  agent: { head: 'hijab', skin: '#a86f4c', hair: '#0164f9', cloth: '#233c86', outfit: 'badge' },
+  shopkeeper: { head: 'afro', skin: '#8d5a3b', hair: '#1d1d22', cloth: '#f8820c', outfit: 'apron' },
+  clerk: { head: 'buns', skin: '#f0c4a2', hair: '#c9772c', cloth: '#d42430', outfit: 'badge' },
+  parent: { head: 'grayBun', skin: '#efc3a0', hair: '#b9b9c4', cloth: '#d42430', glasses: 'round', outfit: 'cardigan' },
+  friend: { head: 'hatBeanie', skin: '#b97a55', hair: '#1d1d22', cloth: '#fcc50e', outfit: 'hoodie' },
+  date: { head: 'longCurly', skin: '#f0c4a2', hair: '#2b1b12', cloth: '#f8820c', outfit: 'necklace' },
+  driver: { head: 'short2', skin: '#d9a07a', hair: '#2b1b12', cloth: '#0164f9', outfit: 'badge', beard: 'full' },
+  caller: { head: 'twists2', skin: '#9b6646', hair: '#1d1d22', cloth: '#19b6fc' },
+  teacher: { head: 'mediumStraight', skin: '#e3a987', hair: '#4a2b18', cloth: '#efe7d0', glasses: 'square', outfit: 'cardigan' },
+  coworker: { head: 'flatTop', skin: '#7a4a30', hair: '#1d1d22', cloth: '#ffffff', outfit: 'lanyard' },
+  classmate: { head: 'bantuKnots', skin: '#6e3f27', hair: '#1d1d22', cloth: '#19b6fc', outfit: 'hoodie' },
+  local: { head: 'hatHip', skin: '#d29a72', hair: '#1d1d22', cloth: '#fcc50e', beard: 'goatee' },
+  guest: { head: 'longBangs', skin: '#f6d7bf', hair: '#d9a441', cloth: '#d42430', outfit: 'necklace' },
+  rival: { head: 'shaved2', skin: '#c58a62', hair: '#1d1d22', cloth: '#d42430', outfit: 'hoodie' },
+  manager: { head: 'noHair2', skin: '#b5784f', hair: '#3b2a20', cloth: '#233c86', glasses: 'round', outfit: 'tie', beard: 'full' },
+  barista: { head: 'turban', skin: '#a8714a', hair: '#f8820c', cloth: '#ffffff', outfit: 'apron', beard: 'full' },
 };
 
 /** Who you're talking to, from the role-play's "them" (Waiter, Doctor, Your match…). */
 export function roleFor(them: string, topic: string): Role {
   const t = them.toLowerCase();
   if (/mom|mother|dad|father|grand/.test(t)) return 'parent';
-  if (/waiter|barista|restaurant|server|host/.test(t)) return 'waiter';
+  if (/barista/.test(t)) return 'barista';
+  if (/restaurant manager|manager|boss/.test(t)) return 'manager';
+  if (/waiter|restaurant|server|host/.test(t)) return 'waiter';
   if (/doctor|nurse|pharmac/.test(t)) return 'doctor';
   if (/receptionist|hotel/.test(t)) return 'receptionist';
-  if (/hiring|interview|recruit|boss|manager/.test(t)) return 'interviewer';
+  if (/hiring|interview|recruit/.test(t)) return 'interviewer';
   if (/agent|airline|officer|police/.test(t)) return 'agent';
-  if (/shop|stall|store|clerk|seller|market/.test(t)) return 'shopkeeper';
+  if (/stall|market|shopkeeper/.test(t)) return 'shopkeeper';
+  if (/clerk|shop assistant|store|seller/.test(t)) return 'clerk';
+  if (/teacher|professor|tutor/.test(t)) return 'teacher';
+  if (/coworker|colleague/.test(t)) return 'coworker';
+  if (/classmate|student/.test(t)) return 'classmate';
+  if (/passer|local|stranger/.test(t)) return 'local';
+  if (/guest|visitor/.test(t)) return 'guest';
+  if (/rival|player|opponent/.test(t)) return 'rival';
   if (/taxi|driver/.test(t)) return 'driver';
   if (/caller|operator|support/.test(t)) return 'caller';
   if (topic === 'dating' || topic === 'flirting') return 'date';
-  return 'friend';
+  // Anyone else (a friend by name, Andrés, Julien…): always the same look for the same name.
+  const friends: Role[] = ['friend', 'classmate', 'local', 'guest', 'coworker', 'caller'];
+  let h = 0;
+  for (const c of t) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return friends[h % friends.length];
 }
 
 const raw = (svg: string) => ({ dangerouslySetInnerHTML: { __html: svg } });
@@ -375,6 +352,7 @@ export function Character({
               }}
             >
               <g transform="matrix(.99789 0 0 1 156 62)" {...raw(HEADS[look.head])} />
+            {look.beard && <g transform="translate(279 400)" {...raw(BEARDS[look.beard])} />}
               <g transform="translate(315 248)">
                 <ellipse className={`pp-part pp-cheek ${happyish || joy ? 'on' : ''}`} cx="70" cy="176" rx="26" ry="15" />
                 <ellipse className={`pp-part pp-cheek ${happyish || joy ? 'on' : ''}`} cx="232" cy="170" rx="20" ry="13" />

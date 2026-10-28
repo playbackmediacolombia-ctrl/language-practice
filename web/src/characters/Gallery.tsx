@@ -5,7 +5,7 @@ import { Character, type Mood, type Role } from './Character';
 // Test mode only (#/gallery?test): every character in every mood, the bird in every pose, and
 // a mouth that talks on its own, for screenshots and recordings.
 
-const ROLES: Role[] = ['friend', 'waiter', 'doctor', 'shopkeeper', 'receptionist', 'interviewer', 'agent', 'parent', 'date', 'driver', 'caller'];
+const ROLES: Role[] = ['friend', 'waiter', 'doctor', 'shopkeeper', 'clerk', 'teacher', 'receptionist', 'interviewer', 'agent', 'parent', 'date', 'driver', 'caller', 'coworker', 'classmate', 'local', 'guest', 'rival', 'manager', 'barista'];
 const MOODS: Mood[] = ['idle', 'wave', 'happy', 'confused', 'thinking', 'celebrate'];
 const POSES: BirdPose[] = ['peek', 'hop', 'wave', 'read', 'globe', 'nap', 'think', 'cheer', 'oops', 'dance', 'streak'];
 

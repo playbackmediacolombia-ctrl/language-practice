@@ -1570,3 +1570,5 @@ button.card:disabled { opacity: 0.6; cursor: default; }
   .bird-layer.in { animation: bird-layer-fade 0.2s ease both; }
 }
 @keyframes bird-layer-fade { from { opacity: 0; } }
+.credits-list { margin: 4px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+.credits-list a { color: var(--accent); }
