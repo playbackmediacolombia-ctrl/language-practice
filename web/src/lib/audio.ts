@@ -34,11 +34,23 @@ export function speakDevice(text: string, lang: string, speed: PlaySpeed = false
     }
     u.lang = (VOICE_LANGS[lang] ?? [lang])[0];
     u.rate = rateFor(speed) * 0.95;
-    u.onend = () => resolve(true);
-    u.onerror = () => resolve(false);
+    u.onstart = () => (deviceSpeech = { text, at: performance.now(), char: 0, rate: u.rate });
+    u.onboundary = (e) => deviceSpeech && Object.assign(deviceSpeech, { char: e.charIndex, at: performance.now() });
+    u.onend = () => {
+      deviceSpeech = null;
+      resolve(true);
+    };
+    u.onerror = () => {
+      deviceSpeech = null;
+      resolve(false);
+    };
     synth.speak(u);
   });
 }
+
+/** What the phone's voice is saying now (for lip sync): the text, and the word it last reached. */
+let deviceSpeech: { text: string; at: number; char: number; rate: number } | null = null;
+export const deviceSpeaking = () => deviceSpeech;
 
 const deviceClip = (url: string) => {
   const [, lang, ...rest] = url.split(':');

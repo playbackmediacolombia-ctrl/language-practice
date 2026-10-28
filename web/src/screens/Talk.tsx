@@ -8,7 +8,7 @@ import { haptic, sfx, tapFeedback } from '../lib/fx';
 import { addTalkWords, completeLesson, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { getScenario } from '../lib/scenarios';
-import { audioUrl, nextReply, type NewWord, PROBLEM_TEXT, type TalkError, type TalkMessage, type TalkProblem, type TalkReply } from '../lib/talk';
+import { audioUrl, nextReply, type NewWord, PROBLEM_TEXT, type TalkError, type TalkMessage, type TalkMode, type TalkProblem, type TalkReply } from '../lib/talk';
 import { isModelReady, loadModel, transcribe } from '../lib/whisper';
 import { HintBubble, hintsFor, useHintTimer } from '../Hints';
 import { Icon, Screen, Waveform } from '../ui';
@@ -27,6 +27,27 @@ const testHook = location.search.includes('test');
 type Msg = { role: 'model'; reply: TalkReply } | { role: 'user'; text: string; correction?: TalkReply['correction'] };
 type Phase = 'intro' | 'thinking' | 'speaking' | 'listening' | 'heard' | 'checking' | 'paused' | 'ended';
 
+/**
+ * A live session from Practice › Play: a phone call, or a debate. `about` is the intro text,
+ * `back` where the back button goes; `side` is the side the AI argues in a debate.
+ */
+export type LiveSession = {
+  mode: TalkMode;
+  title: string;
+  kicker: string;
+  about: string;
+  them: string;
+  topic: string;
+  setting: string;
+  en: string;
+  back: string;
+  motion?: string;
+  side?: 'for' | 'against';
+  xp?: number;
+  /** Start at once (a call you just answered: the tap already unlocked the audio). */
+  autoStart?: boolean;
+};
+
 export function Talk({ lang, scenarioId }: { lang: Lang; scenarioId?: string }) {
   const progress = useProgress();
   const scenario = scenarioId ? getScenario(lang, scenarioId) : undefined;
@@ -38,7 +59,10 @@ export function Talk({ lang, scenarioId }: { lang: Lang; scenarioId?: string }) 
   return <TalkScreen key={scenarioId ?? 'free'} lang={lang} scenario={scenario} />;
 }
 
-function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<typeof getScenario> }) {
+/** A phone call or debate with the AI (see LiveSession). */
+export const LiveTalk = ({ lang, session }: { lang: Lang; session: LiveSession }) => <TalkScreen lang={lang} session={session} />;
+
+function TalkScreen({ lang, scenario, session }: { lang: Lang; scenario?: ReturnType<typeof getScenario>; session?: LiveSession }) {
   const progress = useProgress();
   const name = LANGS.find((l) => l.id === lang)!.name;
   const level = hasStarted(progress, lang) ? currentLevel(progress, lang) : 'Beginner';
@@ -98,9 +122,12 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
       reply = await nextReply({
         lang,
         level,
-        scenario: scenario ? { setting: scenario.setting, them: scenario.them, en: scenario.en } : undefined,
+        scenario: session ? { setting: session.setting, them: session.them, en: session.en } : scenario ? { setting: scenario.setting, them: scenario.them, en: scenario.en } : undefined,
         history: history(list),
         voice: true,
+        mode: session?.mode,
+        topic: session?.motion,
+        side: session?.side,
       });
     } catch (e) {
       if (!alive.current || over.current) return;
@@ -128,7 +155,9 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
     } else {
       // The voice service didn't answer (or has no voice for this language): the phone's own voice reads it.
       if (reply.voice !== 'device') setVoiceNote(true);
+      setSpeakingUrl('device');
       await speakDevice(reply.reply, lang);
+      setSpeakingUrl(null);
     }
     if (!alive.current || over.current) return;
     if (reply.done) return end(next);
@@ -198,6 +227,10 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
     void ask(next);
   }
 
+  useEffect(() => {
+    if (session?.autoStart) start();
+  }, []);
+
   function start() {
     tapFeedback();
     primePlayer(); // so the replies can play by themselves on iPhone
@@ -224,39 +257,50 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
         return item ? { key: `${lang}:${item.id}` } : { key: `${lang}:ai:${slug}`, word: { text: w.word, en: w.meaning, pinyin: w.pinyin || undefined } };
       }),
     );
-    if (list.some((m) => m.role === 'user')) completeLesson(lang, null, talkXp(helped.current));
+    if (list.some((m) => m.role === 'user')) completeLesson(lang, null, (session?.xp ?? TALK_XP) - Math.min(helped.current, (session?.xp ?? TALK_XP) / 2));
     setSummary({ words, mistakes, added });
     setPhase('ended');
   }
 
   const busy = phase === 'listening' || phase === 'heard';
+  const them = session?.them ?? scenario?.them;
   const status = {
     intro: '',
-    thinking: `${scenario?.them ?? 'Your partner'} is thinking…`,
-    speaking: `${scenario?.them ?? 'Your partner'} is talking`,
+    thinking: `${them ?? 'Your partner'} is thinking…`,
+    speaking: `${them ?? 'Your partner'} is talking`,
     listening: 'Your turn: speak now',
     heard: 'Listening… stops when you pause',
     checking: 'Writing down what you said…',
     paused: graded ? 'Tap the mic to answer' : 'Type your answer',
     ended: '',
   }[phase];
-  const mood = phase === 'speaking' || phase === 'thinking' ? 'idle' : msgs.at(-2)?.role === 'user' ? ((msgs.at(-2) as { correction?: unknown }).correction ? 'confused' : 'happy') : 'idle';
+  const mood = phase === 'thinking' ? 'thinking' : phase === 'speaking' ? 'idle' : msgs.at(-2)?.role === 'user' ? ((msgs.at(-2) as { correction?: unknown }).correction ? 'confused' : 'happy') : 'idle';
 
   return (
-    <Screen title={scenario ? 'Role-play with AI' : 'Talk with AI'} back={scenario ? `/${lang}/roleplay/${scenario.id}` : '/practice'}>
+    <Screen
+      title={session ? (session.mode === 'call' ? 'Phone call' : 'Debate') : scenario ? 'Role-play with AI' : 'Talk with AI'}
+      back={session ? session.back : scenario ? `/${lang}/roleplay/${scenario.id}` : '/practice'}
+    >
       {phase === 'intro' && (
         <div className="card start-card" data-testid="talk-intro">
           <span className="start-sticker" aria-hidden="true">
             <Sticker name="chat" size={88} />
           </span>
-          <p className="muted start-kicker">{scenario ? scenario.en : `Free talk · ${name}`}</p>
-          <div className="start-title">{scenario ? scenario.title : `Chat in ${name} with an AI partner`}</div>
+          <p className="muted start-kicker">{session ? session.kicker : scenario ? scenario.en : `Free talk · ${name}`}</p>
+          <div className="start-title" lang={session ? lang : undefined}>
+            {session ? session.title : scenario ? scenario.title : `Chat in ${name} with an AI partner`}
+          </div>
           <p className="muted">
-            {scenario ? `${scenario.setting} You talk with: ${scenario.them}.` : 'A friendly partner who asks about your day and keeps the conversation going.'} It talks at your level (
+            {session
+              ? session.about
+              : scenario
+                ? `${scenario.setting} You talk with: ${scenario.them}.`
+                : 'A friendly partner who asks about your day and keeps the conversation going.'}{' '}
+            It talks at your level (
             <b>{level}</b>), stays in {name}, and gently corrects you. Tap any reply for its English.
           </p>
           <button className="btn" onClick={start} data-testid="talk-start">
-            <Icon name="mic" size={20} /> Start talking
+            <Icon name="mic" size={20} /> {session?.mode === 'call' ? 'Answer the call' : session?.mode === 'debate' ? 'Start the debate' : 'Start talking'}
           </button>
           {!graded && (
             <p className="muted small" style={{ margin: 0 }}>
@@ -275,14 +319,15 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
       )}
 
       {phase !== 'intro' && progress.characters && (
-        <CharacterStage them={scenario?.them ?? 'Friend'} topic={scenario?.topic ?? 'smalltalk'} clips={[]} speaking={speakingUrl} mood={mood} />
+        <CharacterStage them={them ?? 'Friend'} topic={session?.topic ?? scenario?.topic ?? 'smalltalk'} clips={[]} speaking={speakingUrl} mood={mood} />
       )}
+      {session?.mode === 'call' && phase !== 'intro' && phase !== 'ended' && <CallBar onHangUp={() => end()} />}
 
       <div className="story-lines dialogue talk-lines" aria-live="polite" data-testid="talk-lines">
         {msgs.map((m, i) =>
           m.role === 'model' ? (
             <div key={i} className="story-line left" data-testid="talk-ai">
-              <div className="speaker">{scenario?.them ?? 'Partner'}</div>
+              <div className="speaker">{them ?? 'Partner'}</div>
               <div className="bubble">
                 <p className="line-text" lang={lang}>
                   {m.reply.reply}
@@ -475,5 +520,27 @@ function TalkScreen({ lang, scenario }: { lang: Lang; scenario?: ReturnType<type
         </div>
       )}
     </Screen>
+  );
+}
+
+/** On a phone call: how long it's been, and the red button to hang up. */
+export function CallBar({ onHangUp }: { onHangUp: () => void }) {
+  const [start] = useState(Date.now);
+  const [now, setNow] = useState(Date.now);
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const secs = Math.floor((now - start) / 1000);
+  return (
+    <div className="call-bar" data-testid="call-bar">
+      <span className="call-live" aria-hidden="true" />
+      <span className="grow">
+        On a call · <span data-testid="call-timer">{`${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')}`}</span>
+      </span>
+      <button className="call-hangup" onClick={onHangUp} aria-label="Hang up" data-testid="call-hangup">
+        <Icon name="phone" size={22} />
+      </button>
+    </div>
   );
 }

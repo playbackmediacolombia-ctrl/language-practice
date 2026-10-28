@@ -47,7 +47,21 @@ async function problemOf(res: Response): Promise<TalkProblem> {
   return body?.error === 'key' || body?.error === 'not_configured' ? 'setup' : 'unavailable';
 }
 
-export async function nextReply(req: { lang: Lang; level: string; scenario?: TalkScenario; history: TalkMessage[]; voice: boolean }): Promise<TalkReply> {
+/** What the partner does: free talk or a role-play (no mode), a phone call, texting a friend, or a debate. */
+export type TalkMode = 'call' | 'text' | 'debate';
+
+export async function nextReply(req: {
+  lang: Lang;
+  level: string;
+  scenario?: TalkScenario;
+  history: TalkMessage[];
+  voice: boolean;
+  mode?: TalkMode;
+  /** Debate: the motion and the side the AI argues. Texting: the friend's name. */
+  topic?: string;
+  side?: 'for' | 'against';
+  name?: string;
+}): Promise<TalkReply> {
   if (!navigator.onLine) throw new TalkError('offline');
   let res: Response;
   try {
@@ -67,6 +81,32 @@ export async function nextReply(req: { lang: Lang; level: string; scenario?: Tal
   const correction = data.correction?.corrected?.trim() ? data.correction : null;
   return { ...data, correction, newWords: Array.isArray(data.newWords) ? data.newWords.filter((w) => w?.word && w?.meaning).slice(0, 3) : [] };
 }
+
+export type TeachVerdict = { understood: boolean; reply: string; pinyin?: string; translation: string; correction: string; why: string };
+
+async function judgeCall<T>(body: Record<string, unknown>): Promise<T> {
+  if (!navigator.onLine) throw new TalkError('offline');
+  let res: Response;
+  try {
+    res = await fetch(ENDPOINT.replace(/\/chat$/, '/judge'), {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body),
+      signal: AbortSignal.timeout(30000),
+    });
+  } catch {
+    throw new TalkError(navigator.onLine ? 'unavailable' : 'offline');
+  }
+  if (res.status === 429) throw new TalkError('quota');
+  if (!res.ok) throw new TalkError(await problemOf(res));
+  return (await res.json()) as T;
+}
+
+/** Teach the bird: would a native speaker understand which word your explanation describes? */
+export const judgeTeach = (lang: Lang, level: string, word: string, en: string, said: string) => judgeCall<TeachVerdict>({ kind: 'teach', lang, level, word, en, said });
+
+/** An adventure answered in your own words: which of the choices did you mean (-1 for none)? */
+export const judgeChoice = async (lang: Lang, said: string, options: string[]) => (await judgeCall<{ choice: number }>({ kind: 'choose', lang, said, options })).choice;
 
 export type Named = { found: boolean; word: string; pinyin?: string; meaning: string; example: string; examplePinyin?: string; exampleTranslation: string; audio: string | null };
 

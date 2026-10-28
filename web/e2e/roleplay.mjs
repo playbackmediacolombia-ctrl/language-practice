@@ -46,7 +46,8 @@ await run(async () => {
       await page.locator('[data-testid=turn-panel], [data-testid=roleplay-done]').first().waitFor({ timeout: 30_000 });
       if (await page.getByTestId('roleplay-done').isVisible()) break;
       await page.getByTestId('turn-mic').click();
-      await page.getByTestId('turn-status').filter({ hasText: /%|Didn't hear/ }).waitFor({ timeout: 60_000 });
+      // The first check after a reload can wait for the speech model to download again in the test browser.
+      await page.getByTestId('turn-status').filter({ hasText: /%|Didn't hear/ }).waitFor({ timeout: 180_000 });
       const status = await page.getByTestId('turn-status').innerText();
       scores.push(Number(status.match(/(\d+)%/)?.[1] ?? 0));
       if (!/Great|Close/.test(status)) await page.getByTestId('turn-skip').click();
@@ -97,8 +98,10 @@ await run(async () => {
   await page.getByTestId('char-stage').waitFor();
   const who = await page.getByTestId('character').getAttribute('aria-label');
   expect(/Waiter/.test(who), `character: the waiter for a café role-play (${who})`);
-  expect(/char-blink/.test(await page.locator('.char-eyes').evaluate((e) => getComputedStyle(e).animationName)), 'character: blinks');
-  expect(/char-breathe/.test(await page.locator('.char-body').evaluate((e) => getComputedStyle(e).animationName)), 'character: breathes while idle');
+  expect(/waving hello/.test(who), 'character: waves hello on arrival');
+  const blinked = await page.waitForFunction(() => document.querySelector('.pp-blink.shut'), null, { timeout: 9000 }).then(() => true, () => false);
+  expect(blinked, 'character: blinks (at natural, random moments)');
+  expect(/pp-breathe/.test(await page.locator('.pp-body').evaluate((e) => getComputedStyle(e).animationName)), 'character: breathes while idle');
   await page.getByTestId('roleplay-start').click();
   const mouths = new Set();
   for (let i = 0; i < 40; i++) {
@@ -129,7 +132,7 @@ await run(async () => {
   // ---------- A wrong answer: not passed, try again or skip ----------
   await page.evaluate(() => (window.__wrongClip = window.__roleplayLines[3])); // the waiter's line, not yours
   await page.getByTestId('turn-mic').click();
-  await page.getByTestId('turn-status').filter({ hasText: /%|Didn't hear/ }).waitFor({ timeout: 60_000 });
+  await page.getByTestId('turn-status').filter({ hasText: /%|Didn't hear/ }).waitFor({ timeout: 180_000 });
   const wrong = await page.getByTestId('turn-status').innerText();
   expect(/Not quite|Didn't hear/.test(wrong), `wrong line: not passed (${wrong})`);
   expect((await page.getByTestId('character').getAttribute('data-mood')) === 'confused', 'character: puzzled when you need to try again');
@@ -137,7 +140,7 @@ await run(async () => {
   await page.screenshot({ path: 'R-wrong.png' });
   await page.evaluate(() => (window.__wrongClip = undefined));
   await page.getByTestId('turn-mic').click();
-  await page.getByTestId('turn-status').filter({ hasText: /Great|Close/ }).waitFor({ timeout: 60_000 });
+  await page.getByTestId('turn-status').filter({ hasText: /Great|Close/ }).waitFor({ timeout: 180_000 });
   expect(true, 'wrong line: trying again with the right words passes');
   expect((await page.getByTestId('character').getAttribute('data-mood')) === 'happy', 'character: happy when you get it right');
   await page.getByTestId('char-stage').screenshot({ path: 'R-happy.png' });

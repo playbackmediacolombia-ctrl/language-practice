@@ -15,7 +15,7 @@ const BUILD = {
  * precached; each language's recordings download when you pick it (see lib/audioPacks.ts).
  */
 function audioPack(file: string): string | null {
-  const m = file.match(/assets\/audio\/(?:(course|stories|scenarios|chants|feedback)\/)?([a-z]{2})\/[^/]+\.mp3$/);
+  const m = file.match(/assets\/audio\/(?:(course|stories|scenarios|chants|feedback|play)\/)?([a-z]{2})\/[^/]+\.mp3$/);
   if (!m) return null;
   return m[1] === 'feedback' && m[2] === 'en' ? 'coach' : m[2];
 }

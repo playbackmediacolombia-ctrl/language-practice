@@ -311,7 +311,7 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
           topic={scenario.topic}
           clips={themClips}
           speaking={started && line?.who === 'them' ? line.audio : null}
-          mood={turn?.score != null && phase === 'graded' ? (turn.score >= PASS ? 'happy' : 'confused') : finished && result != null && result >= PASS ? 'happy' : 'idle'}
+          mood={turn?.score != null && phase === 'graded' ? (turn.score >= PASS ? 'happy' : 'confused') : finished && result != null && result >= PASS ? 'celebrate' : 'idle'}
         />
       )}
 

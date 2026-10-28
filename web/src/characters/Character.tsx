@@ -1,210 +1,436 @@
-import type { ReactNode } from 'react';
+import { type CSSProperties, type ReactNode, useEffect, useId, useState } from 'react';
+import { BODY, FACE, GLASSES, HEADS, type HeadStyle } from './peeps.gen';
 import './characters.css';
 
-// Original cartoon characters for the role-plays, drawn in SVG in the logo's colors. Each one
-// blinks and breathes while idle, moves its mouth with the voice (see lipsync.ts), and reacts to
-// your answer: a happy hop when it's right, a puzzled head tilt and "?" to try again.
+// The people you talk to in role-plays, phone calls and the AI partner: Open Peeps by Pablo
+// Stanley (CC0), recolored in the app's palette and rigged here. They breathe, blink at natural
+// intervals, glance around, move their lips with the voice (see lipsync.ts), and change
+// expression smoothly: every face part is drawn once and cross-faded, never swapped.
 // Everything for the characters lives in this folder (src/characters/).
 
-export type Mood = 'idle' | 'happy' | 'confused';
-export type Role = 'waiter' | 'doctor' | 'receptionist' | 'interviewer' | 'agent' | 'shopkeeper' | 'parent' | 'friend' | 'date';
+/** How they react. `talking` comes from the voice, not from here. */
+export type Mood = 'idle' | 'happy' | 'confused' | 'thinking' | 'wave' | 'celebrate';
+export type Role = 'waiter' | 'doctor' | 'receptionist' | 'interviewer' | 'agent' | 'shopkeeper' | 'parent' | 'friend' | 'date' | 'driver' | 'caller';
 
 type Look = {
+  head: HeadStyle;
   skin: string;
   hair: string;
-  hairStyle: 'short' | 'bun' | 'long' | 'curly' | 'cap';
-  top: string;
-  extra: 'apron' | 'coat' | 'blazer' | 'scarf' | 'hoodie' | 'cardigan' | 'none';
-  glasses?: boolean;
+  cloth: string;
+  glasses?: keyof typeof GLASSES;
+  outfit?: Outfit;
 };
+type Outfit = 'bowtie' | 'coat' | 'tie' | 'badge' | 'apron' | 'lanyard' | 'hoodie' | 'necklace' | 'cardigan' | 'vest';
 
-const NAVY = '#071334';
 const LOOKS: Record<Role, Look> = {
-  waiter: { skin: '#f2c9a5', hair: '#3b2a20', hairStyle: 'short', top: '#0164f9', extra: 'apron' },
-  doctor: { skin: '#c98e66', hair: '#1d1d22', hairStyle: 'bun', top: '#ffffff', extra: 'coat', glasses: true },
-  receptionist: { skin: '#e8b58e', hair: '#6b3b1f', hairStyle: 'long', top: '#19b6fc', extra: 'scarf' },
-  interviewer: { skin: '#f4d0b3', hair: '#8a8f99', hairStyle: 'short', top: '#233c86', extra: 'blazer', glasses: true },
-  agent: { skin: '#a86f4c', hair: '#1d1d22', hairStyle: 'cap', top: '#233c86', extra: 'scarf' },
-  shopkeeper: { skin: '#d9a07a', hair: '#2b1b12', hairStyle: 'curly', top: '#f8820c', extra: 'apron' },
-  parent: { skin: '#efc3a0', hair: '#b9b9c4', hairStyle: 'bun', top: '#d42430', extra: 'cardigan', glasses: true },
-  friend: { skin: '#b97a55', hair: '#1d1d22', hairStyle: 'curly', top: '#fcc50e', extra: 'hoodie' },
-  date: { skin: '#f0c4a2', hair: '#2b1b12', hairStyle: 'long', top: '#f8820c', extra: 'none' },
+  waiter: {
+    head: 'pomp',
+    skin: '#f2c9a5',
+    hair: '#3b2a20',
+    cloth: '#ffffff',
+    outfit: 'vest',
+  },
+  doctor: {
+    head: 'bun',
+    skin: '#c98e66',
+    hair: '#1d1d22',
+    cloth: '#ffffff',
+    glasses: 'round',
+    outfit: 'coat',
+  },
+  receptionist: {
+    head: 'mediumBangs',
+    skin: '#e8b58e',
+    hair: '#6b3b1f',
+    cloth: '#19b6fc',
+    outfit: 'lanyard',
+  },
+  interviewer: {
+    head: 'grayShort',
+    skin: '#f4d0b3',
+    hair: '#8a8f99',
+    cloth: '#233c86',
+    glasses: 'square',
+    outfit: 'tie',
+  },
+  agent: {
+    head: 'hijab',
+    skin: '#a86f4c',
+    hair: '#0164f9',
+    cloth: '#233c86',
+    outfit: 'badge',
+  },
+  shopkeeper: {
+    head: 'afro',
+    skin: '#8d5a3b',
+    hair: '#1d1d22',
+    cloth: '#f8820c',
+    outfit: 'apron',
+  },
+  parent: {
+    head: 'grayBun',
+    skin: '#efc3a0',
+    hair: '#b9b9c4',
+    cloth: '#d42430',
+    glasses: 'round',
+    outfit: 'cardigan',
+  },
+  friend: {
+    head: 'hatBeanie',
+    skin: '#b97a55',
+    hair: '#1d1d22',
+    cloth: '#fcc50e',
+    outfit: 'hoodie',
+  },
+  date: {
+    head: 'longCurly',
+    skin: '#f0c4a2',
+    hair: '#2b1b12',
+    cloth: '#f8820c',
+    outfit: 'necklace',
+  },
+  driver: {
+    head: 'short2',
+    skin: '#d9a07a',
+    hair: '#2b1b12',
+    cloth: '#0164f9',
+    outfit: 'badge',
+  },
+  caller: {
+    head: 'twists2',
+    skin: '#9b6646',
+    hair: '#1d1d22',
+    cloth: '#19b6fc',
+  },
 };
 
 /** Who you're talking to, from the role-play's "them" (Waiter, Doctor, Your match…). */
 export function roleFor(them: string, topic: string): Role {
   const t = them.toLowerCase();
-  if (/mom|mother|dad|father/.test(t)) return 'parent';
-  if (/waiter|barista|restaurant|server/.test(t)) return 'waiter';
-  if (/doctor/.test(t)) return 'doctor';
-  if (/receptionist/.test(t)) return 'receptionist';
-  if (/hiring|interview|recruit/.test(t)) return 'interviewer';
-  if (/agent|airline|officer/.test(t)) return 'agent';
-  if (/shop|stall|store|clerk|seller/.test(t)) return 'shopkeeper';
+  if (/mom|mother|dad|father|grand/.test(t)) return 'parent';
+  if (/waiter|barista|restaurant|server|host/.test(t)) return 'waiter';
+  if (/doctor|nurse|pharmac/.test(t)) return 'doctor';
+  if (/receptionist|hotel/.test(t)) return 'receptionist';
+  if (/hiring|interview|recruit|boss|manager/.test(t)) return 'interviewer';
+  if (/agent|airline|officer|police/.test(t)) return 'agent';
+  if (/shop|stall|store|clerk|seller|market/.test(t)) return 'shopkeeper';
+  if (/taxi|driver/.test(t)) return 'driver';
+  if (/caller|operator|support/.test(t)) return 'caller';
   if (topic === 'dating' || topic === 'flirting') return 'date';
   return 'friend';
 }
 
-function Hair({ look, layer }: { look: Look; layer: 'back' | 'front' }) {
-  const fill = look.hair;
-  if (layer === 'back') {
-    if (look.hairStyle === 'long') return <path d="M28 52 C26 26 44 16 60 16 C78 16 94 26 92 52 L95 88 C88 94 80 84 80 74 L40 74 C40 84 32 94 25 88 Z" fill={fill} />;
-    if (look.hairStyle === 'bun') return <circle cx="60" cy="17" r="10" fill={fill} />;
-    return null;
-  }
-  switch (look.hairStyle) {
-    case 'short':
-      return <path d="M30 50 C29 25 46 18 60 18 C76 18 91 26 90 48 C84 37 73 33 60 34 C47 34 37 39 30 50 Z" fill={fill} />;
-    case 'bun':
-      return <path d="M30 50 C30 28 45 22 60 22 C75 22 90 28 90 50 C82 38 72 34 60 34 C48 34 38 38 30 50 Z" fill={fill} />;
-    case 'long':
-      return <path d="M31 48 C34 28 48 22 62 22 C74 22 86 28 89 46 C78 37 66 35 54 37 C44 39 36 43 31 48 Z" fill={fill} />;
-    case 'curly':
+const raw = (svg: string) => ({ dangerouslySetInnerHTML: { __html: svg } });
+
+/** One face part that fades in and out (expressions blend instead of jumping). */
+function Part({ svg, on, className = '', style }: { svg: string; on: boolean; className?: string; style?: CSSProperties }) {
+  return <g className={`pp-part ${on ? 'on' : ''} ${className}`} style={style} {...raw(svg)} />;
+}
+
+/** Clothing details in the drawings' ink style, so each role is easy to recognise. */
+function OutfitDetail({ outfit }: { outfit?: Outfit }) {
+  const ink = {
+    stroke: 'var(--peep-ink)',
+    strokeWidth: 8,
+    strokeLinejoin: 'round' as const,
+    strokeLinecap: 'round' as const,
+  };
+  switch (outfit) {
+    case 'bowtie':
+      return <path d="M391 708 L350 688 L350 730 Z M391 708 L432 688 L432 730 Z" fill="#d42430" {...ink} />;
+    case 'vest':
       return (
-        <g fill={fill}>
-          {[
-            [34, 40, 9],
-            [44, 29, 10],
-            [58, 24, 11],
-            [72, 28, 10],
-            [83, 39, 9],
-            [30, 50, 7],
-            [90, 50, 7],
-          ].map(([x, y, r]) => (
-            <circle key={`${x}-${y}`} cx={x} cy={y} r={r} />
+        <g {...ink}>
+          <path d="M300 640 L352 680 L391 760 L391 830 L300 830 Z M482 640 L430 680 L391 760 L391 830 L482 830 Z" fill="#071334" />
+          <path d="M391 712 L354 694 L354 732 Z M391 712 L428 694 L428 732 Z" fill="#d42430" />
+        </g>
+      );
+    case 'coat':
+      return (
+        <g {...ink} fill="none">
+          <path d="M300 640 L370 760 L340 830 M482 640 L412 760 L442 830" />
+          <path d="M320 640 C300 720 330 770 360 770" />
+          <circle cx="366" cy="776" r="16" fill="#8a96b3" />
+          <path d="M462 640 C480 700 470 740 452 760" />
+        </g>
+      );
+    case 'tie':
+      return (
+        <g {...ink}>
+          <path d="M352 650 L391 700 L430 650 L430 700 L391 712 L352 700 Z" fill="#ffffff" />
+          <path d="M376 702 H406 L414 800 L391 830 L368 800 Z" fill="#d42430" />
+        </g>
+      );
+    case 'badge':
+      return (
+        <g {...ink}>
+          <rect x="452" y="742" width="78" height="48" rx="10" fill="#fcc50e" />
+          <path d="M470 760 H512 M470 774 H498" />
+        </g>
+      );
+    case 'lanyard':
+      return (
+        <g {...ink} fill="none">
+          <path d="M330 640 L391 770 L452 640" stroke="#0164f9" strokeWidth="14" />
+          <rect x="360" y="768" width="62" height="54" rx="8" fill="#ffffff" stroke="var(--peep-ink)" strokeWidth="8" />
+        </g>
+      );
+    case 'apron':
+      return (
+        <g {...ink}>
+          <path d="M318 744 H464 V840 H318 Z" fill="#ffffff" />
+          <path d="M318 744 L330 650 M464 744 L452 650" fill="none" />
+        </g>
+      );
+    case 'hoodie':
+      return (
+        <g {...ink} fill="none">
+          <path d="M290 630 C330 700 452 700 492 630" strokeWidth="12" stroke="#d49f00" />
+          <path d="M360 690 V780 M422 690 V780" />
+        </g>
+      );
+    case 'necklace':
+      return (
+        <g {...ink}>
+          <path d="M318 640 C340 700 442 700 464 640" fill="none" strokeWidth="5" />
+          <circle cx="391" cy="694" r="12" fill="#fcc50e" />
+        </g>
+      );
+    case 'cardigan':
+      return (
+        <g {...ink}>
+          <path d="M300 640 L380 840 M482 640 L402 840" fill="none" />
+          {[740, 790].map((y) => (
+            <circle key={y} cx="391" cy={y} r="7" fill="var(--peep-ink)" />
           ))}
         </g>
       );
-    case 'cap':
-      return (
-        <g>
-          <path d="M31 46 C31 36 36 32 42 32 L78 32 C84 32 89 36 89 46 Z" fill={fill} />
-          <path d="M29 42 C31 24 45 17 60 17 C75 17 89 24 91 42 Z" fill={look.top} />
-          <path d="M27 42 H93 V47 H27 Z" fill={NAVY} opacity="0.85" />
-          <circle cx="60" cy="29" r="4" fill="#fcc50e" />
-        </g>
-      );
+    default:
+      return null;
   }
 }
 
-function Outfit({ look }: { look: Look }) {
-  const torso = 'M20 132 C20 102 38 88 60 88 C82 88 100 102 100 132 Z';
-  const parts: ReactNode[] = [<path key="torso" d={torso} fill={look.top} stroke={NAVY} strokeOpacity="0.15" strokeWidth="1.5" />];
-  switch (look.extra) {
-    case 'apron':
-      parts.push(<path key="apron" d="M42 100 H78 V132 H42 Z" fill="#ffffff" opacity="0.95" />, <path key="straps" d="M44 100 L40 90 M76 100 L80 90" stroke="#ffffff" strokeWidth="3" />);
-      break;
-    case 'coat':
-      parts.push(
-        <path key="shirt" d="M52 88 L60 104 L68 88 Z" fill="#19b6fc" />,
-        <path key="lapels" d="M52 88 L56 112 M68 88 L64 112" stroke="#c7d2e3" strokeWidth="2" />,
-        <path key="steth" d="M47 92 C44 108 52 114 60 114 C68 114 76 108 73 92" fill="none" stroke="#404d6b" strokeWidth="2.5" />,
-        <circle key="bell" cx="60" cy="116" r="3.5" fill="#404d6b" />,
-      );
-      break;
-    case 'blazer':
-      parts.push(<path key="shirt" d="M51 88 L60 104 L69 88 Z" fill="#ffffff" />, <path key="tie" d="M58 92 H62 L64 110 L60 115 L56 110 Z" fill="#d42430" />);
-      break;
-    case 'scarf':
-      parts.push(<path key="scarf" d="M48 88 C54 96 66 96 72 88 L70 98 C64 102 56 102 50 98 Z" fill="#fcc50e" />);
-      break;
-    case 'hoodie':
-      parts.push(<path key="hood" d="M44 90 C50 98 70 98 76 90" fill="none" stroke="#d49f00" strokeWidth="4" />, <path key="strings" d="M54 96 V108 M66 96 V108" stroke="#ffffff" strokeWidth="2" />);
-      break;
-    case 'cardigan':
-      parts.push(
-        <path key="shirt" d="M53 88 L60 132 L67 88 Z" fill="#efe7d0" />,
-        ...[104, 114, 124].map((y) => <circle key={y} cx="60" cy={y} r="1.8" fill={NAVY} />),
-      );
-      break;
-  }
-  return <g>{parts}</g>;
-}
-
-/** The mouth: a resting smile, three open shapes while speaking, a grin or a wobble for reactions. */
-function Mouth({ open, mood }: { open: number; mood: Mood }) {
-  if (open === 1) return <ellipse cx="60" cy="69" rx="4" ry="2.6" fill="#5a1820" />;
-  if (open === 2) return <ellipse cx="60" cy="69" rx="5.5" ry="4.5" fill="#5a1820" />;
-  if (open === 3)
-    return (
-      <g>
-        <ellipse cx="60" cy="70" rx="6.5" ry="6.5" fill="#5a1820" />
-        <ellipse cx="60" cy="74" rx="4" ry="2.2" fill="#e5707a" />
-      </g>
-    );
-  if (mood === 'happy')
-    return (
-      <g>
-        <path d="M49 65 Q60 80 71 65 Z" fill="#5a1820" />
-        <path d="M51 65.5 H69 L68 68 H52 Z" fill="#ffffff" />
-      </g>
-    );
-  if (mood === 'confused') return <path d="M51 70 q2.2 -2.6 4.5 0 t4.5 0 t4.5 0 t4.5 0" fill="none" stroke={NAVY} strokeWidth="2.5" strokeLinecap="round" />;
-  return <path d="M53 67 Q60 72.5 67 67" fill="none" stroke={NAVY} strokeWidth="2.5" strokeLinecap="round" />;
-}
-
-export function Character({ role, mood, mouth, label }: { role: Role; mood: Mood; mouth: number; label: string }) {
-  const look = LOOKS[role];
-  const brows =
-    mood === 'confused'
-      ? ['M43 41 Q49 36 55 41', 'M65 45 L77 44']
-      : mood === 'happy'
-        ? ['M43 42 Q49 38 55 42', 'M65 42 Q71 38 77 42']
-        : ['M43 45 Q49 42 55 45', 'M65 45 Q71 42 77 45'];
+/** A raised hand for waving and celebrating, drawn to match. */
+function Hand() {
+  const ink = {
+    stroke: 'var(--peep-ink)',
+    strokeWidth: 8,
+    strokeLinejoin: 'round' as const,
+  };
   return (
-    <div className={`character mood-${mood}${mouth ? ' talking' : ''}`} role="img" aria-label={label} data-testid="character" data-mood={mood} data-mouth={mouth}>
-      <svg viewBox="0 0 120 132" width="120" height="132" aria-hidden="true">
-        <ellipse cx="60" cy="130" rx="40" ry="4" fill={NAVY} opacity="0.08" />
-        <g className="char-body">
-          <Outfit look={look} />
-        </g>
-        <g className="char-head">
-          <Hair look={look} layer="back" />
-          <rect x="52" y="74" width="16" height="16" rx="5" fill={look.skin} />
-          <circle cx="30" cy="56" r="6" fill={look.skin} />
-          <circle cx="90" cy="56" r="6" fill={look.skin} />
-          <circle cx="60" cy="54" r="30" fill={look.skin} />
-          <Hair look={look} layer="front" />
-          <g fill="none" stroke={NAVY} strokeWidth="2.6" strokeLinecap="round">
-            <path d={brows[0]} />
-            <path d={brows[1]} />
+    <g className="pp-hand" transform="translate(-62 34)">
+      <path d="M90 840 C96 720 112 610 132 540 L206 556 C190 630 184 730 190 840 Z" fill="var(--peep-cloth)" {...ink} />
+      <g fill="var(--peep-skin)" {...ink}>
+        <rect x="104" y="378" width="24" height="84" rx="12" transform="rotate(-14 116 460)" />
+        <rect x="132" y="358" width="24" height="96" rx="12" transform="rotate(-4 144 454)" />
+        <rect x="160" y="362" width="24" height="92" rx="12" transform="rotate(6 172 454)" />
+        <rect x="186" y="386" width="22" height="76" rx="11" transform="rotate(16 197 462)" />
+        <rect x="84" y="446" width="26" height="72" rx="13" transform="rotate(-38 110 500)" />
+        <path d="M100 450 C100 430 210 430 212 456 C216 500 204 548 196 560 L136 548 C118 530 100 500 100 450 Z" />
+      </g>
+    </g>
+  );
+}
+
+/** The talking mouth: opens with the voice, rounder for "o/u", wider for "e/i". Same ink as the drawings. */
+function TalkMouth({ open, round, on }: { open: number; round: number; on: boolean }) {
+  const clip = useId();
+  const cx = 160;
+  const top = 220;
+  const w = 66 - round * 22 + (1 - round) * open * 6;
+  const h = 6 + open * 44;
+  const d = `M${cx - w / 2} ${top} C${cx - w / 4} ${top - 5} ${cx + w / 4} ${top - 5} ${cx + w / 2} ${top} C${cx + w / 2 + 2} ${top + h * 0.9} ${cx - w / 2 - 2} ${top + h * 0.9} ${cx - w / 2} ${top} Z`;
+  return (
+    <g className={`pp-part pp-talk ${on ? 'on' : ''}`}>
+      <defs>
+        <clipPath id={clip}>
+          <path d={d} />
+        </clipPath>
+      </defs>
+      <path d={d} fill="var(--peep-ink)" />
+      <g clipPath={`url(#${clip})`}>
+        <rect x={cx - 40} y={top - 6} width="80" height={6 + open * 8} rx="4" fill="var(--peep-white)" opacity={open > 0.3 ? 1 : 0} />
+        <ellipse cx={cx} cy={top + h * 0.72} rx={w * 0.32} ry={h * 0.26} fill="#f37b8a" />
+      </g>
+    </g>
+  );
+}
+
+/** Random natural blinks (now and then a double blink), and small glances while idle. */
+function useAlive(still: boolean) {
+  const [blink, setBlink] = useState(false);
+  const [glance, setGlance] = useState({ x: 0, y: 0, tilt: 0 });
+  useEffect(() => {
+    if (still) return;
+    let t: ReturnType<typeof setTimeout>;
+    const once = (then: () => void) => {
+      setBlink(true);
+      t = setTimeout(() => {
+        setBlink(false);
+        then();
+      }, 120);
+    };
+    const next = () => {
+      t = setTimeout(() => once(() => (Math.random() < 0.2 ? (t = setTimeout(() => once(next), 160)) : next())), 1800 + Math.random() * 3600);
+    };
+    next();
+    return () => clearTimeout(t);
+  }, [still]);
+  useEffect(() => {
+    if (still) return;
+    const id = setInterval(() => {
+      const r = Math.random();
+      setGlance(
+        r < 0.45
+          ? { x: 0, y: 0, tilt: 0 }
+          : {
+              x: (Math.random() - 0.5) * 14,
+              y: (Math.random() - 0.6) * 8,
+              tilt: (Math.random() - 0.5) * 4,
+            },
+      );
+    }, 2600);
+    return () => clearInterval(id);
+  }, [still]);
+  return { blink, glance };
+}
+
+const reducedMotion = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/**
+ * A character. `mouth` is how open it is (0–1, from the voice), `round` how rounded the sound
+ * is; `mood` is how they react. `size` is the height in px.
+ */
+export function Character({
+  role,
+  mood,
+  mouth,
+  round = 0.4,
+  label,
+  size = 132,
+  crop = 'bust',
+  speaking,
+}: {
+  role: Role;
+  mood: Mood;
+  mouth: number;
+  round?: number;
+  label: string;
+  size?: number;
+  crop?: 'bust' | 'face';
+  /** Their voice is playing (so the face stays in talking mode between words). Defaults to the mouth being open. */
+  speaking?: boolean;
+}) {
+  const look = LOOKS[role];
+  const [still] = useState(reducedMotion);
+  const { blink, glance } = useAlive(still);
+  const talking = speaking ?? mouth > 0.02;
+  const m = talking ? 'idle' : mood;
+  const joy = m === 'celebrate';
+  const happyish = m === 'happy' || m === 'wave';
+  const eyes = joy ? 'joy' : happyish ? 'happy' : 'open';
+  const brows = joy || m === 'happy' ? 'joy' : m === 'confused' ? 'worry' : m === 'thinking' ? 'think' : 'plain';
+  const rest = joy ? 'laugh' : happyish ? 'smile' : m === 'confused' ? 'hmm' : m === 'thinking' ? 'o' : 'rest';
+  // Looking up while thinking; a puzzled tilt; a little nod with louder syllables.
+  const lookX = m === 'thinking' ? 8 : glance.x;
+  const lookY = m === 'thinking' ? -10 : glance.y;
+  const tilt = m === 'confused' ? -7 : m === 'thinking' ? 4 : talking ? glance.tilt - mouth * 2 : glance.tilt;
+  const headY = talking ? -mouth * 10 : 0;
+  const browLift = talking ? -mouth * 7 : 0;
+  const vars = {
+    '--peep-skin': look.skin,
+    '--peep-hair': look.hair,
+    '--peep-cloth': look.cloth,
+  } as CSSProperties;
+  const clip = useId();
+  const viewBox = crop === 'face' ? '150 20 500 500' : '20 0 700 860';
+  const width = crop === 'face' ? size : Math.round((size * 700) / 860);
+  return (
+    <div
+      className={`character mood-${m}${talking ? ' talking' : ''}${still ? ' still' : ''}`}
+      role="img"
+      aria-label={label}
+      data-testid="character"
+      data-mood={mood}
+      data-mouth={Math.round(mouth * 3)}
+      style={{ ...vars, width, height: size }}
+    >
+      <svg viewBox={viewBox} width={width} height={size} aria-hidden="true">
+        <defs>
+          {/* The drawing carries on below the frame: cut it at the bottom edge (the hand waits there too). */}
+          <clipPath id={clip}>
+            <rect x="-300" y="-400" width="1400" height={crop === 'face' ? 920 : 1260} />
+          </clipPath>
+        </defs>
+        <g clipPath={`url(#${clip})`}>
+          <g className="pp-all">
+            <g className="pp-body">
+              <g {...raw(BODY)} />
+              <OutfitDetail outfit={look.outfit} />
+            </g>
+            <g
+              className="pp-head"
+              style={{
+                transform: `translate(0px, ${headY}px) rotate(${tilt}deg)`,
+              }}
+            >
+              <g transform="matrix(.99789 0 0 1 156 62)" {...raw(HEADS[look.head])} />
+              <g transform="translate(315 248)">
+                <ellipse className={`pp-part pp-cheek ${happyish || joy ? 'on' : ''}`} cx="70" cy="176" rx="26" ry="15" />
+                <ellipse className={`pp-part pp-cheek ${happyish || joy ? 'on' : ''}`} cx="232" cy="170" rx="20" ry="13" />
+                <g className="pp-brows" style={{ transform: `translateY(${browLift}px)` }}>
+                  <Part svg={FACE.browL.svg + FACE.browR.svg} on={brows === 'plain'} />
+                  <Part svg={FACE.joyBrowL.svg + FACE.joyBrowR.svg} on={brows === 'joy'} />
+                  <Part svg={FACE.worryBrowL.svg + FACE.worryBrowR.svg} on={brows === 'worry'} />
+                  <Part svg={FACE.thinkBrowL.svg + FACE.thinkBrowR.svg} on={brows === 'think'} />
+                </g>
+                <g className="pp-eyes" style={{ transform: `translate(${lookX}px, ${lookY}px)` }}>
+                  <g className={`pp-blink ${blink ? 'shut' : ''}`}>
+                    <Part svg={FACE.eyeL.svg} on={eyes === 'open'} className="pp-eye-l" />
+                    <Part svg={FACE.eyeR.svg} on={eyes === 'open'} className="pp-eye-r" />
+                  </g>
+                  <Part svg={FACE.happyEyeL.svg + FACE.happyEyeR.svg} on={eyes === 'happy'} />
+                  <Part svg={FACE.joyEyeL.svg + FACE.joyEyeR.svg} on={eyes === 'joy'} />
+                </g>
+                <g {...raw(FACE.nose.svg)} />
+                <Part svg={FACE.mouthRest.svg} on={!talking && rest === 'rest'} className="pp-mouth" />
+                <Part svg={FACE.mouthSmile.svg} on={!talking && rest === 'smile'} className="pp-mouth" />
+                <Part svg={FACE.mouthLaugh.svg} on={!talking && rest === 'laugh'} className="pp-mouth" />
+                <Part svg={FACE.mouthHmm.svg} on={!talking && rest === 'hmm'} className="pp-mouth" />
+                <Part svg={FACE.mouthO.svg} on={!talking && rest === 'o'} className="pp-mouth" />
+                <TalkMouth open={mouth} round={round} on={talking} />
+              </g>
+              {look.glasses && <g transform="translate(203 303)" {...raw(GLASSES[look.glasses])} />}
+            </g>
+            <g className={`pp-arm ${m === 'wave' || joy ? 'up' : ''}`}>
+              <Hand />
+            </g>
           </g>
-          {mood === 'happy' && mouth === 0 ? (
-            <g fill="none" stroke={NAVY} strokeWidth="2.8" strokeLinecap="round">
-              <path d="M45 56 Q49 51 53 56" />
-              <path d="M67 56 Q71 51 75 56" />
-            </g>
-          ) : (
-            <g className="char-eyes">
-              <ellipse cx="49" cy="55" rx="3.6" ry="4.4" fill={NAVY} />
-              <ellipse cx="71" cy="55" rx="3.6" ry="4.4" fill={NAVY} />
-              <circle cx="50.2" cy="53.4" r="1.2" fill="#ffffff" />
-              <circle cx="72.2" cy="53.4" r="1.2" fill="#ffffff" />
-            </g>
-          )}
-          {look.glasses && (
-            <g fill="none" stroke={NAVY} strokeWidth="2">
-              <circle cx="49" cy="55" r="8" />
-              <circle cx="71" cy="55" r="8" />
-              <path d="M57 55 H63" />
-            </g>
-          )}
-          <ellipse className="char-cheek" cx="41" cy="65" rx="5" ry="3" fill="#e5303a" />
-          <ellipse className="char-cheek" cx="79" cy="65" rx="5" ry="3" fill="#e5303a" />
-          <Mouth open={mouth} mood={mood} />
         </g>
-        {mood === 'confused' && (
-          <text className="char-q" x="100" y="26" fontSize="26" fontWeight="800" fill="#0164f9" fontFamily="Plus Jakarta Sans Variable, sans-serif">
-            ?
-          </text>
-        )}
-        {mood === 'happy' && (
-          <g className="char-sparkle" fill="#fcc50e">
-            <path d="M14 30 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 Z" />
-            <path d="M104 18 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 Z" />
-          </g>
-        )}
+        <Effects mood={m} />
       </svg>
     </div>
+  );
+}
+
+function Effects({ mood }: { mood: Mood }): ReactNode {
+  return (
+    <>
+      <g className={`pp-fx pp-q ${mood === 'confused' ? 'on' : ''}`}>
+        <text x="610" y="150" fontSize="150" fontWeight="800" fill="#0164f9" fontFamily="Plus Jakarta Sans Variable, sans-serif">
+          ?
+        </text>
+      </g>
+      <g className={`pp-fx pp-dots ${mood === 'thinking' ? 'on' : ''}`} fill="#8a96b3">
+        <circle cx="600" cy="120" r="16" />
+        <circle cx="646" cy="90" r="16" />
+        <circle cx="692" cy="60" r="16" />
+      </g>
+      <g className={`pp-fx pp-sparkle ${mood === 'happy' || mood === 'celebrate' ? 'on' : ''}`} fill="#fcc50e">
+        <path d="M86 150 l14 34 34 14 -34 14 -14 34 -14 -34 -34 -14 34 -14 Z" />
+        <path d="M640 80 l10 24 24 10 -24 10 -10 24 -10 -24 -24 -10 24 -10 Z" />
+        {mood === 'celebrate' && <path d="M660 300 l8 18 18 8 -18 8 -8 18 -8 -18 -18 -8 18 -8 Z" fill="#19b6fc" />}
+      </g>
+    </>
   );
 }

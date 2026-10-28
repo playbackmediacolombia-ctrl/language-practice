@@ -10,6 +10,13 @@ at the top of `src/styles.css` (light under `:root`, dark under `[data-theme='da
   `wave`, `read`, `globe`, `nap` (the lesson path, one per unit), `think` (hints), `cheer` and
   `streak` (right answers), `oops` (wrong), `dance` (lesson complete, big achievements). It
   plays its pose when it comes into view and stands still with Reduce Motion.
+- **The characters** (`src/characters/`): Open Peeps by Pablo Stanley (CC0), recolored in our
+  palette with navy ink, and rigged in code. They breathe, blink at random moments, glance
+  around, move their lips with the voice (loudness and roundness from the recording, or the
+  text for the phone's voice), and cross-fade between expressions: `idle`, `wave` (hello),
+  `happy`, `confused`, `thinking`, `celebrate`. Each role has an outfit detail (bow tie, coat,
+  tie, badge, apron, lanyard…). See every one at `#/gallery?test`. Credits in `CREDITS.md`.
+- The bird blinks, breathes, glances and cross-fades between poses too.
 - **The logo** (`public/brand/`): the full logo on the welcome and celebration screens, the
   mark in headers and, at 5% opacity, behind every lesson.
 - Original art only: no other app's characters, mascots or drawings.

@@ -25,7 +25,7 @@ function tone(c: AudioContext, out: AudioNode, { freq, at, len, type = 'sine', g
   osc.stop(t + len + 0.02);
 }
 
-const SOUNDS: Record<'tap' | 'correct' | 'wrong' | 'complete' | 'achievement', Note[]> = {
+const SOUNDS: Record<'tap' | 'correct' | 'wrong' | 'complete' | 'achievement' | 'ring' | 'ringback' | 'message' | 'hangup', Note[]> = {
   // A soft, short tick.
   tap: [{ freq: 1500, at: 0, len: 0.04, gain: 0.05, slideTo: 900 }],
   // Two bright rising notes with a little shimmer on top.
@@ -48,6 +48,20 @@ const SOUNDS: Record<'tap' | 'correct' | 'wrong' | 'complete' | 'achievement', N
     { freq: 784, at: 0.27, len: 0.7, gain: 0.08 },
     { freq: 2093, at: 0.27, len: 0.5, gain: 0.025 },
   ],
+  // A phone ringing: a bright little marimba-like phrase (one ring; the call screen repeats it).
+  ring: [880, 1175, 1319, 1175, 880, 1175, 1319, 1568].map((freq, i) => ({ freq, at: i * 0.13, len: 0.22, type: 'triangle' as const, gain: 0.13 })),
+  // What you hear while your call is ringing on the other end.
+  ringback: [
+    { freq: 425, at: 0, len: 1.1, gain: 0.06 },
+    { freq: 450, at: 0, len: 1.1, gain: 0.04 },
+  ],
+  // A text message arriving: a soft pop.
+  message: [
+    { freq: 1250, at: 0, len: 0.09, type: 'sine', gain: 0.12, slideTo: 1650 },
+    { freq: 1900, at: 0.06, len: 0.08, type: 'sine', gain: 0.05 },
+  ],
+  // The call ending: three short falling beeps.
+  hangup: [620, 520, 420].map((freq, i) => ({ freq, at: i * 0.17, len: 0.12, type: 'sine' as const, gain: 0.08 })),
   // The big moments (logo celebration): a quick run up two octaves and a bright, ringing chord.
   achievement: [
     { freq: 523, at: 0, len: 0.12, type: 'triangle', gain: 0.14 },

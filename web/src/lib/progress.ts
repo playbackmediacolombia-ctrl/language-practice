@@ -68,6 +68,8 @@ export type Progress = {
   talkWords: Record<string, TalkWord>;
   /** Reward chests opened on the lesson path, key `${lang}:${unitId}`, value when. Each gives its XP once. */
   chests: Record<string, number>;
+  /** Practice › Play: best result per activity (0..1), key `${lang}:${kind}:${id}`. Missions: when you did it. */
+  play: Record<string, number>;
 };
 
 export type TalkWord = { text: string; en: string; pinyin?: string };
@@ -123,6 +125,7 @@ const EMPTY: Progress = {
   textSize: 'default',
   talkWords: {},
   chests: {},
+  play: {},
 };
 
 function load(): Progress {
@@ -416,6 +419,19 @@ export function recordRoleplay(lang: Lang, scenarioId: string, average: number |
   const k = `${lang}:${scenarioId}`;
   if (average !== null) update((p) => ({ ...p, roleplays: { ...p.roleplays, [k]: Math.max(average, p.roleplays[k] ?? 0) } }));
   completeLesson(lang, null, xp);
+}
+
+/**
+ * An activity in Practice › Play finished with `score` (0..1). XP comes every time, except a
+ * mission: its bonus is once (`once`), and it's remembered as the time you did it.
+ */
+export function recordPlay(lang: Lang, kind: string, id: string, score: number, xp: number, { once = false } = {}) {
+  const k = `${lang}:${kind}:${id}`;
+  const before = getProgress().play?.[k];
+  if (once && before !== undefined) return 0;
+  update((p) => ({ ...p, play: { ...p.play, [k]: once ? Date.now() : Math.max(score, p.play?.[k] ?? 0) } }));
+  completeLesson(lang, null, xp);
+  return xp;
 }
 
 export function recordShadowing(lang: Lang, storyId: string, average: number | null, xp: number) {

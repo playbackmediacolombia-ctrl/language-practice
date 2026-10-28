@@ -16,6 +16,7 @@ function Head({ pose }: { pose: BirdPose }) {
   const up = pose === 'think';
   return (
     <g className="bird-head">
+      <g className="bird-look">
       <path d="M50 24 Q46 9 56 13 Q58 3 66 12 Q72 7 70 20 Z" fill={P.skyLight} />
       <circle cx="62" cy="42" r="22" fill={P.blue} />
       <ellipse cx="72" cy="43" rx="11" ry="12.5" fill={P.white} />
@@ -39,6 +40,7 @@ function Head({ pose }: { pose: BirdPose }) {
       )}
       <path d="M81 34 Q97 33 97 50 Q97 58 90 61 Q92 50 82 48 Z" fill={P.navy} />
       <path d="M82 48 Q89 50 89 56 Q85 60 80 55 Z" fill={P.slate} />
+      </g>
     </g>
   );
 }
@@ -57,13 +59,13 @@ function FarWing() {
 
 function Body() {
   return (
-    <>
+    <g className="bird-body">
       <path d="M44 86 Q32 104 22 116 Q40 108 53 92 Z" fill={P.skyLight} />
       <path d="M51 90 Q45 106 41 118 Q55 106 59 92 Z" fill={P.deep} />
       <ellipse cx="58" cy="77" rx="24" ry="27" fill={P.blue} />
       <ellipse cx="66" cy="82" rx="14" ry="19" fill={P.sun} />
       <path d="M53 102 l-3 7 M61 103 l2 7" stroke={P.slate} strokeWidth="3.4" strokeLinecap="round" />
-    </>
+    </g>
   );
 }
 
@@ -127,9 +129,75 @@ function Prop({ pose }: { pose: BirdPose }) {
   return null;
 }
 
+const still = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/** Natural blinks at random intervals (sometimes a double blink) and a small glance now and then. */
+function useAlive(on: boolean) {
+  const [blink, setBlink] = useState(false);
+  const [glance, setGlance] = useState(0);
+  useEffect(() => {
+    if (!on || still()) return;
+    let t: ReturnType<typeof setTimeout>;
+    const shut = (then: () => void) => {
+      setBlink(true);
+      t = setTimeout(() => {
+        setBlink(false);
+        then();
+      }, 110);
+    };
+    const next = () => (t = setTimeout(() => shut(() => (Math.random() < 0.25 ? (t = setTimeout(() => shut(next), 150)) : next())), 2000 + Math.random() * 3500));
+    next();
+    const g = setInterval(() => setGlance(Math.random() < 0.5 ? 0 : Math.random() < 0.5 ? -1 : 1), 3100);
+    return () => {
+      clearTimeout(t);
+      clearInterval(g);
+    };
+  }, [on]);
+  return { blink, glance };
+}
+
+function Art({ pose }: { pose: BirdPose }) {
+  return pose === 'peek' ? (
+    <>
+      <defs>
+        <clipPath id="bird-peek-clip">
+          <rect x="0" y="0" width="120" height="70" />
+        </clipPath>
+      </defs>
+      <g clipPath="url(#bird-peek-clip)">
+        <g className="bird-all">
+          <Body />
+          <Wing />
+          <Head pose={pose} />
+        </g>
+      </g>
+      <rect className="bird-ledge" x="14" y="66" width="96" height="14" rx="7" />
+      <path d="M44 66 q-4 6 0 10 M80 66 q4 6 0 10" stroke={P.slate} strokeWidth="3.4" fill="none" strokeLinecap="round" />
+    </>
+  ) : (
+    <g className="bird-all">
+      {happy(pose) && <FarWing />}
+      <Body />
+      {pose !== 'read' && pose !== 'globe' && <Wing up={pose === 'wave' || happy(pose)} />}
+      <Head pose={pose} />
+      <Prop pose={pose} />
+      {(pose === 'read' || pose === 'globe') && <Wing />}
+    </g>
+  );
+}
+
 export function Bird({ pose, size = 72, className = '' }: { pose: BirdPose; size?: number; className?: string }) {
   const ref = useRef<SVGSVGElement>(null);
   const [seen, setSeen] = useState(false);
+  // A change of pose cross-fades: the old one fades out while the new one comes in.
+  const [shown, setShown] = useState({ pose, prev: null as BirdPose | null });
+  useEffect(() => {
+    if (pose === shown.pose) return;
+    setShown({ pose, prev: shown.pose });
+    const t = setTimeout(() => setShown({ pose, prev: null }), 280);
+    return () => clearTimeout(t);
+  }, [pose, shown.pose]);
+  const { blink, glance } = useAlive(seen);
   useEffect(() => {
     const el = ref.current;
     if (!el || typeof IntersectionObserver === 'undefined') return;
@@ -141,40 +209,22 @@ export function Bird({ pose, size = 72, className = '' }: { pose: BirdPose; size
   return (
     <svg
       ref={ref}
-      className={`bird pose-${pose}${seen ? ' seen' : ''} ${className}`}
+      className={`bird pose-${pose}${seen ? ' seen' : ''}${blink ? ' blink' : ''} ${className}`}
       width={size}
       height={size}
       viewBox="0 0 120 120"
       aria-hidden="true"
       data-pose={pose}
+      style={{ ['--glance' as string]: glance }}
     >
-      {pose === 'peek' ? (
-        <>
-          <defs>
-            <clipPath id="bird-peek-clip">
-              <rect x="0" y="0" width="120" height="70" />
-            </clipPath>
-          </defs>
-          <g clipPath="url(#bird-peek-clip)">
-            <g className="bird-all">
-              <Body />
-              <Wing />
-              <Head pose={pose} />
-            </g>
-          </g>
-          <rect className="bird-ledge" x="14" y="66" width="96" height="14" rx="7" />
-          <path d="M44 66 q-4 6 0 10 M80 66 q4 6 0 10" stroke={P.slate} strokeWidth="3.4" fill="none" strokeLinecap="round" />
-        </>
-      ) : (
-        <g className="bird-all">
-          {happy(pose) && <FarWing />}
-          <Body />
-          {pose !== 'read' && pose !== 'globe' && <Wing up={pose === 'wave' || happy(pose)} />}
-          <Head pose={pose} />
-          <Prop pose={pose} />
-          {(pose === 'read' || pose === 'globe') && <Wing />}
+      {shown.prev && (
+        <g className="bird-layer out" key={`out-${shown.prev}`}>
+          <Art pose={shown.prev} />
         </g>
       )}
+      <g className={`bird-layer${shown.prev ? ' in' : ''}`} key={`in-${pose}`}>
+        <Art pose={pose} />
+      </g>
     </svg>
   );
 }

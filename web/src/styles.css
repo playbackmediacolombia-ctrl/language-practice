@@ -1551,3 +1551,22 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .camera-busy { background: rgba(7, 13, 26, 0.35); color: #fff; }
 .camera-thumb { width: 64px; height: 64px; object-fit: cover; border-radius: 14px; flex: none; }
 .camera-result { gap: 12px; animation: pop 0.35s var(--spring); }
+
+/* The bird, alive: natural blinks, breathing, a small glance, and poses that cross-fade. */
+.bird-eye, .bird-body, .bird-look { transform-box: fill-box; }
+.bird-eye { transform-origin: 50% 50%; transition: transform 0.07s ease-in; }
+.bird.blink .bird-eye { transform: scaleY(0.1); }
+.bird-body { transform-origin: 50% 100%; }
+.bird.seen .bird-body { animation: bird-breathe-soft 3.4s ease-in-out infinite; }
+.bird-look { transform-origin: 30% 90%; transform: rotate(calc(var(--glance, 0) * 5deg)); transition: transform 0.7s var(--spring); }
+.bird-layer.in { animation: bird-layer-in 0.28s ease both; }
+.bird-layer.out { animation: bird-layer-out 0.28s ease both; pointer-events: none; }
+@keyframes bird-breathe-soft { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.02, 0.985); } }
+@keyframes bird-layer-in { from { opacity: 0; transform: scale(0.96); } }
+@keyframes bird-layer-out { to { opacity: 0; } }
+.bird-layer { transform-box: view-box; transform-origin: 60px 110px; }
+@media (prefers-reduced-motion: reduce) {
+  .bird.seen .bird-body, .bird-look, .bird-eye { animation: none !important; transition: none !important; transform: none !important; }
+  .bird-layer.in { animation: bird-layer-fade 0.2s ease both; }
+}
+@keyframes bird-layer-fade { from { opacity: 0; } }

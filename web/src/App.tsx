@@ -36,6 +36,7 @@ const WritingChar = lazy(() => import('./screens/Writing').then((m) => ({ defaul
 const Practice = lazy(() => import('./screens/Practice'));
 const Lesson = lazy(() => import('./screens/Lesson'));
 const Placement = lazy(() => import('./screens/Placement'));
+const Gallery = lazy(() => import('./characters/Gallery'));
 const HandsFreeList = lazy(() => import('./screens/HandsFree').then((m) => ({ default: m.HandsFreeList })));
 const HandsFreePlayer = lazy(() => import('./screens/HandsFree').then((m) => ({ default: m.HandsFreePlayer })));
 
@@ -66,6 +67,12 @@ function Routes() {
     if (lang && lang !== saved) setPref('lang', lang);
   }, [lang, saved]);
 
+  if (first === 'gallery' && location.search.includes('test'))
+    return (
+      <Suspense fallback={null}>
+        <Gallery />
+      </Suspense>
+    );
   if (first === 'settings') return topic === 'reminder' ? <Reminder /> : <Settings />;
   if (first === 'move') return <Move code={topic} />;
   if (first === 'progress') return <ProgressScreen />;
