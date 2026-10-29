@@ -32,17 +32,17 @@ export type Scenario = {
 /** The course's six levels. How much help you get on your turn depends on the level. */
 export const LEVELS = ['Beginner', 'Elementary', 'Intermediate', 'Upper-intermediate', 'Advanced', 'Fluent'];
 
-export const TOPICS: Record<Topic, { label: string; emoji: string }> = {
-  food: { label: 'Ordering food', emoji: '🍽️' },
-  directions: { label: 'Directions', emoji: '🧭' },
-  shopping: { label: 'Shopping', emoji: '🛍️' },
-  smalltalk: { label: 'Small talk', emoji: '💬' },
-  doctor: { label: 'At the doctor', emoji: '🩺' },
-  airport: { label: 'At the airport', emoji: '✈️' },
-  hotel: { label: 'At the hotel', emoji: '🏨' },
-  job: { label: 'Job interview', emoji: '💼' },
-  dating: { label: 'Dating', emoji: '💕' },
-  flirting: { label: 'Flirting (18+)', emoji: '😉' },
+export const TOPICS: Record<Topic, { label: string }> = {
+  food: { label: 'Ordering food' },
+  directions: { label: 'Directions' },
+  shopping: { label: 'Shopping' },
+  smalltalk: { label: 'Small talk' },
+  doctor: { label: 'At the doctor' },
+  airport: { label: 'At the airport' },
+  hotel: { label: 'At the hotel' },
+  job: { label: 'Job interview' },
+  dating: { label: 'Dating' },
+  flirting: { label: 'Flirting (18+)' },
 };
 
 /**

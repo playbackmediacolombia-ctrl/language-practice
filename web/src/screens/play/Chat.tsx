@@ -194,7 +194,7 @@ export function ChatScreen({ lang, data, id }: { lang: Lang; data: PlayData; id:
               )}
               <span className="chat-time">
                 {b.time}
-                {b.from === 'you' && <span className="ticks" aria-label="Read"> ✓✓</span>}
+                {b.from === 'you' && <Icon name="ticks" size={16} className="ticks" />}
               </span>
             </div>
           ))}

@@ -1,138 +1,34 @@
-import { Flag, TabIcon } from './art';
+import { Flag, Ink, TabIcon } from './art';
+import { BITS, ICONS } from './ink.gen';
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from 'react';
 import { isLang, type Lang, type Phrase } from './lib/content';
 import { reducedMotion, tapFeedback } from './lib/fx';
 import type { Speed } from './lib/progress';
 import { navigate, useRoute } from './lib/router';
 
-// ---- Icons: simple line icons drawn for this app (24×24, stroke = currentColor) ----
+// ---- Icons: hand-drawn, in the same ink line as the characters (24×24, in currentColor).
+// The drawings are in scripts/ink-art.mjs; scripts/ink.mjs inks them into ink.gen.ts. ----
 
-const STROKE: Record<string, ReactNode> = {
-  learn: (
-    <>
-      <path d="M12 6.5C9.8 5 6.9 4.4 3.5 4.9v13.4c3.4-.5 6.3.1 8.5 1.6 2.2-1.5 5.1-2.1 8.5-1.6V4.9c-3.4-.5-6.3.1-8.5 1.6Z" />
-      <path d="M12 6.5v13.4" />
-    </>
-  ),
-  practice: <path d="M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11" />,
-  progress: <path d="M5 20v-8M12 20V5M19 20v-5" />,
-  settings: (
-    <>
-      <path d="M4 7h9M17 7h3M4 17h3M11 17h9" />
-      <circle cx="15" cy="7" r="2" />
-      <circle cx="9" cy="17" r="2" />
-    </>
-  ),
-  back: <path d="M15 5 8 12l7 7" />,
-  close: <path d="M6 6l12 12M18 6 6 18" />,
-  chevron: <path d="m9 5 7 7-7 7" />,
-  speaker: (
-    <>
-      <path d="M4 9.5v5h3.5L12 18V6L7.5 9.5Z" />
-      <path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11" />
-    </>
-  ),
-  mute: (
-    <>
-      <path d="M4 9.5v5h3.5L12 18V6L7.5 9.5Z" />
-      <path d="M16 9.5l5 5M21 9.5l-5 5" />
-    </>
-  ),
-  mic: (
-    <>
-      <rect x="9" y="3" width="6" height="11" rx="3" />
-      <path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21" />
-    </>
-  ),
-  check: <path d="m5 12.5 4.5 4.5L19 7.5" />,
-  phone: <path d="M7.2 3.5 9.6 3c.5-.1 1 .2 1.2.7l1.2 3.1c.2.5 0 1-.4 1.3L10 9.3a12 12 0 0 0 4.7 4.7l1.2-1.6c.3-.4.8-.6 1.3-.4l3.1 1.2c.5.2.8.7.7 1.2l-.5 2.4c-.2.8-.9 1.3-1.7 1.3C10.4 18 6 13.6 6 5.2c0-.8.5-1.5 1.2-1.7Z" />,
-  send: <path d="M4 12 20 4l-4 16-4-7-8-1Zm8 1 8-9" />,
-  lock: (
-    <>
-      <rect x="5" y="11" width="14" height="9.5" rx="2.5" />
-      <path d="M8.5 11V8a3.5 3.5 0 0 1 7 0v3" />
-    </>
-  ),
-  review: <path d="M4.5 12a7.5 7.5 0 0 1 13-5.1M18.5 3.5v4h-4M19.5 12a7.5 7.5 0 0 1-13 5.1M5.5 20.5v-4h4" />,
-  book: (
-    <>
-      <path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5Z" />
-      <path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19" />
-    </>
-  ),
-  cards: (
-    <>
-      <rect x="4" y="6" width="12" height="15" rx="2" />
-      <path d="M8 3h10a2 2 0 0 1 2 2v12" />
-    </>
-  ),
-  quiz: (
-    <>
-      <circle cx="12" cy="12" r="8.5" />
-      <path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .8-1 1.5v.4M12 16.8v.2" />
-    </>
-  ),
-  target: (
-    <>
-      <circle cx="12" cy="12" r="8.5" />
-      <circle cx="12" cy="12" r="4.5" />
-      <circle cx="12" cy="12" r="0.8" />
-    </>
-  ),
-  sun: (
-    <>
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
-    </>
-  ),
-  bell: <path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15ZM10 20.5h4" />,
-  copy: (
-    <>
-      <rect x="8.5" y="8.5" width="11" height="11" rx="2" />
-      <path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5" />
-    </>
-  ),
-  download: <path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14" />,
-  chat: <path d="M4 5.5h16v10H9l-5 4Z" />,
-  bulb: <path d="M9.5 18h5M10.5 21h3M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.1v.1h5v-.1c0-.8.4-1.6 1.1-2.1A6 6 0 0 0 12 3Z" />,
-  brush: <path d="M14.5 4.5 19.5 9.5 10 19H5v-5ZM12.5 6.5l5 5" />,
-};
-
-const FILLED: Record<string, ReactNode> = {
-  flame: <path d="M12.3 2.5c.8 3.3 4.7 5.3 4.7 10.2a5 5 0 0 1-10 .3c0-2 .9-3.5 2-4.6.2 1.5.9 2.5 1.9 3 .1-3.4-.2-6.2 1.4-8.9Z" />,
-  heart: <path d="M12 20.5s-7.3-4.4-9.1-8.9C1.6 8.3 3.6 5 6.9 5c2 0 3.4 1.1 5.1 3 1.7-1.9 3.1-3 5.1-3 3.3 0 5.3 3.3 4 6.6-1.8 4.5-9.1 8.9-9.1 8.9Z" />,
-  bolt: <path d="M13.2 2.5 4.8 13.6h6.3l-1 7.9 8.4-11.1h-6.3Z" />,
-  play: <path d="M8 5.2v13.6c0 .8.9 1.3 1.6.8l10-6.8a1 1 0 0 0 0-1.6l-10-6.8c-.7-.5-1.6 0-1.6.8Z" />,
-  stop: <rect x="6.5" y="6.5" width="11" height="11" rx="2.5" />,
-  pause: (
-    <>
-      <rect x="6.5" y="5.5" width="4" height="13" rx="1.5" />
-      <rect x="13.5" y="5.5" width="4" height="13" rx="1.5" />
-    </>
-  ),
-  star: <path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9Z" />,
-};
-
-export type IconName = keyof typeof STROKE | keyof typeof FILLED;
+export type IconName = keyof typeof ICONS;
 
 export function Icon({ name, size = 22, className, style }: { name: IconName; size?: number; className?: string; style?: CSSProperties }) {
-  const filled = name in FILLED;
   return (
-    <svg
-      className={['icon', className].filter(Boolean).join(' ')}
-      style={style}
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill={filled ? 'currentColor' : 'none'}
-      stroke={filled ? 'none' : 'currentColor'}
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {filled ? FILLED[name] : STROKE[name]}
+    <svg className={['icon', className].filter(Boolean).join(' ')} style={style} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <Ink layers={ICONS[name]} />
     </svg>
+  );
+}
+
+/** How well a card is known: hand-drawn dots, filled up to `value`. */
+export function LevelDots({ value, max }: { value: number; max: number }) {
+  return (
+    <span className="level" role="img" aria-label={`Known ${value} of ${max}`}>
+      {Array.from({ length: max }, (_, i) => (
+        <svg key={i} viewBox="0 0 24 24" width={12} height={12} className={i < value ? 'on' : undefined}>
+          <Ink layers={BITS.dot} />
+        </svg>
+      ))}
+    </span>
   );
 }
 
@@ -319,6 +215,8 @@ export function CountUp({ value, from = 0, duration = 900, prefix = '' }: { valu
 
 // The logo's blues, yellow and orange, plus a green and a pink for sparkle.
 const CONFETTI_COLORS = ['#0B6BF6', '#12A0F8', '#FFC61A', '#FF8A00', '#22C55E', '#FF5C8A'];
+/** Confetti and sparkles are hand-drawn bits: squiggles, stars, dots and zigzags. */
+const BIT_KINDS = ['squiggle', 'star', 'dot', 'zig', 'squiggle', 'star'] as const;
 
 /** A one-off confetti shower over the whole screen. Nothing with Reduce Motion. */
 export function Confetti({ pieces = 70 }: { pieces?: number }) {
@@ -330,8 +228,8 @@ export function Confetti({ pieces = 70 }: { pieces?: number }) {
       drift: (Math.random() - 0.5) * 160,
       spin: (Math.random() - 0.5) * 1080,
       color: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
-      w: 6 + Math.random() * 6,
-      round: Math.random() < 0.3,
+      w: 12 + Math.random() * 8,
+      kind: BIT_KINDS[Math.floor(Math.random() * BIT_KINDS.length)],
     })),
   );
   if (reducedMotion()) return null;
@@ -344,28 +242,35 @@ export function Confetti({ pieces = 70 }: { pieces?: number }) {
             {
               left: `${p.left}%`,
               width: p.w,
-              height: p.round ? p.w : p.w * 1.6,
-              borderRadius: p.round ? '50%' : 2,
-              background: p.color,
+              height: p.w,
+              color: p.color,
               animationDelay: `${p.delay}s`,
               animationDuration: `${p.duration}s`,
               '--drift': `${p.drift}px`,
               '--spin': `${p.spin}deg`,
             } as CSSProperties
           }
-        />
+        >
+          <svg viewBox="0 0 24 24" width={p.w} height={p.w}>
+            <Ink layers={BITS[p.kind]} />
+          </svg>
+        </span>
       ))}
     </div>
   );
 }
 
-/** Sparkles bursting out from the middle of the parent (which must be position: relative). */
+/** Hand-drawn sparkles bursting out from the middle of the parent (which must be position: relative). */
 export function Burst({ count = 10 }: { count?: number }) {
   if (reducedMotion()) return null;
   return (
     <span className="burst" aria-hidden="true">
       {Array.from({ length: count }, (_, i) => (
-        <span key={i} style={{ '--angle': `${(360 / count) * i + 12}deg`, '--dist': `${38 + (i % 3) * 12}px` } as CSSProperties} />
+        <span key={i} style={{ '--angle': `${(360 / count) * i + 12}deg`, '--dist': `${38 + (i % 3) * 12}px` } as CSSProperties}>
+          <svg viewBox="0 0 24 24" width="100%" height="100%">
+            <Ink layers={BITS[i % 3 === 0 ? 'spark' : i % 3 === 1 ? 'star' : 'dot']} />
+          </svg>
+        </span>
       ))}
     </span>
   );

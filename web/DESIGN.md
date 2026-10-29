@@ -6,7 +6,15 @@ at the top of `src/styles.css` (light under `:root`, dark under `[data-theme='da
 
 ## Brand
 
-- **The macaw** (`src/Bird.tsx`): our own drawing in the logo's colors. Poses: `peek`, `hop`,
+- **One art style: Open Peeps.** Everything drawn in the app (icons, stickers, hint pictures,
+  the bird, confetti, the reward chest) uses the characters' look: flat colors under one navy
+  ink line that swells, tapers and wobbles a little, like a pen. The drawings are clean shapes
+  in `scripts/ink-art.mjs`; `node scripts/ink.mjs` goes over them with the brush
+  (`scripts/inkbrush.mjs`) and writes `src/ink.gen.ts` and `src/pictures.gen.ts`. To add or
+  change a drawing, edit `ink-art.mjs` and run it (`--sheet out.svg` draws a preview of all of
+  them). No emoji as icons anywhere: emoji appear only inside phrases and text messages.
+- **The macaw** (`src/Bird.tsx`): an in-app version of the logo's bird (its shape, colors, yellow
+  front, big slate beak, open happy mouth and blue crest), hand-drawn in the same ink. Poses: `peek`, `hop`,
   `wave`, `read`, `globe`, `nap` (the lesson path, one per unit), `think` (hints), `cheer` and
   `streak` (right answers), `oops` (wrong), `dance` (lesson complete, big achievements). It
   plays its pose when it comes into view and stands still with Reduce Motion.
@@ -17,8 +25,9 @@ at the top of `src/styles.css` (light under `:root`, dark under `[data-theme='da
   `happy`, `confused`, `thinking`, `celebrate`. Each role has an outfit detail (bow tie, coat,
   tie, badge, apron, lanyard…). See every one at `#/gallery?test`. Credits in `CREDITS.md`.
 - The bird blinks, breathes, glances and cross-fades between poses too.
-- **The logo** (`public/brand/`): the full logo on the welcome and celebration screens, the
-  mark in headers and, at 5% opacity, behind every lesson.
+- **The logo** (`public/brand/`): the app icon and launch screens, the full logo on the welcome
+  screen and install card, the mark in headers and, at 5% opacity, behind every lesson. Big
+  celebrations show the hand-drawn bird instead.
 - Original art only: no other app's characters, mascots or drawings.
 
 ## Color
@@ -59,7 +68,9 @@ Headings 700–800 with `--tight` letter spacing. Settings › Text size scales 
 - **Hints**: `HintBubble` (bird + thought bubble + Hint button).
 - **Stickers** (`Sticker`, `UnitArt` in `src/art.tsx`): drawn icons for units and topics. Use
   them instead of emoji for anything that is an icon; emoji stay only inside phrases.
-- **Icons** (`Icon` in `src/ui.tsx`): 24×24 line icons in `currentColor`.
+- **Icons** (`Icon` in `src/ui.tsx`): 24×24 hand-drawn icons in `currentColor`.
+- **Hint pictures** (`Picture` in `src/Picture.tsx`): hand-drawn pictures of common meanings
+  (food, transport, weather, feelings, numbers…) for the first hint.
 - **Play** (`src/screens/play/`): `AnswerBar` (say it with Whisper, or type), `BirdSays` (the bird
   with a speech bubble, English a tap away, replay), `DoneCard` (the bird dances, +XP), the phone
   screen (`.phone-screen`, ringing avatar, green/red buttons, `CallBar` with timer and hang-up), the
@@ -70,7 +81,7 @@ Headings 700–800 with `--tight` letter spacing. Settings › Text size scales 
 ## Motion
 
 - Springy (`--spring`) for things that pop in; `--ease-out` for slides. 150–500 ms.
-- Celebrations: confetti, the bird dancing, the logo glow. Always skippable (Continue).
+- Celebrations: hand-drawn confetti (squiggles, stars, dots), the bird dancing in a glow. Always skippable (Continue).
 - **Reduce Motion**: every animation stops (see the `prefers-reduced-motion` block); the bird
   keeps its pose, chests and coins keep their colors, nothing slides.
 

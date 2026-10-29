@@ -97,7 +97,7 @@ export const GUIDE_SHOTS: Record<string, () => ReactNode> = {
         Show Notification
       </text>
       <text x="26" y="138" fontSize="9.5" fontWeight="600" fontFamily="var(--font)" style={{ fill: 'var(--muted)' }}>
-        Time to practice! 🔥 Keep your
+        Time to practice! Keep your
       </text>
       <text x="26" y="152" fontSize="9.5" fontWeight="600" fontFamily="var(--font)" style={{ fill: 'var(--muted)' }}>
         Learnguage streak going.
@@ -133,7 +133,7 @@ export const GUIDE_SHOTS: Record<string, () => ReactNode> = {
         LEARNGUAGE · NOW
       </text>
       <text x="26" y="136" fontSize="10" fontWeight="700" fontFamily="var(--font)" style={{ fill: INK }}>
-        Time to practice! 🔥
+        Time to practice!
       </text>
       <circle cx="90" cy="180" r="13" style={{ fill: HI }} />
       <path d="M86 173 L97 180 L86 187 Z" fill="#fff" />

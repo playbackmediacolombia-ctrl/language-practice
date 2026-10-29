@@ -11,7 +11,7 @@ const isStandalone =
   window.matchMedia('(display-mode: standalone)').matches || (navigator as { standalone?: boolean }).standalone === true;
 
 const APP_URL = `${location.origin}${location.pathname}`;
-const MESSAGE = 'Time to practice! 🔥 Keep your Learnguage streak going.';
+const MESSAGE = 'Time to practice! Keep your Learnguage streak going.';
 
 function Copy({ text, label }: { text: string; label: string }) {
   const [done, setDone] = useState(false);
@@ -108,7 +108,7 @@ export function Reminder() {
         )}
         <Step n={++n} title="Tap Done" shot="done">
           <p className="muted small">
-            That's it. To try it now, open the automation and tap the <K>▶</K> play button at the bottom.
+            That's it. To try it now, open the automation and tap the <K><Icon name="play" size={14} style={{ display: 'inline-block', verticalAlign: -2 }} /></K> play button at the bottom.
           </p>
         </Step>
       </ol>

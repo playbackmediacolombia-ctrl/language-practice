@@ -99,8 +99,9 @@ await run(async () => {
   expect((await coach.getAttribute('data-level')) === '0', 'a tap starts the wait over (no hint 6.5 s in)');
   await page.getByTestId('hint-1').waitFor({ timeout: 4000 });
   const h1 = await page.getByTestId('hint-1').innerText();
+  const pic = await page.getByTestId('hint-1').locator('svg[data-picture] path').count();
   const first = [...answerText.replace(/^[¿¡]/, '')][0];
-  expect(/\p{Extended_Pictographic}/u.test(h1) || h1.includes(first), `after 5 s quiet: hint 1, a picture or the first letter (“${h1.replace(/\s+/g, ' ')}”)`);
+  expect(pic > 0 || h1.includes(first), `after 5 s quiet: hint 1, a hand-drawn picture or the first letter (“${h1.replace(/\s+/g, ' ')}”, ${pic} picture paths)`);
   await page.screenshot({ path: 'H-1.png' });
   await page.getByTestId('hint-2').waitFor({ timeout: 6500 });
   const h2 = await page.getByTestId('hint-2').innerText();

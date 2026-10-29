@@ -288,7 +288,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
         <Confetti pieces={perfect ? 90 : 60} />
         <div className="trophy-row">
           <div className={perfect ? 'trophy perfect' : 'trophy done'}>
-            <Icon name={perfect ? 'star' : 'check'} size={72} />
+            <Sticker name={perfect ? 'trophy' : 'party'} size={96} />
           </div>
           <Bird pose="dance" size={104} className="complete-bird" />
         </div>

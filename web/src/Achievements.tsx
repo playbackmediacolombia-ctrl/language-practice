@@ -7,7 +7,7 @@ import { Bird } from './Bird';
 import { Confetti } from './ui';
 
 /**
- * Watches progress for big achievements and shows the logo celebration for them.
+ * Watches progress for big achievements and shows the bird's celebration for them.
  * It waits until you've left a lesson, so a lesson's own "Lesson complete!" screen comes
  * first, unchanged; the logo moment follows on the next screen.
  */
@@ -50,9 +50,8 @@ function Celebration({ achievements, onDone }: { achievements: Achievement[]; on
       <div className="achievement-card">
         <div className="achievement-logo">
           <span className="achievement-glow" aria-hidden="true" />
-          <img src="brand/logo.webp" alt="Learnguage" width={220} height={180} />
+          <Bird pose={/streak/i.test(main.key) ? 'streak' : 'dance'} size={170} />
         </div>
-        <Bird pose={/streak/i.test(main.key) ? 'streak' : 'dance'} size={84} className="achievement-bird" />
         <h2 id="achievement-title" className="achievement-title">
           {main.title}
         </h2>

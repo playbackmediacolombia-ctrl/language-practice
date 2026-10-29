@@ -104,7 +104,7 @@ button.choice-card { width: 100%; }
 .chat-bubble.you { align-self: flex-end; background: color-mix(in srgb, var(--ok-bright) 22%, var(--card)); border-top-right-radius: 4px; }
 @keyframes chat-in { from { opacity: 0; transform: translateY(6px) scale(0.97); } }
 .chat-time { align-self: flex-end; font-size: 11px; color: var(--muted); }
-.ticks { color: var(--sky); font-weight: 800; letter-spacing: -2px; }
+.ticks { color: var(--sky); display: inline-block; vertical-align: -3px; margin-left: 3px; }
 .chat-en { font-size: var(--text-sm); color: var(--muted); }
 .chat-pinyin { font-size: var(--text-xs); color: var(--muted); }
 .chat-fix { font-size: var(--text-sm); color: var(--close); }

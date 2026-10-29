@@ -4,6 +4,7 @@ import { playPhrase } from './lib/audio';
 import { tapFeedback } from './lib/fx';
 import { getProgress } from './lib/progress';
 import { Icon } from './ui';
+import { Picture, type PictureName } from './Picture';
 
 // Timed step-by-step hints (lessons, role-plays and the AI partner). If you haven't answered after
 // the wait (Settings › Hint wait, 10 s to start with), the logo bird thinks of a hint: first a
@@ -15,7 +16,7 @@ export type HintLevel = 0 | 1 | 2 | 3;
 
 export type HintSet = {
   /** Hint 1: a picture of it, or how it begins. */
-  first: { emoji?: string; letter: string };
+  first: { picture?: PictureName; letter: string };
   /** Hint 2: the start of it, heard with a tap (a recording, or "tts:<lang>:<text>"). */
   start: { text: string; audio: string };
   /** Hint 3: all of it. */
@@ -53,29 +54,30 @@ export function useHintTimer(key: unknown, { paused = false, wait = getProgress(
   };
 }
 
-// Pictures for common meanings, so the first hint can show the thing rather than spell it.
-const PICTURES: [RegExp, string][] = [
-  [/\bcats?\b/, '🐱'], [/\bdogs?\b/, '🐶'], [/\bhouse|home\b/, '🏠'], [/\bwater\b/, '💧'], [/\bcoffee\b/, '☕'],
-  [/\btea\b/, '🍵'], [/\bbread\b/, '🍞'], [/\bbeer\b/, '🍺'], [/\bwine\b/, '🍷'], [/\bmilk\b/, '🥛'],
-  [/\bapples?\b/, '🍎'], [/\bbananas?\b/, '🍌'], [/\brice\b/, '🍚'], [/\bcheese\b/, '🧀'], [/\beggs?\b/, '🥚'],
-  [/\bfish\b/, '🐟'], [/\bchicken\b/, '🍗'], [/\bmeat\b/, '🥩'], [/\bsoup\b/, '🍲'], [/\bcake\b/, '🍰'],
-  [/\bbooks?\b/, '📖'], [/\bphones?\b/, '📱'], [/\bcars?\b/, '🚗'], [/\bbus\b/, '🚌'], [/\btrain\b/, '🚆'],
-  [/\bplane|airport\b/, '✈️'], [/\bhotel\b/, '🏨'], [/\bschool\b/, '🏫'], [/\bhospital|doctor\b/, '🏥'], [/\bmoney\b/, '💶'],
-  [/\bsun|sunny\b/, '☀️'], [/\brain|raining\b/, '🌧️'], [/\bsnow\b/, '❄️'], [/\bcold\b/, '🥶'], [/\bhot\b/, '🥵'],
-  [/\bhello|hi\b/, '👋'], [/\bgoodbye|bye\b/, '👋'], [/\bthank/, '🙏'], [/\bplease\b/, '🙏'], [/\bsorry\b/, '😔'],
-  [/\bhappy\b/, '😊'], [/\bsad\b/, '😢'], [/\btired\b/, '😴'], [/\bhungry\b/, '🍽️'], [/\blove\b/, '❤️'],
-  [/\bmother|mom|mum\b/, '👩'], [/\bfather|dad\b/, '👨'], [/\bbaby\b/, '👶'], [/\bfriends?\b/, '🧑‍🤝‍🧑'], [/\bfamily\b/, '👨‍👩‍👧'],
-  [/\bmorning\b/, '🌅'], [/\bnight\b/, '🌙'], [/\btoday\b/, '📅'], [/\btime|clock|o'clock\b/, '🕒'], [/\bbirthday\b/, '🎂'],
-  [/\bmusic|song\b/, '🎵'], [/\bfootball|soccer\b/, '⚽'], [/\bbeach\b/, '🏖️'], [/\btree\b/, '🌳'], [/\bflowers?\b/, '🌸'],
-  [/\bshop|store|buy\b/, '🛍️'], [/\brestaurant|eat\b/, '🍴'], [/\bdrink\b/, '🥤'], [/\bsleep\b/, '🛌'], [/\bwork|job\b/, '💼'],
-  [/\bone\b/, '1️⃣'], [/\btwo\b/, '2️⃣'], [/\bthree\b/, '3️⃣'], [/\bfour\b/, '4️⃣'], [/\bfive\b/, '5️⃣'],
+// Hand-drawn pictures for common meanings, so the first hint can show the thing rather than spell it.
+const PICTURES: [RegExp, PictureName][] = [
+  [/\bcats?\b/, 'cat'], [/\bdogs?\b/, 'dog'], [/\bhouse|home\b/, 'house'], [/\bwater\b/, 'water'], [/\bcoffee\b/, 'coffee'],
+  [/\btea\b/, 'tea'], [/\bbread\b/, 'bread'], [/\bbeer\b/, 'beer'], [/\bwine\b/, 'wine'], [/\bmilk\b/, 'milk'],
+  [/\bapples?\b/, 'apple'], [/\bbananas?\b/, 'banana'], [/\brice\b/, 'rice'], [/\bcheese\b/, 'cheese'], [/\beggs?\b/, 'egg'],
+  [/\bfish\b/, 'fish'], [/\bchicken\b/, 'chicken'], [/\bmeat\b/, 'meat'], [/\bsoup\b/, 'soup'], [/\bcake\b/, 'cake'],
+  [/\bbooks?\b/, 'book'], [/\bphones?\b/, 'phone'], [/\bcars?\b/, 'car'], [/\bbus\b/, 'bus'], [/\btrain\b/, 'train'],
+  [/\bplane|airport\b/, 'plane'], [/\bhotel\b/, 'hotel'], [/\bschool\b/, 'school'], [/\bhospital|doctor\b/, 'hospital'], [/\bmoney\b/, 'money'],
+  [/\bsun|sunny\b/, 'sun'], [/\brain|raining\b/, 'rain'], [/\bsnow\b/, 'snow'], [/\bcold\b/, 'cold'], [/\bhot\b/, 'hot'],
+  [/\bhello|hi\b/, 'hello'], [/\bgoodbye|bye\b/, 'hello'], [/\bthank/, 'thanks'], [/\bplease\b/, 'thanks'], [/\bsorry\b/, 'sorry'],
+  [/\bhappy\b/, 'happy'], [/\bsad\b/, 'sad'], [/\btired\b/, 'tired'], [/\bhungry\b/, 'hungry'], [/\blove\b/, 'love'],
+  [/\bmorning\b/, 'morning'], [/\bnight\b/, 'night'], [/\btoday\b/, 'today'], [/\btime|clock|o'clock\b/, 'clock'], [/\bbirthday\b/, 'birthday'],
+  [/\bmusic|song\b/, 'music'], [/\bfootball|soccer\b/, 'football'], [/\bbeach\b/, 'beach'], [/\btree\b/, 'tree'], [/\bflowers?\b/, 'flower'],
+  [/\bshop|store|buy\b/, 'shop'], [/\brestaurant|eat\b/, 'restaurant'], [/\bdrink\b/, 'drink'], [/\bsleep\b/, 'sleep'], [/\bwork|job\b/, 'work'],
+  [/\bone\b/, 'one'], [/\btwo\b/, 'two'], [/\bthree\b/, 'three'], [/\bfour\b/, 'four'], [/\bfive\b/, 'five'],
 ];
-const EMOJI = /\p{Extended_Pictographic}(️|‍\p{Extended_Pictographic})*/u;
+/** Emoji that some meanings carry (texting phrases), and the drawing that shows the same thing. */
+const EMOJI_PICTURES: Record<string, PictureName> = { '🐶': 'dog', '😂': 'happy', '😊': 'happy', '😉': 'wink', '😘': 'love', '☀️': 'sun', '☀': 'sun', '❤️': 'love', '❤': 'love', '👍': 'thumbs', '👌': 'thumbs', '👋': 'hello', '🎂': 'birthday', '🙏': 'thanks' };
+const EMOJI = /\p{Extended_Pictographic}(\uFE0F|\u200D\p{Extended_Pictographic})*/u;
 
 /** A picture for an English meaning, if there's a clear one. */
-export function pictureFor(en: string): string | undefined {
+export function pictureFor(en: string): PictureName | undefined {
   const own = en.match(EMOJI)?.[0];
-  if (own) return own;
+  if (own) return EMOJI_PICTURES[own] ?? EMOJI_PICTURES[own.replace(/\uFE0F/g, '')];
   const words = en.toLowerCase().replace(/\(.*?\)/g, '');
   if (words.split(/\s+/).length > 4) return undefined; // a whole sentence isn't one picture
   return PICTURES.find(([re]) => re.test(words))?.[1];
@@ -102,7 +104,7 @@ export function hintsFor(answer: string, { lang, pinyin, en }: { lang: string; p
   }
   const startPinyin = han && pinyin ? pinyin.split(/\s+/).slice(0, [...start].length).join(' ') : undefined;
   return {
-    first: { emoji: en ? pictureFor(en) : undefined, letter },
+    first: { picture: en ? pictureFor(en) : undefined, letter },
     start: { text: startPinyin ? `${start} (${startPinyin})` : start, audio: `tts:${lang}:${encodeURIComponent(start)}` },
     full: { text, sub: pinyin },
     lang,
@@ -118,10 +120,8 @@ export function HintBubble({ hints, level, onNext, onHear, compact = false }: { 
       {level > 0 && (
         <div className="hint-bubble" role="status" aria-live="polite" data-testid="hint-bubble">
           <div className="hint-line hint-1" data-testid="hint-1">
-            {first.emoji ? (
-              <span className="hint-picture" role="img" aria-label="A picture of it">
-                {first.emoji}
-              </span>
+            {first.picture ? (
+              <Picture name={first.picture} />
             ) : (
               <>
                 Starts with <b lang={hints.lang}>{first.letter}</b>

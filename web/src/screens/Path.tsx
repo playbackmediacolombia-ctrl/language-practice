@@ -1,5 +1,6 @@
 import { type CSSProperties, Fragment, useEffect, useRef, useState } from 'react';
-import { Flag, Sticker, UnitArt } from '../art';
+import { Flag, Ink, Sticker, UnitArt } from '../art';
+import { CHEST } from '../ink.gen';
 import { Bird, BIRD_POSES } from '../Bird';
 import { playPhrase } from '../lib/audio';
 import { ensureAudio } from '../lib/audioPacks';
@@ -198,18 +199,32 @@ function ChestArt({ open }: { open: boolean }) {
           <circle cx="30" cy="34" r="6" />
           <circle cx="42" cy="31" r="6" />
           <circle cx="52" cy="35" r="5.5" />
+          <g className="chest-ink">
+            <Ink layers={CHEST.coins} />
+          </g>
         </g>
       )}
       <rect x="10" y="34" width="60" height="32" rx="7" className="chest-body" />
       <rect x="10" y="34" width="60" height="7" className="chest-rim" />
       <rect x="36" y="34" width="8" height="32" className="chest-band" />
+      <g className="chest-ink">
+        <Ink layers={CHEST.body} />
+      </g>
       <g className="chest-lid" transform={open ? 'rotate(-32 12 34)' : undefined}>
         <path d="M10 36 Q10 13 40 13 Q70 13 70 36 Z" className="chest-lid-top" />
         <rect x="36" y="13.5" width="8" height="22.5" className="chest-lid-band" />
         <path d="M18 22 Q26 17 36 16" className="chest-shine" />
+        <g className="chest-ink">
+          <Ink layers={CHEST.lid} />
+        </g>
       </g>
       {!open && <rect x="33" y="31" width="14" height="13" rx="3.5" className="chest-lock" />}
       {!open && <circle cx="40" cy="37" r="2.2" className="chest-keyhole" />}
+      {!open && (
+        <g className="chest-ink">
+          <Ink layers={CHEST.lock} />
+        </g>
+      )}
     </svg>
   );
 }

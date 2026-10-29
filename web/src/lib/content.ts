@@ -10,12 +10,12 @@ const audioFiles = import.meta.glob<string>('../../../assets/audio/*/*.mp3', {
   import: 'default',
 });
 
-export const LANGS: { id: Lang; name: string; native: string; flag: string }[] = [
-  { id: 'es', name: 'Spanish', native: 'Español', flag: '🇨🇴' },
-  { id: 'fr', name: 'French', native: 'Français', flag: '🇫🇷' },
-  { id: 'zh', name: 'Mandarin', native: '中文', flag: '🇨🇳' },
-  { id: 'pt', name: 'Portuguese', native: 'Português', flag: '🇧🇷' },
-  { id: 'it', name: 'Italian', native: 'Italiano', flag: '🇮🇹' },
+export const LANGS: { id: Lang; name: string; native: string }[] = [
+  { id: 'es', name: 'Spanish', native: 'Español' },
+  { id: 'fr', name: 'French', native: 'Français' },
+  { id: 'zh', name: 'Mandarin', native: '中文' },
+  { id: 'pt', name: 'Portuguese', native: 'Português' },
+  { id: 'it', name: 'Italian', native: 'Italiano' },
 ];
 
 type RawPhrase = {

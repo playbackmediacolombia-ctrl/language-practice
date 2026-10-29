@@ -3,7 +3,8 @@ import { playPhrase } from '../lib/audio';
 import { getPhrases, type Lang, type Phrase, shuffle } from '../lib/content';
 import { cardBox, MAX_BOX, reviewCard, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
-import { PhraseText, Screen } from '../ui';
+import { Sticker } from '../art';
+import { Icon, LevelDots, PhraseText, Screen } from '../ui';
 
 export function Flashcards({ lang, topic }: { lang: Lang; topic: string }) {
   const progress = useProgress();
@@ -37,7 +38,7 @@ export function Flashcards({ lang, topic }: { lang: Lang; topic: string }) {
     return (
       <Screen title="Flashcards" back={back}>
         <div className="card" style={{ alignItems: 'center', gap: 14 }}>
-          <div style={{ fontSize: 48 }}>🎉</div>
+          <Sticker name="party" size={64} />
           <div style={{ fontSize: 26, fontWeight: 600 }}>All {done} cards done!</div>
           <button className="btn" style={{ alignSelf: 'stretch' }} onClick={() => navigate(back)}>
             Back to topic
@@ -51,7 +52,7 @@ export function Flashcards({ lang, topic }: { lang: Lang; topic: string }) {
   return (
     <Screen title={`Flashcards · ${deck.length} left`} back={back} fill>
       <button className="card flashcard" onClick={flip}>
-        <span className="level">{'●'.repeat(box) + '○'.repeat(MAX_BOX - box)}</span>
+        <LevelDots value={box} max={MAX_BOX} />
         {flipped ? (
           <>
             <PhraseText phrase={card} showEnglish={false} />
@@ -71,14 +72,14 @@ export function Flashcards({ lang, topic }: { lang: Lang; topic: string }) {
         <>
           <div className="row">
             <button className="btn danger flex" onClick={() => answer(false)}>
-              ✗ Again
+              <Icon name="close" size={20} /> Again
             </button>
             <button className="btn success flex" onClick={() => answer(true)}>
-              ✓ Got it
+              <Icon name="check" size={20} /> Got it
             </button>
           </div>
           <button className="btn secondary" onClick={() => playPhrase(card.audio)}>
-            🔊 Play again
+            <Icon name="speaker" size={20} /> Play again
           </button>
         </>
       ) : (

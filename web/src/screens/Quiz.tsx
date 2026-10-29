@@ -3,7 +3,8 @@ import { playPhrase } from '../lib/audio';
 import { getPhrases, type Lang, type Phrase, shuffle } from '../lib/content';
 import { recordPhraseAnswer, recordQuiz } from '../lib/progress';
 import { navigate } from '../lib/router';
-import { PhraseText, Screen } from '../ui';
+import { Sticker } from '../art';
+import { Icon, PhraseText, Screen } from '../ui';
 
 type Question = {
   phrase: Phrase;
@@ -72,7 +73,7 @@ export function Quiz({ lang, topic }: { lang: Lang; topic: string }) {
     return (
       <Screen title="Quiz" back={back}>
         <div className="card" style={{ alignItems: 'center', gap: 14 }}>
-          <div style={{ fontSize: 48 }}>{correct === questions.length ? '🏆' : '👏'}</div>
+          <Sticker name={correct === questions.length ? 'trophy' : 'clap'} size={64} />
           <div style={{ fontSize: 26, fontWeight: 600 }}>
             {correct} / {questions.length} correct
           </div>
@@ -102,7 +103,7 @@ export function Quiz({ lang, topic }: { lang: Lang; topic: string }) {
             <p className="muted">What does this mean?</p>
             {picked && <PhraseText phrase={q.phrase} showEnglish={false} />}
             <button className="btn secondary" onClick={() => playPhrase(q.phrase.audio)}>
-              🔊 Play again
+              <Icon name="speaker" size={20} /> Play again
             </button>
           </>
         ) : (

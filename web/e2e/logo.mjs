@@ -154,11 +154,11 @@ await run(async () => {
     await overlay(page).waitFor({ timeout: 5000 }).catch(() => {});
     const cel = await page.evaluate(() => {
       const o = document.querySelector('[data-testid=achievement]');
-      const img = o?.querySelector('.achievement-logo img');
-      return o && { title: o.querySelector('h2').innerText, logo: img.complete && img.naturalWidth > 0, spin: getComputedStyle(img).animationName, confetti: o.querySelectorAll('.confetti span').length, notes: window.__osc };
+      const img = o?.querySelector('.achievement-logo .bird');
+      return o && { title: o.querySelector('h2').innerText, logo: !!img?.querySelector('path'), spin: getComputedStyle(img).animationName, confetti: o.querySelectorAll('.confetti span').length, notes: window.__osc };
     });
     expect(cel?.title === 'Unit complete!', `unit: then the logo celebration (${cel?.title})`);
-    expect(cel?.logo && cel.spin === 'logo-spin', `unit: the logo spins in (${cel?.spin})`);
+    expect(cel?.logo && cel.spin === 'logo-spin', `unit: the hand-drawn bird spins in (${cel?.spin})`);
     expect(cel?.confetti >= 100, `unit: confetti burst (${cel?.confetti} pieces)`);
     expect(cel?.notes >= 8, `unit: its own short sound (${cel?.notes} notes, muted in tests)`);
     await page.waitForTimeout(500);
@@ -215,7 +215,7 @@ await run(async () => {
     await overlay(page).waitFor({ timeout: 5000 }).catch(() => {});
     const cel = await page.evaluate(() => {
       const o = document.querySelector('[data-testid=achievement]');
-      return o && { title: o.querySelector('h2').innerText, detail: o.querySelector('.achievement-detail').innerText, calm: o.classList.contains('calm'), confetti: o.querySelectorAll('.confetti span').length, anim: getComputedStyle(o.querySelector('.achievement-logo img')).animationName };
+      return o && { title: o.querySelector('h2').innerText, detail: o.querySelector('.achievement-detail').innerText, calm: o.classList.contains('calm'), confetti: o.querySelectorAll('.confetti span').length, anim: getComputedStyle(o.querySelector('.achievement-logo .bird')).animationName };
     });
     if (reducedMotion === 'reduce') {
       expect(cel?.calm && cel.confetti === 0 && cel.anim === 'achievement-in', `Reduce Motion: a simple fade, no spin or confetti (${cel?.anim})`);

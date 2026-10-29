@@ -606,8 +606,9 @@ a.btn { text-decoration: none; }
 .path-bird { position: absolute; top: -6px; left: 50%; width: 78px; height: 78px; pointer-events: none; transform: translateX(calc(var(--side) * 104px - 50%)); }
 .path-bird .bird { display: block; }
 .bird { overflow: visible; }
-:root[data-theme='dark'] .bird { filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.45)); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .bird { filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.45)); } }
+/* Dark mode: the hand-drawn art's navy ink gets a faint light edge so it reads on dark cards. */
+:root[data-theme='dark'] :is(.bird, .unit-art, .hint-picture, .chest-art) { filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.45)); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) :is(.bird, .unit-art, .hint-picture, .chest-art) { filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.45)); } }
 .bird-ledge { fill: var(--tone, #0164f9); }
 .bird-all, .bird-wing, .bird-head, .bird-zz text, .bird-globe-land { transform-box: fill-box; }
 .bird-wing { transform-origin: 80% 10%; }
@@ -725,7 +726,7 @@ a.btn { text-decoration: none; }
 .hint-bubble::after { width: 8px; height: 8px; left: -14px; bottom: -24px; }
 .hint-line { font-size: 17px; font-weight: 650; color: var(--text); }
 .hint-1 b { font-size: 20px; color: var(--accent); }
-.hint-picture { font-size: 38px; line-height: 1; }
+.hint-picture { display: block; width: 44px; height: 44px; }
 .hint-2 {
   display: flex; align-items: center; gap: 8px; border: 0; cursor: pointer; padding: 6px 12px; border-radius: 12px;
   background: var(--accent-bg); color: var(--accent); box-shadow: 0 3px 0 color-mix(in srgb, var(--accent) 30%, var(--card));
@@ -750,7 +751,7 @@ a.btn { text-decoration: none; }
 .banner > .banner-bird { width: 58px; max-width: none; margin: 0; }
 .banner-bird { position: absolute; right: max(12px, env(safe-area-inset-right)); top: -44px; pointer-events: none; transform: scaleX(-1); }
 .bird-wing.far { transform-box: fill-box; transform-origin: 10% 90%; }
-.bird-flame, .bird-notes { transform-box: fill-box; transform-origin: 50% 100%; }
+.bird-flame, .bird-notes > g { transform-box: fill-box; transform-origin: 50% 100%; }
 .bird.pose-cheer.seen .bird-all { animation: bird-cheer 0.9s var(--spring) both; }
 .bird.pose-cheer.seen .bird-wing.up, .bird.pose-streak.seen .bird-wing.up { animation: bird-flap 0.45s ease-in-out 3; }
 .bird.pose-cheer.seen .bird-wing.far, .bird.pose-streak.seen .bird-wing.far { animation: bird-flap-far 0.45s ease-in-out 3; }
@@ -761,8 +762,8 @@ a.btn { text-decoration: none; }
 .bird.pose-dance.seen .bird-all { animation: bird-dance 1.1s ease-in-out infinite; }
 .bird.pose-dance.seen .bird-wing.up { animation: bird-flap 0.55s ease-in-out infinite; }
 .bird.pose-dance.seen .bird-wing.far { animation: bird-flap-far 0.55s ease-in-out infinite; }
-.bird.pose-dance.seen .bird-notes path { animation: note-float 1.6s ease-in-out infinite; }
-.bird.pose-dance.seen .bird-notes path:nth-child(2) { animation-delay: 0.5s; }
+.bird.pose-dance.seen .bird-notes > g { animation: note-float 1.6s ease-in-out infinite; }
+.bird.pose-dance.seen .bird-notes > g:nth-child(2) { animation-delay: 0.5s; }
 @keyframes bird-cheer { 0% { transform: translateY(8%) scale(0.8); opacity: 0; } 45% { transform: translateY(-12%) scale(1.04); opacity: 1; } 70% { transform: translateY(0) scale(0.98, 1.02); } 100% { transform: none; } }
 @keyframes bird-flap { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-18deg); } }
 @keyframes bird-flap-far { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(16deg); } }
@@ -775,7 +776,6 @@ a.btn { text-decoration: none; }
 .trophy-row { display: flex; align-items: flex-end; justify-content: center; gap: 4px; }
 .trophy-row .trophy { margin: 0; }
 .complete-bird { margin-bottom: -6px; }
-.achievement-bird { margin: -8px auto -4px; display: block; }
 
 /* A faint logo behind every lesson page. */
 .page.lesson { position: relative; isolation: isolate; }
@@ -920,7 +920,9 @@ a.btn { text-decoration: none; }
 .grade { animation: pop 0.35s var(--spring); }
 
 .flashcard { flex: 1; justify-content: center; gap: 16px; position: relative; min-height: 300px; box-shadow: var(--shadow); }
-.level { position: absolute; top: 16px; right: 18px; color: var(--ok); letter-spacing: 2px; }
+.level { position: absolute; top: 16px; right: 18px; color: var(--ok); display: flex; gap: 3px; }
+.level svg { opacity: 0.25; }
+.level svg.on { opacity: 1; }
 
 /* =========================================================================
    Lesson
@@ -1024,12 +1026,13 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 @keyframes pop { 0% { transform: scale(0.6); opacity: 0; } 70% { transform: scale(1.08); opacity: 1; } 100% { transform: scale(1); } }
 
 .burst { position: absolute; left: 50%; top: 50%; width: 0; height: 0; pointer-events: none; }
-.burst span {
-  position: absolute; left: -4px; top: -4px; width: 8px; height: 8px; border-radius: 50%;
-  background: var(--xp); animation: burst 0.65s var(--ease-out) forwards;
+.burst > span {
+  position: absolute; left: -7px; top: -7px; width: 14px; height: 14px;
+  color: var(--xp); animation: burst 0.65s var(--ease-out) forwards;
 }
-.burst span:nth-child(3n) { background: var(--ok-bright); width: 6px; height: 6px; }
-.burst span:nth-child(3n + 1) { background: var(--sky); }
+.burst > span svg { display: block; }
+.burst > span:nth-child(3n) { color: var(--ok-bright); }
+.burst > span:nth-child(3n + 1) { color: var(--sky); }
 @keyframes burst {
   from { transform: rotate(var(--angle)) translateX(0) scale(1); opacity: 1; }
   to { transform: rotate(var(--angle)) translateX(var(--dist)) scale(0.2); opacity: 0; }
@@ -1039,9 +1042,9 @@ button.card:disabled { opacity: 0.6; cursor: default; }
    Lesson complete
    ========================================================================= */
 .celebrate { justify-content: center; text-align: center; padding-top: calc(env(safe-area-inset-top) + 28px); gap: 16px; }
-.trophy { width: 132px; height: 132px; margin: 0 auto; display: grid; place-items: center; border-radius: 40px; color: #fff; animation: trophy 0.8s var(--spring); box-shadow: var(--shadow-lg); }
-.trophy.perfect { background: linear-gradient(145deg, #ffd84a, var(--sun) 55%, var(--flame)); }
-.trophy.done { background: linear-gradient(145deg, #3fd17f, var(--ok-bright) 60%, var(--ok-deep)); }
+.trophy { width: 132px; height: 132px; margin: 0 auto; display: grid; place-items: center; border-radius: 50%; animation: trophy 0.8s var(--spring); background: #fff; box-shadow: var(--shadow-lg); }
+.trophy.perfect { background: color-mix(in srgb, var(--sun) 28%, #fff); }
+.trophy.done { background: color-mix(in srgb, var(--sky) 22%, #fff); }
 @keyframes trophy { 0% { transform: scale(0.3) rotate(-25deg); opacity: 0; } 60% { transform: scale(1.12) rotate(6deg); opacity: 1; } 100% { transform: scale(1) rotate(0); } }
 .celebrate .heading { font-size: 30px; margin: 0; letter-spacing: var(--tight); }
 .cheer { text-align: center; animation: pop 0.5s 0.25s var(--spring) both; }
@@ -1063,7 +1066,7 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 @keyframes ignite { 0% { transform: scale(0.2); } 60% { transform: scale(1.5); } 100% { transform: scale(1); } }
 
 .confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; }
-.confetti span {
+.confetti > span {
   position: absolute; top: -20px; opacity: 0;
   animation-name: confetti-fall; animation-timing-function: cubic-bezier(0.25, 0.6, 0.45, 1); animation-fill-mode: forwards;
   will-change: transform;
@@ -1298,7 +1301,7 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .summary-row { display: flex; flex-direction: column; gap: 2px; }
 
 /* =========================================================================
-   Big-achievement celebration: the logo spins in with a glow and confetti
+   Big-achievement celebration: the bird spins in with a glow and confetti
    (finishing a unit or level, streak milestones, placement, first daily goal)
    ========================================================================= */
 .achievement {
@@ -1314,8 +1317,8 @@ button.card:disabled { opacity: 0.6; cursor: default; }
   box-shadow: var(--shadow-lg); animation: achievement-card 0.5s 0.1s var(--spring) both;
 }
 .achievement-card .btn { align-self: stretch; margin-top: 6px; }
-.achievement-logo { position: relative; width: 220px; max-width: 70vw; aspect-ratio: 720 / 590; }
-.achievement-logo img { position: relative; width: 100%; height: auto; display: block; animation: logo-spin 0.95s 0.15s var(--spring) both; }
+.achievement-logo { position: relative; width: 170px; max-width: 60vw; aspect-ratio: 1; display: grid; place-items: center; }
+.achievement-logo .bird { position: relative; width: 100%; height: auto; display: block; animation: logo-spin 0.95s 0.15s var(--spring) both; }
 .achievement-glow {
   position: absolute; inset: -18%; border-radius: 50%;
   background: radial-gradient(circle, color-mix(in srgb, var(--sun) 55%, transparent), color-mix(in srgb, var(--sky) 35%, transparent) 45%, transparent 70%);
@@ -1334,7 +1337,7 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 }
 @keyframes logo-glow { 0% { opacity: 0; transform: scale(0.6); } 40% { opacity: 1; transform: scale(1.05); } 100% { opacity: 0.55; transform: scale(1); } }
 /* Reduce Motion: no spin, glow pulse or confetti; everything just fades in. */
-.achievement.calm .achievement-card, .achievement.calm .achievement-logo img { animation: achievement-in 0.35s ease-out both; }
+.achievement.calm .achievement-card, .achievement.calm .achievement-logo .bird { animation: achievement-in 0.35s ease-out both; }
 .achievement.calm .achievement-glow { animation: none; opacity: 0.5; }
 
 /* =========================================================================
