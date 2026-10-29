@@ -1,3 +1,5 @@
+import { activityGate } from '../lib/classes';
+import { TaughtFirst } from '../WordsYoullNeed';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { compare, type TokenResult } from '../../../shared/compare';
 import { glossKey, tokenize } from '../../../shared/tokens';
@@ -46,11 +48,13 @@ export function StoryList({ lang }: { lang: Lang }) {
               .filter((s) => s.level === lv.level)
               .map((s) => {
                 const best = progress.stories[`${lang}:${s.id}`];
+                const gate = activityGate(progress, lang, 'story', s.id);
                 return (
                   <button
                     key={s.id}
-                    className="list-row link"
+                    className={gate.open ? 'list-row link' : 'list-row link locked'}
                     data-testid={`story-${s.id}`}
+                    data-open={gate.open}
                     onClick={() => {
                       tapFeedback();
                       navigate(`/${lang}/stories/${s.id}`);
@@ -66,6 +70,7 @@ export function StoryList({ lang }: { lang: Lang }) {
                       <span className="row-hint">
                         {s.en} · {s.topic ? STORY_TOPICS[s.topic] : s.kind === 'dialogue' ? 'Dialogue' : 'Story'} · {s.lines.length} lines
                       </span>
+                      {!gate.open && <span className="row-hint lock-hint">Opens with {gate.label}'s Class</span>}
                     </span>
                     {best !== undefined && (
                       <span className={best === 1 ? 'story-score full' : 'story-score'}>
@@ -106,11 +111,13 @@ export function ArticleList({ lang }: { lang: Lang }) {
               .filter((a) => a.level === lv.level)
               .map((a) => {
                 const best = progress.stories[`${lang}:${a.id}`];
+                const gate = activityGate(progress, lang, 'article', a.id);
                 return (
                   <button
                     key={a.id}
-                    className="list-row link"
+                    className={gate.open ? 'list-row link' : 'list-row link locked'}
                     data-testid={`article-${a.id}`}
+                    data-open={gate.open}
                     onClick={() => {
                       tapFeedback();
                       navigate(`/${lang}/reading/${a.id}`);
@@ -126,6 +133,7 @@ export function ArticleList({ lang }: { lang: Lang }) {
                       <span className="row-hint">
                         {a.en} · {a.lines.length} sentences
                       </span>
+                      {!gate.open && <span className="row-hint lock-hint">Opens with {gate.label}'s Class</span>}
                     </span>
                     {best !== undefined && (
                       <span className={best === 1 ? 'story-score full' : 'story-score'}>
@@ -586,6 +594,13 @@ function Questions({ lang, story }: { lang: Lang; story: Story }) {
 /** A flirting dialogue opens only after the 18+ check. */
 export function GatedStory(props: { lang: Lang; id: string }) {
   const { adult } = useProgress();
-  if (!adult && getStory(props.lang, props.id)?.topic === 'flirting') return <AdultGateScreen back={`/${props.lang}/stories`} />;
-  return <StoryScreen {...props} />;
+  const story = getStory(props.lang, props.id);
+  if (!adult && story?.topic === 'flirting') return <AdultGateScreen back={`/${props.lang}/stories`} />;
+  if (!story) return <StoryScreen {...props} />;
+  const kind = story.kind === 'article' ? 'article' : 'story';
+  return (
+    <TaughtFirst lang={props.lang} kind={kind} id={story.id} title={story.en} lines={[]} back={`/${props.lang}/${kind === 'article' ? 'reading' : 'stories'}`}>
+      <StoryScreen {...props} />
+    </TaughtFirst>
+  );
 }

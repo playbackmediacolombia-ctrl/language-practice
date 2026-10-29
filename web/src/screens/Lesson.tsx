@@ -4,12 +4,14 @@ import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { compare, type TokenResult } from '../../../shared/compare';
 import { cutFeedback, playClip, playClipAfterPhrase, playPhrase, type Recording, startRecording, stopAllVoices, unlockAudio } from '../lib/audio';
 import { type Lang, LANGS, shuffle } from '../lib/content';
-import { allItems, DAILY_MAX, dueItems, dueTomorrow, getLesson, getLessons, type Item, MISTAKES_MAX, mistakeItems, weakItems } from '../lib/course';
+import { allItems, DAILY_MAX, dueItems, dueTomorrow, getLesson, getLessons, getPath, type Item, MISTAKES_MAX, mistakeItems, weakItems } from '../lib/course';
+import { isDay1, unitRoleplays } from '../lib/classes';
+import { getScenario } from '../lib/scenarios';
 import { allClips, Coach, type Line, type Reaction } from '../lib/feedback';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
-import { checkTiles, checkTyped, type Exercise, itemsOf, lessonExercises, mistakeExercises, reviewExercises, speakingFirst } from '../lib/exercises';
+import { checkTiles, checkTyped, type Exercise, itemsOf, lessonExercises, mistakeExercises, repeatExercises, reviewExercises, speakingFirst, unitTestExercises } from '../lib/exercises';
 import { getTip } from '../lib/grammar';
-import { completeLesson, gainHeart, heartsNow, LESSON_XP, loseHeart, markTipSeen, MISTAKE_RIGHTS, PERFECT_BONUS, recordAnswer, setPref, streak, todayXp, useProgress } from '../lib/progress';
+import { completeLesson, gainHeart, heartsNow, LESSON_XP, loseHeart, markTipSeen, MISTAKE_RIGHTS, PERFECT_BONUS, recordAnswer, recordTest, setPref, streak, todayXp, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { type Contour, pitchTrack, toContour } from '../lib/pitch';
 import { isModelReady, transcribe } from '../lib/whisper';
@@ -68,7 +70,7 @@ export function exerciseHints(ex: Exercise, lang: Lang): HintSet | null {
 const withHints = (xp: number, hinted: number) => xp - Math.min(hinted, Math.floor(xp / 2));
 
 export function autoPlay(ex: Exercise | undefined) {
-  if (ex && (ex.type === 'meaning' || ex.type === 'listen' || ex.type === 'type')) playPhrase(ex.item.audio);
+  if (ex && (ex.type === 'meaning' || ex.type === 'listen' || ex.type === 'type' || ex.type === 'repeat')) playPhrase(ex.item.audio);
 }
 
 export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: string }) {
@@ -77,8 +79,13 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   // 'mistakes' drills words got wrong until each is cleared. None of them costs hearts.
   const daily = lessonId === 'daily';
   const drill = lessonId === 'mistakes';
+  // A unit's Test ('test-u4'): graded, and hearts count. The unit's lessons are its Practice:
+  // gentle, with hints and no hearts lost. Day 1's practice is listening and repeating only.
+  const testUnit = lessonId.startsWith('test-') ? getPath(lang).flatMap((s) => s.units).find((u) => u.id === lessonId.slice(5)) : undefined;
   const review = lessonId === 'review' || daily || drill;
-  const lesson = review ? undefined : getLesson(lang, lessonId);
+  const lesson = review || testUnit ? undefined : getLesson(lang, lessonId);
+  const gentle = review || !!lesson; // no hearts lost
+  const day1 = !!lesson && isDay1(lesson.unitId);
   const back = daily || drill ? '/practice' : `/${lang}`;
   const drilled = useRef(drill ? mistakeItems(progress, lang).slice(0, MISTAKES_MAX) : []); // this session's words
 
@@ -94,7 +101,13 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     if (daily) return reviewExercises(shuffle(dueItems(progress, lang).slice(0, DAILY_MAX)), allItems(lang), lang, speaking);
     if (drill) return mistakeExercises(drilled.current, allItems(lang), lang, speaking);
     if (review) return reviewExercises(shuffle(weakItems(progress, lang)), all, lang, speaking);
+    if (testUnit) {
+      const at = getLessons(lang).findIndex((l) => l.unitId === testUnit.id);
+      const earlier = getLessons(lang).slice(0, Math.max(0, at)).flatMap((l) => l.items);
+      return unitTestExercises(testUnit.lessons.flatMap((l) => l.items), earlier, lang, speaking);
+    }
     if (!lesson) return [];
+    if (day1) return repeatExercises(lesson.items);
     const index = getLessons(lang).findIndex((l) => l.id === lesson.id);
     const earlier = getLessons(lang)
       .slice(0, index)
@@ -113,9 +126,11 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   const [summary, setSummary] = useState<{ xp: number; xpBefore: number; streakUp: boolean; goalReached: boolean; line: Line; hinted: number; hintCost: number } | null>(null);
   const coach = useRef(new Coach(lang));
   const started = useRef(Date.now());
-  // A lesson that brings in a new grammar rule shows its tip once, before it starts.
-  const tip = lesson ? getTip(lang, lesson.id) : undefined;
-  const [showTip, setShowTip] = useState(() => !!tip && !progress.tips[`${lang}:${lessonId}`]);
+  // A lesson that brings in a new grammar rule shows its tip once, before it starts, unless the
+  // unit's Class (taken, not skipped) has just taught it.
+  const tip = lesson && !day1 ? getTip(lang, lesson.id) : undefined;
+  const classTaught = !!lesson && (progress.classes?.[`${lang}:${lesson.unitId}`] ?? 0) > 0;
+  const [showTip, setShowTip] = useState(() => !!tip && !classTaught && !progress.tips[`${lang}:${lessonId}`]);
   const closeTip = () => {
     markTipSeen(lang, lessonId);
     setShowTip(false);
@@ -155,7 +170,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     if (!r.right && !r.free) {
       setMistakes((m) => m + 1);
       setQueue((q) => [...q, ex]); // try it again at the end
-      if (!review) loseHeart();
+      if (!gentle) loseHeart();
     } else if (!r.right && ex.type === 'meaning') {
       setQueue((q) => [...q, { ...ex, isNew: false, options: shuffle(ex.options) }]);
     }
@@ -164,19 +179,20 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   const next = () => {
     cutFeedback(); // Continue cuts off spoken feedback cleanly; the next clip waits a beat
     setResult(null);
-    if (!review && heartsNow(progress).hearts <= 0) return setPhase('no-hearts');
+    if (!gentle && heartsNow(progress).hearts <= 0) return setPhase('no-hearts');
     if (index + 1 >= queue.length) return finish();
     setIndex(index + 1);
     autoPlay(queue[index + 1]);
   };
 
   const finish = () => {
-    const full = daily ? DAILY_XP : drill ? MISTAKES_XP : review ? REVIEW_XP : LESSON_XP + (mistakes === 0 && hinted === 0 ? PERFECT_BONUS : 0);
+    const full = daily ? DAILY_XP : drill ? MISTAKES_XP : review ? REVIEW_XP : day1 ? LESSON_XP : LESSON_XP + (mistakes === 0 && hinted === 0 ? PERFECT_BONUS : 0);
     const xp = withHints(full, hinted);
     const before = todayXp(progress);
     const streakUp = before === 0; // first lesson today extends (or starts) the streak
     const xpBefore = progress.xp;
-    completeLesson(lang, review ? null : lessonId, xp);
+    completeLesson(lang, review || testUnit ? null : lessonId, xp);
+    if (testUnit) recordTest(lang, testUnit.id, Math.max(0, (total.current - mistakes) / total.current));
     if (review) gainHeart();
     const line = coach.current.finished(mistakes === 0);
     setSummary({ xp, xpBefore, streakUp, goalReached: before < progress.goal && before + xp >= progress.goal, line, hinted, hintCost: full - xp });
@@ -191,15 +207,18 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   };
 
   if (phase === 'start') {
-    const blocked = !review && hearts <= 0;
+    const blocked = !gentle && hearts <= 0;
     return (
-      <LessonFrame onQuit={quit} value={0} hearts={review ? null : hearts}>
+      <LessonFrame onQuit={quit} value={0} hearts={gentle ? null : hearts}>
         <div className="card start-card" style={{ gap: 14, marginTop: 24 }}>
           <span className="start-sticker" aria-hidden="true">
-            {lesson && !review ? <UnitArt unitId={lesson.unitId} size={88} /> : <Sticker name={drill ? 'pin' : daily ? 'sun' : 'bulb'} size={88} />}
+            {lesson ? <UnitArt unitId={lesson.unitId} size={88} /> : testUnit ? <Sticker name="trophy" size={88} /> : <Sticker name={drill ? 'pin' : daily ? 'sun' : 'bulb'} size={88} />}
           </span>
-          <p className="muted start-kicker">{review ? 'Practice' : 'Lesson'}</p>
-          <div className="start-title">{daily ? 'Daily review' : drill ? 'Mistakes' : review ? 'Review your weak words' : lesson!.title}</div>
+          <p className="muted start-kicker" data-testid="lesson-kind">{testUnit ? 'Step 3 · Test' : day1 ? 'Day 1 · Listen and repeat' : lesson ? 'Step 2 · Practice' : 'Practice'}</p>
+          <div className="start-title">{daily ? 'Daily review' : drill ? 'Mistakes' : review ? 'Review your weak words' : testUnit ? `Test: ${testUnit.title}` : lesson!.title}</div>
+          {testUnit && <p className="muted">Only words and rules from your Classes. Mistakes cost a heart here.</p>}
+          {lesson && !day1 && <p className="muted">Only what your Class just taught. Hints are always there, and mistakes don't cost hearts.</p>}
+          {day1 && <p className="muted">Hear each sound and say it back. Nothing is graded today.</p>}
           {daily && <p className="muted">Words and phrases you're about to forget, brought back at just the right time.</p>}
           {drill && (
             <>
@@ -214,6 +233,11 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
             {total.current} exercises · about {Math.max(2, Math.round(total.current / 4))} minutes · turn your sound on
           </p>
           {review && <p className="muted">Mistakes here don't cost hearts, and finishing earns one back.</p>}
+          {lesson && (
+            <button className="btn secondary" onClick={() => navigate(`/${lang}/class/${lesson.unitId}`)} data-testid="open-class">
+              <Icon name="book" size={20} /> See the Class again
+            </button>
+          )}
           {progress.speaking && (
             <label className="chip-toggle speak-first" data-testid="speak-first">
               <input
@@ -255,7 +279,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
               Start
             </button>
           )}
-          {lesson && (
+          {lesson && !day1 && (
             <button className="btn secondary" onClick={() => navigate(`/${lang}/handsfree/${lesson.id}`)}>
               <Icon name="speaker" size={20} /> Hands-free (audio only)
             </button>
@@ -292,7 +316,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
           </div>
           <Bird pose="dance" size={104} className="complete-bird" />
         </div>
-        <h2 className="heading">{daily ? 'Daily review done!' : drill ? 'Mistakes practiced!' : review ? 'Review complete!' : 'Lesson complete!'}</h2>
+        <h2 className="heading">{daily ? 'Daily review done!' : drill ? 'Mistakes practiced!' : review ? 'Review complete!' : testUnit ? 'Test complete!' : 'Lesson complete!'}</h2>
         <div className="cheer">
           <div className="cheer-text">{summary.line.text}</div>
           {summary.line.voice !== 'en' && <div className="muted">{summary.line.en}</div>}
@@ -332,6 +356,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
           )}
           {review && <p className="muted small">+1 heart for practicing.</p>}
           {daily && <DailyNext lang={lang} />}
+          {testUnit && <TestRoleplays lang={lang} unitId={testUnit.id} />}
           {drill && <MistakesNext lang={lang} items={drilled.current} />}
         </div>
         <button
@@ -351,19 +376,38 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     <LessonFrame
       onQuit={quit}
       value={index / queue.length}
-      hearts={review ? null : hearts}
+      hearts={gentle ? null : hearts}
       feedback={result && !result.skipped ? (result.right ? 'ok' : 'bad') : undefined}
       action={tipButton}
     >
       {result?.right && !result.skipped && <div key={index} className="flash ok" aria-hidden="true" />}
       {/* Typing, tapping or a key press starts the hint wait over. */}
       <div className="exercise" onPointerDown={hint.poke} onKeyDown={hint.poke} onInput={hint.poke}>
-        <ExerciseView key={index} ex={ex} lang={lang} answered={result !== null} onSubmit={submit} onBusy={setBusy} />
+        <ExerciseView key={index} ex={ex} lang={lang} answered={result !== null} onSubmit={submit} onBusy={setBusy} onNext={next} />
       </div>
       {hints && !result && <HintBubble key={index} hints={hints} level={hint.level} onNext={hint.next} />}
       {result && <ResultBanner ex={ex} result={result} lang={lang} onContinue={next} />}
       {tipSheet}
     </LessonFrame>
+  );
+}
+
+/** After a unit test: the unit's role-plays, the other half of the Test. */
+function TestRoleplays({ lang, unitId }: { lang: Lang; unitId: string }) {
+  const list = unitRoleplays(lang, unitId)
+    .map((id) => getScenario(lang, id))
+    .filter((s) => !!s);
+  if (!list.length) return null;
+  return (
+    <div className="card test-roleplays" data-testid="test-roleplays">
+      <div className="card-title">Now the role-play</div>
+      <p className="muted small">You'll hear the words you need first.</p>
+      {list.map((s) => (
+        <button key={s!.id} className="btn secondary" onClick={() => navigate(`/${lang}/roleplay/${s!.id}`)}>
+          <Icon name="chat" size={20} /> <span className="grow">{s!.en}</span>
+        </button>
+      ))}
+    </div>
   );
 }
 
@@ -568,6 +612,8 @@ type ViewProps = {
   onSkip?: () => void;
   /** Speaking: you're talking, or it's being checked (hints wait until you're done). */
   onBusy?: (busy: boolean) => void;
+  /** Go on without a grade (listen and repeat). */
+  onNext?: () => void;
 };
 
 export function ExerciseView(props: ViewProps) {
@@ -586,7 +632,32 @@ export function ExerciseView(props: ViewProps) {
       return <SpeakExercise {...props} />;
     case 'fact':
       return <FactExercise {...props} />;
+    case 'repeat':
+      return <RepeatExercise {...props} />;
   }
+}
+
+/** Listen and repeat: hear it, say it back. No grade, no wrong answers (Day 1). */
+function RepeatExercise({ ex, onNext }: ViewProps) {
+  if (ex.type !== 'repeat') return null;
+  const { item } = ex;
+  return (
+    <>
+      <p className="prompt">
+        <span className="chip-new">Listen and repeat</span> Say it after the recording
+      </p>
+      <div className="card repeat-card" data-testid="repeat-card">
+        <Target item={item} size={46} />
+        <p className="muted">{item.en}</p>
+        <SoundButtons item={item} big />
+      </div>
+      <div className="lesson-foot">
+        <button className="btn" onClick={onNext} data-testid="repeat-next">
+          I said it
+        </button>
+      </div>
+    </>
+  );
 }
 
 /** A culture lesson's quiz question: pick the answer. Free (no hearts), and shows the answer if missed. */

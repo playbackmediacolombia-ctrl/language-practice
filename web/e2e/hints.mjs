@@ -201,7 +201,7 @@ await run(async () => {
   const p3 = await still.newPage();
   await p3.goto(`${BASE}#/`);
   await editProgress(p3, (p) => ({ ...p, lang: 'es', speaking: false, hintWait: 5 }));
-  await p3.goto(`${BASE}#/es/learn/es-1-1`);
+  await p3.goto(`${BASE}#/es/learn/es-2-1`);
   await p3.getByRole('button', { name: 'Start', exact: true }).click();
   await p3.getByTestId('hint-btn').click();
   const moving = await p3.evaluate(() => [...document.querySelectorAll('.hint-coach, .hint-coach *')].filter((e) => getComputedStyle(e).animationName !== 'none').length);

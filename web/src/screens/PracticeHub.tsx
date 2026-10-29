@@ -92,6 +92,19 @@ export function PracticeHub({ lang }: { lang: Lang }) {
         </div>
       </button>
 
+      <button className="card review-card" data-testid="notebook-card" onClick={() => open(`/${lang}/notebook`)}>
+        <div className="row">
+          <span className="card-sticker tint-sky">
+            <Sticker name="book" size={40} />
+          </span>
+          <div className="grow">
+            <div className="card-title">Notebook</div>
+            <p className="muted small">Every word, phrase and rule your Classes have taught, to look back at any time.</p>
+          </div>
+          <Icon name="chevron" style={{ color: 'var(--faint)' }} />
+        </div>
+      </button>
+
       <button className="card review-card" disabled={learned.length < 4} onClick={() => open(`/${lang}/learn/review`)}>
         <div className="row">
           <span className="card-sticker tint-sun">

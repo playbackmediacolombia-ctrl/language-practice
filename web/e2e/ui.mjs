@@ -1,5 +1,5 @@
 // UI polish checks in WebKit with iPhone emulation: themes, tabs, motion, haptics, sound.
-import { devices, editProgress, launch, run } from './harness.mjs';
+import { devices, editProgress, launch, run, skipDay1 } from './harness.mjs';
 
 const BASE = 'http://localhost:4173/?test';
 let failures = 0;
@@ -51,6 +51,14 @@ await run(async () => {
       await page.getByRole('button', { name: 'Check' }).click();
     } else if (ex.type === 'type') {
       await page.locator('textarea').fill(ex.item.text);
+      await page.getByRole('button', { name: 'Check' }).click();
+    } else if (ex.type === 'tiles') {
+      const used = new Set();
+      for (const w of ex.item.tiles) {
+        const i = ex.bank.findIndex((b, j) => b === w && !used.has(j));
+        used.add(i);
+        await page.locator('.bank button').nth(i).click();
+      }
       await page.getByRole('button', { name: 'Check' }).click();
     } else if (ex.type === 'match') {
       for (const item of ex.items) {
@@ -127,6 +135,7 @@ await run(async () => {
   {
     const page = await newPage();
     await page.goto(`${BASE}#/es`);
+    await skipDay1(page, 'es'); // Day 1 is listen and repeat: no answers to tap
     // Turn the voice off so only sound effects make sound here.
     await editProgress(page, (p) => ({ ...p, voice: false }));
     await page.locator('.lesson-node.current').click();
@@ -174,11 +183,26 @@ await run(async () => {
       haptics: window.__haptics,
     }));
     expect(bad.feedback === 'bad' && bad.shake === 'shake', `wrong answer: gentle shake (${bad.shake})`);
-    expect(bad.heart.includes('lost'), 'wrong answer: heart counter pulses');
+    expect(!bad.heart.includes('lost'), 'wrong answer in Practice: no heart lost');
     expect(bad.osc >= 2, `wrong answer: "bonk" sound (${bad.osc} notes)`);
     await page.waitForTimeout(150);
     expect((await page.evaluate(() => window.__haptics)) >= 1, 'wrong answer: haptic');
     await shots(page, 'wrong');
+
+    // In a unit's Test, hearts count: the counter pulses when one goes.
+    await page.goto(`${BASE}#/es/learn/test-u2`);
+    await page.getByRole('button', { name: 'Start', exact: true }).click();
+    for (;;) {
+      ex = await page.evaluate(() => window.__exercise);
+      if (ex.type === 'listen' || ex.type === 'translate' || ex.type === 'meaning') break;
+      await answerRight(page);
+      await page.getByRole('button', { name: 'Continue' }).click();
+    }
+    await answerWrong(page);
+    await page.waitForTimeout(50);
+    const testHeart = await page.evaluate(() => document.querySelector('.lesson-top .hearts')?.className);
+    expect(testHeart?.includes('lost'), `wrong answer in a Test: heart counter pulses (${testHeart})`);
+    await page.goto(`${BASE}#/es/learn/es-2-1`);
 
     // Mute and haptics off.
     await editProgress(page, (p) => ({ ...p, sfx: false, haptics: false }));
@@ -251,6 +275,7 @@ await run(async () => {
   {
     const page = await newPage({ reducedMotion: 'reduce' });
     await page.goto(`${BASE}#/es`);
+    await skipDay1(page, 'es');
     await page.locator('.lesson-node.current').click();
     await page.getByTestId('lesson-start').click();
     await page.getByRole('button', { name: 'Start', exact: true }).click();

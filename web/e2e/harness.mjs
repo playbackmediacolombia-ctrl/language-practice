@@ -5,6 +5,7 @@
 // Web Audio is routed through a zero-volume node before the speakers, <audio>/<video>
 // elements are forced muted, and the device voice (speechSynthesis) never speaks. Tests can still see *what* plays (they hook start()/play()).
 import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { webkit } from 'playwright';
 
 export { devices } from 'playwright';
@@ -93,6 +94,25 @@ export async function editProgress(page, edit, arg) {
 
 const browsers = new Set();
 
+const UNITS = JSON.parse(readFileSync(new URL('../../shared/course/outline.json', import.meta.url), 'utf8')).stages.flatMap((s) => [...s.units, ...(s.electives ?? [])]);
+/** Every unit's Class marked taken, in every language. */
+export const ALL_CLASSES = Object.fromEntries(['es', 'fr', 'zh', 'pt', 'it'].flatMap((l) => UNITS.map((u) => [`${l}:${u}`, 1])));
+const DAY1 = Object.fromEntries(['es', 'fr', 'zh', 'pt', 'it'].map((l) => [l, JSON.parse(readFileSync(new URL(`../../shared/course/${l}.json`, import.meta.url), 'utf8')).units.find((u) => u.id === 'u1').lessons.map((x) => x.id)]));
+/** Marks Day 1 (unit 1, listen and repeat only) done, so the next lesson has graded answers. */
+export const skipDay1 = (page, ...langs) =>
+  editProgress(page, (p, done) => ({ ...p, lessons: { ...p.lessons, ...Object.fromEntries(done.map((k) => [k, 1])) } }), langs.flatMap((l) => DAY1[l].map((id) => `${l}:${id}`)));
+
+function seedClasses(all) {
+  try {
+    if (localStorage.getItem('test-classes-seeded')) return;
+    const p = JSON.parse(localStorage.getItem('progress-v1') ?? '{}');
+    localStorage.setItem('progress-v1', JSON.stringify({ ...p, classes: { ...all, ...p.classes } }));
+    localStorage.setItem('test-classes-seeded', '1');
+  } catch {
+    // not an app page (about:blank)
+  }
+}
+
 /**
  * Launches WebKit (Safari's engine); every context and page it makes is muted.
  * Big-achievement celebrations are tapped away whenever one gets in the way of a test's next
@@ -102,9 +122,16 @@ export async function launch() {
   const browser = await webkit.launch();
   browsers.add(browser);
   const newContext = browser.newContext.bind(browser);
-  browser.newContext = async ({ keepCelebrations = false, ...options } = {}) => {
+  browser.newContext = async ({ keepCelebrations = false, classes = 'taken', ...options } = {}) => {
     const context = await newContext(options);
     await context.addInitScript(muteAudio);
+    // Most suites test what comes after a unit's Class, so every Class starts out taken (once
+    // per browser context); pass `classes: 'fresh'` to test the Classes themselves.
+    if (classes === 'taken') await context.addInitScript(seedClasses, ALL_CLASSES);
+    if (classes === 'taken') {
+      // "Words you'll need" comes before role-plays and stories: tap I'm ready, like a person would.
+      context.on('page', (page) => void page.addLocatorHandler(page.getByTestId('need-ready'), () => page.getByTestId('need-ready').click()));
+    }
     if (!keepCelebrations) {
       context.on('page', (page) => {
         const celebration = page.getByTestId('achievement');

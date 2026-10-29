@@ -13,7 +13,7 @@ await run(async () => {
     };
   });
   const page = await context.newPage();
-  await page.goto('http://localhost:4173/#/es/learn/es-1-1');
+  await page.goto('http://localhost:4173/#/es/learn/es-2-1');
   await page.getByRole('button', { name: 'Start', exact: true }).click(); // plays the first word
   await page.locator('.options button').first().click(); // tap sound
   await page.getByRole('button', { name: 'Check' }).click(); // right/wrong sound + maybe a voice line

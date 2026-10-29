@@ -175,10 +175,30 @@ export const hasStarted = (p: Progress, lang: Lang) =>
 
 /**
  * Where each lesson stands: 'done'; 'current', the first one not done past what a placement test
- * unlocked; 'open', unlocked by the test but not done; or 'locked'.
+ * unlocked; 'open', unlocked by the test but not done; or 'locked'. A unit's lessons (its
+ * Practice) wait for its Class: until the Class is taken, the next lesson stays locked (lessons a
+ * placement test or a picked level unlocked stay open, so you can skip the Class).
  */
 export type LessonState = 'done' | 'current' | 'open' | 'locked';
 export function lessonStates(p: Progress, lang: Lang): Map<string, LessonState> {
+  const states = ungatedLessonStates(p, lang);
+  for (const stage of getPath(lang)) {
+    for (const unit of stage.units) {
+      if (classTaken(p, lang, unit)) continue;
+      for (const l of unit.lessons) {
+        const s = states.get(l.id);
+        if (s === 'current' || (unit.elective && s === 'open')) states.set(l.id, 'locked');
+      }
+    }
+  }
+  return states;
+}
+
+/** The unit's Class is behind you: taken, skipped, or (from before Classes existed) a lesson in it is done. */
+export const classTaken = (p: Progress, lang: Lang, unit: Unit) => !!p.classes?.[`${lang}:${unit.id}`] || unit.lessons.some((l) => lessonDone(p, lang, l.id));
+
+/** Lesson states before the Class gate. */
+export function ungatedLessonStates(p: Progress, lang: Lang): Map<string, LessonState> {
   const lessons = coreLessons(lang);
   const placed = placedLessons(p, lang);
   // A picked level sets where your next lesson is; otherwise it's just past what the test unlocked.

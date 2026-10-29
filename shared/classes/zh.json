@@ -1,0 +1,5208 @@
+{
+ "day1": [
+  {
+   "title": "Welcome",
+   "show": [
+    "你好",
+    "nǐ hǎo"
+   ],
+   "say": {
+    "text": "Welcome to your very first class! I'll assume you know nothing yet, and that's perfect. Nothing is graded today. Just listen, and say each word back to me. Tap Next whenever you're ready, and tap any word to hear it again.",
+    "audio": "class/zh/n-8d54c83018.mp3"
+   }
+  },
+  {
+   "title": "What is pinyin?",
+   "show": [
+    "你好 = nǐ hǎo"
+   ],
+   "item": "nihao",
+   "say": {
+    "text": "Chinese isn't written with letters. It's written with characters, like these. Pinyin spells the sounds of Chinese with the letters you already know, so you can read how a word sounds. For example, hello is written with two characters, and in pinyin it's n i, h a o.",
+    "audio": "class/zh/n-670e0b939f.mp3"
+   }
+  },
+  {
+   "title": "The little marks are tones",
+   "show": [
+    "mā  má  mǎ  mà  ma"
+   ],
+   "say": {
+    "text": "See the little marks above the vowels? They're tones. In Chinese, the pitch of your voice is part of the word. The same syllable, ma, means four different things depending on its tone. Let's hear each one.",
+    "audio": "class/zh/n-d5bc7dcb7d.mp3"
+   }
+  },
+  {
+   "title": "Tone 1: high and flat",
+   "tone": 1,
+   "item": "ma1",
+   "repeat": true,
+   "say": {
+    "text": "Tone one is high and flat, like singing one long note. Mā means mom. Listen, then say it back.",
+    "audio": "class/zh/n-5995ee22b8.mp3"
+   }
+  },
+  {
+   "title": "Tone 2: rising",
+   "tone": 2,
+   "item": "ma2",
+   "repeat": true,
+   "say": {
+    "text": "Tone two rises, like asking 'what?' in surprise. Má means hemp. Listen, then say it back.",
+    "audio": "class/zh/n-eacf0737c2.mp3"
+   }
+  },
+  {
+   "title": "Tone 3: dips low",
+   "tone": 3,
+   "item": "ma3",
+   "repeat": true,
+   "say": {
+    "text": "Tone three dips low, then comes up a little. Keep it low and relaxed. Mǎ means horse.",
+    "audio": "class/zh/n-b1d28755ff.mp3"
+   }
+  },
+  {
+   "title": "Tone 4: falling",
+   "tone": 4,
+   "item": "ma4",
+   "repeat": true,
+   "say": {
+    "text": "Tone four falls sharply, like a firm 'No!'. Mà means to scold.",
+    "audio": "class/zh/n-59ed8894fb.mp3"
+   }
+  },
+  {
+   "title": "The neutral tone",
+   "tone": 5,
+   "item": "mama",
+   "repeat": true,
+   "say": {
+    "text": "Some syllables are light and short, with no tone mark. That's the neutral tone. In māma, mom, the second ma is light. Listen.",
+    "audio": "class/zh/n-5b3e84b2bc.mp3"
+   }
+  },
+  {
+   "title": "How characters work",
+   "show": [
+    "妈 = 女 + 马",
+    "mom = woman + horse (sounds like mǎ)"
+   ],
+   "say": {
+    "text": "Each character is one syllable, and it usually has a meaning. Many characters are built from parts. The character for mom has two parts: woman on the left, and horse on the right. The horse part gives the sound, ma. So mom is the woman word that sounds like ma.",
+    "audio": "class/zh/n-eae5cfd69c.mp3"
+   }
+  },
+  {
+   "title": "Two third tones",
+   "show": [
+    "nǐ hǎo → ní hǎo"
+   ],
+   "item": "nihao",
+   "say": {
+    "text": "One more trick. When two third tones come together, the first one rises instead, like tone two. So nǐ hǎo is said ní hǎo. You don't have to think about it: just copy the recording.",
+    "audio": "class/zh/n-ee344f1c28.mp3"
+   }
+  },
+  {
+   "title": "Your first greeting",
+   "item": "nihao",
+   "repeat": true,
+   "say": {
+    "text": "Now your first greeting: nǐ hǎo, hello. Listen, and say it back to me. You just spoke Chinese!",
+    "audio": "class/zh/n-5ce56ddf6c.mp3"
+   }
+  }
+ ],
+ "letters": [],
+ "units": {
+  "u1": {
+   "intro": {
+    "text": "This is Day 1 of Mandarin. Let's start from the very beginning.",
+    "audio": "class/zh/n-3ff352fe03.mp3"
+   },
+   "words": [
+    {
+     "id": "ma1"
+    },
+    {
+     "id": "ma2"
+    },
+    {
+     "id": "ma3"
+    },
+    {
+     "id": "ma4"
+    },
+    {
+     "id": "yi"
+    },
+    {
+     "id": "ni",
+     "ex": "nihao"
+    },
+    {
+     "id": "hao",
+     "ex": "nihao"
+    },
+    {
+     "id": "wo"
+    },
+    {
+     "id": "shi",
+     "ex": "bushi"
+    },
+    {
+     "id": "bu",
+     "ex": "bushi"
+    },
+    {
+     "id": "nihao"
+    },
+    {
+     "id": "mama"
+    },
+    {
+     "id": "baba"
+    },
+    {
+     "id": "xiexie"
+    },
+    {
+     "id": "bushi"
+    },
+    {
+     "id": "zhongguo"
+    },
+    {
+     "id": "chi"
+    },
+    {
+     "id": "shi2"
+    },
+    {
+     "id": "qi"
+    },
+    {
+     "id": "xi"
+    },
+    {
+     "id": "ji"
+    },
+    {
+     "id": "zhidao"
+    }
+   ],
+   "rules": [],
+   "extras": [],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u2": {
+   "intro": {
+    "text": "Welcome to the class for First words. I'll show you 23 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-12af03355c.mp3"
+   },
+   "words": [
+    {
+     "id": "zaijian",
+     "ex": "baba-zaijian"
+    },
+    {
+     "id": "laoshi",
+     "ex": "laoshi-hao"
+    },
+    {
+     "id": "laoshi-hao"
+    },
+    {
+     "id": "mama-nihao"
+    },
+    {
+     "id": "baba-zaijian"
+    },
+    {
+     "id": "qing",
+     "ex": "qing-he-shui"
+    },
+    {
+     "id": "shui",
+     "ex": "qing-he-shui"
+    },
+    {
+     "id": "he",
+     "ex": "qing-he-shui"
+    },
+    {
+     "id": "xiexie-mama"
+    },
+    {
+     "id": "qing-he-shui"
+    },
+    {
+     "id": "buyao-xiexie"
+    },
+    {
+     "id": "niunai",
+     "ex": "woyao-niunai"
+    },
+    {
+     "id": "mifan"
+    },
+    {
+     "id": "pingguo",
+     "ex": "woyao-pingguo"
+    },
+    {
+     "id": "woyao",
+     "ex": "woyao-niunai"
+    },
+    {
+     "id": "woyao-niunai"
+    },
+    {
+     "id": "woyao-pingguo"
+    },
+    {
+     "id": "gou"
+    },
+    {
+     "id": "mao",
+     "ex": "woyou-mao"
+    },
+    {
+     "id": "jia",
+     "ex": "wode-jia"
+    },
+    {
+     "id": "wode-jia"
+    },
+    {
+     "id": "woyou-mao"
+    },
+    {
+     "id": "woai-mama"
+    }
+   ],
+   "rules": [
+    {
+     "title": "No \"a\", \"the\" or plurals",
+     "culture": false,
+     "body": [
+      {
+       "text": "Chinese has no words for \"a\" or \"the\", and nouns never change for plural: 苹果 is \"apple\", \"an apple\", \"the apples\".",
+       "audio": "class/zh/n-196a29c0f9.mp3"
+      },
+      {
+       "text": "Verbs don't change either: 我要 (I want), 你要 (you want), 他要 (he wants).",
+       "audio": "class/zh/n-4da660039d.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "woyao-niunai",
+      "woyao-pingguo"
+     ],
+     "why": {
+      "text": "Chinese words never change their form, so there are no 'a', 'the' or plural endings. Context and number words do that job instead.",
+      "audio": "class/zh/n-2cd9cc97cd.mp3"
+     },
+     "lesson": "zh-2-3"
+    },
+    {
+     "title": "的: \"'s\" and \"my\"",
+     "culture": false,
+     "body": [
+      {
+       "text": "Put 的 after a person to show what belongs to them: 我的 (my), 你的 (your), 妈妈的 (mom's).",
+       "audio": "class/zh/n-d8659322ea.mp3"
+      },
+      {
+       "text": "With family and home, 的 is often dropped: 我妈妈, 我家.",
+       "audio": "class/zh/n-44a519f83c.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "wode-jia",
+      "woai-mama"
+     ],
+     "why": {
+      "text": "的 links a describing word or an owner to a noun, like English 's or 'of'. With close people (我妈妈), it's often dropped because the link is obvious.",
+      "audio": "class/zh/n-cb185b3e87.mp3"
+     },
+     "lesson": "zh-2-4"
+    }
+   ],
+   "extras": [],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u3": {
+   "intro": {
+    "text": "Welcome to the class for Family and home. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-0357005e27.mp3"
+   },
+   "words": [
+    {
+     "id": "gege",
+     "ex": "zhe-shi-wo-gege"
+    },
+    {
+     "id": "jiejie",
+     "ex": "wo-you-yige-jiejie"
+    },
+    {
+     "id": "nainai"
+    },
+    {
+     "id": "yeye"
+    },
+    {
+     "id": "zhe-shi-wo-gege"
+    },
+    {
+     "id": "wo-you-yige-jiejie"
+    },
+    {
+     "id": "chufang"
+    },
+    {
+     "id": "fangjian",
+     "ex": "wode-fangjian-hen-da"
+    },
+    {
+     "id": "chuang"
+    },
+    {
+     "id": "men"
+    },
+    {
+     "id": "wode-fangjian-hen-da"
+    },
+    {
+     "id": "jia-hen-xiao"
+    },
+    {
+     "id": "chifan",
+     "ex": "chifan-le"
+    },
+    {
+     "id": "shuijiao"
+    },
+    {
+     "id": "wo-e-le"
+    },
+    {
+     "id": "wo-kun-le"
+    },
+    {
+     "id": "wanan"
+    },
+    {
+     "id": "chifan-le"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Measure words: 一个",
+     "culture": false,
+     "body": [
+      {
+       "text": "A number can't go straight before a noun. A measure word goes in between: 一个姐姐 (one older sister), 三个苹果.",
+       "audio": "class/zh/n-940f28d077.mp3"
+      },
+      {
+       "text": "个 (ge) is the all-purpose one. Others depend on the thing: 本 for books, 只 for many animals, 杯 for cups. 一 changes tone before them: yí ge, yì běn.",
+       "audio": "class/zh/n-dddc940581.mp3"
+      }
+     ],
+     "table": [
+      [
+       "一个人",
+       "one person"
+      ],
+      [
+       "一本书",
+       "one book"
+      ],
+      [
+       "一只狗",
+       "one dog"
+      ]
+     ],
+     "examples": [
+      "wo-you-yige-jiejie",
+      "zhe-shi-wo-gege"
+     ],
+     "why": {
+      "text": "Chinese counts things with a measure word between the number and the noun, the way English says 'a cup of tea'. 个 is the all-purpose one.",
+      "audio": "class/zh/n-ff0bbbd985.mp3"
+     },
+     "lesson": "zh-3-1"
+    },
+    {
+     "title": "很 + adjective: no 是 needed",
+     "culture": false,
+     "body": [
+      {
+       "text": "To describe something, put the adjective right after the subject, usually with 很: 我的房间很大 (my room is big).",
+       "audio": "class/zh/n-a1265a452b.mp3"
+      },
+      {
+       "text": "Don't use 是 here. Said lightly, 很 is just the link (\"is\"); stress it to mean \"very\".",
+       "audio": "class/zh/n-4c6f591b04.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "wode-fangjian-hen-da",
+      "jia-hen-xiao"
+     ],
+     "why": {
+      "text": "In Chinese an adjective works like a verb ('to be big'), so you don't need 是. 很 sits in front, and is often barely stronger than plain 'is'.",
+      "audio": "class/zh/n-55e621c693.mp3"
+     },
+     "lesson": "zh-3-2"
+    },
+    {
+     "title": "了 for a new situation",
+     "culture": false,
+     "body": [
+      {
+       "text": "了 at the end of a sentence says something has changed: 我饿了 (I'm hungry now), 吃饭了 (it's time to eat).",
+       "audio": "class/zh/n-529503321d.mp3"
+      },
+      {
+       "text": "It's about a new state of things, not just the past.",
+       "audio": "class/zh/n-a003beded2.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "wo-e-le",
+      "wo-kun-le",
+      "chifan-le"
+     ],
+     "why": {
+      "text": "了 at the end of a sentence marks that something has changed, a new situation, like English 'now'.",
+      "audio": "class/zh/n-80218f0ad9.mp3"
+     },
+     "lesson": "zh-3-3"
+    }
+   ],
+   "extras": [],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u27": {
+   "intro": {
+    "text": "Welcome to the class for Culture: greetings & gestures. I'll show you 6 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-1368f4e22e.mp3"
+   },
+   "words": [
+    {
+     "id": "cu-haojiu-bujian"
+    },
+    {
+     "id": "cu-chi-le-ma"
+    },
+    {
+     "id": "cu-mafan-ni-le"
+    },
+    {
+     "id": "cu-bie-keqi"
+    },
+    {
+     "id": "cu-xinghui"
+    },
+    {
+     "id": "cu-zao-an"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Culture: greetings in mainland China and Taiwan",
+     "culture": true,
+     "body": [
+      {
+       "text": "Handshakes are light, and at formal events a small nod or bow is polite. Give and take business cards with both hands, and read the card before putting it away.",
+       "audio": "class/zh/n-6772709d02.mp3"
+      },
+      {
+       "text": "\"吃了吗？\" (have you eaten?) is a friendly hello, especially with older people. It isn't an invitation: just answer \"吃了，你呢？\".",
+       "audio": "class/zh/n-09ed1b62cd.mp3"
+      },
+      {
+       "text": "In Taiwan you'll hear \"早安\" and a softer, very polite tone. People address others by surname and title: 王老师 (Teacher Wang), 李经理 (Manager Li).",
+       "audio": "class/zh/n-9464ebcdb5.mp3"
+      },
+      {
+       "text": "Gestures: to call someone over, wave with your palm facing down. Numbers 6 to 10 have one-hand signs (6 is thumb and little finger). Don't point at people with one finger.",
+       "audio": "class/zh/n-dd92aa0ade.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "cu-haojiu-bujian",
+      "cu-chi-le-ma"
+     ],
+     "why": {
+      "text": "Greetings show respect for age and status, and the mainland and Taiwan have their own habits and expressions.",
+      "audio": "class/zh/n-9dca2dad96.mp3"
+     },
+     "lesson": "zh-27-1"
+    }
+   ],
+   "extras": [],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u4": {
+   "intro": {
+    "text": "Welcome to the class for I want, I have, I like. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-2efc61ea87.mp3"
+   },
+   "words": [
+    {
+     "id": "wan",
+     "ex": "wo-xiang-wan"
+    },
+    {
+     "id": "wo-xiang-wan"
+    },
+    {
+     "id": "wo-xiang-shuijiao"
+    },
+    {
+     "id": "ni-yao-he-shui-ma"
+    },
+    {
+     "id": "wo-bu-xiang"
+    },
+    {
+     "id": "wo-xiang-huijia"
+    },
+    {
+     "id": "qiu"
+    },
+    {
+     "id": "shu",
+     "ex": "wo-you-yiben-shu"
+    },
+    {
+     "id": "wo-you-yiben-shu"
+    },
+    {
+     "id": "ni-you-bi-ma"
+    },
+    {
+     "id": "wo-meiyou-gege"
+    },
+    {
+     "id": "ta-you-yizhi-gou"
+    },
+    {
+     "id": "qiaokeli",
+     "ex": "wo-xihuan-qiaokeli"
+    },
+    {
+     "id": "xihuan",
+     "ex": "wo-xihuan-qiaokeli"
+    },
+    {
+     "id": "wo-xihuan-qiaokeli"
+    },
+    {
+     "id": "wo-bu-xihuan-niunai"
+    },
+    {
+     "id": "ni-xihuan-gou-ma"
+    },
+    {
+     "id": "wo-hen-xihuan"
+    }
+   ],
+   "rules": [
+    {
+     "title": "想 and 要: wanting",
+     "culture": false,
+     "body": [
+      {
+       "text": "想 + verb is \"would like to, feel like\": 我想玩. 要 is stronger, \"want, going to\": 我要回家.",
+       "audio": "class/zh/n-51453681bb.mp3"
+      },
+      {
+       "text": "To say no, put 不 before it: 我不想.",
+       "audio": "class/zh/n-841cd3d1f7.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "wo-xiang-wan",
+      "wo-bu-xiang",
+      "ni-yao-he-shui-ma"
+     ],
+     "why": {
+      "text": "想 is a softer 'would like to'; 要 is a firmer 'want' or 'going to'. Choosing one shows how strongly you mean it.",
+      "audio": "class/zh/n-61ed1808ba.mp3"
+     },
+     "lesson": "zh-4-1"
+    },
+    {
+     "title": "没有: \"don't have\"",
+     "culture": false,
+     "body": [
+      {
+       "text": "有 (to have) is the one verb you can't negate with 不. Say 没有 instead: 我没有哥哥.",
+       "audio": "class/zh/n-bf886b8d58.mp3"
+      },
+      {
+       "text": "Every other verb takes 不 for \"don't\": 我不喜欢.",
+       "audio": "class/zh/n-da73167820.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "wo-meiyou-gege",
+      "wo-you-yiben-shu"
+     ],
+     "why": {
+      "text": "有 is the verb for 'have', and its negative is always 没有, never 不有. That's just how 有 works.",
+      "audio": "class/zh/n-f05a3055ae.mp3"
+     },
+     "lesson": "zh-4-2"
+    },
+    {
+     "title": "吗: yes-or-no questions",
+     "culture": false,
+     "body": [
+      {
+       "text": "To turn a statement into a yes-or-no question, add 吗 at the end: 你喜欢狗 → 你喜欢狗吗？",
+       "audio": "class/zh/n-ba2cc989c3.mp3"
+      },
+      {
+       "text": "To answer, repeat the verb: 喜欢 (yes) or 不喜欢 (no). There's no single word for yes.",
+       "audio": "class/zh/n-f7fd11592f.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "ni-xihuan-gou-ma",
+      "wo-bu-xihuan-niunai"
+     ],
+     "why": {
+      "text": "吗 at the end turns a statement into a yes-or-no question without changing the word order, so it's an easy way to ask.",
+      "audio": "class/zh/n-52c55b9efd.mp3"
+     },
+     "lesson": "zh-4-3"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-food-1",
+     "title": "At the café",
+     "intro": {
+      "text": "These lines come up in the role-play “At the café”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-6dbde6b4ff.mp3"
+     },
+     "lines": [
+      {
+       "text": "你好！喝点儿什么？",
+       "en": "Hello! What would you like to drink?",
+       "pinyin": "Nǐ hǎo! Hē diǎnr shénme?",
+       "audio": "scenarios/zh/zh-food-1-0.mp3"
+      },
+      {
+       "text": "我要一杯拿铁。",
+       "en": "I'd like a latte.",
+       "pinyin": "Wǒ yào yì bēi nátiě.",
+       "audio": "scenarios/zh/zh-food-1-1.mp3"
+      },
+      {
+       "text": "要不要吃点儿东西？",
+       "en": "Would you like something to eat?",
+       "pinyin": "Yào bu yào chī diǎnr dōngxi?",
+       "audio": "scenarios/zh/zh-food-1-2.mp3"
+      },
+      {
+       "text": "我还要一块蛋糕。",
+       "en": "I'd also like a piece of cake.",
+       "pinyin": "Wǒ hái yào yí kuài dàngāo.",
+       "audio": "scenarios/zh/zh-food-1-3.mp3"
+      },
+      {
+       "text": "一共四十五块。",
+       "en": "That's forty-five yuan altogether.",
+       "pinyin": "Yígòng sìshíwǔ kuài.",
+       "audio": "scenarios/zh/zh-food-1-4.mp3"
+      },
+      {
+       "text": "我用微信付。",
+       "en": "I'll pay with WeChat.",
+       "pinyin": "Wǒ yòng Wēixìn fù.",
+       "audio": "scenarios/zh/zh-food-1-5.mp3"
+      },
+      {
+       "text": "好的，请稍等。",
+       "en": "OK, one moment please.",
+       "pinyin": "Hǎo de, qǐng shāo děng.",
+       "audio": "scenarios/zh/zh-food-1-6.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u5": {
+   "intro": {
+    "text": "Welcome to the class for Colors, numbers and questions. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-a3bbb84785.mp3"
+   },
+   "words": [
+    {
+     "id": "lanse",
+     "ex": "che-shi-lanse-de"
+    },
+    {
+     "id": "lvse"
+    },
+    {
+     "id": "huangse"
+    },
+    {
+     "id": "baise",
+     "ex": "baise-de-fangzi"
+    },
+    {
+     "id": "che-shi-lanse-de"
+    },
+    {
+     "id": "baise-de-fangzi"
+    },
+    {
+     "id": "liang-zhi-mao"
+    },
+    {
+     "id": "san-ge-pingguo"
+    },
+    {
+     "id": "wu-ben-shu"
+    },
+    {
+     "id": "ji-ge"
+    },
+    {
+     "id": "ni-ji-sui"
+    },
+    {
+     "id": "wo-qi-sui"
+    },
+    {
+     "id": "zhe-shi-shenme"
+    },
+    {
+     "id": "ta-shi-shei"
+    },
+    {
+     "id": "mama-zai-nali"
+    },
+    {
+     "id": "weishenme"
+    },
+    {
+     "id": "zhe-shi-mao"
+    },
+    {
+     "id": "ni-jiao-shenme-mingzi"
+    }
+   ],
+   "rules": [
+    {
+     "title": "两 for \"two\" before a measure word",
+     "culture": false,
+     "body": [
+      {
+       "text": "When you count things, \"two\" is 两, not 二: 两只猫 (two cats).",
+       "audio": "class/zh/n-6f3e7fdbd1.mp3"
+      },
+      {
+       "text": "二 is for counting out loud and in bigger numbers (十二, twelve).",
+       "audio": "class/zh/n-94f07b4cd3.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "liang-zhi-mao",
+      "san-ge-pingguo",
+      "wu-ben-shu"
+     ],
+     "why": {
+      "text": "二 is used for counting and in numbers, but before a measure word Chinese uses 两, the way English says 'a couple of'.",
+      "audio": "class/zh/n-0133e86567.mp3"
+     },
+     "lesson": "zh-5-2"
+    },
+    {
+     "title": "Question words stay in place",
+     "culture": false,
+     "body": [
+      {
+       "text": "Chinese questions keep the order of the answer. Put the question word where the answer would go: 这是猫 → 这是什么？ 他是老师 → 他是谁？",
+       "audio": "class/zh/n-0678909536.mp3"
+      },
+      {
+       "text": "Don't add 吗 to a question that already has a question word.",
+       "audio": "class/zh/n-231fe88a07.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "zhe-shi-shenme",
+      "ta-shi-shei",
+      "mama-zai-nali"
+     ],
+     "why": {
+      "text": "Chinese keeps the word order of the answer: the question word sits where the answer will go. That makes questions easy to build.",
+      "audio": "class/zh/n-bc03543f80.mp3"
+     },
+     "lesson": "zh-5-3"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-directions-1",
+     "title": "Where's the bank?",
+     "intro": {
+      "text": "These lines come up in the role-play “Where's the bank?”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-11dccb3f55.mp3"
+     },
+     "lines": [
+      {
+       "text": "请问，银行在哪儿？",
+       "en": "Excuse me, where is the bank?",
+       "pinyin": "Qǐngwèn, yínháng zài nǎr?",
+       "audio": "scenarios/zh/zh-directions-1-0.mp3"
+      },
+      {
+       "text": "一直走，然后往左拐。",
+       "en": "Go straight ahead, then turn left.",
+       "pinyin": "Yìzhí zǒu, ránhòu wǎng zuǒ guǎi.",
+       "audio": "scenarios/zh/zh-directions-1-1.mp3"
+      },
+      {
+       "text": "远吗？",
+       "en": "Is it far?",
+       "pinyin": "Yuǎn ma?",
+       "audio": "scenarios/zh/zh-directions-1-2.mp3"
+      },
+      {
+       "text": "不远，走路五分钟。",
+       "en": "Not far, five minutes on foot.",
+       "pinyin": "Bù yuǎn, zǒulù wǔ fēnzhōng.",
+       "audio": "scenarios/zh/zh-directions-1-3.mp3"
+      },
+      {
+       "text": "不客气。",
+       "en": "You're welcome.",
+       "pinyin": "Bú kèqi.",
+       "audio": "scenarios/zh/zh-directions-1-5.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "story",
+     "id": "zh-cat",
+     "title": "My cat",
+     "intro": {
+      "text": "These words come up in the story “My cat”. Hear them now, so the story is easy to follow.",
+      "audio": "class/zh/n-0395308457.mp3"
+     },
+     "lines": [
+      {
+       "text": "它叫咪咪。",
+       "en": "Its name is Mimi.",
+       "pinyin": "Tā jiào Mīmi.",
+       "audio": "stories/zh/zh-cat-1.mp3"
+      },
+      {
+       "text": "咪咪很小，也很可爱。",
+       "en": "Mimi is small, and very cute.",
+       "pinyin": "Mīmi hěn xiǎo, yě hěn kě'ài.",
+       "audio": "stories/zh/zh-cat-2.mp3"
+      },
+      {
+       "text": "晚上，它在我的床上睡觉。",
+       "en": "At night, it sleeps on my bed.",
+       "pinyin": "Wǎnshang, tā zài wǒ de chuáng shang shuìjiào.",
+       "audio": "stories/zh/zh-cat-4.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u6": {
+   "intro": {
+    "text": "Welcome to the class for Where things are. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-e78651bdb9.mp3"
+   },
+   "words": [
+    {
+     "id": "limian"
+    },
+    {
+     "id": "shangmian"
+    },
+    {
+     "id": "xiamian",
+     "ex": "mao-zai-chuang-xiamian"
+    },
+    {
+     "id": "shu-zai-zhuozi-shang"
+    },
+    {
+     "id": "mao-zai-chuang-xiamian"
+    },
+    {
+     "id": "niunai-zai-chufang"
+    },
+    {
+     "id": "zheli"
+    },
+    {
+     "id": "nali",
+     "ex": "cesuo-zai-nali"
+    },
+    {
+     "id": "jin"
+    },
+    {
+     "id": "yuan",
+     "ex": "yuan-bu-yuan"
+    },
+    {
+     "id": "cesuo-zai-nali"
+    },
+    {
+     "id": "yuan-bu-yuan"
+    },
+    {
+     "id": "zuobian"
+    },
+    {
+     "id": "youbian",
+     "ex": "zai-youbian"
+    },
+    {
+     "id": "yizhi-zou"
+    },
+    {
+     "id": "wang-zuo-guai"
+    },
+    {
+     "id": "wang-you-guai"
+    },
+    {
+     "id": "zai-youbian"
+    }
+   ],
+   "rules": [
+    {
+     "title": "在 + place + 上 / 下 / 里",
+     "culture": false,
+     "body": [
+      {
+       "text": "To say where something is: thing + 在 + place + position word. 书在桌子上 (the book is on the table).",
+       "audio": "class/zh/n-62896238f0.mp3"
+      },
+      {
+       "text": "The position word comes after the place: 上 on, 下 under, 里 in.",
+       "audio": "class/zh/n-d338c2e6a7.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "shu-zai-zhuozi-shang",
+      "mao-zai-chuang-xiamian",
+      "niunai-zai-chufang"
+     ],
+     "why": {
+      "text": "Chinese describes a location as 'at the table's top': 在 + the place + a position word like 上, 下 or 里.",
+      "audio": "class/zh/n-fb2a507f66.mp3"
+     },
+     "lesson": "zh-6-1"
+    },
+    {
+     "title": "Yes-or-no questions with \"A not A\"",
+     "culture": false,
+     "body": [
+      {
+       "text": "Another way to ask yes or no: say the verb or adjective, then 不, then again. 远不远？ (is it far?), 好不好？",
+       "audio": "class/zh/n-d013219f4d.mp3"
+      },
+      {
+       "text": "The 不 in the middle is said lightly.",
+       "audio": "class/zh/n-4813239884.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "yuan-bu-yuan",
+      "cesuo-zai-nali"
+     ],
+     "why": {
+      "text": "Saying the verb and its negative together (是不是, 'is or isn't') asks a yes-or-no question by offering both choices.",
+      "audio": "class/zh/n-0681cb22c7.mp3"
+     },
+     "lesson": "zh-6-2"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-shopping-1",
+     "title": "Buying fruit",
+     "intro": {
+      "text": "These lines come up in the role-play “Buying fruit”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-61646cefab.mp3"
+     },
+     "lines": [
+      {
+       "text": "我要一斤苹果。",
+       "en": "I'd like a jin of apples.",
+       "pinyin": "Wǒ yào yì jīn píngguǒ.",
+       "audio": "scenarios/zh/zh-shopping-1-1.mp3"
+      },
+      {
+       "text": "好。还要别的吗？",
+       "en": "OK. Anything else?",
+       "pinyin": "Hǎo. Hái yào biéde ma?",
+       "audio": "scenarios/zh/zh-shopping-1-2.mp3"
+      },
+      {
+       "text": "不要了。多少钱？",
+       "en": "No, that's all. How much is it?",
+       "pinyin": "Bú yào le. Duōshao qián?",
+       "audio": "scenarios/zh/zh-shopping-1-3.mp3"
+      },
+      {
+       "text": "六块。",
+       "en": "Six yuan.",
+       "pinyin": "Liù kuài.",
+       "audio": "scenarios/zh/zh-shopping-1-4.mp3"
+      },
+      {
+       "text": "给你。",
+       "en": "Here you are.",
+       "pinyin": "Gěi nǐ.",
+       "audio": "scenarios/zh/zh-shopping-1-5.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "story",
+     "id": "zh-fruit",
+     "title": "Buying fruit",
+     "intro": {
+      "text": "These words come up in the story “Buying fruit”. Hear them now, so the story is easy to follow.",
+      "audio": "class/zh/n-0ae9692069.mp3"
+     },
+     "lines": [
+      {
+       "text": "阿姨，苹果多少钱？",
+       "en": "Auntie, how much are the apples?",
+       "pinyin": "Āyí, píngguǒ duōshao qián?",
+       "audio": "stories/zh/zh-fruit-0.mp3"
+      },
+      {
+       "text": "香蕉也要一斤。",
+       "en": "A jin of bananas too.",
+       "pinyin": "Xiāngjiāo yě yào yì jīn.",
+       "audio": "stories/zh/zh-fruit-4.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "article",
+     "id": "zh-read-park",
+     "title": "A new park",
+     "intro": {
+      "text": "These words come up in the article “A new park”. Hear them now, so it's easy to read.",
+      "audio": "class/zh/n-212e6a9a8e.mp3"
+     },
+     "lines": [
+      {
+       "text": "我家附近有一个新公园。",
+       "en": "There is a new park near my home.",
+       "pinyin": "Wǒ jiā fùjìn yǒu yí ge xīn gōngyuán.",
+       "audio": "stories/zh/zh-read-park-0.mp3"
+      },
+      {
+       "text": "公园很大，也很漂亮。",
+       "en": "The park is big and very pretty.",
+       "pinyin": "Gōngyuán hěn dà, yě hěn piàoliang.",
+       "audio": "stories/zh/zh-read-park-1.mp3"
+      },
+      {
+       "text": "公园里有树、花和一个小湖。",
+       "en": "In the park there are trees, flowers and a small lake.",
+       "pinyin": "Gōngyuán li yǒu shù, huā hé yí ge xiǎo hú.",
+       "audio": "stories/zh/zh-read-park-2.mp3"
+      },
+      {
+       "text": "孩子们在玩，小狗在跑。",
+       "en": "The children are playing and the puppies are running.",
+       "pinyin": "Háizimen zài wán, xiǎogǒu zài pǎo.",
+       "audio": "stories/zh/zh-read-park-3.mp3"
+      },
+      {
+       "text": "公园每天早上六点开门。",
+       "en": "The park opens at six every morning.",
+       "pinyin": "Gōngyuán měitiān zǎoshang liù diǎn kāimén.",
+       "audio": "stories/zh/zh-read-park-4.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u7": {
+   "intro": {
+    "text": "Welcome to the class for Meeting people. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-53ba76fb15.mp3"
+   },
+   "words": [
+    {
+     "id": "mingzi",
+     "ex": "ni-jiao-shenme-mingzi"
+    },
+    {
+     "id": "nin-guixing"
+    },
+    {
+     "id": "wo-xing-wang"
+    },
+    {
+     "id": "renshi-ni-hen-gaoxing"
+    },
+    {
+     "id": "wo-ye-shi"
+    },
+    {
+     "id": "zhe-shi-wo-pengyou"
+    },
+    {
+     "id": "ni-shi-na-guo-ren"
+    },
+    {
+     "id": "wo-shi-meiguoren"
+    },
+    {
+     "id": "ni-zhu-zai-nar"
+    },
+    {
+     "id": "wo-zhu-zai-beijing"
+    },
+    {
+     "id": "ni-hui-shuo-yingyu-ma"
+    },
+    {
+     "id": "wo-hui-shuo-yidianr-zhongwen"
+    },
+    {
+     "id": "ni-zenmeyang"
+    },
+    {
+     "id": "hai-buzuo-ni-ne"
+    },
+    {
+     "id": "ni-zuo-shenme-gongzuo"
+    },
+    {
+     "id": "wo-shi-laoshi"
+    },
+    {
+     "id": "wo-sanshi-sui"
+    },
+    {
+     "id": "wo-jiehun-le"
+    }
+   ],
+   "rules": [
+    {
+     "title": "会: can (a skill you learned)",
+     "culture": false,
+     "body": [
+      {
+       "text": "会 means \"can\" for things you've learned: 我会说中文 (I can speak Chinese).",
+       "audio": "class/zh/n-e47b58c7db.mp3"
+      },
+      {
+       "text": "能 is \"can\" in the sense of being able or allowed: 你能帮我吗？",
+       "audio": "class/zh/n-e6045326d3.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "ni-hui-shuo-yingyu-ma",
+      "wo-hui-shuo-yidianr-zhongwen"
+     ],
+     "why": {
+      "text": "会 is for skills you learned (swimming, speaking Chinese), while 能 is for being able right now. Two words keep these apart.",
+      "audio": "class/zh/n-f11d67816c.mp3"
+     },
+     "lesson": "zh-7-2"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-smalltalk-2",
+     "title": "Meeting someone new",
+     "intro": {
+      "text": "These lines come up in the role-play “Meeting someone new”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-6f90f4af41.mp3"
+     },
+     "lines": [
+      {
+       "text": "你好，我叫李明。你叫什么名字？",
+       "en": "Hi, I'm Li Ming. What's your name?",
+       "pinyin": "Nǐ hǎo, wǒ jiào Lǐ Míng. Nǐ jiào shénme míngzi?",
+       "audio": "scenarios/zh/zh-smalltalk-2-0.mp3"
+      },
+      {
+       "text": "你好，我叫山姆。很高兴认识你。",
+       "en": "Hi, my name is Sam. Nice to meet you.",
+       "pinyin": "Nǐ hǎo, wǒ jiào Shānmǔ. Hěn gāoxìng rènshi nǐ.",
+       "audio": "scenarios/zh/zh-smalltalk-2-1.mp3"
+      },
+      {
+       "text": "我是美国人，现在住在上海。",
+       "en": "I'm American, and I live in Shanghai now.",
+       "pinyin": "Wǒ shì Měiguó rén, xiànzài zhù zài Shànghǎi.",
+       "audio": "scenarios/zh/zh-smalltalk-2-3.mp3"
+      },
+      {
+       "text": "我在一家软件公司工作。",
+       "en": "I work at a software company.",
+       "pinyin": "Wǒ zài yì jiā ruǎnjiàn gōngsī gōngzuò.",
+       "audio": "scenarios/zh/zh-smalltalk-2-5.mp3"
+      },
+      {
+       "text": "太好了！欢迎你来上海。",
+       "en": "Great! Welcome to Shanghai.",
+       "pinyin": "Tài hǎo le! Huānyíng nǐ lái Shànghǎi.",
+       "audio": "scenarios/zh/zh-smalltalk-2-6.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "roleplay",
+     "id": "zh-doctor-2",
+     "title": "At the doctor's",
+     "intro": {
+      "text": "These lines come up in the role-play “At the doctor's”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-4a55640c5a.mp3"
+     },
+     "lines": [
+      {
+       "text": "你哪儿不舒服？",
+       "en": "What seems to be the problem?",
+       "pinyin": "Nǐ nǎr bù shūfu?",
+       "audio": "scenarios/zh/zh-doctor-2-0.mp3"
+      },
+      {
+       "text": "我嗓子疼，还发烧。",
+       "en": "My throat hurts, and I have a fever.",
+       "pinyin": "Wǒ sǎngzi téng, hái fāshāo.",
+       "audio": "scenarios/zh/zh-doctor-2-1.mp3"
+      },
+      {
+       "text": "从什么时候开始的？",
+       "en": "When did it start?",
+       "pinyin": "Cóng shénme shíhou kāishǐ de?",
+       "audio": "scenarios/zh/zh-doctor-2-2.mp3"
+      },
+      {
+       "text": "从昨天晚上开始的。",
+       "en": "It started last night.",
+       "pinyin": "Cóng zuótiān wǎnshang kāishǐ de.",
+       "audio": "scenarios/zh/zh-doctor-2-3.mp3"
+      },
+      {
+       "text": "我给你开点儿药，一天吃三次。",
+       "en": "I'll prescribe some medicine. Take it three times a day.",
+       "pinyin": "Wǒ gěi nǐ kāi diǎnr yào, yì tiān chī sān cì.",
+       "audio": "scenarios/zh/zh-doctor-2-4.mp3"
+      },
+      {
+       "text": "好的，谢谢医生。",
+       "en": "OK, thank you, doctor.",
+       "pinyin": "Hǎo de, xièxie yīshēng.",
+       "audio": "scenarios/zh/zh-doctor-2-5.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u8": {
+   "intro": {
+    "text": "Welcome to the class for Shopping and eating out. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-d716be4cdf.mp3"
+   },
+   "words": [
+    {
+     "id": "duoshao-qian"
+    },
+    {
+     "id": "tai-gui-le"
+    },
+    {
+     "id": "pianyi-yidianr"
+    },
+    {
+     "id": "wo-yao-zhege"
+    },
+    {
+     "id": "you-da-yidianr-de-ma"
+    },
+    {
+     "id": "wo-zhi-shi-kankan"
+    },
+    {
+     "id": "liang-wei"
+    },
+    {
+     "id": "you-caidan-ma"
+    },
+    {
+     "id": "ni-tuijian-shenme"
+    },
+    {
+     "id": "maidan"
+    },
+    {
+     "id": "keyi-shua-ka-ma"
+    },
+    {
+     "id": "keyi-yong-weixin-ma"
+    },
+    {
+     "id": "wo-yao-yibei-kafei"
+    },
+    {
+     "id": "lai-yige-gongbao-jiding"
+    },
+    {
+     "id": "bu-yao-la"
+    },
+    {
+     "id": "wo-chi-su"
+    },
+    {
+     "id": "zhen-haochi"
+    },
+    {
+     "id": "qing-gei-wo-yibei-shui"
+    }
+   ],
+   "rules": [
+    {
+     "title": "太…了 and 一点儿",
+     "culture": false,
+     "body": [
+      {
+       "text": "太 + adjective + 了 means \"too …\": 太贵了 (too expensive).",
+       "audio": "class/zh/n-9503065b19.mp3"
+      },
+      {
+       "text": "Adjective + 一点儿 means \"a bit more …\": 便宜一点儿 (a bit cheaper), 大一点儿的 (a bigger one).",
+       "audio": "class/zh/n-73b7b702cd.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "tai-gui-le",
+      "pianyi-yidianr",
+      "you-da-yidianr-de-ma"
+     ],
+     "why": {
+      "text": "太…了 expresses 'too' or 'so much', often with feeling. 一点儿 softens: 'a little'. Together they cover strength of description.",
+      "audio": "class/zh/n-29f4c8b4c8.mp3"
+     },
+     "lesson": "zh-8-1"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-airport-2",
+     "title": "At the check-in desk",
+     "intro": {
+      "text": "These lines come up in the role-play “At the check-in desk”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-e0f425ba6d.mp3"
+     },
+     "lines": [
+      {
+       "text": "您好，请出示您的护照。",
+       "en": "Hello, please show me your passport.",
+       "pinyin": "Nín hǎo, qǐng chūshì nín de hùzhào.",
+       "audio": "scenarios/zh/zh-airport-2-0.mp3"
+      },
+      {
+       "text": "有行李要托运吗？",
+       "en": "Do you have any bags to check?",
+       "pinyin": "Yǒu xíngli yào tuōyùn ma?",
+       "audio": "scenarios/zh/zh-airport-2-2.mp3"
+      },
+      {
+       "text": "有一个箱子。",
+       "en": "I have one suitcase.",
+       "pinyin": "Yǒu yí ge xiāngzi.",
+       "audio": "scenarios/zh/zh-airport-2-3.mp3"
+      },
+      {
+       "text": "您要靠窗还是靠过道的座位？",
+       "en": "Would you like a window or an aisle seat?",
+       "pinyin": "Nín yào kào chuāng háishi kào guòdào de zuòwèi?",
+       "audio": "scenarios/zh/zh-airport-2-4.mp3"
+      },
+      {
+       "text": "好的，您在十二号登机口登机。",
+       "en": "All right, you'll board at gate twelve.",
+       "pinyin": "Hǎo de, nín zài shí'èr hào dēngjīkǒu dēngjī.",
+       "audio": "scenarios/zh/zh-airport-2-6.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "story",
+     "id": "zh-day",
+     "title": "My day",
+     "intro": {
+      "text": "These words come up in the story “My day”. Hear them now, so the story is easy to follow.",
+      "audio": "class/zh/n-50ea316510.mp3"
+     },
+     "lines": [
+      {
+       "text": "我每天早上七点起床。",
+       "en": "Every day I get up at seven in the morning.",
+       "pinyin": "Wǒ měitiān zǎoshang qī diǎn qǐchuáng.",
+       "audio": "stories/zh/zh-day-0.mp3"
+      },
+      {
+       "text": "我先喝一杯茶，然后吃早饭。",
+       "en": "First I drink a cup of tea, then I have breakfast.",
+       "pinyin": "Wǒ xiān hē yì bēi chá, ránhòu chī zǎofàn.",
+       "audio": "stories/zh/zh-day-1.mp3"
+      },
+      {
+       "text": "八点我坐地铁去上班。",
+       "en": "At eight I take the subway to work.",
+       "pinyin": "Bā diǎn wǒ zuò dìtiě qù shàngbān.",
+       "audio": "stories/zh/zh-day-2.mp3"
+      },
+      {
+       "text": "中午我和同事一起吃饭。",
+       "en": "At noon I eat with my colleagues.",
+       "pinyin": "Zhōngwǔ wǒ hé tóngshì yìqǐ chīfàn.",
+       "audio": "stories/zh/zh-day-3.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u9": {
+   "intro": {
+    "text": "Welcome to the class for My day. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-35771cc447.mp3"
+   },
+   "words": [
+    {
+     "id": "wo-qi-dian-qichuang"
+    },
+    {
+     "id": "xizao"
+    },
+    {
+     "id": "chi-zaofan"
+    },
+    {
+     "id": "chuan-yifu"
+    },
+    {
+     "id": "wo-ba-dian-chumen"
+    },
+    {
+     "id": "wo-zuo-ditie-shangban"
+    },
+    {
+     "id": "xianzai-ji-dian"
+    },
+    {
+     "id": "san-dian"
+    },
+    {
+     "id": "jintian"
+    },
+    {
+     "id": "mingtian"
+    },
+    {
+     "id": "zuotian",
+     "ex": "ni-zuotian-zuo-le-shenme"
+    },
+    {
+     "id": "xingqiyi-wo-shangban"
+    },
+    {
+     "id": "ni-zuotian-zuo-le-shenme"
+    },
+    {
+     "id": "wo-qu-le-gongyuan"
+    },
+    {
+     "id": "wo-he-jiaren-chifan"
+    },
+    {
+     "id": "wo-kan-le-yibu-dianying"
+    },
+    {
+     "id": "wo-yizhengtian-dou-zai-jia"
+    },
+    {
+     "id": "wan-de-hen-kaixin"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Time comes before the verb",
+     "culture": false,
+     "body": [
+      {
+       "text": "When something happens goes before the action, right after the subject: 我七点起床 (I get up at seven).",
+       "audio": "class/zh/n-71dda72e0c.mp3"
+      },
+      {
+       "text": "How you go somewhere also goes first: 我坐地铁上班 (I take the subway to work).",
+       "audio": "class/zh/n-52f019e369.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "wo-qi-dian-qichuang",
+      "wo-ba-dian-chumen",
+      "wo-zuo-ditie-shangban"
+     ],
+     "why": {
+      "text": "In Chinese, time words come before the verb, setting the scene first, because the language goes from the bigger context to the action.",
+      "audio": "class/zh/n-d2f3c52cd6.mp3"
+     },
+     "lesson": "zh-9-1"
+    },
+    {
+     "title": "了 after a verb: it happened",
+     "culture": false,
+     "body": [
+      {
+       "text": "了 right after a verb marks a finished action: 我去了公园 (I went to the park), 我看了一部电影.",
+       "audio": "class/zh/n-229a2836f5.mp3"
+      },
+      {
+       "text": "To say it didn't happen, use 没 and drop 了: 我没去.",
+       "audio": "class/zh/n-118f795d1f.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "wo-qu-le-gongyuan",
+      "wo-kan-le-yibu-dianying",
+      "ni-zuotian-zuo-le-shenme"
+     ],
+     "why": {
+      "text": "了 after the verb marks that an action is completed. Chinese doesn't change the verb for past time, so 了 does that work.",
+      "audio": "class/zh/n-e12069e6a0.mp3"
+     },
+     "lesson": "zh-9-3"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-hotel-2",
+     "title": "Checking in at the hotel",
+     "intro": {
+      "text": "These lines come up in the role-play “Checking in at the hotel”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-1e8b5ede62.mp3"
+     },
+     "lines": [
+      {
+       "text": "晚上好，欢迎光临！请问您有预订吗？",
+       "en": "Good evening, welcome! Do you have a reservation?",
+       "pinyin": "Wǎnshang hǎo, huānyíng guānglín! Qǐngwèn nín yǒu yùdìng ma?",
+       "audio": "scenarios/zh/zh-hotel-2-0.mp3"
+      },
+      {
+       "text": "有，名字是王丽。",
+       "en": "Yes, the name is Wang Li.",
+       "pinyin": "Yǒu, míngzi shì Wáng Lì.",
+       "audio": "scenarios/zh/zh-hotel-2-1.mp3"
+      },
+      {
+       "text": "好的，一间双人房，住三个晚上，对吗？",
+       "en": "OK, one double room for three nights, right?",
+       "pinyin": "Hǎo de, yì jiān shuāngrénfáng, zhù sān ge wǎnshang, duì ma?",
+       "audio": "scenarios/zh/zh-hotel-2-2.mp3"
+      },
+      {
+       "text": "早上七点到十点，在二楼。",
+       "en": "From seven to ten in the morning, on the second floor.",
+       "pinyin": "Zǎoshang qī diǎn dào shí diǎn, zài èr lóu.",
+       "audio": "scenarios/zh/zh-hotel-2-4.mp3"
+      },
+      {
+       "text": "房间里有无线网吗？",
+       "en": "Is there wifi in the room?",
+       "pinyin": "Fángjiān li yǒu wúxiànwǎng ma?",
+       "audio": "scenarios/zh/zh-hotel-2-5.mp3"
+      },
+      {
+       "text": "有，密码在房卡上。祝您入住愉快！",
+       "en": "Yes, the password is on your key card. Enjoy your stay!",
+       "pinyin": "Yǒu, mìmǎ zài fángkǎ shang. Zhù nín rùzhù yúkuài!",
+       "audio": "scenarios/zh/zh-hotel-2-6.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "story",
+     "id": "zh-directions",
+     "title": "Asking the way",
+     "intro": {
+      "text": "These words come up in the story “Asking the way”. Hear them now, so the story is easy to follow.",
+      "audio": "class/zh/n-cd0c0789bf.mp3"
+     },
+     "lines": [
+      {
+       "text": "请问，地铁站在哪儿？",
+       "en": "Excuse me, where is the subway station?",
+       "pinyin": "Qǐngwèn, dìtiězhàn zài nǎr?",
+       "audio": "stories/zh/zh-directions-0.mp3"
+      },
+      {
+       "text": "一直往前走，到路口往右拐。",
+       "en": "Go straight ahead, and at the crossroads turn right.",
+       "pinyin": "Yìzhí wǎng qián zǒu, dào lùkǒu wǎng yòu guǎi.",
+       "audio": "stories/zh/zh-directions-1.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "article",
+     "id": "zh-read-market",
+     "title": "The Sunday morning market",
+     "intro": {
+      "text": "These words come up in the article “The Sunday morning market”. Hear them now, so it's easy to read.",
+      "audio": "class/zh/n-5b68df4a76.mp3"
+     },
+     "lines": [
+      {
+       "text": "每个星期天，广场上都有一个早市。",
+       "en": "Every Sunday there's a morning market in the square.",
+       "pinyin": "Měi ge Xīngqītiān, guǎngchǎng shang dōu yǒu yí ge zǎoshì.",
+       "audio": "stories/zh/zh-read-market-0.mp3"
+      },
+      {
+       "text": "农民在这儿卖水果、蔬菜和鸡蛋。",
+       "en": "Farmers sell fruit, vegetables and eggs here.",
+       "pinyin": "Nóngmín zài zhèr mài shuǐguǒ, shūcài hé jīdàn.",
+       "audio": "stories/zh/zh-read-market-1.mp3"
+      },
+      {
+       "text": "东西很便宜，一斤西红柿只要三块钱。",
+       "en": "Things are cheap: half a kilo of tomatoes is only three yuan.",
+       "pinyin": "Dōngxi hěn piányi, yì jīn xīhóngshì zhǐ yào sān kuài qián.",
+       "audio": "stories/zh/zh-read-market-2.mp3"
+      },
+      {
+       "text": "很多人在那儿吃早饭，喝豆浆，吃包子。",
+       "en": "Lots of people have breakfast there: soy milk and steamed buns.",
+       "pinyin": "Hěn duō rén zài nàr chī zǎofàn, hē dòujiāng, chī bāozi.",
+       "audio": "stories/zh/zh-read-market-3.mp3"
+      },
+      {
+       "text": "早市早上六点开始，十一点结束。",
+       "en": "The market starts at six and ends at eleven.",
+       "pinyin": "Zǎoshì zǎoshang liù diǎn kāishǐ, shíyī diǎn jiéshù.",
+       "audio": "stories/zh/zh-read-market-4.mp3"
+      },
+      {
+       "text": "最好早点儿去，因为九点以后人特别多。",
+       "en": "It's best to go early, because after nine it's very crowded.",
+       "pinyin": "Zuìhǎo zǎo diǎnr qù, yīnwèi jiǔ diǎn yǐhòu rén tèbié duō.",
+       "audio": "stories/zh/zh-read-market-5.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u28": {
+   "intro": {
+    "text": "Welcome to the class for Culture: food & table manners. I'll show you 6 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-d878d9fbf9.mp3"
+   },
+   "words": [
+    {
+     "id": "cu-chihao-hehao"
+    },
+    {
+     "id": "cu-ganbei"
+    },
+    {
+     "id": "cu-wo-qingke"
+    },
+    {
+     "id": "cu-maidan"
+    },
+    {
+     "id": "cu-chi-bao-le"
+    },
+    {
+     "id": "cu-bu-tai-la"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Culture: eating together in China and Taiwan",
+     "culture": true,
+     "body": [
+      {
+       "text": "Dishes are shared in the middle of the table. If serving chopsticks (公筷) are offered, use them to take food. Never stand chopsticks upright in rice: it looks like incense at a funeral.",
+       "audio": "class/zh/n-a6030f8ade.mp3"
+      },
+      {
+       "text": "The host usually orders and pays, and friends happily argue over who gets the bill. When toasting an older person or your boss, hold your glass a little lower than theirs.",
+       "audio": "class/zh/n-255a4212e6.mp3"
+      },
+      {
+       "text": "Tipping isn't expected in mainland China or Taiwan. In Taiwan you'll often hear 结帐 (jiézhàng) for the bill, and night markets are the place for street food.",
+       "audio": "class/zh/n-0d69de8210.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "cu-chihao-hehao",
+      "cu-ganbei"
+     ],
+     "why": {
+      "text": "Meals are shared in China, so the dishes go in the middle and hosts often serve their guests.",
+      "audio": "class/zh/n-9dad6f77e7.mp3"
+     },
+     "lesson": "zh-28-1"
+    }
+   ],
+   "extras": [],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u10": {
+   "intro": {
+    "text": "Welcome to the class for Telling stories. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-5cb972881f.mp3"
+   },
+   "words": [
+    {
+     "id": "congqian-you-yige-xiao-nuhai"
+    },
+    {
+     "id": "ta-zhu-zai-yige-xiao-cunzi-li"
+    },
+    {
+     "id": "ta-meitian-dou-qu-hebian"
+    },
+    {
+     "id": "you-yitian-ta-zhaodao-le"
+    },
+    {
+     "id": "turan"
+    },
+    {
+     "id": "cong-ci-guo-shang-le"
+    },
+    {
+     "id": "ta-you-gao-you-shou"
+    },
+    {
+     "id": "ta-de-toufa-hen-chang"
+    },
+    {
+     "id": "ta-dai-yanjing"
+    },
+    {
+     "id": "ta-ren-hen-hao"
+    },
+    {
+     "id": "ta-you-dianr-haixiu"
+    },
+    {
+     "id": "ta-zhang-de-xiang-ta-mama"
+    },
+    {
+     "id": "shouxian"
+    },
+    {
+     "id": "ranhou"
+    },
+    {
+     "id": "zuihou"
+    },
+    {
+     "id": "wo-zuofan-de-shihou"
+    },
+    {
+     "id": "wo-dao-de-shihou-ta-yijing-zou-le"
+    },
+    {
+     "id": "suoyi-wo-chidao-le"
+    }
+   ],
+   "rules": [
+    {
+     "title": "又…又…: both … and …",
+     "culture": false,
+     "body": [
+      {
+       "text": "又 A 又 B describes two qualities at once: 他又高又瘦 (he's tall and thin).",
+       "audio": "class/zh/n-320a960ba2.mp3"
+      },
+      {
+       "text": "长得 + description says what someone looks like: 她长得像她妈妈.",
+       "audio": "class/zh/n-46841ba469.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "ta-you-gao-you-shou",
+      "ta-zhang-de-xiang-ta-mama"
+     ],
+     "why": {
+      "text": "又…又… joins two qualities so the listener hears both at once: 'both … and …'.",
+      "audio": "class/zh/n-1a65d3b74d.mp3"
+     },
+     "lesson": "zh-10-2"
+    },
+    {
+     "title": "…的时候: when, while",
+     "culture": false,
+     "body": [
+      {
+       "text": "Put 的时候 after an action to say \"when\" or \"while\" it happens: 我做饭的时候 (while I was cooking).",
+       "audio": "class/zh/n-c20a8ffea7.mp3"
+      },
+      {
+       "text": "已经…了 is \"already\": 他已经走了 (he's already left).",
+       "audio": "class/zh/n-003b46d049.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "wo-zuofan-de-shihou",
+      "wo-dao-de-shihou-ta-yijing-zou-le"
+     ],
+     "why": {
+      "text": "…的时候 attaches 'time when' to a whole action, so the whole phrase sets the time, before the main verb.",
+      "audio": "class/zh/n-5fb45a9fe8.mp3"
+     },
+     "lesson": "zh-10-3"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-food-3",
+     "title": "The wrong dish",
+     "intro": {
+      "text": "These lines come up in the role-play “The wrong dish”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-fdbb5143f5.mp3"
+     },
+     "lines": [
+      {
+       "text": "服务员，我点的是鱼，可是上的是鸡肉。",
+       "en": "Excuse me, I ordered the fish, but I was brought chicken.",
+       "pinyin": "Fúwùyuán, wǒ diǎn de shì yú, kěshì shàng de shì jīròu.",
+       "audio": "scenarios/zh/zh-food-3-0.mp3"
+      },
+      {
+       "text": "不好意思！我马上给您换。",
+       "en": "I'm so sorry! I'll change it for you right away.",
+       "pinyin": "Bù hǎoyìsi! Wǒ mǎshàng gěi nín huàn.",
+       "audio": "scenarios/zh/zh-food-3-1.mp3"
+      },
+      {
+       "text": "谢谢。要等很久吗？",
+       "en": "Thanks. Will it take long?",
+       "pinyin": "Xièxie. Yào děng hěn jiǔ ma?",
+       "audio": "scenarios/zh/zh-food-3-2.mp3"
+      },
+      {
+       "text": "大概十分钟。要不要先给您来点儿喝的？",
+       "en": "About ten minutes. Can I get you something to drink first?",
+       "pinyin": "Dàgài shí fēnzhōng. Yào bu yào xiān gěi nín lái diǎnr hē de?",
+       "audio": "scenarios/zh/zh-food-3-3.mp3"
+      },
+      {
+       "text": "好，再来一杯柠檬水吧。",
+       "en": "Sure, another lemonade, please.",
+       "pinyin": "Hǎo, zài lái yì bēi níngméngshuǐ ba.",
+       "audio": "scenarios/zh/zh-food-3-4.mp3"
+      },
+      {
+       "text": "好的。这份甜品送您，算我们的。",
+       "en": "Of course. This dessert is on us.",
+       "pinyin": "Hǎo de. Zhè fèn tiánpǐn sòng nín, suàn wǒmen de.",
+       "audio": "scenarios/zh/zh-food-3-5.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "roleplay",
+     "id": "zh-shopping-3",
+     "title": "Exchanging a shirt",
+     "intro": {
+      "text": "These lines come up in the role-play “Exchanging a shirt”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-3a462dd12e.mp3"
+     },
+     "lines": [
+      {
+       "text": "你好，这件衬衫太小了，我想换一件。",
+       "en": "Hi, this shirt is too small, I'd like to exchange it.",
+       "pinyin": "Nǐ hǎo, zhè jiàn chènshān tài xiǎo le, wǒ xiǎng huàn yí jiàn.",
+       "audio": "scenarios/zh/zh-shopping-3-0.mp3"
+      },
+      {
+       "text": "您有小票吗？",
+       "en": "Do you have the receipt?",
+       "pinyin": "Nín yǒu xiǎopiào ma?",
+       "audio": "scenarios/zh/zh-shopping-3-1.mp3"
+      },
+      {
+       "text": "您是想换一件，还是想退款？",
+       "en": "Would you like to exchange it or get a refund?",
+       "pinyin": "Nín shì xiǎng huàn yí jiàn, háishi xiǎng tuìkuǎn?",
+       "audio": "scenarios/zh/zh-shopping-3-3.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "story",
+     "id": "zh-beijing",
+     "title": "A trip to Beijing",
+     "intro": {
+      "text": "These words come up in the story “A trip to Beijing”. Hear them now, so the story is easy to follow.",
+      "audio": "class/zh/n-6498ae65a8.mp3"
+     },
+     "lines": [
+      {
+       "text": "去年夏天，我和朋友去北京旅行了。",
+       "en": "Last summer, a friend and I went on a trip to Beijing.",
+       "pinyin": "Qùnián xiàtiān, wǒ hé péngyou qù Běijīng lǚxíng le.",
+       "audio": "stories/zh/zh-beijing-0.mp3"
+      },
+      {
+       "text": "第一天我们参观了故宫，人非常多。",
+       "en": "On the first day we visited the Forbidden City; it was very crowded.",
+       "pinyin": "Dì-yī tiān wǒmen cānguān le Gùgōng, rén fēicháng duō.",
+       "audio": "stories/zh/zh-beijing-2.mp3"
+      },
+      {
+       "text": "第二天我们去爬长城，虽然很累，但是风景特别美。",
+       "en": "On the second day we climbed the Great Wall; it was tiring, but the view was especially beautiful.",
+       "pinyin": "Dì-èr tiān wǒmen qù pá Chángchéng, suīrán hěn lèi, dànshì fēngjǐng tèbié měi.",
+       "audio": "stories/zh/zh-beijing-3.mp3"
+      },
+      {
+       "text": "晚上我们吃了北京烤鸭。",
+       "en": "In the evening we ate Peking duck.",
+       "pinyin": "Wǎnshang wǒmen chī le Běijīng kǎoyā.",
+       "audio": "stories/zh/zh-beijing-4.mp3"
+      },
+      {
+       "text": "我希望明年还能再去。",
+       "en": "I hope I can go again next year.",
+       "pinyin": "Wǒ xīwàng míngnián hái néng zài qù.",
+       "audio": "stories/zh/zh-beijing-5.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u11": {
+   "intro": {
+    "text": "Welcome to the class for Messages and plans. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-2af350a1dc.mp3"
+   },
+   "words": [
+    {
+     "id": "huitou-jian"
+    },
+    {
+     "id": "wo-yao-chidao-yihuir"
+    },
+    {
+     "id": "wo-dao-le"
+    },
+    {
+     "id": "ni-neng-gei-wo-da-dianhua-ma"
+    },
+    {
+     "id": "wo-wan-dianr-gei-ni-fa-xiaoxi"
+    },
+    {
+     "id": "dao-le-gaosu-wo"
+    },
+    {
+     "id": "ni-xiang-lai-wo-de-paidui-ma"
+    },
+    {
+     "id": "dangran"
+    },
+    {
+     "id": "xiexie-ni-de-yaoqing"
+    },
+    {
+     "id": "buhaoyisi-wo-qu-buliao"
+    },
+    {
+     "id": "wo-yijing-you-anpai-le"
+    },
+    {
+     "id": "xia-ci-ba"
+    },
+    {
+     "id": "ni-zhouliu-you-kong-ma"
+    },
+    {
+     "id": "women-qu-kan-dianying-zenmeyang"
+    },
+    {
+     "id": "ba-dian-zai-guangchang-jian"
+    },
+    {
+     "id": "wo-lai-ding-weizi"
+    },
+    {
+     "id": "ruguo-xiayu-women-jiu-zai-jia"
+    },
+    {
+     "id": "yiyan-weiding"
+    }
+   ],
+   "rules": [
+    {
+     "title": "去不了: can't manage to",
+     "culture": false,
+     "body": [
+      {
+       "text": "Verb + 不了 says something can't happen: 我去不了 (I can't go). Verb + 得了 is the opposite: 去得了.",
+       "audio": "class/zh/n-0d54a4ab5c.mp3"
+      },
+      {
+       "text": "不好意思 is the soft way to apologize or turn something down.",
+       "audio": "class/zh/n-346811533a.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "buhaoyisi-wo-qu-buliao",
+      "wo-yijing-you-anpai-le"
+     ],
+     "why": {
+      "text": "Putting 不了 after a verb says the result can't be reached: you try, but it won't happen.",
+      "audio": "class/zh/n-68539cdecc.mp3"
+     },
+     "lesson": "zh-11-2"
+    },
+    {
+     "title": "如果…就…: if … then …",
+     "culture": false,
+     "body": [
+      {
+       "text": "如果 starts the condition and 就 introduces the result: 如果下雨，我们就待在家里.",
+       "audio": "class/zh/n-09b2862226.mp3"
+      },
+      {
+       "text": "…怎么样？ at the end makes a suggestion: \"how about …?\"",
+       "audio": "class/zh/n-163fecaa1f.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "ruguo-xiayu-women-jiu-zai-jia",
+      "women-qu-kan-dianying-zenmeyang"
+     ],
+     "why": {
+      "text": "如果…就… pairs the condition with its result, like English 'if … then …', and the pair makes the logic clear.",
+      "audio": "class/zh/n-35bf7866ca.mp3"
+     },
+     "lesson": "zh-11-3"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-directions-3",
+     "title": "Getting to the museum",
+     "intro": {
+      "text": "These lines come up in the role-play “Getting to the museum”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-90ad63b476.mp3"
+     },
+     "lines": [
+      {
+       "text": "请问，去上海博物馆怎么走？",
+       "en": "Excuse me, how do I get to the Shanghai Museum?",
+       "pinyin": "Qǐngwèn, qù Shànghǎi Bówùguǎn zěnme zǒu?",
+       "audio": "scenarios/zh/zh-directions-3-0.mp3"
+      },
+      {
+       "text": "站里有售票机，也可以直接用手机扫码。",
+       "en": "There are ticket machines in the station, or you can just scan the code with your phone.",
+       "pinyin": "Zhàn li yǒu shòupiàojī, yě kěyǐ zhíjiē yòng shǒujī sǎo mǎ.",
+       "audio": "scenarios/zh/zh-directions-3-3.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "roleplay",
+     "id": "zh-hotel-3",
+     "title": "A problem with the room",
+     "intro": {
+      "text": "These lines come up in the role-play “A problem with the room”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-db09e471cb.mp3"
+     },
+     "lines": [
+      {
+       "text": "你好，我是二零四房间的。空调坏了。",
+       "en": "Hi, I'm in room 204. The air conditioning is broken.",
+       "pinyin": "Nǐ hǎo, wǒ shì èr líng sì fángjiān de. Kōngtiáo huài le.",
+       "audio": "scenarios/zh/zh-hotel-3-0.mp3"
+      },
+      {
+       "text": "真不好意思。您试过遥控器了吗？",
+       "en": "I'm so sorry. Have you tried the remote?",
+       "pinyin": "Zhēn bù hǎoyìsi. Nín shì guo yáokòngqì le ma?",
+       "audio": "scenarios/zh/zh-hotel-3-1.mp3"
+      },
+      {
+       "text": "试过了，可是一直吹热风。",
+       "en": "I have, but it keeps blowing hot air.",
+       "pinyin": "Shì guo le, kěshì yìzhí chuī rèfēng.",
+       "audio": "scenarios/zh/zh-hotel-3-2.mp3"
+      },
+      {
+       "text": "明白了，我马上让维修师傅过去。",
+       "en": "I see, I'll send the repairman over right away.",
+       "pinyin": "Míngbai le, wǒ mǎshàng ràng wéixiū shīfu guòqu.",
+       "audio": "scenarios/zh/zh-hotel-3-3.mp3"
+      },
+      {
+       "text": "好的，那我等着。",
+       "en": "OK, I'll wait then.",
+       "pinyin": "Hǎo de, nà wǒ děngzhe.",
+       "audio": "scenarios/zh/zh-hotel-3-6.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "story",
+     "id": "zh-doctor",
+     "title": "Seeing the doctor",
+     "intro": {
+      "text": "These words come up in the story “Seeing the doctor”. Hear them now, so the story is easy to follow.",
+      "audio": "class/zh/n-03507d3e30.mp3"
+     },
+     "lines": [
+      {
+       "text": "你可能感冒了。这是药，一天吃三次。",
+       "en": "You've probably caught a cold. Here's some medicine; take it three times a day.",
+       "pinyin": "Nǐ kěnéng gǎnmào le. Zhè shì yào, yì tiān chī sān cì.",
+       "audio": "stories/zh/zh-doctor-4.mp3"
+      },
+      {
+       "text": "最好在家休息两天，多喝水。",
+       "en": "You'd better rest at home for two days and drink lots of water.",
+       "pinyin": "Zuìhǎo zài jiā xiūxi liǎng tiān, duō hē shuǐ.",
+       "audio": "stories/zh/zh-doctor-6.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "article",
+     "id": "zh-read-festival",
+     "title": "A music festival weekend",
+     "intro": {
+      "text": "These words come up in the article “A music festival weekend”. Hear them now, so it's easy to read.",
+      "audio": "class/zh/n-a95876f177.mp3"
+     },
+     "lines": [
+      {
+       "text": "上个周末，杭州在西湖边举办了一场户外音乐节。",
+       "en": "Last weekend, Hangzhou held an outdoor music festival by West Lake.",
+       "pinyin": "Shàng ge zhōumò, Hángzhōu zài Xī Hú biān jǔbàn le yì chǎng hùwài yīnyuèjié.",
+       "audio": "stories/zh/zh-read-festival-0.mp3"
+      },
+      {
+       "text": "二十多个乐队在三个舞台上演出。",
+       "en": "More than twenty bands performed on three stages.",
+       "pinyin": "Èrshí duō ge yuèduì zài sān ge wǔtái shang yǎnchū.",
+       "audio": "stories/zh/zh-read-festival-1.mp3"
+      },
+      {
+       "text": "虽然星期六下午下了雨，但是几万名观众一直玩到了半夜。",
+       "en": "Although it rained on Saturday afternoon, tens of thousands of fans stayed until midnight.",
+       "pinyin": "Suīrán Xīngqīliù xiàwǔ xià le yǔ, dànshì jǐ wàn míng guānzhòng yìzhí wán dào le bànyè.",
+       "audio": "stories/zh/zh-read-festival-2.mp3"
+      },
+      {
+       "text": "主办方说，很多人是从外地专门来的。",
+       "en": "The organizers said many people came from other cities just for it.",
+       "pinyin": "Zhǔbànfāng shuō, hěn duō rén shì cóng wàidì zhuānmén lái de.",
+       "audio": "stories/zh/zh-read-festival-3.mp3"
+      },
+      {
+       "text": "音乐节还有免费的吉他课，给从来没学过的人。",
+       "en": "The festival also had free guitar lessons for people who had never learned.",
+       "pinyin": "Yīnyuèjié hái yǒu miǎnfèi de jítā kè, gěi cónglái méi xué guo de rén.",
+       "audio": "stories/zh/zh-read-festival-4.mp3"
+      },
+      {
+       "text": "下一届音乐节将在明年五月举行。",
+       "en": "The next festival will be held next May.",
+       "pinyin": "Xià yí jiè yīnyuèjié jiāng zài míngnián Wǔyuè jǔxíng.",
+       "audio": "stories/zh/zh-read-festival-5.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u29": {
+   "intro": {
+    "text": "Welcome to the class for Culture: holidays & celebrations. I'll show you 6 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-21916c9048.mp3"
+   },
+   "words": [
+    {
+     "id": "cu-xinnian-kuaile"
+    },
+    {
+     "id": "cu-gongxi-facai"
+    },
+    {
+     "id": "cu-zhongqiu-yuebing"
+    },
+    {
+     "id": "cu-duanwu-zongzi"
+    },
+    {
+     "id": "cu-zhu-ni-shengri"
+    },
+    {
+     "id": "cu-hui-laojia"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Culture: holidays in mainland China and Taiwan",
+     "culture": true,
+     "body": [
+      {
+       "text": "Spring Festival (the lunar New Year) is the biggest holiday: families reunite, sometimes travelling across the country, and children and young people get money in red envelopes (红包). In the north, families make dumplings together.",
+       "audio": "class/zh/n-15a55f4de2.mp3"
+      },
+      {
+       "text": "At the Mid-Autumn Festival people eat mooncakes and look at the full moon; in Taiwan it's also a time for barbecues. At the Dragon Boat Festival (端午节) there are boat races and zongzi, sticky rice wrapped in leaves.",
+       "audio": "class/zh/n-cc637dcdde.mp3"
+      },
+      {
+       "text": "Gifts: avoid clocks, because 送钟 (giving a clock) sounds like 送终 (attending someone's death). Avoid sets of four too: 四 (sì) sounds like 死 (sǐ, death).",
+       "audio": "class/zh/n-f823d3d47d.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "cu-xinnian-kuaile",
+      "cu-gongxi-facai"
+     ],
+     "why": {
+      "text": "Holidays follow the lunar calendar, so their dates move each year and their customs come from long traditions.",
+      "audio": "class/zh/n-ca3b599722.mp3"
+     },
+     "lesson": "zh-29-1"
+    }
+   ],
+   "extras": [],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u12": {
+   "intro": {
+    "text": "Welcome to the class for Work and money. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-6786380865.mp3"
+   },
+   "words": [
+    {
+     "id": "kaihui",
+     "ex": "wo-shi-dian-yao-kaihui"
+    },
+    {
+     "id": "laoban"
+    },
+    {
+     "id": "tongshi"
+    },
+    {
+     "id": "wo-shi-dian-yao-kaihui"
+    },
+    {
+     "id": "baogao-xingqiwu-yao-jiao"
+    },
+    {
+     "id": "zuijin-mang-si-le"
+    },
+    {
+     "id": "jingyan",
+     "ex": "wo-you-wu-nian-xiaoshou-jingyan"
+    },
+    {
+     "id": "wo-you-wu-nian-xiaoshou-jingyan"
+    },
+    {
+     "id": "ni-de-youshi-shi-shenme"
+    },
+    {
+     "id": "wo-shanchang-tuandui-hezuo"
+    },
+    {
+     "id": "ni-weishenme-xiang-zuo-zhege-gongzuo"
+    },
+    {
+     "id": "ni-shenme-shihou-keyi-shangban"
+    },
+    {
+     "id": "gongzi"
+    },
+    {
+     "id": "fangzu",
+     "ex": "wo-dei-jiao-fangzu"
+    },
+    {
+     "id": "wo-dei-jiao-fangzu"
+    },
+    {
+     "id": "wo-xiang-kai-yige-zhanghu"
+    },
+    {
+     "id": "wo-zai-zan-qian-qu-lvxing"
+    },
+    {
+     "id": "ni-shou-duo-le"
+    }
+   ],
+   "rules": [
+    {
+     "title": "得 (děi): \"have to\"",
+     "culture": false,
+     "body": [
+      {
+       "text": "To say you have to do something, put 得 (děi) before the verb: 我得交房租了, 'I have to pay the rent'.",
+       "audio": "class/zh/n-a39c7efe7c.mp3"
+      },
+      {
+       "text": "This 得 is read děi, not de. It's casual and common in speech.",
+       "audio": "class/zh/n-4b7480db6d.mp3"
+      }
+     ],
+     "table": [
+      [
+       "我得走了。",
+       "I have to go."
+      ],
+      [
+       "我得交房租。",
+       "I have to pay the rent."
+      ],
+      [
+       "你得早点儿来。",
+       "You have to come a bit early."
+      ]
+     ],
+     "examples": [
+      "wo-dei-jiao-fangzu",
+      "baogao-xingqiwu-yao-jiao"
+     ],
+     "why": {
+      "text": "Chinese puts helping verbs like 得, 要 and 想 straight before the action, so the order is: who, then 'have to', then the action.",
+      "audio": "class/zh/n-48b86af11e.mp3"
+     }
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-doctor-4",
+     "title": "Explaining your symptoms",
+     "intro": {
+      "text": "These lines come up in the role-play “Explaining your symptoms”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-866311b0e8.mp3"
+     },
+     "lines": [
+      {
+       "text": "说说你的症状吧。",
+       "en": "Tell me about your symptoms.",
+       "pinyin": "Shuōshuo nǐ de zhèngzhuàng ba.",
+       "audio": "scenarios/zh/zh-doctor-4-0.mp3"
+      },
+      {
+       "text": "我肚子疼了三天了，晚上几乎睡不着。",
+       "en": "My stomach has hurt for three days, and I can barely sleep at night.",
+       "pinyin": "Wǒ dùzi téng le sān tiān le, wǎnshang jīhū shuì bu zháo.",
+       "audio": "scenarios/zh/zh-doctor-4-1.mp3"
+      },
+      {
+       "text": "我觉得可能是在路边摊吃坏了肚子。",
+       "en": "I think something from a street stall upset my stomach.",
+       "pinyin": "Wǒ juéde kěnéng shì zài lùbiāntān chī huài le dùzi.",
+       "audio": "scenarios/zh/zh-doctor-4-3.mp3"
+      },
+      {
+       "text": "你在吃什么药吗？对什么过敏吗？",
+       "en": "Are you taking any medicine? Are you allergic to anything?",
+       "pinyin": "Nǐ zài chī shénme yào ma? Duì shénme guòmǐn ma?",
+       "audio": "scenarios/zh/zh-doctor-4-4.mp3"
+      },
+      {
+       "text": "我没在吃药，但是我对青霉素过敏。",
+       "en": "I'm not taking anything, but I'm allergic to penicillin.",
+       "pinyin": "Wǒ méi zài chī yào, dànshì wǒ duì qīngméisù guòmǐn.",
+       "audio": "scenarios/zh/zh-doctor-4-5.mp3"
+      },
+      {
+       "text": "好，我记下了。先去验个血吧。",
+       "en": "OK, I've noted that. Let's do a blood test first.",
+       "pinyin": "Hǎo, wǒ jì xià le. Xiān qù yàn ge xiě ba.",
+       "audio": "scenarios/zh/zh-doctor-4-6.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "roleplay",
+     "id": "zh-airport-4",
+     "title": "Lost luggage",
+     "intro": {
+      "text": "These lines come up in the role-play “Lost luggage”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-a7378d7b48.mp3"
+     },
+     "lines": [
+      {
+       "text": "你好，我坐的是从纽约来的航班，我的行李没到。",
+       "en": "Hello, I was on the flight from New York, and my luggage didn't arrive.",
+       "pinyin": "Nǐ hǎo, wǒ zuò de shì cóng Niǔyuē lái de hángbān, wǒ de xíngli méi dào.",
+       "audio": "scenarios/zh/zh-airport-4-0.mp3"
+      },
+      {
+       "text": "非常抱歉。请给我看一下您的行李牌。",
+       "en": "I'm very sorry. Please show me your baggage tag.",
+       "pinyin": "Fēicháng bàoqiàn. Qǐng gěi wǒ kàn yíxià nín de xínglipái.",
+       "audio": "scenarios/zh/zh-airport-4-1.mp3"
+      },
+      {
+       "text": "给您。是一个黑色的中号箱子，上面系着一条红丝带。",
+       "en": "Here you are. It's a medium black suitcase with a red ribbon tied on it.",
+       "pinyin": "Gěi nín. Shì yí ge hēisè de zhōnghào xiāngzi, shàngmiàn jì zhe yì tiáo hóng sīdài.",
+       "audio": "scenarios/zh/zh-airport-4-2.mp3"
+      },
+      {
+       "text": "系统显示，您的行李还在纽约，明天早上能到。",
+       "en": "The system shows your luggage is still in New York. It can arrive tomorrow morning.",
+       "pinyin": "Xìtǒng xiǎnshì, nín de xíngli hái zài Niǔyuē, míngtiān zǎoshang néng dào.",
+       "audio": "scenarios/zh/zh-airport-4-3.mp3"
+      },
+      {
+       "text": "能帮我送到酒店吗？",
+       "en": "Can you deliver it to my hotel?",
+       "pinyin": "Néng bāng wǒ sòng dào jiǔdiàn ma?",
+       "audio": "scenarios/zh/zh-airport-4-4.mp3"
+      },
+      {
+       "text": "可以，免费的。请留一下酒店地址和电话。",
+       "en": "Yes, free of charge. Please leave the hotel address and a phone number.",
+       "pinyin": "Kěyǐ, miǎnfèi de. Qǐng liú yíxià jiǔdiàn dìzhǐ hé diànhuà.",
+       "audio": "scenarios/zh/zh-airport-4-5.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u13": {
+   "intro": {
+    "text": "Welcome to the class for Health and feelings. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-22f9fc68d0.mp3"
+   },
+   "words": [
+    {
+     "id": "wo-tou-teng"
+    },
+    {
+     "id": "zheli-teng"
+    },
+    {
+     "id": "wo-cong-zuotian-kaishi-fashao"
+    },
+    {
+     "id": "wo-dui-qingmeisu-guomin"
+    },
+    {
+     "id": "yitian-chi-liang-ci"
+    },
+    {
+     "id": "wo-xiang-guahao"
+    },
+    {
+     "id": "wo-hen-danxin-wo-gege"
+    },
+    {
+     "id": "wo-zuijin-yali-hen-da"
+    },
+    {
+     "id": "wo-wei-ni-jiaoao"
+    },
+    {
+     "id": "wo-hao-duo-le"
+    },
+    {
+     "id": "zhen-buhaoyisi"
+    },
+    {
+     "id": "bie-danxin"
+    },
+    {
+     "id": "ni-yinggai-xiuxi"
+    },
+    {
+     "id": "yaoshi-wo-shi-ni"
+    },
+    {
+     "id": "wo-jianyi-ni-duo-shui-yidianr"
+    },
+    {
+     "id": "ni-zui-hao-duo-he-shui"
+    },
+    {
+     "id": "bie-tai-lei-le"
+    },
+    {
+     "id": "zao-ri-kangfu"
+    }
+   ],
+   "rules": [
+    {
+     "title": "从…开始: since",
+     "culture": false,
+     "body": [
+      {
+       "text": "从 + time + 开始 says when something started: 我从昨天开始发烧 (I've had a fever since yesterday).",
+       "audio": "class/zh/n-bff7fafc92.mp3"
+      },
+      {
+       "text": "Pain is just body part + 疼: 我头疼.",
+       "audio": "class/zh/n-a0db922a18.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "wo-cong-zuotian-kaishi-fashao",
+      "wo-tou-teng"
+     ],
+     "why": {
+      "text": "从…开始 marks the starting point of something that continues, like English 'since' or 'starting from'.",
+      "audio": "class/zh/n-10931ccbb4.mp3"
+     },
+     "lesson": "zh-13-1"
+    },
+    {
+     "title": "Giving advice",
+     "culture": false,
+     "body": [
+      {
+       "text": "应该 is \"should\", 最好 is \"you'd better\", and 我建议你 is \"I suggest you\".",
+       "audio": "class/zh/n-8edab56469.mp3"
+      },
+      {
+       "text": "要是我是你 (if I were you) is followed by 我会… (I would …).",
+       "audio": "class/zh/n-62acb9e53e.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "ni-yinggai-xiuxi",
+      "ni-zui-hao-duo-he-shui",
+      "yaoshi-wo-shi-ni"
+     ],
+     "why": {
+      "text": "Chinese advice is often softened (最好, 应该, 不如) to stay polite, because direct orders can sound rude.",
+      "audio": "class/zh/n-0f16eb05a4.mp3"
+     },
+     "lesson": "zh-13-3"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-smalltalk-4",
+     "title": "How was your weekend?",
+     "intro": {
+      "text": "These lines come up in the role-play “How was your weekend?”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-14251f1a49.mp3"
+     },
+     "lines": [
+      {
+       "text": "挺好的！我们去了杭州，特别喜欢。",
+       "en": "Really good! We went to Hangzhou and loved it.",
+       "pinyin": "Tǐng hǎo de! Wǒmen qù le Hángzhōu, tèbié xǐhuan.",
+       "audio": "scenarios/zh/zh-smalltalk-4-1.mp3"
+      },
+      {
+       "text": "真羡慕！人多不多？",
+       "en": "I'm jealous! Was it crowded?",
+       "pinyin": "Zhēn xiànmù! Rén duō bu duō?",
+       "audio": "scenarios/zh/zh-smalltalk-4-2.mp3"
+      },
+      {
+       "text": "有点儿多，但是很值得。西湖太美了。",
+       "en": "A bit, but it was worth it. West Lake is so beautiful.",
+       "pinyin": "Yǒudiǎnr duō, dànshì hěn zhíde. Xī Hú tài měi le.",
+       "audio": "scenarios/zh/zh-smalltalk-4-3.mp3"
+      },
+      {
+       "text": "我一直说要去，可是一直没去成。",
+       "en": "I keep saying I'll go, but I never manage to.",
+       "pinyin": "Wǒ yìzhí shuō yào qù, kěshì yìzhí méi qù chéng.",
+       "audio": "scenarios/zh/zh-smalltalk-4-4.mp3"
+      },
+      {
+       "text": "你可以淡季去，人少多了。",
+       "en": "You could go in the off-season; there are far fewer people.",
+       "pinyin": "Nǐ kěyǐ dànjì qù, rén shǎo duō le.",
+       "audio": "scenarios/zh/zh-smalltalk-4-5.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "roleplay",
+     "id": "zh-hotel-4",
+     "title": "Extending your stay",
+     "intro": {
+      "text": "These lines come up in the role-play “Extending your stay”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-0796afda87.mp3"
+     },
+     "lines": [
+      {
+       "text": "我查一下……可以，不过您需要换一个房间。",
+       "en": "Let me check… Yes, but you'd need to change rooms.",
+       "pinyin": "Wǒ chá yíxià… Kěyǐ, búguò nín xūyào huàn yí ge fángjiān.",
+       "audio": "scenarios/zh/zh-hotel-4-1.mp3"
+      },
+      {
+       "text": "没问题。价格一样吗？",
+       "en": "No problem. Is the price the same?",
+       "pinyin": "Méi wèntí. Jiàgé yíyàng ma?",
+       "audio": "scenarios/zh/zh-hotel-4-2.mp3"
+      },
+      {
+       "text": "周末贵一点儿，一晚六百八十块。",
+       "en": "Weekends are a little more: 680 yuan a night.",
+       "pinyin": "Zhōumò guì yìdiǎnr, yì wǎn liùbǎi bāshí kuài.",
+       "audio": "scenarios/zh/zh-hotel-4-3.mp3"
+      },
+      {
+       "text": "当然可以，下午两点以前退房不另外收费。",
+       "en": "Of course. Checking out before 2 p.m. costs nothing extra.",
+       "pinyin": "Dāngrán kěyǐ, xiàwǔ liǎng diǎn yǐqián tuìfáng bú lìngwài shōufèi.",
+       "audio": "scenarios/zh/zh-hotel-4-5.mp3"
+      },
+      {
+       "text": "太好了，谢谢您的帮助。",
+       "en": "Great, thank you for your help.",
+       "pinyin": "Tài hǎo le, xièxie nín de bāngzhù.",
+       "audio": "scenarios/zh/zh-hotel-4-6.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u14": {
+   "intro": {
+    "text": "Welcome to the class for Travel problems. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-5ca90d29da.mp3"
+   },
+   "words": [
+    {
+     "id": "wo-de-hangban-quxiao-le"
+    },
+    {
+     "id": "wo-de-huzhao-diu-le"
+    },
+    {
+     "id": "wo-de-xingli-mei-dao"
+    },
+    {
+     "id": "hangban-yanwu-le-liang-ge-xiaoshi"
+    },
+    {
+     "id": "wo-wu-le-zhuanji"
+    },
+    {
+     "id": "neng-gei-wo-huan-yige-hangban-ma"
+    },
+    {
+     "id": "kongtiao-huai-le"
+    },
+    {
+     "id": "meiyou-reshui"
+    },
+    {
+     "id": "fangjian-tai-chao-le"
+    },
+    {
+     "id": "neng-bang-wo-huan-ge-fangjian-ma"
+    },
+    {
+     "id": "wo-yao-zhao-jingli"
+    },
+    {
+     "id": "zhe-bu-shi-wo-yuding-de"
+    },
+    {
+     "id": "neng-bang-wo-yixia-ma"
+    },
+    {
+     "id": "wo-de-qianbao-bei-tou-le"
+    },
+    {
+     "id": "wo-yao-baojing"
+    },
+    {
+     "id": "dashiguan-zai-nar"
+    },
+    {
+     "id": "kuai-jiao-jiuhuche"
+    },
+    {
+     "id": "wo-milu-le"
+    }
+   ],
+   "rules": [
+    {
+     "title": "被: something done to you",
+     "culture": false,
+     "body": [
+      {
+       "text": "被 marks something bad that was done to the subject: 我的钱包被偷了 (my wallet was stolen).",
+       "audio": "class/zh/n-2fe1b31d55.mp3"
+      },
+      {
+       "text": "The doer can go after 被: 被小偷偷了 (stolen by a thief).",
+       "audio": "class/zh/n-b1448f2cf6.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "wo-de-qianbao-bei-tou-le"
+     ],
+     "why": {
+      "text": "被 shows that something was done to someone, and it's often used for unpleasant things, like getting your wallet stolen.",
+      "audio": "class/zh/n-21d6943965.mp3"
+     },
+     "lesson": "zh-14-3"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-job-4",
+     "title": "A job interview",
+     "intro": {
+      "text": "These lines come up in the role-play “A job interview”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-55f021193c.mp3"
+     },
+     "lines": [
+      {
+       "text": "你好，先简单介绍一下你自己吧。",
+       "en": "Hello, start by briefly introducing yourself.",
+       "pinyin": "Nǐ hǎo, xiān jiǎndān jièshào yíxià nǐ zìjǐ ba.",
+       "audio": "scenarios/zh/zh-job-4-0.mp3"
+      },
+      {
+       "text": "您好，我叫李明，在服装店工作过三年。",
+       "en": "Hello, my name is Li Ming. I worked in a clothing store for three years.",
+       "pinyin": "Nín hǎo, wǒ jiào Lǐ Míng, zài fúzhuāngdiàn gōngzuò guo sān nián.",
+       "audio": "scenarios/zh/zh-job-4-1.mp3"
+      },
+      {
+       "text": "好的，我们周五通知你。",
+       "en": "OK, we'll let you know on Friday.",
+       "pinyin": "Hǎo de, wǒmen zhōuwǔ tōngzhī nǐ.",
+       "audio": "scenarios/zh/zh-job-4-6.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "article",
+     "id": "zh-read-remote",
+     "title": "Will working from home become normal?",
+     "intro": {
+      "text": "These words come up in the article “Will working from home become normal?”. Hear them now, so it's easy to read.",
+      "audio": "class/zh/n-d0b4a5ac54.mp3"
+     },
+     "lines": [
+      {
+       "text": "越来越多的深圳公司允许员工每周在家办公两三天。",
+       "en": "More and more Shenzhen companies let employees work from home two or three days a week.",
+       "pinyin": "Yuè lái yuè duō de Shēnzhèn gōngsī yǔnxǔ yuángōng měi zhōu zài jiā bàngōng liǎng sān tiān.",
+       "audio": "stories/zh/zh-read-remote-0.mp3"
+      },
+      {
+       "text": "最近的一项调查显示，七成员工更喜欢这种混合模式。",
+       "en": "A recent survey shows that seventy percent of employees prefer this hybrid model.",
+       "pinyin": "Zuìjìn de yí xiàng diàochá xiǎnshì, qī chéng yuángōng gèng xǐhuan zhè zhǒng hùnhé móshì.",
+       "audio": "stories/zh/zh-read-remote-1.mp3"
+      },
+      {
+       "text": "他们说，这样可以节省通勤时间，工作也更专心。",
+       "en": "They say this saves commuting time and they focus better.",
+       "pinyin": "Tāmen shuō, zhèyàng kěyǐ jiéshěng tōngqín shíjiān, gōngzuò yě gèng zhuānxīn.",
+       "audio": "stories/zh/zh-read-remote-2.mp3"
+      },
+      {
+       "text": "不过，有些经理担心团队会缺少面对面的交流。",
+       "en": "However, some managers worry the team will lack face-to-face communication.",
+       "pinyin": "Búguò, yǒuxiē jīnglǐ dānxīn tuánduì huì quēshǎo miànduìmiàn de jiāoliú.",
+       "audio": "stories/zh/zh-read-remote-3.mp3"
+      },
+      {
+       "text": "所以很多公司规定，每周二和周四大家都要来公司开会。",
+       "en": "So many companies require everyone to come in for meetings on Tuesdays and Thursdays.",
+       "pinyin": "Suǒyǐ hěn duō gōngsī guīdìng, měi Zhōu'èr hé Zhōusì dàjiā dōu yào lái gōngsī kāihuì.",
+       "audio": "stories/zh/zh-read-remote-4.mp3"
+      },
+      {
+       "text": "专家认为，混合模式会一直持续下去。",
+       "en": "Experts believe the hybrid model is here to stay.",
+       "pinyin": "Zhuānjiā rènwéi, hùnhé móshì huì yìzhí chíxù xiàqu.",
+       "audio": "stories/zh/zh-read-remote-5.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u21": {
+   "intro": {
+    "text": "Welcome to the class for Dating & relationships. I'll show you 12 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-fb4ed33423.mp3"
+   },
+   "words": [
+    {
+     "id": "dt-zhe-li-you-ren-ma"
+    },
+    {
+     "id": "dt-zenme-renshi"
+    },
+    {
+     "id": "dt-yinyue-bucuo"
+    },
+    {
+     "id": "dt-chuanda"
+    },
+    {
+     "id": "dt-xiao-qilai"
+    },
+    {
+     "id": "dt-nali-nali"
+    },
+    {
+     "id": "dt-yiqi-he-kafei"
+    },
+    {
+     "id": "dt-zhouliu-dianying"
+    },
+    {
+     "id": "dt-hao-a"
+    },
+    {
+     "id": "dt-zhe-zhoumo-buxing"
+    },
+    {
+     "id": "dt-you-duixiang-le"
+    },
+    {
+     "id": "dt-dang-pengyou"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Culture: dating in China",
+     "culture": true,
+     "body": [
+      {
+       "text": "Many people meet through friends, classmates or work, and family-arranged introductions (相亲 xiāngqīn) are still common, especially in your late twenties.",
+       "audio": "class/zh/n-d6aec6f83f.mp3"
+      },
+      {
+       "text": "Accepting a compliment by playing it down is polite: 哪里哪里 (oh, not at all) is the classic reply. Saying a flat \"thank you\" is fine too among young people.",
+       "audio": "class/zh/n-e0d04865ec.mp3"
+      },
+      {
+       "text": "Dating is often talked about with an eye on the future, so asking early what someone is looking for isn't unusual.",
+       "audio": "class/zh/n-81a66f92c0.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "dt-xiao-qilai",
+      "dt-nali-nali"
+     ],
+     "why": {
+      "text": "Dating in China often involves family expectations, so relationships can move toward meeting the family sooner.",
+      "audio": "class/zh/n-fe8a1a431c.mp3"
+     },
+     "lesson": "zh-21-1"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-dating-4",
+     "title": "Asking someone out after class",
+     "intro": {
+      "text": "These lines come up in the role-play “Asking someone out after class”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-9d50147c5d.mp3"
+     },
+     "lines": [
+      {
+       "text": "你跳得真好！学了多久了？",
+       "en": "You dance really well! How long have you been learning?",
+       "pinyin": "Nǐ tiào de zhēn hǎo! Xué le duō jiǔ le?",
+       "audio": "scenarios/zh/zh-dating-4-0.mp3"
+      },
+      {
+       "text": "谢谢，才学了两个月。你也跳得很好。",
+       "en": "Thanks, only two months. You dance really well too.",
+       "pinyin": "Xièxie, cái xué le liǎng ge yuè. Nǐ yě tiào de hěn hǎo.",
+       "audio": "scenarios/zh/zh-dating-4-1.mp3"
+      },
+      {
+       "text": "知道，拐角那儿有一家很可爱的咖啡馆。",
+       "en": "Yes, there's a really cute café just around the corner.",
+       "pinyin": "Zhīdào, guǎijiǎo nàr yǒu yì jiā hěn kě'ài de kāfēiguǎn.",
+       "audio": "scenarios/zh/zh-dating-4-5.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "story",
+     "id": "zh-dt-first-date",
+     "title": "A first date",
+     "intro": {
+      "text": "These words come up in the story “A first date”. Hear them now, so the story is easy to follow.",
+      "audio": "class/zh/n-b9cbf83761.mp3"
+     },
+     "lines": [
+      {
+       "text": "嗨！不好意思，来晚了，路上太堵了。",
+       "en": "Hi! Sorry I'm late, the traffic was terrible.",
+       "pinyin": "Hāi! Bù hǎoyìsi, lái wǎn le, lùshang tài dǔ le.",
+       "audio": "stories/zh/zh-dt-first-date-0.mp3"
+      },
+      {
+       "text": "没事，我也刚到。你想喝什么？",
+       "en": "No worries, I just got here too. What would you like to drink?",
+       "pinyin": "Méi shì, wǒ yě gāng dào. Nǐ xiǎng hē shénme?",
+       "audio": "stories/zh/zh-dt-first-date-1.mp3"
+      },
+      {
+       "text": "一杯卡布奇诺吧。哇，这家店真不错！",
+       "en": "A cappuccino, please. Wow, this place is really nice!",
+       "pinyin": "Yì bēi kǎbùqínuò ba. Wā, zhè jiā diàn zhēn búcuò!",
+       "audio": "stories/zh/zh-dt-first-date-2.mp3"
+      },
+      {
+       "text": "你上次说喜欢安静的地方，我就选了这儿。",
+       "en": "You said last time you like quiet places, so I chose here.",
+       "pinyin": "Nǐ shàng cì shuō xǐhuan ānjìng de dìfang, wǒ jiù xuǎn le zhèr.",
+       "audio": "stories/zh/zh-dt-first-date-3.mp3"
+      },
+      {
+       "text": "你还记得呀，真贴心！",
+       "en": "You remembered, that's so thoughtful!",
+       "pinyin": "Nǐ hái jìde ya, zhēn tiēxīn!",
+       "audio": "stories/zh/zh-dt-first-date-4.mp3"
+      },
+      {
+       "text": "当然。对了，你为什么想学建筑呢？",
+       "en": "Of course. By the way, why did you want to study architecture?",
+       "pinyin": "Dāngrán. Duì le, nǐ wèishénme xiǎng xué jiànzhù ne?",
+       "audio": "stories/zh/zh-dt-first-date-5.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u24": {
+   "intro": {
+    "text": "Welcome to the class for Flirting with charm. I'll show you 12 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-5143884d6b.mp3"
+   },
+   "words": [
+    {
+     "id": "fl-xiao-hao-tian"
+    },
+    {
+     "id": "fl-shengyin-haoting"
+    },
+    {
+     "id": "fl-yanse-shihe-ni"
+    },
+    {
+     "id": "fl-liaotian-kaixin"
+    },
+    {
+     "id": "fl-yanjing-haokan"
+    },
+    {
+     "id": "fl-gedan-pinwei"
+    },
+    {
+     "id": "fl-zai-liao-wo"
+    },
+    {
+     "id": "fl-dui-ni-you-yisi"
+    },
+    {
+     "id": "fl-yizhi-kan-ni"
+    },
+    {
+     "id": "fl-xihuan-haishi-keqi"
+    },
+    {
+     "id": "fl-miaohui-youxi"
+    },
+    {
+     "id": "fl-duo-liaojie-ni"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Culture: compliments in China",
+     "culture": true,
+     "body": [
+      {
+       "text": "Sweet, playful compliments go down well: 你笑起来好甜 (your smile is so sweet) or praise for someone's taste or voice.",
+       "audio": "class/zh/n-3b46cb99ed.mp3"
+      },
+      {
+       "text": "Comments on someone's body are much more forward in Chinese than in English; stick to smiles, style and personality.",
+       "audio": "class/zh/n-5e2d4f8a00.mp3"
+      },
+      {
+       "text": "撩 (liáo) is the everyday word for flirting, and 有戏 (yǒuxì) means \"there's a chance\".",
+       "audio": "class/zh/n-9addf0a000.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "fl-xiao-hao-tian",
+      "fl-zai-liao-wo"
+     ],
+     "why": {
+      "text": "Modesty is valued in China, so people often turn down compliments politely instead of saying thank you.",
+      "audio": "class/zh/n-4c53ef89cb.mp3"
+     },
+     "lesson": "zh-24-1"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-flirting-4",
+     "title": "A compliment in a bookshop",
+     "intro": {
+      "text": "These lines come up in the role-play “A compliment in a bookshop”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-e004c5132c.mp3"
+     },
+     "lines": [
+      {
+       "text": "不好意思，我忍不住想说，你选书的品味真好。",
+       "en": "Sorry, I couldn't help saying: you have great taste in books.",
+       "pinyin": "Bù hǎoyìsi, wǒ rěn bu zhù xiǎng shuō, nǐ xuǎn shū de pǐnwèi zhēn hǎo.",
+       "audio": "scenarios/zh/zh-flirting-4-0.mp3"
+      },
+      {
+       "text": "哈哈，谢谢！你也喜欢看推理小说吗？",
+       "en": "Haha, thanks! Do you like mystery novels too?",
+       "pinyin": "Hāha, xièxie! Nǐ yě xǐhuan kàn tuīlǐ xiǎoshuō ma?",
+       "audio": "scenarios/zh/zh-flirting-4-1.mp3"
+      },
+      {
+       "text": "这本超级好看，我两个晚上就看完了。",
+       "en": "This one is amazing. I finished it in two nights.",
+       "pinyin": "Zhè běn chāojí hǎokàn, wǒ liǎng ge wǎnshang jiù kàn wán le.",
+       "audio": "scenarios/zh/zh-flirting-4-3.mp3"
+      },
+      {
+       "text": "那我就买这本。要不要一起喝杯咖啡，你给我讲讲，不剧透？",
+       "en": "Then I'll buy it. Want to grab a coffee and tell me about it, no spoilers?",
+       "pinyin": "Nà wǒ jiù mǎi zhè běn. Yào bu yào yìqǐ hē bēi kāfēi, nǐ gěi wǒ jiǎngjiang, bú jùtòu?",
+       "audio": "scenarios/zh/zh-flirting-4-4.mp3"
+      },
+      {
+       "text": "好啊，保证不剧透！",
+       "en": "Sure, no spoilers, I promise!",
+       "pinyin": "Hǎo a, bǎozhèng bú jùtòu!",
+       "audio": "scenarios/zh/zh-flirting-4-5.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "story",
+     "id": "zh-fl-signals",
+     "title": "Flirting, or just being polite?",
+     "intro": {
+      "text": "These words come up in the story “Flirting, or just being polite?”. Hear them now, so the story is easy to follow.",
+      "audio": "class/zh/n-4f1790b372.mp3"
+     },
+     "lines": [
+      {
+       "text": "大伟，你觉得咖啡店那个店员是不是在撩我？",
+       "en": "Dawei, do you think the guy at the café is flirting with me?",
+       "pinyin": "Dàwěi, nǐ juéde kāfēidiàn nàge diànyuán shì bu shì zài liáo wǒ?",
+       "audio": "stories/zh/zh-fl-signals-0.mp3"
+      },
+      {
+       "text": "嗯……他都做什么了？",
+       "en": "Hmm… what does he do?",
+       "pinyin": "Ńg… tā dōu zuò shénme le?",
+       "audio": "stories/zh/zh-fl-signals-1.mp3"
+      },
+      {
+       "text": "他每次都对我笑，昨天还在杯子上写了“祝你今天开心”。",
+       "en": "He always smiles at me, and yesterday he even wrote \"have a happy day\" on my cup.",
+       "pinyin": "Tā měi cì dōu duì wǒ xiào, zuótiān hái zài bēizi shang xiě le \"zhù nǐ jīntiān kāixīn\".",
+       "audio": "stories/zh/zh-fl-signals-2.mp3"
+      },
+      {
+       "text": "会，他问我上课的事，而且我说过的他都记得。",
+       "en": "Yes, he asks about my classes, and he remembers everything I've said.",
+       "pinyin": "Huì, tā wèn wǒ shàngkè de shì, érqiě wǒ shuō guo de tā dōu jìde.",
+       "audio": "stories/zh/zh-fl-signals-4.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u30": {
+   "intro": {
+    "text": "Welcome to the class for Culture: etiquette & mistakes to avoid. I'll show you 6 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-cfc272d735.mp3"
+   },
+   "words": [
+    {
+     "id": "cu-guojiang-le"
+    },
+    {
+     "id": "cu-daorao-yixia"
+    },
+    {
+     "id": "cu-qing-man-yong"
+    },
+    {
+     "id": "cu-kaolv-yixia"
+    },
+    {
+     "id": "cu-hai-xing-ba"
+    },
+    {
+     "id": "cu-liu-mianzi"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Culture: face, modesty and tones",
+     "culture": true,
+     "body": [
+      {
+       "text": "Face (面子) matters: avoid correcting or criticizing someone in front of others, and leave them a polite way out.",
+       "audio": "class/zh/n-25923f46b0.mp3"
+      },
+      {
+       "text": "A direct \"no\" is rare. \"我考虑一下\" (let me think about it) or \"不太方便\" (not very convenient) often mean no. When praised, play it down: \"过奖了\" or \"哪里哪里\".",
+       "audio": "class/zh/n-38507db188.mp3"
+      },
+      {
+       "text": "Questions about your age, salary or whether you're married are ordinary small talk in China, not rude. The number 4 is unlucky and 8 is lucky, in mainland China and Taiwan alike.",
+       "audio": "class/zh/n-a7df5fa2f1.mp3"
+      },
+      {
+       "text": "Tones change meaning: 买 (mǎi) is buy and 卖 (mài) is sell; 汤 (tāng) is soup and 糖 (táng) is sugar.",
+       "audio": "class/zh/n-beb8a2ea70.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "cu-guojiang-le",
+      "cu-daorao-yixia"
+     ],
+     "why": {
+      "text": "Face (面子) is about respect and dignity, and wrong tones can change a word, so both modesty and careful pronunciation help.",
+      "audio": "class/zh/n-1b0ceb3c35.mp3"
+     },
+     "lesson": "zh-30-1"
+    }
+   ],
+   "extras": [],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u15": {
+   "intro": {
+    "text": "Welcome to the class for News and opinions. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-8f964f6f33.mp3"
+   },
+   "words": [
+    {
+     "id": "zhengfu"
+    },
+    {
+     "id": "jingji"
+    },
+    {
+     "id": "xinwen",
+     "ex": "wo-zuowan-zai-xinwen-shang-kan-dao-de"
+    },
+    {
+     "id": "wujia-you-zhang-le"
+    },
+    {
+     "id": "shiyelv-lianxu-san-ge-yue-xiajiang"
+    },
+    {
+     "id": "chengqian-shangwan-de-ren"
+    },
+    {
+     "id": "ni-tingshuo-le-ma"
+    },
+    {
+     "id": "ju-zhuanjia-shuo"
+    },
+    {
+     "id": "wo-zuowan-zai-xinwen-shang-kan-dao-de"
+    },
+    {
+     "id": "tingshuo-xingqiyi-yao-bagong"
+    },
+    {
+     "id": "zhen-buganxiangxin"
+    },
+    {
+     "id": "yao-kan-xiaoxi-laiyuan"
+    },
+    {
+     "id": "wo-renwei-zhe-shi-ge-cuowu"
+    },
+    {
+     "id": "wo-juede-ni-shuo-de-dui"
+    },
+    {
+     "id": "wo-bu-juede-zhe-gongping"
+    },
+    {
+     "id": "zai-wo-kanlai"
+    },
+    {
+     "id": "wo-ganjue-tamen-kuazhang-le"
+    },
+    {
+     "id": "na-yao-kan-zenme-kan"
+    }
+   ],
+   "rules": [
+    {
+     "title": "说得对: how well something is done",
+     "culture": false,
+     "body": [
+      {
+       "text": "Verb + 得 + description says how something is done: 你说得对 (you're right, lit. you said it right), 他跑得很快.",
+       "audio": "class/zh/n-5307a4b244.mp3"
+      },
+      {
+       "text": "This 得 is pronounced de, with no tone.",
+       "audio": "class/zh/n-5159bb8b7d.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "wo-juede-ni-shuo-de-dui",
+      "zhe-yidian-ni-shuo-de-dui"
+     ],
+     "why": {
+      "text": "得 after a verb links it to how well it's done, so the description comes after the action.",
+      "audio": "class/zh/n-b01e7da4ec.mp3"
+     },
+     "lesson": "zh-15-3"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-food-5",
+     "title": "Booking for a group",
+     "intro": {
+      "text": "These lines come up in the role-play “Booking for a group”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-ee16616b9c.mp3"
+     },
+     "lines": [
+      {
+       "text": "我想订周五晚上十二个人的位子，需要素食和无麸质的菜。",
+       "en": "I'd like to book for twelve people on Friday evening, and we need vegetarian and gluten-free dishes.",
+       "pinyin": "Wǒ xiǎng dìng zhōuwǔ wǎnshang shí'èr ge rén de wèizi, xūyào sùshí hé wú fūzhì de cài.",
+       "audio": "scenarios/zh/zh-food-5-0.mp3"
+      },
+      {
+       "text": "没问题。我们大桌一般是套餐，您看可以吗？",
+       "en": "No problem. For large tables we usually do a set menu. Is that all right?",
+       "pinyin": "Méi wèntí. Wǒmen dà zhuō yìbān shì tàocān, nín kàn kěyǐ ma?",
+       "audio": "scenarios/zh/zh-food-5-1.mp3"
+      },
+      {
+       "text": "可以，只要提前两天告诉我们就行。",
+       "en": "Yes, as long as you tell us two days ahead.",
+       "pinyin": "Kěyǐ, zhǐyào tíqián liǎng tiān gàosu wǒmen jiù xíng.",
+       "audio": "scenarios/zh/zh-food-5-3.mp3"
+      },
+      {
+       "text": "好的，我今天就把具体要求发给你们确认。",
+       "en": "OK, I'll send you the details to confirm today.",
+       "pinyin": "Hǎo de, wǒ jīntiān jiù bǎ jùtǐ yāoqiú fā gěi nǐmen quèrèn.",
+       "audio": "scenarios/zh/zh-food-5-4.mp3"
+      },
+      {
+       "text": "好的。订位需要先付百分之三十的定金。",
+       "en": "Great. Booking requires a thirty percent deposit up front.",
+       "pinyin": "Hǎo de. Dìng wèi xūyào xiān fù bǎi fēn zhī sānshí de dìngjīn.",
+       "audio": "scenarios/zh/zh-food-5-5.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "roleplay",
+     "id": "zh-shopping-5",
+     "title": "A warranty claim",
+     "intro": {
+      "text": "These lines come up in the role-play “A warranty claim”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-99404622e7.mp3"
+     },
+     "lines": [
+      {
+       "text": "这台电脑我两个月前买的，现在已经充不了电了。",
+       "en": "I bought this laptop two months ago, and now it won't charge.",
+       "pinyin": "Zhè tái diànnǎo wǒ liǎng ge yuè qián mǎi de, xiànzài yǐjīng chōng bu liǎo diàn le.",
+       "audio": "scenarios/zh/zh-shopping-5-0.mp3"
+      },
+      {
+       "text": "需要寄到售后维修，大概要三个星期。",
+       "en": "It has to be sent for repair, which takes about three weeks.",
+       "pinyin": "Xūyào jì dào shòuhòu wéixiū, dàgài yào sān ge xīngqī.",
+       "audio": "scenarios/zh/zh-shopping-5-1.mp3"
+      },
+      {
+       "text": "按照店里的规定，三十天以内才能换货。",
+       "en": "Store policy only allows exchanges within thirty days.",
+       "pinyin": "Ànzhào diàn li de guīdìng, sānshí tiān yǐnèi cái néng huàn huò.",
+       "audio": "scenarios/zh/zh-shopping-5-3.mp3"
+      },
+      {
+       "text": "我理解，但这是质量问题。我想跟你们经理谈谈。",
+       "en": "I understand, but this is a quality problem. I'd like to talk to your manager.",
+       "pinyin": "Wǒ lǐjiě, dàn zhè shì zhìliàng wèntí. Wǒ xiǎng gēn nǐmen jīnglǐ tántan.",
+       "audio": "scenarios/zh/zh-shopping-5-4.mp3"
+      },
+      {
+       "text": "我去问一下。这段时间我们可以先借您一台电脑用。",
+       "en": "Let me ask. Meanwhile, we can lend you a computer.",
+       "pinyin": "Wǒ qù wèn yíxià. Zhè duàn shíjiān wǒmen kěyǐ xiān jiè nín yì tái diànnǎo yòng.",
+       "audio": "scenarios/zh/zh-shopping-5-5.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u16": {
+   "intro": {
+    "text": "Welcome to the class for Debate. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-1d141c62bb.mp3"
+   },
+   "words": [
+    {
+     "id": "wo-wanquan-tongyi"
+    },
+    {
+     "id": "wo-yidianr-ye-bu-tongyi"
+    },
+    {
+     "id": "wo-mingbai-ni-de-yisi-danshi"
+    },
+    {
+     "id": "zhe-yidian-ni-shuo-de-dui"
+    },
+    {
+     "id": "zai-mouzhong-chengdu-shang"
+    },
+    {
+     "id": "bu-keneng"
+    },
+    {
+     "id": "yi-fangmian"
+    },
+    {
+     "id": "ling-yi-fangmian"
+    },
+    {
+     "id": "zhe-bu-wanquan-dui"
+    },
+    {
+     "id": "women-dei-kaolv-chengben"
+    },
+    {
+     "id": "suiran-hen-nan-danshi-zhide"
+    },
+    {
+     "id": "buguo",
+     "ex": "dt-you-duixiang-le"
+    },
+    {
+     "id": "shuju-xianshi-xiangfan"
+    },
+    {
+     "id": "shexiang-yixia"
+    },
+    {
+     "id": "zhe-bu-shi-qian-de-wenti"
+    },
+    {
+     "id": "zongzhi"
+    },
+    {
+     "id": "zuihou-wo-xiang-ganxie-dajia"
+    },
+    {
+     "id": "baoliu-geren-yijian"
+    }
+   ],
+   "rules": [
+    {
+     "title": "虽然…但是… and 一方面…另一方面…",
+     "culture": false,
+     "body": [
+      {
+       "text": "虽然 (although) is paired with 但是 (but) in the second half. Unlike English, Chinese uses both: 虽然很难，但是值得.",
+       "audio": "class/zh/n-02fa3b56ad.mp3"
+      },
+      {
+       "text": "一方面…另一方面… balances two sides of an argument.",
+       "audio": "class/zh/n-a4720b740d.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "suiran-hen-nan-danshi-zhide",
+      "yi-fangmian",
+      "ling-yi-fangmian"
+     ],
+     "why": {
+      "text": "These pairs set up the sentence's logic in advance: 虽然…但是… prepares a contrast, 一方面…另一方面… weighs two sides.",
+      "audio": "class/zh/n-230345456d.mp3"
+     },
+     "lesson": "zh-16-2"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-directions-5",
+     "title": "The metro is down",
+     "intro": {
+      "text": "These lines come up in the role-play “The metro is down”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-a77ccb5e93.mp3"
+     },
+     "lines": [
+      {
+       "text": "不好意思，你知道怎么去机场吗？听说地铁停了。",
+       "en": "Excuse me, do you know how to get to the airport? I heard the metro is down.",
+       "pinyin": "Bù hǎoyìsi, nǐ zhīdào zěnme qù jīchǎng ma? Tīngshuō dìtiě tíng le.",
+       "audio": "scenarios/zh/zh-directions-5-0.mp3"
+      },
+      {
+       "text": "会不会很贵啊？",
+       "en": "Won't it be really expensive?",
+       "pinyin": "Huì bu huì hěn guì a?",
+       "audio": "scenarios/zh/zh-directions-5-2.mp3"
+      },
+      {
+       "text": "比平时贵一点儿，不过现在走的话，能避开晚高峰。",
+       "en": "A bit more than usual, but if you leave now, you'll miss the evening rush hour.",
+       "pinyin": "Bǐ píngshí guì yìdiǎnr, búguò xiànzài zǒu de huà, néng bìkāi wǎn gāofēng.",
+       "audio": "scenarios/zh/zh-directions-5-3.mp3"
+      },
+      {
+       "text": "大概四十分钟，路上堵的话可能更久。",
+       "en": "About forty minutes, maybe longer if there's traffic.",
+       "pinyin": "Dàgài sìshí fēnzhōng, lùshang dǔ de huà kěnéng gèng jiǔ.",
+       "audio": "scenarios/zh/zh-directions-5-5.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "article",
+     "id": "zh-news-bikes",
+     "title": "Chengdu trials free electric bikes",
+     "intro": {
+      "text": "These words come up in the article “Chengdu trials free electric bikes”. Hear them now, so it's easy to read.",
+      "audio": "class/zh/n-f678407eb2.mp3"
+     },
+     "lines": [
+      {
+       "text": "成都市最近在三个城区推出了免费电动自行车试点项目。",
+       "en": "Chengdu has recently launched a pilot program of free electric bikes in three districts.",
+       "pinyin": "Chéngdū Shì zuìjìn zài sān ge chéngqū tuīchū le miǎnfèi diàndòng zìxíngchē shìdiǎn xiàngmù.",
+       "audio": "stories/zh/zh-news-bikes-0.mp3"
+      },
+      {
+       "text": "在六个月内，年满十六岁的人每天最多可以免费骑一个小时。",
+       "en": "For six months, anyone aged sixteen or over can ride for free for up to an hour a day.",
+       "pinyin": "Zài liù ge yuè nèi, nián mǎn shíliù suì de rén měitiān zuìduō kěyǐ miǎnfèi qí yí ge xiǎoshí.",
+       "audio": "stories/zh/zh-news-bikes-1.mp3"
+      },
+      {
+       "text": "只要在手机应用上注册，再扫一下码，就能开锁。",
+       "en": "You just register in a phone app and scan the code to unlock one.",
+       "pinyin": "Zhǐyào zài shǒujī yìngyòng shang zhùcè, zài sǎo yíxià mǎ, jiù néng kāisuǒ.",
+       "audio": "stories/zh/zh-news-bikes-2.mp3"
+      },
+      {
+       "text": "组织者表示，这样做是为了缓解高峰期的拥堵和污染。",
+       "en": "The organizers say the aim is to ease rush-hour congestion and pollution.",
+       "pinyin": "Zǔzhīzhě biǎoshì, zhèyàng zuò shì wèile huǎnjiě gāofēngqī de yōngdǔ hé wūrǎn.",
+       "audio": "stories/zh/zh-news-bikes-3.mp3"
+      },
+      {
+       "text": "一些店主担心停车点会占用店门口的车位。",
+       "en": "Some shop owners worry the bike stations will take up parking spaces outside their shops.",
+       "pinyin": "Yìxiē diànzhǔ dānxīn tíngchēdiǎn huì zhànyòng diàn ménkǒu de chēwèi.",
+       "audio": "stories/zh/zh-news-bikes-4.mp3"
+      },
+      {
+       "text": "也有人认为，骑车的人多了，路过小店的顾客也会更多。",
+       "en": "Others think that with more people cycling, more customers will pass by small shops too.",
+       "pinyin": "Yě yǒu rén rènwéi, qíchē de rén duō le, lùguò xiǎodiàn de gùkè yě huì gèng duō.",
+       "audio": "stories/zh/zh-news-bikes-5.mp3"
+      },
+      {
+       "text": "如果效果不错，明年这个项目可能会推广到全市。",
+       "en": "If it works well, the program may be rolled out to the whole city next year.",
+       "pinyin": "Rúguǒ xiàoguǒ búcuò, míngnián zhège xiàngmù kěnéng huì tuīguǎng dào quán shì.",
+       "audio": "stories/zh/zh-news-bikes-6.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u17": {
+   "intro": {
+    "text": "Welcome to the class for Formal and casual. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-d639b46712.mp3"
+   },
+   "words": [
+    {
+     "id": "nin-hao",
+     "ex": "cu-haojiu-bujian"
+    },
+    {
+     "id": "zayang-a"
+    },
+    {
+     "id": "nin-qing-zuo"
+    },
+    {
+     "id": "wang-zong"
+    },
+    {
+     "id": "qing-jin"
+    },
+    {
+     "id": "bu-keqi"
+    },
+    {
+     "id": "mafan-nin-bang-wo-yixia"
+    },
+    {
+     "id": "ruo-neng-jinkuai-huifu"
+    },
+    {
+     "id": "qingwen-bangongshi-zai-nali"
+    },
+    {
+     "id": "darao-nin-le"
+    },
+    {
+     "id": "ba-yan-di-gei-wo"
+    },
+    {
+     "id": "neng-gei-wo-lai-bei-kafei-ma"
+    },
+    {
+     "id": "zunjing-de-wang-xiansheng"
+    },
+    {
+     "id": "xie-xin-xiang-nin-zixun"
+    },
+    {
+     "id": "fujian-shi-wo-de-jianli"
+    },
+    {
+     "id": "qidai-nin-de-huifu"
+    },
+    {
+     "id": "ci-zhi-jingli"
+    },
+    {
+     "id": "baobao"
+    }
+   ],
+   "rules": [
+    {
+     "title": "你 or 您?",
+     "culture": false,
+     "body": [
+      {
+       "text": "您 is the respectful \"you\" for older people, customers, bosses and strangers in formal settings. 你 is for everyone else.",
+       "audio": "class/zh/n-66f3148ca2.mp3"
+      },
+      {
+       "text": "People are often addressed by surname + title: 王总 (Director Wang), 李老师 (Teacher Li).",
+       "audio": "class/zh/n-2b2c2a78ca.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "nin-hao",
+      "nin-qing-zuo",
+      "wang-zong"
+     ],
+     "why": {
+      "text": "您 is the polite 'you', shown to elders, teachers and customers. Respect for age and status is an important part of Chinese politeness.",
+      "audio": "class/zh/n-01c85a7459.mp3"
+     },
+     "lesson": "zh-17-1"
+    },
+    {
+     "title": "把: doing something to something",
+     "culture": false,
+     "body": [
+      {
+       "text": "把 moves the object before the verb when you do something to it: 把盐递给我 (pass me the salt).",
+       "audio": "class/zh/n-e1f8a5fde9.mp3"
+      },
+      {
+       "text": "It's very common in requests and instructions.",
+       "audio": "class/zh/n-b78ddd76c8.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "ba-yan-di-gei-wo",
+      "mafan-nin-bang-wo-yixia"
+     ],
+     "why": {
+      "text": "把 brings the object before the verb to focus on what you do to it and how it ends up.",
+      "audio": "class/zh/n-c8aeeca606.mp3"
+     },
+     "lesson": "zh-17-2"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-job-5",
+     "title": "Your strengths",
+     "intro": {
+      "text": "These lines come up in the role-play “Your strengths”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-a3ba9aebe9.mp3"
+     },
+     "lines": [
+      {
+       "text": "能举个具体的例子吗？",
+       "en": "Can you give a concrete example?",
+       "pinyin": "Néng jǔ ge jùtǐ de lìzi ma?",
+       "audio": "scenarios/zh/zh-job-5-2.mp3"
+      },
+      {
+       "text": "我有时候不太会分配任务，不过我正在学着更信任团队。",
+       "en": "Sometimes I'm not great at delegating, but I'm learning to trust the team more.",
+       "pinyin": "Wǒ yǒu shíhou bú tài huì fēnpèi rènwu, búguò wǒ zhèngzài xuézhe gèng xìnrèn tuánduì.",
+       "audio": "scenarios/zh/zh-job-5-5.mp3"
+      },
+      {
+       "text": "这个回答很坦诚。",
+       "en": "That's a very candid answer.",
+       "pinyin": "Zhège huídá hěn tǎnchéng.",
+       "audio": "scenarios/zh/zh-job-5-6.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "article",
+     "id": "zh-news-workweek",
+     "title": "The four-day work week: forty companies report back",
+     "intro": {
+      "text": "These words come up in the article “The four-day work week: forty companies report back”. Hear them now, so it's easy to read.",
+      "audio": "class/zh/n-566317ebd1.mp3"
+     },
+     "lines": [
+      {
+       "text": "杭州四十家公司最近完成了为期六个月的四天工作制试验。",
+       "en": "Forty companies in Hangzhou have recently completed a six-month trial of a four-day work week.",
+       "pinyin": "Hángzhōu sìshí jiā gōngsī zuìjìn wánchéng le wéiqī liù ge yuè de sì tiān gōngzuòzhì shìyàn.",
+       "audio": "stories/zh/zh-news-workweek-0.mp3"
+      },
+      {
+       "text": "试验结束后，大多数公司表示，工作效率没有下降，甚至还提高了。",
+       "en": "After the trial, most companies said efficiency didn't drop, and even went up.",
+       "pinyin": "Shìyàn jiéshù hòu, dàduōshù gōngsī biǎoshì, gōngzuò xiàolǜ méiyǒu xiàjiàng, shènzhì hái tígāo le.",
+       "audio": "stories/zh/zh-news-workweek-2.mp3"
+      },
+      {
+       "text": "员工们说，他们睡得更好了，陪家人的时间也更多了。",
+       "en": "Employees said they slept better and had more time with their families.",
+       "pinyin": "Yuángōngmen shuō, tāmen shuì de gèng hǎo le, péi jiārén de shíjiān yě gèng duō le.",
+       "audio": "stories/zh/zh-news-workweek-3.mp3"
+      },
+      {
+       "text": "不过，并不是一切都很顺利，一些客服公司不得不重新安排排班。",
+       "en": "However, not everything went smoothly: some customer service companies had to rework their shift schedules.",
+       "pinyin": "Búguò, bìng bú shì yíqiè dōu hěn shùnlì, yìxiē kèfú gōngsī bùdébù chóngxīn ānpái páibān.",
+       "audio": "stories/zh/zh-news-workweek-4.mp3"
+      },
+      {
+       "text": "最后，三十四家公司决定继续实行新制度，六家恢复了五天工作制。",
+       "en": "In the end, thirty-four companies decided to keep the new system, and six went back to a five-day week.",
+       "pinyin": "Zuìhòu, sānshísì jiā gōngsī juédìng jìxù shíxíng xīn zhìdù, liù jiā huīfù le wǔ tiān gōngzuòzhì.",
+       "audio": "stories/zh/zh-news-workweek-5.mp3"
+      },
+      {
+       "text": "专家提醒，这种模式并不适合所有行业，但认为这是一次很有价值的尝试。",
+       "en": "Experts caution that the model doesn't suit every industry, but see it as a very worthwhile experiment.",
+       "pinyin": "Zhuānjiā tíxǐng, zhè zhǒng móshì bìng bú shìhé suǒyǒu hángyè, dàn rènwéi zhè shì yí cì hěn yǒu jiàzhí de chángshì.",
+       "audio": "stories/zh/zh-news-workweek-6.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u22": {
+   "intro": {
+    "text": "Welcome to the class for Texting & dating apps. I'll show you 12 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-3a5f17b64f.mp3"
+   },
+   "words": [
+    {
+     "id": "dt-zai-ma"
+    },
+    {
+     "id": "dt-hahaha"
+    },
+    {
+     "id": "dt-zhousi-you-kong"
+    },
+    {
+     "id": "dt-dao-jia-le"
+    },
+    {
+     "id": "dt-gang-kandao"
+    },
+    {
+     "id": "dt-yidu-buhui"
+    },
+    {
+     "id": "dt-pipei"
+    },
+    {
+     "id": "dt-gou-de-zhaopian"
+    },
+    {
+     "id": "dt-zui-fengkuang"
+    },
+    {
+     "id": "dt-jianmian-hekafei"
+    },
+    {
+     "id": "dt-bu-zhaoji"
+    },
+    {
+     "id": "dt-meiyou-dianfeng"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Culture: chatting on WeChat",
+     "culture": true,
+     "body": [
+      {
+       "text": "Almost everyone chats on WeChat, and stickers (表情包 biǎoqíngbāo) are part of the conversation. Long gaps are normal; 在吗 (you there?) opens a chat.",
+       "audio": "class/zh/n-a173bf1485.mp3"
+      },
+      {
+       "text": "Laughing is 哈哈哈 and 笑死我了 (literally \"I'm laughing to death\"). 520 (wǔ èr líng) sounds like 我爱你 and May 20 is an unofficial Valentine's Day.",
+       "audio": "class/zh/n-5c47e87497.mp3"
+      },
+      {
+       "text": "已读不回 (read, no reply) is the Chinese \"left on read\". Saying 晚安 (good night) is a sweet way to end an evening chat.",
+       "audio": "class/zh/n-711505e1f5.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "dt-zai-ma",
+      "dt-yidu-buhui"
+     ],
+     "why": {
+      "text": "WeChat is used for almost everything in China, so chatting there is the normal way to stay in touch.",
+      "audio": "class/zh/n-691cf04b50.mp3"
+     },
+     "lesson": "zh-22-1"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-dating-5",
+     "title": "Chatting after a match",
+     "intro": {
+      "text": "These lines come up in the role-play “Chatting after a match”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-6d4db134d6.mp3"
+     },
+     "lines": [
+      {
+       "text": "你好！你和狗的照片太可爱了，是你养的吗？",
+       "en": "Hi! Your photo with the dog is so cute. Is it yours?",
+       "pinyin": "Nǐ hǎo! Nǐ hé gǒu de zhàopiàn tài kě'ài le, shì nǐ yǎng de ma?",
+       "audio": "scenarios/zh/zh-dating-5-0.mp3"
+      },
+      {
+       "text": "好可爱！那你不遛狗的时候喜欢做什么？",
+       "en": "So cute! So what do you like doing when you're not walking the dog?",
+       "pinyin": "Hǎo kě'ài! Nà nǐ bú liù gǒu de shíhou xǐhuan zuò shénme?",
+       "audio": "scenarios/zh/zh-dating-5-2.mp3"
+      },
+      {
+       "text": "我比较喜欢看电影、听演唱会。要不要找时间见个面？",
+       "en": "I'm more into movies and concerts. Want to find a time to meet up?",
+       "pinyin": "Wǒ bǐjiào xǐhuan kàn diànyǐng, tīng yǎnchànghuì. Yào bu yào zhǎo shíjiān jiàn ge miàn?",
+       "audio": "scenarios/zh/zh-dating-5-4.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "story",
+     "id": "zh-dt-left-on-read",
+     "title": "Left on read?",
+     "intro": {
+      "text": "These words come up in the story “Left on read?”. Hear them now, so the story is easy to follow.",
+      "audio": "class/zh/n-81cdef5dab.mp3"
+     },
+     "lines": [
+      {
+       "text": "阿杰，救命！我三个小时前给浩然发了消息，他已读不回。",
+       "en": "Ajie, help! I messaged Haoran three hours ago, and he left me on read.",
+       "pinyin": "Ā Jié, jiùmìng! Wǒ sān ge xiǎoshí qián gěi Hàorán fā le xiāoxi, tā yǐdú bù huí.",
+       "audio": "stories/zh/zh-dt-left-on-read-0.mp3"
+      },
+      {
+       "text": "就一句“在吗？周六有空吗？”，还加了个表情包。",
+       "en": "Just \"You there? Free on Saturday?\", plus a sticker.",
+       "pinyin": "Jiù yí jù \"zài ma? Zhōuliù yǒu kòng ma?\", hái jiā le ge biǎoqíngbāo.",
+       "audio": "stories/zh/zh-dt-left-on-read-2.mp3"
+      },
+      {
+       "text": "别急，他可能在忙。先别再发了。",
+       "en": "Don't panic, he might be busy. Don't send anything else for now.",
+       "pinyin": "Bié jí, tā kěnéng zài máng. Xiān bié zài fā le.",
+       "audio": "stories/zh/zh-dt-left-on-read-3.mp3"
+      },
+      {
+       "text": "你看吧！不过别想太多，慢慢来。",
+       "en": "See? But don't overthink it, take it slow.",
+       "pinyin": "Nǐ kàn ba! Búguò bié xiǎng tài duō, mànmàn lái.",
+       "audio": "stories/zh/zh-dt-left-on-read-5.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u25": {
+   "intro": {
+    "text": "Welcome to the class for Playful teasing & pick-up lines. I'll show you 12 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-de8d273c4b.mp3"
+   },
+   "words": [
+    {
+     "id": "fl-zhi-dui-wo"
+    },
+    {
+     "id": "fl-zilian"
+    },
+    {
+     "id": "fl-fu-bu-fu"
+    },
+    {
+     "id": "fl-bie-zhuang"
+    },
+    {
+     "id": "fl-qian-wo-kafei"
+    },
+    {
+     "id": "fl-suan-ni-ying"
+    },
+    {
+     "id": "fl-tuijian"
+    },
+    {
+     "id": "fl-que-dian-ni"
+    },
+    {
+     "id": "fl-nao-zi-li-pao"
+    },
+    {
+     "id": "fl-guai-haokan"
+    },
+    {
+     "id": "fl-hao-tu"
+    },
+    {
+     "id": "fl-qing-ni-he-yibei"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Culture: 土味情话, cheesy lines as a game",
+     "culture": true,
+     "body": [
+      {
+       "text": "土味情话 (tǔwèi qínghuà, \"country-flavored love lines\") are deliberately corny pick-up lines, hugely popular online. Many are puns, like 缺点 (flaw) heard as 缺 + 点你 (missing a bit of you).",
+       "audio": "class/zh/n-c3ec4a0d4b.mp3"
+      },
+      {
+       "text": "They're used as a joke you share, not a serious move. The best reply is a laugh and 好土啊 (so cheesy!).",
+       "audio": "class/zh/n-40699036f8.mp3"
+      },
+      {
+       "text": "Teasing is affectionate (服不服?, admit it!) but keep it light and mutual.",
+       "audio": "class/zh/n-348f24f03e.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "fl-que-dian-ni",
+      "fl-hao-tu"
+     ],
+     "why": {
+      "text": "Cheesy lines (土味情话) are a playful game online, so they're said with a smile, not to be taken seriously.",
+      "audio": "class/zh/n-577a732539.mp3"
+     },
+     "lesson": "zh-25-2"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-flirting-5",
+     "title": "Teasing after trivia night",
+     "intro": {
+      "text": "These lines come up in the role-play “Teasing after trivia night”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-5435c150fa.mp3"
+     },
+     "lines": [
+      {
+       "text": "我们又赢了！要不要我给你补补课？",
+       "en": "We won again! Want me to give you some tutoring?",
+       "pinyin": "Wǒmen yòu yíng le! Yào bu yào wǒ gěi nǐ bǔbu kè?",
+       "audio": "scenarios/zh/zh-flirting-5-0.mp3"
+      },
+      {
+       "text": "运气？我看到你答地理题的时候犹豫了。",
+       "en": "Luck? I saw you hesitate on the geography question.",
+       "pinyin": "Yùnqi? Wǒ kàndào nǐ dá dìlǐ tí de shíhou yóuyù le.",
+       "audio": "scenarios/zh/zh-flirting-5-2.mp3"
+      },
+      {
+       "text": "好吧，那题算你厉害。下周再比一次？",
+       "en": "Fine, you got me on that one. Rematch next week?",
+       "pinyin": "Hǎo ba, nà tí suàn nǐ lìhai. Xià zhōu zài bǐ yí cì?",
+       "audio": "scenarios/zh/zh-flirting-5-4.mp3"
+      },
+      {
+       "text": "一言为定。谁输了谁请喝饮料。",
+       "en": "It's a deal. Whoever loses buys the drinks.",
+       "pinyin": "Yì yán wéi dìng. Shéi shū le shéi qǐng hē yǐnliào.",
+       "audio": "scenarios/zh/zh-flirting-5-5.mp3"
+      },
+      {
+       "text": "没问题，你准备好钱包吧。",
+       "en": "No problem. Get your wallet ready.",
+       "pinyin": "Méi wèntí, nǐ zhǔnbèi hǎo qiánbāo ba.",
+       "audio": "scenarios/zh/zh-flirting-5-6.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "story",
+     "id": "zh-fl-worst-line",
+     "title": "The cheesiest line",
+     "intro": {
+      "text": "These words come up in the story “The cheesiest line”. Hear them now, so the story is easy to follow.",
+      "audio": "class/zh/n-3778eaf932.mp3"
+     },
+     "lines": [
+      {
+       "text": "哈哈哈，真的假的？这是我听过最土的情话！",
+       "en": "Hahaha, seriously? That's the cheesiest line I've ever heard!",
+       "pinyin": "Hāhāhā, zhēn de jiǎ de? Zhè shì wǒ tīng guo zuì tǔ de qínghuà!",
+       "audio": "stories/zh/zh-fl-worst-line-1.mp3"
+      },
+      {
+       "text": "好吧，这点我承认。勇气可嘉。",
+       "en": "Fine, I'll admit that. Points for courage.",
+       "pinyin": "Hǎo ba, zhè diǎn wǒ chéngrèn. Yǒngqì kě jiā.",
+       "audio": "stories/zh/zh-fl-worst-line-3.mp3"
+      },
+      {
+       "text": "一杯柠檬水可以，但你得保证别再说土味情话了。",
+       "en": "A lemonade is fine, but you have to promise no more cheesy lines.",
+       "pinyin": "Yì bēi níngméngshuǐ kěyǐ, dàn nǐ děi bǎozhèng bié zài shuō tǔwèi qínghuà le.",
+       "audio": "stories/zh/zh-fl-worst-line-5.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u31": {
+   "intro": {
+    "text": "Welcome to the class for Culture: slang around the world. I'll show you 6 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-c07d5ac44b.mp3"
+   },
+   "words": [
+    {
+     "id": "cu-tai-niu-le"
+    },
+    {
+     "id": "cu-liuliuliu"
+    },
+    {
+     "id": "cu-dian-zan"
+    },
+    {
+     "id": "cu-yongyuan-de-shen"
+    },
+    {
+     "id": "cu-tang-ping"
+    },
+    {
+     "id": "cu-chao-zan"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Culture: internet slang and Taiwan's style",
+     "culture": true,
+     "body": [
+      {
+       "text": "Online slang spreads fast: 666 (from 溜, smooth) means you're skilled; 永远的神 (\"eternal god\", written YYDS) is the GOAT; 点赞 is to like a post; 躺平 (lying flat) is opting out of the rat race.",
+       "audio": "class/zh/n-e8f529406c.mp3"
+      },
+      {
+       "text": "牛 means awesome: \"太牛了\" is fine anywhere, but avoid the longer, vulgar version you'll see online.",
+       "audio": "class/zh/n-857262dd06.mp3"
+      },
+      {
+       "text": "Taiwan uses 超 + adjective all the time (超好吃, super tasty), 讚 for great, and soft particles like 啦 and 喔. Northern mainland speech adds 儿 to many words. Taiwan writes traditional characters, like 讚.",
+       "audio": "class/zh/n-871f16682a.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "cu-tai-niu-le",
+      "cu-liuliuliu"
+     ],
+     "why": {
+      "text": "Chinese internet slang grows fast online, and Taiwan has its own words and expressions.",
+      "audio": "class/zh/n-8802404656.mp3"
+     },
+     "lesson": "zh-31-1"
+    }
+   ],
+   "extras": [],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u18": {
+   "intro": {
+    "text": "Welcome to the class for Idioms. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-07ec848c74.mp3"
+   },
+   "words": [
+    {
+     "id": "ma-ma-huhu"
+    },
+    {
+     "id": "luan-qi-ba-zao"
+    },
+    {
+     "id": "ni-zhen-you-yitao"
+    },
+    {
+     "id": "wo-shuo-lou-zui-le"
+    },
+    {
+     "id": "ni-kai-wanxiao-ba"
+    },
+    {
+     "id": "xiao-cai-yi-die"
+    },
+    {
+     "id": "yi-jian-shuang-diao"
+    },
+    {
+     "id": "ru-xiang-sui-su"
+    },
+    {
+     "id": "ma-dao-chenggong"
+    },
+    {
+     "id": "hua-she-tian-zu"
+    },
+    {
+     "id": "dui-niu-tan-qin"
+    },
+    {
+     "id": "ban-tu-er-fei"
+    },
+    {
+     "id": "haojiu-bujian"
+    },
+    {
+     "id": "shuo-qilai-rongyi"
+    },
+    {
+     "id": "sai-weng-shi-ma"
+    },
+    {
+     "id": "qianli-zhi-xing"
+    },
+    {
+     "id": "jin-zhu-zhe-chi"
+    },
+    {
+     "id": "ren-wai-you-ren"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Chengyu: four characters, one story",
+     "culture": false,
+     "body": [
+      {
+       "text": "Chengyu are idioms of four characters, most from old stories. 画蛇添足, 'draw a snake and add feet', means to ruin something by overdoing it.",
+       "audio": "class/zh/n-9b6ac5ff71.mp3"
+      },
+      {
+       "text": "Learn each with its story and use it whole; never change the characters.",
+       "audio": "class/zh/n-db93e42880.mp3"
+      }
+     ],
+     "table": [
+      [
+       "马马虎虎",
+       "so-so"
+      ],
+      [
+       "一箭双雕",
+       "two birds with one stone"
+      ],
+      [
+       "入乡随俗",
+       "when in Rome, do as the Romans do"
+      ]
+     ],
+     "examples": [
+      "ma-ma-huhu",
+      "yi-jian-shuang-diao"
+     ],
+     "why": {
+      "text": "Chengyu keep the compact style of classical Chinese, where each character carried a whole word, so four characters can tell a whole story.",
+      "audio": "class/zh/n-b1bac718c4.mp3"
+     }
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-smalltalk-6",
+     "title": "Networking at an event",
+     "intro": {
+      "text": "These lines come up in the role-play “Networking at an event”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-fe1d212163.mp3"
+     },
+     "lines": [
+      {
+       "text": "原来您就是负责新项目的那位，久仰大名啊。",
+       "en": "So you're the one in charge of the new project. I've heard so much about you.",
+       "pinyin": "Yuánlái nín jiù shì fùzé xīn xiàngmù de nà wèi, jiǔyǎng dàmíng a.",
+       "audio": "scenarios/zh/zh-smalltalk-6-0.mp3"
+      },
+      {
+       "text": "哪里哪里，都是团队的功劳，不过确实挺有挑战的。",
+       "en": "Oh, not at all, it's all the team's doing, though it really has been a challenge.",
+       "pinyin": "Nǎli nǎli, dōu shì tuánduì de gōngláo, búguò quèshí tǐng yǒu tiǎozhàn de.",
+       "audio": "scenarios/zh/zh-smalltalk-6-1.mp3"
+      },
+      {
+       "text": "挺顺利的，他们很靠谱。刚开始时间不好协调，现在已经磨合好了。",
+       "en": "It's going smoothly, they're very reliable. At first our schedules were hard to coordinate, but we've worked it out now.",
+       "pinyin": "Tǐng shùnlì de, tāmen hěn kàopǔ. Gāng kāishǐ shíjiān bù hǎo xiétiáo, xiànzài yǐjīng móhé hǎo le.",
+       "audio": "scenarios/zh/zh-smalltalk-6-3.mp3"
+      },
+      {
+       "text": "那就好。改天一起喝杯咖啡，聊聊合作的可能？",
+       "en": "Good to hear. Shall we get a coffee sometime and talk about working together?",
+       "pinyin": "Nà jiù hǎo. Gǎitiān yìqǐ hē bēi kāfēi, liáoliao hézuò de kěnéng?",
+       "audio": "scenarios/zh/zh-smalltalk-6-4.mp3"
+      },
+      {
+       "text": "好啊，我们加个微信，到时候约。",
+       "en": "Sure, let's add each other on WeChat and set a time.",
+       "pinyin": "Hǎo a, wǒmen jiā ge Wēixìn, dào shíhou yuē.",
+       "audio": "scenarios/zh/zh-smalltalk-6-5.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "roleplay",
+     "id": "zh-doctor-6",
+     "title": "A second opinion",
+     "intro": {
+      "text": "These lines come up in the role-play “A second opinion”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-04e7a3ae8c.mp3"
+     },
+     "lines": [
+      {
+       "text": "大夫，另一位医生建议我做手术，但我想再听听别的意见。",
+       "en": "Doctor, another doctor suggested surgery, but I wanted to hear another opinion.",
+       "pinyin": "Dàifu, lìng yí wèi yīshēng jiànyì wǒ zuò shǒushù, dàn wǒ xiǎng zài tīngting biéde yìjiàn.",
+       "audio": "scenarios/zh/zh-doctor-6-0.mp3"
+      },
+      {
+       "text": "你这样做是对的。从检查结果看，我建议先做康复治疗。",
+       "en": "You did the right thing. From the test results, I'd suggest starting with physical therapy.",
+       "pinyin": "Nǐ zhèyàng zuò shì duì de. Cóng jiǎnchá jiéguǒ kàn, wǒ jiànyì xiān zuò kāngfù zhìliáo.",
+       "audio": "scenarios/zh/zh-doctor-6-1.mp3"
+      },
+      {
+       "text": "不做手术的话，效果好的可能性有多大？",
+       "en": "Without surgery, how likely is it to work?",
+       "pinyin": "Bú zuò shǒushù de huà, xiàoguǒ hǎo de kěnéngxìng yǒu duō dà?",
+       "audio": "scenarios/zh/zh-doctor-6-2.mp3"
+      },
+      {
+       "text": "这很合理。要是没有好转，我们再考虑别的办法。",
+       "en": "That's very reasonable. If there's no improvement, we'll consider other options.",
+       "pinyin": "Zhè hěn hélǐ. Yàoshi méiyǒu hǎozhuǎn, wǒmen zài kǎolǜ biéde bànfǎ.",
+       "audio": "scenarios/zh/zh-doctor-6-5.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u19": {
+   "intro": {
+    "text": "Welcome to the class for Slang. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-383873da8e.mp3"
+   },
+   "words": [
+    {
+     "id": "niu"
+    },
+    {
+     "id": "kaopu"
+    },
+    {
+     "id": "chi-gua"
+    },
+    {
+     "id": "tang-ping",
+     "ex": "cu-tang-ping"
+    },
+    {
+     "id": "yyds"
+    },
+    {
+     "id": "pofang-le"
+    },
+    {
+     "id": "neige"
+    },
+    {
+     "id": "jiushi-shuo"
+    },
+    {
+     "id": "zhende-jiade"
+    },
+    {
+     "id": "wo-qu"
+    },
+    {
+     "id": "ganga"
+    },
+    {
+     "id": "suan-le"
+    },
+    {
+     "id": "za-le"
+    },
+    {
+     "id": "gan-ma-ne"
+    },
+    {
+     "id": "wo-qiong-si-le"
+    },
+    {
+     "id": "mei-shir"
+    },
+    {
+     "id": "xing-a"
+    },
+    {
+     "id": "zou-le-a"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Internet slang",
+     "culture": false,
+     "body": [
+      {
+       "text": "A lot of new Chinese slang comes from the internet. 吃瓜 (chī guā), 'eating melon', means watching drama from the side.",
+       "audio": "class/zh/n-a74ae9c96e.mp3"
+      },
+      {
+       "text": "躺平 (tǎng píng), 'lying flat', means opting out of the rat race. Use these with friends, not at work.",
+       "audio": "class/zh/n-f7cc24f2be.mp3"
+      }
+     ],
+     "table": [
+      [
+       "靠谱",
+       "reliable"
+      ],
+      [
+       "吃瓜",
+       "watch the drama"
+      ],
+      [
+       "躺平",
+       "give up the rat race"
+      ]
+     ],
+     "examples": [
+      "kaopu",
+      "chi-gua"
+     ],
+     "why": {
+      "text": "Slang grows fast online, where short, vivid pictures spread quickly, so it tells people you're part of the conversation.",
+      "audio": "class/zh/n-c893b97153.mp3"
+     }
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-airport-6",
+     "title": "A missed connection",
+     "intro": {
+      "text": "These lines come up in the role-play “A missed connection”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-678518c8a6.mp3"
+     },
+     "lines": [
+      {
+       "text": "第一班飞机晚了三个小时，我错过了转机。我现在有什么选择？",
+       "en": "My first flight was three hours late and I missed my connection. What are my options?",
+       "pinyin": "Dì-yī bān fēijī wǎn le sān ge xiǎoshí, wǒ cuòguò le zhuǎnjī. Wǒ xiànzài yǒu shénme xuǎnzé?",
+       "audio": "scenarios/zh/zh-airport-6-0.mp3"
+      },
+      {
+       "text": "延误是航空公司造成的，所以住宿和餐饮应该由你们负责吧？",
+       "en": "The delay was caused by the airline, so the hotel and meals should be on you, right?",
+       "pinyin": "Yánwù shì hángkōng gōngsī zàochéng de, suǒyǐ zhùsù hé cānyǐn yīnggāi yóu nǐmen fùzé ba?",
+       "audio": "scenarios/zh/zh-airport-6-2.mp3"
+      },
+      {
+       "text": "是的。这是酒店住宿券和晚餐券。",
+       "en": "Yes. Here are a hotel voucher and a dinner voucher.",
+       "pinyin": "Shì de. Zhè shì jiǔdiàn zhùsùquàn hé wǎncānquàn.",
+       "audio": "scenarios/zh/zh-airport-6-3.mp3"
+      },
+      {
+       "text": "谢谢。今晚那班能帮我排候补吗？",
+       "en": "Thank you. Can you put me on standby for tonight's flight?",
+       "pinyin": "Xièxie. Jīnwǎn nà bān néng bāng wǒ pái hòubǔ ma?",
+       "audio": "scenarios/zh/zh-airport-6-4.mp3"
+      },
+      {
+       "text": "可以帮您登记，但不能保证有位子。",
+       "en": "I can register you, but I can't guarantee a seat.",
+       "pinyin": "Kěyǐ bāng nín dēngjì, dàn bù néng bǎozhèng yǒu wèizi.",
+       "audio": "scenarios/zh/zh-airport-6-5.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "article",
+     "id": "zh-news-ai-school",
+     "title": "Commentary: AI has entered the classroom. What now?",
+     "intro": {
+      "text": "These words come up in the article “Commentary: AI has entered the classroom. What now?”. Hear them now, so it's easy to read.",
+      "audio": "class/zh/n-b89d65f356.mp3"
+     },
+     "lines": [
+      {
+       "text": "两年前，学校禁止使用聊天机器人似乎是个明智的决定。",
+       "en": "Two years ago, banning chatbots at school seemed a wise decision.",
+       "pinyin": "Liǎng nián qián, xuéxiào jìnzhǐ shǐyòng liáotiān jīqìrén sìhū shì ge míngzhì de juédìng.",
+       "audio": "stories/zh/zh-news-ai-school-0.mp3"
+      },
+      {
+       "text": "如今一半的学生每天都在用，这样的禁令几乎无法执行。",
+       "en": "Now that half of students use them every day, such a ban is almost impossible to enforce.",
+       "pinyin": "Rújīn yíbàn de xuésheng měitiān dōu zài yòng, zhèyàng de jìnlìng jīhū wúfǎ zhíxíng.",
+       "audio": "stories/zh/zh-news-ai-school-1.mp3"
+      },
+      {
+       "text": "真正的挑战不在技术，而在教育：机器几秒钟就能写出一篇作文，那我们到底该考什么？",
+       "en": "The real challenge isn't technology but education: if a machine can write an essay in seconds, what should we actually be testing?",
+       "pinyin": "Zhēnzhèng de tiǎozhàn bú zài jìshù, ér zài jiàoyù: jīqì jǐ miǎozhōng jiù néng xiěchū yì piān zuòwén, nà wǒmen dàodǐ gāi kǎo shénme?",
+       "audio": "stories/zh/zh-news-ai-school-2.mp3"
+      },
+      {
+       "text": "有些老师已经重新采用口试，让学生在课堂上手写作业。",
+       "en": "Some teachers have already gone back to oral exams and have students handwrite their work in class.",
+       "pinyin": "Yǒuxiē lǎoshī yǐjīng chóngxīn cǎiyòng kǒushì, ràng xuésheng zài kètáng shang shǒuxiě zuòyè.",
+       "audio": "stories/zh/zh-news-ai-school-3.mp3"
+      },
+      {
+       "text": "也有老师不跟这个工具对着干，而是教学生质疑它的答案、找出它的错误。",
+       "en": "Other teachers don't fight the tool; instead they teach students to question its answers and find its mistakes.",
+       "pinyin": "Yě yǒu lǎoshī bù gēn zhège gōngjù duìzhe gàn, ér shì jiāo xuésheng zhìyí tā de dá'àn, zhǎochū tā de cuòwù.",
+       "audio": "stories/zh/zh-news-ai-school-4.mp3"
+      },
+      {
+       "text": "这也许是整场讨论中最有用的一课，而且不只适用于学校。",
+       "en": "That may be the most useful lesson of the whole debate, and it doesn't only apply to schools.",
+       "pinyin": "Zhè yěxǔ shì zhěng chǎng tǎolùn zhōng zuì yǒuyòng de yí kè, érqiě bù zhǐ shìyòng yú xuéxiào.",
+       "audio": "stories/zh/zh-news-ai-school-6.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u20": {
+   "intro": {
+    "text": "Welcome to the class for Fluent conversation. I'll show you 18 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-300805ab1e.mp3"
+   },
+   "words": [
+    {
+     "id": "haojiu-bujian-zuijin-mang-shenme"
+    },
+    {
+     "id": "hai-xing-hunrizi"
+    },
+    {
+     "id": "bie-ti-le"
+    },
+    {
+     "id": "ting-dao-ni-guo-de-hao"
+    },
+    {
+     "id": "gai-tian-yiqi-chi-ge-fan"
+    },
+    {
+     "id": "yiyan-nanjin"
+    },
+    {
+     "id": "ni-cai-zenmezhe"
+    },
+    {
+     "id": "yuanlai-ta-wang-le"
+    },
+    {
+     "id": "jieguo-women-mei-ganshang"
+    },
+    {
+     "id": "geng-zao-gao-de-shi"
+    },
+    {
+     "id": "xiao-si-wo-le"
+    },
+    {
+     "id": "haozai-zuihou-dou-ting-shunli"
+    },
+    {
+     "id": "wo-de-yisi-shi"
+    },
+    {
+     "id": "huan-ju-hua-shuo"
+    },
+    {
+     "id": "ni-shi-shuo"
+    },
+    {
+     "id": "bie-wuhui"
+    },
+    {
+     "id": "ni-dong-wo-yisi-ma"
+    },
+    {
+     "id": "o-wo-mingbai-le"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Telling a story: 原来, 结果, 好在",
+     "culture": false,
+     "body": [
+      {
+       "text": "原来 (yuánlái), 'it turns out', reveals the twist. 结果 (jiéguǒ), 'as a result', tells what happened next.",
+       "audio": "class/zh/n-ea5a2bb19b.mp3"
+      },
+      {
+       "text": "更糟糕的是, 'what's worse', adds the last straw, and 好在 (hǎozài), 'luckily', brings relief.",
+       "audio": "class/zh/n-0ccda50332.mp3"
+      }
+     ],
+     "table": [
+      [
+       "原来……",
+       "It turns out…"
+      ],
+      [
+       "结果……",
+       "In the end, as a result…"
+      ],
+      [
+       "好在……",
+       "Luckily…"
+      ]
+     ],
+     "examples": [
+      "yuanlai-ta-wang-le",
+      "jieguo-women-mei-ganshang"
+     ],
+     "why": {
+      "text": "Chinese verbs don't change for time, so these linking words do the work of showing how events follow each other.",
+      "audio": "class/zh/n-9154b0697f.mp3"
+     }
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-job-6",
+     "title": "Negotiating your salary",
+     "intro": {
+      "text": "These lines come up in the role-play “Negotiating your salary”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-fb04d6f35c.mp3"
+     },
+     "lines": [
+      {
+       "text": "我们很希望你加入团队。我们给的月薪是一万五。",
+       "en": "We'd love you to join the team. The monthly salary we're offering is 15,000.",
+       "pinyin": "Wǒmen hěn xīwàng nǐ jiārù tuánduì. Wǒmen gěi de yuèxīn shì yíwàn wǔ.",
+       "audio": "scenarios/zh/zh-job-6-0.mp3"
+      },
+      {
+       "text": "理解。你的依据是什么？",
+       "en": "Understood. What's that based on?",
+       "pinyin": "Lǐjiě. Nǐ de yījù shì shénme?",
+       "audio": "scenarios/zh/zh-job-6-2.mp3"
+      },
+      {
+       "text": "我的经验，还有市场上类似职位的薪资水平。",
+       "en": "My experience, and the pay for similar positions on the market.",
+       "pinyin": "Wǒ de jīngyàn, hái yǒu shìchǎng shang lèisì zhíwèi de xīnzī shuǐpíng.",
+       "audio": "scenarios/zh/zh-job-6-3.mp3"
+      },
+      {
+       "text": "我们可以给到一万六，再加每周一天居家办公。",
+       "en": "We can go to 16,000, plus one day a week working from home.",
+       "pinyin": "Wǒmen kěyǐ gěi dào yíwàn liù, zài jiā měi zhōu yì tiān jūjiā bàngōng.",
+       "audio": "scenarios/zh/zh-job-6-4.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "article",
+     "id": "zh-news-housing",
+     "title": "Remote work moves thousands of families to small towns",
+     "intro": {
+      "text": "These words come up in the article “Remote work moves thousands of families to small towns”. Hear them now, so it's easy to read.",
+      "audio": "class/zh/n-e03c9c839b.mp3"
+     },
+     "lines": [
+      {
+       "text": "自从远程办公越来越普遍，像大理这样的小城迎来了几百位新居民。",
+       "en": "Since remote work became more and more common, small towns like Dali have welcomed several hundred new residents.",
+       "pinyin": "Zìcóng yuǎnchéng bàngōng yuè lái yuè pǔbiàn, xiàng Dàlǐ zhèyàng de xiǎochéng yínglái le jǐ bǎi wèi xīn jūmín.",
+       "audio": "stories/zh/zh-news-housing-0.mp3"
+      },
+      {
+       "text": "他们很多是为了躲开大城市的高房租，来寻找新鲜空气和更安静的生活。",
+       "en": "Many of them came to escape big-city rents and look for fresh air and a quieter life.",
+       "pinyin": "Tāmen hěn duō shì wèile duǒkāi dà chéngshì de gāo fángzū, lái xúnzhǎo xīnxiān kōngqì hé gèng ānjìng de shēnghuó.",
+       "audio": "stories/zh/zh-news-housing-1.mp3"
+      },
+      {
+       "text": "对当地经济来说，这既是好事，也带来了问题。",
+       "en": "For the local economy, this is both good news and a source of problems.",
+       "pinyin": "Duì dāngdì jīngjì lái shuō, zhè jì shì hǎoshì, yě dàilái le wèntí.",
+       "audio": "stories/zh/zh-news-housing-2.mp3"
+      },
+      {
+       "text": "一方面，咖啡馆、共享办公空间和小公司纷纷开业，创造了就业机会。",
+       "en": "On the one hand, cafés, coworking spaces and small businesses have opened one after another, creating jobs.",
+       "pinyin": "Yì fāngmiàn, kāfēiguǎn, gòngxiǎng bàngōng kōngjiān hé xiǎo gōngsī fēnfēn kāiyè, chuàngzào le jiùyè jīhuì.",
+       "audio": "stories/zh/zh-news-housing-3.mp3"
+      },
+      {
+       "text": "另一方面，房价大涨，一些本地年轻人已经租不起房子了。",
+       "en": "On the other hand, house prices have shot up, and some local young people can no longer afford to rent.",
+       "pinyin": "Lìng yì fāngmiàn, fángjià dà zhǎng, yìxiē běndì niánqīngrén yǐjīng zū bu qǐ fángzi le.",
+       "audio": "stories/zh/zh-news-housing-4.mp3"
+      },
+      {
+       "text": "当地政府正在考虑限制民宿数量，给房价降降温。",
+       "en": "The local government is considering capping the number of guesthouses to cool house prices.",
+       "pinyin": "Dāngdì zhèngfǔ zhèngzài kǎolǜ xiànzhì mínsù shùliàng, gěi fángjià jiàngjiàng wēn.",
+       "audio": "stories/zh/zh-news-housing-5.mp3"
+      },
+      {
+       "text": "老居民们则希望，小城在发展的同时，不要失去原来的味道。",
+       "en": "Long-time residents, for their part, hope the town won't lose its original character as it grows.",
+       "pinyin": "Lǎo jūmínmen zé xīwàng, xiǎochéng zài fāzhǎn de tóngshí, búyào shīqù yuánlái de wèidao.",
+       "audio": "stories/zh/zh-news-housing-6.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u23": {
+   "intro": {
+    "text": "Welcome to the class for Love, couples & family. I'll show you 12 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-8600caaecb.mp3"
+   },
+   "words": [
+    {
+     "id": "dt-gen-ni-zai-yiqi"
+    },
+    {
+     "id": "dt-xihuan-shang-ni"
+    },
+    {
+     "id": "dt-women-suan-shenme"
+    },
+    {
+     "id": "dt-goutong"
+    },
+    {
+     "id": "dt-xuyao-kongjian"
+    },
+    {
+     "id": "dt-tongju"
+    },
+    {
+     "id": "dt-ayi-hao"
+    },
+    {
+     "id": "dt-dian-xiaoyisi"
+    },
+    {
+     "id": "dt-ayi-shouyi"
+    },
+    {
+     "id": "dt-wo-lai-shoushi"
+    },
+    {
+     "id": "dt-ta-mama-ren-hao"
+    },
+    {
+     "id": "dt-zhouri-chi-fan"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Culture: meeting the parents",
+     "culture": true,
+     "body": [
+      {
+       "text": "Meeting the parents (见家长 jiàn jiāzhǎng) usually means the relationship is serious. Call them 叔叔 (uncle) and 阿姨 (auntie), and use 您.",
+       "audio": "class/zh/n-6ac530e93d.mp3"
+      },
+      {
+       "text": "Bring a gift: good fruit, tea, or a local specialty. Avoid clocks (送钟 sounds like attending a funeral) and anything in fours.",
+       "audio": "class/zh/n-2fc3695612.mp3"
+      },
+      {
+       "text": "Praise the cooking and offer to help clear up; the parents may well insist you sit down.",
+       "audio": "class/zh/n-92369d2821.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "dt-ayi-hao",
+      "dt-dian-xiaoyisi"
+     ],
+     "why": {
+      "text": "Meeting the parents is a big step in China, and gifts and respect for elders show you take the relationship seriously.",
+      "audio": "class/zh/n-a4c3248fa6.mp3"
+     },
+     "lesson": "zh-23-2"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-dating-6",
+     "title": "Meeting your partner's parents",
+     "intro": {
+      "text": "These lines come up in the role-play “Meeting your partner's parents”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-5ebfabd57c.mp3"
+     },
+     "lines": [
+      {
+       "text": "哎呀，来就来吧，还带什么东西！快坐。",
+       "en": "Oh my, you didn't need to bring anything! Sit down.",
+       "pinyin": "Āiyā, lái jiù lái ba, hái dài shénme dōngxi! Kuài zuò.",
+       "audio": "scenarios/zh/zh-dating-6-2.mp3"
+      },
+      {
+       "text": "他就会夸我！你们俩是怎么认识的？",
+       "en": "He's just flattering me! How did you two meet?",
+       "pinyin": "Tā jiù huì kuā wǒ! Nǐmen liǎ shì zěnme rènshi de?",
+       "audio": "scenarios/zh/zh-dating-6-4.mp3"
+      },
+      {
+       "text": "在舞蹈课上认识的。一开始我总跳错，他特别有耐心。",
+       "en": "We met at a dance class. At first I kept getting it wrong, but he was really patient.",
+       "pinyin": "Zài wǔdǎo kè shang rènshi de. Yì kāishǐ wǒ zǒng tiào cuò, tā tèbié yǒu nàixīn.",
+       "audio": "scenarios/zh/zh-dating-6-5.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "story",
+     "id": "zh-dt-move-in",
+     "title": "Moving in together?",
+     "intro": {
+      "text": "These words come up in the story “Moving in together?”. Hear them now, so the story is easy to follow.",
+      "audio": "class/zh/n-7bc242d003.mp3"
+     },
+     "lines": [
+      {
+       "text": "林林，上次说的搬到一起住的事，你想得怎么样了？",
+       "en": "Linlin, have you thought about what we talked about last time, moving in together?",
+       "pinyin": "Línlin, shàng cì shuō de bān dào yìqǐ zhù de shì, nǐ xiǎng de zěnmeyàng le?",
+       "audio": "stories/zh/zh-dt-move-in-0.mp3"
+      },
+      {
+       "text": "我挺期待的，可是也有点儿怕没有自己的空间。",
+       "en": "I'm really looking forward to it, but I'm also a bit afraid of not having my own space.",
+       "pinyin": "Wǒ tǐng qīdài de, kěshì yě yǒudiǎnr pà méiyǒu zìjǐ de kōngjiān.",
+       "audio": "stories/zh/zh-dt-move-in-1.mp3"
+      },
+      {
+       "text": "我理解。我们可以找个多一间房的公寓，每人都有自己的小角落。",
+       "en": "I understand. We could find an apartment with an extra room, so each of us has our own little corner.",
+       "pinyin": "Wǒ lǐjiě. Wǒmen kěyǐ zhǎo ge duō yì jiān fáng de gōngyù, měi rén dōu yǒu zìjǐ de xiǎo jiǎoluò.",
+       "audio": "stories/zh/zh-dt-move-in-2.mp3"
+      },
+      {
+       "text": "那太好了。还得商量一下房租和生活费怎么分。",
+       "en": "That would be great. We'd also have to talk about how to split the rent and living costs.",
+       "pinyin": "Nà tài hǎo le. Hái děi shāngliang yíxià fángzū hé shēnghuófèi zěnme fēn.",
+       "audio": "stories/zh/zh-dt-move-in-3.mp3"
+      },
+      {
+       "text": "你想得真周到。那就这么定了，不过不着急，慢慢来。",
+       "en": "You've really thought it through. Then it's settled, but there's no rush, let's take it slow.",
+       "pinyin": "Nǐ xiǎng de zhēn zhōudào. Nà jiù zhème dìng le, búguò bù zháojí, mànmàn lái.",
+       "audio": "stories/zh/zh-dt-move-in-5.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  },
+  "u26": {
+   "intro": {
+    "text": "Welcome to the class for Flirty texts & clear signals. I'll show you 12 new words and phrases, one at a time. Listen to each one, look at what it means, and say it out loud. Then we'll look at a rule that helps you use them. Nothing here is graded.",
+    "audio": "class/zh/n-12af5bc05b.mp3"
+   },
+   "words": [
+    {
+     "id": "fl-liang-zhen-yi-jia"
+    },
+    {
+     "id": "fl-pa-shan-zhaopian"
+    },
+    {
+     "id": "fl-hai-zai-xiang"
+    },
+    {
+     "id": "fl-zaoan"
+    },
+    {
+     "id": "fl-qian-yi-ju-taiqiu"
+    },
+    {
+     "id": "fl-wanan-haomeng"
+    },
+    {
+     "id": "fl-jia-weixin"
+    },
+    {
+     "id": "fl-huan-ge-difang"
+    },
+    {
+     "id": "fl-zai-jianmian"
+    },
+    {
+     "id": "fl-wuhui-le"
+    },
+    {
+     "id": "fl-liaotian-yukuai"
+    },
+    {
+     "id": "fl-zunzhong-ni"
+    }
+   ],
+   "rules": [
+    {
+     "title": "Culture: reading a polite no",
+     "culture": true,
+     "body": [
+      {
+       "text": "Refusals are often indirect: 我最近有点忙 (I've been a bit busy lately) or 我们还是做朋友吧 (let's just be friends). Take them as a no, kindly.",
+       "audio": "class/zh/n-9015bb943a.mp3"
+      },
+      {
+       "text": "Asking to add someone on WeChat is the normal way to ask for their contact. If they offer to add you instead, or change the subject, let it go.",
+       "audio": "class/zh/n-69a1bdf33c.mp3"
+      },
+      {
+       "text": "A gracious exit like 是我误会了 (I misread things) or 跟你聊天很愉快 leaves a good impression.",
+       "audio": "class/zh/n-ddaa4d5a4d.mp3"
+      }
+     ],
+     "table": [],
+     "examples": [
+      "fl-jia-weixin",
+      "fl-wuhui-le"
+     ],
+     "why": {
+      "text": "Saying no directly can cause someone to lose face, so many people refuse politely and indirectly.",
+      "audio": "class/zh/n-c50a0e60fc.mp3"
+     },
+     "lesson": "zh-26-2"
+    }
+   ],
+   "extras": [
+    {
+     "kind": "roleplay",
+     "id": "zh-flirting-6",
+     "title": "From opener to plan",
+     "intro": {
+      "text": "These lines come up in the role-play “From opener to plan”. Hear them now, so you know them before it's your turn.",
+      "audio": "class/zh/n-159ebdb5ab.mp3"
+     },
+     "lines": [
+      {
+       "text": "哈哈，好：我会说三种语言，跑过马拉松，还怕鸽子。",
+       "en": "Haha, okay: I speak three languages, I've run a marathon, and I'm scared of pigeons.",
+       "pinyin": "Hāha, hǎo: wǒ huì shuō sān zhǒng yǔyán, pǎo guo mǎlāsōng, hái pà gēzi.",
+       "audio": "scenarios/zh/zh-flirting-6-1.mp3"
+      },
+      {
+       "text": "嗯……我猜马拉松是假的。鸽子确实挺吓人的。",
+       "en": "Hmm… I'd guess the marathon is the lie. Pigeons really are scary.",
+       "pinyin": "Ńg… wǒ cāi mǎlāsōng shì jiǎ de. Gēzi quèshí tǐng xiàrén de.",
+       "audio": "scenarios/zh/zh-flirting-6-2.mp3"
+      }
+     ],
+     "words": []
+    },
+    {
+     "kind": "story",
+     "id": "zh-fl-graceful-no",
+     "title": "Saying no gracefully",
+     "intro": {
+      "text": "These words come up in the story “Saying no gracefully”. Hear them now, so the story is easy to follow.",
+      "audio": "class/zh/n-e019767ac0.mp3"
+     },
+     "lines": [
+      {
+       "text": "雨晴，今晚跟你聊得特别开心。能加个微信吗？",
+       "en": "Yuqing, I really enjoyed talking with you tonight. Can I add you on WeChat?",
+       "pinyin": "Yǔqíng, jīnwǎn gēn nǐ liáo de tèbié kāixīn. Néng jiā ge Wēixìn ma?",
+       "audio": "stories/zh/zh-fl-graceful-no-0.mp3"
+      },
+      {
+       "text": "谢谢你，志豪。我也聊得很开心，不过我现在不想谈恋爱。",
+       "en": "Thank you, Zhihao. I enjoyed it too, but I don't want to date anyone right now.",
+       "pinyin": "Xièxie nǐ, Zhìháo. Wǒ yě liáo de hěn kāixīn, búguò wǒ xiànzài bù xiǎng tán liàn'ài.",
+       "audio": "stories/zh/zh-fl-graceful-no-1.mp3"
+      },
+      {
+       "text": "以后读书会上还可以一起聊书。",
+       "en": "We can still talk about books together at book club.",
+       "pinyin": "Yǐhòu dúshūhuì shang hái kěyǐ yìqǐ liáo shū.",
+       "audio": "stories/zh/zh-fl-graceful-no-4.mp3"
+      }
+     ],
+     "words": []
+    }
+   ],
+   "done": {
+    "text": "That's the class done! Next, practice these words with easy exercises. You won't lose any hearts there.",
+    "audio": "class/zh/n-db578a613e.mp3"
+   }
+  }
+ },
+ "gates": {
+  "roleplay:zh-food-1": "u4",
+  "roleplay:zh-directions-1": "u5",
+  "story:zh-cat": "u5",
+  "roleplay:zh-shopping-1": "u6",
+  "story:zh-fruit": "u6",
+  "article:zh-read-park": "u6",
+  "roleplay:zh-smalltalk-2": "u7",
+  "roleplay:zh-doctor-2": "u7",
+  "roleplay:zh-airport-2": "u8",
+  "story:zh-day": "u8",
+  "roleplay:zh-hotel-2": "u9",
+  "story:zh-directions": "u9",
+  "article:zh-read-market": "u9",
+  "roleplay:zh-food-3": "u10",
+  "roleplay:zh-shopping-3": "u10",
+  "story:zh-beijing": "u10",
+  "roleplay:zh-directions-3": "u11",
+  "roleplay:zh-hotel-3": "u11",
+  "story:zh-doctor": "u11",
+  "article:zh-read-festival": "u11",
+  "roleplay:zh-doctor-4": "u12",
+  "roleplay:zh-airport-4": "u12",
+  "roleplay:zh-smalltalk-4": "u13",
+  "roleplay:zh-hotel-4": "u13",
+  "roleplay:zh-job-4": "u14",
+  "article:zh-read-remote": "u14",
+  "roleplay:zh-dating-4": "u21",
+  "story:zh-dt-first-date": "u21",
+  "roleplay:zh-flirting-4": "u24",
+  "story:zh-fl-signals": "u24",
+  "roleplay:zh-food-5": "u15",
+  "roleplay:zh-shopping-5": "u15",
+  "roleplay:zh-directions-5": "u16",
+  "article:zh-news-bikes": "u16",
+  "roleplay:zh-job-5": "u17",
+  "article:zh-news-workweek": "u17",
+  "roleplay:zh-dating-5": "u22",
+  "story:zh-dt-left-on-read": "u22",
+  "roleplay:zh-flirting-5": "u25",
+  "story:zh-fl-worst-line": "u25",
+  "roleplay:zh-smalltalk-6": "u18",
+  "roleplay:zh-doctor-6": "u18",
+  "roleplay:zh-airport-6": "u19",
+  "article:zh-news-ai-school": "u19",
+  "roleplay:zh-job-6": "u20",
+  "article:zh-news-housing": "u20",
+  "roleplay:zh-dating-6": "u23",
+  "story:zh-dt-move-in": "u23",
+  "roleplay:zh-flirting-6": "u26",
+  "story:zh-fl-graceful-no": "u26"
+ }
+}

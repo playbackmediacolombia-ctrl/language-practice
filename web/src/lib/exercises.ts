@@ -9,10 +9,21 @@ export type Exercise =
   | { type: 'match'; items: Item[] } // match target ↔ English pairs
   | { type: 'type'; item: Item } // type what you hear
   | { type: 'speak'; item: Item; recall?: boolean } // say it out loud, graded by Whisper (recall: from the English)
-  | { type: 'fact'; q: string; options: string[]; answer: string }; // a culture lesson's quiz question
+  | { type: 'fact'; q: string; options: string[]; answer: string } // a culture lesson's quiz question
+  | { type: 'repeat'; item: Item }; // listen and say it back: never graded (Day 1)
 
 /** The item an exercise is about (match pairs have several). */
 export const itemsOf = (ex: Exercise): Item[] => (ex.type === 'match' ? ex.items : ex.type === 'fact' ? [] : [ex.item]);
+
+/** Day 1's practice: hear each sound or word and say it back. Nothing is graded. */
+export const repeatExercises = (items: Item[]): Exercise[] => [...items, ...shuffle(items)].map((item) => ({ type: 'repeat', item }));
+
+/** A unit test: a bit of everything on the unit's words, graded (the Practice before it is gentle). */
+export function unitTestExercises(items: Item[], earlier: Item[], lang: Lang, speaking: boolean): Exercise[] {
+  const words = items.filter((i) => i.kind !== 'sound');
+  const picked = shuffle(words).slice(0, 12);
+  return reviewExercises(picked, [...items, ...earlier], lang, speaking).filter((ex) => ex.type !== 'meaning' || !ex.isNew);
+}
 
 const pickSome = <T,>(items: T[], n: number) => shuffle(items).slice(0, n);
 
@@ -142,7 +153,7 @@ export function mistakeExercises(items: Item[], all: Item[], lang: Lang, speakin
 export function speakingFirst(list: Exercise[], lang: Lang): Exercise[] {
   return list.flatMap((ex): Exercise[] => {
     if (ex.type === 'match') return [];
-    if (ex.type === 'fact' || ex.type === 'speak' || !speakable(ex.item, lang)) return [ex];
+    if (ex.type === 'fact' || ex.type === 'speak' || ex.type === 'repeat' || !speakable(ex.item, lang)) return [ex];
     return [{ type: 'speak', item: ex.item, recall: !(ex.type === 'meaning' && ex.isNew) }];
   });
 }

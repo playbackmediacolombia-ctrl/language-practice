@@ -5,7 +5,8 @@ import { Bird, BIRD_POSES } from '../Bird';
 import { playPhrase } from '../lib/audio';
 import { ensureAudio } from '../lib/audioPacks';
 import { type Lang, LANGS } from '../lib/content';
-import { currentLevel, getLessons, getLevels, getPath, hasStarted, type Lesson, lessonStates, weakItems } from '../lib/course';
+import { currentLevel, getLessons, getLevels, getPath, hasStarted, type Lesson, lessonStates, ungatedLessonStates, type Unit, weakItems } from '../lib/course';
+import { isDay1, type StepState, unitSteps, type UnitSteps } from '../lib/classes';
 import { haptic, reducedMotion, sfx, tapFeedback } from '../lib/fx';
 import { newHomeIsLive, onOldAddress } from '../lib/move';
 import { CHEST_XP, heartsNow, LESSON_XP, PERFECT_BONUS, lessonDone, openChest, type Progress, streak, todayXp, useProgress, weakness } from '../lib/progress';
@@ -260,6 +261,89 @@ function Chest({ lang, unitId, ready, opened }: { lang: Lang; unitId: string; re
   );
 }
 
+/** A unit's three steps, on its banner: Class, then Practice, then Test. */
+function StepStrip({ steps, done, total, day1 }: { steps: UnitSteps; done: number; total: number; day1: boolean }) {
+  const practice: StepState = done === total ? 'done' : steps.class === 'done' || steps.skippable ? (done ? 'current' : 'open') : 'locked';
+  const chips: [string, StepState, string][] = [
+    ['1', steps.class, day1 ? 'Day 1 class' : 'Class'],
+    ['2', practice, `${day1 ? 'Listen & repeat' : 'Practice'} ${done}/${total}`],
+  ];
+  if (steps.test) chips.push(['3', steps.test, 'Test']);
+  return (
+    <ol className="step-strip" data-testid="step-strip" aria-label="This unit's steps">
+      {chips.map(([n, state, label]) => (
+        <li key={n} className={`step-chip ${state}`} data-step={n} data-state={state}>
+          <span className="step-num">{state === 'done' ? <Icon name="check" size={14} /> : n}</span> {label}
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/** Step 1 on the path: the unit's Class. */
+function ClassNode({ lang, unit, steps, x, day1, open }: { lang: Lang; unit: Unit; steps: UnitSteps; x: number; day1: boolean; open: (path: string) => void }) {
+  const state = steps.class;
+  return (
+    <li className={`path-step class-step ${state}`} style={{ '--x': `${x}px` } as CSSProperties}>
+      {state === 'current' && <span className="node-cta">{day1 ? 'Start here' : 'Class'}</span>}
+      <button
+        className={`path-coin class-node ${state}`}
+        data-lesson={`class-${unit.id}`}
+        data-kind="class"
+        data-testid="class-node"
+        data-state={state}
+        disabled={state === 'locked'}
+        onClick={() => open(`/${lang}/class/${unit.id}`)}
+      >
+        <span className="node-dot">{state === 'locked' ? <Icon name="lock" size={26} /> : <Icon name="book" size={32} />}</span>
+        {state === 'done' && (
+          <span className="coin-check" aria-hidden="true">
+            <Icon name="check" size={14} />
+          </span>
+        )}
+        <span className="sr-only">
+          {day1 ? 'Day 1 class' : 'Class'}: {unit.title}
+          {state === 'done' ? ', done' : state === 'locked' ? ', locked' : ''}
+        </span>
+      </button>
+      <span className="node-label" aria-hidden="true">
+        {day1 ? 'Day 1 class' : 'Class'}
+      </span>
+      {state === 'current' && (
+        <span className="path-buddy" style={{ '--side': x > 0 ? -1 : 1 } as CSSProperties}>
+          <Bird pose="read" size={62} />
+        </span>
+      )}
+    </li>
+  );
+}
+
+/** Step 3 on the path: the unit Test (graded), then its role-plays. */
+function TestNode({ lang, unit, state, x, open }: { lang: Lang; unit: Unit; state: StepState; x: number; open: (path: string) => void }) {
+  return (
+    <li className={`path-step test-step ${state}`} style={{ '--x': `${x}px` } as CSSProperties}>
+      <button
+        className={`path-coin test-coin ${state}`}
+        disabled={state === 'locked'}
+        onClick={() => open(`/${lang}/learn/test-${unit.id}`)}
+        aria-label={`Test: ${unit.title}${state === 'locked' ? ', opens after the Class' : state === 'done' ? ', done: take it again' : ''}`}
+        data-testid="test-node"
+        data-state={state}
+      >
+        <span className="node-dot">{state === 'locked' ? <Icon name="lock" size={24} /> : <Icon name="star" size={28} />}</span>
+        {state === 'done' && (
+          <span className="coin-check" aria-hidden="true">
+            <Icon name="check" size={14} />
+          </span>
+        )}
+      </button>
+      <span className="node-label" aria-hidden="true">
+        Test
+      </span>
+    </li>
+  );
+}
+
 /** What a lesson covers, in a line: how many words or sounds, and the first few. */
 function covers(lesson: Lesson): string {
   if (lesson.quiz?.length) return 'Culture tips, useful phrases and a short quiz';
@@ -280,7 +364,7 @@ function LessonPop({ lesson, unitLabel, index, total, done, x, onStart }: { less
   return (
     <li ref={box} className="lesson-pop" style={{ '--x': `${x}px` } as CSSProperties} data-testid="lesson-pop" role="group" aria-label={lesson.title}>
       <div className="lesson-pop-kicker">
-        {unitLabel} · Lesson {index + 1} of {total}
+        {unitLabel} · Practice {index + 1} of {total}
       </div>
       <div className="lesson-pop-title">{lesson.title}</div>
       <p className="lesson-pop-covers">{covers(lesson)}</p>
@@ -334,7 +418,7 @@ function useCurrentAway(id: string | undefined): 'up' | 'down' | null {
     let frame = 0;
     const check = () => {
       frame = 0;
-      const box = id && document.querySelector(`.lesson-node[data-lesson="${id}"]`)?.getBoundingClientRect();
+      const box = id && document.querySelector(`[data-lesson="${id}"]`)?.getBoundingClientRect();
       setAway(!box ? null : box.bottom < 60 ? 'up' : box.top > innerHeight - 80 ? 'down' : null);
     };
     const onScroll = () => (frame ||= requestAnimationFrame(check));
@@ -395,7 +479,7 @@ export function Path({ lang }: { lang: Lang }) {
   useEffect(() => {
     if (!scrollToCurrent) return;
     scrollToCurrent = false;
-    (document.querySelector('.lesson-node.current') ?? document.querySelector('.lesson-node.open'))?.scrollIntoView({ block: 'center' });
+    (document.querySelector('.lesson-node.current, .class-node.current') ?? document.querySelector('.lesson-node.open'))?.scrollIntoView({ block: 'center' });
   }, []);
   const lessons = getLessons(lang);
   const states = lessonStates(progress, lang);
@@ -410,6 +494,11 @@ export function Path({ lang }: { lang: Lang }) {
     navigate(path);
   };
   const current = lessons.find((l) => states.get(l.id) === 'current');
+  const raw = ungatedLessonStates(progress, lang);
+  const allUnits = getPath(lang).flatMap((s) => s.units);
+  const stepsOf = new Map(allUnits.filter((u) => u.lessons.length).map((u) => [u.id, unitSteps(progress, lang, u, raw)]));
+  // When the next thing to do is a Class, it's where Start and the jump button point.
+  const classNow = allUnits.find((u) => stepsOf.get(u.id)?.class === 'current');
   const [picking, setPicking] = useState(false);
   // At the old github.io address, once the new one is up: offer to move.
   const [movedLive, setMovedLive] = useState(false);
@@ -433,7 +522,7 @@ export function Path({ lang }: { lang: Lang }) {
     };
   }, [pop]);
   const stuck = useStuckUnit();
-  const target = current ?? lessons.find((l) => states.get(l.id) === 'open');
+  const target = classNow ? { id: `class-${classNow.id}`, title: `Class: ${classNow.title}` } : (current ?? lessons.find((l) => states.get(l.id) === 'open'));
   const away = useCurrentAway(target?.id);
   let unitNo = 0;
   let birdNo = 0; // the units' birds take turns at the poses
@@ -466,7 +555,7 @@ export function Path({ lang }: { lang: Lang }) {
         <WordOfTheDay lang={lang} progress={progress} />
         <StreakWarning
           progress={progress}
-          onPractice={() => open(current ? `/${lang}/learn/${current.id}` : learned.length >= 4 ? `/${lang}/learn/review` : `/${lang}`)}
+          onPractice={() => open(classNow ? `/${lang}/class/${classNow.id}` : current ? `/${lang}/learn/${current.id}` : learned.length >= 4 ? `/${lang}/learn/review` : `/${lang}`)}
           onRemind={() => open('/settings/reminder')}
         />
 
@@ -484,7 +573,7 @@ export function Path({ lang }: { lang: Lang }) {
             <p className="muted">Pick any level. Everything below it unlocks, and you can change it any time.</p>
             <LevelTiles
               lang={lang}
-              onPicked={() => requestAnimationFrame(() => document.querySelector('.lesson-node.current')?.scrollIntoView({ block: 'center', behavior: 'smooth' }))}
+              onPicked={() => requestAnimationFrame(() => document.querySelector('.lesson-node.current, .class-node.current')?.scrollIntoView({ block: 'center', behavior: 'smooth' }))}
             />
             <button className="btn secondary" onClick={() => open(`/${lang}/placement`)} data-testid="placement-card">
               <Icon name="target" size={20} /> Not sure? Take a quick test
@@ -492,8 +581,15 @@ export function Path({ lang }: { lang: Lang }) {
           </section>
         )}
 
-        {(learned.length >= 4 || (progress.speaking && !isModelReady())) && (
+        {(learned.length >= 4 || (progress.speaking && !isModelReady()) || started) && (
           <div className="quick-row">
+            {started && (
+              <button className="quick" onClick={() => open(`/${lang}/notebook`)} aria-label="Notebook" data-testid="notebook-link">
+                <Sticker name="book" size={44} />
+                <span className="quick-title">Notebook</span>
+                <span className="quick-hint">Every word and rule you've been taught</span>
+              </button>
+            )}
             {learned.length >= 4 && (
               <button className="quick" onClick={() => open(`/${lang}/learn/review`)} aria-label="Review weak words">
                 <Sticker name="bulb" size={44} />
@@ -566,11 +662,13 @@ export function Path({ lang }: { lang: Lang }) {
                       <UnitArt unitId={unit.id} size={56} />
                     </span>
                   </div>
+                  {stepsOf.get(unit.id) && !gated && <StepStrip steps={stepsOf.get(unit.id)!} done={done} total={unit.lessons.length} day1={isDay1(unit.id)} />}
                   {unit.elective && <p className="muted small unit-note">{unit.culture ? 'A short culture lesson: tips, useful phrases and a quiz. It never holds up your path.' : 'An extra topic for when you want it. It never holds up your path.'}</p>}
                   {gated ? (
                     <AdultGate count={`${unit.lessons.length} lessons`} />
                   ) : (
                   <ol className="lessons path">
+                    <ClassNode lang={lang} unit={unit} steps={stepsOf.get(unit.id)!} x={WIND[nodeNo++ % WIND.length]} day1={isDay1(unit.id)} open={open} />
                     {unit.lessons.map((lesson, i) => {
                       const state = states.get(lesson.id)!;
                       const x = WIND[nodeNo++ % WIND.length];
@@ -641,6 +739,9 @@ export function Path({ lang }: { lang: Lang }) {
                         </Fragment>
                       );
                     })}
+                    {stepsOf.get(unit.id)?.test ? (
+                      <TestNode lang={lang} unit={unit} state={stepsOf.get(unit.id)!.test!} x={WIND[nodeNo++ % WIND.length]} open={open} />
+                    ) : (
                     <li className="path-step review-step" style={{ '--x': `${WIND[nodeNo++ % WIND.length]}px` } as CSSProperties}>
                       <button
                         className={`path-coin review ${done > 0 ? 'open' : 'locked'}`}
@@ -657,6 +758,7 @@ export function Path({ lang }: { lang: Lang }) {
                         Review
                       </span>
                     </li>
+                    )}
                   </ol>
                   )}
                 </section>
@@ -681,7 +783,7 @@ export function Path({ lang }: { lang: Lang }) {
           aria-label={`Jump to your lesson: ${target.title}`}
           onClick={() => {
             tapFeedback();
-            document.querySelector(`.lesson-node[data-lesson="${target.id}"]`)?.scrollIntoView({ block: 'center', behavior: reducedMotion() ? 'auto' : 'smooth' });
+            document.querySelector(`[data-lesson="${target.id}"]`)?.scrollIntoView({ block: 'center', behavior: reducedMotion() ? 'auto' : 'smooth' });
           }}
         >
           <Icon name="chevron" size={22} />

@@ -26,7 +26,7 @@ await run(async () => {
   const pop = page.getByTestId('lesson-pop');
   await pop.waitFor({ timeout: 3000 });
   const text = await pop.innerText();
-  expect(/Lesson 3 of 4/i.test(text) && /words and phrases/.test(text), `popup: which lesson and what it covers (${text.split('\n').slice(0, 3).join(' | ')})`);
+  expect(/Practice 3 of 4/i.test(text) && /words and phrases/.test(text), `popup: which lesson and what it covers (${text.split('\n').slice(0, 3).join(' | ')})`);
   expect(/Start\s*\+10 XP/.test(text) && /\+5 more if you make no mistakes/.test(text), 'popup: Start +10 XP, +5 if perfect');
   expect(page.url().endsWith('#/es'), 'tapping a coin opens the popup, not the lesson');
   await page.screenshot({ path: 'LP-popup.png' });

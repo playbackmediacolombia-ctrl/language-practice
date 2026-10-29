@@ -41,6 +41,12 @@ await run(async () => {
     for (let step = 0; step < 50; step++) {
       if (await page.getByText('Lesson complete!').isVisible().catch(() => false)) return;
       const ex = await page.evaluate(() => window.__exercise);
+      if (ex.type === 'repeat') {
+        // Day 1: listen and repeat, nothing to answer.
+        await page.getByTestId('repeat-next').click();
+        await page.waitForTimeout(100);
+        continue;
+      }
       if (ex.type === 'meaning' || ex.type === 'listen' || ex.type === 'translate') {
         const i = ex.type === 'meaning' ? ex.options.indexOf(ex.item.en) : ex.options.findIndex((o) => o.id === ex.item.id);
         await page.locator('.options button').nth(i).click();

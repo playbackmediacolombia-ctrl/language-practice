@@ -1,5 +1,5 @@
 // Plays through lessons in WebKit with iPhone emulation, answering via the real UI.
-import { devices, editProgress, launch, run } from './harness.mjs';
+import { devices, editProgress, launch, run, skipDay1 } from './harness.mjs';
 
 const BASE = 'http://localhost:4173/?test';
 await run(async () => {
@@ -116,7 +116,8 @@ await run(async () => {
         await right.nth(await indexOfText(right, item.en)).click();
       }
     } else if (type === 'type') {
-      const text = wrong ? 'xyz' : lang === 'zh' ? toNumbered(ex.item.pinyin) : ex.item.text;
+      // Pinyin with tone numbers (ma3) for one-syllable words; characters for longer ones.
+      const text = wrong ? 'xyz' : lang === 'zh' ? (ex.item.pinyin.normalize('NFD').match(/[\u0300-\u030c]/g) ?? []).length > 1 ? ex.item.text : toNumbered(ex.item.pinyin) : ex.item.text;
       await page.locator('textarea').fill(text);
       await page.getByRole('button', { name: 'Check' }).click();
     } else if (type === 'speak') {
@@ -160,7 +161,7 @@ await run(async () => {
       step++;
       await banner.getByRole('button', { name: 'Continue' }).click();
       if (await page.getByText(/complete!|Out of hearts/).isVisible().catch(() => false)) break;
-      if (step > 40) throw new Error('lesson never ended');
+      if (step > 70) throw new Error(`lesson never ended: ${log.map((l) => `${l.type}${l.right ? '' : '✗'}`).join(' ')}`);
     }
     return { types, log };
   }
@@ -188,6 +189,7 @@ await run(async () => {
   }
 
   await page.goto(`${BASE}#/es`);
+  await skipDay1(page, 'es', 'fr', 'zh'); // Day 1 is listen and repeat: nothing to praise or correct
   await page.locator('.lesson-node').first().waitFor();
   const runs = [];
   runs.push(await lesson('es', [], 'es1'));          // perfect

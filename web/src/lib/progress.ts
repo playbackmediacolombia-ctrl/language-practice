@@ -70,6 +70,10 @@ export type Progress = {
   chests: Record<string, number>;
   /** Practice › Play: best result per activity (0..1), key `${lang}:${kind}:${id}`. Missions: when you did it. */
   play: Record<string, number>;
+  /** Classes taken (when), key `${lang}:${unitId}`. A negative time: skipped with "I know this". */
+  classes: Record<string, number>;
+  /** Unit tests: best share right (0..1), key `${lang}:${unitId}`. */
+  tests: Record<string, number>;
 };
 
 export type TalkWord = { text: string; en: string; pinyin?: string };
@@ -126,6 +130,8 @@ const EMPTY: Progress = {
   talkWords: {},
   chests: {},
   play: {},
+  classes: {},
+  tests: {},
 };
 
 function load(): Progress {
@@ -409,6 +415,36 @@ export const pickLevel = (lang: Lang, startStage: string, unlockTo: string | nul
     else delete placement[lang];
     return { ...p, placement, levelStart: { ...p.levelStart, [lang]: startStage } };
   });
+
+/** XP for taking a Class. */
+export const CLASS_XP = 5;
+
+/**
+ * A unit's Class was taken (or skipped: `skipped`). Its rules count as seen, so they don't pop up
+ * again in its lessons. Taking it again changes nothing but the XP.
+ */
+export function finishClass(lang: Lang, unitId: string, { skipped = false, lessons = [] as string[] } = {}) {
+  const k = `${lang}:${unitId}`;
+  const now = Date.now();
+  update((p) => {
+    const first = !p.classes?.[k];
+    const xp = skipped || !first ? 0 : CLASS_XP;
+    const day = dateKey();
+    const tips = { ...p.tips };
+    for (const l of lessons) tips[`${lang}:${l}`] ??= now;
+    return {
+      ...p,
+      xp: p.xp + xp,
+      days: xp ? { ...p.days, [day]: (p.days[day] ?? 0) + xp } : p.days,
+      classes: { ...p.classes, [k]: p.classes?.[k] && p.classes[k] > 0 ? p.classes[k] : skipped ? -now : now },
+      tips,
+    };
+  });
+}
+
+/** A unit test finished: keep the best share right. */
+export const recordTest = (lang: Lang, unitId: string, score: number) =>
+  update((p) => ({ ...p, tests: { ...p.tests, [`${lang}:${unitId}`]: Math.max(score, p.tests?.[`${lang}:${unitId}`] ?? 0) } }));
 
 /** One line repeated in shadowing, graded by Whisper (null: not graded, no speech model). */
 export const recordShadowLine = (lang: Lang, score: number | null) => score !== null && update((p) => tally(p, lang, score >= 0.5));

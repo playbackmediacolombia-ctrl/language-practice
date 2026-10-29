@@ -71,6 +71,7 @@ Headings 700–800 with `--tight` letter spacing. Settings › Text size scales 
 - **Icons** (`Icon` in `src/ui.tsx`): 24×24 hand-drawn icons in `currentColor`.
 - **Hint pictures** (`Picture` in `src/Picture.tsx`): hand-drawn pictures of common meanings
   (food, transport, weather, feelings, numbers…) for the first hint.
+- **Classes** (`src/screens/Class.tsx`, `src/lib/classes.ts`): the teacher (`role="teacher"`) in a bubble above a board card with the bird in its corner; one thing per step, Back / Again / Next at the bottom, never graded. The path shows each unit's steps as a strip (`StepStrip`) and nodes: the Class (a gold book coin) first, then the lessons (Practice), then the Test (an orange star coin). `TaughtFirst` (`src/WordsYoullNeed.tsx`) wraps role-plays, stories and articles: locked until their unit's Class, then "Words you'll need".
 - **Play** (`src/screens/play/`): `AnswerBar` (say it with Whisper, or type), `BirdSays` (the bird
   with a speech bubble, English a tap away, replay), `DoneCard` (the bird dances, +XP), the phone
   screen (`.phone-screen`, ringing avatar, green/red buttons, `CallBar` with timer and hang-up), the

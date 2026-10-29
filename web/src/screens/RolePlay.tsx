@@ -1,3 +1,5 @@
+import { activityGate } from '../lib/classes';
+import { TaughtFirst } from '../WordsYoullNeed';
 import { useEffect, useRef, useState } from 'react';
 import { CharacterStage } from '../characters/Stage';
 import { compare, type TokenResult } from '../../../shared/compare';
@@ -62,11 +64,13 @@ export function RolePlayList({ lang }: { lang: Lang }) {
             <div className="list">
               {list.map((s) => {
                 const best = progress.roleplays[`${lang}:${s.id}`];
+                const gate = activityGate(progress, lang, 'roleplay', s.id);
                 return (
                   <button
                     key={s.id}
-                    className="list-row link"
+                    className={gate.open ? 'list-row link' : 'list-row link locked'}
                     data-testid={`roleplay-${s.id}`}
+                    data-open={gate.open}
                     onClick={() => {
                       tapFeedback();
                       navigate(`/${lang}/roleplay/${s.id}`);
@@ -80,6 +84,7 @@ export function RolePlayList({ lang }: { lang: Lang }) {
                       <span className="row-hint">
                         <span lang={lang}>{s.title}</span> · {TOPICS[s.topic].label}
                       </span>
+                      {!gate.open && <span className="row-hint lock-hint">Opens with {gate.label}'s Class</span>}
                     </span>
                     {best !== undefined && <span className={`story-score ${best >= 0.85 ? 'full' : ''}`}>{Math.round(best * 100)}%</span>}
                     <Icon name="chevron" />
@@ -517,6 +522,14 @@ function TurnPanel(props: {
 /** A flirting role-play opens only after the 18+ check. */
 export function GatedRolePlay(props: { lang: Lang; id: string }) {
   const { adult } = useProgress();
-  if (!adult && getScenario(props.lang, props.id)?.topic === 'flirting') return <AdultGateScreen back={`/${props.lang}/roleplay`} />;
-  return <RolePlayScreen {...props} />;
+  const scenario = getScenario(props.lang, props.id);
+  if (!adult && scenario?.topic === 'flirting') return <AdultGateScreen back={`/${props.lang}/roleplay`} />;
+  if (!scenario) return <RolePlayScreen {...props} />;
+  // Your lines are the key phrases: hear them (and anything new) before it's your turn.
+  const yours = scenario.lines.filter((l) => l.who === 'you').map((l) => ({ text: l.text, en: l.en, pinyin: l.pinyin, audio: l.audio }));
+  return (
+    <TaughtFirst lang={props.lang} kind="roleplay" id={scenario.id} title={scenario.en} lines={yours} back={`/${props.lang}/roleplay`}>
+      <RolePlayScreen {...props} />
+    </TaughtFirst>
+  );
 }

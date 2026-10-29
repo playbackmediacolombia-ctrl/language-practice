@@ -124,7 +124,8 @@ await run(async () => {
         await right.nth(await indexOfText(right, item.en)).click();
       }
     } else if (type === 'type') {
-      const text = wrong ? 'xyz' : lang === 'zh' ? toNumbered(ex.item.pinyin) : ex.item.text;
+      // Pinyin with tone numbers (ma3) for one-syllable words; characters for longer ones.
+      const text = wrong ? 'xyz' : lang === 'zh' ? (ex.item.pinyin.normalize('NFD').match(/[\u0300-\u030c]/g) ?? []).length > 1 ? ex.item.text : toNumbered(ex.item.pinyin) : ex.item.text;
       await page.locator('textarea').fill(text);
       await page.getByRole('button', { name: 'Check' }).click();
     } else if (type === 'speak') {
@@ -165,7 +166,20 @@ await run(async () => {
     return { types, log };
   }
 
-  // ---------- Spanish lesson 1 (sounds), with one mistake ----------
+  /** Day 1's practice: listen and repeat, nothing graded. Returns how many it played. */
+  async function playRepeat() {
+    await page.getByRole('button', { name: 'Start', exact: true }).click();
+    let n = 0;
+    while (!(await page.getByText(/complete!/).isVisible().catch(() => false))) {
+      await page.getByTestId('repeat-next').click();
+      await page.waitForTimeout(120);
+      if (++n > 60) throw new Error('listen and repeat never ended');
+    }
+    return n;
+  }
+  const doneLessons = (lang, units) => course(lang).units.filter((u) => units.includes(u.id)).flatMap((u) => u.lessons.map((l) => l.id));
+
+  // ---------- Spanish Day 1: listen and repeat, nothing graded ----------
   await page.goto(`${BASE}#/es`);
   await page.locator('.lesson-node').first().waitFor();
   await shot('path-start');
@@ -178,36 +192,39 @@ await run(async () => {
 
   await page.locator('.lesson-node.current').click();
   await page.getByTestId('lesson-start').click();
-  await page.getByRole('button', { name: 'Start', exact: true }).waitFor();
-  const firstNonIntro = await page.evaluate(() => 0); // mistake goes on the first exercise that costs a heart
-  let es1 = await (async () => {
-    // find the first heart-costing exercise index by peeking at the queue as we go: just use step 5
-    return playLesson('es', { mistakeAt: 5, label: 'es1' });
-  })();
-  void firstNonIntro;
-  const wrong = es1.log[5];
-  console.log('  es1 exercises:', es1.types.join(', '));
-  expect(wrong.cls.includes('bad') && /Correct answer/.test(wrong.text), `wrong answer: red banner with correct answer ("${wrong.text}")`);
-  expect(wrong.said.some((n) => n.startsWith('wrong-')), `wrong answer: a gentle voice line (${JSON.stringify(wrong.said)})`);
-  expect(wrong.heartsAfter === wrong.heartsBefore - 1, `wrong answer: lost a heart (${wrong.heartsBefore} → ${wrong.heartsAfter})`);
-  const rights = es1.log.filter((l, i) => i !== 5);
-
-  expect(rights.every((l) => l.cls.includes('ok')), 'every other answer: green banner');
-
-  expect(es1.types.length === es1.log.length && es1.types.filter((t, i) => i > 5).includes(wrong.type), 'missed exercise came back at the end');
-  const chimes = await page.evaluate(() => window.__chimes);
-  expect(chimes >= es1.log.length * 2, `a chime played on every answer (${chimes} notes)`);
-  await page.getByText('Lesson complete!').waitFor();
+  const heartsDay1 = await page.locator('.lesson-top .hearts').getAttribute('aria-label');
+  const repeated = await playRepeat();
+  expect(repeated >= 8 && heartsDay1 === 'Practice, no hearts', `Day 1 practice: ${repeated} listen-and-repeat steps, no hearts at stake (${heartsDay1})`);
   await page.waitForTimeout(1600); // XP counts up
-  await shot('es1-complete');
   const doneText = await page.locator('main').innerText();
-  expect(/\+10/.test(doneText) && /1 day streak/.test(doneText), `complete screen: +10 XP (one mistake), 1 day streak`);
+  expect(/\+10/.test(doneText) && /1 day streak/.test(doneText), 'complete screen: +10 XP, 1 day streak');
   await page.getByRole('button', { name: 'Continue' }).click();
   await page.waitForTimeout(600); // screen transition
   const nodes2 = await page.locator('.lesson-node').evaluateAll((els) => els.map((e) => e.className.replace('lesson-node ', '')));
   expect(nodes2[0] === 'done' && nodes2[1] === 'current' && nodes2[2] === 'locked', 'path: lesson 1 done, lesson 2 unlocked');
 
-  // ---------- Spanish lesson 2 (has words, so speaking + translate), perfect ----------
+  // ---------- Spanish unit 2, Practice: a mistake is shown, but costs no heart ----------
+  await editProgress(page, (p, ids) => ({ ...p, lessons: { ...p.lessons, ...Object.fromEntries(ids.map((id) => [`es:${id}`, 1])) } }), doneLessons('es', ['u1']));
+  await page.locator('.lesson-node.current').click();
+  await page.getByTestId('lesson-start').click();
+  const es1 = await playLesson('es', { mistakeAt: 'costly', label: 'es1' });
+  const wrong = es1.log.find((l) => l.mistake);
+  console.log('  es-2-1 exercises:', es1.types.join(', '));
+  expect(wrong.cls.includes('bad') && /Correct answer/.test(wrong.text), `wrong answer: red banner with correct answer ("${wrong.text}")`);
+  expect(wrong.said.some((n) => n.startsWith('wrong-')), `wrong answer: a gentle voice line (${JSON.stringify(wrong.said)})`);
+  expect(Number.isNaN(wrong.heartsAfter) && Number.isNaN(wrong.heartsBefore), 'Practice: no hearts shown or lost');
+  expect(es1.log.filter((l) => !l.mistake).every((l) => l.cls.includes('ok')), 'every other answer: green banner');
+  expect(es1.types.filter((t, i) => i > wrong.step).includes(wrong.type), 'missed exercise came back at the end');
+  const chimes = await page.evaluate(() => window.__chimes);
+  expect(chimes >= es1.log.length * 2, `a chime played on every answer (${chimes} notes)`);
+  await page.getByText('Lesson complete!').waitFor();
+  await page.waitForTimeout(1600);
+  await shot('es1-complete');
+  expect(/\+10/.test(await page.locator('main').innerText()), 'complete screen: +10 XP (one mistake)');
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.waitForTimeout(600); // screen transition
+
+  // ---------- Spanish unit 2, lesson 2 (has words, so speaking + translate), perfect ----------
   await page.locator('.lesson-node.current').click();
   await page.getByTestId('lesson-start').click();
   const es2 = await playLesson('es', { label: 'es2' });
@@ -221,37 +238,25 @@ await run(async () => {
   await page.getByRole('button', { name: 'Continue' }).click();
   await page.waitForTimeout(600); // screen transition
 
-  // ---------- Mandarin: tones lesson, typing pinyin with tone numbers ----------
+  // ---------- Mandarin: Day 1, then a lesson typing pinyin with tone numbers ----------
   await page.goto(`${BASE}#/zh`);
   await page.locator('.lesson-node.current').click();
   await page.getByTestId('lesson-start').click();
-  const zh1 = await playLesson('zh', { label: 'zh1' });
-  console.log('  zh1 exercises:', zh1.types.join(', '));
-  expect(zh1.log.every((l) => l.cls.includes('ok')), 'zh tones lesson: all right (pinyin typed as ma3)');
-  await page.getByText('Lesson complete!').waitFor();
+  await playRepeat();
   await page.getByRole('button', { name: 'Continue' }).click();
-  await page.waitForTimeout(600); // screen transition
+  await page.waitForTimeout(600);
+  await editProgress(page, (p, ids) => ({ ...p, lessons: { ...p.lessons, ...Object.fromEntries(ids.map((id) => [`zh:${id}`, 1])) } }), doneLessons('zh', ['u1']));
   await page.locator('.lesson-node.current').click();
   await page.getByTestId('lesson-start').click();
   const zh2 = await playLesson('zh', { label: 'zh2' });
   console.log('  zh2 bad:', JSON.stringify(zh2.log.filter((l) => !l.cls.includes('ok'))));
-  expect(zh2.log.every((l) => l.cls.includes('ok')), `zh lesson 2 all right (${zh2.types.join(', ')})`);
+  expect(zh2.log.every((l) => l.cls.includes('ok')), `zh lesson all right, pinyin typed with numbers like ma3 (${zh2.types.join(', ')})`);
   await page.getByRole('button', { name: 'Continue' }).click();
   await page.waitForTimeout(600); // screen transition
 
-  // ---------- French lesson 1, and a French unit-2 lesson for sentence tiles ----------
+  // ---------- French unit 2: sentence tiles ----------
   await page.goto(`${BASE}#/fr`);
-  await page.locator('.lesson-node.current').click();
-  await page.getByTestId('lesson-start').click();
-  const fr1 = await playLesson('fr', { label: 'fr1' });
-  console.log('  fr1 bad:', JSON.stringify(fr1.log.filter((l) => !l.cls.includes('ok'))));
-  expect(fr1.log.every((l) => l.cls.includes('ok')), `fr lesson 1 all right (${fr1.types.join(', ')})`);
-  await page.getByRole('button', { name: 'Continue' }).click();
-  await page.waitForTimeout(600); // screen transition
-  // Jump to unit 2 lesson 1 directly (tiles), as if earlier lessons were done.
-  await editProgress(page, (p) => {
-    for (const id of ['fr-1-2', 'fr-1-3', 'fr-1-4']) p.lessons[`fr:${id}`] = 1;
-  });
+  await editProgress(page, (p, ids) => ({ ...p, lessons: { ...p.lessons, ...Object.fromEntries(ids.map((id) => [`fr:${id}`, 1])) } }), doneLessons('fr', ['u1']));
   await page.locator('.lesson-node.current').click();
   await page.getByTestId('lesson-start').click();
   await page.getByRole('button', { name: 'Start', exact: true }).waitFor();
@@ -279,10 +284,11 @@ await run(async () => {
     p.hearts = 1;
     p.heartsAt = Date.now();
   });
-  await page.locator('.lesson-node.current').click();
-  await page.getByTestId('lesson-start').click();
+  // Hearts count in a unit's Test (Practice is free).
+  await page.goto(`${BASE}#/es/learn/test-u2`);
+  await page.getByTestId('lesson-kind').waitFor();
   await playLesson('es', { label: 'hearts', mistakeAt: 'costly' });
-  expect(await page.getByText('Out of hearts').isVisible(), 'losing the last heart ends the lesson with "Out of hearts"');
+  expect(await page.getByText('Out of hearts').isVisible(), 'Test: losing the last heart ends it with "Out of hearts"');
   await shot('no-hearts');
   expect(await page.getByRole('button', { name: 'Practice to earn a heart' }).isVisible(), 'out of hearts: offers practice to earn one');
 

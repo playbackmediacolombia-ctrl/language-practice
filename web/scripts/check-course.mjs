@@ -53,6 +53,31 @@ for (const lang of ['es', 'fr', 'zh']) {
   }
 }
 
+// The Classes (shared/classes/, built by scripts/content/classes.py) must teach exactly the
+// course's words, unit by unit, and every clip they play must exist. If this fails after
+// changing the course, run: python3 scripts/content/classes.py && scripts/.venv/bin/python scripts/generate_class_audio.py
+for (const lang of ['es', 'fr', 'zh', 'pt', 'it']) {
+  const course = read(`shared/course/${lang}.json`);
+  const classes = read(`shared/classes/${lang}.json`);
+  for (const unit of course.units) {
+    const cls = classes.units[unit.id];
+    const want = unit.lessons.flatMap((l) => l.items.map((i) => i.id)).join(',');
+    if (!cls) errors.push(`${lang} ${unit.id}: no Class (rebuild the Classes)`);
+    else if (cls.words.map((w) => w.id).join(',') !== want) errors.push(`${lang} ${unit.id}: the Class doesn't match the unit's words (rebuild the Classes)`);
+  }
+  const clips = new Set();
+  const walk = (o) => {
+    if (Array.isArray(o)) o.forEach(walk);
+    else if (o && typeof o === 'object') {
+      if (typeof o.audio === 'string') clips.add(o.audio);
+      Object.values(o).forEach(walk);
+    }
+  };
+  walk(classes);
+  for (const [, , audio] of classes.letters) clips.add(audio);
+  for (const c of clips) if (!existsSync(join(root, 'assets/audio', c))) errors.push(`${lang}: Class clip ${c} is missing (run scripts/generate_class_audio.py)`);
+}
+
 if (errors.length) {
   console.error(`Course check failed:\n  ${errors.join('\n  ')}`);
   process.exit(1);
