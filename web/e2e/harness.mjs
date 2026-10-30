@@ -6,7 +6,7 @@
 // elements are forced muted, and the device voice (speechSynthesis) never speaks. Tests can still see *what* plays (they hook start()/play()).
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { webkit } from 'playwright';
+import { chromium, webkit } from 'playwright';
 
 export { devices } from 'playwright';
 
@@ -94,11 +94,43 @@ export async function editProgress(page, edit, arg) {
 
 const browsers = new Set();
 
+/**
+ * Replaces the mic with a stream: quiet room noise, then the recording in window.__micClip (a URL,
+ * or null for silence) after a short pause, then quiet again. Lets a test "say" things.
+ */
+export async function fakeMic(context) {
+  await context.addInitScript(() => {
+    window.__micClip = null;
+    window.__micOpens = 0;
+    MediaDevices.prototype.getUserMedia = async function () {
+      window.__micOpens++;
+      const c = (window.__micCtx ??= new AudioContext()); // only one: browsers allow just a few
+      await c.resume();
+      const dest = c.createMediaStreamDestination();
+      const noise = c.createBufferSource();
+      const nb = c.createBuffer(1, c.sampleRate * 20, c.sampleRate);
+      const d = nb.getChannelData(0);
+      for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * 0.002;
+      noise.buffer = nb;
+      noise.connect(dest);
+      noise.start();
+      if (window.__micClip) {
+        const src = c.createBufferSource();
+        src.buffer = await c.decodeAudioData(await (await fetch(window.__micClip)).arrayBuffer());
+        src.connect(dest);
+        src.start(c.currentTime + 0.6);
+      }
+      return dest.stream;
+    };
+  });
+}
+
+
 const UNITS = JSON.parse(readFileSync(new URL('../../shared/course/outline.json', import.meta.url), 'utf8')).stages.flatMap((s) => [...s.units, ...(s.electives ?? [])]);
 /** Every unit's Class marked taken, in every language. */
 export const ALL_CLASSES = Object.fromEntries(['es', 'fr', 'zh', 'pt', 'it'].flatMap((l) => UNITS.map((u) => [`${l}:${u}`, 1])));
 const DAY1 = Object.fromEntries(['es', 'fr', 'zh', 'pt', 'it'].map((l) => [l, JSON.parse(readFileSync(new URL(`../../shared/course/${l}.json`, import.meta.url), 'utf8')).units.find((u) => u.id === 'u1').lessons.map((x) => x.id)]));
-/** Marks Day 1 (unit 1, listen and repeat only) done, so the next lesson has graded answers. */
+/** Marks Day 1 (unit 1, its short lessons) done, so the next lesson has graded answers. */
 export const skipDay1 = (page, ...langs) =>
   editProgress(page, (p, done) => ({ ...p, lessons: { ...p.lessons, ...Object.fromEntries(done.map((k) => [k, 1])) } }), langs.flatMap((l) => DAY1[l].map((id) => `${l}:${id}`)));
 
@@ -118,8 +150,9 @@ function seedClasses(all) {
  * Big-achievement celebrations are tapped away whenever one gets in the way of a test's next
  * tap, like a person would; pass `keepCelebrations: true` to newContext to look at them instead.
  */
-export async function launch() {
-  const browser = await webkit.launch();
+export async function launch({ engine = 'webkit' } = {}) {
+  // 'chrome' is desktop Chrome itself, with its own temporary profile: never the user's, and muted.
+  const browser = engine === 'chrome' ? await chromium.launch({ channel: 'chrome', args: ['--mute-audio'] }) : await webkit.launch();
   browsers.add(browser);
   const newContext = browser.newContext.bind(browser);
   browser.newContext = async ({ keepCelebrations = false, classes = 'taken', ...options } = {}) => {

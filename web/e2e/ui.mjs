@@ -255,8 +255,7 @@ await run(async () => {
     await page.getByRole('button', { name: /Download standard model/ }).click();
     await page.getByText(/model saved on this phone/).waitFor({ timeout: 300_000 });
     await page.goto(`${BASE}#/es/greetings/practice`);
-    await page.getByRole('button', { name: 'Start recording' }).click();
-    await page.locator('.mic.on').waitFor();
+    await page.locator('.mic.on').waitFor({ timeout: 30_000 }); // opens by itself after the voice
     await page.waitForTimeout(900);
     const wave = await page.evaluate(() => {
       const c = document.querySelector('canvas.waveform');

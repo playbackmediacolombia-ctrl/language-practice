@@ -12,7 +12,7 @@ export type TalkReply = {
   reply: string;
   pinyin?: string;
   translation: string;
-  correction?: { corrected: string; explanation: string } | null;
+  correction?: { corrected: string; explanation: string; severity?: 'slip' | 'mistake'; en?: string; pinyin?: string } | null;
   newWords: NewWord[];
   done: boolean;
   /** An answer you could give next, for the hints if you're stuck. */
@@ -48,7 +48,7 @@ async function problemOf(res: Response): Promise<TalkProblem> {
 }
 
 /** What the partner does: free talk or a role-play (no mode), a phone call, texting a friend, or a debate. */
-export type TalkMode = 'call' | 'text' | 'debate';
+export type TalkMode = 'call' | 'text' | 'debate' | 'tutor';
 
 export async function nextReply(req: {
   lang: Lang;
@@ -61,6 +61,10 @@ export async function nextReply(req: {
   topic?: string;
   side?: 'for' | 'against';
   name?: string;
+  /** Tutor: you just repeated the correction, so carry on. */
+  resume?: boolean;
+  /** Tutor: what the pitch tracker heard, if a tone sounded wrong. */
+  toneNote?: string;
 }): Promise<TalkReply> {
   if (!navigator.onLine) throw new TalkError('offline');
   let res: Response;

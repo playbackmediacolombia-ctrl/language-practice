@@ -13,6 +13,7 @@ import { isModelReady, loadModel, transcribe } from '../lib/whisper';
 import { HintBubble, hintsFor, useHintTimer } from '../Hints';
 import { Icon, Screen, Waveform } from '../ui';
 import { AdultGateScreen } from './AdultGate';
+import { LiveTutor } from './LiveTutor';
 
 // Practice › Talk with AI: a spoken back-and-forth with an AI partner, free talk or one of the
 // role-play scenarios. You speak (Whisper on the phone turns it into text), the partner answers
@@ -58,6 +59,8 @@ export function Talk({ lang, scenarioId }: { lang: Lang; scenarioId?: string }) 
     return null;
   }
   if (scenario?.topic === 'flirting' && !progress.adult) return <AdultGateScreen back={`/${lang}/roleplay`} />;
+  // Advanced and Fluent: free talk is the live tutor, hands-free with corrections out loud.
+  if (!scenario && hasStarted(progress, lang) && ['Advanced', 'Fluent'].includes(currentLevel(progress, lang))) return <LiveTutor lang={lang} />;
   return <TalkScreen key={scenarioId ?? 'free'} lang={lang} scenario={scenario} />;
 }
 
@@ -105,7 +108,9 @@ function TalkScreen({ lang, scenario, session }: { lang: Lang; scenario?: Return
       stopPhrase();
     };
   }, [graded]);
-  useEffect(() => endRef.current?.scrollIntoView({ block: 'end', behavior: 'smooth' }), [msgs.length, phase]);
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ block: 'end', behavior: 'smooth' });
+  }, [msgs.length, phase]);
 
   const setAll = (next: Msg[]) => {
     msgsRef.current = next;

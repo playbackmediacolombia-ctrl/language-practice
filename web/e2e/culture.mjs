@@ -33,6 +33,7 @@ await run(async () => {
 
   await unit.locator('.lesson-node').click();
   await page.getByTestId('lesson-start').click();
+  await page.locator('.tip-open').click(); // its Class has been taken here, so the tip waits on the start card
   await page.getByTestId('grammar-tip').waitFor();
   const tip = await page.getByTestId('grammar-tip').innerText();
   expect(/culture note/i.test(tip) && /Spain/.test(tip) && /Colombia/.test(tip), 'the culture note pops up first, covering Spain and Latin America');
@@ -95,7 +96,7 @@ await run(async () => {
   // French and Mandarin notes cover their countries too.
   for (const [lang, lesson, places] of [['fr', 'fr-27-1', /Belgium|Québec/], ['zh', 'zh-28-1', /Taiwan/]]) {
     await page.goto(`${BASE}#/${lang}/learn/${lesson}`);
-    await page.getByTestId('tip-button').click().catch(() => {});
+    await page.locator('.tip-open').click();
     const t = await page.getByTestId('grammar-tip').innerText().catch(() => '');
     expect(places.test(t), `${lang}: the culture note covers ${places.source.replace(/\|/g, ' / ')}`);
     await page.keyboard.press('Escape');

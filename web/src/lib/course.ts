@@ -5,7 +5,7 @@ import it from '../../../shared/course/it.json';
 import pt from '../../../shared/course/pt.json';
 import zh from '../../../shared/course/zh.json';
 import { getPhrases, getTopics, type Lang, type Phrase } from './content';
-import { addTalkWords, getProgress, lessonDone, type Progress, recordAnswer, type TalkWord, weakness } from './progress';
+import { addTalkWords, getProgress, lessonDone, type Progress, recordAnswer, saveToMistakes, type TalkWord, weakness } from './progress';
 import { type Card, dayNumber, dueKeys, forecast } from './srs';
 
 // The lesson path. The outline (levels, stages and units, beginner to fluent) is shared by every
@@ -280,6 +280,14 @@ export function reviewHinted(lang: Lang, text: string, en: string, pinyin?: stri
   recordAnswer(lang, id, true, { hinted: true });
 }
 
+/** Skip for now: saves what you couldn't say yet to Mistakes (a line with no lesson item is kept like an AI-taught word). */
+export function saveSpoken(lang: Lang, s: { id?: string; text: string; en: string; pinyin?: string }) {
+  const item = (s.id ? getItem(lang, s.id) : undefined) ?? courseItemFor(lang, s.text);
+  const id = item ? item.id : `ai:${s.text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '').slice(0, 40)}`;
+  if (!item) addTalkWords([{ key: `${lang}:${id}`, word: { text: s.text, en: s.en, pinyin: s.pinyin } }]);
+  saveToMistakes(lang, id);
+}
+
 /** The course's own item for this text, if there is one (so an AI-taught word reuses its recording). */
 export function courseItemFor(lang: Lang, text: string): Item | undefined {
   const norm = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
@@ -341,7 +349,7 @@ export function mistakeItems(p: Progress, lang: Lang): Item[] {
   return Object.entries(p.mistakes)
     .filter(([k]) => k.startsWith(`${lang}:`))
     .map(([k, m]) => ({ item: items.get(k.slice(lang.length + 1)), m }))
-    .filter((x) => x.item && x.item.kind !== 'sound')
+    .filter((x) => x.item && (x.item.kind !== 'sound' || x.m.saved))
     .sort((a, b) => b.m.left - a.m.left || a.m.at - b.m.at)
     .map((x) => x.item!);
 }

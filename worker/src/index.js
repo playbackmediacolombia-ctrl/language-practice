@@ -14,6 +14,10 @@
 // whether the bird understood your explanation of a word (kind 'teach') or which story choice
 // you meant (kind 'choose'). Both count toward DAILY_LIMIT.
 //
+// Mode 'tutor' is the Advanced and Fluent live conversation: on a topic (TUTOR_TOPICS), it corrects
+// you out loud, in the language, and tells the app how serious the mistake was. `resume` means
+// you've just repeated the correction: carry on. `toneNote` is what the app's pitch tracker heard.
+//
 // POST /vision with { lang, image } (a small JPEG, base64) names the main thing in the photo
 // in that language, with its English, an example sentence and the word spoken. It has its own
 // daily cap (VISION_LIMIT).
@@ -48,6 +52,9 @@ const REPLY_SCHEMA = {
       properties: {
         corrected: { type: 'string', description: "The learner's last message, corrected, in the target language." },
         explanation: { type: 'string', description: 'One short, kind sentence in English saying what changed and why.' },
+        severity: { type: 'string', enum: ['slip', 'mistake'], description: "Tutor mode only: 'slip' for something small that a native would barely notice, 'mistake' for a real error worth saying again." },
+        en: { type: 'string', description: 'The corrected sentence in natural English.' },
+        pinyin: { type: 'string', description: 'Mandarin only: pinyin with tone marks for the corrected sentence. Empty otherwise.' },
       },
       required: ['corrected', 'explanation'],
     },
@@ -81,8 +88,28 @@ const REPLY_SCHEMA = {
 
 const clip = (v, n = 200) => String(v ?? '').slice(0, n);
 
+const TUTOR_TOPICS = {
+  daily: 'daily life: their routine, home, family, food, weekends',
+  travel: 'travel: trips they have taken or dream of, getting around, places and customs',
+  work: 'work and study: their job, colleagues, projects, ambitions',
+  debate: 'a friendly debate: propose a fun, harmless motion, take a side, and argue it with them',
+  flirting: 'playful flirting, as on a first date between adults: charming, witty and light. Keep it clean: compliments and teasing only, never sexual or explicit',
+};
+
+/** Tutor mode: how it corrects, out loud. */
+function tutorRules(body, L) {
+  return [
+    `This is a live spoken conversation with a tutor who is also good company. Topic: ${TUTOR_TOPICS[body.topic] ?? TUTOR_TOPICS.daily}. Keep each turn to one to three sentences, and end by giving them something to answer.`,
+    "The learner's messages are transcripts from speech recognition: ignore punctuation, capitals and accents, and don't correct what is probably just a mishearing of a correct sentence. Never correct a message that is a fine, natural way to say it.",
+    `Correct real problems only: grammar, a wrong word, or phrasing a native wouldn't use. For a real mistake set correction.severity to "mistake" and make "reply" only the correction, spoken naturally in ${L.name} like a tutor: "Almost, we'd say ___ because ___. Try saying it again." Stop there: no new question. For a small slip set severity to "slip", and in "reply" recast it in a few words in passing, then carry on with the conversation. If they got it right, leave every correction field empty and never mention correctness: just keep talking.`,
+    body.resume ? 'The learner has just tried repeating your correction. Do not correct it again or comment on it beyond a word of encouragement: carry on with the conversation, and leave correction empty.' : '',
+    body.toneNote ? `The app's pitch tracker thinks a tone was off: ${clip(body.toneNote, 80)}. If the sentence is otherwise right, treat that as a slip: correction.corrected is the same sentence, and the explanation names the tone.` : '',
+  ].filter(Boolean).join('\n\n');
+}
+
 /** What the partner is doing: free talk, a role-play, a phone call, texting, or a debate. */
-function roleFor({ mode, scenario, topic, side, name }, L) {
+function roleFor({ mode, scenario, topic, side, name, resume, toneNote }, L) {
+  if (mode === 'tutor') return tutorRules({ topic, resume, toneNote }, L);
   if (mode === 'call' && scenario)
     return `This is a phone call, so there is nothing to see: only voices. Setting: ${clip(scenario.setting)} You are: ${clip(scenario.them, 60)}. The learner plays themselves. Speak like on the phone (greet as the business or person would, confirm details, spell out times and numbers clearly) and keep each turn short. Help the call move toward its goal (${clip(scenario.en)}). When it's done, say goodbye as people do on the phone and set done to true.`;
   if (mode === 'text')
@@ -104,11 +131,11 @@ function instructions(body) {
     texting
       ? `Always reply in ${L.name} only (never English in "reply"), in one or two short text messages' worth.`
       : `Always reply in ${L.name} only (never English in "reply"), in one to three short sentences that sound natural when spoken aloud. No emoji, lists or markdown in "reply". Write it correctly, like a textbook: every accent and mark (á, é, ñ, ç, à, ã, ¿, ¡), and characters with proper Chinese punctuation for Mandarin.`,
-    "If the learner's last message had a mistake, fill in correction with the fixed sentence and a kind one-line explanation in English, but don't mention the mistake in your reply: just keep the conversation going (you may naturally echo the correct form). If it was fine or close enough, leave correction empty." +
+    body.mode === 'tutor' ? '' : "If the learner's last message had a mistake, fill in correction with the fixed sentence and a kind one-line explanation in English, but don't mention the mistake in your reply: just keep the conversation going (you may naturally echo the correct form). If it was fine or close enough, leave correction empty." +
       (texting ? ' In texting, abbreviations, slang, missing accents, missing capitals and missing punctuation are never mistakes: only correct real grammar or wrong words.' : ''),
     'If the learner writes in English or seems stuck, help them gently in the target language with a simpler question.',
     'Keep everything friendly and appropriate. If the learner tries to steer toward something sexual, hateful or harmful, change the subject kindly.',
-  ].join('\n\n');
+  ].filter(Boolean).join('\n\n');
 }
 
 const TEACH_SCHEMA = {

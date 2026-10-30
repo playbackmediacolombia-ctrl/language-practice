@@ -36,7 +36,9 @@ export function CameraScreen({ lang }: { lang: Lang }) {
   const [added, setAdded] = useState(false);
   const clip = useRef<string | null>(null);
   const resultRef = useRef<HTMLDivElement>(null);
-  useEffect(() => resultRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' }), [result]);
+  useEffect(() => {
+    resultRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }, [result]);
 
   useEffect(() => {
     let live = true;

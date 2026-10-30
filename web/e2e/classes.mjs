@@ -33,21 +33,19 @@ await run(async () => {
   };
   const step = (page) => page.evaluate(() => window.__classStep);
   const next = async (page) => {
-    await page.getByTestId('class-next').click();
+    // Words are said back: without the speech model here, Skip for now goes on (and saves nothing).
+    const skip = page.getByTestId('coach-skip');
+    if (await page.getByTestId('coach-download').isVisible().catch(() => false)) await skip.click();
+    else await page.getByTestId('class-next').click();
     await page.waitForTimeout(250);
   };
 
-  /** Answers every exercise right (listen-and-repeat just goes on) until the lesson or test is done. */
+  /** Answers every exercise right until the lesson or test is done. */
   async function playLesson(page) {
     await page.getByRole('button', { name: 'Start', exact: true }).click();
     for (let n = 0; n < 80; n++) {
       if (await page.getByText(/Lesson complete!|Test complete!/).isVisible().catch(() => false)) return;
       const ex = await page.evaluate(() => window.__exercise);
-      if (ex.type === 'repeat') {
-        await page.getByTestId('repeat-next').click();
-        await page.waitForTimeout(120);
-        continue;
-      }
       if (ex.type === 'meaning' || ex.type === 'listen' || ex.type === 'translate') {
         const i = ex.type === 'meaning' ? ex.options.indexOf(ex.item.en) : ex.options.findIndex((o) => o.id === ex.item.id);
         await page.locator('.options button').nth(i).click();
@@ -77,79 +75,6 @@ await run(async () => {
       await page.waitForTimeout(120);
     }
     await page.getByText(/Lesson complete!|Test complete!/).waitFor();
-  }
-
-  // ---------- Chinese, Day 1: a true first class ----------
-  {
-    const page = await open();
-    await page.goto(`${BASE}#/`);
-    await editProgress(page, (p) => ({ ...p, lang: 'zh', levelStart: { zh: 'sounds' }, celebrated: null }));
-    await page.goto(`${BASE}#/zh`);
-    await page.getByTestId('class-node').first().waitFor();
-    const path = await page.evaluate(() => ({
-      cls: document.querySelector('[data-testid=class-node]')?.dataset.state,
-      firstLesson: document.querySelector('.lesson-node:not(.class-node)')?.className,
-      strip: [...document.querySelector('[data-testid=step-strip]').querySelectorAll('.step-chip')].map((c) => c.textContent.trim()),
-    }));
-    expect(path.cls === 'current', `path: Day 1's Class is the first thing to do (${path.cls})`);
-    expect(/locked/.test(path.firstLesson), `path: its practice waits for the Class (${path.firstLesson})`);
-    expect(path.strip[0].includes('Day 1 class') && path.strip.length === 2, `path: unit 1 shows Day 1 class → Listen & repeat, no test (${path.strip.join(' | ')})`);
-    await page.locator('[data-testid=class-node]').first().scrollIntoViewIfNeeded();
-    await page.waitForTimeout(500);
-    await shot(page, 'zh-0-path');
-    await page.getByTestId('class-node').first().click();
-    await page.getByTestId('class').waitFor();
-    const seen = [];
-    for (let i = 0; i < 60; i++) {
-      const s = await step(page);
-      const title = await page.evaluate(() => document.querySelector('.class-title')?.textContent ?? '');
-      seen.push(title || s.kind);
-      const info = await page.evaluate(() => ({
-        teacher: !!document.querySelector('[data-testid=char-stage] svg'),
-        bird: !!document.querySelector('.class-bird'),
-        says: document.querySelector('[data-testid=teacher-says]')?.innerText ?? '',
-        graded: !!document.querySelector('.options, .bank, textarea'),
-        hearts: document.querySelector('.hearts')?.getAttribute('aria-label'),
-        pitch: document.querySelector('[data-testid=tone-pitch]')?.dataset.tone,
-      }));
-      if (i === 0) {
-        expect(info.teacher && info.bird, 'Day 1: the Open Peeps teacher and the bird mascot are there');
-        expect(info.hearts === 'Practice, no hearts' && !info.graded, `Day 1: nothing graded, no hearts (${info.hearts})`);
-        await shot(page, 'zh-1-welcome');
-      }
-      if (title === 'What is pinyin?') await shot(page, 'zh-2-pinyin');
-      if (info.pitch) expect(true, `Day 1: ${title} has its pitch chart (tone ${info.pitch})`);
-      if (title === 'Tone 1: high and flat') await shot(page, 'zh-3-tone1');
-      if (title === 'Tone 3: dips low') await shot(page, 'zh-4-tone3');
-      if (title === 'The neutral tone') await shot(page, 'zh-5-neutral');
-      if (title === 'How characters work') await shot(page, 'zh-6-characters');
-      if (title === 'Your first greeting') {
-        expect(info.says.includes('nǐ hǎo') && (await page.getByTestId('say-it').count()) === 1, 'Day 1: first greeting, listen and repeat');
-        await shot(page, 'zh-7-greeting');
-      }
-      if (s.kind === 'word' && !seen.includes('word-shot')) {
-        seen.push('word-shot');
-        const w = await page.evaluate(() => ({ pinyin: document.querySelector('[data-testid=class-pinyin]')?.innerText, tips: document.querySelector('[data-testid=class-tips]')?.innerText }));
-        expect(!!w.pinyin && /tone/.test(w.tips ?? ''), `Day 1 words: pinyin and its tones (${w.pinyin} · ${w.tips?.replace(/\s+/g, ' ')})`);
-        await shot(page, 'zh-8-word');
-      }
-      if (s.kind === 'done') break;
-      await next(page);
-    }
-    for (const t of ['Welcome', 'What is pinyin?', 'Tone 1: high and flat', 'Tone 2: rising', 'Tone 3: dips low', 'Tone 4: falling', 'The neutral tone', 'How characters work', 'Your first greeting'])
-      expect(seen.includes(t), `Day 1 covers: ${t}`);
-    await shot(page, 'zh-9-done');
-    const p = await page.evaluate(() => JSON.parse(localStorage.getItem('progress-v1')));
-    expect(p.classes['zh:u1'] > 0, 'Day 1: the Class is saved as taken');
-    // Day 1 practice: listen and repeat only.
-    await page.getByTestId('class-start-practice').click();
-    await page.getByTestId('lesson-kind').waitFor();
-    expect((await page.getByTestId('lesson-kind').innerText()).toLowerCase().includes('listen and repeat'), 'Day 1 practice: listen and repeat');
-    await page.getByRole('button', { name: 'Start', exact: true }).click();
-    await page.getByTestId('repeat-card').waitFor();
-    expect((await page.locator('.options, .bank, textarea').count()) === 0, 'Day 1 practice: no questions to get wrong');
-    await shot(page, 'zh-10-repeat');
-    await page.context().close();
   }
 
   // ---------- Spanish, one whole unit: Class → Practice → Test (unit 4: I want, I have, I like) ----------
@@ -304,9 +229,9 @@ await run(async () => {
     const page = await open({ colorScheme: 'dark' });
     await page.goto(`${BASE}#/`);
     await editProgress(page, (p) => ({ ...p, lang: 'es', levelStart: { es: 'sounds' }, celebrated: null }));
-    await page.goto(`${BASE}#/es/class/u1`);
-    await page.getByTestId('class').waitFor();
-    await next(page);
+    await page.goto(`${BASE}#/es/day1/sounds`);
+    await page.getByTestId('day1-lesson').waitFor();
+    for (let i = 0; i < 3 && !(await page.getByTestId('class-letters').isVisible()); i++) await page.getByTestId('day1-next').click();
     await page.getByTestId('class-letters').waitFor();
     expect((await page.locator('.class-letter').count()) === 27, 'Spanish Day 1: the alphabet, 27 letters to tap and hear');
     await shot(page, 'es-day1-alphabet-dark');

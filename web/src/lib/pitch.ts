@@ -165,18 +165,21 @@ export function toneMatch(native: Contour, mine: Contour): number | null {
   return Math.max(0, Math.min(1, 1 - total / n / 6));
 }
 
-const nativeCache = new Map<string, Promise<Contour | null>>();
+const nativeCache = new Map<string, Promise<Float32Array>>();
 
-/** The native recording's contour (fetched from the offline cache, decoded once). */
-export function nativeContour(url: string, ctx: BaseAudioContext): Promise<Contour | null> {
+/** A recording as 16 kHz samples (fetched from the offline cache, decoded once). */
+export function nativeSamples(url: string, ctx: BaseAudioContext): Promise<Float32Array> {
   let c = nativeCache.get(url);
   if (!c) {
     c = fetch(url)
       .then((r) => r.arrayBuffer())
       .then((data) => ctx.decodeAudioData(data))
-      .then((buf) => toContour(pitchTrack(downsample(buf.getChannelData(0), buf.sampleRate))));
+      .then((buf) => downsample(buf.getChannelData(0), buf.sampleRate));
     c.catch(() => nativeCache.delete(url));
     nativeCache.set(url, c);
   }
   return c;
 }
+
+/** The native recording's contour. */
+export const nativeContour = (url: string, ctx: BaseAudioContext) => nativeSamples(url, ctx).then((samples) => toContour(pitchTrack(samples)));

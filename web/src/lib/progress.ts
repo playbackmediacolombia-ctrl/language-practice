@@ -68,6 +68,12 @@ export type Progress = {
   talkWords: Record<string, TalkWord>;
   /** Reward chests opened on the lesson path, key `${lang}:${unitId}`, value when. Each gives its XP once. */
   chests: Record<string, number>;
+  /** What the live tutor corrected, newest first (for the Notebook). */
+  corrections?: Correction[];
+  /** Day 1's short lessons you've finished, key `${lang}:${lesson}`: when you first did. */
+  day1?: Record<string, number>;
+  /** When you saw the one welcome to the app's first lessons (only ever once, in any language). */
+  welcomed?: number;
   /** Practice › Play: best result per activity (0..1), key `${lang}:${kind}:${id}`. Missions: when you did it. */
   play: Record<string, number>;
   /** Classes taken (when), key `${lang}:${unitId}`. A negative time: skipped with "I know this". */
@@ -78,7 +84,9 @@ export type Progress = {
 
 export type TalkWord = { text: string; en: string; pinyin?: string };
 
-export type Mistake = { left: number; at: number };
+export type Correction = { lang: Lang; said: string; better: string; why: string; pinyin?: string; at: number };
+/** `saved`: you skipped it after three tries, so it's listed even if it's a bare sound. */
+export type Mistake = { left: number; at: number; saved?: boolean };
 /** Right answers in Mistakes sessions that clear a word; a new mistake starts it over. */
 export const MISTAKE_RIGHTS = 3;
 
@@ -346,6 +354,30 @@ export function completeLesson(lang: Lang, lessonId: string | null, xp: number) 
     return { ...p, xp: p.xp + xp, days: { ...p.days, [day]: (p.days[day] ?? 0) + xp }, lessons };
   });
 }
+
+/** A Day 1 lesson finished: its XP the first time only. Finishing all of them opens the path, like a Class does. */
+export function finishDay1Lesson(lang: Lang, key: string, xp: number, allKeys: string[], unitId: string, unitLessons: string[]) {
+  update((p) => {
+    const k = `${lang}:${key}`;
+    const first = !p.day1?.[k];
+    const day1 = first ? { ...p.day1, [k]: Date.now() } : p.day1;
+    const out = { ...p, day1, xp: p.xp + (first ? xp : 0), days: first ? { ...p.days, [dateKey()]: (p.days[dateKey()] ?? 0) + xp } : p.days };
+    if (!allKeys.every((a) => day1?.[`${lang}:${a}`])) return out;
+    const lessons = { ...p.lessons };
+    for (const l of unitLessons) lessons[`${lang}:${l}`] ??= 1;
+    return { ...out, lessons, classes: { ...p.classes, [`${lang}:${unitId}`]: p.classes?.[`${lang}:${unitId}`] ?? Date.now() } };
+  });
+}
+
+/** Keeps one of the live tutor's corrections for the Notebook (the same one twice stays one line). */
+export const saveCorrection = (c: Omit<Correction, 'at'>) =>
+  update((p) => ({ ...p, corrections: [{ ...c, at: Date.now() }, ...(p.corrections ?? []).filter((x) => x.lang !== c.lang || x.better !== c.better)].slice(0, 300) }));
+
+export const markWelcomed = () => update((p) => (p.welcomed ? p : { ...p, welcomed: Date.now() }));
+
+/** Puts an item on the Mistakes list (Skip for now, after three misses): no heart, no grade, just back for review. */
+export const saveToMistakes = (lang: Lang, itemId: string) =>
+  update((p) => ({ ...p, mistakes: { ...p.mistakes, [`${lang}:${itemId}`]: { left: MISTAKE_RIGHTS, at: Date.now(), saved: true } } }));
 
 /**
  * Called for every graded answer, to find weak words, schedule reviews and keep the Mistakes

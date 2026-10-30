@@ -1675,3 +1675,45 @@ button.card:disabled { opacity: 0.6; cursor: default; }
 .notebook-rule p { line-height: 1.5; }
 .need-card { gap: 12px; }
 @media (prefers-reduced-motion: reduce) { .class-board { animation: none; } }
+
+/* Speaking exercises (SpeakCoach) */
+.coach { display: flex; flex-direction: column; gap: 10px; align-items: stretch; width: 100%; scroll-margin: 72px 0 16px; }
+.class-talk { width: 100%; }
+.class-talk .tone-pitch { margin-inline: auto; }
+.coach-controls { display: flex; align-items: center; justify-content: center; gap: 16px; }
+.coach .mic { width: 72px; height: 72px; margin: 0; }
+.coach.compact .mic { width: 60px; height: 60px; }
+.coach-play { flex: 0 0 auto; }
+.coach .status { margin: 0; min-height: 1.3em; }
+.coach-result { margin: 0; padding: 10px 12px; border-radius: 14px; display: flex; flex-direction: column; gap: 6px; font-weight: 600; background: var(--card-2); }
+.coach-result.ok { color: var(--ok); }
+.coach-result.close { color: var(--close, var(--xp)); }
+.coach-result.wrong { color: var(--wrong); }
+.coach-grade { display: flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 700; }
+.coach-detail { margin: 0; color: var(--text); font-weight: 600; }
+.coach-heard { margin: 0; font-weight: 400; }
+.pitch-overlay { margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.pitch-overlay svg { width: 100%; max-height: 130px; }
+.pitch-overlay .tone-line.mine { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.coach .waveform:not(.live) { display: none; }
+
+/* Day 1's short lessons */
+.day1-section { display: flex; flex-direction: column; gap: 10px; padding: 12px 0 4px; list-style: none; margin: 0; }
+.day1-btn { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 12px 14px; border-radius: 18px; background: var(--card-2); border: 2px solid var(--border); color: var(--text); font: inherit; cursor: pointer; }
+.day1-btn.done { border-color: var(--ok); }
+.day1-btn .day1-title { font-weight: 700; }
+.day1-num { flex: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #fff; }
+.day1-btn.done .day1-num { background: var(--ok); }
+.day1-page { display: flex; flex-direction: column; gap: 14px; flex: 1; }
+.day1-foot { display: flex; gap: 10px; margin-top: auto; padding-top: 8px; }
+.day1-word { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; width: 100%; }
+.day1-say { margin: 0; }
+.day1-match { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.day1-match-col { display: flex; flex-direction: column; gap: 10px; }
+.day1-match .pair { min-height: 76px; display: grid; place-items: center; }
+
+/* Live tutor */
+.tutor-topics { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
+.tutor-card { gap: 4px; border-left: 5px solid var(--close, var(--xp)); text-align: left; }
+.tutor-card.mistake { border-left-color: var(--wrong); }
+.tutor-better { font-weight: 700; font-size: 18px; }

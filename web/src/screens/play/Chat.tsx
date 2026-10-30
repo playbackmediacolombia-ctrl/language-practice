@@ -82,7 +82,9 @@ export function ChatScreen({ lang, data, id }: { lang: Lang; data: PlayData; id:
       alive.current = false;
     };
   }, []);
-  useEffect(() => endRef.current?.scrollIntoView({ block: 'end', behavior: 'smooth' }), [bubbles.length, typing, at]);
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ block: 'end', behavior: 'smooth' });
+  }, [bubbles.length, typing, at]);
 
   const script = chat?.messages ?? [];
   const msg = script[at];

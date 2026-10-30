@@ -62,7 +62,7 @@ await run(async () => {
   expect((await swVersion()) === '1', 'the new service worker is the one in control');
 
   // ---------- In a lesson, it waits ----------
-  await page.goto(`${base}#/es/learn/es-1-1`);
+  await page.goto(`${base}#/es/learn/es-2-1`);
   await page.waitForTimeout(1000);
   await page.evaluate(() => (window.__sameLoad = true));
   publish(2);

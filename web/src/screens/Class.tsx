@@ -6,24 +6,25 @@ import type { Mood } from '../characters/Character';
 import { pictureFor } from '../Hints';
 import { playAndWait, playPhrase, stopAllVoices, unlockAudio } from '../lib/audio';
 import { ensureAudio } from '../lib/audioPacks';
-import { classTaken, clipUrl, day1Steps, type Day1Step, type Extra, getClass, isDay1, letters, type Rule, toneNames, unitSteps, type Word } from '../lib/classes';
+import { classTaken, clipUrl, type Extra, getClass, isDay1, type Rule, toneNames, unitSteps, type Word } from '../lib/classes';
 import type { Lang } from '../lib/content';
-import { getItem, getPath, type Item } from '../lib/course';
+import { getItem, getPath, type Item, saveSpoken } from '../lib/course';
 import { tapFeedback } from '../lib/fx';
 import { englishAudio } from '../lib/handsfree';
 import { finishClass, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { Picture } from '../Picture';
+import { type CoachStart, SpeakCoach, type Spoken } from '../SpeakCoach';
 import { Icon } from '../ui';
 import { LessonFrame } from './Lesson';
 
 // Step 1 of every unit: the Class. The teacher (an Open Peeps character) introduces each word and
 // phrase one at a time, with its recording, meaning, a picture, pronunciation help and an example,
-// then the unit's rules, each with a "why it works this way" note. Nothing is graded. Next goes
-// at your own pace; tap anything to hear it again. Unit 1's Class is Day 1.
+// then the unit's rules, each with a "why it works this way" note. Words and lines are said back
+// and graded, which never costs a heart; getting one right moves on by itself. Next goes at your
+// own pace everywhere else, and tap anything to hear it again. Unit 1 has Day 1's short lessons instead.
 
 type Step =
-  | { kind: 'talk'; step: Day1Step }
   | { kind: 'intro'; text: string; audio: string; title: string }
   | { kind: 'word'; item: Item; word: Word; n: number; of: number }
   | { kind: 'rule'; rule: Rule }
@@ -38,8 +39,7 @@ function buildSteps(lang: Lang, unitId: string, title: string): Step[] {
   const data = getClass(lang, unitId);
   if (!data) return [];
   const steps: Step[] = [];
-  if (isDay1(unitId)) for (const step of day1Steps(lang)) steps.push({ kind: 'talk', step });
-  else steps.push({ kind: 'intro', title, ...data.intro });
+  steps.push({ kind: 'intro', title, ...data.intro });
   const words = data.words.map((w) => ({ w, item: getItem(lang, w.id) })).filter((x): x is { w: Word; item: Item } => !!x.item);
   words.forEach(({ w, item }, i) => steps.push({ kind: 'word', item, word: w, n: i + 1, of: words.length }));
   for (const rule of data.rules) steps.push({ kind: 'rule', rule });
@@ -56,8 +56,6 @@ function buildSteps(lang: Lang, unitId: string, title: string): Step[] {
 function stepClips(s: Step, lang: Lang): string[] {
   const u = (p?: string) => clipUrl(p);
   switch (s.kind) {
-    case 'talk':
-      return [u(s.step.say.audio), s.step.item ? getItem(lang, s.step.item)?.audio : undefined].filter((x): x is string => !!x);
     case 'intro':
     case 'done':
       return [u(s.audio)].filter((x): x is string => !!x);
@@ -73,8 +71,8 @@ function stepClips(s: Step, lang: Lang): string[] {
   }
 }
 
-const POSES: Record<Step['kind'], BirdPose> = { talk: 'wave', intro: 'wave', word: 'read', rule: 'think', extra: 'globe', line: 'read', xword: 'read', done: 'dance' };
-const MOODS: Record<Step['kind'], Mood> = { talk: 'happy', intro: 'wave', word: 'happy', rule: 'thinking', extra: 'happy', line: 'happy', xword: 'happy', done: 'celebrate' };
+const POSES: Record<Step['kind'], BirdPose> = { intro: 'wave', word: 'read', rule: 'think', extra: 'globe', line: 'read', xword: 'read', done: 'dance' };
+const MOODS: Record<Step['kind'], Mood> = { intro: 'wave', word: 'happy', rule: 'thinking', extra: 'happy', line: 'happy', xword: 'happy', done: 'celebrate' };
 
 export function ClassScreen({ lang, unitId }: { lang: Lang; unitId: string }) {
   const progress = useProgress();
@@ -88,6 +86,7 @@ export function ClassScreen({ lang, unitId }: { lang: Lang; unitId: string }) {
   const run = useRef(0);
   const state = unit ? unitSteps(progress, lang, unit) : null;
   const firstLesson = unit?.lessons[0];
+  const [heard, setHeard] = useState(-1); // the step whose clips have finished: its mic opens then
 
   const play = (urls: string[]) => {
     const id = ++run.current;
@@ -101,6 +100,7 @@ export function ClassScreen({ lang, unitId }: { lang: Lang; unitId: string }) {
         setSpeaking(null);
         await new Promise((r) => setTimeout(r, 350));
       }
+      if (run.current === id) setHeard(at);
     })();
   };
   const step = steps[at];
@@ -116,7 +116,7 @@ export function ClassScreen({ lang, unitId }: { lang: Lang; unitId: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [at, step]);
   useEffect(() => () => stopAllVoices(), []);
-  if (!unit || !step) {
+  if (!unit || !step || isDay1(unitId)) {
     navigate(`/${lang}`, { replace: true });
     return null;
   }
@@ -125,9 +125,8 @@ export function ClassScreen({ lang, unitId }: { lang: Lang; unitId: string }) {
     unlockAudio([]);
     setAt((a) => Math.max(0, Math.min(steps.length - 1, a + d)));
   };
-  const day1 = isDay1(unitId);
-  const label = day1 ? 'Day 1' : unit.elective ? unit.title : 'Class';
-  const said = step.kind === 'talk' ? step.step.say.text : step.kind === 'intro' || step.kind === 'done' ? step.text : step.kind === 'extra' ? step.extra.intro.text : step.kind === 'word' ? `“${step.item.en}”. Listen, and say it after me.` : step.kind === 'rule' ? (step.rule.culture ? 'A note about the culture.' : 'Here is a rule that helps.') : 'Listen, and say it after me.';
+  const label = unit.elective ? unit.title : 'Class';
+  const said = step.kind === 'intro' || step.kind === 'done' ? step.text : step.kind === 'extra' ? step.extra.intro.text : step.kind === 'word' ? `“${step.item.en}”. Listen, and say it after me.` : step.kind === 'rule' ? (step.rule.culture ? 'A note about the culture.' : 'Here is a rule that helps.') : 'Listen, and say it after me.';
 
   return (
     <LessonFrame onQuit={() => navigate(`/${lang}`, { direction: 'back' })} value={(at + 1) / steps.length} hearts={null}>
@@ -157,13 +156,34 @@ export function ClassScreen({ lang, unitId }: { lang: Lang; unitId: string }) {
         </div>
         <section className="card class-board" key={at} data-testid="class-board">
           <Bird pose={POSES[step.kind]} size={56} className="class-bird" />
-          <Board step={step} lang={lang} unitId={unitId} play={play} />
+          <Board
+            step={step}
+            lang={lang}
+            unitId={unitId}
+            coach={{
+              start: heard === at ? 'listen' : 'tap',
+              speaking: progress.speaking,
+              onRight: () => go(1),
+              onSkip: (saved, s) => {
+                if (saved) saveSpoken(lang, { ...s, en: s.en ?? '' });
+                go(1);
+              },
+            }}
+          />
         </section>
         <div className="class-foot">
           <button className="btn secondary" onClick={() => go(-1)} disabled={at === 0} aria-label="Back">
             <Icon name="back" size={20} />
           </button>
-          <button className="btn secondary" onClick={() => play(stepClips(step, lang))} aria-label="Hear it again" data-testid="class-replay">
+          <button
+            className="btn secondary"
+            onClick={() => {
+              setHeard(-1);
+              play(stepClips(step, lang));
+            }}
+            aria-label="Hear it again"
+            data-testid="class-replay"
+          >
             <Icon name="speaker" size={20} /> Again
           </button>
           {step.kind === 'done' ? (
@@ -175,9 +195,12 @@ export function ClassScreen({ lang, unitId }: { lang: Lang; unitId: string }) {
               Start practice
             </button>
           ) : (
-            <button className="btn grow" onClick={() => go(1)} data-testid="class-next">
-              Next
-            </button>
+            // A word to say goes on when you've said it (or skipped it); a Class you've taken stays free to page through.
+            (!['word', 'line', 'xword'].includes(step.kind) || !progress.speaking || classTaken(progress, lang, unit)) && (
+              <button className="btn grow" onClick={() => go(1)} data-testid="class-next">
+                Next
+              </button>
+            )
           )}
         </div>
         {step.kind === 'done' && (
@@ -201,20 +224,26 @@ function Hear({ url, children, className = '', slow = false }: { url?: string; c
   );
 }
 
-function Board({ step, lang, unitId, play }: { step: Step; lang: Lang; unitId: string; play: (urls: string[]) => void }) {
+type CoachProps = { start: CoachStart; speaking: boolean; onRight: () => void; onSkip: (saved: boolean, said: Spoken) => void };
+
+/** Say it back, graded: a miss here never costs a heart. */
+function SayIt({ lang, said, coach }: { lang: Lang; said: Spoken; coach: CoachProps }) {
+  if (!coach.speaking) return null;
+  return <SpeakCoach lang={lang} said={said} start={coach.start} onRight={coach.onRight} onSkip={(saved) => coach.onSkip(saved, said)} compact />;
+}
+
+function Board({ step, lang, unitId, coach }: { step: Step; lang: Lang; unitId: string; coach: CoachProps }) {
   switch (step.kind) {
-    case 'talk':
-      return <TalkBoard step={step.step} lang={lang} play={play} />;
     case 'intro':
       return (
         <div className="class-intro">
           <UnitArt unitId={unitId} size={88} />
           <h2 className="class-title">{step.title}</h2>
-          <p className="muted">First the words, one at a time. Then the rules. Nothing here is graded.</p>
+          <p className="muted">First the words, one at a time, and you say each one back. Then the rules. Misses here never cost a heart.</p>
         </div>
       );
     case 'word':
-      return <WordBoard step={step} lang={lang} unitId={unitId} />;
+      return <WordBoard step={step} lang={lang} unitId={unitId} coach={coach} />;
     case 'rule':
       return <RuleBoard rule={step.rule} lang={lang} />;
     case 'extra':
@@ -239,7 +268,7 @@ function Board({ step, lang, unitId, play }: { step: Step; lang: Lang; unitId: s
           </Hear>
           {step.line.pinyin && <p className="pinyin">{step.line.pinyin}</p>}
           <p className="class-en">{step.line.en}</p>
-          <SayIt />
+          <SayIt lang={lang} said={{ text: step.line.text, pinyin: step.line.pinyin, en: step.line.en, audio: clipUrl(step.line.audio) }} coach={coach} />
         </div>
       );
     case 'xword':
@@ -250,7 +279,7 @@ function Board({ step, lang, unitId, play }: { step: Step; lang: Lang; unitId: s
             <span lang={lang}>{step.word.text}</span>
           </Hear>
           <p className="class-en">{step.word.en}</p>
-          <SayIt />
+          <SayIt lang={lang} said={{ text: step.word.text, en: step.word.en, audio: clipUrl(step.word.audio) }} coach={coach} />
         </div>
       );
     case 'done':
@@ -263,16 +292,7 @@ function Board({ step, lang, unitId, play }: { step: Step; lang: Lang; unitId: s
   }
 }
 
-/** A gentle nudge to say it: listening and repeating is never graded here. */
-function SayIt() {
-  return (
-    <p className="class-say" data-testid="say-it">
-      <Icon name="mic" size={18} /> Now say it out loud
-    </p>
-  );
-}
-
-function WordBoard({ step, lang, unitId }: { step: Extract<Step, { kind: 'word' }>; lang: Lang; unitId: string }) {
+function WordBoard({ step, lang, unitId, coach }: { step: Extract<Step, { kind: 'word' }>; lang: Lang; unitId: string; coach: CoachProps }) {
   const { item, word } = step;
   const picture = item.kind === 'sound' ? undefined : pictureFor(item.en);
   const ex = word.ex ? getItem(lang, word.ex) : undefined;
@@ -296,6 +316,7 @@ function WordBoard({ step, lang, unitId }: { step: Extract<Step, { kind: 'word' 
           Slowly
         </Hear>
       </div>
+      <SayIt lang={lang} said={item} coach={coach} />
       {(item.pinyin || word.tips?.length) && (
         <div className="class-tips" data-testid="class-tips">
           <div className="class-tips-head">How to say it</div>
@@ -317,7 +338,6 @@ function WordBoard({ step, lang, unitId }: { step: Extract<Step, { kind: 'word' 
           <p className="small muted">{ex.en}</p>
         </div>
       )}
-      <SayIt />
     </div>
   );
 }
@@ -358,53 +378,6 @@ function RuleBoard({ rule, lang }: { rule: Rule; lang: Lang }) {
           <span>{rule.why.text}</span>
         </Hear>
       </div>
-    </div>
-  );
-}
-
-function TalkBoard({ step, lang, play }: { step: Day1Step; lang: Lang; play: (urls: string[]) => void }) {
-  const item = step.item ? getItem(lang, step.item) : undefined;
-  return (
-    <div className="class-talk" data-testid="class-talk">
-      <h2 className="class-title">{step.title}</h2>
-      {step.show?.map((line) => (
-        <p key={line} className="class-show" lang={lang}>
-          {line}
-        </p>
-      ))}
-      {step.tone && <TonePitch tone={step.tone} />}
-      {step.letters && <Letters lang={lang} />}
-      {item && (
-        <Hear url={item.audio} className="class-target">
-          <span lang={lang}>{item.text}</span>
-          {item.pinyin && <span className="pinyin"> {item.pinyin}</span>}
-          <span className="muted small"> {item.en}</span>
-        </Hear>
-      )}
-      {item && step.repeat && (
-        <div className="class-tools">
-          <Hear url={item.audio} slow>
-            Slowly
-          </Hear>
-          <button className="hear" onClick={() => play([item.audio, item.audio])}>
-            <Icon name="review" size={18} /> Twice
-          </button>
-        </div>
-      )}
-      {step.repeat && <SayIt />}
-    </div>
-  );
-}
-
-function Letters({ lang }: { lang: Lang }) {
-  return (
-    <div className="class-letters" data-testid="class-letters">
-      {letters(lang).map(([letter, name, audio]) => (
-        <button key={letter} className="class-letter" onClick={() => playPhrase(clipUrl(audio) ?? '')} aria-label={`${letter}: ${name}`}>
-          <b>{letter}</b>
-          <span>{name}</span>
-        </button>
-      ))}
     </div>
   );
 }

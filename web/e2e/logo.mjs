@@ -4,7 +4,7 @@ import { devices, editProgress, launch, run } from './harness.mjs';
 
 const BASE = 'http://localhost:4173/?test';
 const es = JSON.parse(readFileSync(new URL('../../shared/course/es.json', import.meta.url), 'utf8'));
-const U1 = es.units[0].lessons.map((l) => l.id); // the first unit's lessons
+const U1 = es.units.slice(0, 2).flatMap((u) => u.lessons.map((l) => l.id)); // Day 1's lessons, and the first regular unit's
 
 let failures = 0;
 const expect = (ok, msg) => {
@@ -41,12 +41,6 @@ await run(async () => {
     for (let step = 0; step < 50; step++) {
       if (await page.getByText('Lesson complete!').isVisible().catch(() => false)) return;
       const ex = await page.evaluate(() => window.__exercise);
-      if (ex.type === 'repeat') {
-        // Day 1: listen and repeat, nothing to answer.
-        await page.getByTestId('repeat-next').click();
-        await page.waitForTimeout(100);
-        continue;
-      }
       if (ex.type === 'meaning' || ex.type === 'listen' || ex.type === 'translate') {
         const i = ex.type === 'meaning' ? ex.options.indexOf(ex.item.en) : ex.options.findIndex((o) => o.id === ex.item.id);
         await page.locator('.options button').nth(i).click();
@@ -153,7 +147,7 @@ await run(async () => {
     const page = await open();
     await page.goto(`${BASE}#/es`);
     // Every lesson of the first unit but the last done; the first daily goal was hit long ago.
-    await editProgress(page, (p, done) => ({ ...p, lang: 'es', days: { '2000-01-01': 50 }, lessons: Object.fromEntries(done.map((id) => [`es:${id}`, 1])), celebrated: ['goal:first'] }), U1.slice(0, -1));
+    await editProgress(page, (p, done) => ({ ...p, lang: 'es', days: { '2000-01-01': 50 }, lessons: Object.fromEntries(done.map((id) => [`es:${id}`, 1])), celebrated: ['goal:first', 'unit:es:u1'] }), U1.slice(0, -1));
     await page.locator('.lesson-node.current').waitFor();
     const r = await finishCurrent(page);
     expect(r.duringComplete === 0, 'unit: the regular "Lesson complete!" screen comes first, unchanged');
@@ -185,7 +179,7 @@ await run(async () => {
   {
     const page = await open();
     await page.goto(`${BASE}#/es`);
-    await editProgress(page, (p, past) => ({ ...p, lang: 'es', days: Object.fromEntries(past.map((d) => [d, 5])), lessons: {}, celebrated: [] }), [1, 2, 3, 4, 5, 6].map(daysAgo));
+    await editProgress(page, (p, past) => ({ ...p, lang: 'es', days: Object.fromEntries(past.map((d) => [d, 5])), lessons: { 'es:es-1-1': 1, 'es:es-1-2': 1, 'es:es-1-3': 1, 'es:es-1-4': 1 }, celebrated: ['unit:es:u1'] }), [1, 2, 3, 4, 5, 6].map(daysAgo));
     await page.waitForTimeout(800);
     expect((await overlay(page).count()) === 0, 'streak: 6 days is not a milestone');
     await finishCurrent(page);
@@ -199,7 +193,7 @@ await run(async () => {
   {
     const page = await open();
     await page.goto(`${BASE}#/es`);
-    await editProgress(page, (p) => ({ ...p, lang: 'es', goal: 10, days: {}, lessons: {}, celebrated: [] }));
+    await editProgress(page, (p) => ({ ...p, lang: 'es', goal: 10, days: {}, lessons: { 'es:es-1-1': 1, 'es:es-1-2': 1, 'es:es-1-3': 1, 'es:es-1-4': 1 }, celebrated: ['unit:es:u1'] }));
     await finishCurrent(page);
     const title = await overlay(page).locator('h2').innerText().catch(() => null);
     expect(title === 'Daily goal reached!', `goal: the first time ever (${title})`);
@@ -214,7 +208,7 @@ await run(async () => {
   for (const reducedMotion of ['no-preference', 'reduce']) {
     const page = await open({ reducedMotion });
     await page.goto(`${BASE}#/es`);
-    await editProgress(page, (p) => ({ ...p, lang: 'es', days: {}, lessons: {}, celebrated: [] }));
+    await editProgress(page, (p) => ({ ...p, lang: 'es', days: {}, lessons: { 'es:es-1-1': 1, 'es:es-1-2': 1, 'es:es-1-3': 1, 'es:es-1-4': 1 }, celebrated: ['unit:es:u1'] }));
     await page.waitForTimeout(500);
     // What the placement test saves when it finishes (it then shows its result on the same screen).
     await editProgress(page, (p) => ({ ...p, placement: { es: 'words' } }));

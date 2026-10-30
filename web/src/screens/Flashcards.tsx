@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { playPhrase } from '../lib/audio';
 import { getPhrases, type Lang, type Phrase, shuffle } from '../lib/content';
+import { saveSpoken } from '../lib/course';
 import { cardBox, MAX_BOX, reviewCard, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { Sticker } from '../art';
+import { SpeakCoach } from '../SpeakCoach';
 import { Icon, LevelDots, PhraseText, Screen } from '../ui';
 
 export function Flashcards({ lang, topic }: { lang: Lang; topic: string }) {
@@ -63,29 +65,39 @@ export function Flashcards({ lang, topic }: { lang: Lang; topic: string }) {
         ) : (
           <>
             <div style={{ fontSize: 28, fontWeight: 600 }}>{card.en}</div>
-            <p className="muted">Say it out loud, then tap to check</p>
+            <p className="muted">Say it out loud. Tap to see the answer</p>
           </>
         )}
       </button>
 
+      {progress.speaking && (
+        <SpeakCoach
+          key={`${card.id}-${done}-${deck.length}`}
+          lang={lang}
+          said={card}
+          start="listen"
+          onRight={() => answer(true)}
+          onSkip={(saved) => {
+            if (saved) saveSpoken(lang, card);
+            answer(false);
+          }}
+        />
+      )}
       {flipped ? (
-        <>
-          <div className="row">
-            <button className="btn danger flex" onClick={() => answer(false)}>
-              <Icon name="close" size={20} /> Again
-            </button>
-            <button className="btn success flex" onClick={() => answer(true)}>
-              <Icon name="check" size={20} /> Got it
-            </button>
-          </div>
-          <button className="btn secondary" onClick={() => playPhrase(card.audio)}>
-            <Icon name="speaker" size={20} /> Play again
-          </button>
-        </>
+        <button className="btn secondary" onClick={() => playPhrase(card.audio)}>
+          <Icon name="speaker" size={20} /> Play again
+        </button>
       ) : (
-        <button className="btn" onClick={flip}>
+        <button className="btn secondary" onClick={flip}>
           Show answer
         </button>
+      )}
+      {!progress.speaking && (
+        <div className="row">
+          <button className="btn secondary flex" onClick={() => answer(false)}>
+            Next card
+          </button>
+        </div>
       )}
     </Screen>
   );

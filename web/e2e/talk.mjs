@@ -18,7 +18,7 @@ await run(async () => {
   await context.addInitScript(() => {
     // Fake mic: quiet, then "Tengo una hermana." (a course recording) as your answer.
     MediaDevices.prototype.getUserMedia = async function () {
-      const c = new AudioContext();
+      const c = (window.__micCtx ??= new AudioContext()); // only one: browsers allow just a few
       await c.resume();
       const dest = c.createMediaStreamDestination();
       const noise = c.createBufferSource();

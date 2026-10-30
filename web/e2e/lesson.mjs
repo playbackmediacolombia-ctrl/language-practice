@@ -19,7 +19,7 @@ await run(async () => {
     window.__chimes = 0;
     // Fake mic: quiet, then whatever clip the test puts in __micUrl.
     MediaDevices.prototype.getUserMedia = async function () {
-      const c = new AudioContext();
+      const c = (window.__micCtx ??= new AudioContext()); // only one: browsers allow just a few
       await c.resume();
       const dest = c.createMediaStreamDestination();
       const noise = c.createBufferSource();
@@ -130,7 +130,13 @@ await run(async () => {
       await page.getByRole('button', { name: 'Check' }).click();
     } else if (type === 'speak') {
       await page.evaluate((url) => (window.__micUrl = url), new URL(ex.item.audio, page.url()).href);
-      await page.getByRole('button', { name: 'Start recording' }).click();
+      // The mic opens by itself after the voice; right moves on by itself.
+      const at = await page.evaluate(() => window.__exerciseIndex);
+      await page.waitForFunction((at) => window.__exerciseIndex !== at || /complete!/.test(document.body.innerText), at, { timeout: 90_000 }).catch(async (e) => {
+        console.log('  speak stuck on', ex.item.text, ex.item.pinyin, JSON.stringify(await page.evaluate(() => window.__coach)));
+        throw e;
+      });
+      return ex;
     }
     await page.locator('.banner').waitFor({ timeout: 60_000 });
     return ex;
@@ -149,6 +155,13 @@ await run(async () => {
       const costly = !['meaning', 'match', 'speak'].includes(peek.type);
       const makeMistake = mistakeAt === 'costly' ? costly && !log.some((l) => l.mistake) : step === mistakeAt;
       const ex = await answer(lang, makeMistake);
+      if (ex.type === 'speak') {
+        types.push(ex.type);
+        log.push({ mistake: false, step, type: ex.type, cls: 'ok', text: ex.item.text, said: await spoken(), heartsBefore: beforeHearts, heartsAfter: await hearts().catch(() => NaN) });
+        step++;
+        if (await page.getByText(/complete!|Out of hearts/).isVisible().catch(() => false)) break;
+        continue;
+      }
       const banner = page.locator('.banner');
       const cls = await banner.getAttribute('class');
       const text = (await banner.innerText()).replace(/\n+/g, ' | ');
@@ -166,42 +179,18 @@ await run(async () => {
     return { types, log };
   }
 
-  /** Day 1's practice: listen and repeat, nothing graded. Returns how many it played. */
-  async function playRepeat() {
-    await page.getByRole('button', { name: 'Start', exact: true }).click();
-    let n = 0;
-    while (!(await page.getByText(/complete!/).isVisible().catch(() => false))) {
-      await page.getByTestId('repeat-next').click();
-      await page.waitForTimeout(120);
-      if (++n > 60) throw new Error('listen and repeat never ended');
-    }
-    return n;
-  }
   const doneLessons = (lang, units) => course(lang).units.filter((u) => units.includes(u.id)).flatMap((u) => u.lessons.map((l) => l.id));
 
-  // ---------- Spanish Day 1: listen and repeat, nothing graded ----------
+  // ---------- The path starts with Day 1's short lessons (see the speaking suite) ----------
   await page.goto(`${BASE}#/es`);
-  await page.locator('.lesson-node').first().waitFor();
+  await page.getByTestId('day1-section').waitFor();
   await shot('path-start');
   const nodes = await page.locator('.lesson-node').evaluateAll((els) => els.map((e) => e.className.replace('lesson-node ', '')));
-  expect(nodes[0] === 'current' && nodes.slice(1).every((c) => c === 'locked'), `path: first lesson open, rest locked (${nodes.length} lessons)`);
+  expect(nodes.every((c) => c === 'locked'), `path: everything after Day 1 waits for it (${nodes.length} lessons)`);
   const soon = await page.locator('.unit.soon').count();
   expect(soon === UNITS - ES_UNITS, `path: ${UNITS - ES_UNITS} unwritten units shown as coming soon (${soon})`);
   const stages = await page.locator('.stage').count();
   expect(stages === STAGES, `path: all ${STAGES} stages, from sounds to adult topics (${stages})`);
-
-  await page.locator('.lesson-node.current').click();
-  await page.getByTestId('lesson-start').click();
-  const heartsDay1 = await page.locator('.lesson-top .hearts').getAttribute('aria-label');
-  const repeated = await playRepeat();
-  expect(repeated >= 8 && heartsDay1 === 'Practice, no hearts', `Day 1 practice: ${repeated} listen-and-repeat steps, no hearts at stake (${heartsDay1})`);
-  await page.waitForTimeout(1600); // XP counts up
-  const doneText = await page.locator('main').innerText();
-  expect(/\+10/.test(doneText) && /1 day streak/.test(doneText), 'complete screen: +10 XP, 1 day streak');
-  await page.getByRole('button', { name: 'Continue' }).click();
-  await page.waitForTimeout(600); // screen transition
-  const nodes2 = await page.locator('.lesson-node').evaluateAll((els) => els.map((e) => e.className.replace('lesson-node ', '')));
-  expect(nodes2[0] === 'done' && nodes2[1] === 'current' && nodes2[2] === 'locked', 'path: lesson 1 done, lesson 2 unlocked');
 
   // ---------- Spanish unit 2, Practice: a mistake is shown, but costs no heart ----------
   await editProgress(page, (p, ids) => ({ ...p, lessons: { ...p.lessons, ...Object.fromEntries(ids.map((id) => [`es:${id}`, 1])) } }), doneLessons('es', ['u1']));
@@ -238,13 +227,8 @@ await run(async () => {
   await page.getByRole('button', { name: 'Continue' }).click();
   await page.waitForTimeout(600); // screen transition
 
-  // ---------- Mandarin: Day 1, then a lesson typing pinyin with tone numbers ----------
+  // ---------- Mandarin: past Day 1, a lesson typing pinyin with tone numbers ----------
   await page.goto(`${BASE}#/zh`);
-  await page.locator('.lesson-node.current').click();
-  await page.getByTestId('lesson-start').click();
-  await playRepeat();
-  await page.getByRole('button', { name: 'Continue' }).click();
-  await page.waitForTimeout(600);
   await editProgress(page, (p, ids) => ({ ...p, lessons: { ...p.lessons, ...Object.fromEntries(ids.map((id) => [`zh:${id}`, 1])) } }), doneLessons('zh', ['u1']));
   await page.locator('.lesson-node.current').click();
   await page.getByTestId('lesson-start').click();

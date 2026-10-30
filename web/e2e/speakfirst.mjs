@@ -22,7 +22,7 @@ await run(async () => {
     await page.goto(`${BASE}#/${lesson}`);
     await page.getByRole('button', { name: 'Start', exact: true }).click();
     const seen = [];
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 8; i++) {
       await page.locator('.prompt').first().waitFor();
       seen.push(await page.locator('.prompt').first().innerText());
       const skip = page.getByRole('button', { name: "Can't speak now" });
@@ -39,7 +39,7 @@ await run(async () => {
   await page.screenshot({ path: 'S-start.png' });
   const zh = await prompts('zh/learn/zh-7-1');
   console.log('   ', zh.join(' / '));
-  expect(zh.length === 4 && zh.every((t) => /^Say it/.test(t)), 'Mandarin lesson: every exercise is said out loud');
+  expect(zh.length >= 4 && zh.every((t) => /^Say it/.test(t)), 'Mandarin lesson: every exercise is said out loud');
   expect(zh.some((t) => /Say it in Mandarin/.test(t)), 'words you have seen: say it from the English');
   await page.screenshot({ path: 'S-recall.png' });
 

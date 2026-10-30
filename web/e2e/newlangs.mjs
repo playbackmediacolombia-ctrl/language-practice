@@ -125,6 +125,7 @@ await run(async () => {
 
   // A grammar tip, a story with tap-to-translate, a role-play, music and the phrasebook.
   await page.goto(`${BASE}#/pt/learn/pt-2-4`);
+  await page.locator('.tip-open').click();
   const tip = await page.getByTestId('grammar-tip').innerText({ timeout: 5000 }).catch(() => '');
   expect(/O and a/.test(tip), `a Portuguese grammar tip (“${tip.split('\n')[0]}”)`);
   await page.goto(`${BASE}#/pt/stories/pt-cat`);

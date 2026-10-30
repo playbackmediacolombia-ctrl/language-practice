@@ -1,24 +1,22 @@
 import { pinyin } from 'pinyin-pro';
 import { Sticker, UnitArt } from '../art';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
-import { compare, type TokenResult } from '../../../shared/compare';
-import { cutFeedback, playClip, playClipAfterPhrase, playPhrase, type Recording, startRecording, stopAllVoices, unlockAudio } from '../lib/audio';
+import { cutFeedback, playClip, playClipAfterPhrase, playPhrase, stopAllVoices, unlockAudio } from '../lib/audio';
 import { type Lang, LANGS, shuffle } from '../lib/content';
-import { allItems, DAILY_MAX, dueItems, dueTomorrow, getLesson, getLessons, getPath, type Item, MISTAKES_MAX, mistakeItems, weakItems } from '../lib/course';
+import { allItems, DAILY_MAX, dueItems, dueTomorrow, getLesson, getLessons, getPath, type Item, MISTAKES_MAX, mistakeItems, saveSpoken, weakItems } from '../lib/course';
 import { isDay1, unitRoleplays } from '../lib/classes';
 import { getScenario } from '../lib/scenarios';
 import { allClips, Coach, type Line, type Reaction } from '../lib/feedback';
 import { haptic, sfx, tapFeedback } from '../lib/fx';
-import { checkTiles, checkTyped, type Exercise, itemsOf, lessonExercises, mistakeExercises, repeatExercises, reviewExercises, speakingFirst, unitTestExercises } from '../lib/exercises';
+import { checkTiles, checkTyped, type Exercise, itemsOf, lessonExercises, mistakeExercises, reviewExercises, speakingFirst, unitTestExercises } from '../lib/exercises';
 import { getTip } from '../lib/grammar';
 import { completeLesson, gainHeart, heartsNow, LESSON_XP, loseHeart, markTipSeen, MISTAKE_RIGHTS, PERFECT_BONUS, recordAnswer, recordTest, setPref, streak, todayXp, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
-import { type Contour, pitchTrack, toContour } from '../lib/pitch';
-import { isModelReady, transcribe } from '../lib/whisper';
+import type { Verdict } from '../lib/speechGrade';
+import { isModelReady } from '../lib/whisper';
 import { GrammarSheet } from '../GrammarTip';
-import { ToneChart } from '../ToneChart';
-import { Burst, Confetti, CountUp, Flame, Icon, ProgressBar, Waveform } from '../ui';
-import { Heatmap } from '../Heatmap';
+import { SpeakCoach } from '../SpeakCoach';
+import { Burst, Confetti, CountUp, Flame, Icon, ProgressBar } from '../ui';
 import { HintBubble, type HintSet, hintsFor, useHintTimer } from '../Hints';
 import { Bird } from '../Bird';
 
@@ -30,16 +28,10 @@ type Result = {
   right: boolean;
   /** Shown under "Great job!" or the correct answer, e.g. a missing accent. */
   note?: string;
-  /** Mistakes that don't cost a heart or come back: new words, speaking. */
+  /** Mistakes that don't cost a heart or come back: new words. */
   free?: boolean;
   /** Skipped ("can't speak now"): no grade at all. */
   skipped?: boolean;
-  /** Spoken answer that was close rather than spot on. */
-  close?: boolean;
-  /** A spoken answer, word by word, for the pronunciation heatmap. */
-  tokens?: TokenResult[];
-  /** Your pitch for a Mandarin "say it" (null if none was found), shown next to the native speaker's. */
-  tones?: Contour | null;
   /** What the coach shows (and maybe says); filled in by the lesson. */
   reaction?: Reaction;
 };
@@ -70,7 +62,7 @@ export function exerciseHints(ex: Exercise, lang: Lang): HintSet | null {
 const withHints = (xp: number, hinted: number) => xp - Math.min(hinted, Math.floor(xp / 2));
 
 export function autoPlay(ex: Exercise | undefined) {
-  if (ex && (ex.type === 'meaning' || ex.type === 'listen' || ex.type === 'type' || ex.type === 'repeat')) playPhrase(ex.item.audio);
+  if (ex && (ex.type === 'meaning' || ex.type === 'listen' || ex.type === 'type')) playPhrase(ex.item.audio);
 }
 
 export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: string }) {
@@ -80,12 +72,13 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   const daily = lessonId === 'daily';
   const drill = lessonId === 'mistakes';
   // A unit's Test ('test-u4'): graded, and hearts count. The unit's lessons are its Practice:
-  // gentle, with hints and no hearts lost. Day 1's practice is listening and repeating only.
+  // gentle, with hints and no hearts lost. Unit 1 is Day 1's own short lessons (screens/Day1), not these.
   const testUnit = lessonId.startsWith('test-') ? getPath(lang).flatMap((s) => s.units).find((u) => u.id === lessonId.slice(5)) : undefined;
   const review = lessonId === 'review' || daily || drill;
   const lesson = review || testUnit ? undefined : getLesson(lang, lessonId);
   const gentle = review || !!lesson; // no hearts lost
   const day1 = !!lesson && isDay1(lesson.unitId);
+  const charged = useRef(new Set<number>()); // spoken exercises that already cost a heart
   const back = daily || drill ? '/practice' : `/${lang}`;
   const drilled = useRef(drill ? mistakeItems(progress, lang).slice(0, MISTAKES_MAX) : []); // this session's words
 
@@ -107,7 +100,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
       return unitTestExercises(testUnit.lessons.flatMap((l) => l.items), earlier, lang, speaking);
     }
     if (!lesson) return [];
-    if (day1) return repeatExercises(lesson.items);
+    if (day1) return []; // goes back to the path, where Day 1's lessons are
     const index = getLessons(lang).findIndex((l) => l.id === lesson.id);
     const earlier = getLessons(lang)
       .slice(0, index)
@@ -143,7 +136,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
   );
 
   const ex = queue[index];
-  if (testHook) (window as { __exercise?: Exercise }).__exercise = ex;
+  if (testHook) Object.assign(window, { __exercise: ex, __exerciseIndex: index });
   const hints = ex ? exerciseHints(ex, lang) : null;
   const hint = useHintTimer(index, { paused: phase !== 'play' || result !== null || busy || showTip || !hints, wait: progress.hintWait });
   const hearts = heartsNow(progress).hearts;
@@ -174,6 +167,33 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
     } else if (!r.right && ex.type === 'meaning') {
       setQueue((q) => [...q, { ...ex, isNew: false, options: shuffle(ex.options) }]);
     }
+  };
+
+  // Speaking is graded try by try, right in the exercise. A Test charges at most one heart for a
+  // word, on a clear miss or giving up: "close" is still trying.
+  const chargeOnce = () => {
+    if (gentle || charged.current.has(index)) return;
+    charged.current.add(index);
+    setMistakes((m) => m + 1);
+    loseHeart();
+  };
+  const spoken = {
+    onRight: (_: Verdict, misses: number) => {
+      const helped = hint.level > 0;
+      if (helped) setHinted((n) => n + 1);
+      if (ex.type === 'speak') recordAnswer(lang, ex.item.id, true, { soft: misses > 0, drill, hinted: helped });
+      next();
+    },
+    onMiss: (v: Verdict, misses: number) => {
+      if (v.grade === 'retry' || misses >= 3) chargeOnce();
+    },
+    onSkip: (saved: boolean) => {
+      if (saved && ex.type === 'speak') {
+        chargeOnce();
+        saveSpoken(lang, ex.item);
+      }
+      next();
+    },
   };
 
   const next = () => {
@@ -218,7 +238,6 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
           <div className="start-title">{daily ? 'Daily review' : drill ? 'Mistakes' : review ? 'Review your weak words' : testUnit ? `Test: ${testUnit.title}` : lesson!.title}</div>
           {testUnit && <p className="muted">Only words and rules from your Classes. Mistakes cost a heart here.</p>}
           {lesson && !day1 && <p className="muted">Only what your Class just taught. Hints are always there, and mistakes don't cost hearts.</p>}
-          {day1 && <p className="muted">Hear each sound and say it back. Nothing is graded today.</p>}
           {daily && <p className="muted">Words and phrases you're about to forget, brought back at just the right time.</p>}
           {drill && (
             <>
@@ -383,7 +402,7 @@ export default function Lesson({ lang, lessonId }: { lang: Lang; lessonId: strin
       {result?.right && !result.skipped && <div key={index} className="flash ok" aria-hidden="true" />}
       {/* Typing, tapping or a key press starts the hint wait over. */}
       <div className="exercise" onPointerDown={hint.poke} onKeyDown={hint.poke} onInput={hint.poke}>
-        <ExerciseView key={index} ex={ex} lang={lang} answered={result !== null} onSubmit={submit} onBusy={setBusy} onNext={next} />
+        <ExerciseView key={index} ex={ex} lang={lang} answered={result !== null} onSubmit={submit} onBusy={setBusy} spoken={spoken} />
       </div>
       {hints && !result && <HintBubble key={index} hints={hints} level={hint.level} onNext={hint.next} />}
       {result && <ResultBanner ex={ex} result={result} lang={lang} onContinue={next} />}
@@ -612,8 +631,8 @@ type ViewProps = {
   onSkip?: () => void;
   /** Speaking: you're talking, or it's being checked (hints wait until you're done). */
   onBusy?: (busy: boolean) => void;
-  /** Go on without a grade (listen and repeat). */
-  onNext?: () => void;
+  /** What a spoken answer does: right, each miss, and Skip for now. */
+  spoken?: { onRight: (v: Verdict, misses: number) => void; onMiss: (v: Verdict, misses: number) => void; onSkip: (saved: boolean) => void };
 };
 
 export function ExerciseView(props: ViewProps) {
@@ -632,32 +651,7 @@ export function ExerciseView(props: ViewProps) {
       return <SpeakExercise {...props} />;
     case 'fact':
       return <FactExercise {...props} />;
-    case 'repeat':
-      return <RepeatExercise {...props} />;
   }
-}
-
-/** Listen and repeat: hear it, say it back. No grade, no wrong answers (Day 1). */
-function RepeatExercise({ ex, onNext }: ViewProps) {
-  if (ex.type !== 'repeat') return null;
-  const { item } = ex;
-  return (
-    <>
-      <p className="prompt">
-        <span className="chip-new">Listen and repeat</span> Say it after the recording
-      </p>
-      <div className="card repeat-card" data-testid="repeat-card">
-        <Target item={item} size={46} />
-        <p className="muted">{item.en}</p>
-        <SoundButtons item={item} big />
-      </div>
-      <div className="lesson-foot">
-        <button className="btn" onClick={onNext} data-testid="repeat-next">
-          I said it
-        </button>
-      </div>
-    </>
-  );
 }
 
 /** A culture lesson's quiz question: pick the answer. Free (no hearts), and shows the answer if missed. */
@@ -912,51 +906,9 @@ function TypeExercise({ ex, lang, answered, onSubmit }: ViewProps) {
   );
 }
 
-function SpeakExercise({ ex, lang, answered, onSubmit, onBusy }: ViewProps) {
-  const [state, setState] = useState<'idle' | 'listening' | 'heard' | 'checking'>('idle');
-  useEffect(() => {
-    onBusy?.(state !== 'idle');
-    return () => onBusy?.(false);
-  }, [state]);
-  const [heard, setHeard] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const recording = useRef<Recording | null>(null);
-  const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
+function SpeakExercise({ ex, lang, answered, onSubmit, onBusy, spoken }: ViewProps) {
   const [shown, setShown] = useState(false);
-  useEffect(() => () => recording.current?.stop(), []);
-  if (ex.type !== 'speak') return null;
-
-  const onMic = async () => {
-    if (state === 'listening' || state === 'heard') return recording.current?.stop();
-    setError(null);
-    try {
-      tapFeedback();
-      const rec = await startRecording(() => setState('heard'));
-      recording.current = rec;
-      setAnalyser(rec.analyser);
-      setState('listening');
-      const audio = await rec.done;
-      recording.current = null;
-      setAnalyser(null);
-      if (!audio.length) throw new Error("I didn't hear anything. Tap the mic and speak a little louder.");
-      // Read the pitch first: transcribe() hands the samples over to the Whisper worker.
-      const tones = lang === 'zh' ? toContour(pitchTrack(audio)) : undefined;
-      setState('checking');
-      const text = await transcribe(audio, lang);
-      const c = compare(ex.item.text, text, lang, ex.item.alt);
-      const score = c.score;
-      setHeard(text);
-      setState('idle');
-      onSubmit({ right: score >= 0.5, free: true, close: score >= 0.5 && score < 0.85, note: `Whisper heard: “${text || '(nothing)'}” · ${Math.round(score * 100)}%`, tones, tokens: c.tokens });
-    } catch (e) {
-      recording.current = null;
-      setAnalyser(null);
-      setState('idle');
-      setError(e instanceof Error ? e.message : String(e));
-    }
-  };
-
-  const busy = state !== 'idle';
+  if (ex.type !== 'speak' || !spoken) return null;
   // Recall (speaking-first): say it from the English; the words and the audio are a tap away.
   const hidden = ex.recall && !shown && !answered;
   return (
@@ -970,38 +922,15 @@ function SpeakExercise({ ex, lang, answered, onSubmit, onBusy }: ViewProps) {
           </button>
         </div>
       ) : (
-        <div className="row">
-          <div className="grow">
-            <Target item={ex.item} size={34} />
-            <p className="english">{ex.item.en}</p>
-          </div>
-          <SoundButtons item={ex.item} />
+        <div className="grow">
+          <Target item={ex.item} size={34} />
+          <p className="english">{ex.item.en}</p>
         </div>
       )}
-      <button
-        className={state === 'checking' ? 'mic checking' : busy ? 'mic on' : 'mic'}
-        onClick={onMic}
-        disabled={answered || state === 'checking'}
-        aria-label={busy ? 'Stop recording' : 'Start recording'}
-      >
-        {state === 'checking' ? <span className="spinner" /> : <Icon name={busy ? 'stop' : 'mic'} size={44} />}
-      </button>
-      <Waveform analyser={analyser} />
-      <p className="status" aria-live="polite">
-        {state === 'listening'
-          ? 'Speak now'
-          : state === 'heard'
-            ? 'Listening… stops when you finish'
-            : state === 'checking'
-              ? 'Checking your pronunciation…'
-              : heard === null
-                ? 'Tap the mic and say it'
-                : ''}
-      </p>
-      {error && <p style={{ color: 'var(--wrong)', textAlign: 'center', margin: 0 }}>{error}</p>}
+      {!answered && <SpeakCoach lang={lang} said={ex.item} start={ex.recall ? 'listen' : 'play'} onRight={spoken.onRight} onMiss={spoken.onMiss} onSkip={spoken.onSkip} onBusy={onBusy} />}
       {!answered && (
         <div className="lesson-foot">
-          <button className="btn secondary" disabled={busy} onClick={() => onSubmit({ right: true, free: true, skipped: true })}>
+          <button className="btn secondary" onClick={() => onSubmit({ right: true, free: true, skipped: true })}>
             Can't speak now
           </button>
         </div>
@@ -1040,10 +969,9 @@ function ResultBanner({ ex, result, lang, onContinue }: { ex: Exercise; result: 
         )}
         {line && line.voice !== 'en' && <span className="banner-en"> {line.en}</span>}
       </div>
-      {result.close && <div className="small">Close enough. Listen again to sound even more natural.</div>}
       {showAnswer && (
         <div>
-          {!result.right && <div className="small">{ex.type === 'speak' ? 'Listen, then try it next time:' : 'Correct answer:'}</div>}
+          {!result.right && <div className="small">Correct answer:</div>}
           {ex.type === 'meaning' ? (
             <b>
               {item.text} = {item.en}
@@ -1057,13 +985,7 @@ function ResultBanner({ ex, result, lang, onContinue }: { ex: Exercise; result: 
           )}
         </div>
       )}
-      {result.tokens && result.tokens.length > 0 && <Heatmap tokens={result.tokens} lang={lang} />}
       {result.note && <div className="small">{result.note}</div>}
-      {item && result.tones !== undefined && (
-        <div className="banner-chart">
-          <ToneChart native={item.audio} mine={result.tones} text={item.text} pinyin={item.pinyin} />
-        </div>
-      )}
       <button ref={button} className="btn" onClick={onContinue}>
         Continue
       </button>

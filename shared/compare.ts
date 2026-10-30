@@ -88,7 +88,7 @@ function tokenize(text: string, lang: Lang): Token[] {
     .filter((t) => t.key.length > 0);
 }
 
-function editDistance(a: string, b: string): number {
+export function editDistance(a: string, b: string): number {
   const dp = Array.from({ length: b.length + 1 }, (_, i) => i);
   for (let i = 1; i <= a.length; i++) {
     let prev = dp[0];

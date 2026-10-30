@@ -22,6 +22,7 @@ import { TabBar, useActiveTab } from './ui';
 
 const RolePlays = lazy(() => import('./screens/RolePlay').then((m) => ({ default: m.RolePlayList })));
 const RolePlayScreen = lazy(() => import('./screens/RolePlay').then((m) => ({ default: m.GatedRolePlay })));
+const Day1Lesson = lazy(() => import('./screens/Day1').then((m) => ({ default: m.Day1Lesson })));
 const ClassScreen = lazy(() => import('./screens/Class').then((m) => ({ default: m.ClassScreen })));
 const Notebook = lazy(() => import('./screens/Notebook').then((m) => ({ default: m.Notebook })));
 const MusicList = lazy(() => import('./screens/Music').then((m) => ({ default: m.MusicList })));
@@ -121,6 +122,12 @@ function Routes() {
       <Suspense fallback={null}>{mode ? <HandsFreePlayer key={mode} lang={lang} id={mode} /> : <HandsFreeList lang={lang} />}</Suspense>
     );
   if (topic === 'level') return <LevelScreen lang={lang} />;
+  if (topic === 'day1' && mode)
+    return (
+      <Suspense fallback={<main className="page" />}>
+        <Day1Lesson key={mode} lang={lang} lesson={mode} />
+      </Suspense>
+    );
   if (topic === 'class' && mode)
     return (
       <Suspense fallback={null}>

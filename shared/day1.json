@@ -1,0 +1,7 @@
+{
+  "es": { "words": ["mama","papa","perro","gato","casa","agua","cafe","te","pan","leche","libro","manzana","mesa","rojo"], "pictures": ["perro","gato","casa","agua","cafe","pan"], "speak": ["mama","papa","perro","casa","agua","cafe"], "greeting": ["hola","me-llamo-ana","gracias"] },
+  "fr": { "words": ["maman","papa","chat","chien","maison","eau","pain","lait","pomme","rouge","riz","vin","livre"], "pictures": ["chat","chien","maison","eau","pain","lait"], "speak": ["maman","maison","chien","pomme","rouge","livre"], "greeting": ["bonjour","je-mappelle-claire","merci"] },
+  "zh": { "words": ["mama","baba","mao","gou","shui","pingguo","niunai","shu","yi","ni","wo","hao"], "pictures": ["mao","gou","shui","pingguo","niunai","shu"], "speak": ["mama","baba","pingguo","niunai","ni","hao"], "greeting": ["nihao",{"text":"我叫安娜","pinyin":"wǒ jiào Ānnà","en":"My name is Anna.","audio":"class/zh/day1-wojiao.mp3","id":"day1-wojiao"},"xiexie"] },
+  "pt": { "words": ["mae","papai","gato","o-cachorro","casa","agua","cafe","cha","pao","leite","livro","maca","carro"], "pictures": ["gato","o-cachorro","casa","agua","cafe","pao"], "speak": ["papai","gato","casa","agua","cafe","carro"], "greeting": ["ola","meu-nome-e-ana","obrigado"] },
+  "it": { "words": ["gatto","cane","casa","acqua","pane","latte","libro","mela","pesce","nonno","palla","famiglia"], "pictures": ["gatto","cane","casa","acqua","pane","latte"], "speak": ["gatto","casa","acqua","pane","latte","mela"], "greeting": ["ciao","mi-chiamo-anna","grazie"] }
+}

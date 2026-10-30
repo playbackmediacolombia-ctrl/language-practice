@@ -21,9 +21,16 @@ INDEX = ROOT / "src" / "data" / "audio.ts"
 FEEDBACK_DIR = ROOT / "web" / "public" / "feedback"
 FEEDBACK_VOICE = "en-US-AvaNeural"
 FEEDBACK = {
-    "great": "Great job!",
+    "great": "Great!",
     "close": "Close, try again.",
-    "retry": "Not quite. Listen, and try again.",
+    "retry": "Not quite, listen again.",
+    "nohear": "I didn't hear you, tap the mic to try again.",
+    "off-sound": "One of the sounds was a little off.",
+    "tone-1": "Check the tone. Stay high and flat, like holding one long note.",
+    "tone-2": "Check the tone. Start in the middle and rise, like asking what?",
+    "tone-3": "Check the tone. Start lower and dip down, then rise.",
+    "tone-4": "Check the tone. Start high and drop fast, like a firm no!",
+    "tone-5": "Check the tone. Keep it light and short.",
 }
 # Varied praise and encouragement in lessons: assets/audio/feedback/<voice>/<category>-<n>.mp3.
 COACH = ROOT / "shared" / "feedback.json"

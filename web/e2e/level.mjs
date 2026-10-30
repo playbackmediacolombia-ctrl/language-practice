@@ -59,7 +59,7 @@ await run(async () => {
   await page.screenshot({ path: 'L-change.png', fullPage: true });
   await page.getByTestId('level-pick-sounds').click();
   await page.waitForTimeout(800);
-  expect((await state('es-1-1')) === 'current', 'Beginner: back to the very first lesson');
+  expect((await page.locator('.day1-btn.next').count()) === 1, 'Beginner: back to Day 1');
   expect((await state('es-10-1')) === 'done', 'a lesson you finished stays finished');
   expect((await state('es-9-1')) === 'open', 'and nothing you had unlocked is locked again');
   p = await saved();

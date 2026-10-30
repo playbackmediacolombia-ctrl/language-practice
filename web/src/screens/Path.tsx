@@ -7,6 +7,7 @@ import { ensureAudio } from '../lib/audioPacks';
 import { type Lang, LANGS } from '../lib/content';
 import { currentLevel, getLessons, getLevels, getPath, hasStarted, type Lesson, lessonStates, ungatedLessonStates, type Unit, weakItems } from '../lib/course';
 import { isDay1, type StepState, unitSteps, type UnitSteps } from '../lib/classes';
+import { DAY1_LESSONS, day1About, day1Finished, type Day1Key, day1Next, day1Title } from '../lib/day1';
 import { haptic, reducedMotion, sfx, tapFeedback } from '../lib/fx';
 import { newHomeIsLive, onOldAddress } from '../lib/move';
 import { CHEST_XP, heartsNow, LESSON_XP, PERFECT_BONUS, lessonDone, openChest, type Progress, streak, todayXp, useProgress, weakness } from '../lib/progress';
@@ -262,11 +263,11 @@ function Chest({ lang, unitId, ready, opened }: { lang: Lang; unitId: string; re
 }
 
 /** A unit's three steps, on its banner: Class, then Practice, then Test. */
-function StepStrip({ steps, done, total, day1 }: { steps: UnitSteps; done: number; total: number; day1: boolean }) {
+function StepStrip({ steps, done, total }: { steps: UnitSteps; done: number; total: number }) {
   const practice: StepState = done === total ? 'done' : steps.class === 'done' || steps.skippable ? (done ? 'current' : 'open') : 'locked';
   const chips: [string, StepState, string][] = [
-    ['1', steps.class, day1 ? 'Day 1 class' : 'Class'],
-    ['2', practice, `${day1 ? 'Listen & repeat' : 'Practice'} ${done}/${total}`],
+    ['1', steps.class, 'Class'],
+    ['2', practice, `Practice ${done}/${total}`],
   ];
   if (steps.test) chips.push(['3', steps.test, 'Test']);
   return (
@@ -281,6 +282,32 @@ function StepStrip({ steps, done, total, day1 }: { steps: UnitSteps; done: numbe
 }
 
 /** Step 1 on the path: the unit's Class. */
+/** Day 1 on the path: its short lessons, each with its own button, a checkmark once done, always open to redo. */
+function Day1Section({ lang, next, open }: { lang: Lang; next: Day1Key | null; open: (path: string) => void }) {
+  const progress = useProgress();
+  return (
+    <ol className="day1-section" data-testid="day1-section">
+      {DAY1_LESSONS.map((key, i) => {
+        const done = day1Finished(progress, lang, key);
+        return (
+          <li key={key}>
+            <button className={`day1-btn${done ? ' done' : ''}${key === next ? ' next' : ''}`} data-testid="day1-btn" data-key={key} data-done={done} data-lesson={key === next ? 'day1' : undefined} onClick={() => open(`/${lang}/day1/${key}`)}>
+              <span className="day1-num">{done ? <Icon name="check" size={22} /> : i + 1}</span>
+              <span className="grow">
+                <span className="day1-title" style={{ display: 'block' }}>
+                  Day 1: {day1Title(lang, key)}
+                </span>
+                <span className="muted small">{day1About(lang, key)}</span>
+              </span>
+              {done && <span className="muted small">Redo</span>}
+            </button>
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
 function ClassNode({ lang, unit, steps, x, day1, open }: { lang: Lang; unit: Unit; steps: UnitSteps; x: number; day1: boolean; open: (path: string) => void }) {
   const state = steps.class;
   return (
@@ -479,7 +506,7 @@ export function Path({ lang }: { lang: Lang }) {
   useEffect(() => {
     if (!scrollToCurrent) return;
     scrollToCurrent = false;
-    (document.querySelector('.lesson-node.current, .class-node.current') ?? document.querySelector('.lesson-node.open'))?.scrollIntoView({ block: 'center' });
+    (document.querySelector('.day1-btn.next, .lesson-node.current, .class-node.current') ?? document.querySelector('.lesson-node.open'))?.scrollIntoView({ block: 'center' });
   }, []);
   const lessons = getLessons(lang);
   const states = lessonStates(progress, lang);
@@ -498,7 +525,9 @@ export function Path({ lang }: { lang: Lang }) {
   const allUnits = getPath(lang).flatMap((s) => s.units);
   const stepsOf = new Map(allUnits.filter((u) => u.lessons.length).map((u) => [u.id, unitSteps(progress, lang, u, raw)]));
   // When the next thing to do is a Class, it's where Start and the jump button point.
-  const classNow = allUnits.find((u) => stepsOf.get(u.id)?.class === 'current');
+  const firstUnit = allUnits.find((u) => isDay1(u.id));
+  const day1Now = firstUnit && (stepsOf.get(firstUnit.id)?.class === 'current' || firstUnit.lessons.some((l) => l.id === current?.id)) ? day1Next(progress, lang, firstUnit.lessons) : null;
+  const classNow = day1Now ? undefined : allUnits.find((u) => stepsOf.get(u.id)?.class === 'current');
   const [picking, setPicking] = useState(false);
   // At the old github.io address, once the new one is up: offer to move.
   const [movedLive, setMovedLive] = useState(false);
@@ -522,7 +551,7 @@ export function Path({ lang }: { lang: Lang }) {
     };
   }, [pop]);
   const stuck = useStuckUnit();
-  const target = classNow ? { id: `class-${classNow.id}`, title: `Class: ${classNow.title}` } : (current ?? lessons.find((l) => states.get(l.id) === 'open'));
+  const target = day1Now ? { id: 'day1', title: `Day 1: ${day1Title(lang, day1Now)}` } : classNow ? { id: `class-${classNow.id}`, title: `Class: ${classNow.title}` } : (current ?? lessons.find((l) => states.get(l.id) === 'open'));
   const away = useCurrentAway(target?.id);
   let unitNo = 0;
   let birdNo = 0; // the units' birds take turns at the poses
@@ -555,7 +584,7 @@ export function Path({ lang }: { lang: Lang }) {
         <WordOfTheDay lang={lang} progress={progress} />
         <StreakWarning
           progress={progress}
-          onPractice={() => open(classNow ? `/${lang}/class/${classNow.id}` : current ? `/${lang}/learn/${current.id}` : learned.length >= 4 ? `/${lang}/learn/review` : `/${lang}`)}
+          onPractice={() => open(day1Now ? `/${lang}/day1/${day1Now}` : classNow ? `/${lang}/class/${classNow.id}` : current ? `/${lang}/learn/${current.id}` : learned.length >= 4 ? `/${lang}/learn/review` : `/${lang}`)}
           onRemind={() => open('/settings/reminder')}
         />
 
@@ -573,7 +602,7 @@ export function Path({ lang }: { lang: Lang }) {
             <p className="muted">Pick any level. Everything below it unlocks, and you can change it any time.</p>
             <LevelTiles
               lang={lang}
-              onPicked={() => requestAnimationFrame(() => document.querySelector('.lesson-node.current, .class-node.current')?.scrollIntoView({ block: 'center', behavior: 'smooth' }))}
+              onPicked={() => requestAnimationFrame(() => document.querySelector('.day1-btn.next, .lesson-node.current, .class-node.current')?.scrollIntoView({ block: 'center', behavior: 'smooth' }))}
             />
             <button className="btn secondary" onClick={() => open(`/${lang}/placement`)} data-testid="placement-card">
               <Icon name="target" size={20} /> Not sure? Take a quick test
@@ -637,7 +666,9 @@ export function Path({ lang }: { lang: Lang }) {
               const label = unit.culture ? 'Culture' : unit.elective ? 'Extra topic' : `Unit ${++unitNo}`;
               // Each unit its own color from the logo, matching its banner and its lesson coins.
               const tone = unit.culture ? 'sky' : unit.elective ? 'cream' : UNIT_TONES[(unitNo - 1) % UNIT_TONES.length];
-              const count = done === unit.lessons.length ? 'Complete!' : `${done} of ${unit.lessons.length} lessons`;
+              const day1 = isDay1(unit.id);
+              const day1Done = DAY1_LESSONS.filter((k) => day1Finished(progress, lang, k)).length;
+              const count = day1 ? (done === unit.lessons.length ? 'Complete!' : `${day1Done} of ${DAY1_LESSONS.length} lessons`) : done === unit.lessons.length ? 'Complete!' : `${done} of ${unit.lessons.length} lessons`;
               const gated = unit.adult && !progress.adult;
               // Halfway along: a reward chest, ready once the lessons before it are done.
               const chestAt = unit.lessons.length >= 2 ? Math.ceil(unit.lessons.length / 2) : -1;
@@ -662,13 +693,15 @@ export function Path({ lang }: { lang: Lang }) {
                       <UnitArt unitId={unit.id} size={56} />
                     </span>
                   </div>
-                  {stepsOf.get(unit.id) && !gated && <StepStrip steps={stepsOf.get(unit.id)!} done={done} total={unit.lessons.length} day1={isDay1(unit.id)} />}
+                  {stepsOf.get(unit.id) && !gated && !day1 && <StepStrip steps={stepsOf.get(unit.id)!} done={done} total={unit.lessons.length} />}
                   {unit.elective && <p className="muted small unit-note">{unit.culture ? 'A short culture lesson: tips, useful phrases and a quiz. It never holds up your path.' : 'An extra topic for when you want it. It never holds up your path.'}</p>}
                   {gated ? (
                     <AdultGate count={`${unit.lessons.length} lessons`} />
+                  ) : day1 ? (
+                    <Day1Section lang={lang} next={day1Now} open={open} />
                   ) : (
                   <ol className="lessons path">
-                    <ClassNode lang={lang} unit={unit} steps={stepsOf.get(unit.id)!} x={WIND[nodeNo++ % WIND.length]} day1={isDay1(unit.id)} open={open} />
+                    <ClassNode lang={lang} unit={unit} steps={stepsOf.get(unit.id)!} x={WIND[nodeNo++ % WIND.length]} day1={false} open={open} />
                     {unit.lessons.map((lesson, i) => {
                       const state = states.get(lesson.id)!;
                       const x = WIND[nodeNo++ % WIND.length];

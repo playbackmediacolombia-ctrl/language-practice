@@ -16,8 +16,8 @@ await run(async () => {
   const page = await context.newPage();
   page.on('pageerror', (e) => console.log('PAGE ERROR', e.message));
   await page.goto(`${BASE}#/`);
-  // Unit 1's first two lessons done: its chest (halfway along) is ready to open.
-  await editProgress(page, (p) => ({ ...p, lang: 'es', xp: 100, lessons: { 'es:es-1-1': 1, 'es:es-1-2': 1 }, chests: {}, celebrated: null }));
+  // Day 1 and unit 2's first two lessons done: its chest (halfway along) is ready to open.
+  await editProgress(page, (p) => ({ ...p, lang: 'es', xp: 100, lessons: { 'es:es-1-1': 1, 'es:es-1-2': 1, 'es:es-1-3': 1, 'es:es-1-4': 1, 'es:es-2-1': 1, 'es:es-2-2': 1 }, chests: {}, celebrated: null }));
   await page.goto(`${BASE}#/es`);
   await page.locator('.lesson-node.current').waitFor();
 
@@ -38,8 +38,8 @@ await run(async () => {
   expect((await pop.count()) === 0, 'Escape closes it');
   await page.locator('.lesson-node.current').click();
   await page.getByTestId('lesson-start').click();
-  await page.waitForFunction(() => location.hash.includes('/learn/es-1-3'), null, { timeout: 5000 }).catch(() => {});
-  expect(page.url().includes('/learn/es-1-3'), 'Start opens the lesson');
+  await page.waitForFunction(() => location.hash.includes('/learn/es-2-3'), null, { timeout: 5000 }).catch(() => {});
+  expect(page.url().includes('/learn/es-2-3'), 'Start opens the lesson');
   await page.goto(`${BASE}#/es`);
   await page.locator('.lesson-node.current').waitFor();
 
@@ -65,7 +65,7 @@ await run(async () => {
   await page.locator('.lesson-node.current').waitFor();
   expect((await chests.first().getAttribute('data-state')) === 'opened' && (await xp()) === before + 15, 'after a reload: still open, XP counted once');
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('progress-v1')).chests);
-  expect(Object.keys(saved).join() === 'es:u1', `saved in progress (${Object.keys(saved).join()})`);
+  expect(Object.keys(saved).join() === 'es:u2', `saved in progress (${Object.keys(saved).join()})`);
 
   // ---------- Birds ----------
   const poses = await page.locator('.path-bird .bird').evaluateAll((els) => els.slice(0, 6).map((e) => e.dataset.pose));
@@ -175,7 +175,7 @@ await run(async () => {
   const still = await browser.newContext({ ...devices['iPhone 15'], serviceWorkers: 'block', reducedMotion: 'reduce' });
   const p2 = await still.newPage();
   await p2.goto(`${BASE}#/`);
-  await editProgress(p2, (p) => ({ ...p, lang: 'es', lessons: { 'es:es-1-1': 1, 'es:es-1-2': 1 }, chests: {} }));
+  await editProgress(p2, (p) => ({ ...p, lang: 'es', lessons: { 'es:es-1-1': 1, 'es:es-1-2': 1, 'es:es-1-3': 1, 'es:es-1-4': 1, 'es:es-2-1': 1, 'es:es-2-2': 1 }, chests: {} }));
   await p2.goto(`${BASE}#/es`);
   await p2.locator('.lesson-node.current').waitFor();
   await p2.locator('.path-bird .bird').first().scrollIntoViewIfNeeded();

@@ -68,7 +68,7 @@ await run(async () => {
     await page.screenshot({ path: 'M-warning.png' });
     await page.getByTestId('streak-practice').click();
     await page.waitForTimeout(600);
-    expect(/#\/es\/learn\/[a-z0-9-]+$/.test(page.url()), `"Practice now" opens your next lesson (${page.url().split('#')[1]})`);
+    expect(/#\/es\/(learn|day1)\/[a-z0-9-]+$/.test(page.url()), `"Practice now" opens your next lesson (${page.url().split('#')[1]})`);
 
     await page.goto(`${BASE}#/es`);
     await editProgress(page, (p, today) => ({ ...p, days: { ...p.days, [today]: 10 } }), day(0));

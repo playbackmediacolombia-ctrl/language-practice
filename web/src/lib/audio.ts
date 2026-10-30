@@ -245,13 +245,25 @@ export function audioContext(): AudioContext {
   return ctx;
 }
 
+// Speaking exercises open the mic and play the model by themselves, sometimes on a screen you've
+// only just tapped your way to. iOS allows that once audio has started inside any tap, so the
+// first tap of the visit unlocks both the player and the shared context.
+let primed = false;
+const unlockOnTap = () => {
+  audioContext();
+  if (primed) return;
+  primed = true;
+  primePlayer();
+};
+for (const type of ['click', 'touchend']) document.addEventListener(type, unlockOnTap, { capture: true });
+
 type AudioSession = { type: string };
 const session = (navigator as { audioSession?: AudioSession }).audioSession;
 // Safari 16.4+: play Web Audio sounds even with the silent switch on, like the phrase audio does.
 if (session) session.type = 'playback';
 
-// Listen & repeat's graded lines. Lessons use the varied clips in feedback.ts instead.
-const FEEDBACK = ['great', 'close', 'retry'] as const;
+// What a speaking exercise says about your try. Lessons' other answers use the varied clips in feedback.ts.
+const FEEDBACK = ['great', 'close', 'retry', 'nohear', 'off-sound', 'tone-1', 'tone-2', 'tone-3', 'tone-4', 'tone-5'] as const;
 export type Feedback = (typeof FEEDBACK)[number];
 const feedbackUrl = (name: Feedback) => new URL(`feedback/${name}.mp3`, document.baseURI).href;
 
@@ -307,6 +319,32 @@ export function playClip(url: string, delay = 0) {
 
 export const playFeedback = (name: Feedback, delay = 0) => playClip(feedbackUrl(name), delay);
 
+/** Says a feedback line and resolves when it has finished (or was cut off), so what comes next never talks over it. */
+export async function sayFeedback(name: Feedback): Promise<void> {
+  let buffer: AudioBuffer;
+  try {
+    // Never let a clip that won't load or decode hold up the exercise.
+    buffer = await Promise.race([loadClip(feedbackUrl(name)), new Promise<never>((_, no) => setTimeout(() => no(new Error('too slow')), 3000))]);
+  } catch {
+    return; // spoken feedback is a bonus; it's on screen too
+  }
+  cutFeedback();
+  const c = audioContext();
+  const source = c.createBufferSource();
+  source.buffer = buffer;
+  source.connect(c.destination);
+  voiceClip = source;
+  await new Promise<void>((resolve) => {
+    const timer = setTimeout(resolve, buffer.duration * 1000 + 500); // a suspended context never reports the end
+    source.onended = () => {
+      clearTimeout(timer);
+      if (voiceClip === source) voiceClip = null;
+      resolve();
+    };
+    source.start();
+  });
+}
+
 /** Plays a clip once the phrase audio (if any) has finished, so the two don't talk over each other. */
 export function playClipAfterPhrase(url: string) {
   if ((player.paused || player.ended) && !pendingPhrase) return void playClip(url, 0.35);
@@ -330,7 +368,7 @@ export type Recording = {
 };
 
 const FRAME = 4096;
-const SILENCE_TO_STOP = 1.0; // seconds of quiet after speaking that ends the recording (default)
+const SILENCE_TO_STOP = 1.0; // seconds of quiet after speaking that ends the recording
 const NO_SPEECH_TIMEOUT = 6; // give up if nothing is said for this long
 const MAX_LENGTH = 12; // our phrases are short
 const PAD = 0.25; // seconds kept before and after the speech

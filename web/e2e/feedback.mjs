@@ -10,7 +10,7 @@ await run(async () => {
     window.__chimes = 0;
     // Fake mic: quiet, then whatever clip the test puts in __micUrl.
     MediaDevices.prototype.getUserMedia = async function () {
-      const c = new AudioContext();
+      const c = (window.__micCtx ??= new AudioContext()); // only one: browsers allow just a few
       await c.resume();
       const dest = c.createMediaStreamDestination();
       const noise = c.createBufferSource();
@@ -122,7 +122,13 @@ await run(async () => {
       await page.getByRole('button', { name: 'Check' }).click();
     } else if (type === 'speak') {
       await page.evaluate((url) => (window.__micUrl = url), new URL(ex.item.audio, page.url()).href);
-      await page.getByRole('button', { name: 'Start recording' }).click();
+      // The mic opens by itself after the voice; right moves on by itself.
+      const at = await page.evaluate(() => window.__exerciseIndex);
+      await page.waitForFunction((at) => window.__exerciseIndex !== at || /complete!/.test(document.body.innerText), at, { timeout: 90_000 }).catch(async (e) => {
+        console.log('  speak stuck on', ex.item.text, ex.item.pinyin, JSON.stringify(await page.evaluate(() => window.__coach)));
+        throw e;
+      });
+      return ex;
     }
     await page.locator('.banner').waitFor({ timeout: 60_000 });
     return ex;
@@ -141,6 +147,13 @@ await run(async () => {
       const costly = !['meaning', 'match', 'speak'].includes(peek.type);
       const makeMistake = mistakeAt instanceof Set ? costly && mistakeAt.has(step) : mistakeAt === 'costly' ? costly && !log.some((l) => l.mistake) : step === mistakeAt;
       const ex = await answer(lang, makeMistake);
+      if (ex.type === 'speak') {
+        types.push(ex.type);
+        log.push({ mistake: false, step, type: ex.type, cls: 'ok', text: ex.item.text, said: await spoken(), heartsBefore: beforeHearts, heartsAfter: await hearts().catch(() => NaN) });
+        step++;
+        if (await page.getByText(/complete!|Out of hearts/).isVisible().catch(() => false)) break;
+        continue;
+      }
       const banner = page.locator('.banner');
       const cls = await banner.getAttribute('class');
       const text = (await banner.innerText()).replace(/\n+/g, ' | ');

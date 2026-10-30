@@ -22,6 +22,7 @@ export function Notebook({ lang }: { lang: Lang }) {
   const match = (i: Item) => !q || i.text.toLowerCase().includes(q) || i.en.toLowerCase().includes(q) || (i.pinyin ?? '').toLowerCase().includes(q);
   const words = units.reduce((n, u) => n + (getClass(lang, u.id)?.words.length ?? 0), 0);
   const rules = units.reduce((n, u) => n + (getClass(lang, u.id)?.rules.length ?? 0), 0);
+  const corrections = (progress.corrections ?? []).filter((c) => c.lang === lang && (!q || c.said.toLowerCase().includes(q) || c.better.toLowerCase().includes(q) || c.why.toLowerCase().includes(q)));
 
   return (
     <Screen title="Notebook" back={`/${lang}`}>
@@ -30,6 +31,26 @@ export function Notebook({ lang }: { lang: Lang }) {
       </p>
       {units.length > 0 && (
         <input className="answer-input" type="search" placeholder="Find a word or rule" value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Find a word or rule" />
+      )}
+      {corrections.length > 0 && (
+        <section className="card notebook-unit" data-testid="notebook-corrections">
+          <div className="card-title">From your conversations</div>
+          <ul className="talk-words">
+            {corrections.map((c) => (
+              <li key={c.better} data-testid="notebook-correction">
+                <span className="muted small" lang={lang}>
+                  {c.said}
+                </span>
+                <br />→{' '}
+                <button className="hear" onClick={() => playPhrase(`tts:${lang}:${encodeURIComponent(c.better)}`)}>
+                  <Icon name="speaker" size={16} /> <b lang={lang}>{c.better}</b>
+                </button>
+                {c.pinyin && <div className="pinyin small">{c.pinyin}</div>}
+                <div className="muted small">{c.why}</div>
+              </li>
+            ))}
+          </ul>
+        </section>
       )}
       {units.map((u) => {
         const data = getClass(lang, u.id)!;

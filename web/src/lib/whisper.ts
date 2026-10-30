@@ -127,6 +127,9 @@ export function loadModel(onProgress?: (fraction: number) => void): Promise<void
 /** `onProgress` reports a re-download, in case the browser cleared its cached copy. */
 export async function transcribe(audio: Float32Array, lang: Lang, onProgress?: (fraction: number) => void): Promise<string> {
   await loadModel(onProgress);
+  // Whisper garbles speech that starts right away ("de engolgado" for "Tengo un gato"): half a second of quiet each side fixes it.
+  const padded = new Float32Array(audio.length + 16000);
+  padded.set(audio, 8000);
   const id = nextId++;
   return new Promise((resolve, reject) => {
     const timer = setTimeout(() => {
@@ -138,9 +141,7 @@ export async function transcribe(audio: Float32Array, lang: Lang, onProgress?: (
       fn(v);
     };
     pending.set(id, { resolve: settle(resolve), reject: settle(reject) });
-    getWorker().postMessage({ type: 'transcribe', id, audio, language: LANGUAGE[lang] } satisfies WorkerRequest, [
-      audio.buffer,
-    ]);
+    getWorker().postMessage({ type: 'transcribe', id, audio: padded, language: LANGUAGE[lang] } satisfies WorkerRequest, [padded.buffer]);
   });
 }
 
