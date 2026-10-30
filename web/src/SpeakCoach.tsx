@@ -10,7 +10,7 @@ import { gradeSpeech, isShort, type Verdict } from './lib/speechGrade';
 import { checkTones, spokenTones, type Tone, TONE_SHAPES } from './lib/tones';
 import { chosenModel, isModelReady, loadModel, MODELS, transcribe } from './lib/whisper';
 import { Heatmap } from './Heatmap';
-import { Icon, ProgressBar, Waveform } from './ui';
+import { Icon, ProgressBar, Waveform, AudioButton } from './ui';
 
 // Every speaking exercise goes through here: the voice plays, the mic opens by itself with a live
 // meter, it stops after a second of silence, and you hear how it went. Right moves on; a near
@@ -261,9 +261,7 @@ export function SpeakCoach({
     <div ref={panel} className={compact ? 'coach compact' : 'coach'} data-testid="speak-coach" data-stage={stage} data-misses={misses}>
       <div className="coach-controls">
         {said.audio && (
-          <button className="btn secondary coach-play" onClick={tapPlay} disabled={stage === 'playing' || listening || checking} data-testid="coach-play">
-            <Icon name="speaker" size={20} /> {verdict?.grade === 'retry' && start === 'tap' ? 'Listen again' : 'Play'}
-          </button>
+          <AudioButton className="coach-play" label={verdict?.grade === 'retry' && start === 'tap' ? 'Listen again' : 'Play'} onClick={tapPlay} disabled={stage === 'playing' || listening || checking} data-testid="coach-play" />
         )}
         <button
           className={checking ? 'mic checking' : listening ? 'mic on' : 'mic'}
@@ -272,7 +270,7 @@ export function SpeakCoach({
           aria-label={listening ? 'Stop recording' : 'Start recording'}
           data-testid="coach-mic"
         >
-          {checking ? <span className="spinner" /> : <Icon name={listening ? 'stop' : 'mic'} size={compact ? 30 : 40} />}
+          {checking ? <span className="spinner" /> : <Icon name={listening ? 'stop' : 'mic'} size={36} />}
         </button>
       </div>
       <Waveform analyser={analyser} />

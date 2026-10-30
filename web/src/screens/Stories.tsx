@@ -341,8 +341,8 @@ export function StoryScreen({ lang, id }: { lang: Lang; id: string }) {
               {word.gloss ? glossText(word.gloss) : <>Not in the word list. The whole sentence means: “{story.lines[word.line].en}”</>}
             </div>
           </div>
-          <button className="icon-btn" aria-label="Play this line" onClick={() => playLine(word.line)}>
-            <Icon name="speaker" />
+          <button className="audio-btn" aria-label="Play this line" onClick={() => playLine(word.line)}>
+            <Icon name="speaker" size={24} />
           </button>
           <button className="icon-btn" aria-label="Close" onClick={() => setWord(null)}>
             <Icon name="close" />
@@ -387,8 +387,8 @@ function StoryLine(props: {
         {line.pinyin && <p className="line-pinyin">{line.pinyin}</p>}
         {english && <p className="line-en">{line.en}</p>}
         {result && <LineGrade result={result} lang={lang} />}
-        <button className="line-play" aria-label={`Play line ${index + 1}`} onClick={onPlay}>
-          <Icon name="speaker" size={18} />
+        <button className="line-play audio-btn" aria-label={`Play line ${index + 1}`} onClick={onPlay}>
+          <Icon name="speaker" size={24} />
         </button>
       </div>
     </div>

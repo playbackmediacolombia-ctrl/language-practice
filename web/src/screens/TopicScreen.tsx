@@ -3,7 +3,7 @@ import { getPhrases, getTopic, type Lang } from '../lib/content';
 import { tapFeedback } from '../lib/fx';
 import { useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
-import { Icon, PhraseText, Screen } from '../ui';
+import { Icon, PhraseText, Screen, AudioDisc } from '../ui';
 
 export function TopicScreen({ lang, topic }: { lang: Lang; topic: string }) {
   const phrases = getPhrases(lang, topic);
@@ -37,7 +37,7 @@ export function TopicScreen({ lang, topic }: { lang: Lang; topic: string }) {
                 <PhraseText phrase={p} size="small" />
               </div>
               <div style={{ textAlign: 'right', color: 'var(--accent)' }}>
-                <Icon name="speaker" size={24} style={{ marginLeft: 'auto' }} />
+                <AudioDisc />
                 {best !== undefined && <div className="muted small">{Math.round(best * 100)}%</div>}
               </div>
             </button>

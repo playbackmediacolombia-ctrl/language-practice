@@ -520,7 +520,7 @@ function TalkScreen({ lang, scenario, session }: { lang: Lang; scenario?: Return
                 aria-label={busy ? 'Stop recording' : 'Answer'}
                 data-testid="talk-mic"
               >
-                {phase === 'checking' || phase === 'thinking' ? <span className="spinner" /> : <Icon name={busy ? 'stop' : 'mic'} size={30} />}
+                {phase === 'checking' || phase === 'thinking' ? <span className="spinner" /> : <Icon name={busy ? 'stop' : 'mic'} size={36} />}
               </button>
             )}
             <button className="btn secondary sound-sm" onClick={() => end()} aria-label="End conversation" data-testid="talk-end">

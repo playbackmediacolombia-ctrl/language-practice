@@ -59,7 +59,12 @@ Headings 700–800 with `--tight` letter spacing. Settings › Text size scales 
 
 ## Components
 
-- **Buttons**: `.btn` (filled), `.btn.secondary` (card), `.btn.ghost`, `.icon-btn`. Minimum 44×44.
+- **Buttons**: `.btn` (filled), `.btn.secondary` (card), `.btn.ghost`, `.icon-btn`. Minimum 44×44 (audio buttons: 48×48, below).
+- **Audio buttons** (mic and speakers, everywhere): the same sizes on every screen, so they're easy to hit.
+  - **Mic** (`.mic`): round, **72×72**, centered, a 36px icon, the 3D edge. Red with a pulsing ring (`ring`) while it's listening; a spinner while checking.
+  - **Speakers** (`.audio-btn`, or `AudioDisc` inside a row that plays when tapped): round, **at least 48×48**, a visible `--accent-bg` fill, a 24px icon. Never a bare icon beside text.
+  - **Labeled ones** (`AudioButton`: Slowly, Play, Again): the same round button with a short label under it. The big listen button in lessons is 96×96, and its Slow button 72×72.
+  - **Tap area** at least 48×48, with **at least 8px** between neighbouring audio buttons, so you don't hit the wrong one. `e2e/audiobuttons.mjs` measures all of this; a new audio button uses these classes.
 - **Answer tiles**: `.btn.option`, 66px tall, bounce when picked (`tile-pick`); "How do you
   say…" tiles carry a speaker and say themselves.
 - **Lesson path**: coins (`.lesson-node`), the lesson popup, reward chests, the sticky unit

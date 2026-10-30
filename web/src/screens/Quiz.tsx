@@ -4,7 +4,7 @@ import { getPhrases, type Lang, type Phrase, shuffle } from '../lib/content';
 import { recordPhraseAnswer, recordQuiz } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { Sticker } from '../art';
-import { Icon, PhraseText, Screen } from '../ui';
+import { AudioButton, Icon, PhraseText, Screen } from '../ui';
 
 type Question = {
   phrase: Phrase;
@@ -102,9 +102,7 @@ export function Quiz({ lang, topic }: { lang: Lang; topic: string }) {
           <>
             <p className="muted">What does this mean?</p>
             {picked && <PhraseText phrase={q.phrase} showEnglish={false} />}
-            <button className="btn secondary" onClick={() => playPhrase(q.phrase.audio)}>
-              <Icon name="speaker" size={20} /> Play again
-            </button>
+            <AudioButton label="Play again" style={{ alignSelf: 'center' }} onClick={() => playPhrase(q.phrase.audio)} />
           </>
         ) : (
           <>

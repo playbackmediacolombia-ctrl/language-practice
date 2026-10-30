@@ -11,7 +11,7 @@ import { recordRoleplay, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { getScenario, getScenarios, LEVELS, promptMode, type Scenario, type ScenarioLine, TOPICS } from '../lib/scenarios';
 import { isModelReady, loadModel, transcribe } from '../lib/whisper';
-import { Icon, Screen, Waveform } from '../ui';
+import { Icon, Screen, Waveform, AudioButton } from '../ui';
 import { AdultGate, AdultGateScreen } from './AdultGate';
 import { Sticker, type StickerName } from '../art';
 import { LangSwitcher } from './Path';
@@ -353,8 +353,8 @@ export function RolePlayScreen({ lang, id }: { lang: Lang; id: string }) {
                     <span className={`score-chip ${gradeClass(t.score)}`}>{Math.round(t.score * 100)}%</span>
                   </div>
                 )}
-                <button className="line-play" aria-label={`Play line ${i + 1}`} onClick={() => playPhrase(l.audio)}>
-                  <Icon name="speaker" size={18} />
+                <button className="line-play audio-btn" aria-label={`Play line ${i + 1}`} onClick={() => playPhrase(l.audio)}>
+                  <Icon name="speaker" size={24} />
                 </button>
               </div>
             </div>
@@ -481,10 +481,7 @@ function TurnPanel(props: {
         )}
       </div>
       <div className="row turn-actions">
-        <button className="btn secondary sound-sm" onClick={() => playPhrase(line.audio)} aria-label="Hear it said">
-          <Icon name="speaker" size={20} />
-          Hear it
-        </button>
+        <AudioButton label="Hear it" onClick={() => playPhrase(line.audio)} aria-label="Hear it said" />
         {graded ? (
           <button
             className={phase === 'checking' ? 'mic small checking' : busy ? 'mic small on' : 'mic small'}
@@ -493,7 +490,7 @@ function TurnPanel(props: {
             aria-label={busy ? 'Stop recording' : 'Record your line'}
             data-testid="turn-mic"
           >
-            {phase === 'checking' ? <span className="spinner" /> : <Icon name={busy ? 'stop' : 'mic'} size={30} />}
+            {phase === 'checking' ? <span className="spinner" /> : <Icon name={busy ? 'stop' : 'mic'} size={36} />}
           </button>
         ) : (
           <button className="btn flex" onClick={onSkip} data-testid="turn-next">

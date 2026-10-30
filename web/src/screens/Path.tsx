@@ -14,7 +14,7 @@ import { CHEST_XP, heartsNow, LESSON_XP, PERFECT_BONUS, lessonDone, openChest, t
 import { navigate } from '../lib/router';
 import { isModelReady } from '../lib/whisper';
 import { wordOfDay } from '../lib/wordOfDay';
-import { CountUp, Flame, Icon, ProgressBar } from '../ui';
+import { CountUp, Flame, Icon, ProgressBar, AudioDisc } from '../ui';
 import { InstallCard } from '../InstallCard';
 import { AdultGate } from './AdultGate';
 import { LevelTiles } from './Level';
@@ -80,13 +80,13 @@ function WordOfTheDay({ lang, progress }: { lang: Lang; progress: Progress }) {
           {word.pinyin && <div className="pinyin">{word.pinyin}</div>}
           <div className="word-day-en">{word.en}</div>
         </div>
-        <button className="btn secondary sound-sm" onClick={() => playPhrase(word.audio)} aria-label={`Hear “${word.text}”`} data-testid="word-day-play">
+        <button className="audio-btn" onClick={() => playPhrase(word.audio)} aria-label={`Hear “${word.text}”`} data-testid="word-day-play">
           <Icon name="speaker" size={22} />
         </button>
       </div>
       {example && (
         <button className="word-day-example" onClick={() => playPhrase(example.audio)} aria-label={`Hear the example: ${example.text}`}>
-          <Icon name="speaker" size={18} />
+          <AudioDisc />
           <span className="grow">
             <span className="word-day-sentence" lang={lang}>
               {example.text}

@@ -18,8 +18,7 @@
 /* Speaking or typing an answer. */
 .answer-bar { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 4px; }
 .answer-bar form { width: 100%; }
-.mic-btn { min-width: 220px; }
-.mic-btn.recording { background: var(--wrong-bright); box-shadow: 0 4px 0 var(--wrong-deep); }
+.answer-voice { display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .hear-btn { flex: none; color: var(--accent); }
 
 /* The bird with a speech bubble. */

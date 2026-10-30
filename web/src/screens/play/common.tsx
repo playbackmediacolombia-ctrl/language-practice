@@ -33,7 +33,7 @@ export function LineText({ lang, text, en, showEn }: { lang: Lang; text: string;
 export function HearButton({ url, label = 'Hear it' }: { url: string; label?: string }) {
   return (
     <button
-      className="icon-btn hear-btn"
+      className="audio-btn hear-btn"
       aria-label={label}
       onClick={(e) => {
         e.stopPropagation();
@@ -42,7 +42,7 @@ export function HearButton({ url, label = 'Hear it' }: { url: string; label?: st
         void playAndWait(url);
       }}
     >
-      <Icon name="speaker" size={20} />
+      <Icon name="speaker" size={24} />
     </button>
   );
 }
@@ -158,11 +158,20 @@ export function AnswerBar({
           </button>
         </form>
       ) : (
-        <div className="row" style={{ justifyContent: 'center' }}>
+        <div className="answer-voice">
           {busy && state !== 'checking' && <Waveform analyser={analyser} />}
-          <button className={`btn mic-btn ${busy ? 'recording' : ''}`} onClick={listen} disabled={disabled || state === 'checking'} data-testid="answer-mic">
-            <Icon name="mic" size={22} /> {state === 'checking' ? 'Writing it down…' : busy ? 'Listening… tap when done' : sayLabel}
+          <button
+            className={state === 'checking' ? 'mic checking' : busy ? 'mic on' : 'mic'}
+            onClick={listen}
+            disabled={disabled || state === 'checking'}
+            aria-label={busy ? 'Stop recording' : sayLabel}
+            data-testid="answer-mic"
+          >
+            {state === 'checking' ? <span className="spinner" /> : <Icon name={busy ? 'stop' : 'mic'} size={36} />}
           </button>
+          <span className="status answer-status" aria-live="polite">
+            {state === 'checking' ? 'Writing it down…' : busy ? 'Listening… tap when done' : sayLabel}
+          </span>
         </div>
       )}
       {ready ? (

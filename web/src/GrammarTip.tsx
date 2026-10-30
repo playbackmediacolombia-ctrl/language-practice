@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { playPhrase } from './lib/audio';
 import type { Lang } from './lib/content';
 import type { Tip } from './lib/grammar';
-import { Icon } from './ui';
+import { Icon, AudioDisc } from './ui';
 
 /** A grammar tip as a sheet over the lesson. Shown once on its own, and any time from the lesson. */
 export function GrammarSheet({ tip, lang, onClose }: { tip: Tip; lang: Lang; onClose: () => void }) {
@@ -44,7 +44,7 @@ export function GrammarSheet({ tip, lang, onClose }: { tip: Tip; lang: Lang; onC
           <div className="tip-examples">
             {tip.examples.map((item) => (
               <button key={item.id} className="tip-example" onClick={() => playPhrase(item.audio)} aria-label={`Play: ${item.text}`}>
-                <Icon name="speaker" size={20} />
+                <AudioDisc />
                 <span className="grow">
                   <span className="tip-example-text" lang={lang}>
                     {item.text}

@@ -4,7 +4,7 @@ import { getPhrases, type Lang } from '../lib/content';
 import { saveSpoken } from '../lib/course';
 import { recordSpeech } from '../lib/progress';
 import { SpeakCoach } from '../SpeakCoach';
-import { Icon, PhraseText, Screen } from '../ui';
+import { AudioButton, PhraseText, Screen } from '../ui';
 
 export default function Practice({ lang, topic }: { lang: Lang; topic: string }) {
   const phrases = getPhrases(lang, topic);
@@ -16,11 +16,7 @@ export default function Practice({ lang, topic }: { lang: Lang; topic: string })
     <Screen title={`Listen & repeat  ${index + 1}/${phrases.length}`} back={`/${lang}/${topic}`}>
       <div className="card" style={{ gap: 16 }}>
         <PhraseText phrase={phrase} />
-        <div className="row">
-          <button className="btn secondary flex" onClick={() => playPhrase(phrase.audio, true)}>
-            <Icon name="speaker" size={18} /> Slow
-          </button>
-        </div>
+        <AudioButton label="Slowly" style={{ alignSelf: 'center' }} onClick={() => playPhrase(phrase.audio, true)} />
       </div>
       <SpeakCoach
         key={phrase.id}

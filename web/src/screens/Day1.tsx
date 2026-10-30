@@ -12,7 +12,7 @@ import { navigate } from '../lib/router';
 import { pictureFor } from '../Hints';
 import { Picture } from '../Picture';
 import { SpeakCoach } from '../SpeakCoach';
-import { Icon } from '../ui';
+import { Icon, AudioButton } from '../ui';
 import { TonePitch } from './Class';
 import { LessonFrame } from './Lesson';
 
@@ -170,14 +170,10 @@ export function Day1Lesson({ lang, lesson }: { lang: Lang; lesson: string }) {
               <Icon name="back" size={20} />
             </button>
             {clips.length > 0 && !speaks && (
-              <button className="btn secondary" onClick={() => play(clips)} data-testid="day1-play">
-                <Icon name="speaker" size={20} /> Play
-              </button>
+              <AudioButton label="Play" onClick={() => play(clips)} data-testid="day1-play" />
             )}
             {step.kind === 'talk' && speaks && (
-              <button className="btn secondary" onClick={() => play(clips.slice(0, 1))} aria-label="Hear the explanation" data-testid="day1-play">
-                <Icon name="review" size={20} />
-              </button>
+              <AudioButton label="Explain" onClick={() => play(clips.slice(0, 1))} aria-label="Hear the explanation" data-testid="day1-play" />
             )}
             <button className="btn grow" disabled={gated} onClick={() => go(1)} data-testid="day1-next">
               Next

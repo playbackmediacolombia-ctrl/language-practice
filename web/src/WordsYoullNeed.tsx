@@ -6,7 +6,7 @@ import type { Lang } from './lib/content';
 import { tapFeedback } from './lib/fx';
 import { useProgress } from './lib/progress';
 import { navigate } from './lib/router';
-import { Icon, Screen } from './ui';
+import { Icon, Screen, AudioDisc } from './ui';
 
 // Before a role-play, story or article: "Words you'll need", the key lines and words with their
 // recordings, so you've heard them before it's your turn. They were taught in the Class of the
@@ -82,7 +82,7 @@ function Preview({ lang, kind, title, list, back, onReady }: { lang: Lang; kind:
           {list.map((l, i) => (
             <li key={l.text}>
               <button className={`notebook-word${playing === i ? ' active' : ''}`} onClick={() => l.audio && playPhrase(l.audio)} data-testid="need-line">
-                <Icon name="speaker" size={16} />
+                <AudioDisc />
                 <span lang={lang} className="nb-text">
                   {l.text}
                 </span>

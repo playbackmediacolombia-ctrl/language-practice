@@ -16,7 +16,7 @@ import type { Verdict } from '../lib/speechGrade';
 import { isModelReady } from '../lib/whisper';
 import { GrammarSheet } from '../GrammarTip';
 import { SpeakCoach } from '../SpeakCoach';
-import { Burst, Confetti, CountUp, Flame, Icon, ProgressBar } from '../ui';
+import { Burst, Confetti, CountUp, Flame, Icon, ProgressBar, AudioButton } from '../ui';
 import { HintBubble, type HintSet, hintsFor, useHintTimer } from '../Hints';
 import { Bird } from '../Bird';
 
@@ -540,7 +540,7 @@ export function LessonFrame({
           </div>
           {action}
           <button
-            className="icon-btn"
+            className="audio-btn"
             aria-label={muted ? 'Turn sounds on' : 'Mute sounds'}
             aria-pressed={muted}
             data-testid="lesson-mute"
@@ -600,13 +600,10 @@ function Target({ item, size = 30 }: { item: Item; size?: number }) {
 function SoundButtons({ item, big }: { item: Item; big?: boolean }) {
   return (
     <div className="sound-row">
-      <button className={big ? 'btn sound-big' : 'btn secondary sound-sm'} onClick={() => playPhrase(item.audio)} aria-label="Play">
+      <button className={big ? 'btn sound-big' : 'audio-btn'} onClick={() => playPhrase(item.audio)} aria-label="Play">
         <Icon name="speaker" size={big ? 40 : 24} />
       </button>
-      <button className={big ? 'btn secondary sound-slow' : 'btn secondary sound-sm'} onClick={() => playPhrase(item.audio, true)} aria-label="Play slowly">
-        <Icon name="speaker" size={big ? 26 : 18} />
-        Slow
-      </button>
+      <AudioButton label="Slow" big={big} onClick={() => playPhrase(item.audio, true)} aria-label="Play slowly" />
     </div>
   );
 }
@@ -742,7 +739,7 @@ function ChoiceExercise({ ex, answered, onSubmit, onSkip }: ViewProps) {
             >
               {spoken && (
                 <span className="option-speaker" aria-hidden="true">
-                  <Icon name="speaker" size={20} />
+                  <Icon name="speaker" size={24} />
                 </span>
               )}
               <span className="option-text">{label}</span>

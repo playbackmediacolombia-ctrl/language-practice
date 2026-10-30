@@ -118,12 +118,12 @@ function WordPractice({ token, lang, onClose }: { token: TokenResult; lang: Lang
             </div>
           )}
         </div>
-        <button className="btn secondary sound-sm" onClick={() => playPhrase(audio)} aria-label={`Hear ${word}`} data-testid="word-hear">
-          <Icon name="speaker" size={20} />
+        <button className="audio-btn" onClick={() => playPhrase(audio)} aria-label={`Hear ${word}`} data-testid="word-hear">
+          <Icon name="speaker" size={24} />
         </button>
         {isModelReady() && (
           <button className={state === 'checking' ? 'mic small checking' : busy ? 'mic small on' : 'mic small'} onClick={tryIt} disabled={state === 'checking'} aria-label={busy ? 'Stop' : `Say ${word}`} data-testid="word-try">
-            {state === 'checking' ? <span className="spinner" /> : <Icon name={busy ? 'stop' : 'mic'} size={26} />}
+            {state === 'checking' ? <span className="spinner" /> : <Icon name={busy ? 'stop' : 'mic'} size={36} />}
           </button>
         )}
         <button className="icon-btn" onClick={onClose} aria-label="Close">

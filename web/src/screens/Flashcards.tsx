@@ -6,7 +6,7 @@ import { cardBox, MAX_BOX, reviewCard, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { Sticker } from '../art';
 import { SpeakCoach } from '../SpeakCoach';
-import { Icon, LevelDots, PhraseText, Screen } from '../ui';
+import { Icon, LevelDots, PhraseText, Screen, AudioButton } from '../ui';
 
 export function Flashcards({ lang, topic }: { lang: Lang; topic: string }) {
   const progress = useProgress();
@@ -84,9 +84,7 @@ export function Flashcards({ lang, topic }: { lang: Lang; topic: string }) {
         />
       )}
       {flipped ? (
-        <button className="btn secondary" onClick={() => playPhrase(card.audio)}>
-          <Icon name="speaker" size={20} /> Play again
-        </button>
+        <AudioButton label="Play again" style={{ alignSelf: 'center' }} onClick={() => playPhrase(card.audio)} />
       ) : (
         <button className="btn secondary" onClick={flip}>
           Show answer

@@ -6,7 +6,7 @@ import { getItem, getPath, type Item } from '../lib/course';
 import { playPhrase } from '../lib/audio';
 import { useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
-import { Icon, Screen } from '../ui';
+import { Icon, Screen, AudioDisc } from '../ui';
 import { TonePitch } from './Class';
 
 // Class notes: every word, phrase and rule your Classes have taught, unit by unit, to look back
@@ -43,7 +43,7 @@ export function Notebook({ lang }: { lang: Lang }) {
                 </span>
                 <br />→{' '}
                 <button className="hear" onClick={() => playPhrase(`tts:${lang}:${encodeURIComponent(c.better)}`)}>
-                  <Icon name="speaker" size={16} /> <b lang={lang}>{c.better}</b>
+                  <AudioDisc /> <b lang={lang}>{c.better}</b>
                 </button>
                 {c.pinyin && <div className="pinyin small">{c.pinyin}</div>}
                 <div className="muted small">{c.why}</div>
@@ -99,7 +99,7 @@ export function Notebook({ lang }: { lang: Lang }) {
               {items.map((i) => (
                 <li key={i.id}>
                   <button className="notebook-word" onClick={() => playPhrase(i.audio)} data-testid="notebook-word">
-                    <Icon name="speaker" size={16} />
+                    <AudioDisc />
                     <span lang={lang} className="nb-text">
                       {i.text}
                     </span>
@@ -111,7 +111,7 @@ export function Notebook({ lang }: { lang: Lang }) {
               {extras.map((x) => (
                 <li key={x.text}>
                   <button className="notebook-word" onClick={() => playPhrase(clipUrl(x.audio) ?? '')}>
-                    <Icon name="speaker" size={16} />
+                    <AudioDisc />
                     <span lang={lang} className="nb-text">
                       {x.text}
                     </span>

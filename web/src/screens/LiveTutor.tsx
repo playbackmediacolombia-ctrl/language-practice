@@ -397,7 +397,7 @@ export function LiveTutor({ lang }: { lang: Lang }) {
           <div className="row turn-actions">
             {phase === 'paused' && !problem && (
               <button className="mic small" onClick={() => retry.current()} aria-label="Answer" data-testid="tutor-mic">
-                <Icon name="mic" size={30} />
+                <Icon name="mic" size={36} />
               </button>
             )}
             <button className="btn secondary sound-sm" onClick={finish} data-testid="tutor-end">

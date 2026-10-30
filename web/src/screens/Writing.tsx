@@ -200,8 +200,8 @@ export function WritingScreen({ char }: { char: string }) {
               <span lang="zh-CN">{info.word.text}</span> · {info.word.pinyin} · {info.word.en}
             </div>
           </div>
-          <button className="icon-btn" aria-label="Listen" onClick={() => playPhrase(info.word.audio)}>
-            <Icon name="speaker" />
+          <button className="audio-btn" aria-label="Listen" onClick={() => playPhrase(info.word.audio)}>
+            <Icon name="speaker" size={24} />
           </button>
         </div>
         <Segmented label="Mode" value={mode} onChange={choose} options={MODES} />

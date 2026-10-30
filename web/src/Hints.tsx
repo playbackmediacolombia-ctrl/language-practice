@@ -3,7 +3,7 @@ import { Bird } from './Bird';
 import { playPhrase } from './lib/audio';
 import { tapFeedback } from './lib/fx';
 import { getProgress } from './lib/progress';
-import { Icon } from './ui';
+import { Icon, AudioDisc } from './ui';
 import { Picture, type PictureName } from './Picture';
 
 // Timed step-by-step hints (lessons, role-plays and the AI partner). If you haven't answered after
@@ -139,7 +139,7 @@ export function HintBubble({ hints, level, onNext, onHear, compact = false }: { 
               }}
               aria-label={`Hear how it starts: ${start.text}`}
             >
-              <Icon name="speaker" size={18} />
+              <AudioDisc />
               <span>
                 <b lang={hints.lang}>{start.text}</b>…
               </span>

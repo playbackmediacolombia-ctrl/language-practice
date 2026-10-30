@@ -1,6 +1,6 @@
 import { Flag, Ink, TabIcon } from './art';
 import { BITS, ICONS } from './ink.gen';
-import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from 'react';
+import { type ComponentProps, type CSSProperties, type ReactNode, useEffect, useRef, useState } from 'react';
 import { isLang, type Lang, type Phrase } from './lib/content';
 import { reducedMotion, tapFeedback } from './lib/fx';
 import type { Speed } from './lib/progress';
@@ -13,9 +13,28 @@ export type IconName = keyof typeof ICONS;
 
 export function Icon({ name, size = 22, className, style }: { name: IconName; size?: number; className?: string; style?: CSSProperties }) {
   return (
-    <svg className={['icon', className].filter(Boolean).join(' ')} style={style} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <svg data-icon={name} className={['icon', className].filter(Boolean).join(' ')} style={style} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <Ink layers={ICONS[name]} />
     </svg>
+  );
+}
+
+/** The round speaker on anything that plays sound: 48px with a visible background (DESIGN.md › Audio buttons). */
+export function AudioDisc({ name = 'speaker', big }: { name?: IconName; big?: boolean }) {
+  return (
+    <span className={big ? 'audio-disc big' : 'audio-disc'} aria-hidden="true">
+      <Icon name={name} size={big ? 34 : 24} />
+    </span>
+  );
+}
+
+/** A round audio button with its label under it: Slowly, Play, Again. */
+export function AudioButton({ label, big, name, className = '', ...rest }: { label: string; big?: boolean; name?: IconName } & ComponentProps<'button'>) {
+  return (
+    <button className={`audio-labeled ${className}`} {...rest}>
+      <AudioDisc name={name} big={big} />
+      <span className="audio-label">{label}</span>
+    </button>
   );
 }
 

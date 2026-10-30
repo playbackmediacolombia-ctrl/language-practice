@@ -15,7 +15,7 @@ import { finishClass, useProgress } from '../lib/progress';
 import { navigate } from '../lib/router';
 import { Picture } from '../Picture';
 import { type CoachStart, SpeakCoach, type Spoken } from '../SpeakCoach';
-import { Icon } from '../ui';
+import { Icon, AudioDisc, AudioButton } from '../ui';
 import { LessonFrame } from './Lesson';
 
 // Step 1 of every unit: the Class. The teacher (an Open Peeps character) introduces each word and
@@ -175,17 +175,15 @@ export function ClassScreen({ lang, unitId }: { lang: Lang; unitId: string }) {
           <button className="btn secondary" onClick={() => go(-1)} disabled={at === 0} aria-label="Back">
             <Icon name="back" size={20} />
           </button>
-          <button
-            className="btn secondary"
+          <AudioButton
+            label="Again"
             onClick={() => {
               setHeard(-1);
               play(stepClips(step, lang));
             }}
             aria-label="Hear it again"
             data-testid="class-replay"
-          >
-            <Icon name="speaker" size={20} /> Again
-          </button>
+          />
           {step.kind === 'done' ? (
             <button
               className="btn grow"
@@ -219,7 +217,7 @@ export function ClassScreen({ lang, unitId }: { lang: Lang; unitId: string }) {
 function Hear({ url, children, className = '', slow = false }: { url?: string; children: React.ReactNode; className?: string; slow?: boolean }) {
   return (
     <button className={`hear ${className}`} onClick={() => url && playPhrase(url, slow)} disabled={!url}>
-      <Icon name="speaker" size={18} /> {children}
+      <AudioDisc /> <span>{children}</span>
     </button>
   );
 }
@@ -312,9 +310,7 @@ function WordBoard({ step, lang, unitId, coach }: { step: Extract<Step, { kind: 
       )}
       <p className="class-en">{item.en}</p>
       <div className="class-tools">
-        <Hear url={item.audio} slow>
-          Slowly
-        </Hear>
+        <AudioButton label="Slowly" onClick={() => item.audio && playPhrase(item.audio, true)} data-testid="class-slow" />
       </div>
       <SayIt lang={lang} said={item} coach={coach} />
       {(item.pinyin || word.tips?.length) && (

@@ -173,7 +173,7 @@ export function CameraScreen({ lang }: { lang: Lang }) {
               {result.pinyin && <div className="pinyin">{result.pinyin}</div>}
               <div className="word-day-en">{result.meaning}</div>
             </div>
-            <button className="btn secondary sound-sm" onClick={() => void say(result)} aria-label={`Hear ${result.word}`} data-testid="camera-hear">
+            <button className="audio-btn" onClick={() => void say(result)} aria-label={`Hear ${result.word}`} data-testid="camera-hear">
               <Icon name="speaker" size={22} />
             </button>
           </div>
