@@ -145,7 +145,7 @@ export function Day1Lesson({ lang, lesson }: { lang: Lang; lesson: string }) {
           {step.kind === 'match' && <PictureMatch lang={lang} items={step.items} onDone={clear} />}
           {step.kind === 'done' && (
             <div className="class-intro" data-testid="day1-done">
-              <span className="day1-num" style={{ background: 'var(--ok)' }}>
+              <span className="day1-num" style={{ background: '#0a7d43' }}>
                 <Icon name="check" size={24} />
               </span>
               <h2 className="class-title">{day1Title(lang, key)} done!</h2>

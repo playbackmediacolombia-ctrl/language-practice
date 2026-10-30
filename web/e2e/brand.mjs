@@ -106,6 +106,7 @@ await run(async () => {
     }
     await page.screenshot({ path: `B-${scheme}-learn.png` });
     await page.locator('.tabbar').getByRole('button', { name: 'Learn' }).click();
+    await page.waitForTimeout(800); // let the tab's transition finish
     await page.goto(`${BASE}#/es/day1/words`);
     await page.getByTestId('day1-lesson').waitFor();
     expect((await page.locator('.header .brand').count()) === 0, `${scheme}: no logo in the lesson header (stays focused)`);
